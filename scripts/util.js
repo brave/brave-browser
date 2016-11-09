@@ -1,0 +1,76 @@
+const path = require('path')
+const spawnSync = require('child_process').spawnSync
+const fs = require('fs-extra')
+
+const defaultChromeRef = process.env.npm_package_config_chrome_ref
+const defaultMuonRef = process.env.npm_package_config_muon_ref
+const defaultPatchesRef = process.env.npm_package_config_patches_ref
+const defaultBuildConfig = 'Release'
+const scriptDir = path.dirname(__filename)
+const rootDir = path.join(scriptDir, '..')
+const depotToolsDir = path.join(rootDir, 'vendor', 'depot_tools')
+const srcDir = path.join(rootDir, 'src')
+const muonDir = path.join(srcDir, 'electron')
+const patchesDir = path.join(srcDir, 'libchromiumcontent')
+const resourcesDir = path.join(rootDir, 'resources')
+
+const default_options = {
+  env: process.env,
+  shell: true,
+  stdio: 'inherit',
+  cwd: srcDir
+}
+
+let shell_path = process.env.PATH.split(path.delimiter)
+shell_path.push(depotToolsDir)
+shell_path = shell_path.join(path.delimiter)
+process.env.PATH = shell_path
+
+const util = {
+  defaultChromeRef,
+  defaultMuonRef,
+  defaultPatchesRef,
+  defaultBuildConfig,
+  scriptDir,
+  rootDir,
+  depotToolsDir,
+  srcDir,
+  muonDir,
+  patchesDir,
+  resourcesDir,
+  default_options,
+
+  run: (command, arguments, options) => {
+    const prog = spawnSync(command, arguments, options)
+    if (prog.status !== 0) {
+      process.exit(1)
+    }
+  },
+
+  submoduleSync: (options = {}) => {
+    util.run('git', ['submodule', 'sync'], Object.assign(default_options, options))
+    util.run('git', ['submodule', 'update', '--init', '--recursive'], Object.assign(default_options, options))
+  },
+
+  gclientSync: (options = {}) => {
+    util.run('gclient', ['sync', '--force', '--nohooks', '--with_branch_heads'], Object.assign(default_options, options))
+  },
+
+  gclientRunhooks: (options = {}) => {
+    util.run('gclient', ['runnohooks'], Object.assign(default_options, options))
+  },
+
+  fetch: (options = {}) => {
+    util.run('git', ['fetch', 'origin'], Object.assign(default_options, options))
+  },
+
+  fetchTags: (options = {}) => {
+    util.run('git', ['fetch', 'origin', '--tags'], Object.assign(default_options, options))
+  },
+
+  setVersion: (version, options = {}) => {
+    util.run('git', ['reset', '--hard', version], Object.assign(default_options, options))
+  },
+}
+
+module.exports = util

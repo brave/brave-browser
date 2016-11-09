@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Bootstrap helper for Brave",
   "scripts": {
-    "sync": "node ./scripts/sync.js"
+    "sync": "node ./scripts/sync.js",
+    "build": "node ./scripts/build.js"
   },
   "config": {
     "chrome_ref": "refs/tags/54.0.2840.59",
