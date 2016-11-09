@@ -1,0 +1,35 @@
+{
+  "name": "browser-laptop-bootstrap",
+  "version": "0.1.0",
+  "description": "Bootstrap helper for Brave",
+  "main": "scripts/bootstrap.js",
+  "scripts": {
+    "bootstrap": "node ./scripts/bootstrap.js"
+  },
+  "config": {
+    "chrome_ref": "ref/tags/54.0.2840.59",
+    "muon_ref": "chromium54",
+    "patches_ref": "chromium54",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brave/browser-laptop-bootstrap.git"
+  },
+  "author": {
+    "name": "Brave Software <support+laptop@brave.com>"
+  },
+  "contributors": [
+    {
+      "name": "Brian Johnson",
+      "email": "bjohnson@brave.com"
+    }
+  ],
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/brave/browser-laptop-bootstrap/issues"
+  },
+  "homepage": "https://github.com/brave/browser-laptop-bootstrap#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
