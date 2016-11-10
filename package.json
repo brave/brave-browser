@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "description": "Bootstrap helper for Brave",
   "scripts": {
+    "init": "node ./scripts/sync.js --init",
     "sync": "node ./scripts/sync.js",
     "build": "node ./scripts/build.js"
   },
   "config": {
     "chrome_ref": "refs/tags/54.0.2840.59",
     "muon_ref": "origin/chromium54",
-    "patches_ref": "origin/chromium54"
+    "patches_ref": "origin/chromium54",
+    "node_ref": "origin/chromium54"
   },
   "repository": {
     "type": "git",

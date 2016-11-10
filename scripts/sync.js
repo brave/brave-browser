@@ -1,67 +1,52 @@
 const path = require('path')
 const program = require('commander');
-const util = require('./util')
 const fs = require('fs-extra')
-
-const setChromeVersion = (version) => {
-  const options = { cwd: util.srcDir }
-  util.setVersion(version, options)
-}
-
-const setMuonVersion = (version) => {
-  const options = { cwd: util.muonDir }
-  util.fetch(options)
-  util.fetchTags(options)
-  util.setVersion(version, options)
-}
-
-const setPatchesVersion = (version) => {
-  const options = { cwd: util.patchesDir }
-  util.fetch(options)
-  util.fetchTags(options)
-  util.setVersion(version, options)
-}
-
-const updateBranding = () => {
-  const braveThemeDir = path.join(util.srcDir, 'chrome', 'app', 'theme', 'brave')
-  fs.ensureDirSync(braveThemeDir)
-  fs.copySync(path.join(util.resourcesDir, 'BRANDING'), path.join(braveThemeDir, 'BRANDING'))
-}
+const config = require('../lib/config')
+const util = require('../lib/util')
 
 program
   .version(process.env.npm_package_version)
-  .option('--chrome <ref>', 'chrome git ref to checkout')
-  .option('--muon <ref>', 'muon git ref to checkout')
-  .option('--patches <ref>', 'patches git ref to checkout')
+  .option('--chrome_ref <ref>', 'chrome git ref to checkout')
+  .option('--muon_ref <ref>', 'muon git ref to checkout')
+  .option('--patches_ref <ref>', 'patches git ref to checkout')
+  .option('--node_ref <ref>', 'node git ref to checkout')
+  .option('--gclient_file <file>', 'gclient config file location')
+  .option('--run_hooks', 'run gclient hooks')
+  .option('--run_sync', 'run gclient sync')
+  .option('--submodule_sync', 'run submodule sync')
+  .option('--init', 'initialize all dependencies')
   .parse(process.argv)
 
-// sync depot tools into vendo/depot_tools
-console.log('Updating submodules...')
-util.submoduleSync()
-// initial gclient sync
-console.log('gclient sync...')
-util.gclientSync({cwd: util.rootDir})
+config.update(program)
 
-console.log('fetching chrome tags...')
-util.fetchTags()
+if (program.init || program.submodule_sync) {
+  util.submoduleSync()
+}
 
-const chromeRef = program.chrome || util.defaultChromeRef
-console.log('git checkout chrome ' + chromeRef + '...')
-setChromeVersion(program.chrome || util.defaultChromeRef)
+if (program.init) {
+  util.gclientSync()
+}
 
-const muonRef = program.muon || util.defaultMuonRef
-console.log('git checkout muon ' + muonRef + '...')
-setMuonVersion(muonRef)
+if (program.init || program.chrome_ref) {
+  util.setChromeVersion()
+}
 
-const patchesRef = program.patches || util.defaultPatchesRef
-console.log('git checkout patches ' + patchesRef + '...')
-setPatchesVersion(program.patches || patchesRef)
-// update DEPS
-console.log('gclient sync...')
-util.gclientSync()
+if (program.init || program.muon_ref) {
+  util.setMuonVersion()
+}
 
-// run post-sync hooks
-console.log('gclient runhooks...')
-util.gclientRunhooks()
-console.log('update branding...')
-updateBranding()
+if (program.init || program.patches_ref) {
+  util.setPatchesVersion()
+}
+
+if (program.init || program.node_ref) {
+  util.setNodeVersion()
+}
+
+if (program.init || program.run_sync) {
+  util.gclientSync()
+}
+
+if (program.init || program.run_hooks) {
+  util.gclientRunhooks()
+}

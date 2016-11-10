@@ -1,47 +1,64 @@
 const program = require('commander');
-const util = require('./util')
 const path = require('path')
 const fs = require('fs-extra')
+const config = require('../lib/config')
+const util = require('../lib/util')
 
 program
   .version(process.env.npm_package_version)
-  .option('-C <buildConfig>', 'build config (Debug/Release')
+  .option('-C <build_config>', 'build config (Debug/Release')
+  .option('--muon', 'build muon')
+  .option('--node', 'build node')
+  .option('--no_args_update', 'don\'t copy args.gn to the output dir')
+  .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
   .parse(process.argv)
 
-const buildConfig = program.buildConfig || util.defaultBuildConfig
-const outputDir = path.join(util.srcDir, 'out', program.buildConfig || util.defaultBuildConfig)
-const component = buildConfig === 'Release' ? 'static_library' : 'shared_library'
+config.update(program)
 
-const defaultBuildOptions = Object.assign(util.defaultOptions, { })
-
-const updateGnArgs = (options = defaultBuildOptions) => {
-  fs.ensureDirSync(outputDir)
-  fs.copySync(path.join(util.resourcesDir, 'args.gn.' + buildConfig), path.join(outputDir, 'args.gn'))
+const updateBranding = () => {
+  console.log('update branding...')
+  const braveThemeDir = path.join(config.srcDir, 'chrome', 'app', 'theme', 'brave')
+  fs.ensureDirSync(braveThemeDir)
+  fs.copySync(path.join(config.resourcesDir, 'BRANDING'), path.join(braveThemeDir, 'BRANDING'))
 }
 
-const buildNode = (options = defaultBuildOptions) => {
-  fs.copySync(path.join(util.resourcesDir, 'node_config.gypi'), path.join(util.nodeDir, 'config.gypi'))
+const updateGnArgs = (options = config.defaultOptions) => {
+  console.log('updating args.gn...')
+  fs.ensureDirSync(config.outputDir)
+  fs.copySync(path.join(config.resourcesDir, 'args.gn.' + config.buildConfig), path.join(config.outputDir, 'args.gn'))
+}
+
+const buildNode = (options = config.defaultOptions) => {
+  console.log('building node...')
+  fs.copySync(path.join(config.resourcesDir, 'node_config.gypi'), path.join(config.nodeDir, 'config.gypi'))
 
   options.env.GYP_INCLUDE_LAST = 'electron/node.gypi'
   options.env.GYP_CHROMIUM_NO_ACTION = 0
-  util.run('gyp_chromium', ['-D', 'component=' + component, path.join(util.nodeDir, 'node.gyp')], options)
+  util.run('gyp_chromium', ['-D', 'component=' + config.component, path.join(config.nodeDir, 'node.gyp')], options)
 
-  util.run('ninja', ['-C', outputDir, 'node'])
+  util.run('ninja', ['-C', config.outputDir, 'node'])
 }
 
-const buildMuon = (options = defaultBuildOptions) => {
-  util.run('gn', ['gen', outputDir], options)
-  util.run('ninja', ['-C', outputDir, 'electron'], options)
+const buildMuon = (options = config.defaultOptions) => {
+  console.log('building muon...')
+  util.run('gn', ['gen', config.outputDir], options)
+  util.run('ninja', ['-C', config.outputDir, 'electron'], options)
 }
 
-console.log('updating args.gn...')
-updateGnArgs()
+updateBranding()
 
-console.log('building node...')
-buildNode()
+if (!program.no_args_update) {
+  updateGnArgs()
+}
 
-console.log('building muon...')
-buildMuon()
+if (!program.build_muon) {
+  buildNode()
+}
+
+if (!program.build_node) {
+  buildMuon()
+}
+
 
 
 
