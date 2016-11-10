@@ -6,7 +6,8 @@ const util = require('../lib/util')
 
 program
   .version(process.env.npm_package_version)
-  .option('-C <build_config>', 'build config (Debug/Release')
+  .option('--build_config <build_config>', 'build config (Debug, Release')
+  .option('--C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--muon', 'build muon')
   .option('--node', 'build node')
   .option('--no_args_update', 'don\'t copy args.gn to the output dir')
@@ -37,6 +38,10 @@ const buildNode = (options = config.defaultOptions) => {
   options.env.PATH = config.appendPath(options.env.PATH, config.buildToolsDir)
   util.run('gyp_chromium', ['-D', 'component=' + config.component, path.join(config.projects.node.dir, 'node.gyp')], options)
 
+  util.run('ninja', ['-C', config.outputDir, 'libuv'], options)
+  util.run('ninja', ['-C', config.outputDir, 'cares'], options)
+  util.run('ninja', ['-C', config.outputDir, 'zlib'], options)
+  util.run('ninja', ['-C', config.outputDir, 'http_parser'], options)
   util.run('ninja', ['-C', config.outputDir, 'node'], options)
 }
 
@@ -46,17 +51,19 @@ const buildMuon = (options = config.defaultOptions) => {
   util.run('ninja', ['-C', config.outputDir, 'electron'], options)
 }
 
-updateBranding()
+if (!program.no_branding_update) {
+  updateBranding()
+}
 
 if (!program.no_args_update) {
   updateGnArgs()
 }
 
-if (!program.build_muon) {
+if (!program.muon) {
   buildNode()
 }
 
-if (!program.build_node) {
+if (!program.node) {
   buildMuon()
 }
 
