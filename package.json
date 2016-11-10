@@ -7,11 +7,60 @@
     "sync": "node ./scripts/sync.js",
     "build": "node ./scripts/build.js"
   },
+  "engines" : {
+    "node": "^7.0.0",
+    "npm": "^3.10.9"
+  },
   "config": {
-    "chrome_ref": "refs/tags/54.0.2840.59",
-    "muon_ref": "origin/chromium54",
-    "patches_ref": "origin/chromium54",
-    "node_ref": "origin/chromium54"
+    "projects": {
+      "chrome": {
+        "dir": "src",
+        "repository": {
+          "url": "https://chromium.googlesource.com/chromium/src.git",
+          "ref": "refs/tags/54.0.2840.59"
+        },
+        "custom_deps": {
+          "src/third_party/WebKit/LayoutTests": "%None%",
+          "src/chrome_frame/tools/test/reference_build/chrome": "%None%",
+          "src/chrome_frame/tools/test/reference_build/chrome_win": "%None%",
+          "src/chrome/tools/test/reference_build/chrome": "%None%",
+          "src/chrome/tools/test/reference_build/chrome_linux": "%None%",
+          "src/chrome/tools/test/reference_build/chrome_mac": "%None%",
+          "src/chrome/tools/test/reference_build/chrome_win": "%None%"
+        }
+      },
+      "muon": {
+        "dir": "src/electron",
+        "repository": {
+          "url": "git@github.com:brave/electron.git",
+          "ref": "origin/chromium54"
+        },
+        "custom_deps": {
+          "src/electron/vendor/node": "%None%"
+        }
+      },
+      "patches": {
+        "dir": "src/libchromiumcontent",
+        "repository": {
+          "url": "git@github.com:brave/libchromiumcontent.git",
+          "ref": "origin/chromium54"
+        }
+      },
+      "browser_laptop": {
+        "dir": "src/browser-laptop",
+        "repository": {
+          "url": "git@github.com:brave/browser-laptop.git",
+          "ref": "origin/chromium54"
+        }
+      },
+      "node": {
+        "dir": "src/electron/vendor/node",
+        "repository": {
+          "url": "git@github.com:brave/node.git",
+          "ref": "origin/chromium54"
+        }
+      }
+    }
   },
   "repository": {
     "type": "git",
