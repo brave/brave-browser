@@ -15,18 +15,17 @@ const muonDir = path.join(srcDir, 'electron')
 const patchesDir = path.join(srcDir, 'libchromiumcontent')
 const resourcesDir = path.join(rootDir, 'resources')
 
-const defaultOptions = {
-  env: process.env,
-  shell: true,
-  stdio: 'inherit',
-  cwd: srcDir
-}
-
 let shell_path = process.env.PATH.split(path.delimiter)
 shell_path.push(depotToolsDir)
 shell_path.push(buildToolsDir)
 shell_path = shell_path.join(path.delimiter)
 process.env.PATH = shell_path
+
+const defaultOptions = {
+  env: process.env,
+  stdio: 'inherit',
+  cwd: srcDir
+}
 
 const util = {
   defaultChromeRef,
@@ -42,10 +41,11 @@ const util = {
   resourcesDir,
   defaultOptions,
 
-  run: (cmd, args, options = defaultOptions) => {
-    console.log(cmd, args)
+  run: (cmd, args = [], options = defaultOptions) => {
+    console.log(cmd, args.join(' '))
     const prog = spawnSync(cmd, args, options)
     if (prog.status !== 0) {
+      console.log(prog.output.join('\n'))
       console.error(prog.error)
       process.exit(1)
     }
