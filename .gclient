@@ -18,15 +18,14 @@ solutions = [
   {
     "managed": False,
     "name": "src/libchromiumcontent",
-    "url": "https://github.com/brave/libchromiumcontent.git",
+    "url": "git@github.com:brave/libchromiumcontent.git",
     "custom_deps": {},
     "safesync_url": ""
   },
   {
     "managed": False,
     "name": "src/electron",
-    "url": "https://github.com/brave/electron.git",
-    "custom_deps": {},
+    "url": "git@github.com:brave/electron.git",
     "safesync_url": ""
   },
 ]
