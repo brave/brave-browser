@@ -45,13 +45,12 @@ const util = {
     console.log(cmd, args.join(' '))
     const prog = spawnSync(cmd, args, options)
     if (prog.status !== 0) {
-      console.log(prog.output.join('\n'))
       console.error(prog.error)
       process.exit(1)
     }
   },
 
-  submoduleSync: (options = {}) => {
+  submoduleSync: (options = { cwd: rootDir }) => {
     util.run('git', ['submodule', 'sync'], Object.assign(defaultOptions, options))
     util.run('git', ['submodule', 'update', '--init', '--recursive'], Object.assign(defaultOptions, options))
   },
