@@ -12,6 +12,7 @@ const depotToolsDir = path.join(rootDir, 'vendor', 'depot_tools')
 const srcDir = path.join(rootDir, 'src')
 const buildToolsDir = path.join(srcDir, 'build')
 const muonDir = path.join(srcDir, 'electron')
+const nodeDir = path.join(muonDir, 'vendor', 'node')
 const patchesDir = path.join(srcDir, 'libchromiumcontent')
 const resourcesDir = path.join(rootDir, 'resources')
 
@@ -37,6 +38,7 @@ const util = {
   depotToolsDir,
   srcDir,
   muonDir,
+  nodeDir,
   patchesDir,
   resourcesDir,
   defaultOptions,

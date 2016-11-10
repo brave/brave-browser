@@ -9,20 +9,39 @@ program
   .parse(process.argv)
 
 const buildConfig = program.buildConfig || util.defaultBuildConfig
-const outputDir = path.join('out', program.buildConfig || util.defaultBuildConfig)
+const outputDir = path.join(util.srcDir, 'out', program.buildConfig || util.defaultBuildConfig)
 const component = buildConfig === 'Release' ? 'static_library' : 'shared_library'
 
+const defaultBuildOptions = Object.assign(util.defaultOptions, { })
 
-console.log('generating node ninja files...')
-fs.copySync(path.join(util.resourcesDir, 'node_config.gypi'), path.join(util.muonDir, 'vendor', 'node', 'config.gypi'))
-const options = util.defaultOptions
-options.env.GYP_INCLUDE_LAST = 'electron/node.gypi'
-options.env.GYP_CHROMIUM_NO_ACTION = '0'
-util.run('gyp_chromium', ['-I', 'electron/vendor/node/config.gypi', '-D', 'component=' + component, 'electron/vendor/node/node.gyp'], options)
+const updateGnArgs = (options = defaultBuildOptions) => {
+  fs.ensureDirSync(outputDir)
+  fs.copySync(path.join(util.resourcesDir, 'args.gn.' + buildConfig), path.join(outputDir, 'args.gn'))
+}
+
+const buildNode = (options = defaultBuildOptions) => {
+  fs.copySync(path.join(util.resourcesDir, 'node_config.gypi'), path.join(util.nodeDir, 'config.gypi'))
+
+  options.env.GYP_INCLUDE_LAST = 'electron/node.gypi'
+  options.env.GYP_CHROMIUM_NO_ACTION = 0
+  util.run('gyp_chromium', ['-D', 'component=' + component, path.join(util.nodeDir, 'node.gyp')], options)
+
+  util.run('ninja', ['-C', outputDir, 'node'])
+}
+
+const buildMuon = (options = defaultBuildOptions) => {
+  util.run('gn', ['gen', outputDir], options)
+  util.run('ninja', ['-C', outputDir, 'electron'], options)
+}
+
+console.log('updating args.gn...')
+updateGnArgs()
 
 console.log('building node...')
-util.run('ninja', ['-C', outputDir, 'node'])
+buildNode()
 
-console.log('gn gen...')
-util.run('gn', ['gen', outputDir])
+console.log('building muon...')
+buildMuon()
+
+
 
