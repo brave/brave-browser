@@ -2,6 +2,6 @@
 
 `npm install`
 
-`npm run sync`
+`npm run init`
 
 `npm run build`

@@ -34,6 +34,7 @@ const buildNode = (options = config.defaultOptions) => {
 
   options.env.GYP_INCLUDE_LAST = 'electron/node.gypi'
   options.env.GYP_CHROMIUM_NO_ACTION = 0
+  options.env.PATH = appendPath(options.env.PATH, config.buildToolsDir)
   util.run('gyp_chromium', ['-D', 'component=' + config.component, path.join(config.nodeDir, 'node.gyp')], options)
 
   util.run('ninja', ['-C', config.outputDir, 'node'])
