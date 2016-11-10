@@ -11,6 +11,7 @@ program
   .option('--run_sync', 'run gclient sync')
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
+  .option('--all', 'update all projects')
 config.projectNames.forEach((project) => {
   program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
 })
@@ -33,7 +34,7 @@ if (program.init) {
 let updatedVersion = false
 
 config.projectNames.forEach((project) => {
-  if (program.init || program[project + '_ref']) {
+  if (program.init || program.all || program[project + '_ref']) {
     updatedVersion = true
     util.setDepVersion(config.projects[project].dir, config.projects[project].ref)
   }
