@@ -33,15 +33,10 @@ const buildNode = (options = config.defaultOptions) => {
   console.log('building node...')
   fs.copySync(path.join(config.resourcesDir, 'node_config.gypi'), path.join(config.projects.node.dir, 'config.gypi'))
 
-  options.env.GYP_INCLUDE_LAST = 'electron/node.gypi'
+  options.env.GYP_INCLUDE_LAST = 'electron/build/node/node.gypi'
   options.env.GYP_CHROMIUM_NO_ACTION = 0
   options.env.PATH = config.appendPath(options.env.PATH, config.buildToolsDir)
   util.run('gyp_chromium', ['-D', 'component=' + config.component, path.join(config.projects.node.dir, 'node.gyp')], options)
-
-  util.run('ninja', ['-C', config.outputDir, 'libuv'], options)
-  util.run('ninja', ['-C', config.outputDir, 'cares'], options)
-  util.run('ninja', ['-C', config.outputDir, 'zlib'], options)
-  util.run('ninja', ['-C', config.outputDir, 'http_parser'], options)
   util.run('ninja', ['-C', config.outputDir, 'node'], options)
 }
 

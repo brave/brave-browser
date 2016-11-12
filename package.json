@@ -29,6 +29,13 @@
           "src/chrome/tools/test/reference_build/chrome_win": "%None%"
         }
       },
+      "v8": {
+        "dir": "src/electron/vendor/v8",
+        "repository": {
+          "url": "https://chromium.googlesource.com/v8/v8.git",
+          "ref": "origin/5.4.500.31"
+        }
+      },
       "muon": {
         "dir": "src/electron",
         "repository": {
