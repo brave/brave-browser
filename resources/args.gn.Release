@@ -13,3 +13,4 @@ clang_use_chrome_plugins = false
 enable_print_preview = false
 enable_plugin_installation = false
 enable_supervised_users = false
+branding_path_component = "brave"

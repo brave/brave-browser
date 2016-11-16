@@ -6,12 +6,15 @@ const util = require('../lib/util')
 
 program
   .version(process.env.npm_package_version)
-  .option('--build_config <build_config>', 'build config (Debug, Release')
   .option('--C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--muon', 'build muon')
   .option('--node', 'build node')
   .option('--no_args_update', 'don\'t copy args.gn to the output dir')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
+  .arguments('[build_config]')
+  .action(function (buildConfig) {
+    config.buildConfig = buildConfig
+  })
   .parse(process.argv)
 
 config.update(program)
