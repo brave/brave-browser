@@ -5,7 +5,8 @@
   "scripts": {
     "init": "node ./scripts/sync.js --init",
     "sync": "node ./scripts/sync.js",
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "update_patches": "node ./scripts/update_patches.js"
   },
   "engines" : {
     "node": "^7.0.0",
