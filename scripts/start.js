@@ -25,6 +25,7 @@ const braveArgs = [
 
 let options = {
   env: {
+    npm_package_config_port: 8080,
     NODE_ENV: program.node_env
   },
   stdio: 'inherit',
