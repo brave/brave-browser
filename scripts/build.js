@@ -9,6 +9,7 @@ program
   .option('--C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--muon', 'build muon')
   .option('--node', 'build node')
+  .option('--target_arch', 'target architecture', 'x64')
   .option('--no_args_update', 'don\'t copy args.gn to the output dir')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
   .arguments('[build_config]')
@@ -39,7 +40,7 @@ const buildNode = (options = config.defaultOptions) => {
   options.env.GYP_INCLUDE_LAST = 'electron/build/node/node.gypi'
   options.env.GYP_CHROMIUM_NO_ACTION = 0
   options.env[config.pathEnvVar] = config.appendPath(options.env[config.pathEnvVar], config.buildToolsDir)
-  util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'), '-D', 'component=' + config.component, path.join(config.projects.node.dir, 'node.gyp')], options)
+  util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'), '-D', 'target_arch=' + config.targetArch, '-D', 'component=' + config.component, path.join(config.projects.node.dir, 'node.gyp')], options)
   util.run('ninja', ['-C', config.outputDir, 'node'], options)
 }
 

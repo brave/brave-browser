@@ -15,3 +15,4 @@ enable_plugin_installation = false
 enable_supervised_users = false
 branding_path_component = "brave"
 enable_widevine = true
+target_cpu = "x64"
