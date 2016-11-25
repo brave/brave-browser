@@ -10,6 +10,8 @@ program
   .option('--muon', 'build muon')
   .option('--node', 'build node')
   .option('--target_arch', 'target architecture', 'x64')
+  .option('--electron_google_api_key')
+  .option('--electron_google_api_endpoint')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
   .arguments('[build_config]')
   .action(function (buildConfig) {
@@ -33,7 +35,13 @@ const buildNode = (options = config.defaultOptions) => {
   options.env.GYP_INCLUDE_LAST = 'electron/build/node/node.gypi'
   options.env.GYP_CHROMIUM_NO_ACTION = 0
   options.env[config.pathEnvVar] = config.appendPath(options.env[config.pathEnvVar], config.buildToolsDir)
-  util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'), '-D', 'target_arch=' + config.targetArch, '-D', 'component=' + config.component, path.join(config.projects.node.dir, 'node.gyp')], options)
+  util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'), 
+    '-I', path.join(config.projects.node.dir, 'common.gypi'),
+    '-D', 'target_arch=' + config.targetArch, 
+    '-D', 'host_arch=x64', 
+    '-D', 'buildtype=Custom', // don't apply Dev or Official configs
+    '-D', 'component=' + config.component, 
+    path.join(config.projects.node.dir, 'node.gyp')], options)
   util.run('ninja', ['-C', config.outputDir, 'node'], options)
 }
 
@@ -50,6 +58,12 @@ const buildMuon = (options = config.defaultOptions) => {
       val = JSON.stringify(val)
     }
     args += arg + '=' + val + ' '
+  }
+  if (program.electron_google_api_key) {
+    args += 'electron_google_api_key=' + program.electron_google_api_key + ' '
+  }
+  if (program.electron_google_api_endpoint) {
+    args += 'electron_google_api_endpoint=' + program.electron_google_api_endpoint + ' '
   }
   args = args.replace(/"/g,'\\"')
   util.run('gn', ['gen', config.outputDir, '--args="' + args + '"'], options)
