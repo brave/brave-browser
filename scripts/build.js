@@ -36,7 +36,6 @@ const buildNode = (options = config.defaultOptions) => {
   options.env.GYP_CHROMIUM_NO_ACTION = 0
   options.env[config.pathEnvVar] = config.appendPath(options.env[config.pathEnvVar], config.buildToolsDir)
   util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'), 
-    '-I', path.join(config.projects.node.dir, 'common.gypi'),
     '-D', 'target_arch=' + config.targetArch, 
     '-D', 'host_arch=x64', 
     '-D', 'buildtype=Custom', // don't apply Dev or Official configs
