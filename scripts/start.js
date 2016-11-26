@@ -34,6 +34,8 @@ let options = {
 
 if (process.platform === 'darwin') {
   util.run(path.join(config.outputDir, 'Brave.app', 'Contents', 'MacOS', 'Brave'), braveArgs, options)
+} else if (process.platform === 'win32') {
+  util.run(path.join(config.outputDir, 'brave.exe'), braveArgs, options)
 } else {
-  console.error('Oh No!')
+  util.run(path.join(config.outputDir, 'brave'), braveArgs, options)
 }
