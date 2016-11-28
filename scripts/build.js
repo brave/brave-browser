@@ -6,7 +6,7 @@ const util = require('../lib/util')
 
 program
   .version(process.env.npm_package_version)
-  .option('--C <build_dir>', 'build config (out/Debug, out/Release')
+  .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--muon', 'build muon')
   .option('--node', 'build node')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')

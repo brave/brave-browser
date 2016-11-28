@@ -9,6 +9,7 @@
     "update_patches": "node ./scripts/updatePatches.js",
     "create_dist": "node ./scripts/createDist.js",
     "upload": "node ./scripts/upload.js",
+    "publish": "node ./scripts/publish.js",
     "start": "node ./scripts/start.js"
   },
   "engines" : {
