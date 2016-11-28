@@ -14,4 +14,4 @@ config.buildConfig = 'Release'
 let options = config.defaultOptions
 const args = util.buildArgsToString(config.buildArgs())
 util.run('gn', ['gen', config.outputDir, '--args="' + args + '"'], options)
-util.run('ninja', ['-C', config.outputDir, 'dist'], options)
+util.run('ninja', ['-C', config.outputDir, 'create_dist'], options)
