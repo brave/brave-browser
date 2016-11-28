@@ -12,4 +12,4 @@ config.update(program)
 
 const options = config.defaultOptions
 options.cwd = config.projects.muon.dir
-util.run('python', ['script/upload.py', '-v', config.electronVersion], options)
+util.run('python', ['script/upload.py', '-v', 'v' + config.electronVersion], options)
