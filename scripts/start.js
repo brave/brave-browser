@@ -24,10 +24,10 @@ const braveArgs = [
 ]
 
 let options = {
-  env: {
+  env: Object.assign(process.env, {
     npm_package_config_port: 8080,
     NODE_ENV: program.node_env
-  },
+  }),
   stdio: 'inherit',
   shell: true
 }

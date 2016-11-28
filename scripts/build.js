@@ -47,24 +47,7 @@ const buildNode = (options = config.defaultOptions) => {
 const buildMuon = (options = config.defaultOptions) => {
   console.log('building muon...')
 
-  const buildArgs = config.buildArgs()
-  let args = ''
-  for (let arg in buildArgs) {
-    let val = buildArgs[arg]
-    if (typeof val === 'string') {
-      val = '"' + val + '"'
-    } else {
-      val = JSON.stringify(val)
-    }
-    args += arg + '=' + val + ' '
-  }
-  if (program.electron_google_api_key) {
-    args += 'electron_google_api_key=' + program.electron_google_api_key + ' '
-  }
-  if (program.electron_google_api_endpoint) {
-    args += 'electron_google_api_endpoint=' + program.electron_google_api_endpoint + ' '
-  }
-  args = args.replace(/"/g,'\\"')
+  const args = util.buildArgsToString(config.buildArgs())
   util.run('gn', ['gen', config.outputDir, '--args="' + args + '"'], options)
   util.run('ninja', ['-C', config.outputDir, 'electron'], options)
 }
