@@ -34,12 +34,12 @@ const buildNode = (options = config.defaultOptions) => {
 
   options.env.GYP_INCLUDE_LAST = 'electron/build/node/node.gypi'
   options.env.GYP_CHROMIUM_NO_ACTION = 0
-  options.env[config.pathEnvVar] = config.appendPath(options.env[config.pathEnvVar], config.buildToolsDir)
-  util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'), 
-    '-D', 'target_arch=' + config.gypTargetArch, 
-    '-D', 'host_arch=x64', 
+  options.env = config.addPathToEnv(options.env, config.buildToolsDir)
+  util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'),
+    '-D', 'target_arch=' + config.gypTargetArch,
+    '-D', 'host_arch=x64',
     '-D', 'buildtype=Custom', // don't apply Dev or Official configs
-    '-D', 'component=' + config.component, 
+    '-D', 'component=' + config.component,
     path.join(config.projects.node.dir, 'node.gyp')], options)
   util.run('ninja', ['-C', config.outputDir, 'node'], options)
 }
