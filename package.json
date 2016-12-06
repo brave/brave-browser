@@ -10,7 +10,8 @@
     "create_dist": "node ./scripts/createDist.js",
     "upload": "node ./scripts/upload.js",
     "publish": "node ./scripts/publish.js",
-    "start": "node ./scripts/start.js"
+    "start": "node ./scripts/start.js",
+    "rsync-prebuilt": "rsync -avz --delete src/out/Release/Brave.app/ src/browser-laptop/node_modules/electron-prebuilt/dist/Brave.app/"
   },
   "engines" : {
     "node": "^7.0.0",
