@@ -47,13 +47,6 @@
           "src/electron/vendor/node": "%None%"
         }
       },
-      "patches": {
-        "dir": "src/libchromiumcontent",
-        "repository": {
-          "url": "git@github.com:brave/libchromiumcontent.git",
-          "ref": "origin/chromium54"
-        }
-      },
       "browser_laptop": {
         "dir": "src/browser-laptop",
         "repository": {
