@@ -10,7 +10,7 @@ program
 
 config.update(program)
 
-let diff = util.run('git', ['diff'], { cwd: config.projects.chrome.dir })
+let diff = util.run('git', ['diff', '--full-index'], { cwd: config.projects.chrome.dir })
 fs.writeFileSync(path.join(config.projects.muon.dir, 'patches', 'master_patch.patch'), diff.stdout)
-diff = util.run('git', ['diff'], { cwd: path.join(config.projects.chrome.dir, 'v8') })
+diff = util.run('git', ['diff', '--full-index'], { cwd: path.join(config.projects.chrome.dir, 'v8') })
 fs.writeFileSync(path.join(config.projects.muon.dir, 'patches', 'v8', 'filter.patch'), diff.stdout)
