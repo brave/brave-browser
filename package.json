@@ -40,8 +40,8 @@
       "muon": {
         "dir": "src/electron",
         "repository": {
-          "url": "git@github.com:brave/electron.git",
-          "ref": "origin/chromium54"
+          "url": "https://github.com/brave/electron.git",
+          "ref": "origin/master"
         },
         "custom_deps": {
           "src/electron/vendor/node": "%None%"
@@ -50,14 +50,14 @@
       "browser_laptop": {
         "dir": "src/browser-laptop",
         "repository": {
-          "url": "git@github.com:brave/browser-laptop.git",
+          "url": "https://github.com/brave/browser-laptop.git",
           "ref": "origin/chromium54"
         }
       },
       "node": {
         "dir": "src/electron/vendor/node",
         "repository": {
-          "url": "git@github.com:brave/node.git",
+          "url": "https://github.com/brave/node.git",
           "ref": "53ede113b2cee3da55287b39110b19ecb3bf884c"
         }
       }
