@@ -1,6 +1,6 @@
 {
   "name": "browser-laptop-bootstrap",
-  "version": "0.1.0",
+  "version": "0.13.0-pre.3",
   "description": "Bootstrap helper for Brave",
   "scripts": {
     "init": "node ./scripts/sync.js --init",
@@ -58,7 +58,7 @@
         "dir": "src/electron/vendor/node",
         "repository": {
           "url": "git@github.com:brave/node.git",
-          "ref": "origin/chromium54"
+          "ref": "53ede113b2cee3da55287b39110b19ecb3bf884c"
         }
       }
     }
