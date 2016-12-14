@@ -13,7 +13,9 @@ program
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
 config.projectNames.forEach((project) => {
-  program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
+  if (config.projects[project].ref) {
+    program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
+  }
 })
 
 program.parse(process.argv)

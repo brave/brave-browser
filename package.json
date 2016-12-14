@@ -55,11 +55,7 @@
         }
       },
       "node": {
-        "dir": "src/electron/vendor/node",
-        "repository": {
-          "url": "https://github.com/brave/node.git",
-          "ref": "53ede113b2cee3da55287b39110b19ecb3bf884c"
-        }
+        "dir": "src/electron/vendor/node"
       }
     }
   },
