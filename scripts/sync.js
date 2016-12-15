@@ -4,6 +4,8 @@ const fs = require('fs-extra')
 const config = require('../lib/config')
 const util = require('../lib/util')
 
+const projectNames = config.projectNames.filter((project) => config.projects[project].ref)
+
 program
   .version(process.env.npm_package_version)
   .option('--gclient_file <file>', 'gclient config file location')
@@ -12,10 +14,8 @@ program
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
-config.projectNames.forEach((project) => {
-  if (config.projects[project].ref) {
-    program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
-  }
+projectNames.forEach((project) => {
+  program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
 })
 
 program.parse(process.argv)
@@ -35,7 +35,7 @@ if (program.init) {
 
 let updatedVersion = false
 
-config.projectNames.forEach((project) => {
+projectNames.forEach((project) => {
   if (program.init || program.all || program[project + '_ref']) {
     updatedVersion = true
     util.setDepVersion(config.projects[project].dir, config.projects[project].ref)
