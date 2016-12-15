@@ -42,9 +42,6 @@
         "repository": {
           "url": "https://github.com/brave/electron.git",
           "ref": "origin/master"
-        },
-        "custom_deps": {
-          "src/electron/vendor/node": "%None%"
         }
       },
       "browser_laptop": {
