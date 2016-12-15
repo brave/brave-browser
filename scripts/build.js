@@ -40,6 +40,7 @@ const buildNode = (options = config.defaultOptions) => {
     '-D', 'host_arch=x64',
     '-D', 'buildtype=Custom', // don't apply Dev or Official configs
     '-D', 'component=' + config.component,
+    '-Goutput_dir=' + config.outputDir.split(path.sep).slice(0, -1).join(path.sep),
     path.join(config.projects.node.dir, 'node.gyp')], options)
   util.run('ninja', ['-C', config.outputDir, 'node'], options)
 }
