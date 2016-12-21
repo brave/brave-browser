@@ -12,6 +12,7 @@
     "publish": "node ./scripts/publish.js",
     "start": "node ./scripts/start.js",
     "rsync-prebuilt": "rsync -avz --delete src/out/Release/Brave.app/ src/browser-laptop/node_modules/electron-prebuilt/dist/Brave.app/",
+    "xcopy-prebuilt": "xcopy src\\out\\Release\\dist src\\browser-laptop\\node_modules\\electron-prebuilt\\dist\\ /Y /S /I /F /R",
     "unittest": "NODE_ENV=test src/browser-laptop/node_modules/.bin/mocha --require babel-register --require babel-polyfill 'src/browser-laptop/test/unit/**/*Test.js'"
   },
   "engines" : {

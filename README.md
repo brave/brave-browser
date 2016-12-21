@@ -27,3 +27,7 @@ To start `browser-laptop` using your debug  build:
 
 
 `npm start -- Debug`
+
+## Would you like to know more?
+
+Please [check out the wiki](https://github.com/brave/browser-laptop-bootstrap/wiki) for more in-depth information
