@@ -9,6 +9,7 @@ program
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--muon', 'build muon')
   .option('--node', 'build node')
+  .option('--chromedriver', 'build chromedriver')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
   .option('--electron_google_api_key <electron_google_api_key>')
   .option('--electron_google_api_endpoint <electron_google_api_endpoint>')
@@ -21,50 +22,19 @@ program
 
 config.update(program)
 
-const updateBranding = () => {
-  console.log('update branding...')
-  const braveThemeDir = path.join(config.srcDir, 'chrome', 'app', 'theme', 'brave')
-  fs.ensureDirSync(braveThemeDir)
-  fs.copySync(path.join(config.resourcesDir, 'BRANDING'), path.join(braveThemeDir, 'BRANDING'))
-}
-
-const buildNode = (options = config.defaultOptions) => {
-  console.log('building node...')
-  fs.copySync(path.join(config.resourcesDir, 'node_config.gypi'), path.join(config.projects.node.dir, 'config.gypi'))
-
-  options.env.GYP_INCLUDE_LAST = 'electron/build/node/node.gypi'
-  options.env.GYP_CHROMIUM_NO_ACTION = 0
-  options.env = config.addPathToEnv(options.env, config.buildToolsDir)
-  util.run('python', [path.join(config.buildToolsDir, 'gyp_chromium.py'),
-    '-D', 'target_arch=' + config.gypTargetArch,
-    '-D', 'host_arch=x64',
-    '-D', 'buildtype=Custom', // don't apply Dev or Official configs
-    '-D', 'component=' + config.component,
-    '-Goutput_dir=' + config.outputDir.split(path.sep).slice(0, -1).join(path.sep),
-    path.join(config.projects.node.dir, 'node.gyp')], options)
-  util.run('ninja', ['-C', config.outputDir, 'node'], options)
-}
-
-const buildMuon = (options = config.defaultOptions) => {
-  console.log('building muon...')
-
-  const args = util.buildArgsToString(config.buildArgs())
-  util.run('gn', ['gen', config.outputDir, '--args="' + args + '"'], options)
-  util.run('ninja', ['-C', config.outputDir, 'electron'], options)
+if (program.chromedriver) {
+  util.buildChromedriver()
+  return
 }
 
 if (!program.no_branding_update) {
-  updateBranding()
+  util.updateBranding()
 }
 
 if (!program.muon) {
-  buildNode()
+  util.buildNode()
 }
 
 if (!program.node) {
-  buildMuon()
+  util.buildMuon()
 }
-
-
-
-
