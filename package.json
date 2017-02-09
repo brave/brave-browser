@@ -1,6 +1,6 @@
 {
   "name": "browser-laptop-bootstrap",
-  "version": "0.13.0-pre.3",
+  "version": "0.13.3",
   "description": "Bootstrap helper for Brave",
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
@@ -28,7 +28,7 @@
         "dir": "src",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git",
-          "ref": "refs/tags/54.0.2840.100"
+          "ref": "refs/tags/56.0.2924.76"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
