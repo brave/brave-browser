@@ -20,6 +20,8 @@ program
   .option('--node', 'build node')
   .option('--chromedriver', 'build chromedriver')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--debug_build <debug_build>', 'keep debugging symbols')
+  .option('--official_build <official_build>', 'force official build settings')
   .option('--electron_google_api_key <electron_google_api_key>')
   .option('--electron_google_api_endpoint <electron_google_api_endpoint>')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
@@ -57,6 +59,7 @@ program
   .command('cibuild')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
   .action((options) => {
+    options.official_build = true
     build('Release', options)
     createDist(options)
     upload(options)
