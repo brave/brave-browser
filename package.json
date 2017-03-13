@@ -51,7 +51,7 @@
         "dir": "src/browser-laptop",
         "repository": {
           "url": "https://github.com/brave/browser-laptop.git",
-          "ref": "origin/master"
+          "ref": "origin/chromium57"
         }
       },
       "node": {
