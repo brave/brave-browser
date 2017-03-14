@@ -49,3 +49,7 @@ if (updatedVersion || program.init || program.run_sync) {
 if (updatedVersion || program.init || program.run_hooks) {
   util.gclientRunhooks()
 }
+
+if (program.init) {
+  util.installPrereqs();
+}
