@@ -44,14 +44,14 @@
         "dir": "src/electron",
         "repository": {
           "url": "https://github.com/brave/muon.git",
-          "ref": "origin/master"
+          "ref": "origin/chromium58"
         }
       },
       "browser_laptop": {
         "dir": "src/browser-laptop",
         "repository": {
           "url": "https://github.com/brave/browser-laptop.git",
-          "ref": "origin/master"
+          "ref": "origin/chromium58"
         }
       },
       "node": {
