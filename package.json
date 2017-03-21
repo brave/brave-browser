@@ -28,7 +28,7 @@
         "dir": "src",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git",
-          "ref": "refs/tags/57.0.2987.98"
+          "ref": "refs/tags/57.0.2987.110"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
