@@ -18,7 +18,6 @@ program
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--muon', 'build muon')
   .option('--node', 'build node')
-  .option('--chromedriver', 'build chromedriver')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
   .option('--debug_build <debug_build>', 'keep debugging symbols')
   .option('--official_build <official_build>', 'force official build settings')
@@ -31,6 +30,8 @@ program
 program
   .command('create_dist')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--debug_build <debug_build>', 'keep debugging symbols')
+  .option('--official_build <official_build>', 'force official build settings')
   .action(createDist)
 
 program
