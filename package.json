@@ -28,7 +28,7 @@
         "dir": "src",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git",
-          "ref": "refs/tags/58.0.3029.68"
+          "ref": "refs/tags/58.0.3029.81"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
@@ -44,7 +44,7 @@
         "dir": "src/electron",
         "repository": {
           "url": "https://github.com/brave/muon.git",
-          "ref": "origin/chromium58.0.3029.68"
+          "ref": "origin/chromium58.0.3029.81"
         }
       },
       "browser_laptop": {
