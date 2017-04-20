@@ -31,6 +31,7 @@
           "ref": "refs/tags/58.0.3029.81"
         },
         "custom_deps": {
+          "src/third_party/angle": "https://chromium.googlesource.com/angle/angle.git@d1bed175f107143a7c52485a9d197b486cd5433e",
           "src/third_party/WebKit/LayoutTests": "%None%",
           "src/chrome_frame/tools/test/reference_build/chrome": "%None%",
           "src/chrome_frame/tools/test/reference_build/chrome_win": "%None%",
