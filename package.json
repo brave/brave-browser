@@ -28,7 +28,7 @@
         "dir": "src",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git",
-          "ref": "refs/tags/58.0.3029.81"
+          "ref": "refs/tags/58.0.3029.96"
         },
         "custom_deps": {
           "src/third_party/angle": "https://chromium.googlesource.com/angle/angle.git@d1bed175f107143a7c52485a9d197b486cd5433e",
