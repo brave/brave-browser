@@ -4,6 +4,7 @@ const fs = require('fs-extra')
 const config = require('../lib/config')
 const util = require('../lib/util')
 const build = require('../lib/build')
+const versions = require('../lib/versions')
 const createDist = require('../lib/createDist')
 const publish = require('../lib/publish')
 const start = require('../lib/start')
@@ -12,6 +13,10 @@ const upload = require('../lib/upload')
 
 program
   .version(process.env.npm_package_version)
+
+program
+  .command('versions')
+  .action(versions)
 
 program
   .command('build')
