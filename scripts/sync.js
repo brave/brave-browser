@@ -26,6 +26,10 @@ if (program.init || program.submodule_sync) {
 }
 
 if (program.init) {
+  util.installPrereqs();
+}
+
+if (program.init) {
   util.buildGClientConfig()
 }
 
@@ -48,8 +52,4 @@ if (updatedVersion || program.init || program.run_sync) {
 
 if (updatedVersion || program.init || program.run_hooks) {
   util.gclientRunhooks()
-}
-
-if (program.init) {
-  util.installPrereqs();
 }
