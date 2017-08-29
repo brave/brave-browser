@@ -52,7 +52,7 @@ program
 program
   .command('start')
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
-  .option('--user_data_dir [base_name]', 'set user data directory base name to [base_name]', 'brave-development')
+  .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]', 'brave-development')
   .option('--node_env [env]', 'set the node env to [env]', 'development')
   .option('--no_sandbox', 'disable the sandbox')
   .arguments('[build_config]')
