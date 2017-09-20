@@ -27,12 +27,11 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "61.0.3163.100",
+        "tag": "62.0.3202.38",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
         "custom_deps": {
-          "src/third_party/angle": "https://chromium.googlesource.com/angle/angle.git@d1bed175f107143a7c52485a9d197b486cd5433e",
           "src/third_party/WebKit/LayoutTests": "%None%",
           "src/chrome_frame/tools/test/reference_build/chrome": "%None%",
           "src/chrome_frame/tools/test/reference_build/chrome_win": "%None%",
