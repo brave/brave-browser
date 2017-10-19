@@ -3,3 +3,4 @@ src
 .gclient_entries
 npm-debug.log
 .gclient
+.sccache
