@@ -21,8 +21,6 @@ program
 program
   .command('build')
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
-  .option('--muon', 'build muon')
-  .option('--node', 'build node')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
   .option('--debug_build <debug_build>', 'keep debugging symbols')
   .option('--official_build <official_build>', 'force official build settings')
@@ -33,27 +31,9 @@ program
   .action(build)
 
 program
-  .command('create_dist')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
-  .option('--debug_build <debug_build>', 'keep debugging symbols')
-  .option('--official_build <official_build>', 'force official build settings')
-  .action(createDist)
-
-program
-  .command('upload')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
-  .action(upload)
-
-program
-  .command('publish')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
-  .action(publish)
-
-program
   .command('start')
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]', 'brave-development')
-  .option('--node_env [env]', 'set the node env to [env]', 'development')
   .option('--no_sandbox', 'disable the sandbox')
   .arguments('[build_config]')
   .action(start)
@@ -68,8 +48,6 @@ program
   .action((options) => {
     options.official_build = true
     build('Release', options)
-    createDist(options)
-    upload(options)
   })
 
 program

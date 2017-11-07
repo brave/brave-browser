@@ -9,21 +9,13 @@
     "build": "node ./scripts/commands.js build",
     "versions": "node ./scripts/commands.js versions",
     "update_patches": "node ./scripts/commands.js update_patches",
-    "create_dist": "node ./scripts/commands.js create_dist",
-    "upload": "node ./scripts/commands.js upload",
-    "publish": "node ./scripts/commands.js publish",
     "start": "node ./scripts/commands.js start",
-    "rsync-prebuilt": "rsync -avz --delete src/out/Release/Brave.app/ src/browser-laptop/node_modules/electron-prebuilt/dist/Brave.app/",
-    "rsync-prebuilt-linux": "rsync -avz --delete src/out/Release/dist src/browser-laptop/node_modules/electron-prebuilt/dist/",
-    "xcopy-prebuilt": "xcopy src\\out\\Release\\dist src\\browser-laptop\\node_modules\\electron-prebuilt\\dist\\ /Y /S /I /F /R",
-    "unittest": "NODE_ENV=test src/browser-laptop/node_modules/.bin/mocha --require babel-register --require babel-polyfill 'src/browser-laptop/test/unit/**/*Test.js'"
   },
   "engines": {
     "node": "^7.0.0",
     "npm": "^3.10.9"
   },
   "config": {
-    "port": "8080",
     "projects": {
       "chrome": {
         "dir": "src",
@@ -43,18 +35,10 @@
       },
       "muon": {
         "dir": "src/electron",
+        "branch": "chromium-fork",
         "repository": {
           "url": "https://github.com/brave/muon.git"
         }
-      },
-      "browser_laptop": {
-        "dir": "src/browser-laptop",
-        "repository": {
-          "url": "https://github.com/brave/browser-laptop.git"
-        }
-      },
-      "node": {
-        "dir": "src/electron/vendor/node"
       }
     }
   },
