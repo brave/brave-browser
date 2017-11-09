@@ -1,7 +1,7 @@
 {
-  "name": "browser-laptop-bootstrap",
+  "name": "brave",
   "version": "1.0.0",
-  "description": "Bootstrap helper for Brave",
+  "description": "Prototype Chromium based browser for Desktop, Android and iOS",
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
@@ -60,7 +60,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brave/browser-laptop-bootstrap.git"
+    "url": "git+https://github.com/brave/brave.git"
   },
   "author": {
     "name": "Brave Software <support+laptop@brave.com>"
@@ -69,13 +69,17 @@
     {
       "name": "Brian Johnson",
       "email": "bjohnson@brave.com"
+    },
+    {
+      "name": "Brian R. Bondy",
+      "email": "brian@brave.com"
     }
   ],
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/brave/browser-laptop-bootstrap/issues"
+    "url": "https://github.com/brave/brave/issues"
   },
-  "homepage": "https://github.com/brave/browser-laptop-bootstrap#readme",
+  "homepage": "https://github.com/brave/brave#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "fs-extra": "^1.0.0"
