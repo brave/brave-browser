@@ -33,11 +33,11 @@
           "src/chrome/tools/test/reference_build/chrome_win": "%None%"
         }
       },
-      "muon": {
-        "dir": "src/electron",
-        "branch": "chromium-fork",
+      "antimuon": {
+        "dir": "src/brave",
+        "branch": "master",
         "repository": {
-          "url": "https://github.com/brave/muon.git"
+          "url": "https://github.com/brave/antimuon.git"
         }
       }
     }
