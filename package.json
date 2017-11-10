@@ -37,7 +37,7 @@
         "dir": "src/brave",
         "branch": "master",
         "repository": {
-          "url": "https://github.com/brave/antimuon.git"
+          "url": "git@github.com:brave/antimuon.git"
         }
       }
     }
