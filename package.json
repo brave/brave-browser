@@ -12,8 +12,8 @@
     "start": "node ./scripts/commands.js start"
   },
   "engines": {
-    "node": "^7.0.0",
-    "npm": "^3.10.9"
+    "node": "^8.9.2",
+    "npm": "^5.5.1"
   },
   "config": {
     "projects": {
