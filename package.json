@@ -19,7 +19,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "63.0.3239.108",
+        "tag": "62.0.3202.89",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
@@ -35,7 +35,7 @@
       },
       "antimuon": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "topsites_suggestions",
         "repository": {
           "url": "git@github.com:brave/antimuon.git"
         }
