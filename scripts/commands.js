@@ -7,6 +7,7 @@ const build = require('../lib/build')
 const versions = require('../lib/versions')
 const start = require('../lib/start')
 const updatePatches = require('../lib/updatePatches')
+const createDist = require('../lib/createDist')
 
 program
   .version(process.env.npm_package_version)
@@ -26,6 +27,14 @@ program
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
   .arguments('[build_config]')
   .action(build)
+
+program
+  .command('create_dist')
+  .option('--mac_signing_identifier', 'The identifier to use for signing')
+  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--debug_build <debug_build>', 'keep debugging symbols')
+  .option('--official_build <official_build>', 'force official build settings')
+  .action(createDist)
 
 program
   .command('start')
@@ -49,3 +58,4 @@ program
 
 program
   .parse(process.argv)
+
