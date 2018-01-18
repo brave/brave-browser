@@ -9,7 +9,9 @@
     "build": "node ./scripts/commands.js build",
     "versions": "node ./scripts/commands.js versions",
     "update_patches": "node ./scripts/commands.js update_patches",
-    "start": "node ./scripts/commands.js start"
+    "start": "node ./scripts/commands.js start",
+    "web-ui": "webpack --config src/brave/components/webpack/prod.config.js --progress --profile --colors",
+    "web-ui-dev": "webpack --config src/brave/components/webpack/dev.config.js --progress --profile --colors"
   },
   "engines": {
     "node": "^8.9.2",
@@ -67,5 +69,22 @@
   "dependencies": {
     "commander": "^2.9.0",
     "fs-extra": "^1.0.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.4.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "webpack": "^3.10.0"
   }
 }
