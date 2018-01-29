@@ -69,7 +69,14 @@
   "homepage": "https://github.com/brave/brave#readme",
   "dependencies": {
     "commander": "^2.9.0",
-    "fs-extra": "^1.0.0"
+    "css-loader": "^0.28.9",
+    "file-loader": "^1.1.6",
+    "font-awesome": "^4.7.0",
+    "fs-extra": "^1.0.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.4.1",
@@ -83,9 +90,12 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.24.1",
     "react": "^16.2.0",
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "standard": "^10.0.3",
     "webpack": "^3.10.0"
   }
 }
