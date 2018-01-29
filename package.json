@@ -5,6 +5,7 @@
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
+    "create_dist": "node ./scripts/commands.js create_dist",
     "sync": "node ./scripts/sync.js",
     "build": "node ./scripts/commands.js build",
     "versions": "node ./scripts/commands.js versions",
