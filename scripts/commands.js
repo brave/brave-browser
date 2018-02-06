@@ -8,6 +8,7 @@ const versions = require('../lib/versions')
 const start = require('../lib/start')
 const updatePatches = require('../lib/updatePatches')
 const createDist = require('../lib/createDist')
+const upload = require('../lib/upload')
 
 program
   .version(process.env.npm_package_version)
@@ -35,6 +36,11 @@ program
   .option('--debug_build <debug_build>', 'keep debugging symbols')
   .option('--official_build <official_build>', 'force official build settings')
   .action(createDist)
+
+program
+  .command('upload')
+  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .action(upload)
 
 program
   .command('start')
