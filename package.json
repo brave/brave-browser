@@ -38,7 +38,7 @@
       },
       "antimuon": {
         "dir": "src/brave",
-        "branch": "override_cc",
+        "branch": "master",
         "repository": {
           "url": "git@github.com:brave/antimuon.git"
         }
