@@ -38,7 +38,7 @@
       },
       "antimuon": {
         "dir": "src/brave",
-        "branch": "linux_installer_packages",
+        "branch": "master",
         "repository": {
           "url": "git@github.com:brave/antimuon.git"
         }
