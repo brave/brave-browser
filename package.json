@@ -9,6 +9,7 @@
     "sync": "node ./scripts/sync.js",
     "build": "node ./scripts/commands.js build",
     "versions": "node ./scripts/commands.js versions",
+    "upload": "node ./scripts/commands.js upload",
     "update_patches": "node ./scripts/commands.js update_patches",
     "start": "node ./scripts/commands.js start",
     "web-ui": "webpack --config src/brave/components/webpack/prod.config.js --progress --profile --colors",
@@ -38,7 +39,7 @@
       },
       "antimuon": {
         "dir": "src/brave",
-        "branch": "override_cc",
+        "branch": "master",
         "repository": {
           "url": "git@github.com:brave/antimuon.git"
         }
