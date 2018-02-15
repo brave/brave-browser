@@ -7,6 +7,8 @@ const build = require('../lib/build')
 const versions = require('../lib/versions')
 const start = require('../lib/start')
 const updatePatches = require('../lib/updatePatches')
+const pullL10n = require('../lib/pullL10n')
+const pushL10n = require('../lib/pushL10n')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 
@@ -49,6 +51,14 @@ program
   .option('--no_sandbox', 'disable the sandbox')
   .arguments('[build_config]')
   .action(start)
+
+program
+  .command('pull_l10n')
+  .action(pullL10n)
+
+program
+  .command('push_l10n')
+  .action(pushL10n)
 
 program
   .command('update_patches')
