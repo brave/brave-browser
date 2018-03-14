@@ -75,6 +75,7 @@ program
 
 program
   .command('test <suite>')
+  .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .action(test)
 
 program
