@@ -14,6 +14,7 @@
     "start": "node ./scripts/commands.js start",
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
+    "test": "node ./scripts/commands.js test",
     "web-ui": "webpack --config src/brave/components/webpack/prod.config.js --progress --profile --colors",
     "web-ui-dev": "webpack --config src/brave/components/webpack/dev.config.js --progress --profile --colors"
   },
