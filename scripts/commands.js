@@ -11,6 +11,7 @@ const pullL10n = require('../lib/pullL10n')
 const pushL10n = require('../lib/pushL10n')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
+const test = require('../lib/test')
 
 program
   .version(process.env.npm_package_version)
@@ -71,6 +72,10 @@ program
     options.official_build = true
     build('Release', options)
   })
+
+program
+  .command('test <suite>')
+  .action(test)
 
 program
   .parse(process.argv)
