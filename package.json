@@ -40,21 +40,21 @@
           "src/chrome/tools/test/reference_build/chrome_win": "%None%"
         }
       },
-      "antimuon": {
+      "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "rename",
         "repository": {
-          "url": "git@github.com:brave/antimuon.git"
+          "url": "git@github.com:brave/brave-core.git"
         }
       }
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brave/brave.git"
+    "url": "git+https://github.com/brave/brave-browser.git"
   },
   "author": {
-    "name": "Brave Software <support+laptop@brave.com>"
+    "name": "Brave Software <support+desktop@brave.com>"
   },
   "contributors": [
     {
@@ -68,9 +68,9 @@
   ],
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/brave/brave/issues"
+    "url": "https://github.com/brave/brave-browser/issues"
   },
-  "homepage": "https://github.com/brave/brave#readme",
+  "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "css-loader": "^0.28.9",
