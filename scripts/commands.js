@@ -38,6 +38,7 @@ program
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
   .option('--debug_build <debug_build>', 'keep debugging symbols')
   .option('--official_build <official_build>', 'force official build settings')
+  .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
   .action(createDist)
 
 program
