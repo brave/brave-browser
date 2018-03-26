@@ -42,7 +42,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "rename",
+        "branch": "master",
         "repository": {
           "url": "git@github.com:brave/brave-core.git"
         }
