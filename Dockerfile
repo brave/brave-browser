@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
   libgnome-keyring-dev \
   libnotify-dev \
   libssl-dev \
+  lsb-release \
   ninja-build \
   python-pip \
   sudo
@@ -26,6 +27,10 @@ RUN echo "sccache = /root/.cargo/bin/sccache" > /root/.npmrc
 # BLB source code. Mount ./browser-laptop-bootstrap from the host to here.
 WORKDIR /src
 VOLUME /src
+
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install yarn
 
 # Build cache. Mount ./sccache from the host to here.
 VOLUME /root/.cache/sccache
