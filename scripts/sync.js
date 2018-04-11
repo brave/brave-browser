@@ -26,10 +26,6 @@ if (program.init || program.submodule_sync) {
 }
 
 if (program.init) {
-  util.installPrereqs();
-}
-
-if (program.init) {
   util.buildGClientConfig()
 }
 
