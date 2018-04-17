@@ -29,6 +29,7 @@ program
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
+  .option('--channel <target_chanel>', 'target channel to build', /^(beta|canary|dev|release)$/i, 'release')
   .arguments('[build_config]')
   .action(build)
 
@@ -51,6 +52,7 @@ program
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]', 'brave-development')
   .option('--no_sandbox', 'disable the sandbox')
+  .option('--disable_brave_extension', 'disable loading the Brave extension')
   .arguments('[build_config]')
   .action(start)
 
