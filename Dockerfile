@@ -28,9 +28,10 @@ RUN echo "sccache = /root/.cargo/bin/sccache" > /root/.npmrc
 WORKDIR /src
 VOLUME /src
 
-# Install yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && apt-get install yarn
+# WILL BREAK USE base64 to decode
+ADD https://chromium.googlesource.com/chromium/src.git/+/master/build/install-build-deps.sh /src/scripts/
+
+RUN /src/scripts/install-build-deps.sh
 
 # Build cache. Mount ./sccache from the host to here.
 VOLUME /root/.cache/sccache
