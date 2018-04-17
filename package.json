@@ -12,6 +12,9 @@
     "upload": "node ./scripts/commands.js upload",
     "update_patches": "node ./scripts/commands.js update_patches",
     "start": "node ./scripts/commands.js start",
+    "push_l10n": "node ./scripts/commands.js push_l10n",
+    "pull_l10n": "node ./scripts/commands.js pull_l10n",
+    "test": "node ./scripts/commands.js test",
     "web-ui": "webpack --config src/brave/components/webpack/prod.config.js --progress --profile --colors",
     "web-ui-dev": "webpack --config src/brave/components/webpack/dev.config.js --progress --profile --colors"
   },
@@ -23,7 +26,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "64.0.3282.140",
+        "tag": "65.0.3325.181",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
@@ -37,21 +40,21 @@
           "src/chrome/tools/test/reference_build/chrome_win": "%None%"
         }
       },
-      "antimuon": {
+      "brave-core": {
         "dir": "src/brave",
         "branch": "master",
         "repository": {
-          "url": "git@github.com:brave/antimuon.git"
+          "url": "https://github.com/brave/brave-core.git"
         }
       }
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brave/brave.git"
+    "url": "git+https://github.com/brave/brave-browser.git"
   },
   "author": {
-    "name": "Brave Software <support+laptop@brave.com>"
+    "name": "Brave Software <support+desktop@brave.com>"
   },
   "contributors": [
     {
@@ -65,9 +68,9 @@
   ],
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/brave/brave/issues"
+    "url": "https://github.com/brave/brave-browser/issues"
   },
-  "homepage": "https://github.com/brave/brave#readme",
+  "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "css-loader": "^0.28.9",
