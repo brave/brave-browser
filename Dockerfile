@@ -28,11 +28,6 @@ RUN echo "sccache = /root/.cargo/bin/sccache" > /root/.npmrc
 WORKDIR /src
 VOLUME /src
 
-# WILL BREAK USE base64 to decode
-ADD https://chromium.googlesource.com/chromium/src.git/+/master/build/install-build-deps.sh /src/scripts/
-
-RUN /src/scripts/install-build-deps.sh
-
 # Build cache. Mount ./sccache from the host to here.
 VOLUME /root/.cache/sccache
 
