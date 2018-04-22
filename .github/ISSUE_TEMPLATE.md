@@ -1,53 +1,38 @@
-<!--
-Have you searched for similar issues? We have received a lot of feedback and bug reports that we have closed as duplicates. Before submitting this issue, please visit our community site for common ones: https://community.brave.com/c/common-issues
--->
+<!-- Have you searched for similar issues? Before submitting this issue, please check the open issues and add a note before logging a new issue. 
 
-### Description
-<!--
-[Description of the issue]
--->
+PLEASE USE THE TEMPLATE BELOW TO PROVIDE INFORMATION ABOUT THE ISSUE. 
+INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFFICIENT INFO IS PROVIDED-->
 
+## Description 
+<!--Proivde a brief description of the issue-->
 
-### Steps to Reproduce
-<!--
-Please add a series of steps to reproduce the problem. See https://stackoverflow.com/help/mcve for in depth information on how to create a minimal, complete, and verifiable example.
--->
+## Steps to Reproduce
+<!-- Please add a series of steps to reproduce the issue-->
+   1. 
+   2. 
+   3. 
 
-  1.
-  2.
-  3.
+ ## Actual result:
+<!-- Please add screenshots if needed -->
 
 
-**Actual result:**
-<!--
-Please add screenshots if needed.
--->
+## Expected result:
+
+## Reproduces how often: 
+<!-- [Easily reproduced/Intermittent issue/No steps to reproduce] -->
 
 
-**Expected result:**
+## Brave version (about:brave info)
+<!--Please use the clipboard button in about:brave and paste the complete information here-->
 
 
-**Reproduces how often:**
-<!--
-What percentage of the time does it reproduce?
--->
+### Reproducible on current release:
+<!-- Is this a problem with the live build? It matters for triage reasons. -->
 
 
-### Brave Version
-
-**about:brave info:**
-<!--
-Please open about:brave, copy the version information, and paste it.
--->
-
-
-**Reproducible on current live release:**
-<!--
-Is this a problem with the live build? It matters for triage reasons.
--->
-
+### Website problems only:  
+- Does the issue gets fixed with Brave Shields disabled? 
+- Does the issue reproduces on Chrome? 
 
 ### Additional Information
-<!--
-Any additional information, related issues, extra QA steps, configuration or data that might be necessary to reproduce the issue.
--->
+<!-- Any additional information, related issues, extra QA steps, configuration or data that might be necessary to reproduce the issue. -->
