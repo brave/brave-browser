@@ -4,23 +4,16 @@ const fs = require('fs-extra')
 const config = require('../lib/config')
 const util = require('../lib/util')
 
+const projectNames = config.projectNames.filter((project) => config.projects[project].ref)
+
 program
   .version(process.env.npm_package_version)
-  .option('--project <project>', 'run on specific project')
   .option('--gclient_file <file>', 'gclient config file location')
   .option('--run_hooks', 'run gclient hooks')
   .option('--run_sync', 'run gclient sync')
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
-
-let projectNames = config.projectNames.filter((project) => config.projects[project].ref)
-
-program.parse(process.argv)
-
-if (program.project) {
-  projectNames = [program.project]
-}
 projectNames.forEach((project) => {
   program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
 })
