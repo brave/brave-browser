@@ -24,6 +24,8 @@ program
   .command('build')
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
+  .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
   .option('--debug_build <debug_build>', 'keep debugging symbols')
   .option('--official_build <official_build>', 'force official build settings')
   .option('--brave_google_api_key <brave_google_api_key>')
@@ -35,12 +37,17 @@ program
 
 program
   .command('create_dist')
-  .option('--mac_signing_identifier', 'The identifier to use for signing')
+  .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
+  .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
   .option('--debug_build <debug_build>', 'keep debugging symbols')
   .option('--official_build <official_build>', 'force official build settings')
+  .option('--brave_google_api_key <brave_google_api_key>')
+  .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|canary|dev|release)$/i, 'release')
+  .arguments('[build_config]')
   .action(createDist)
 
 program
