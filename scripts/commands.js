@@ -54,6 +54,7 @@ program
   .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]', 'brave-development')
   .option('--no_sandbox', 'disable the sandbox')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
+  .option('--Debug', 'run debug build')
   .arguments('[build_config]')
   .action(start)
 
@@ -81,6 +82,7 @@ program
   .command('test <suite>')
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .option('--filter <filter>', 'set test filter')
+  .option('--Debug', 'build and run tests in debug')
   .action(test)
 
 program
