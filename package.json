@@ -18,10 +18,6 @@
     "web-ui": "webpack --config src/brave/components/webpack/prod.config.js --progress --profile --colors",
     "web-ui-dev": "webpack --config src/brave/components/webpack/dev.config.js --progress --profile --colors"
   },
-  "engines": {
-    "node": "^8.9.2",
-    "npm": "^5.5.1"
-  },
   "config": {
     "projects": {
       "chrome": {
