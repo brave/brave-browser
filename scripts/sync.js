@@ -24,15 +24,15 @@ program.parse(process.argv)
 config.update(program)
 
 if (program.init || program.submodule_sync) {
-  util.submoduleSync({verbose: config.gClientVerbose})
+  util.submoduleSync()
 }
 
 if (program.init) {
-  util.buildGClientConfig({verbose: config.gClientVerbose})
+  util.buildGClientConfig()
 }
 
 if (program.init) {
-  util.gclientSync({verbose: config.gClientVerbose})
+  util.gclientSync()
 }
 
 let updatedVersion = false
@@ -45,9 +45,9 @@ projectNames.forEach((project) => {
 })
 
 if (updatedVersion || program.init || program.run_sync) {
-  util.gclientSync({verbose: config.gClientVerbose})
+  util.gclientSync()
 }
 
 if (updatedVersion || program.init || program.run_hooks) {
-  util.gclientRunhooks({verbose: config.gClientVerbose})
+  util.gclientRunhooks()
 }
