@@ -15,9 +15,9 @@ program
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
-projectNames.forEach((project) => {
-  project = project.replace('-', '_')
-  program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
+projectNames.forEach((name) => {
+  let project = config.projects[name]
+  program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
 })
 
 program.parse(process.argv)
@@ -37,10 +37,11 @@ if (program.init) {
 
 let updatedVersion = false
 
-projectNames.forEach((project) => {
-  if (program.init || program.all || program[project.replace('-', '_') + '_ref']) {
+projectNames.forEach((name) => {
+  let project = config.projects[name]
+  if (program.init || program.all || program[project.arg_name + '_ref']) {
     updatedVersion = true
-    util.setDepVersion(config.projects[project].dir, config.projects[project].ref)
+    util.setDepVersion(project.dir, project.ref)
   }
 })
 
