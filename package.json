@@ -1,7 +1,7 @@
 {
   "name": "brave",
   "version": "0.50.1",
-  "description": "Prototype Chromium based browser for Desktop, Android and iOS",
+  "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
