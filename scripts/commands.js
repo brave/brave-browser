@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 const program = require('commander');
 const path = require('path')
 const fs = require('fs-extra')
@@ -9,6 +13,7 @@ const start = require('../lib/start')
 const updatePatches = require('../lib/updatePatches')
 const pullL10n = require('../lib/pullL10n')
 const pushL10n = require('../lib/pushL10n')
+const chromiumRebaseL10n = require('../lib/chromiumRebaseL10n')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
@@ -72,6 +77,10 @@ program
 program
   .command('push_l10n')
   .action(pushL10n)
+
+program
+  .command('chromium_rebase_l10n')
+  .action(chromiumRebaseL10n)
 
 program
   .command('update_patches')
