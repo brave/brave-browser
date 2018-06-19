@@ -37,6 +37,7 @@ program
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|canary|dev|release)$/i, 'release')
+  .option('--touch_overridden_files <target filter>', 'touch original files overridden by chromium_src. Pass '*' to touch all files')
   .arguments('[build_config]')
   .action(build)
 
