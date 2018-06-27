@@ -1,7 +1,7 @@
 {
   "name": "brave",
-  "version": "1.0.0",
-  "description": "Prototype Chromium based browser for Desktop, Android and iOS",
+  "version": "0.50.5",
+  "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
@@ -14,19 +14,16 @@
     "start": "node ./scripts/commands.js start",
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
+    "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
     "test": "node ./scripts/commands.js test",
     "web-ui": "webpack --config src/brave/components/webpack/prod.config.js --progress --profile --colors",
     "web-ui-dev": "webpack --config src/brave/components/webpack/dev.config.js --progress --profile --colors"
-  },
-  "engines": {
-    "node": "^8.9.2",
-    "npm": "^5.5.1"
   },
   "config": {
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "66.0.3359.170",
+        "tag": "67.0.3396.103",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
@@ -80,6 +77,7 @@
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^0.6.2"
   },
   "devDependencies": {

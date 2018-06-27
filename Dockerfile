@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
   libgnome-keyring-dev \
   libnotify-dev \
   libssl-dev \
+  lsb-release \
   ninja-build \
   python-pip \
   sudo

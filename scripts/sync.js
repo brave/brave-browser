@@ -9,13 +9,16 @@ const projectNames = config.projectNames.filter((project) => config.projects[pro
 program
   .version(process.env.npm_package_version)
   .option('--gclient_file <file>', 'gclient config file location')
+  .option('--gclient_verbose', 'verbose output for gclient')
+  .option('--gclient_cachedir <directory>', 'cache directory of git mirrors for gclient')
   .option('--run_hooks', 'run gclient hooks')
   .option('--run_sync', 'run gclient sync')
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
-projectNames.forEach((project) => {
-  program.option('--' + project + '_ref <ref>', project + ' ref to checkout')
+projectNames.forEach((name) => {
+  let project = config.projects[name]
+  program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
 })
 
 program.parse(process.argv)
@@ -35,10 +38,11 @@ if (program.init) {
 
 let updatedVersion = false
 
-projectNames.forEach((project) => {
-  if (program.init || program.all || program[project + '_ref']) {
+projectNames.forEach((name) => {
+  let project = config.projects[name]
+  if (program.init || program.all || program[project.arg_name + '_ref']) {
     updatedVersion = true
-    util.setDepVersion(config.projects[project].dir, config.projects[project].ref)
+    util.setDepVersion(project.dir, project.ref)
   }
 })
 

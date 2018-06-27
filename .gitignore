@@ -4,3 +4,4 @@ src
 npm-debug.log
 .gclient
 .sccache
+**.sw[po]
