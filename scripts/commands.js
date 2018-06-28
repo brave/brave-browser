@@ -36,7 +36,7 @@ program
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
-  .option('--channel <target_chanel>', 'target channel to build', /^(beta|canary|dev|release)$/i, 'release')
+  .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--touch_overridden_files <target filter>', 'touch original files overridden by chromium_src. Pass '*' to touch all files')
   .arguments('[build_config]')
   .action(build)
@@ -52,7 +52,7 @@ program
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--no_branding_update', 'don\'t copy BRANDING to the chrome theme dir')
-  .option('--channel <target_chanel>', 'target channel to build', /^(beta|canary|dev|release)$/i, 'release')
+  .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .arguments('[build_config]')
   .action(createDist)
 
