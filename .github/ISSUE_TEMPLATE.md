@@ -8,32 +8,34 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 
 
 ## Steps to Reproduce
+<!--Please add a series of steps to reproduce the issue-->
+
    1. 
    2. 
    3. 
 
 ## Actual result:
-<!-- Please add screenshots if needed -->
+<!--Please add screenshots if needed-->
 
 
 ## Expected result:
 
 
 ## Reproduces how often: 
-<!-- [Easily reproduced/Intermittent issue/No steps to reproduce] -->
+<!--[Easily reproduced/Intermittent issue/No steps to reproduce]-->
 
 
 ## Brave version (about:brave info) 
 <!--Please use the clipboard button in about:brave and paste the complete information here-->
 
 
-### Reproducible on current release: 
-<!-- Is this a problem with the live build?-->
+### Reproducible on current release:
+<!--Does the issue reproduce on browser-laptop version as well? -->
 
 
 ### Website problems only:  
-- Does the issue gets fixed with Brave Shields disabled? 
-- Does the issue reproduces on Chrome? 
+- Does the issue resolve itself when disabling Brave Shields? 
+- Is the issue reproducible on the latest version of Chrome? 
 
 ### Additional Information
-<!-- Any additional information, related issues, configuration or data that might help to reproduce the issue. -->
+<!--Any additional information, related issues, extra QA steps, configuration or data that might be necessary to reproduce the issue-->
