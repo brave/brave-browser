@@ -74,7 +74,7 @@
     "file-loader": "^1.1.6",
     "font-awesome": "^4.7.0",
     "fs-extra": "^1.0.0",
-    "less": "^2.7.3",
+    "less": "^3.7.1",
     "less-loader": "^4.0.5",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.2.5",
