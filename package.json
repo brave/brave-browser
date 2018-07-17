@@ -15,9 +15,7 @@
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
-    "test": "node ./scripts/commands.js test",
-    "web-ui": "webpack --config src/brave/components/webpack/prod.config.js --progress --profile --colors",
-    "web-ui-dev": "webpack --config src/brave/components/webpack/dev.config.js --progress --profile --colors"
+    "test": "node ./scripts/commands.js test"
   },
   "config": {
     "projects": {
@@ -70,42 +68,6 @@
   "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
     "commander": "^2.9.0",
-    "css-loader": "^0.28.9",
-    "file-loader": "^1.1.6",
-    "font-awesome": "^4.7.0",
-    "fs-extra": "^1.0.0",
-    "less": "^3.7.1",
-    "less-loader": "^4.0.5",
-    "style-loader": "^0.19.1",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "url-loader": "^0.6.2"
-  },
-  "devDependencies": {
-    "@types/chrome": "0.0.69",
-    "@types/react": "^16.0.26",
-    "@types/react-dnd": "^2.0.36",
-    "@types/react-dom": "^16.0.3",
-    "@types/react-redux": "^6.0.4",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-optimize": "^1.0.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "csstype": "^2.5.5",
-    "react": "^16.2.0",
-    "react-dnd": "^5.0.0",
-    "react-dnd-html5-backend": "^5.0.1",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "redux": "^4.0.0",
-    "standard": "^10.0.3",
-    "ts-loader": "^4.4.2",
-    "typescript": "^2.8.1",
-    "webpack": "^4.16.0",
-    "webpack-cli": "^3.0.8"
+    "fs-extra": "^1.0.0"
   }
 }
