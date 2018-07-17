@@ -81,7 +81,11 @@
     "url-loader": "^0.6.2"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^3.4.1",
+    "@types/chrome": "0.0.69",
+    "@types/react": "^16.0.26",
+    "@types/react-dnd": "^2.0.36",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-redux": "^6.0.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -91,13 +95,17 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.24.1",
+    "csstype": "^2.5.5",
     "react": "^16.2.0",
-    "react-dnd": "^2.5.4",
-    "react-dnd-html5-backend": "^2.5.4",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
+    "redux": "^4.0.0",
     "standard": "^10.0.3",
-    "webpack": "^3.10.0"
+    "ts-loader": "^4.4.2",
+    "typescript": "^2.8.1",
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
   }
 }
