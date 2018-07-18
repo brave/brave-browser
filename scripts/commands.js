@@ -67,6 +67,7 @@ program
   .option('--no_sandbox', 'disable the sandbox')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
   .option('--disable_pdfjs_extension', 'disable loading the PDFJS extension')
+  .option('--enable_brave_update', 'enable brave update')
   .arguments('[build_config]')
   .action(start)
 
