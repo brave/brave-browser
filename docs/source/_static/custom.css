@@ -1,0 +1,4 @@
+/* This prevents the code block from having a scroll bar */
+pre {
+    white-space: pre-wrap;
+}

@@ -5,3 +5,7 @@ npm-debug.log
 .gclient
 .sccache
 **.sw[po]
+.vscode
+
+# Rendered Sphinx files should be excluded from source control
+build
