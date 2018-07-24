@@ -156,3 +156,6 @@ texinfo_documents = [
      author, 'BraveBrowser', 'One line description of project.',
      'Miscellaneous'),
 ]
+
+def setup(app):
+    app.add_stylesheet('custom.css')

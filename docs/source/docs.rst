@@ -3,7 +3,7 @@
 Documentation
 *************
 
-We use Sphinx to render, and readthedocs.io to publish, Brave Browser
+We use Sphinx to render, and readthedocs.org to publish, Brave Browser
 documentation. You can view the latest documentation at `https://brave-browser.readthedocs.io/en/latest/ <https://brave-browser.readthedocs.io/en/latest/>`_.
 
 Contributing to Brave Browser documentation can be done by editing the
