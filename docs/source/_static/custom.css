@@ -2,3 +2,8 @@
 pre {
     white-space: pre-wrap;
 }
+
+/* add padding after logo */
+.logo {
+    padding-bottom: 20px
+}

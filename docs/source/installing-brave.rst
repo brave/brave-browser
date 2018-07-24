@@ -34,3 +34,28 @@ To verify checksum::
 
     sha256sum brave-browser-dev_0.50.14_amd64.deb
     319b925220d07cc4810fd9848a1d09a53d0d66e31e3ea0a8f892336fa26ac1c0  brave-browser-dev_0.50.14_amd64.deb
+
+
+Fedora 28
+---------
+::
+
+    sudo dnf config-manager --add-repo https://s3-us-west-2.amazonaws.com/brave-browser-rpm-staging-dev/x86_64/
+
+    sudo rpm --import https://s3-us-west-2.amazonaws.com/brave-browser-rpm-staging-dev/brave-core-nightly.asc
+
+    sudo dnf install brave-browser
+
+To verify checksum::
+
+    wget https://s3-us-west-2.amazonaws.com/brave-brave-binaries/releases/tmp/v0.50.14/brave-browser-dev-0.50.14-1.x86_64.rpm.sha256sum
+
+
+    wget https://s3-us-west-2.amazonaws.com/brave-browser-rpm-staging-dev/x86_64/brave-browser-dev-0.50.14-1.x86_64.rpm
+
+    more brave-browser-dev-0.50.14-1.x86_64.rpm.sha256sum
+    d3e653392b4a3af7cc6aba6e1220606816602a65eecfd6a8fcdf3bf3e3a3306a *brave-browser-dev-0.50.14-1.x86_64.rpm
+
+
+    sha256sum brave-browser-dev-0.50.14-1.x86_64.rpm
+    d3e653392b4a3af7cc6aba6e1220606816602a65eecfd6a8fcdf3bf3e3a3306a  brave-browser-dev-0.50.14-1.x86_64.rpm
