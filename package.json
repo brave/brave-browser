@@ -11,6 +11,7 @@
     "versions": "node ./scripts/commands.js versions",
     "upload": "node ./scripts/commands.js upload",
     "update_patches": "node ./scripts/commands.js update_patches",
+    "apply_patches": "node ./scripts/sync.js --run_hooks",
     "start": "node ./scripts/commands.js start",
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
