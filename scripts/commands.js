@@ -68,6 +68,7 @@ program
   .option('--disable_brave_extension', 'disable loading the Brave extension')
   .option('--disable_pdfjs_extension', 'disable loading the PDFJS extension')
   .option('--enable_brave_update', 'enable brave update')
+  .option('--channel <target_chanel>', 'target channel to start', /^(beta|dev|nightly|release)$/i, 'release')
   .arguments('[build_config]')
   .action(start)
 
