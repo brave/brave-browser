@@ -19,6 +19,7 @@ Prerequisites
     * You might want to create a Python `virtualenv <https://virtualenv.pypa.io/en/stable/>`_ or use `Pipenv <https://docs.pipenv.org/>`_
       first to sequester these Python modules from your installed system
       modules.
+* Install ``latexmk`` for **LaTeX** and PDF output formats.
 
 
 Using Sphinx
