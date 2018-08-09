@@ -11,6 +11,7 @@
   - [ ] Windows
   - [ ] macOS
   - [ ] Linux
+- [ ] Ran `git rebase master` (if needed).
 - [ ] Ran `git rebase -i` to squash commits (if needed).
 - [ ] Tagged reviewers and labelled the pull request as needed.
 - [ ] Request a security/privacy review as needed.
