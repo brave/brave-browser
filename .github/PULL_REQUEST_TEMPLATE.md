@@ -14,7 +14,7 @@
 - [ ] Ran `git rebase master` (if needed).
 - [ ] Ran `git rebase -i` to squash commits (if needed).
 - [ ] Tagged reviewers and labelled the pull request as needed.
-- [ ] Request a security/privacy review as needed.
+- [ ] Requested a security/privacy review as needed.
 
 ## Test Plan:
 
@@ -23,4 +23,4 @@
 
 - [ ] New files have MPL-2.0 license header.
 - [ ] Request a security/privacy review as needed.
-- [ ] Adequate test coverage exists to prevent regressions
+- [ ] Adequate test coverage exists to prevent regressions.
