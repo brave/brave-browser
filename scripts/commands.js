@@ -17,6 +17,7 @@ const chromiumRebaseL10n = require('../lib/chromiumRebaseL10n')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
+const lint = require('../lib/lint')
 
 program
   .version(process.env.npm_package_version)
@@ -104,6 +105,10 @@ program
   .option('--single_process', 'uses a single process to run tests to help with debugging')
   .arguments('[build_config]')
   .action(test)
+
+program
+  .command('lint')
+  .action(lint)
 
 program
   .parse(process.argv)

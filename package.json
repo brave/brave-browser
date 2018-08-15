@@ -15,7 +15,8 @@
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
-    "test": "node ./scripts/commands.js test"
+    "test": "node ./scripts/commands.js test",
+    "lint": "node ./scripts/commands.js lint"
   },
   "config": {
     "projects": {
