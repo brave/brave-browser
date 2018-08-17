@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "0.55.0",
+  "version": "0.55.1",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
@@ -21,7 +21,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "69.0.3497.32",
+        "tag": "69.0.3497.42",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
