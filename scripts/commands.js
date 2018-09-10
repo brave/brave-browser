@@ -36,6 +36,7 @@ program
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
+  .option('--skip_gn_gen', 'Skip gn gen')
   .arguments('[build_config]')
   .action(build)
 
