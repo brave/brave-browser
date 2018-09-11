@@ -22,8 +22,8 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 <!-- [Easily reproduced/Intermittent issue/No steps to reproduce] -->
 
 
-## Brave version (about:brave info)
-<!--Please use the clipboard button in about:brave and paste the complete information here-->
+## Brave version (chrome://version info)
+<!--Please copy Brave, Revision and OS from chrome://version and paste here-->
 
 
 ### Reproducible on current release:
