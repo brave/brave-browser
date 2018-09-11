@@ -28,7 +28,7 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 
 
 ## Brave version (chrome://version info)
-<!--Please copy Brave, Revision and OS from chrome://version and paste here-->
+<!--For installed build, please copy Brave, Revision and OS from chrome://version and paste here. If building from source please mention it along with chrome://version details-->
 
 
 ### Reproducible on current release:
