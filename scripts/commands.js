@@ -65,6 +65,7 @@ program
   .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]', 'brave-development')
   .option('--no_sandbox', 'disable the sandbox')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
+  .option('--disable_brave_rewards_extension', 'disable loading the Brave Rewards extension')
   .option('--disable_pdfjs_extension', 'disable loading the PDFJS extension')
   .option('--ui_mode <ui_mode>', 'which built-in ui appearance mode to use', /^(dark|light)$/i)
   .option('--enable_brave_update', 'enable brave update')
