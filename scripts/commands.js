@@ -105,6 +105,7 @@ program
   .option('--filter <filter>', 'set test filter')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
   .option('--single_process', 'uses a single process to run tests to help with debugging')
+  .option('--test_launcher_jobs <test_launcher_jobs>', 'Number of jobs to launch')
   .arguments('[build_config]')
   .action(test)
 
