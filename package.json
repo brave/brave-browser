@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "0.55.6",
+  "version": "0.55.7",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
@@ -38,7 +38,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "0.55.x",
+        "tag": "v0.55.7",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
