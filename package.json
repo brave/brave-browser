@@ -38,7 +38,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "readd-widevine-gn-support",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
