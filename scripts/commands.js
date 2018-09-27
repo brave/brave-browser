@@ -100,6 +100,7 @@ program
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .option('--filter <filter>', 'set test filter')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
+  .option('--single_process', 'uses a single process to run tests to help with debugging')
   .arguments('[build_config]')
   .action(test)
 

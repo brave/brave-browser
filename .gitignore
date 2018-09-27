@@ -10,3 +10,7 @@ npm-debug.log
 # Rendered Sphinx files should be excluded from source control
 build
 _build
+
+# Clion files
+CMakeLists.txt
+cmake-build-debug
