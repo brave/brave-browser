@@ -84,11 +84,11 @@ Mint
 ----
 ::
 
-    curl https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
+    curl https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
 
     UBUNTU_CODENAME=$( (grep DISTRIB_CODENAME /etc/upstream-release/lsb-release || grep DISTRIB_CODENAME /etc/lsb-release) 2>/dev/null | cut -d'=' -f2 )
 
-    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee -a /etc/apt/sources.list.d/brave-browser-dev-$UBUNTU_CODENAME.list
+    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee -a /etc/apt/sources.list.d/brave-browser-dev-$UBUNTU_CODENAME.list
 
     sudo apt update
 
