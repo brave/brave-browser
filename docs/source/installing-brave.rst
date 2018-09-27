@@ -77,7 +77,7 @@ Fedora 28+
 
     sudo rpm --import https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
 
-    sudo dnf install brave-browser
+    sudo dnf install brave-browser-dev
 
 
 Mint
@@ -92,4 +92,4 @@ Mint
 
     sudo apt update
 
-    sudo apt install brave-browser-beta
+    sudo apt install brave-browser-dev
