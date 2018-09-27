@@ -9,8 +9,8 @@ Beta Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+ Installation
--------------------------
+Ubuntu 16.04+
+-------------
 ::
 
     curl https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
@@ -23,7 +23,7 @@ Ubuntu 16.04+ Installation
 
 
 Mint 17+
-----
+--------
 ::
 
     curl https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
@@ -38,7 +38,7 @@ Mint 17+
 
 
 Fedora 28+
----------
+----------
 ::
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-beta.s3.brave.com/x86_64/
@@ -53,8 +53,8 @@ Development Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+ Installation
--------------------------
+Ubuntu 16.04+
+-------------
 ::
 
     curl https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
@@ -69,7 +69,7 @@ Ubuntu 16.04+ Installation
 
 
 Mint 17+
-----
+--------
 ::
 
     curl https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
@@ -84,7 +84,7 @@ Mint 17+
 
 
 Fedora 28+
----------
+----------
 ::
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-dev.s3.brave.com/x86_64/
