@@ -32,8 +32,8 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 
 
 ### Reproducible on current release:
-<!--Does the issue reproduce on browser-laptop version as well? -->
-
+- Does it reproduce on brave-browser dev/beta builds? 
+- Does it reproduce on browser-laptop? 
 
 ### Website problems only:  
 - Does the issue resolve itself when disabling Brave Shields? 
