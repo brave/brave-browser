@@ -27,7 +27,8 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 
 
 ### Reproducible on current release:
-<!-- Is this a problem with the live build? It matters for triage reasons. -->
+- Does it reproduce on brave-browser dev/beta builds? 
+- Does it reproduce on browser-laptop? 
 
 
 ### Website problems only:  
