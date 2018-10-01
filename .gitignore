@@ -4,3 +4,8 @@ src
 npm-debug.log
 .gclient
 .sccache
+**.sw[po]
+
+# Clion files
+CMakeLists.txt
+cmake-build-debug

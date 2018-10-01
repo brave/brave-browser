@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "target": "es5",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/brave/components/definitions"
+    ],
+    // optional
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true
+  },
+  "include": [
+    "./src/brave/components/**/*.{ts,tsx}"
+  ]
+}
