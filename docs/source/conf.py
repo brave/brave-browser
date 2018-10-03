@@ -81,8 +81,15 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-    'description': 'Next generation Brave browser for macOS, Windows, Linux. <a href="https://www.brave.com">brave.com</a>',
-    'logo': 'product_logo_name_48.png',
+'description': 'Next generation Brave browser for macOS, Windows, Linux. <a href="https://www.brave.com">brave.com</a>',
+'logo': 'brave-release.svg',
+'head_font_family': 'Muli, Proxima Nova, Avenir',
+'caption_font_size': '14px',
+'caption_font_family': 'Muli, Proxima Nova, Avenir',
+'code_font_size': '14px',
+'code_font_family': 'Menlo, DejaVu Sans Mono, monospace',
+'font_family': 'Muli, Proxima Nova, Avenir',
+'font_size': '16px',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -100,13 +107,15 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
-# html_favicon = "_static/product_logo_32.png"
+html_favicon = '_static/product_logo_32.png'
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'BraveBrowserdoc'
+
+html_css_files = '_static/custom.css'
 
 
 # -- Options for LaTeX output ------------------------------------------------

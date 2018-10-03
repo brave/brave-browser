@@ -3,8 +3,8 @@
 
 .. _rs_welcome:
 
-Welcome to Brave Docs!
-======================
+Welcome to Brave Docs
+---------------------
 
 The next generation Brave desktop browser for macOS, Windows, and Linux.
 

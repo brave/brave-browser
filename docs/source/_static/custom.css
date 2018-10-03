@@ -1,9 +1,15 @@
-/* This prevents the code block from having a scroll bar */
-pre {
-    white-space: pre-wrap;
-}
 
 /* add padding after logo */
 .logo {
-    padding-bottom: 20px
+    height:100%;
+    width:80px;
+    margin-bottom: 20px;
+}
+
+pre {
+    white-space: pre-wrap;
+    background: #EEE;
+    padding: 25px 30px;
+    margin: 15px 0px;
+    line-height: 1.3em;
 }
