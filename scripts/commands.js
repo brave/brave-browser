@@ -62,7 +62,7 @@ program
   .command('start')
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .option('--vmodule [modules]', 'verbose log from specific modules')
-  .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]', 'brave-development')
+  .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]', 'Brave-Browser-Development')
   .option('--no_sandbox', 'disable the sandbox')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
   .option('--disable_brave_rewards_extension', 'disable loading the Brave Rewards extension')
