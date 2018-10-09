@@ -6,6 +6,7 @@ npm-debug.log
 .sccache
 **.sw[po]
 .vscode
+.cipd
 
 # Rendered Sphinx files should be excluded from source control
 build
