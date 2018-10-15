@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "0.55.13",
+  "version": "0.55.14",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "cibuild": "node ./scripts/commands.js cibuild",
