@@ -4,6 +4,50 @@ Installing Brave
 Linux
 *****
 
+Release Channel Installation
+============================
+
+.. highlight:: console
+
+Ubuntu 16.04+
+-------------
+::
+
+    curl https://brave-browser-apt-release.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
+
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ `lsb_release -sc` main" | sudo tee -a /etc/apt/sources.list.d/brave-browser-release-`lsb_release -sc`.list
+
+    sudo apt update
+
+    sudo apt install brave-browser
+
+
+Mint 17+
+--------
+::
+
+    curl https://brave-browser-apt-release.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
+
+    UBUNTU_CODENAME=$( (grep DISTRIB_CODENAME /etc/upstream-release/lsb-release || grep DISTRIB_CODENAME /etc/lsb-release) 2>/dev/null | cut -d'=' -f2 )
+
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee -a /etc/apt/sources.list.d/brave-browser-release-$UBUNTU_CODENAME.list
+
+    sudo apt update
+
+    sudo apt install brave-browser
+
+
+Fedora 28+
+----------
+::
+
+    sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+
+    sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core-nightly.asc
+
+    sudo dnf install brave-browser
+
+
 Beta Channel Installation
 ================================
 
