@@ -5,6 +5,7 @@ npm-debug.log
 .gclient
 .sccache
 **.sw[po]
+.idea
 
 # Clion files
 CMakeLists.txt
