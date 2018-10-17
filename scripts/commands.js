@@ -74,6 +74,8 @@ program
   .option('--enable_brave_update', 'enable brave update')
   .option('--channel <target_chanel>', 'target channel to start', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--official_build <official_build>', 'force official build settings')
+  .option('--rewards_env [server]', 'switch between staging and production', /^(stag|prod)$/i)
+  .option('--rewards_reconcile_interval [reconcile_interval]', 'set reconcile interval for contribution in minutes', parseInt)
   .option('--single_process', 'use a single process')
   .arguments('[build_config]')
   .action(start)
