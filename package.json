@@ -252,5 +252,8 @@
   "dependencies": {
     "commander": "^2.9.0",
     "fs-extra": "^1.0.0"
+  },
+  "devDependencies": {
+    "ip": "^1.1.5"
   }
 }
