@@ -18,7 +18,7 @@
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
     "test": "node ./scripts/commands.js test",
-    "test-security": "npm audit && npm run network-audit"
+    "test-security": "npm audit && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
   },
   "config": {
     "projects": {
