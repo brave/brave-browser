@@ -32,7 +32,7 @@ if (program.init) {
 }
 
 if (program.init) {
-  util.gclientSync()
+  util.gclientSync(true)
 }
 
 let updatedVersion = false
