@@ -13,10 +13,12 @@
     "update_patches": "node ./scripts/commands.js update_patches",
     "apply_patches": "node ./scripts/sync.js --run_hooks",
     "start": "node ./scripts/commands.js start",
+    "network-audit": "node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test",
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
-    "test": "node ./scripts/commands.js test"
+    "test": "node ./scripts/commands.js test",
+    "test-security": "npm audit && npm run network-audit"
   },
   "config": {
     "projects": {

@@ -8,6 +8,8 @@ npm-debug.log
 .vscode
 .cipd
 .idea
+network_log.json
+network-audit-results.json
 
 # Rendered Sphinx files should be excluded from source control
 build
