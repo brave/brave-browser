@@ -6,6 +6,8 @@ npm-debug.log
 .sccache
 **.sw[po]
 .idea
+network_log.json
+network-audit-results.json
 
 # Clion files
 CMakeLists.txt
