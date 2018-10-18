@@ -3,7 +3,7 @@
 
 ## Overview 
 
-This repository holds the build tools needed to build the next generation Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects we define in `package.json` and `src/brave/DEPS`:
+This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects we define in `package.json` and `src/brave/DEPS`:
 
   - [Chromium](https://chromium.googlesource.com/chromium/src.git)
     - Fetches code via `depot_tools`.
@@ -27,15 +27,12 @@ See the [Brave Wiki](https://github.com/brave/brave-browser/wiki).
 
 ## Downloads
 
-We're not offering downloads yet for this next generation desktop browser.
-
-You can [visit our website](https://brave.com/downloads.html) to get the latest stable release of our existing browser which is still in active development.
+You can [visit our website](https://brave.com/downloads.html) to get the latest stable release.
 
 ## Other repositories
 
-For other versions of our browser which are shipping already, please see:
+For other versions of our browser, please see:
 
-* macOS, Windows, Linux - [brave/browser-laptop](https://github.com/brave/browser-laptop)
 * iPhone - [brave/browser-ios](https://github.com/brave/browser-ios)
 * Android - [brave/browser-android-tabs](https://github.com/brave/browser-android-tabs)
 
