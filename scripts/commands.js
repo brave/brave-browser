@@ -77,6 +77,7 @@ program
   .option('--rewards_env [server]', 'switch between staging and production', /^(stag|prod)$/i)
   .option('--rewards_reconcile_interval [reconcile_interval]', 'set reconcile interval for contribution in minutes', parseInt)
   .option('--single_process', 'use a single process')
+  .option('--network_log', 'log network activity to network_log.json')
   .arguments('[build_config]')
   .action(start)
 
