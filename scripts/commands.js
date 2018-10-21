@@ -3,27 +3,27 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 const program = require('commander');
-const path = require('path')
-const fs = require('fs-extra')
-const config = require('../lib/config')
-const util = require('../lib/util')
-const build = require('../lib/build')
-const versions = require('../lib/versions')
-const start = require('../lib/start')
-const updatePatches = require('../lib/updatePatches')
-const pullL10n = require('../lib/pullL10n')
-const pushL10n = require('../lib/pushL10n')
-const chromiumRebaseL10n = require('../lib/chromiumRebaseL10n')
-const createDist = require('../lib/createDist')
-const upload = require('../lib/upload')
-const test = require('../lib/test')
+const path = require('path');
+const fs = require('fs-extra');
+const config = require('../lib/config');
+const util = require('../lib/util');
+const build = require('../lib/build');
+const versions = require('../lib/versions');
+const start = require('../lib/start');
+const updatePatches = require('../lib/updatePatches');
+const pullL10n = require('../lib/pullL10n');
+const pushL10n = require('../lib/pushL10n');
+const chromiumRebaseL10n = require('../lib/chromiumRebaseL10n');
+const createDist = require('../lib/createDist');
+const upload = require('../lib/upload');
+const test = require('../lib/test');
 
 program
-  .version(process.env.npm_package_version)
+  .version(process.env.npm_package_version);
 
 program
   .command('versions')
-  .action(versions)
+  .action(versions);
 
 program
   .command('build')
@@ -38,7 +38,7 @@ program
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--ignore_compile_failure', 'Keep compiling regardless of error')
   .arguments('[build_config]')
-  .action(build)
+  .action(build);
 
 program
   .command('create_dist')
@@ -52,12 +52,12 @@ program
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .arguments('[build_config]')
-  .action(createDist)
+  .action(createDist);
 
 program
   .command('upload')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
-  .action(upload)
+  .action(upload);
 
 program
   .command('start')
@@ -75,31 +75,31 @@ program
   .option('--official_build <official_build>', 'force official build settings')
   .option('--single_process', 'use a single process')
   .arguments('[build_config]')
-  .action(start)
+  .action(start);
 
 program
   .command('pull_l10n')
-  .action(pullL10n)
+  .action(pullL10n);
 
 program
   .command('push_l10n')
-  .action(pushL10n)
+  .action(pushL10n);
 
 program
   .command('chromium_rebase_l10n')
-  .action(chromiumRebaseL10n)
+  .action(chromiumRebaseL10n);
 
 program
   .command('update_patches')
-  .action(updatePatches)
+  .action(updatePatches);
 
 program
   .command('cibuild')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
   .action((options) => {
-    options.official_build = true
+    options.official_build = true;
     build('Release', options)
-  })
+  });
 
 program
   .command('test <suite>')
@@ -110,7 +110,7 @@ program
   .option('--single_process', 'uses a single process to run tests to help with debugging')
   .option('--test_launcher_jobs <test_launcher_jobs>', 'Number of jobs to launch')
   .arguments('[build_config]')
-  .action(test)
+  .action(test);
 
 program
-  .parse(process.argv)
+  .parse(process.argv);
