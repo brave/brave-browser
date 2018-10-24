@@ -40,7 +40,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "0.56.x",
+        "commit": "1bf430b76ef006d9f338d50468fa2532338558d8",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
