@@ -3,6 +3,7 @@
   "version": "0.58.1",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
+    "audit_deps": "node ./scripts/audit.js",
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
     "create_dist": "node ./scripts/commands.js create_dist",
@@ -18,7 +19,7 @@
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
     "test": "node ./scripts/commands.js test",
-    "test-security": "npm audit && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
+    "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
   },
   "config": {
     "projects": {
