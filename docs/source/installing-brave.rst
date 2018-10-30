@@ -48,6 +48,22 @@ Fedora 28+
     sudo dnf install brave-browser
 
 
+Centos/RHel
+----------
+::
+
+    sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+    sudo cat << EOF >  /etc/yum.repos.d/Brave.repo
+    [brave]
+    name=Brave Browser repo
+    baseurl=https://brave-browser-rpm-releases.s3.brave.com/x86_64/
+    enabled=1
+    EOF
+
+    sudo yum install brave-browser
+
+
 Beta Channel Installation
 ================================
 
@@ -90,6 +106,21 @@ Fedora 28+
     sudo rpm --import https://brave-browser-rpm-beta.s3.brave.com/brave-core-nightly.asc
 
     sudo dnf install brave-browser-beta
+
+Centos/RHel
+----------
+::
+
+    sudo rpm --import https://brave-browser-rpm-beta.s3.brave.com/brave-core-nightly.asc
+
+    sudo cat << EOF >  /etc/yum.repos.d/Brave.repo
+    [brave]
+    name=Brave Browser repo
+    baseurl=https://brave-browser-rpm-beta.s3.brave.com/x86_64/
+    enabled=1
+    EOF
+
+    sudo yum install brave-browser-beta
 
 
 Development Channel Installation
@@ -136,3 +167,18 @@ Fedora 28+
     sudo rpm --import https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
 
     sudo dnf install brave-browser-dev
+
+
+Centos/RHel
+----------
+::
+
+    sudo rpm --import  https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
+
+    sudo cat << EOF >  /etc/yum.repos.d/Brave.repo
+    [brave]
+    name=Brave Browser repo
+    baseurl=https://brave-browser-rpm-dev.s3.brave.com/x86_64/
+    enabled=1
+    EOF
+    sudo yum install brave-browser-dev
