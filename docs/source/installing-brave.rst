@@ -57,7 +57,7 @@ Centos/RHel
     sudo cat << EOF >  /etc/yum.repos.d/Brave.repo
     [brave]
     name=Brave Browser repo
-    baseurl=https://brave-browser-rpm-releases.s3.brave.com/x86_64/
+    baseurl=https://brave-browser-rpm-release.s3.brave.com/x86_64/
     enabled=1
     EOF
 
