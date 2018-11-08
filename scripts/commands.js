@@ -71,6 +71,7 @@ program
   .option('--disable_brave_extension', 'disable loading the Brave extension')
   .option('--disable_brave_rewards_extension', 'disable loading the Brave Rewards extension')
   .option('--disable_pdfjs_extension', 'disable loading the PDFJS extension')
+  .option('--disable_webtorrent_extension', 'disable loading the WebTorrent extension')
   .option('--ui_mode <ui_mode>', 'which built-in ui appearance mode to use', /^(dark|light)$/i)
   .option('--show_component_extensions', 'show component extensions in chrome://extensions')
   .option('--enable_brave_update', 'enable brave update')
