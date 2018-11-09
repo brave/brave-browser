@@ -19,7 +19,7 @@ Ubuntu 16.04+
 
     sudo apt update
 
-    sudo apt install brave-browser
+    sudo apt install brave-browser brave-keyring
 
 
 Mint 17+
@@ -34,7 +34,7 @@ Mint 17+
 
     sudo apt update
 
-    sudo apt install brave-browser
+    sudo apt install brave-browser brave-keyring
 
 
 Fedora 28+
@@ -45,7 +45,7 @@ Fedora 28+
 
     sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-    sudo dnf install brave-browser
+    sudo dnf install brave-browser brave-keyring
 
 
 Centos/RHel
@@ -61,7 +61,7 @@ Centos/RHel
     enabled=1
     EOF
 
-    sudo yum install brave-browser
+    sudo yum install brave-browser brave-keyring
 
 
 Beta Channel Installation
