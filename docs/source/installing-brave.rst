@@ -136,8 +136,6 @@ Ubuntu 16.04+
 
     echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ `lsb_release -sc` main" | sudo tee -a /etc/apt/sources.list.d/brave-browser-dev-`lsb_release -sc`.list
 
-    cat /etc/apt/sources.list.d/brave-xenial.list
-
     sudo apt update
 
     sudo apt install brave-browser-dev
