@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.56.14](https://github.com/brave/brave-browser/releases/tag/v0.56.14)
+
+- Upgraded to Chromium 70.0.3538.102. ([#2099](https://github.com/brave/brave-browser/issues/2099))
+
 ## [0.56.12](https://github.com/brave/brave-browser/releases/tag/v0.56.12)
 
 - Updated the Brave shields panel with a new design. ([#1339](https://github.com/brave/brave-browser/issues/1339))
