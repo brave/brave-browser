@@ -8,10 +8,9 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm install'
-                sh 'npm run init'
-                sh 'pwd'
-                sh 'ls -la'
+                // sh 'npm install'
+                // sh 'npm run init'
+                sh 'npm run build Release --debug_build=false --official_build=true --channel=dev'
             }
         }
     }
