@@ -64,6 +64,13 @@ Centos/RHel
     sudo yum install brave-browser brave-keyring
 
 
+Solus
+----------
+::
+
+    sudo eopkg it brave
+
+
 Beta Channel Installation
 ================================
 
