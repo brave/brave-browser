@@ -39,11 +39,11 @@ pipeline {
         //         """
         //     }
         // }
-        stage('test-security') {
-            steps {
-                sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser.app/Contents/MacOS/Brave\\ Browser"'
-            }
-        }
+        // stage('test-security') {
+        //     steps {
+        //         sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser.app/Contents/MacOS/Brave\\ Browser"'
+        //     }
+        // }
         stage('test-unit') {
             steps {
                 sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
