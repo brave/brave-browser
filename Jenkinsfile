@@ -8,6 +8,7 @@ pipeline {
     environment {
         npm_config_brave_google_api_key     = credentials('npm_config_brave_google_api_key')
         REFERRAL_API_KEY = credentials('REFERRAL_API_KEY')
+        CHANNEL = 'dev'
     }
     stages {
         // stage('install') {
@@ -34,13 +35,13 @@ pipeline {
 
         //             npm config set brave_referrals_api_key=${REFERRAL_API_KEY}
 
-        //             npm run build Release --debug_build=false --official_build=true --channel=dev
+        //             npm run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
         //         """
         //     }
         // }
         stage('test-security') {
             steps {
-                sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
+                sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser.app/Contents/MacOS/Brave\\ Browser"'
             }
         }
         stage('test-unit') {
