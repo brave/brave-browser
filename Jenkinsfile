@@ -16,16 +16,16 @@ pipeline {
                 sh 'npm install'
             }
         }
-        // stage('init') {
-        //     steps {
-        //         sh 'npm run init'
-        //     }
-        // }
-        stage('sync') {
+        stage('init') {
             steps {
-                sh 'npm run sync --all'
+                sh 'npm run init'
             }
         }
+        // stage('sync') {
+        //     steps {
+        //         sh 'npm run sync --all'
+        //     }
+        // }
         stage('build') {
             steps {
                 sh """
