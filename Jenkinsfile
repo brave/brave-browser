@@ -10,12 +10,12 @@ pipeline {
         REFERRAL_API_KEY = credentials('REFERRAL_API_KEY')
     }
     stages {
-        stage('install') {
-            steps {
-                // sh 'npm install'
-                // sh 'npm run init'
-            }
-        }
+        // stage('install') {
+        //     steps {
+        //         sh 'npm install'
+        //         sh 'npm run init'
+        //     }
+        // }
         stage('build') {
             steps {
                 sh """
