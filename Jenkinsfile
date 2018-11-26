@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'darwin-slow'
+            label 'darwin-fast'
             // customWorkspace '/Users/jenkins/jenkins/workspace/temp/'
         }
     }
@@ -10,12 +10,16 @@ pipeline {
         REFERRAL_API_KEY = credentials('REFERRAL_API_KEY')
     }
     stages {
-        // stage('install') {
-        //     steps {
-        //         sh 'npm install'
-        //         sh 'npm run init'
-        //     }
-        // }
+        stage('install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('init') {
+            steps {
+                sh 'npm run init'
+            }
+        }
         stage('build') {
             steps {
                 sh """
@@ -32,6 +36,11 @@ pipeline {
 
                     npm run build Release --debug_build=false --official_build=true --channel=dev
                 """
+            }
+        }
+        stage('test-security') {
+            steps {
+                sh 'npm run test-security -- --output_path="src/out/Release/Brave  Browser Dev.app/Contents/MacOS/Brave Browser Dev"'
             }
         }
     }
