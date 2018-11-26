@@ -76,8 +76,8 @@ program
   .option('--enable_brave_update', 'enable brave update')
   .option('--channel <target_chanel>', 'target channel to start', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--official_build <official_build>', 'force official build settings')
-  .option('--rewards_env [server]', 'switch between staging and production', /^(stag|prod)$/i)
-  .option('--rewards_reconcile_interval [reconcile_interval]', 'set reconcile interval for contribution in minutes', parseInt)
+  // See https://github.com/brave/brave-browser/wiki/Rewards#flags for more information
+  .option('--rewards [options]', 'options for rewards')
   .option('--single_process', 'use a single process')
   .option('--network_log', 'log network activity to network_log.json')
   .option('--output_path [pathname]', 'use the Brave binary located at [pathname]')
