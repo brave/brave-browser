@@ -40,7 +40,7 @@ pipeline {
         }
         stage('test-security') {
             steps {
-                sh 'npm run test-security -- --output_path="src/out/Release/Brave Browser Dev.app/Contents/MacOS/Brave Browser Dev"'
+                sh 'npm run test-security -- --output_path="src/out/Release/Brave\ Browser\ Dev.app/Contents/MacOS/Brave\ Browser\ Dev"'
             }
         }
     }
