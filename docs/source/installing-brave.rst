@@ -64,6 +64,13 @@ Centos/RHel
     sudo yum install brave-browser brave-keyring
 
 
+Manjaro
+-------
+::
+
+    pamac install brave
+
+
 Beta Channel Installation
 ================================
 
