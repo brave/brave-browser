@@ -13,12 +13,12 @@ pipeline {
     stages {
         stage('install') {
             steps {
-                sh 'npm install'
+                sh 'yarn install'
             }
         }
         stage('init') {
             steps {
-                sh 'npm run init'
+                sh 'yarn run init'
             }
         }
         // stage('sync') {
@@ -40,7 +40,7 @@ pipeline {
 
                     npm config set brave_referrals_api_key=${REFERRAL_API_KEY}
 
-                    npm run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
+                    yarn run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
                 """
             }
         }
