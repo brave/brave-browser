@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('install') {
             steps {
-                sh 'npm install'
+                sh 'echo ${CHANNEL} && npm install'
             }
         }
         stage('init') {
@@ -29,6 +29,7 @@ pipeline {
         stage('build') {
             steps {
                 sh """
+                    echo ${CHANNEL}
                     export npm_config_brave_google_api_endpoint="https://location.services.mozilla.com/v1/geolocate?key="
                     export npm_config_google_api_endpoint="safebrowsing.brave.com"
                     export npm_config_google_api_key="dummytoken"
@@ -46,7 +47,7 @@ pipeline {
         }
         stage('test-security') {
             steps {
-                sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser \\Dev"'
+                sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
             }
         }
         stage('test-unit') {
