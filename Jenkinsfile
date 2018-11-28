@@ -46,19 +46,28 @@ pipeline {
             }
         }
         stage('test-security') {
-            steps {
-                sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
+            catchError {
+                steps {
+                    sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
+                }            
             }
+            echo currentBuild.result
         }
         stage('test-unit') {
-            steps {
-                sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
+            catchError {
+                steps {
+                    sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
+                }            
             }
+            echo currentBuild.result            
         }
         stage('test-browser') {
-            steps {
-                sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
+            catchError {
+                steps {
+                    sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
+                }            
             }
+            echo currentBuild.result
         }
     }
 }
