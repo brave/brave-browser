@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'darwin-fast'
+            label 'darwin-slow'
             // customWorkspace '/Users/jenkins/jenkins/workspace/temp/'
         }
     }
