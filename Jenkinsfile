@@ -22,11 +22,11 @@ pipeline {
             }
         }
         // TODO do init for first time, sync after
-        //stage('sync') {
-        //   steps {
-        //        sh 'npm run sync --all'
-        //    }
-        //}
+        // stage('sync') {
+        //     steps {
+        //         sh 'npm run sync --all'
+        //     }
+        // }
         stage('build') {
             steps {
                 sh """
