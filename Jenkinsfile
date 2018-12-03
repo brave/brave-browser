@@ -68,8 +68,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'exit 0'
-                        // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
+                        // sh 'exit 0'
+                        sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
                     }
                     catch (exc) {
                         // currentBuild.result = 'FAILURE'
