@@ -76,11 +76,11 @@ pipeline {
                         // echo "${exc}"
                         // throw exc
                     }
-                    finally {
-                        xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-                        echo "${currentBuild.currentResult}"
-                        echo "${currentBuild.result}"
-                    }
+                    // finally {
+                    //     xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    //     echo "${currentBuild.currentResult}"
+                    //     echo "${currentBuild.result}"
+                    // }
                 }
             }
         }
@@ -96,18 +96,18 @@ pipeline {
                         // echo "${exc}"
                         // throw exc
                     }
-                    finally {
-                        xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-                        echo "${currentBuild.currentResult}"
-                        echo "${currentBuild.result}"
-                    }
+                    // finally {
+                    //     xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_*_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    //     echo "${currentBuild.currentResult}"
+                    //     echo "${currentBuild.result}"
+                    // }
                 }
             }
         }                
     }
-    // post {
-    //     always {
-    //         // TODO slack notify?
-    //     }
-    // }
+    post {
+        always {
+            xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_*_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+        }
+    }
 }
