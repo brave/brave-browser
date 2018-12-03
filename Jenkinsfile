@@ -53,8 +53,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'exit 0'
-                        // sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
+                        // sh 'exit 0'
+                        sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
                     }
                     catch (exc) {
                         currentBuild.result = 'FAILURE'
@@ -68,8 +68,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'exit 0'
-                        // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
+                        // sh 'exit 0'
+                        sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
                     }
                     catch (exc) {
                         currentBuild.result = 'FAILURE'
