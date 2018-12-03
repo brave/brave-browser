@@ -76,8 +76,8 @@ pipeline {
                         // echo "${exc}"
                         // throw exc
                     }
-                    xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true, unstableThreshold: '1')])
                 }
+                xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true, unstableThreshold: '1')])
             }
         }
         stage('test-browser') {
@@ -92,8 +92,8 @@ pipeline {
                         // echo "${exc}"
                         // throw exc
                     }
-                    xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
                 }
+                xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
             }
         }                
     }
