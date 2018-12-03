@@ -1,14 +1,18 @@
 pipeline {
     options {
-        // disableConcurrentBuilds()
-        quietPeriod(3600)
+        // disable concurrent build per branch
+        disableConcurrentBuilds()
+        // 5m quiet period as described at https://jenkins.io/blog/2010/08/11/quiet-period-feature/
+        quietPeriod(300)
+        // abort long running builds
         timeout(time: 6, unit: 'HOURS')
+        // add timestamps to console log
         timestamps()
     }
     agent {
         node {
+            // label of node on which to build
             label 'darwin-slow'
-            // customWorkspace '/Users/jenkins/jenkins/workspace/temp/'
         }
     }
     environment {
@@ -20,17 +24,13 @@ pipeline {
         stage('install') {
             steps {
                 sh 'yarn install'
-                // script {
-                //     currentBuild.displayName = "master"
-                //     currentBuild.description = "version"
-                // }
             }
         }
-        // stage('init') {
-        //     steps {
-        //         sh 'yarn run init'
-        //     }
-        // }
+        stage('init') {
+            steps {
+                sh 'yarn run init'
+            }
+        }
         // TODO do init for first time building the pr, sync after
         // stage('sync') {
         //     steps {
@@ -51,21 +51,18 @@ pipeline {
 
                     npm config set brave_referrals_api_key=${REFERRAL_API_KEY}
 
+                    yarn run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
                 """
-                    // yarn run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
             }
         }
         stage('test-security') {
             steps {
                 script {
                     try {
-                        // sh 'exit 0'
                         sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
                     }
                     catch (ex) {
                         currentBuild.result = 'UNSTABLE'
-                        // echo "${ex}"
-                        // throw ex
                     }
                 }
             }
@@ -74,20 +71,12 @@ pipeline {
             steps {
                 script {
                     try {
-                        // sh 'exit 0'
                         sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
                     }
                     catch (ex) {
                         currentBuild.result = 'UNSTABLE'
-                        // echo "${ex}"
-                        // throw ex
                     }
-                    // finally {
-                    //     xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-                    //     echo "${currentBuild.currentResult}"
-                    // }
                     xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
-
                 }
             }
         }
@@ -95,18 +84,11 @@ pipeline {
             steps {
                 script {
                     try {
-                        // sh 'exit 1'
                         sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
                     }
                     catch (ex) {
                         currentBuild.result = 'UNSTABLE'
-                        // echo "${ex}"
-                        // throw ex
                     }
-                    // finally {
-                    //     xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-                    //     echo "${currentBuild.currentResult}"
-                    // }
                     xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
                 }
             }
