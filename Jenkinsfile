@@ -1,4 +1,7 @@
 pipeline {
+    options {
+        disableConcurrentBuilds()
+    }
     agent {
         node {
             label 'darwin-slow'
@@ -25,7 +28,7 @@ pipeline {
         //         sh 'yarn run init'
         //     }
         // }
-        // TODO do init for first time, sync after
+        // TODO do init for first time building the pr, sync after
         // stage('sync') {
         //     steps {
         //         sh 'npm run sync --all'
