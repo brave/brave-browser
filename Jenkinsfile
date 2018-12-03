@@ -92,8 +92,8 @@ pipeline {
                         // sh 'exit 1'
                         sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
                     }
-                    catch (exc) {
-                        currentBuild.currentResult = 'UNSTABLE'
+                    catch (ex) {
+                        currentBuild.result = 'UNSTABLE'
                         // echo "${ex}"
                         // throw ex
                     }
