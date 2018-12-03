@@ -57,7 +57,7 @@ pipeline {
                         // sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
                     }
                     catch (exc) {
-                        // currentBuild.result = 'UNSTABLE'
+                        currentBuild.result = 'FAILURE'
                         // echo "${exc}"
                         // throw exc
                     }
@@ -72,7 +72,7 @@ pipeline {
                         // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
                     }
                     catch (exc) {
-                        // currentBuild.result = 'UNSTABLE'
+                        currentBuild.result = 'FAILURE'
                         // echo "${exc}"
                         // throw exc
                     }
@@ -88,10 +88,11 @@ pipeline {
                         // sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
                     }
                     catch (exc) {
-                        // currentBuild.result = 'UNSTABLE'
+                        currentBuild.result = 'FAILURE'
                         // echo "${exc}"
                         // throw exc
                     }
+                    xunit([GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
                 }
             }
         }                
