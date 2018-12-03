@@ -1,6 +1,6 @@
 pipeline {
     options {
-        disableConcurrentBuilds()
+        // disableConcurrentBuilds()
         quietPeriod(3600)
         timeout(time: 6, unit: 'HOURS')
         timestamps()
