@@ -50,42 +50,49 @@ pipeline {
             }
         }
         stage('test-security') {
-            try {
-                steps {
-                    sh 'exit 1'
+            steps {
+                script {
+                    try {
+                        sh 'exit 1'
+                        // sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
+                    }
+                    catch (exc) {
+                        echo "${exc}"
+                        currentBuild.result = 'UNSTABLE'
+                        // throw exc
+                    }
                 }
-            }
-            catch (err) {
-                echo "Caught: ${err}"
-                currentBuild.result = 'UNSTABLE'
-                // catchError {
-                //     sh 'exit 0'
-                //     // sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
-                // }
             }
         }
         stage('test-unit') {
-            try {
-                steps {
-                    sh 'exit 1'
+            steps {
+                script {
+                    try {
+                        sh 'exit 1'
+                        // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
+                    }
+                    catch (exc) {
+                        echo "${exc}"
+                        currentBuild.result = 'UNSTABLE'
+                        // throw exc
+                    }
                 }
-            }
-            catch (err) {
-                echo "Caught: ${err}"
-                currentBuild.result = 'UNSTABLE'
-                // catchError {
-                //     sh 'exit 0'
-                //     // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
-                // }
             }
         }
         stage('test-browser') {
             steps {
-                catchError {
-                    sh 'exit 0'
-                    // sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
+                script {
+                    try {
+                        sh 'exit 1'
+                        // sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
+                    }
+                    catch (exc) {
+                        echo "${exc}"
+                        currentBuild.result = 'UNSTABLE'
+                        // throw exc
+                    }
                 }
             }
-        }
+        }                
     }
 }
