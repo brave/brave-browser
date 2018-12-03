@@ -16,11 +16,11 @@ pipeline {
                 sh 'yarn install'
             }
         }
-        stage('init') {
-            steps {
-                sh 'yarn run init'
-            }
-        }
+        // stage('init') {
+        //     steps {
+        //         sh 'yarn run init'
+        //     }
+        // }
         // TODO do init for first time, sync after
         // stage('sync') {
         //     steps {
@@ -41,7 +41,7 @@ pipeline {
 
                     npm config set brave_referrals_api_key=${REFERRAL_API_KEY}
 
-                    yarn run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
+                    // yarn run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
                 """
             }
         }
@@ -50,7 +50,6 @@ pipeline {
                 catchError {
                     sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
                 }
-                echo currentBuild.result
             }
         }
         stage('test-unit') {
@@ -58,7 +57,6 @@ pipeline {
                 catchError {
                     sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
                 }
-                echo currentBuild.result
             }
         }
         stage('test-browser') {
@@ -66,7 +64,6 @@ pipeline {
                 catchError {
                     sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
                 }
-                echo currentBuild.result
             }
         }
     }
