@@ -57,8 +57,8 @@ pipeline {
                         // sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
                     }
                     catch (exc) {
-                        echo "${exc}"
                         currentBuild.result = 'UNSTABLE'
+                        // echo "${exc}"
                         // throw exc
                     }
                 }
@@ -72,8 +72,8 @@ pipeline {
                         // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
                     }
                     catch (exc) {
-                        echo "${exc}"
                         currentBuild.result = 'UNSTABLE'
+                        // echo "${exc}"
                         // throw exc
                     }
                 }
@@ -87,8 +87,8 @@ pipeline {
                         // sh 'npm run test -- brave_browser_tests Release --output brave_browser_tests.xml'
                     }
                     catch (exc) {
-                        echo "${exc}"
                         currentBuild.result = 'UNSTABLE'
+                        // echo "${exc}"
                         // throw exc
                     }
                 }
