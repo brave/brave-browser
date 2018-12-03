@@ -76,10 +76,12 @@ pipeline {
                         // echo "${exc}"
                         // throw exc
                     }
-                    finally {
-                        xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-                        echo "${currentBuild.currentResult}"
-                    }
+                    // finally {
+                    //     xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    //     echo "${currentBuild.currentResult}"
+                    // }
+                    xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
+
                 }
             }
         }
@@ -95,17 +97,13 @@ pipeline {
                         // echo "${exc}"
                         // throw exc
                     }
-                    finally {
-                        xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-                        echo "${currentBuild.currentResult}"
-                    }
+                    // finally {
+                    //     xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                    //     echo "${currentBuild.currentResult}"
+                    // }
+                    xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
                 }
             }
         }                
-    }
-    post {
-        always {
-            xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: false, failIfNotNew: false, pattern: 'src/brave_*_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
-        }
     }
 }
