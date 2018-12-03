@@ -77,7 +77,8 @@ pipeline {
                         // throw exc
                     }
                 }
-                xunit thresholds: [failed(failureNewThreshold: '0', failureThreshold: '2', unstableNewThreshold: '0', unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_unit_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                echo "${currentBuild.result}"
             }
         }
         stage('test-browser') {
@@ -93,7 +94,8 @@ pipeline {
                         // throw exc
                     }
                 }
-                xunit thresholds: [failed(failureNewThreshold: '0', failureThreshold: '2', unstableNewThreshold: '0', unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                xunit thresholds: [failed(unstableThreshold: '1')], tools: [GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)]
+                echo "${currentBuild.result}"
             }   
         }                
     }
