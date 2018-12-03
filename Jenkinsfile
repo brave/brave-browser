@@ -1,6 +1,9 @@
 pipeline {
     options {
         disableConcurrentBuilds()
+        quietPeriod(3600)
+        timeout(time: 6, unit: 'HOURS')
+        timestamps()
     }
     agent {
         node {
