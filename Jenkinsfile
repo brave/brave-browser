@@ -8,12 +8,16 @@ pipeline {
     environment {
         CHANNEL = 'dev'
         REFERRAL_API_KEY = credentials('REFERRAL_API_KEY')
-        npm_config_brave_google_api_key     = credentials('npm_config_brave_google_api_key')
+        npm_config_brave_google_api_key = credentials('npm_config_brave_google_api_key')
     }
-    stages {
+    stages {       
         stage('install') {
             steps {
                 sh 'yarn install'
+                script {
+                    currentBuild.displayName = "master"
+                    currentBuild.description = "version"
+                }
             }
         }
         // stage('init') {
