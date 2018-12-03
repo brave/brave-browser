@@ -51,18 +51,30 @@ pipeline {
         }
         stage('test-security') {
             steps {
-                catchError {
-                    sh 'exit 0'
-                    // sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
+                try {
+                    sh 'exit 1'
+                } catch (err) {
+                    echo "Caught: ${err}"
+                    currentBuild.result = 'UNSTABLE'
                 }
+                // catchError {
+                //     sh 'exit 0'
+                //     // sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
+                // }
             }
         }
         stage('test-unit') {
             steps {
-                catchError {
-                    sh 'exit 0'
-                    // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
-                }
+                try {
+                    sh 'exit 1'
+                } catch (err) {
+                    echo "Caught: ${err}"
+                    currentBuild.result = 'UNSTABLE'
+                }                
+                // catchError {
+                //     sh 'exit 0'
+                //     // sh 'npm run test -- brave_unit_tests Release --output brave_unit_tests.xml'
+                // }
             }
         }
         stage('test-browser') {
