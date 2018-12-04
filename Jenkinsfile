@@ -26,17 +26,17 @@ pipeline {
                 sh 'yarn install'
             }
         }
-        // stage('init') {
+       stage('init') {
+            steps {
+                sh 'yarn run init'
+            }
+        } 
+        // TODO do init for first time building the pr, sync after
+        // stage('sync') {
         //     steps {
-        //         sh 'yarn run init'
+        //         sh 'npm run sync --all'
         //     }
         // }
-        // TODO do init for first time building the pr, sync after
-        stage('sync') {
-            steps {
-                sh 'npm run sync --all'
-            }
-        }
         stage('build') {
             steps {
                 sh """
