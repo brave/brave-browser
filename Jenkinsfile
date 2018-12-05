@@ -12,7 +12,7 @@ pipeline {
     agent {
         node {
             // label of node on which to build
-            label 'darwin-ky'
+            label 'darwin-slow'
         }
     }
     environment {
@@ -26,17 +26,17 @@ pipeline {
                 sh 'yarn install'
             }
         }
-       stage('init') {
-            steps {
-                sh 'yarn run init'
-            }
-        } 
+    //    stage('init') {
+    //         steps {
+    //             sh 'yarn run init'
+    //         }
+    //     } 
         // TODO do init for first time building the pr, sync after
-        // stage('sync') {
-        //     steps {
-        //         sh 'npm run sync --all'
-        //     }
-        // }
+        stage('sync') {
+            steps {
+                sh 'npm run sync --all'
+            }
+        }
         stage('build') {
             steps {
                 sh """
