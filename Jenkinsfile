@@ -12,7 +12,7 @@ pipeline {
     agent {
         node {
             // label of node on which to build
-            label 'darwin-slow'
+            label 'darwin-new'
         }
     }
     environment {
