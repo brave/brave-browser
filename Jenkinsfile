@@ -12,7 +12,7 @@ pipeline {
     agent {
         node {
             // label of node on which to build
-            label 'darwin-ky'
+            label 'darwin-new'
         }
     }
     environment {
