@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.57.18](https://github.com/brave/brave-browser/releases/tag/v0.57.18)
+
+ - Updated Brave (Muon) import: you can now import Brave Payments, Windows and Tabs, and data related to the referral program. ([#2402](https://github.com/brave/brave-browser/issues/2402))
+ - Added notifications when contributions or donations fail. ([#1483](https://github.com/brave/brave-browser/issues/1483))
+ - Fixed memory leak in Brave Rewards. ([#2213](https://github.com/brave/brave-browser/issues/2213))
+ - Fixed certain PDFs failing to open in Brave. ([#1033](https://github.com/brave/brave-browser/issues/1033))
+ - Fixed certain extensions breaking when using Brave's default shields settings. ([#1380](https://github.com/brave/brave-browser/issues/1380))
+ - Fixed stub installers failing to download Brave under Windows 7. ([#2129](https://github.com/brave/brave-browser/issues/2129))
+ - Fixed hard refresh not fetching new Tor identities. ([#1137](https://github.com/brave/brave-browser/issues/1137))
+ - Fixed third party cookies being blocked even if per site shield is set to allow all cookies. ([#2095](https://github.com/brave/brave-browser/issues/2095))
+ - Fixed not being able to access premium Dow Jones content until restarting after claiming promotion. ([#2020](https://github.com/brave/brave-browser/issues/2020))
+ - Fixed not being able to login into Pocket using Google accounts. ([#2164](https://github.com/brave/brave-browser/issues/2164))
+ - Fixed not being able to close Guest/Tor windows using Brave's action buttons on Linux. ([#1643](https://github.com/brave/brave-browser/issues/1643))
+ - Fixed several Brave Rewards notifications. ([#2114](https://github.com/brave/brave-browser/issues/2114))
+ - Fixed opening Tor windows causing Brave to become unresponsive on Linux. ([#1791](https://github.com/brave/brave-browser/issues/1791))
+ - Fixed size of profile icon next to hamburger menu. ([#1856](https://github.com/brave/brave-browser/issues/1856))
+ - Fixed media publisher name and favicon in site banner not appearing correctly in certain cases. ([#1924](https://github.com/brave/brave-browser/issues/1924))
+ - Fixed shield block count overlapping text when going beyond three digits. ([#1951](https://github.com/brave/brave-browser/issues/1951))
+ - Fixed shields being expandable only when there is blocked items. ([#1957](https://github.com/brave/brave-browser/issues/1957))
+ - Added shields deep link to brave://settings/shields. ([#1959](https://github.com/brave/brave-browser/issues/1959))
+ - Fixed localization for various strings and web-ui pages. ([#2035](https://github.com/brave/brave-browser/issues/2035))
+ - Fixed custom amounts for Brave Rewards not appearing in drop down. ([#2152](https://github.com/brave/brave-browser/issues/2152))
+ - Created and automatically publish silent installers for Windows on GitHub. ([#2210](https://github.com/brave/brave-browser/issues/2210))
+ - Updated translations for various strings. ([#2254](https://github.com/brave/brave-browser/issues/2254))
+ - Upgraded Chromium to 71.0.3578.80. ([#2352](https://github.com/brave/brave-browser/issues/2352))
+
 ## [0.56.15](https://github.com/brave/brave-browser/releases/tag/v0.56.15)
 
 - Upgraded to Chromium 70.0.3538.110. ([#2200](https://github.com/brave/brave-browser/issues/2200))
