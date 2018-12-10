@@ -99,6 +99,11 @@ pipeline {
                     yarn run create_dist Release --debug_build=false --official_build=true --channel=${CHANNEL}
                 """
             }
+            post {
+                success {
+                    archiveArtifacts artifacts: 'src/out/Release/Brave Browser Dev.dmg', fingerprint: true
+                }
+            }
         }
     }
 }
