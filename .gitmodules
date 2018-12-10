@@ -1,6 +1,8 @@
 [submodule "vendor/depot_tools"]
 	path = vendor/depot_tools
 	url = https://chromium.googlesource.com/chromium/tools/depot_tools.git
+	branch = master
 [submodule "vendor/jinja"]
 	path = vendor/jinja
 	url = git://github.com/pallets/jinja.git
+	branch = master
