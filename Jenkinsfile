@@ -20,7 +20,7 @@ pipeline {
         REFERRAL_API_KEY = credentials('REFERRAL_API_KEY')
         npm_config_brave_google_api_key = credentials('npm_config_brave_google_api_key')
     }
-    stages {       
+    stages {
         stage('install') {
             steps {
                 sh 'yarn install'
@@ -30,7 +30,7 @@ pipeline {
     //         steps {
     //             sh 'yarn run init'
     //         }
-    //     } 
+    //     }
         // TODO do init for first time building the pr, sync after
         stage('sync') {
             steps {
@@ -92,6 +92,13 @@ pipeline {
                     xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'src/brave_browser_tests.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
                 }
             }
-        }                
+        }
+        stage('dist') {
+            steps {
+                sh """
+                    yarn run create_dist Release --debug_build=false --official_build=true --channel=${CHANNEL}
+                """
+            }
+        }
     }
 }
