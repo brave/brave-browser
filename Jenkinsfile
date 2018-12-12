@@ -28,12 +28,14 @@ pipeline {
         }
         stage('init') {
             when {
-                expression { return fileExists('src/.gitkeep') }
+                not {
+                    expression { return fileExists('src/brave/package.json') }
+                }
             }
             steps {
                 sh 'yarn run init'
             }
-        }        
+        }
         stage('sync') {
             steps {
                 sh 'npm run sync --all'
