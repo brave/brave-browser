@@ -95,7 +95,7 @@ pipeline {
         stage('dist') {
             steps {
                 sh """
-                    yarn run create_dist Release --debug_build=false --official_build=true --channel=${CHANNEL} --skip-signing
+                    yarn run create_dist Release --debug_build=false --official_build=true --channel=${CHANNEL} --skip_signing
                 """
             }
             post {
