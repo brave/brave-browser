@@ -18,7 +18,7 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
-    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add -
+    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
     source /etc/os-release
 
@@ -33,7 +33,7 @@ Mint 17
 -------
 ::
 
-    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add -
+    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
     echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
 
@@ -79,7 +79,7 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
-    curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
+    curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
 
     source /etc/os-release
 
@@ -94,7 +94,7 @@ Mint 17
 -------
 ::
 
-    curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
+    curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
 
     echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-trusty.list
 
@@ -139,7 +139,7 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
-    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
+    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
 
     source /etc/os-release
 
@@ -154,7 +154,7 @@ Mint 17
 -------
 ::
 
-    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
+    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
 
     echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev-trusty.list
 
