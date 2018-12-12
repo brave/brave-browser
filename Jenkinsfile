@@ -35,9 +35,6 @@ pipeline {
             }
         }        
         stage('sync') {
-            when {
-                expression { return fileExists('src/brave/package.json') }
-            }
             steps {
                 sh 'npm run sync --all'
             }
