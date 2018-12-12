@@ -63,6 +63,7 @@ Centos/RHel
 
     sudo yum install brave-browser brave-keyring
 
+The key you're importing should have fingerprint ``D8BA D4DE 7EE1 7AF5 2A83  4B2D 0BB7 5829 C2D4 E821``.
 
 Beta Channel Installation
 ================================
@@ -122,6 +123,7 @@ Centos/RHel
 
     sudo yum install brave-browser-beta
 
+The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
 
 Development Channel Installation
 ================================
@@ -180,3 +182,5 @@ Centos/RHel
     enabled=1
     EOF
     sudo yum install brave-browser-dev
+
+The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
