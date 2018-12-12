@@ -54,6 +54,7 @@ program
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
+  .option('--skip_signing', 'skip signing dmg')
   .arguments('[build_config]')
   .action(createDist)
 
