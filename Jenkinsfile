@@ -26,17 +26,17 @@ pipeline {
                 sh 'yarn install'
             }
         }
-       stage('init') {
+        stage('init') {
             when {
-                expression { return readFile('src/.gitkeep').contains('gitkeep') }
+                expression { return fileExists('src/.gitkeep') }
             }
             steps {
                 sh 'yarn run init'
             }
-        }
+        }        
         stage('sync') {
             when {
-                expression { return readFile('src/brave/package.json').contains('brave-core') }
+                expression { return fileExists('src/brave/package.json') }
             }
             steps {
                 sh 'npm run sync --all'
