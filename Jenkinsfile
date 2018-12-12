@@ -5,7 +5,7 @@ pipeline {
         // 5m quiet period as described at https://jenkins.io/blog/2010/08/11/quiet-period-feature/
         quietPeriod(300)
         // abort long running builds
-        timeout(time: 6, unit: 'HOURS')
+        timeout(time: 4, unit: 'HOURS')
         // add timestamps to console log
         timestamps()
     }
@@ -26,12 +26,18 @@ pipeline {
                 sh 'yarn install'
             }
         }
-    //    stage('init') {
-    //         steps {
-    //             sh 'yarn run init'
-    //         }
-    //     }
+       stage('init') {
+            when {
+                expression { return readFile('src/.gitkeep').contains('gitkeep') }
+            }
+            steps {
+                sh 'yarn run init'
+            }
+        }
         stage('sync') {
+            when {
+                expression { return readFile('src/brave/package.json').contains('brave-core') }
+            }
             steps {
                 sh 'npm run sync --all'
             }
