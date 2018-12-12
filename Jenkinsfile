@@ -99,8 +99,8 @@ pipeline {
                 """
             }
             post {
-                success {
-                    archiveArtifacts artifacts: 'src/out/Release/Brave Browser Dev.dmg', fingerprint: true
+                always {
+                    archiveArtifacts artifacts: 'src/out/Release/**/*.dmg', fingerprint: true
                 }
             }
         }
