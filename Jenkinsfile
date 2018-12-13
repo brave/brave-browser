@@ -18,13 +18,12 @@ pipeline {
     environment {
         CHANNEL = 'dev'
         GIT_CACHE_PATH = "${HOME}/cache"
-        BRAVE_GOOGLE_API_KEY = credentials('npm_config_brave_google_api_key')
         REFERRAL_API_KEY = credentials('REFERRAL_API_KEY')
+        BRAVE_GOOGLE_API_KEY = credentials('npm_config_brave_google_api_key')
     }
     stages {
         stage('install') {
             steps {
-                sh "echo ${GIT_CACHE_PATH}"
                 sh 'yarn install'
             }
         }
@@ -46,11 +45,11 @@ pipeline {
         stage('build') {
             steps {
                 sh """
+                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
                     npm config --userconfig=.npmrc set brave_google_api_endpoint "https://location.services.mozilla.com/v1/geolocate?key="
                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                     npm config --userconfig=.npmrc set google_api_endpoint "safebrowsing.brave.com"
                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
-                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
                     npm config --userconfig=.npmrc set sccache "sccache"
 
                     yarn run build Release --channel=${CHANNEL} --debug_build=false --official_build=true
