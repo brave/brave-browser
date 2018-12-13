@@ -18,6 +18,8 @@ const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
 
+const parsedArgs = program.parseOptions(process.argv)
+
 program
   .version(process.env.npm_package_version)
 
@@ -65,6 +67,7 @@ program
 
 program
   .command('start')
+  .allowUnknownOption(true)
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .option('--vmodule [modules]', 'verbose log from specific modules')
   .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]')
@@ -88,7 +91,7 @@ program
   .option('--network_log', 'log network activity to network_log.json')
   .option('--output_path [pathname]', 'use the Brave binary located at [pathname]')
   .arguments('[build_config]')
-  .action(start)
+  .action(start.bind(null, parsedArgs.unknown))
 
 program
   .command('pull_l10n')
