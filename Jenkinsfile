@@ -52,7 +52,7 @@ pipeline {
                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
                     npm config --userconfig=.npmrc set sccache "sccache"
 
-                    npm run build Release --channel=${CHANNEL} --debug_build=false --official_build=true
+                    npm run build -- Release --channel=${CHANNEL} --debug_build=false --official_build=true
                 """
             }
         }
