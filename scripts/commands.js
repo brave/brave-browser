@@ -79,6 +79,10 @@ program
   .option('--official_build <official_build>', 'force official build settings')
   // See https://github.com/brave/brave-browser/wiki/Rewards#flags for more information
   .option('--rewards [options]', 'options for rewards')
+  .option('--brave_ads_testing', 'ads testing')
+  .option('--brave_ads_production', 'ads production')
+  .option('--brave_ads_staging', 'ads staging')
+  .option('--brave_ads_debug', 'ads debug')
   .option('--single_process', 'use a single process')
   .option('--network_log', 'log network activity to network_log.json')
   .option('--output_path [pathname]', 'use the Brave binary located at [pathname]')
