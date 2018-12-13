@@ -24,7 +24,7 @@ pipeline {
     stages {
         stage('install') {
             steps {
-                sh 'yarn install'
+                sh 'npm install'
             }
         }
         stage('init') {
@@ -34,7 +34,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'yarn run init'
+                sh 'npm run init'
             }
         }
         stage('sync') {
@@ -52,7 +52,7 @@ pipeline {
                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
                     npm config --userconfig=.npmrc set sccache "sccache"
 
-                    yarn run build Release --channel=${CHANNEL} --debug_build=false --official_build=true
+                    npm run build Release --channel=${CHANNEL} --debug_build=false --official_build=true
                 """
             }
         }
@@ -97,7 +97,7 @@ pipeline {
         stage('dist') {
             steps {
                 sh """
-                    yarn run create_dist Release --channel=${CHANNEL} --debug_build=false --official_build=true --skip_signing
+                    npm run create_dist -- Release --channel=${CHANNEL} --debug_build=false --official_build=true --skip_signing
                 """
             }
             post {
