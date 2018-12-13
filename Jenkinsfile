@@ -17,12 +17,14 @@ pipeline {
     }
     environment {
         CHANNEL = 'dev'
+        GIT_CACHE_PATH = "${HOME}/cache"
         BRAVE_GOOGLE_API_KEY = credentials('npm_config_brave_google_api_key')
         REFERRAL_API_KEY = credentials('REFERRAL_API_KEY')
     }
     stages {
         stage('install') {
             steps {
+                sh "echo ${GIT_CACHE_PATH}"
                 sh 'yarn install'
             }
         }
@@ -44,14 +46,14 @@ pipeline {
         stage('build') {
             steps {
                 sh """
-                    npm config set brave_google_api_endpoint "https://location.services.mozilla.com/v1/geolocate?key="
-                    npm config set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
-                    npm config set google_api_endpoint "safebrowsing.brave.com"
-                    npm config set google_api_key "dummytoken"
-                    npm config set brave_referrals_api_key ${REFERRAL_API_KEY}
-                    npm config set sccache "sccache"
+                    npm config --userconfig=.npmrc set brave_google_api_endpoint "https://location.services.mozilla.com/v1/geolocate?key="
+                    npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
+                    npm config --userconfig=.npmrc set google_api_endpoint "safebrowsing.brave.com"
+                    npm config --userconfig=.npmrc set google_api_key "dummytoken"
+                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
+                    npm config --userconfig=.npmrc set sccache "sccache"
 
-                    yarn run build Release --debug_build=false --official_build=true --channel=${CHANNEL}
+                    yarn run build Release --channel=${CHANNEL} --debug_build=false --official_build=true
                 """
             }
         }
@@ -96,7 +98,7 @@ pipeline {
         stage('dist') {
             steps {
                 sh """
-                    yarn run create_dist Release --debug_build=false --official_build=true --channel=${CHANNEL} --skip_signing
+                    yarn run create_dist Release --channel=${CHANNEL} --debug_build=false --official_build=true --skip_signing
                 """
             }
             post {
