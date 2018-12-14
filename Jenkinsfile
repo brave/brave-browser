@@ -1,7 +1,7 @@
 pipeline {
     options {
         // disable concurrent build per branch
-        // disableConcurrentBuilds()
+        disableConcurrentBuilds()
         // 15m quiet period as described at https://jenkins.io/blog/2010/08/11/quiet-period-feature/
         quietPeriod(900)
         // abort long running builds
