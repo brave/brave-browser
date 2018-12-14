@@ -2,8 +2,8 @@ pipeline {
     options {
         // disable concurrent build per branch
         // disableConcurrentBuilds()
-        // 5m quiet period as described at https://jenkins.io/blog/2010/08/11/quiet-period-feature/
-        quietPeriod(300)
+        // 15m quiet period as described at https://jenkins.io/blog/2010/08/11/quiet-period-feature/
+        quietPeriod(900)
         // abort long running builds
         timeout(time: 4, unit: 'HOURS')
         // add timestamps to console log
