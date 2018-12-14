@@ -1,7 +1,7 @@
 pipeline {
     options {
         // disable concurrent build per branch
-        disableConcurrentBuilds()
+        // disableConcurrentBuilds()
         // 5m quiet period as described at https://jenkins.io/blog/2010/08/11/quiet-period-feature/
         quietPeriod(300)
         // abort long running builds
@@ -12,7 +12,7 @@ pipeline {
     agent {
         node {
             // label of node on which to build
-            label 'darwin-new'
+            label 'darwin-ci'
         }
     }
     environment {
@@ -60,6 +60,7 @@ pipeline {
             steps {
                 script {
                     try {
+                        // TODO adapt path for different channel
                         sh 'npm run test-security -- --output_path="src/out/Release/Brave\\ Browser\\ Dev.app/Contents/MacOS/Brave\\ Browser\\ Dev"'
                     }
                     catch (ex) {
