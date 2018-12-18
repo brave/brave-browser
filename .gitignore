@@ -12,8 +12,8 @@ network_log.json
 network-audit-results.json
 
 # Rendered Sphinx files should be excluded from source control
-build
-_build
+docs/build
+docs/_build
 
 # Clion files
 CMakeLists.txt
