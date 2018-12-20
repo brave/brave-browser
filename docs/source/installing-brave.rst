@@ -9,28 +9,28 @@ Release Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+
--------------
+Ubuntu 16.04+ and Mint 18+
+--------------------------
 ::
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add -
 
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ `lsb_release -sc` main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-`lsb_release -sc`.list
+    source /etc/os-release
+
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
 
     sudo apt update
 
     sudo apt install brave-browser brave-keyring
 
 
-Mint 17+
---------
+Mint 17
+-------
 ::
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key add -
 
-    UBUNTU_CODENAME=$( (grep DISTRIB_CODENAME /etc/upstream-release/lsb-release || grep DISTRIB_CODENAME /etc/lsb-release) 2>/dev/null | cut -d'=' -f2 )
-
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-$UBUNTU_CODENAME.list
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
 
     sudo apt update
 
@@ -70,28 +70,28 @@ Beta Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+
--------------
+Ubuntu 16.04+ and Mint 18+
+--------------------------
 ::
 
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
 
-    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ `lsb_release -sc` main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-`lsb_release -sc`.list
+    source /etc/os-release
+
+    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-${UBUNTU_CODENAME}.list
 
     sudo apt update
 
     sudo apt install brave-browser-beta
 
 
-Mint 17+
---------
+Mint 17
+-------
 ::
 
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
 
-    UBUNTU_CODENAME=$( (grep DISTRIB_CODENAME /etc/upstream-release/lsb-release || grep DISTRIB_CODENAME /etc/lsb-release) 2>/dev/null | cut -d'=' -f2 )
-
-    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-$UBUNTU_CODENAME.list
+    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-trusty.list
 
     sudo apt update
 
@@ -130,28 +130,28 @@ Development Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+
--------------
+Ubuntu 16.04+ and Mint 18+
+--------------------------
 ::
 
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
 
-    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ `lsb_release -sc` main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev-`lsb_release -sc`.list
+    source /etc/os-release
+
+    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev-${UBUNTU_CODENAME}.list
 
     sudo apt update
 
     sudo apt install brave-browser-dev
 
 
-Mint 17+
---------
+Mint 17
+-------
 ::
 
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key add -
 
-    UBUNTU_CODENAME=$( (grep DISTRIB_CODENAME /etc/upstream-release/lsb-release || grep DISTRIB_CODENAME /etc/lsb-release) 2>/dev/null | cut -d'=' -f2 )
-
-    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev-$UBUNTU_CODENAME.list
+    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev-trusty.list
 
     sudo apt update
 
