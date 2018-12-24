@@ -1,9 +1,10 @@
 # Changelog
 
-## [0.58.17](https://github.com/brave/brave-browser/releases/tag/v0.58.17)
+## [0.58.18](https://github.com/brave/brave-browser/releases/tag/v0.58.18)
  
  - Added text snippets under the tip panel and tip banner when a publisher hasn't been verified. ([#2697](https://github.com/brave/brave-browser/issues/2697))
  - Removed all images for unverified publishers on Brave Rewards. ([#2696](https://github.com/brave/brave-browser/issues/2696))
+ - Removed YouTube favicons for unverified publishers in tip table under Brave Rewards. ([#2715](https://github.com/brave/brave-browser/issues/2715))
 
 ## [0.58.16](https://github.com/brave/brave-browser/releases/tag/v0.58.16)
 
