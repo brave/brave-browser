@@ -129,4 +129,8 @@ program
   .action(test)
 
 program
+  .command('lint')
+  .action(util.lint)
+
+program
   .parse(process.argv)
