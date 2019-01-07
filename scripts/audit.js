@@ -18,7 +18,11 @@ function npmAudit (pathname) {
   if (fs.existsSync(path.join(pathname, 'package.json')) &&
     fs.existsSync(path.join(pathname, 'package-lock.json'))) {
     console.log('Auditing', pathname)
-    util.run('npm', ['audit'], { cwd: pathname })
+    let cmdOptions = {
+      cwd: pathname,
+      shell: process.platform === 'win32' ? true : false
+    }
+    util.run('npm', ['audit'], cmdOptions)
   } else {
     console.log('Skipping audit of', pathname)
   }
