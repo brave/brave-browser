@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.58.21](https://github.com/brave/brave-browser/releases/tag/v0.58.21)
+ 
+ - Added new contribution flow for unverified publishers. ([#2836](https://github.com/brave/brave-browser/issues/2836))
+ - Removed icon fetching for unverified media publishers. ([#2717](https://github.com/brave/brave-browser/issues/2717))
+ - Fixed several CORS issues due to Brave Shields. ([#2252](https://github.com/brave/brave-browser/issues/2252))
+ - Fixed JavaScript being able to load Brave schemes. ([#2861](https://github.com/brave/brave-browser/issues/2861))
+ - Fixed not being able to exclude websites from the auto-contribute table under Rewards. ([#1693](https://github.com/brave/brave-browser/issues/1693))
+ - Fixed auto-contribution table not being updated correctly in certain situations. ([#2882](https://github.com/brave/brave-browser/issues/2882))
+ - Fixed auto-contribution still occurring when Rewards is disabled or the auto-contribution toggle is toggled off within Rewards. ([#2804](https://github.com/brave/brave-browser/issues/2804))
+ - Fixed recurring tipping still occurring when Rewards is disabled. ([#2815](https://github.com/brave/brave-browser/issues/2815))
+ - Fixed not being able to play media on Reddit. ([#1999](https://github.com/brave/brave-browser/issues/1999))
+ - Fixed images failing to upload on GitHub. ([#2034](https://github.com/brave/brave-browser/issues/2034))
+ - Fixed not being able to login into https://riot.im. ([#2521](https://github.com/brave/brave-browser/issues/2521))
+ - Fixed videos failing to load on https://d.tube. ([#1581](https://github.com/brave/brave-browser/issues/1581))
+ - Fixed not being able to login into https://www.skill-capped.com. ([#2411](https://github.com/brave/brave-browser/issues/2411))
+ - Fixed not being able to search on namecheap.com. ([#2341](https://github.com/brave/brave-browser/issues/2341))
+ - Fixed behance.net not loading in Brave. ([#2864](https://github.com/brave/brave-browser/issues/2864))
+ - Fixed "Save Link As..." being disabled under the right click context menu when selecting "brave://sync" in settings. ([#2849](https://github.com/brave/brave-browser/issues/2849))
+
 ## [0.58.18](https://github.com/brave/brave-browser/releases/tag/v0.58.18)
  
  - Added text snippets under the tip panel and tip banner when a publisher hasn't been verified. ([#2697](https://github.com/brave/brave-browser/issues/2697))
