@@ -59,9 +59,9 @@ Centos/RHel
 
     sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-    cat << EOF | sudo tee /etc/yum.repos.d/Brave.repo
+    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-release.repo
     [brave]
-    name=Brave Browser repo
+    name=Brave Browser Release Channel repository
     baseurl=https://brave-browser-rpm-release.s3.brave.com/x86_64/
     enabled=1
     EOF
@@ -119,9 +119,9 @@ Centos/RHel
 
     sudo rpm --import https://brave-browser-rpm-beta.s3.brave.com/brave-core-nightly.asc
 
-    cat << EOF | sudo tee /etc/yum.repos.d/Brave.repo
+    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-beta.repo
     [brave]
-    name=Brave Browser repo
+    name=Brave Browser Beta Channel repository
     baseurl=https://brave-browser-rpm-beta.s3.brave.com/x86_64/
     enabled=1
     EOF
@@ -180,9 +180,9 @@ Centos/RHel
 
     sudo rpm --import  https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
 
-    cat << EOF | sudo tee /etc/yum.repos.d/Brave.repo
+    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-dev.repo
     [brave]
-    name=Brave Browser repo
+    name=Brave Browser Dev Channel repository
     baseurl=https://brave-browser-rpm-dev.s3.brave.com/x86_64/
     enabled=1
     EOF
