@@ -47,6 +47,9 @@
           "url": "https://github.com/brave/brave-core.git"
         }
       }
+    },
+    "widevine": {
+      "version": "4.10.1196.0"
     }
   },
   "repository": {
@@ -252,8 +255,10 @@
   },
   "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
+    "adm-zip": "^0.4.13",
     "commander": "^2.9.0",
-    "fs-extra": "^1.0.0"
+    "fs-extra": "^1.0.0",
+    "sync-request": "^6.0.0"
   },
   "devDependencies": {
     "ip": "^1.1.5"
