@@ -51,7 +51,7 @@ def main(args):
     files = [f.LocalPath() for f in change.AffectedFiles()]
     if not files:
       print('Cannot lint an empty CL')
-      return 1
+      return 0
 
     # Process cpplints arguments if any.
     command = args + files
