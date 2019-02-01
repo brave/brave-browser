@@ -13,6 +13,7 @@
     "upload": "node ./scripts/commands.js upload",
     "update_patches": "node ./scripts/commands.js update_patches",
     "apply_patches": "node ./scripts/sync.js --run_hooks",
+    "apply_patches_delta": "node ./scripts/commands.js apply_patches_delta",
     "start": "node ./scripts/commands.js start",
     "network-audit": "node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test",
     "push_l10n": "node ./scripts/commands.js push_l10n",
