@@ -15,6 +15,21 @@ Release Channel Installation
 
 .. highlight:: console
 
+Debian
+--------------------------
+::
+
+    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+
+    source /etc/os-release && CODENAME=$(echo $VERSION | rev | cut -c 2- | rev | cut -d"(" -f 2)
+
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser.list
+
+    sudo apt update
+
+    sudo apt install brave-browser brave-keyring
+
+
 Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
