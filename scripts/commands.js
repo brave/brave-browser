@@ -17,6 +17,7 @@ const chromiumRebaseL10n = require('../lib/chromiumRebaseL10n')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
+const pr = require('../lib/pr')
 
 const parsedArgs = program.parseOptions(process.argv)
 
@@ -131,6 +132,13 @@ program
 program
   .command('lint')
   .action(util.lint)
+
+program
+  .command('pr')
+  .option('--reviewer <reviewer_list>', 'comma separated list of reviewers')
+  .option('--base <branch>', 'the branch name for the release channel')
+  .option('--uplift-to <channel>', 'starting at nightly (master), how far back to uplift the changes')
+  .action(pr)
 
 program
   .parse(process.argv)
