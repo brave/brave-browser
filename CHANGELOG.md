@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.59.35](https://github.com/brave/brave-browser/releases/tag/v0.59.35)
+ 
+ - Fixed issue with sync library. ([#3207](https://github.com/brave/brave-browser/issues/3207))
+
 ## [0.59.34](https://github.com/brave/brave-browser/releases/tag/v0.59.34)
  
  - Added Sync. ([#3180](https://github.com/brave/brave-browser/issues/3180))
