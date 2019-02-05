@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.59.33](https://github.com/brave/brave-browser/releases/tag/v0.59.33)
+## [0.59.34](https://github.com/brave/brave-browser/releases/tag/v0.59.34)
  
  - Added Sync. ([#3180](https://github.com/brave/brave-browser/issues/3180))
  - Added ability to claim BAT grants using the reward panel. ([#1783](https://github.com/brave/brave-browser/issues/1783))
