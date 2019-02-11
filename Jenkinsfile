@@ -145,7 +145,7 @@ pipeline {
                             }
                         }
                         // TODO: add upload step here
-                        stage("github_upload") {
+                        stage("github-upload") {
                             when {
                                 expression { env.LABEL_SUFFIX == 'release' }
                             }
@@ -178,6 +178,7 @@ pipeline {
                     agent { label "mac-${LABEL_SUFFIX}" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
+                        PATH="${PATH}:/usr/local/bin/"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
                     }
                     stages {
@@ -295,8 +296,7 @@ pipeline {
                                 sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true"
                             }
                         }
-                        // TODO: add upload step here
-                        stage("github_upload") {
+                        stage("github-upload") {
                             when {
                                 expression { env.LABEL_SUFFIX == 'release' }
                             }
@@ -307,28 +307,11 @@ pipeline {
                                     accessKeyVariable: 'BRAVE_S3_ACCESS_KEY',
                                     secretKeyVariable: 'BRAVE_S3_SECRET_KEY'
                                 ]]) {
-                                    sh 'PATH=${PATH}:/usr/local/bin/ npm run upload'
+                                    sh 'npm run upload'
                                 }
                             }
                         }
-                        stage("archive-ci") {
-                            when {
-                                expression { env.LABEL_SUFFIX == 'ci' }
-                            }
-                            steps {
-                                // commented because it takes much longer to copy to Jenkins thant to S3
-                                // archiveArtifacts artifacts: "${OUT_DIR}/unsigned_dmg/*.dmg", fingerprint: true
-                                withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                    s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "unsigned_dmg/*.dmg",
-                                        path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
-                                    )
-                                }
-                            }
-                        }
-                        stage("archive-release") {
-                            when {
-                                expression { env.LABEL_SUFFIX == 'release' }
-                            }
+                        stage("archive") {
                             steps {
                                 withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
                                     s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "*.dmg",
@@ -347,7 +330,6 @@ pipeline {
                 stage("windows-x64") {
                     agent { label "windows-${LABEL_SUFFIX}" }
                     environment {
-                        BRAVE_S3_BUCKET = "brave-brave-binaries"
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.17134.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
@@ -468,7 +450,7 @@ pipeline {
                                 powershell "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --build_omaha --tag_ap=x64-${CHANNEL} --target_arch=x64 --debug_build=false --official_build=true"
                             }
                         }
-                        stage("github_upload") {
+                        stage("github-upload") {
                             when {
                                 expression { env.LABEL_SUFFIX == 'release' }
                             }
@@ -487,7 +469,7 @@ pipeline {
                             steps {
                                 // commented because it takes much longer to copy to Jenkins thant to S3
                                 // archiveArtifacts artifacts: "${OUT_DIR}/BraveBrowser*.exe", fingerprint: true
-                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer_*.exe",
+                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer.exe",
                                     path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
                                 )
                                 s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "BraveBrowser${CHANNEL_CAPITALIZED}Setup_*.exe",
@@ -519,7 +501,6 @@ pipeline {
                     }
                     agent { label "windows-${LABEL_SUFFIX}" }
                     environment {
-                        BRAVE_S3_BUCKET = "brave-brave-binaries"
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.17134.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
@@ -640,8 +621,7 @@ pipeline {
                                 powershell "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --build_omaha --tag_ap=x86-${CHANNEL} --target_arch=ia32 --debug_build=false --official_build=true"
                             }
                         }
-                        // TODO: add upload step here
-                        stage("github_upload") {
+                        stage("github-upload") {
                             when {
                                 expression { env.LABEL_SUFFIX == 'release' }
                             }
@@ -660,7 +640,7 @@ pipeline {
                             steps {
                                 // commented because it takes much longer to copy to Jenkins thant to S3
                                 // archiveArtifacts artifacts: "${OUT_DIR}/BraveBrowser*.exe", fingerprint: true
-                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer*.exe",
+                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer.exe",
                                     path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
                                 )
                                 s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "BraveBrowser${CHANNEL_CAPITALIZED}Setup32_*.exe",
