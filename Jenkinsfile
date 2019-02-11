@@ -13,8 +13,6 @@ pipeline {
         booleanParam(name: 'CLEAN_WORKSPACE', defaultValue: false)
     }
     environment {
-        BRAVE_S3_BUCKET = "brave-brave-binaries"
-        BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
         CHANNEL = "${params.CHANNEL}"
         CHANNEL_CAPITALIZED = "${CHANNEL}".capitalize()
         BUILD_TYPE = "Release"
@@ -23,6 +21,8 @@ pipeline {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
         BRAVE_ARTIFACTS_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
+        BRAVE_S3_BUCKET = "brave-brave-binaries"
+        BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     }
     stages {
         stage ("env") {
