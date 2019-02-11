@@ -469,7 +469,7 @@ pipeline {
                             steps {
                                 // commented because it takes much longer to copy to Jenkins thant to S3
                                 // archiveArtifacts artifacts: "${OUT_DIR}/BraveBrowser*.exe", fingerprint: true
-                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer.exe",
+                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer_*.exe",
                                     path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
                                 )
                                 s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "BraveBrowser${CHANNEL_CAPITALIZED}Setup_*.exe",
@@ -640,7 +640,7 @@ pipeline {
                             steps {
                                 // commented because it takes much longer to copy to Jenkins thant to S3
                                 // archiveArtifacts artifacts: "${OUT_DIR}/BraveBrowser*.exe", fingerprint: true
-                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer.exe",
+                                s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "brave_installer_*.exe",
                                     path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
                                 )
                                 s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "BraveBrowser${CHANNEL_CAPITALIZED}Setup32_*.exe",
