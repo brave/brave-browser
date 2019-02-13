@@ -41,6 +41,14 @@ pipeline {
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-linux-s3-bucket")
                     }
                     stages {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
                         stage("unlock") {
                             steps {
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
@@ -182,6 +190,14 @@ pipeline {
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
                     }
                     stages {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
                         stage("unlock") {
                             steps {
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
@@ -341,6 +357,14 @@ pipeline {
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
                     }
                     stages {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
                         stage("unlock") {
                             steps {
                                 powershell "Remove-Item ${GIT_CACHE_PATH}/*.lock"
@@ -512,6 +536,14 @@ pipeline {
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
                     }
                     stages {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
                         stage("unlock") {
                             steps {
                                 powershell "Remove-Item ${GIT_CACHE_PATH}/*.lock"
