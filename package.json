@@ -42,14 +42,14 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
-        }
+        },
+        "branch": "mplesa-pr-builder-fixes"
       }
     },
     "widevine": {
-        "version": "4.10.1196.0"
+      "version": "4.10.1196.0"
     }
   },
   "repository": {
