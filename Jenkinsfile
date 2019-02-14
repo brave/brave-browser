@@ -8,11 +8,13 @@ pipeline {
         timestamps()
     }
     parameters {
+        string(name: "BRANCH", defaultValue: "master")
         choice(name: "CHANNEL", choices: ["dev", "beta", "release"])
-        booleanParam(name: 'RUN_INIT', defaultValue: false)
-        booleanParam(name: 'CLEAN_WORKSPACE', defaultValue: false)
+        booleanParam(name: "CLEAN_WORKSPACE", defaultValue: false)
+        booleanParam(name: "RUN_INIT", defaultValue: false)
     }
     environment {
+        BRANCH = "${params.BRANCH}"
         CHANNEL = "${params.CHANNEL}"
         CHANNEL_CAPITALIZED = "${CHANNEL}".capitalize()
         BUILD_TYPE = "Release"
@@ -21,21 +23,22 @@ pipeline {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
         BRAVE_ARTIFACTS_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
-        BRAVE_S3_BUCKET = "brave-brave-binaries"
+        BRAVE_S3_BUCKET = credentials("brave-binaries-s3-bucket")
         BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     }
     stages {
-        stage ("env") {
+        stage("env") {
             steps {
                 script {
-                    env.LABEL_SUFFIX = ("${JOB_NAME}" == "brave-browser-build" ? "release" : "ci")
+                    env.BRANCH_TO_BUILD = (env.CHANGE_BRANCH == null ? env.BRANCH : env.CHANGE_BRANCH)
+                    env.RELEASE_TYPE = (env.JOB_NAME == "brave-browser-build" ? "release" : "ci")
                 }
             }
         }
         stage("build-all") {
             parallel {
                 stage("linux") {
-                    agent { label "linux-${LABEL_SUFFIX}" }
+                    agent { label "linux-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-linux-s3-bucket")
@@ -46,7 +49,15 @@ pipeline {
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
-                        stage ("clean") {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH_TO_BUILD}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
+                        stage("clean") {
                             when {
                                 expression { params.CLEAN_WORKSPACE }
                             }
@@ -74,17 +85,24 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                sh """
-                                    git -C src/brave config user.name brave-builds
-                                    git -C src/brave config user.email devops@brave.com
+                                script {
+                                    try {
+                                        sh """
+                                            git -C src/brave config user.name brave-builds
+                                            git -C src/brave config user.email devops@brave.com
 
-                                    git -C src/brave checkout -b ${LINT_BRANCH}
+                                            git -C src/brave checkout -b ${LINT_BRANCH}
 
-                                    npm run lint
+                                            npm run lint
 
-                                    git -C src/brave checkout -q -
-                                    git -C src/brave branch -D ${LINT_BRANCH}
-                                """
+                                            git -C src/brave checkout -q -
+                                            git -C src/brave branch -D ${LINT_BRANCH}
+                                        """
+                                    }
+                                    catch (ex) {
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
                             }
                         }
                         stage("build") {
@@ -95,9 +113,9 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint "safebrowsing.brave.com"
                                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
-                                    npm config --userconfig=.npmrc set sccache "sccache"
+                                    # npm config --userconfig=.npmrc set sccache "sccache"
 
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
                             }
                         }
@@ -141,22 +159,22 @@ pipeline {
                         }
                         stage("dist") {
                             steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true"
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true"
                             }
                         }
                         // TODO: add upload step here
                         stage("github-upload") {
                             when {
-                                expression { env.LABEL_SUFFIX == 'release' }
+                                expression { "${RELEASE_TYPE}" == "release" }
                             }
                             steps {
                                 withCredentials([[
-                                    $class: 'AmazonWebServicesCredentialsBinding',
-                                    credentialsId: 'brave-browser-binaries-upload',
-                                    accessKeyVariable: 'BRAVE_S3_ACCESS_KEY',
-                                    secretKeyVariable: 'BRAVE_S3_SECRET_KEY'
+                                    $class: "AmazonWebServicesCredentialsBinding",
+                                    credentialsId: "brave-browser-binaries-upload",
+                                    accessKeyVariable: "BRAVE_S3_ACCESS_KEY",
+                                    secretKeyVariable: "BRAVE_S3_SECRET_KEY"
                                 ]]) {
-                                    sh 'npm run upload'
+                                    sh "npm run upload"
                                 }
                             }
                         }
@@ -175,11 +193,11 @@ pipeline {
                     }
                 }
                 stage("mac") {
-                    agent { label "mac-${LABEL_SUFFIX}" }
+                    agent { label "mac-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
-                        PATH="${PATH}:/usr/local/bin/"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
+                        PATH = "${PATH}:/usr/local/bin/"
                     }
                     stages {
                         stage("unlock") {
@@ -187,7 +205,15 @@ pipeline {
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
-                        stage ("clean") {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH_TO_BUILD}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
+                        stage("clean") {
                             when {
                                 expression { params.CLEAN_WORKSPACE }
                             }
@@ -215,17 +241,24 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                sh """
-                                    git -C src/brave config user.name brave-builds
-                                    git -C src/brave config user.email devops@brave.com
+                                script {
+                                    try {
+                                        sh """
+                                            git -C src/brave config user.name brave-builds
+                                            git -C src/brave config user.email devops@brave.com
 
-                                    git -C src/brave checkout -b ${LINT_BRANCH}
+                                            git -C src/brave checkout -b ${LINT_BRANCH}
 
-                                    npm run lint
+                                            npm run lint
 
-                                    git -C src/brave checkout -q -
-                                    git -C src/brave branch -D ${LINT_BRANCH}
-                                """
+                                            git -C src/brave checkout -q -
+                                            git -C src/brave branch -D ${LINT_BRANCH}
+                                        """
+                                    }
+                                    catch (ex) {
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
                             }
                         }
                         stage("build") {
@@ -236,9 +269,9 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint "safebrowsing.brave.com"
                                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
-                                    npm config --userconfig=.npmrc set sccache "sccache"
+                                    # npm config --userconfig=.npmrc set sccache "sccache"
 
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
                             }
                         }
@@ -282,37 +315,42 @@ pipeline {
                         }
                         stage("dist-ci") {
                             when {
-                                expression { env.LABEL_SUFFIX == 'ci' }
+                                expression { "${RELEASE_TYPE}" == "ci" }
                             }
                             steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true --skip_signing"
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --skip_signing"
                             }
                         }
                         stage("dist-release") {
                             when {
-                                expression { env.LABEL_SUFFIX == 'release' }
+                                expression { "${RELEASE_TYPE}" == "release" }
                             }
                             steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true"
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true"
                             }
                         }
                         stage("github-upload") {
                             when {
-                                expression { env.LABEL_SUFFIX == 'release' }
+                                expression { "${RELEASE_TYPE}" == "release" }
                             }
                             steps {
                                 withCredentials([[
-                                    $class: 'AmazonWebServicesCredentialsBinding',
-                                    credentialsId: 'brave-browser-binaries-upload',
-                                    accessKeyVariable: 'BRAVE_S3_ACCESS_KEY',
-                                    secretKeyVariable: 'BRAVE_S3_SECRET_KEY'
+                                    $class: "AmazonWebServicesCredentialsBinding",
+                                    credentialsId: "brave-browser-binaries-upload",
+                                    accessKeyVariable: "BRAVE_S3_ACCESS_KEY",
+                                    secretKeyVariable: "BRAVE_S3_SECRET_KEY"
                                 ]]) {
-                                    sh 'npm run upload'
+                                    sh "npm run upload"
                                 }
                             }
                         }
                         stage("archive") {
                             steps {
+                                withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                    s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "unsigned_dmg/*.dmg",
+                                        path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
+                                    )
+                                }
                                 withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
                                     s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "*.dmg",
                                         path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
@@ -328,7 +366,7 @@ pipeline {
                     }
                 }
                 stage("windows-x64") {
-                    agent { label "windows-${LABEL_SUFFIX}" }
+                    agent { label "windows-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
@@ -346,12 +384,20 @@ pipeline {
                                 powershell "Remove-Item ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
-                        stage ("clean") {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH_TO_BUILD}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
+                        stage("clean") {
                             when {
                                 expression { params.CLEAN_WORKSPACE }
                             }
                             steps {
-                                powershell "git clean -ffxd"
+                                powershell "git clean -fxd"
                             }
                         }
                         stage("install") {
@@ -374,17 +420,24 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                powershell """
-                                    git -C src/brave config user.name brave-builds
-                                    git -C src/brave config user.email devops@brave.com
+                                script {
+                                    try {
+                                        powershell """
+                                            git -C src/brave config user.name brave-builds
+                                            git -C src/brave config user.email devops@brave.com
 
-                                    git -C src/brave checkout -b ${LINT_BRANCH}
+                                            git -C src/brave checkout -b ${LINT_BRANCH}
 
-                                    npm run lint
+                                            npm run lint
 
-                                    git -C src/brave checkout -q -
-                                    git -C src/brave branch -D ${LINT_BRANCH}
-                                """
+                                            git -C src/brave checkout -q -
+                                            git -C src/brave branch -D ${LINT_BRANCH}
+                                        """
+                                    }
+                                    catch (ex) {
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
                             }
                         }
                         stage("build") {
@@ -397,7 +450,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
                                     # npm config --userconfig=.npmrc set sccache "sccache"
 
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
                             }
                         }
@@ -440,28 +493,44 @@ pipeline {
                         //         }
                         //     }
                         // }
-                        stage("dist") {
+                        stage("dist-ci") {
+                            when {
+                                expression { "${RELEASE_TYPE}" == "ci" }
+                            }
                             steps {
                                 powershell """
                                     Import-PfxCertificate -FilePath \"${KEY_PFX_PATH}\" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String \"${AUTHENTICODE_PASSWORD_UNESCAPED}\" -AsPlaintext -Force)
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --skip_signing
                                 """
                                 powershell '(Get-Content src\\brave\\vendor\\omaha\\omaha\\hammer-brave.bat) | % { $_ -replace "10.0.15063.0\", "" } | Set-Content src\\brave\\vendor\\omaha\\omaha\\hammer-brave.bat'
-                                powershell "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --build_omaha --tag_ap=x64-${CHANNEL} --target_arch=x64 --debug_build=false --official_build=true"
+                                powershell "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --build_omaha --tag_ap=x64-${CHANNEL} --target_arch=x64 --official_build=true --skip_signing"
+                            }
+                        }
+                        stage("dist-release") {
+                            when {
+                                expression { "${RELEASE_TYPE}" == "release" }
+                            }
+                            steps {
+                                powershell """
+                                    Import-PfxCertificate -FilePath \"${KEY_PFX_PATH}\" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String \"${AUTHENTICODE_PASSWORD_UNESCAPED}\" -AsPlaintext -Force)
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
+                                """
+                                powershell '(Get-Content src\\brave\\vendor\\omaha\\omaha\\hammer-brave.bat) | % { $_ -replace "10.0.15063.0\", "" } | Set-Content src\\brave\\vendor\\omaha\\omaha\\hammer-brave.bat'
+                                powershell "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --build_omaha --tag_ap=x64-${CHANNEL} --target_arch=x64 --official_build=true"
                             }
                         }
                         stage("github-upload") {
                             when {
-                                expression { env.LABEL_SUFFIX == 'release' }
+                                expression { "${RELEASE_TYPE}" == "release" }
                             }
                             steps {
                                 withCredentials([[
-                                    $class: 'AmazonWebServicesCredentialsBinding',
-                                    credentialsId: 'brave-browser-binaries-upload',
-                                    accessKeyVariable: 'BRAVE_S3_ACCESS_KEY',
-                                    secretKeyVariable: 'BRAVE_S3_SECRET_KEY'
+                                    $class: "AmazonWebServicesCredentialsBinding",
+                                    credentialsId: "brave-browser-binaries-upload",
+                                    accessKeyVariable: "BRAVE_S3_ACCESS_KEY",
+                                    secretKeyVariable: "BRAVE_S3_SECRET_KEY"
                                 ]]) {
-                                    powershell 'npm run upload -- --target_arch=x64'
+                                    powershell "npm run upload -- --target_arch=x64"
                                 }
                             }
                         }
@@ -497,9 +566,9 @@ pipeline {
                 stage("windows-ia32") {
                     when {
                         beforeAgent true
-                        expression { env.LABEL_SUFFIX == 'release' }
+                        expression { "${RELEASE_TYPE}" == "release" }
                     }
-                    agent { label "windows-${LABEL_SUFFIX}" }
+                    agent { label "windows-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
@@ -517,12 +586,20 @@ pipeline {
                                 powershell "Remove-Item ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
-                        stage ("clean") {
+                        stage("checkout") {
+                            when {
+                                expression { return !fileExists("package.json") }
+                            }
+                            steps {
+                                git branch: "${BRANCH_TO_BUILD}", url: "https://github.com/brave/brave-browser.git"
+                            }
+                        }
+                        stage("clean") {
                             when {
                                 expression { params.CLEAN_WORKSPACE }
                             }
                             steps {
-                                powershell "git clean -ffxd"
+                                powershell "git clean -fxd"
                             }
                         }
                         stage("install") {
@@ -545,17 +622,24 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                powershell """
-                                    git -C src/brave config user.name brave-builds
-                                    git -C src/brave config user.email devops@brave.com
+                                script {
+                                    try {
+                                        powershell """
+                                            git -C src/brave config user.name brave-builds
+                                            git -C src/brave config user.email devops@brave.com
 
-                                    git -C src/brave checkout -b ${LINT_BRANCH}
+                                            git -C src/brave checkout -b ${LINT_BRANCH}
 
-                                    npm run lint
+                                            npm run lint
 
-                                    git -C src/brave checkout -q -
-                                    git -C src/brave branch -D ${LINT_BRANCH}
-                                """
+                                            git -C src/brave checkout -q -
+                                            git -C src/brave branch -D ${LINT_BRANCH}
+                                        """
+                                    }
+                                    catch (ex) {
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
                             }
                         }
                         stage("build") {
@@ -568,7 +652,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
                                     # npm config --userconfig=.npmrc set sccache "sccache"
 
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true --target_arch=ia32
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_arch=ia32
                                 """
                             }
                         }
@@ -611,28 +695,31 @@ pipeline {
                         //         }
                         //     }
                         // }
-                        stage("dist") {
+                        stage("dist-release") {
+                            when {
+                                expression { "${RELEASE_TYPE}" == "release" }
+                            }
                             steps {
                                 powershell """
                                     Import-PfxCertificate -FilePath \"${KEY_PFX_PATH}\" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String \"${AUTHENTICODE_PASSWORD_UNESCAPED}\" -AsPlaintext -Force)
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
                                 powershell '(Get-Content src\\brave\\vendor\\omaha\\omaha\\hammer-brave.bat) | % { $_ -replace "10.0.15063.0\", "" } | Set-Content src\\brave\\vendor\\omaha\\omaha\\hammer-brave.bat'
-                                powershell "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --build_omaha --tag_ap=x86-${CHANNEL} --target_arch=ia32 --debug_build=false --official_build=true"
+                                powershell "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --build_omaha --tag_ap=x86-${CHANNEL} --target_arch=ia32 --official_build=true"
                             }
                         }
                         stage("github-upload") {
                             when {
-                                expression { env.LABEL_SUFFIX == 'release' }
+                                expression { "${RELEASE_TYPE}" == "release" }
                             }
                             steps {
                                 withCredentials([[
-                                    $class: 'AmazonWebServicesCredentialsBinding',
-                                    credentialsId: 'brave-browser-binaries-upload',
-                                    accessKeyVariable: 'BRAVE_S3_ACCESS_KEY',
-                                    secretKeyVariable: 'BRAVE_S3_SECRET_KEY'
+                                    $class: "AmazonWebServicesCredentialsBinding",
+                                    credentialsId: "brave-browser-binaries-upload",
+                                    accessKeyVariable: "BRAVE_S3_ACCESS_KEY",
+                                    secretKeyVariable: "BRAVE_S3_SECRET_KEY"
                                 ]]) {
-                                    powershell 'npm run upload -- --target_arch=ia32'
+                                    powershell "npm run upload -- --target_arch=ia32"
                                 }
                             }
                         }
