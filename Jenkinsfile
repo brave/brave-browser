@@ -21,7 +21,7 @@ pipeline {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
         BRAVE_ARTIFACTS_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
-        BRAVE_S3_BUCKET = "brave-brave-binaries"
+        BRAVE_S3_BUCKET = credentials("brave-binaries-s3-bucket")
         BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     }
     stages {
@@ -152,7 +152,6 @@ pipeline {
                                 sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --debug_build=false --official_build=true"
                             }
                         }
-                        // TODO: add upload step here
                         stage("github-upload") {
                             when {
                                 expression { env.LABEL_SUFFIX == 'release' }
@@ -331,6 +330,11 @@ pipeline {
                             steps {
                                 withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
                                     s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "*.dmg",
+                                        path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
+                                    )
+                                }
+                                withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                    s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "**/*.dmg",
                                         path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
                                     )
                                 }
