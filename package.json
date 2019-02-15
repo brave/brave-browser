@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "0.62.0",
+  "version": "0.63.0",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -49,7 +49,7 @@
       }
     },
     "widevine": {
-        "version": "4.10.1196.0"
+      "version": "4.10.1196.0"
     }
   },
   "repository": {
