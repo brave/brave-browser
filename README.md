@@ -11,9 +11,6 @@ This repository holds the build tools needed to build the Brave desktop browser 
   - [brave-core](https://github.com/brave/brave-core)
     - Mounted at `src/brave`.
     - Maintains patches for 3rd party Chromium code.
-  - [brave-extension](https://github.com/brave/brave-extension)
-    - Mounted at `src/brave/vendor/brave-extension`.
-    - Browser action extension which implements the UI for the shields panel.
   - [ad-block](https://github.com/brave/ad-block)
     - Mounted at `src/brave/vendor/ad-block`.
     - Implements Brave's ad-block engine.
