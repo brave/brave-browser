@@ -42,7 +42,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "crlsets",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
