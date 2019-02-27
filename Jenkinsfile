@@ -328,7 +328,12 @@ pipeline {
                     }
                 }
                 stage("windows-x64") {
-                    agent { label "windows-${LABEL_SUFFIX}" }
+                    agent {
+                        node {
+                            label "windows-${LABEL_SUFFIX}"
+                            customWorkspace getWorkspace()
+                        }
+                    }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
@@ -668,4 +673,11 @@ pipeline {
             }
         }
     }
+}
+
+def getWorkspace = {
+    def jobname = ${JOB_NAME}
+    def job_substr = jobname[-6..-1] // last 5 chars of the job name
+    path = "C:\\jenkins\\${job_substr}-${BUILD_NUMBER}"
+    return path
 }
