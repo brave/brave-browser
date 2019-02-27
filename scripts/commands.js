@@ -130,6 +130,8 @@ program
 
 program
   .command('lint')
+  .option('--base', 'set the destination branch for the PR')
+  .arguments('[build_config]')
   .action(util.lint)
 
 program

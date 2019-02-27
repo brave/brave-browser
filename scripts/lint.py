@@ -18,6 +18,7 @@ scriptpath = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.realpath(os.path.join(scriptpath, "..", "vendor", "depot_tools")))
 
 import git_cl
+import git_common
 import auth
 
 def main(args):
@@ -27,6 +28,7 @@ def main(args):
   parser.add_option('--filter', action='append', metavar='-x,+y',
                     help='Comma-separated list of cpplint\'s category-filters')
   parser.add_option('--project_root')
+  parser.add_option('--base_branch')
   auth.add_auth_options(parser)
   options, args = parser.parse_args(args)
   auth_config = auth.extract_auth_config_from_options(options)
@@ -47,8 +49,10 @@ def main(args):
   os.chdir(settings.GetRoot())
   try:
     cl = git_cl.Changelist(auth_config=auth_config)
-    change = cl.GetChange(cl.GetCommonAncestorWithUpstream(), None)
-    files = [f.LocalPath() for f in change.AffectedFiles()]
+    upstream = git_common.get_or_create_merge_base(cl.GetBranch(), options.base_branch)
+    changed_files_cmd = git_cl.BuildGitDiffCmd('--name-only', upstream, "")
+    diff_output = git_cl.RunGit(changed_files_cmd)
+    files = diff_output.splitlines()
     if not files:
       print('Cannot lint an empty CL')
       return 0
