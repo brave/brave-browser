@@ -69,7 +69,7 @@ pipeline {
                         }
                         stage("sync") {
                             steps {
-                                sh "npm run sync --all"
+                                sh "npm run sync -- --all"
                             }
                         }
                         stage("lint") {
@@ -210,7 +210,7 @@ pipeline {
                         }
                         stage("sync") {
                             steps {
-                                sh "npm run sync --all"
+                                sh "npm run sync -- --all"
                             }
                         }
                         stage("lint") {
@@ -369,7 +369,7 @@ pipeline {
                         }
                         stage("sync") {
                             steps {
-                                powershell "npm run sync --all"
+                                powershell "npm run sync -- --all"
                             }
                         }
                         stage("lint") {
@@ -540,7 +540,7 @@ pipeline {
                         }
                         stage("sync") {
                             steps {
-                                powershell "npm run sync --all"
+                                powershell "npm run sync -- --all"
                             }
                         }
                         stage("lint") {
