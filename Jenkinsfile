@@ -4,7 +4,7 @@ pipeline {
         // 15m quiet period as described at https://jenkins.io/blog/2010/08/11/quiet-period-feature/
         // quietPeriod(900)
         disableConcurrentBuilds()
-        timeout(time: 4, unit: "HOURS")
+        timeout(time: 5, unit: "HOURS")
         timestamps()
     }
     parameters {
@@ -448,7 +448,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint "safebrowsing.brave.com"
                                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
-                                    # npm config --userconfig=.npmrc set sccache "sccache"
+                                    npm config --userconfig=.npmrc set sccache "sccache"
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
@@ -650,7 +650,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint "safebrowsing.brave.com"
                                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
-                                    # npm config --userconfig=.npmrc set sccache "sccache"
+                                    npm config --userconfig=.npmrc set sccache "sccache"
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_arch=ia32
                                 """
