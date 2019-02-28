@@ -197,7 +197,7 @@ pipeline {
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
-                        PATH = "${PATH}:/usr/local/bin/"
+                        PATH = "${HOME}/.cargo/bin:${PATH}:/usr/local/bin/"
                     }
                     stages {
                         stage("unlock") {
@@ -261,6 +261,16 @@ pipeline {
                                 }
                             }
                         }
+                        stage("npm-config-sccache") {
+                            when {
+                                expression { "${RELEASE_TYPE}" == "ci" }
+                            }
+                            steps {
+                                sh """
+                                    npm config --userconfig=.npmrc set sccache "sccache"
+                                """
+                            }
+                        }
                         stage("build") {
                             steps {
                                 sh """
@@ -269,7 +279,6 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint "safebrowsing.brave.com"
                                     npm config --userconfig=.npmrc set google_api_key "dummytoken"
-                                    # npm config --userconfig=.npmrc set sccache "sccache"
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
