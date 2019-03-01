@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.60.47](https://github.com/brave/brave-browser/releases/tag/v0.60.47)
+ 
+ - Upgraded Chromium to 72.0.3626.119. ([#3447](https://github.com/brave/brave-browser/issues/3447))
+
 ## [0.60.45](https://github.com/brave/brave-browser/releases/tag/v0.60.45)
  
  - Added ability to tip Twitch publishers. ([#1814](https://github.com/brave/brave-browser/issues/1814))
