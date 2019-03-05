@@ -40,6 +40,4 @@ For other versions of our browser, please see:
 
 Help us translate Brave to your language by submitting translations at https://www.transifex.com/brave/brave/
 
-Join our [Discord community chat](https://discordapp.com/invite/k57tYrS) for higher bandwidth discussions.
-
 Follow [@brave](https://twitter.com/brave) on Twitter for important news and announcements.
