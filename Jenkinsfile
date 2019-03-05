@@ -223,7 +223,7 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh "npm install"
+                                sh "npm install --no-optional"
                             }
                         }
                         stage("init") {
