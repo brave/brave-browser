@@ -130,6 +130,7 @@ program
 
 program
   .command('lint')
+  .option('--base <base branch>', 'set the destination branch for the PR')
   .action(util.lint)
 
 program
