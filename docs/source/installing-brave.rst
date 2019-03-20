@@ -26,8 +26,7 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt update
 
-    sudo apt install brave-browser brave-keyring
-
+    sudo apt install brave-keyring brave-browser
 
 Mint 17
 -------
@@ -39,8 +38,7 @@ Mint 17
 
     sudo apt update
 
-    sudo apt install brave-browser brave-keyring
-
+    sudo apt install brave-keyring brave-browser
 
 Fedora 28+
 ----------
@@ -50,11 +48,10 @@ Fedora 28+
 
     sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-    sudo dnf install brave-browser brave-keyring
+    sudo dnf install brave-keyring brave-browser
 
-
-Centos/RHel
-----------
+CentOS/RHEL
+-----------
 ::
 
     sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -66,12 +63,13 @@ Centos/RHel
     enabled=1
     EOF
 
-    sudo yum install brave-browser brave-keyring
+    sudo yum install brave-keyring brave-browser
 
 The key you're importing should have fingerprint ``D8BA D4DE 7EE1 7AF5 2A83  4B2D 0BB7 5829 C2D4 E821``.
 
+
 Beta Channel Installation
-================================
+=========================
 
 .. highlight:: console
 
@@ -89,7 +87,6 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-beta
 
-
 Mint 17
 -------
 ::
@@ -102,7 +99,6 @@ Mint 17
 
     sudo apt install brave-browser-beta
 
-
 Fedora 28+
 ----------
 ::
@@ -113,8 +109,8 @@ Fedora 28+
 
     sudo dnf install brave-browser-beta
 
-Centos/RHel
-----------
+CentOS/RHEL
+-----------
 ::
 
     sudo rpm --import https://brave-browser-rpm-beta.s3.brave.com/brave-core-nightly.asc
@@ -129,6 +125,7 @@ Centos/RHel
     sudo yum install brave-browser-beta
 
 The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
+
 
 Development Channel Installation
 ================================
@@ -149,7 +146,6 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-dev
 
-
 Mint 17
 -------
 ::
@@ -162,7 +158,6 @@ Mint 17
 
     sudo apt install brave-browser-dev
 
-
 Fedora 28+
 ----------
 ::
@@ -173,9 +168,8 @@ Fedora 28+
 
     sudo dnf install brave-browser-dev
 
-
-Centos/RHel
-----------
+CentOS/RHEL
+-----------
 ::
 
     sudo rpm --import  https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
@@ -186,6 +180,66 @@ Centos/RHel
     baseurl=https://brave-browser-rpm-dev.s3.brave.com/x86_64/
     enabled=1
     EOF
+
     sudo yum install brave-browser-dev
+
+The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
+
+
+Nightly Channel Installation
+============================
+
+.. highlight:: console
+
+Ubuntu 16.04+ and Mint 18+
+--------------------------
+::
+
+    curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
+
+    source /etc/os-release
+
+    echo "deb [arch=amd64] https://brave-browser-apt-nightly.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-nightly-${UBUNTU_CODENAME}.list
+
+    sudo apt update
+
+    sudo apt install brave-browser-nightly
+
+Mint 17
+-------
+::
+
+    curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
+
+    echo "deb [arch=amd64] https://brave-browser-apt-nightly.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-nightly-trusty.list
+
+    sudo apt update
+
+    sudo apt install brave-browser-nightly
+
+Fedora 28+
+----------
+::
+
+    sudo dnf config-manager --add-repo https://brave-browser-rpm-nightly.s3.brave.com/x86_64/
+
+    sudo rpm --import https://brave-browser-rpm-nightly.s3.brave.com/brave-core-nightly.asc
+
+    sudo dnf install brave-browser-nightly
+
+CentOS/RHEL
+-----------
+::
+
+    sudo rpm --import  https://brave-browser-rpm-nightly.s3.brave.com/brave-core-nightly.asc
+
+    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-nightly.repo
+    [brave-browser-nightly]
+    name=Brave Browser Nightly Channel repository
+    baseurl=https://brave-browser-rpm-nightly.s3.brave.com/x86_64/
+    enabled=1
+    EOF
+
+    sudo yum install brave-browser-nightly
 
 The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
