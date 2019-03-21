@@ -387,6 +387,9 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -597,6 +600,9 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
