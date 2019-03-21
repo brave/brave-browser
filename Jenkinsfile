@@ -27,9 +27,6 @@ pipeline {
         BRAVE_ARTIFACTS_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         BRAVE_S3_BUCKET = credentials("brave-binaries-s3-bucket")
         BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
-        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
-        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
     }
     stages {
         stage("env") {
@@ -206,6 +203,9 @@ pipeline {
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")                        
                     }
                     stages {
                         stage("checkout") {
@@ -610,6 +610,9 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
