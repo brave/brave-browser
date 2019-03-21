@@ -459,8 +459,8 @@ pipeline {
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
 
-                                    New-Item -ItemType directory -Path src\third_party\widevine\scripts
-                                    Copy-Item C:\jenkins\signature_generator.py -Destination src\third_party\widevine\scripts\
+                                    New-Item -ItemType directory -Path "src\third_party\widevine\scripts"
+                                    Copy-Item "C:\jenkins\signature_generator.py" -Destination "src\third_party\widevine\scripts\"
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
@@ -669,8 +669,8 @@ pipeline {
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
 
-                                    New-Item -ItemType directory -Path src\third_party\widevine\scripts
-                                    Copy-Item C:\jenkins\signature_generator.py -Destination src\third_party\widevine\scripts\
+                                    New-Item -ItemType directory -Path "src\third_party\widevine\scripts"
+                                    Copy-Item "C:\jenkins\signature_generator.py" -Destination "src\third_party\widevine\scripts\"
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_arch=ia32
                                 """
