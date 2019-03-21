@@ -278,7 +278,8 @@ pipeline {
                                     mkdir -p src/third_party/widevine/scripts/
                                     cp ${HOME}/signature_generator.py src/third_party/widevine/scripts/
 
-                                    pip install cryptography
+                                    pip install --user cryptography
+                                    pip list
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
