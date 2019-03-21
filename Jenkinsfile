@@ -27,6 +27,9 @@ pipeline {
         BRAVE_ARTIFACTS_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         BRAVE_S3_BUCKET = credentials("brave-binaries-s3-bucket")
         BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
+        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
     }
     stages {
         stage("env") {
@@ -392,9 +395,6 @@ pipeline {
                 //         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                 //         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                 //         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
-                //         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
-                //         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                //         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                 //     }
                 //     stages {
                 //         stage("checkout") {
@@ -467,14 +467,13 @@ pipeline {
                 //                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                 //                     npm config --userconfig=.npmrc set google_api_key dummytoken
 
+                //                     New-Item -ItemType directory -Path "src\\third_party\\widevine\\scripts"
+                //                     Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
                 //                     pip install --user cryptography
                 //                     pip list
 
-                //                     vendor/depot_tools/win_tools-2_7_6_bin/python/bin/pip.exe install cryptography
-                //                     vendor/depot_tools/win_tools-2_7_6_bin/python/bin/pip.exe list
-
-                //                     New-Item -ItemType directory -Path "src\\third_party\\widevine\\scripts"
-                //                     Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
+                //                     vendor\depot_tools\win_tools-2_7_6_bin\python\bin\Scripts\pip.exe install cryptography
+                //                     vendor\depot_tools\win_tools-2_7_6_bin\python\bin\Scripts\pip.exe list
 
                 //                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                 //                 """
@@ -611,9 +610,6 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
-                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
-                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
