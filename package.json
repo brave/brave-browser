@@ -42,10 +42,10 @@
       },
       "brave-core": {
         "dir": "src/brave",
+        "branch": "maxk-C74-reland",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
-        },
-        "branch": "maxk-C74-reland"
+        }
       }
     },
     "widevine": {
