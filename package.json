@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "0.64.30",
+  "version": "0.64.31",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -42,10 +42,10 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "0.64.x",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
-        }
+        },
+        "commit": "ce02aeeabd2b86903dc712cc93ad65c4ef8ab012"
       }
     },
     "widevine": {
