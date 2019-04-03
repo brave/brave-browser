@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.61.52](https://github.com/brave/brave-browser/releases/tag/v0.61.52)
+ 
+ - Upgraded Chromium to 73.0.3683.86. ([#3813](https://github.com/brave/brave-browser/issues/3813))
+
 ## [0.61.51](https://github.com/brave/brave-browser/releases/tag/v0.61.51)
  
  - Added new setting that allows Brave Rewards icon in the URL to be hidden if Rewards is inactive. ([#2975](https://github.com/brave/brave-browser/issues/2975))

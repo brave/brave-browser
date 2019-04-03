@@ -7,7 +7,7 @@
   - [ ] Windows
   - [ ] macOS
   - [ ] Linux
-- Verified that these changes pass automated tests (`npm test brave_unit_tests && npm test brave_browser_tests`) on
+- Verified that these changes pass automated tests (`npm test brave_unit_tests && npm test brave_browser_tests && npm run test-security`) on
   - [ ] Windows
   - [ ] macOS
   - [ ] Linux

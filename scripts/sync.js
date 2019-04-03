@@ -50,5 +50,7 @@ if (updatedVersion || program.init || program.run_sync) {
 }
 
 if (updatedVersion || program.init || program.run_hooks) {
+  const core_dir = config.projects['brave-core'].dir
+  util.run('python', [path.join(core_dir, 'script', 'apply-patches.py')])
   util.gclientRunhooks()
 }

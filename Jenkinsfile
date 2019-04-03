@@ -281,8 +281,6 @@ pipeline {
                                     mkdir -p src/third_party/widevine/scripts/
                                     cp ${HOME}/signature_generator.py src/third_party/widevine/scripts/
 
-                                    pip install --user cryptography
-
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
                             }
@@ -679,8 +677,6 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-
-                                    pip install --user cryptography
 
                                     New-Item -ItemType directory -Path "src\\third_party\\widevine\\scripts"
                                     Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"

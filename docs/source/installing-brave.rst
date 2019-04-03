@@ -8,6 +8,7 @@ NOTE: If Brave does not start and shows an error about sandboxing, you may need
 to enable `user namespaces
 <https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977>`_. For security reasons, we do NOT recommend running with the ``--no-sandbox`` flag. For more info, see https://github.com/brave/brave-browser/issues/1986#issuecomment-445057361.
 
+NOTE: While we recommend you to use our official packages, there's a section for unofficial package in the case where we don't ship packages for your distribution. These packages are community maintained, and therefore we take no responsibility for them.
 
 Release Channel Installation
 ============================
@@ -243,3 +244,18 @@ CentOS/RHEL
     sudo yum install brave-browser-nightly
 
 The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
+
+
+Unofficial packages
+============================
+
+.. highlight:: console
+
+Solus 
+-----------
+::
+
+    sudo eopkg it brave
+    
+The Solus
+package is a repackaging of the .deb file in to the Solus software format (.eopkg). It is currently maintained by Jacalz.
