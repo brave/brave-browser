@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.62.50](https://github.com/brave/brave-browser/releases/tag/v0.62.50)
+ 
+ - Added Widevine support for Linux. ([#413](https://github.com/brave/brave-browser/issues/413))
+ - Added social media blocking for Google, Twitter, LinkedIn and Facebook. ([#3489](https://github.com/brave/brave-browser/issues/3489))
+ - Added ability for Brave to use system theme on macOS. ([#1189](https://github.com/brave/brave-browser/issues/1189))
+ - Reduced retry timer when publisher list fails to download. ([#3639](https://github.com/brave/brave-browser/issues/3639))
+ - Changed auto-contribution remove icons from X to trash icons under Rewards. ([#3178](https://github.com/brave/brave-browser/issues/3178))
+ - Updated the manual page under Linux. ([#392](https://github.com/brave/brave-browser/issues/392))
+ - Updated resource blocking to return HTTP 200 instead of redirect. ([#2554](https://github.com/brave/brave-browser/issues/2554))
+ - Fixed issue where users couldn't create Brave wallet. ([#3046](https://github.com/brave/brave-browser/issues/3046))
+ - Fixed users not being able to create wallets due to "Wallet creation failed" error. ([#2997](https://github.com/brave/brave-browser/issues/2997))
+ - Fixed "insufficient funds" and "unable to contribute" notifications being displayed despite having enough BAT. ([#3640](https://github.com/brave/brave-browser/issues/3640))
+ - Fixed monthly tips not being displayed in summary when accessing from tip panel. ([#3177](https://github.com/brave/brave-browser/issues/3177))
+ - Fixed "Try again" button not working if wallet creation fails. ([#3440](https://github.com/brave/brave-browser/issues/3440))
+ - Fixed "Backup Wallet" notification not directing users to the backup page under Rewards. ([#2739](https://github.com/brave/brave-browser/issues/2739))
+ - Fixed download toolbar not always respecting current theme. ([#3708](https://github.com/brave/brave-browser/issues/3708))
+ - Fixed macOS system UI within Brave not matching Brave theme colour. ([#1289](https://github.com/brave/brave-browser/issues/1289))
+ - Fixed sync not propagating changes to other devices in certain situations. ([#3515](https://github.com/brave/brave-browser/issues/3515))
+ - Fixed bookmarks not being synced in correct order in certain situations. ([#3216](https://github.com/brave/brave-browser/issues/3216))
+ - Fixed crash when trying to open brave://sync in private window. ([#2852](https://github.com/brave/brave-browser/issues/2852))
+ - Fixed different behaviour when loading chrome:// vs brave:// in private windows. ([#2853](https://github.com/brave/brave-browser/issues/2853))
+ - Fixed chrome:// being displayed instead of brave:// when editing the URL. ([#1616](https://github.com/brave/brave-browser/issues/1616))
+ - Fixed internal brave:// pages being added into new tab page. ([#3710](https://github.com/brave/brave-browser/issues/3710))
+ - Fixed http://dl.google.com/linux/chrome/deb/ automatically being added to sources.list on Linux. (https://github.com/brave/brave-browser/issues/1084))
+ - Fixed not being enable to disable Brave Shield when URL includes a port number. ([#1896](https://github.com/brave/brave-browser/issues/1896))
+
 ## [0.61.52](https://github.com/brave/brave-browser/releases/tag/v0.61.52)
  
  - Upgraded Chromium to 73.0.3683.86. ([#3813](https://github.com/brave/brave-browser/issues/3813))
