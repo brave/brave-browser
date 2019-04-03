@@ -203,6 +203,9 @@ pipeline {
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -274,6 +277,9 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
+
+                                    mkdir -p src/third_party/widevine/scripts/
+                                    cp ${HOME}/signature_generator.py src/third_party/widevine/scripts/
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
@@ -387,6 +393,9 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -458,6 +467,9 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
+
+                                    New-Item -ItemType directory -Path "src\\third_party\\widevine\\scripts"
+                                    Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
                                 """
@@ -594,6 +606,9 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -665,6 +680,9 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
+
+                                    New-Item -ItemType directory -Path "src\\third_party\\widevine\\scripts"
+                                    Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
 
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_arch=ia32
                                 """
