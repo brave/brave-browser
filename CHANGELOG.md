@@ -23,7 +23,7 @@
  - Fixed different behaviour when loading chrome:// vs brave:// in private windows. ([#2853](https://github.com/brave/brave-browser/issues/2853))
  - Fixed chrome:// being displayed instead of brave:// when editing the URL. ([#1616](https://github.com/brave/brave-browser/issues/1616))
  - Fixed internal brave:// pages being added into new tab page. ([#3710](https://github.com/brave/brave-browser/issues/3710))
- - Fixed http://dl.google.com/linux/chrome/deb/ automatically being added to sources.list on Linux. (https://github.com/brave/brave-browser/issues/1084))
+ - Fixed http://dl.google.com/linux/chrome/deb/ automatically being added to sources.list on Linux. ([#1084](https://github.com/brave/brave-browser/issues/1084))
  - Fixed not being enable to disable Brave Shield when URL includes a port number. ([#1896](https://github.com/brave/brave-browser/issues/1896))
 
 ## [0.61.52](https://github.com/brave/brave-browser/releases/tag/v0.61.52)
