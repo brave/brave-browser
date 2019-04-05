@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.62.51](https://github.com/brave/brave-browser/releases/tag/v0.62.51)
+ 
+ - Upgraded Chromium to 73.0.3683.103. ([#4031](https://github.com/brave/brave-browser/issues/4031))
+
 ## [0.62.50](https://github.com/brave/brave-browser/releases/tag/v0.62.50)
  
  - Added Widevine support for Linux. ([#413](https://github.com/brave/brave-browser/issues/413))
