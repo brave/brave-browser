@@ -29,12 +29,15 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 <!--For installed build, please copy Brave, Revision and OS from brave://version and paste here. If building from source please mention it along with brave://version details-->
 
 
-### Reproducible on current release:
-- Does it reproduce on brave-browser dev/beta builds? 
+## Version/Channel Information:
+<!--Does this issue happen on any other channels? Or is it specific to a certain channel?-->
 
-### Website problems only:  
+- Can you reproduce this issue with the current release?
+- Can you reproduce this issue on either the Nightly, Developer or Beta channels?
+
+## Website problems only:  
 - Does the issue resolve itself when disabling Brave Shields? 
 - Is the issue reproducible on the latest version of Chrome? 
 
-### Additional Information
+## Additional Information
 <!--Any additional information, related issues, extra QA steps, configuration or data that might be necessary to reproduce the issue-->
