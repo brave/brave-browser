@@ -69,13 +69,18 @@ pipeline {
                             steps {
                                 sh """
                                     rm -rf ${GIT_CACHE_PATH}/*.lock
+
                                     npm run init
                                 """
                             }
                         }
-                        stage("lint") {
+                        stage("sync") {
                             steps {
                                 sh "npm run sync -- --all"
+                            }
+                        }
+                        stage("lint") {
+                            steps {
                                 script {
                                     try {
                                         sh """
@@ -201,7 +206,6 @@ pipeline {
                 stage("mac") {
                     agent { label "mac-${RELEASE_TYPE}" }
                     environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
                     }
                     stages {
@@ -226,15 +230,16 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || params.RUN_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf ${GIT_CACHE_PATH}/*.lock
-                                    npm run init
-                                """
+                                sh "npm run init"
+                            }
+                        }
+                        stage("sync") {
+                            steps {
+                                sh "npm run sync -- --all"
                             }
                         }
                         stage("lint") {
                             steps {
-                                sh "npm run sync -- --all"
                                 script {
                                     try {
                                         sh """
@@ -412,13 +417,18 @@ pipeline {
                             steps {
                                 powershell """
                                     Remove-Item ${GIT_CACHE_PATH}/*.lock
+
                                     npm run init
                                 """
                             }
                         }
-                        stage("lint") {
+                        stage("sync") {
                             steps {
                                 powershell "npm run sync -- --all"
+                            }
+                        }
+                        stage("lint") {
+                            steps {
                                 script {
                                     try {
                                         powershell """
@@ -619,13 +629,18 @@ pipeline {
                             steps {
                                 powershell """
                                     Remove-Item ${GIT_CACHE_PATH}/*.lock
+
                                     npm run init
                                 """
                             }
                         }
-                        stage("lint") {
+                        stage("sync") {
                             steps {
                                 powershell "npm run sync -- --all"
+                            }
+                        }
+                        stage("lint") {
+                            steps {
                                 script {
                                     try {
                                         powershell """
