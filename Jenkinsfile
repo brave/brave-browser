@@ -19,6 +19,9 @@ pipeline {
         BRANCH = "${params.BRANCH}"
         CHANNEL = "${params.CHANNEL}"
         CHANNEL_CAPITALIZED = "${CHANNEL}".capitalize()
+        WIPE_WORKSPACE = "${params.WIPE_WORKSPACE}"
+        RUN_INIT = "${params.RUN_INIT}"
+        DISABLE_SCCACHE = "${params.DISABLE_SCCACHE}"
         BUILD_TYPE = "Release"
         OUT_DIR = "src/out/${BUILD_TYPE}"
         LINT_BRANCH = "TEMP_LINT_BRANCH_${BUILD_NUMBER}"
