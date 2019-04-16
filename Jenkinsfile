@@ -63,6 +63,7 @@ pipeline {
                         stage("install") {
                             steps {
                                 sh "npm install --no-optional"
+                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
                         stage("init") {
@@ -70,11 +71,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || params.RUN_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf ${GIT_CACHE_PATH}/*.lock
-
-                                    npm run init
-                                """
+                                sh "npm run init"
                             }
                         }
                         stage("sync") {
@@ -209,6 +206,7 @@ pipeline {
                 stage("mac") {
                     agent { label "mac-${RELEASE_TYPE}" }
                     environment {
+                        GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
                     }
                     stages {
@@ -226,6 +224,7 @@ pipeline {
                         stage("install") {
                             steps {
                                 sh "npm install --no-optional"
+                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
                         stage("init") {
@@ -411,6 +410,7 @@ pipeline {
                         stage("install") {
                             steps {
                                 powershell "npm install --no-optional"
+                                powershell "Remove-Item ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
                         stage("init") {
@@ -418,11 +418,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || params.RUN_INIT }
                             }
                             steps {
-                                powershell """
-                                    Remove-Item ${GIT_CACHE_PATH}/*.lock
-
-                                    npm run init
-                                """
+                                powershell "npm run init"
                             }
                         }
                         stage("sync") {
@@ -623,6 +619,7 @@ pipeline {
                         stage("install") {
                             steps {
                                 powershell "npm install --no-optional"
+                                powershell "Remove-Item ${GIT_CACHE_PATH}/*.lock"
                             }
                         }
                         stage("init") {
@@ -630,11 +627,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || params.RUN_INIT }
                             }
                             steps {
-                                powershell """
-                                    Remove-Item ${GIT_CACHE_PATH}/*.lock
-
-                                    npm run init
-                                """
+                                powershell "npm run init"
                             }
                         }
                         stage("sync") {
