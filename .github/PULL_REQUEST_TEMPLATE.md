@@ -15,6 +15,13 @@
 - [ ] Ran `git rebase -i` to squash commits (if needed).
 - [ ] Tagged reviewers and labelled the pull request as needed.
 - [ ] Requested a security/privacy review as needed.
+- [ ] Public documentation has been updated as necessary. For instance:
+  - [ ] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)
+  - [ ] https://github.com/brave/brave-browser/wiki/Proxy-redirected-URLs
+  - [ ] https://github.com/brave/brave-browser/wiki/Fingerprinting-Protection-Mode
+  - [ ] https://github.com/brave/brave-browser/wiki/Brave%E2%80%99s-Use-of-Referral-Codes
+  - [ ] https://github.com/brave/brave-browser/wiki/Custom-Headers
+  - [ ] https://github.com/brave/brave-browser/wiki/Web-compatibility-issues-with-tracking-protection
 
 ## Test Plan:
 
@@ -24,3 +31,9 @@
 - [ ] New files have MPL-2.0 license header.
 - [ ] Request a security/privacy review as needed.
 - [ ] Adequate test coverage exists to prevent regressions.
+
+## After-merge Checklist:
+
+- [ ] The associated issue milestone is set to the smallest version that the
+  changes has landed on.
+- [ ] All relevant documentation has been updated.
