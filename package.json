@@ -45,7 +45,7 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "branch": "0.64.x"
+        "commit": "5ae9736bc8491f593fc9768cc53d4a8bfc4a3af0"
       }
     },
     "widevine": {
