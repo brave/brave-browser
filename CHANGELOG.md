@@ -162,7 +162,7 @@
  - Enabled viz service display compositor. ([#3105](https://github.com/brave/brave-browser/issues/3105))
  - Reduced user fingerprint by always returning constant values for navigator.mimeTypes and navigator.plugins. ([#1549](https://github.com/brave/brave-browser/issues/1549))
  - Replaced several icons under Brave Rewards with new icons. ([#1825](https://github.com/brave/brave-browser/issues/1825))
- - Fixed auto-contribution table being corrupted when changing "Minimum page time before logging a visit" via Brave brave://rewards. ([#3134](https://github.com/brave/brave-browser/issues/3134))
+ - Fixed auto-contribution table being corrupted when changing "Minimum page time before logging a visit" via brave://rewards. ([#3134](https://github.com/brave/brave-browser/issues/3134))
  - Fixed publishers being removed from the auto-contribution table when "Minimum page time before logging a visit" is changed and Brave is upgraded or restarted. ([#3162](https://github.com/brave/brave-browser/issues/3162))
  - Fixed reward panel not always displaying Welcome screen on first click which caused issues creating wallets. ([#2962](https://github.com/brave/brave-browser/issues/2962))
  - Fixed several instances of incorrect crypto addresses being displayed in Brave Rewards. ([#2172](https://github.com/brave/brave-browser/issues/2172))
