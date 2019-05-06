@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.63.55](https://github.com/brave/brave-browser/releases/tag/v0.63.55)
+
+ - Fixed display of Ad Rewards earnings in settings panel. ([#4008](https://github.com/brave/brave-browser/issues/4008))
+ - Removed expiration date from the rewards UI for grants received from ads. ([#4169](https://github.com/brave/brave-browser/issues/4169)) 
+ - Upgraded Chromium to 74.0.3729.131. ([#4278](https://github.com/brave/brave-browser/issues/4278))
+
 ## [0.63.48](https://github.com/brave/brave-browser/releases/tag/v0.63.48)
 
  - Added the ability to opt-in to user private Brave ads. ([#4209](https://github.com/brave/brave-browser/issues/4209))
