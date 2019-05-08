@@ -42,9 +42,9 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "p3a_rebased2",
         "repository": {
-          "url": "https://github.com/brave/brave-core.git"
+          "url": "git@github.com:brave/brave-antibot.git"
         }
       }
     },
@@ -259,6 +259,7 @@
     "fs-extra": "^1.0.0"
   },
   "devDependencies": {
+    "electron": "^5.0.1",
     "ip": "^1.1.5"
   }
 }
