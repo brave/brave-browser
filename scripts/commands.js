@@ -30,6 +30,7 @@ program
 program
   .command('build')
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
+  .option('--target_os <target_os>', 'target OS')
   .option('--target_arch <target_arch>', 'target architecture', 'x64')
   .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
   .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')

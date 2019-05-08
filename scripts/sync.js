@@ -12,6 +12,7 @@ program
   .option('--gclient_verbose', 'verbose output for gclient')
   .option('--run_hooks', 'run gclient hooks')
   .option('--run_sync', 'run gclient sync')
+  .option('--target_os <target_os>', 'target OS')
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
