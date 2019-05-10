@@ -40,8 +40,8 @@ pipeline {
                     GITHUB_API = "https://api.github.com/repos/brave"
                     GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
                     BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH_TO_BUILD, validResponseCodes: '100:499', authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
-                    SKIP = false
                     TARGET_BRANCH = "master"
+                    SKIP = false
                     if (env.CHANGE_BRANCH) {
                         TARGET_BRANCH = env.CHANGE_TARGET
                         prNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH_TO_BUILD, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
@@ -69,6 +69,108 @@ pipeline {
                 expression { !SKIP }
             }
             parallel {
+                stage("android") {
+                    agent { label "linux-${RELEASE_TYPE}" }
+                    environment {
+                        GIT_CACHE_PATH = "${HOME}/cache"
+                        SCCACHE_BUCKET = credentials("brave-browser-sccache-android-s3-bucket")
+                    }
+                    stages {
+                        stage("checkout") {
+                            when {
+                                anyOf {
+                                    expression { WIPE_WORKSPACE }
+                                    expression { return !fileExists("package.json") }
+                                }
+                            }
+                            steps {
+                                checkout([$class: 'GitSCM', branches: [[name: "${BRANCH_TO_BUILD}"]], extensions: [[$class: 'WipeWorkspace']], userRemoteConfigs: [[url: 'https://github.com/brave/brave-browser.git']]])
+                            }
+                        }
+                        stage("pin") {
+                            when {
+                                expression { BRANCH_EXISTS_IN_BC }
+                            }
+                            steps {
+                                sh """
+                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH_TO_BUILD}"' package.json > package.json.new
+                                    mv package.json.new package.json
+                                """
+                            }
+                        }
+                        stage("install") {
+                            steps {
+                                sh "npm install --no-optional"
+                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
+                            }
+                        }
+                        stage("init") {
+                            when {
+                                expression { return !fileExists("src/brave/package.json") || RUN_INIT }
+                            }
+                            steps {
+                                sh "npm run init -- --target_os=android"
+                            }
+                        }
+                        stage("sync") {
+                            steps {
+                                sh "npm run sync -- --all --target_os=android"
+                            }
+                        }
+                        stage("lint") {
+                            steps {
+                                script {
+                                    try {
+                                        sh """
+                                            git -C src/brave config user.name brave-builds
+                                            git -C src/brave config user.email devops@brave.com
+                                            git -C src/brave checkout -b ${LINT_BRANCH}
+                                            npm run lint -- --base=origin/${TARGET_BRANCH}
+                                            git -C src/brave checkout -q -
+                                            git -C src/brave branch -D ${LINT_BRANCH}
+                                        """
+                                    }
+                                    catch (ex) {
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
+                            }
+                        }
+                        stage("sccache") {
+                            when {
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                    expression { "${RELEASE_TYPE}" == "ci" }
+                                }
+                            }
+                            steps {
+                                echo "enabling sccache"
+                                sh "npm config --userconfig=.npmrc set sccache sccache"
+                            }
+                        }
+                        stage("build") {
+                            steps {
+                                sh """
+                                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
+                                    npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+                                    npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
+                                    npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
+                                    npm config --userconfig=.npmrc set google_api_key dummytoken
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=android
+                                """
+                            }
+                        }
+                        stage("archive") {
+                            steps {
+                                withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                    s3Upload(acl: "Private", bucket: "${BRAVE_ARTIFACTS_BUCKET}", includePathPattern: "apks/*.apk",
+                                        path: "${JOB_NAME}/${BUILD_NUMBER}/", pathStyleAccessEnabled: true, payloadSigningEnabled: true, workingDir: "${OUT_DIR}"
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
                 stage("linux") {
                     agent { label "linux-${RELEASE_TYPE}" }
                     environment {
@@ -144,6 +246,7 @@ pipeline {
                                 }
                             }
                             steps {
+                                echo "enabling sccache"
                                 sh "npm config --userconfig=.npmrc set sccache sccache"
                             }
                         }
@@ -295,6 +398,7 @@ pipeline {
                                 }
                             }
                             steps {
+                                echo "enabling sccache"
                                 sh "npm config --userconfig=.npmrc set sccache sccache"
                             }
                         }
