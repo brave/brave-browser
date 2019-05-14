@@ -23,7 +23,7 @@
  - Fixed attention data for publishers not being removed when removing publishers from auto-contribution table. ([#3459](https://github.com/brave/brave-browser/issues/3459))
  - Fixed several resizing issues by making rewards panel height dynamic based on content. ([#2874](https://github.com/brave/brave-browser/issues/2874))
  - Fixed IPFS companion options page not being displayed. ([#4218](https://github.com/brave/brave-browser/issues/4218))
- - Fixed "This is a secondary installation of Brave" error when attempting to set Brave as defualt. ([#3817](https://github.com/brave/brave-browser/issues/3817))
+ - Fixed "This is a secondary installation of Brave" error when attempting to set Brave as default. ([#3817](https://github.com/brave/brave-browser/issues/3817))
  - Fixed autofill popup for credentials unexpectedly being displayed in odd locations upon page load. ([#1713](https://github.com/brave/brave-browser/issues/1713))
  - Fixed brave://crash not crashing brave:// tabs. ([#4111](https://github.com/brave/brave-browser/issues/4111))
  - Fixed visiting http://www.bbcnews.com and several other websites triggering warning due to the lookalike url navigation feature. ([#4304](https://github.com/brave/brave-browser/issues/4304))
