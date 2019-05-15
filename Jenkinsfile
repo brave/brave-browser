@@ -262,12 +262,26 @@ pipeline {
                                 """
                             }
                         }
-                        stage("test-security") {
+                        stage("network-audit") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     script {
                                         try {
-                                            sh "npm run test-security -- --output_path=\"${OUT_DIR}/brave\""
+                                            sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
+                                        }
+                                        catch (ex) {
+                                            currentBuild.result = "UNSTABLE"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        stage("audit_deps") {
+                            steps {
+                                timeout(time: 2, unit: "MINUTES") {
+                                    script {
+                                        try {
+                                            sh "npm run audit_deps"
                                         }
                                         catch (ex) {
                                             currentBuild.result = "UNSTABLE"
@@ -414,12 +428,26 @@ pipeline {
                                 """
                             }
                         }
-                        stage("test-security") {
+                        stage("network-audit") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     script {
                                         try {
-                                            sh "npm run test-security -- --output_path=\"${OUT_DIR}/Brave\\ Browser\\ ${CHANNEL_CAPITALIZED}.app/Contents/MacOS/Brave\\ Browser\\ ${CHANNEL_CAPITALIZED}\""
+                                            sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser\\ ${CHANNEL_CAPITALIZED}.app/Contents/MacOS/Brave\\ Browser\\ ${CHANNEL_CAPITALIZED}\""
+                                        }
+                                        catch (ex) {
+                                            currentBuild.result = "UNSTABLE"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        stage("audit_deps") {
+                            steps {
+                                timeout(time: 2, unit: "MINUTES") {
+                                    script {
+                                        try {
+                                            sh "npm run audit_deps"
                                         }
                                         catch (ex) {
                                             currentBuild.result = "UNSTABLE"
@@ -583,12 +611,26 @@ pipeline {
                                 """
                             }
                         }
-                        stage("test-security") {
+                        stage("network-audit") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     script {
                                         try {
-                                            powershell "npm run test-security -- --output_path=\"${OUT_DIR}/brave.exe\""
+                                            powershell "npm run network-audit -- --output_path=\"${OUT_DIR}/brave.exe\""
+                                        }
+                                        catch (ex) {
+                                            currentBuild.result = "UNSTABLE"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        stage("audit_deps") {
+                            steps {
+                                timeout(time: 2, unit: "MINUTES") {
+                                    script {
+                                        try {
+                                            powershell "npm run audit_deps"
                                         }
                                         catch (ex) {
                                             currentBuild.result = "UNSTABLE"
