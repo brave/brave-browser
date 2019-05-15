@@ -26,7 +26,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "74.0.3729.131",
+        "tag": "74.0.3729.157",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
@@ -45,7 +45,7 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "branch": "0.64.x"
+        "branch": "74.0.3729.157_0.64.x_23"
       }
     },
     "widevine": {
