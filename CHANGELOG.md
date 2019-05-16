@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.64.76](https://github.com/brave/brave-browser/releases/tag/v0.64.76)
+
+ - Upgraded Chromium to 74.0.3729.157. ([#4443](https://github.com/brave/brave-browser/issues/4443))
+
 ## [0.64.75](https://github.com/brave/brave-browser/releases/tag/v0.64.75)
 
  - Added a manual refresh button to fetch new version of the verified publishers list. ([#3339](https://github.com/brave/brave-browser/issues/3339))
