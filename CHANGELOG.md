@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.64.76](https://github.com/brave/brave-browser/releases/tag/v0.64.76)
+
+ - Upgraded Chromium to 74.0.3729.157. ([#4443](https://github.com/brave/brave-browser/issues/4443))
+
 ## [0.64.75](https://github.com/brave/brave-browser/releases/tag/v0.64.75)
 
  - Added a manual refresh button to fetch new version of the verified publishers list. ([#3339](https://github.com/brave/brave-browser/issues/3339))
@@ -33,7 +37,7 @@
 ## [0.63.55](https://github.com/brave/brave-browser/releases/tag/v0.63.55)
 
  - Fixed display of Ad Rewards earnings in settings panel. ([#4008](https://github.com/brave/brave-browser/issues/4008))
- - Removed expiration date from the rewards UI for grants received from ads. ([#4169](https://github.com/brave/brave-browser/issues/4169)) 
+ - Removed expiration date from the rewards UI for grants received from ads. ([#4169](https://github.com/brave/brave-browser/issues/4169))
  - Upgraded Chromium to 74.0.3729.131. ([#4278](https://github.com/brave/brave-browser/issues/4278))
 
 ## [0.63.48](https://github.com/brave/brave-browser/releases/tag/v0.63.48)
@@ -69,16 +73,16 @@
  - Fixed several UI issues on the rewards panel for Manjaro/Arch Linux distros. ([#1555](https://github.com/brave/brave-browser/issues/1555))
  - Fixed loss of "clickable area" under the New Tab Page for top site tiles. ([#3487](https://github.com/brave/brave-browser/issues/3487))
  - Fixed bookmark and pin buttons under the New Tab Page for top site tiles. ([#3347](https://github.com/brave/brave-browser/issues/3347))
- - Fixed not being able to print under wsj.com. ([#2286](https://github.com/brave/brave-browser/issues/2286)) 
+ - Fixed not being able to print under wsj.com. ([#2286](https://github.com/brave/brave-browser/issues/2286))
  - Fixed videos not playing under videoportal.joj.sk. ([#2931](https://github.com/brave/brave-browser/issues/2931))
  - Upgraded Chromium to 74.0.3729.108. ([#4192](https://github.com/brave/brave-browser/issues/4192))
 
 ## [0.62.51](https://github.com/brave/brave-browser/releases/tag/v0.62.51)
- 
+
  - Upgraded Chromium to 73.0.3683.103. ([#4031](https://github.com/brave/brave-browser/issues/4031))
 
 ## [0.62.50](https://github.com/brave/brave-browser/releases/tag/v0.62.50)
- 
+
  - Added Widevine support for Linux. ([#413](https://github.com/brave/brave-browser/issues/413))
  - Added social media blocking for Google, Twitter, LinkedIn and Facebook. ([#3489](https://github.com/brave/brave-browser/issues/3489))
  - Added ability for Brave to use system theme on macOS. ([#1189](https://github.com/brave/brave-browser/issues/1189))
@@ -104,11 +108,11 @@
  - Fixed not being enable to disable Brave Shield when URL includes a port number. ([#1896](https://github.com/brave/brave-browser/issues/1896))
 
 ## [0.61.52](https://github.com/brave/brave-browser/releases/tag/v0.61.52)
- 
+
  - Upgraded Chromium to 73.0.3683.86. ([#3813](https://github.com/brave/brave-browser/issues/3813))
 
 ## [0.61.51](https://github.com/brave/brave-browser/releases/tag/v0.61.51)
- 
+
  - Added new setting that allows Brave Rewards icon in the URL to be hidden if Rewards is inactive. ([#2975](https://github.com/brave/brave-browser/issues/2975))
  - Added new confirmation banner after first establishing a monthly tip that indicates amount and date of first tip. ([#3023](https://github.com/brave/brave-browser/issues/3023))
  - Added support for specifying custom enable/disable feature switches when launching Brave using terminal/command line interface. ([#3209](https://github.com/brave/brave-browser/issues/3209))
@@ -138,15 +142,15 @@
  - Upgraded Chromium to 73.0.3683.75. ([#3669](https://github.com/brave/brave-browser/issues/3669))
 
 ## [0.60.48](https://github.com/brave/brave-browser/releases/tag/v0.60.48)
- 
+
  - Upgraded Chromium to 72.0.3626.121. ([#3546](https://github.com/brave/brave-browser/issues/3546))
 
 ## [0.60.47](https://github.com/brave/brave-browser/releases/tag/v0.60.47)
- 
+
  - Upgraded Chromium to 72.0.3626.119. ([#3447](https://github.com/brave/brave-browser/issues/3447))
 
 ## [0.60.45](https://github.com/brave/brave-browser/releases/tag/v0.60.45)
- 
+
  - Added ability to tip Twitch publishers. ([#1814](https://github.com/brave/brave-browser/issues/1814))
  - Added backup wallet notification under reward panel that notifies users who have not backed up their wallet. ([#1164](https://github.com/brave/brave-browser/issues/1164))
  - Added notification under reward panel that appears three days before contribution if wallet has insufficient BAT. ([#1479](https://github.com/brave/brave-browser/issues/1479))
@@ -183,11 +187,11 @@
  - Upgraded Chromium to 72.0.3626.109. ([#3358](https://github.com/brave/brave-browser/issues/3358))
 
 ## [0.59.35](https://github.com/brave/brave-browser/releases/tag/v0.59.35)
- 
+
  - Fixed issue with sync library. ([#3207](https://github.com/brave/brave-browser/issues/3207))
 
 ## [0.59.34](https://github.com/brave/brave-browser/releases/tag/v0.59.34)
- 
+
  - Added Sync. ([#3180](https://github.com/brave/brave-browser/issues/3180))
  - Added ability to claim BAT grants using the reward panel. ([#1783](https://github.com/brave/brave-browser/issues/1783))
  - Added support for custom tip amounts for publishers. ([#2645](https://github.com/brave/brave-browser/issues/2645))
@@ -224,7 +228,7 @@
  - Upgraded Chromium to 72.0.3626.81. ([#3146](https://github.com/brave/brave-browser/issues/3146))
 
 ## [0.58.21](https://github.com/brave/brave-browser/releases/tag/v0.58.21)
- 
+
  - Added new contribution flow for unverified publishers. ([#2836](https://github.com/brave/brave-browser/issues/2836))
  - Removed icon fetching for unverified media publishers. ([#2717](https://github.com/brave/brave-browser/issues/2717))
  - Fixed several CORS issues due to Brave Shields. ([#2252](https://github.com/brave/brave-browser/issues/2252))
@@ -243,7 +247,7 @@
  - Fixed "Save Link As..." being disabled under the right click context menu when selecting "brave://sync" in settings. ([#2849](https://github.com/brave/brave-browser/issues/2849))
 
 ## [0.58.18](https://github.com/brave/brave-browser/releases/tag/v0.58.18)
- 
+
  - Added text snippets under the tip panel and tip banner when a publisher hasn't been verified. ([#2697](https://github.com/brave/brave-browser/issues/2697))
  - Removed all images for unverified publishers on Brave Rewards. ([#2696](https://github.com/brave/brave-browser/issues/2696))
  - Removed YouTube favicons for unverified publishers in tip table under Brave Rewards. ([#2715](https://github.com/brave/brave-browser/issues/2715))
