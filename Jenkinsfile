@@ -6,7 +6,6 @@ pipeline {
         timestamps()
     }
     parameters {
-        string(name: "BRANCH", defaultValue: "master", description: "")
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release"], description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "RUN_INIT", defaultValue: false, description: "")
@@ -25,8 +24,6 @@ pipeline {
         stage("env") {
             steps {
                 script {
-                    BRANCH = params.BRANCH
-                    BRANCH_TO_BUILD = (env.CHANGE_BRANCH.equals(null) ? BRANCH : env.CHANGE_BRANCH)
                     CHANNEL = params.CHANNEL
                     CHANNEL_CAPITALIZED = CHANNEL.capitalize()
                     WIPE_WORKSPACE = params.WIPE_WORKSPACE
@@ -40,10 +37,12 @@ pipeline {
                     BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
                     GITHUB_API = "https://api.github.com/repos/brave"
                     GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
+                    BRANCH = env.BRANCH_NAME
                     TARGET_BRANCH = "master"
                     if (env.CHANGE_BRANCH) {
+                        BRANCH = env.CHANGE_BRANCH
                         TARGET_BRANCH = env.CHANGE_TARGET
-                        def prNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH_TO_BUILD, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
+                        def prNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
                         def prDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + prNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
                         env.SKIP = prDetails.mergeable_state.equals("draft") or prDetails.labels.count { label -> label.name.equals("CI/Skip") }.equals(1)
                         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[env.CHANGE_AUTHOR]
@@ -51,9 +50,9 @@ pipeline {
                             slackSend(color:null, channel: env.SLACK_USERNAME, message: "STARTED - ${JOB_NAME} #${BUILD_NUMBER} (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
                         }
                     }
-                    BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH_TO_BUILD, validResponseCodes: "100:499", authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
+                    BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
                     if (BRANCH_EXISTS_IN_BC) {
-                        def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH_TO_BUILD, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0]
+                        def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0]
                         if (bcPrDetails) {
                             env.BC_PR_NUMBER = bcPrDetails.number
                         }
@@ -65,18 +64,18 @@ pipeline {
             steps {
                 script {
                     if (env.SKIP == true) {
-                        print "Aborting build as PR is in draft or has \"CI/Skip\" label."
+                        print "Aborting build as PR is in draft or has \"CI/Skip\" label"
                         stopCurrentBuild()
                     }
                     else if (BRANCH_EXISTS_IN_BC) {
                         if (isStartedManually()) {
                             if (env.BC_PR_NUMBER) {
-                                print "Aborting build as PR exists in brave-core and build has not been started from there."
-                                print "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger."
+                                print "Aborting build as PR exists in brave-core and build has not been started from there"
+                                print "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger"
                             }
                             else {
-                                print "Aborting build as there's a matching branch in brave-core, please create a PR there first."
-                                print "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH_TO_BUILD + " to create PR."
+                                print "Aborting build as there's a matching branch in brave-core, please create a PR there first"
+                                print "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH + " to create PR"
                             }
                             env.SKIP = true
                             stopCurrentBuild()
@@ -114,7 +113,7 @@ pipeline {
                                 }
                             }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH_TO_BUILD}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -122,9 +121,10 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
+                                echo "Pinning brave-core to use branch ${BRANCH}"
                                 sh """
                                     set -e
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH_TO_BUILD}"' package.json > package.json.new
+                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
                                     mv package.json.new package.json
                                 """
                             }
@@ -176,7 +176,7 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "enabling sccache"
+                                echo "Enabling sccache"
                                 sh "npm config --userconfig=.npmrc set sccache sccache"
                             }
                         }
@@ -219,7 +219,7 @@ pipeline {
                                 }
                             }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH_TO_BUILD}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -227,9 +227,10 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
+                                echo "Pinning brave-core to use branch ${BRANCH}"
                                 sh """
                                     set -e
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH_TO_BUILD}"' package.json > package.json.new
+                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
                                     mv package.json.new package.json
                                 """
                             }
@@ -295,7 +296,7 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "enabling sccache"
+                                echo "Enabling sccache"
                                 sh "npm config --userconfig=.npmrc set sccache sccache"
                             }
                         }
@@ -388,7 +389,7 @@ pipeline {
                                 }
                             }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH_TO_BUILD}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -396,16 +397,17 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
+                                echo "Pinning brave-core to use branch ${BRANCH}"
                                 sh """
                                     set -e
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH_TO_BUILD}"' package.json > package.json.new
+                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
                                     mv package.json.new package.json
                                 """
                             }
                         }
                         stage("install") {
                             steps {
-                                buildName "${BUILD_NUMBER}-${BRANCH_TO_BUILD}-"+"${GIT_COMMIT}".substring(0, 7)
+                                buildName "${BUILD_NUMBER}-${BRANCH}-"+"${GIT_COMMIT}".substring(0, 7)
                                 sh "npm install --no-optional"
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
                             }
@@ -465,7 +467,7 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "enabling sccache"
+                                echo "Enabling sccache"
                                 sh "npm config --userconfig=.npmrc set sccache sccache"
                             }
                         }
@@ -574,7 +576,7 @@ pipeline {
                                 }
                             }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH_TO_BUILD}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: "${BRANCH}"]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -582,10 +584,11 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
+                                echo "Pinning brave-core to use branch ${BRANCH}"
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
                                     \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
-                                    jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH_TO_BUILD}\\`"" package.json > package.json.new
+                                    jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
                                     Move-Item -Force package.json.new package.json
                                 """
                             }
