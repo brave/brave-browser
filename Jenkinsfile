@@ -37,6 +37,7 @@ pipeline {
                     BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
                     GITHUB_API = "https://api.github.com/repos/brave"
                     GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
+                    SKIP = false
                     BRANCH = env.BRANCH_NAME
                     TARGET_BRANCH = "master"
                     if (env.CHANGE_BRANCH) {
@@ -44,7 +45,7 @@ pipeline {
                         TARGET_BRANCH = env.CHANGE_TARGET
                         def prNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
                         def prDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + prNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
-                        env.SKIP = prDetails.mergeable_state.equals("draft") or prDetails.labels.count { label -> label.name.equals("CI/Skip") }.equals(1)
+                        SKIP = prDetails.mergeable_state.equals("draft") or prDetails.labels.count { label -> label.name.equals("CI/Skip") }.equals(1)
                         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[env.CHANGE_AUTHOR]
                         if (env.SLACK_USERNAME) {
                             slackSend(color:null, channel: env.SLACK_USERNAME, message: "STARTED - ${JOB_NAME} #${BUILD_NUMBER} (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
@@ -63,7 +64,7 @@ pipeline {
         stage("abort") {
             steps {
                 script {
-                    if (env.SKIP == true) {
+                    if (SKIP) {
                         print "Aborting build as PR is in draft or has \"CI/Skip\" label"
                         stopCurrentBuild()
                     }
@@ -77,7 +78,7 @@ pipeline {
                                 print "Aborting build as there's a matching branch in brave-core, please create a PR there first"
                                 print "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH + " to create PR"
                             }
-                            env.SKIP = true
+                            SKIP = true
                             stopCurrentBuild()
                         }
                     }
@@ -95,7 +96,7 @@ pipeline {
         stage("build-all") {
             when {
                 beforeAgent true
-                expression { env.SKIP != true }
+                expression { !SKIP }
             }
             parallel {
                 stage("android") {
