@@ -620,6 +620,7 @@ pipeline {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
                                     #Remove-Item -Recurse -Force vendor/depot_tools/win_tools-*
+                                    git -C vendor/depot_tools clean -ffxd
                                     npm run init
                                 """
                             }
