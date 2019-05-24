@@ -65,26 +65,35 @@ pipeline {
             steps {
                 script {
                     if (SKIP) {
-                        print "Aborting build as PR is in draft or has \"CI/Skip\" label"
+                        echo "Aborting build as PR is in draft or has \"CI/Skip\" label"
                         stopCurrentBuild()
                     }
                     else if (BRANCH_EXISTS_IN_BC) {
                         if (isStartedManually()) {
                             if (env.BC_PR_NUMBER) {
-                                print "Aborting build as PR exists in brave-core and build has not been started from there"
-                                print "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger"
+                                echo "Aborting build as PR exists in brave-core and build has not been started from there"
+                                echo "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger"
                             }
                             else {
-                                print "Aborting build as there's a matching branch in brave-core, please create a PR there first"
-                                print "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH + " to create PR"
+                                echo "Aborting build as there's a matching branch in brave-core, please create a PR there first"
+                                echo "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH + " to create PR"
                             }
                             SKIP = true
                             stopCurrentBuild()
                         }
                     }
+                    def bb_package_json = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-browser/" + BRANCH + "/package.json", quiet: !DEBUG).content)
+                    def bb_version = bb_package_json.version
+                    def bc_branch = bb_package_json.config.projects["brave-core"].branch
+                    def bc_version = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-core/" + bc_branch + "/package.json", quiet: !DEBUG).content).version
+                    if (bb_version != bc_version) {
+                        echo "Version mismatch between brave-browser (" + bb_version + ") and brave-core (" + bc_version + ") in package.json"
+                        SKIP = true
+                        stopCurrentBuild()
+                    }
                     for (build in getBuilds()) {
                         if (build.isBuilding() && build.getNumber() < env.BUILD_NUMBER.toInteger()) {
-                            print "Aborting older running build " + build
+                            echo "Aborting older running build " + build
                             build.doStop()
                             // build.finish(hudson.model.Result.ABORTED, new java.io.IOException("Aborting build"))
                         }
