@@ -196,7 +196,7 @@ pipeline {
                         }
                         stage("archive") {
                             steps {
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "android_" + BUILD_TYPE + "_arm64")
                             }
                         }
                     }
