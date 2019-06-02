@@ -131,7 +131,7 @@ pipeline {
                                 sh """
                                     set -e
                                     rm -rf src/brave
-                                    npm run init -- --target_os=android
+                                    npm run init -- --target_os=android --target_arch=arm64
                                 """
                             }
                         }
@@ -190,7 +190,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=android
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=android --target_arch=arm64
                                 """
                             }
                         }
