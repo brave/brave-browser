@@ -25,48 +25,7 @@ pipeline {
         stage("env") {
             steps {
                 script {
-                    CHANNEL = params.CHANNEL
-                    CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
-                    CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
-                    BUILD_TYPE = params.BUILD_TYPE
-                    WIPE_WORKSPACE = params.WIPE_WORKSPACE
-                    SKIP_INIT = params.SKIP_INIT
-                    DISABLE_SCCACHE = params.DISABLE_SCCACHE
-                    SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
-                    DEBUG = params.DEBUG
-                    RELEASE_TYPE = env.JOB_NAME.equals("brave-browser-build") ? "release" : "ci"
-                    OUT_DIR = "src/out/" + BUILD_TYPE
-                    BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
-                    LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
-                    BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
-                    GITHUB_API = "https://api.github.com/repos/brave"
-                    GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
-                    RUST_LOG = "sccache=warn"
-                    SKIP = false
-                    BRANCH = env.BRANCH_NAME
-                    TARGET_BRANCH = "master"
-                    if (env.CHANGE_BRANCH) {
-                        BRANCH = env.CHANGE_BRANCH
-                        TARGET_BRANCH = env.CHANGE_TARGET
-                        def prNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
-                        def prDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + prNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
-                        SKIP = prDetails.mergeable_state.equals("draft") or prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
-                        SKIP_ANDROID = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
-                        SKIP_LINUX = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
-                        SKIP_MACOS = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
-                        SKIP_WINDOWS = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
-                        env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[env.CHANGE_AUTHOR]
-                        if (env.SLACK_USERNAME) {
-                            slackSend(color: null, channel: env.SLACK_USERNAME, message: "STARTED " + BUILD_TAG_SLASHED + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
-                        }
-                    }
-                    BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
-                    if (BRANCH_EXISTS_IN_BC) {
-                        def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0]
-                        if (bcPrDetails) {
-                            env.BC_PR_NUMBER = bcPrDetails.number
-                        }
-                    }
+                    setEnv()
                 }
             }
         }
@@ -780,6 +739,61 @@ pipeline {
                     slackSend(color: slackColorMap[currentBuild.currentResult], channel: env.SLACK_USERNAME, message: currentBuild.currentResult + " " + BUILD_TAG_SLASHED + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
                 }
             }
+        }
+    }
+}
+
+def setEnv() {
+    CHANNEL = params.CHANNEL
+    CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
+    CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
+    BUILD_TYPE = params.BUILD_TYPE
+    WIPE_WORKSPACE = params.WIPE_WORKSPACE
+    SKIP_INIT = params.SKIP_INIT
+    DISABLE_SCCACHE = params.DISABLE_SCCACHE
+    SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
+    DEBUG = params.DEBUG
+    RELEASE_TYPE = env.JOB_NAME.equals("brave-browser-build") ? "release" : "ci"
+    OUT_DIR = "src/out/" + BUILD_TYPE
+    BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
+    LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
+    BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
+    GITHUB_API = "https://api.github.com/repos/brave"
+    GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
+    RUST_LOG = "sccache=warn"
+    SKIP = false
+    SKIP_ANDROID = false
+    SKIP_LINUX = false
+    SKIP_MACOS = false
+    SKIP_WINDOWS = false   
+    BRANCH = env.BRANCH_NAME
+    TARGET_BRANCH = "master"
+    if (env.CHANGE_BRANCH) {
+        BRANCH = env.CHANGE_BRANCH
+        TARGET_BRANCH = env.CHANGE_TARGET
+        def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
+        def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
+        SKIP = bbPrDetails.mergeable_state.equals("draft") or bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
+        SKIP_ANDROID = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
+        SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
+        SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
+        SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+        env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[env.CHANGE_AUTHOR]
+        if (env.SLACK_USERNAME) {
+            slackSend(color: null, channel: env.SLACK_USERNAME, message: "STARTED " + BUILD_TAG_SLASHED + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
+        }
+    }
+    BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
+    if (BRANCH_EXISTS_IN_BC) {
+        def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0]
+        if (bcPrDetails) {
+            env.BC_PR_NUMBER = bcPrDetails.number
+            bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
+            SKIP = bcPrDetails.mergeable_state.equals("draft") or bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
+            SKIP_ANDROID = SKIP_ANDROID or bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
+            SKIP_LINUX = SKIP_LINUX or bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
+            SKIP_MACOS = SKIP_MACOS or bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
+            SKIP_WINDOWS = SKIP_WINDOWS or bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
         }
     }
 }
