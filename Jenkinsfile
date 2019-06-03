@@ -131,7 +131,7 @@ pipeline {
                                 sh """
                                     set -e
                                     rm -rf src/brave
-                                    npm run init -- --target_os=android --target_arch=arm64
+                                    npm run init -- --target_os=android
                                 """
                             }
                         }
@@ -711,7 +711,7 @@ pipeline {
                                     \$ErrorActionPreference = "Stop"
                                     npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING}
                                     (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL} --target_arch=x64
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
                                 """
                             }
                         }
