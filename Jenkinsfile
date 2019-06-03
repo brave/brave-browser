@@ -50,7 +50,11 @@ pipeline {
                         TARGET_BRANCH = env.CHANGE_TARGET
                         def prNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
                         def prDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + prNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
-                        SKIP = prDetails.mergeable_state.equals("draft") or prDetails.labels.count { label -> label.name.equals("CI/Skip") }.equals(1)
+                        SKIP = prDetails.mergeable_state.equals("draft") or prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
+                        SKIP_ANDROID = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
+                        SKIP_LINUX = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
+                        SKIP_MACOS = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
+                        SKIP_WINDOWS = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
                         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[env.CHANGE_AUTHOR]
                         if (env.SLACK_USERNAME) {
                             slackSend(color: null, channel: env.SLACK_USERNAME, message: "STARTED " + BUILD_TAG_SLASHED + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
@@ -70,7 +74,7 @@ pipeline {
             steps {
                 script {
                     if (SKIP) {
-                        echo "Aborting build as PR is in draft or has \"CI/Skip\" label"
+                        echo "Aborting build as PR is in draft or has \"CI/skip\" label"
                         stopCurrentBuild()
                     }
                     else if (BRANCH_EXISTS_IN_BC) {
@@ -119,6 +123,10 @@ pipeline {
             }
             parallel {
                 stage("android") {
+                    when {
+                        beforeAgent true
+                        expression { !SKIP_ANDROID }
+                    }
                     agent { label "android-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
@@ -235,6 +243,10 @@ pipeline {
                     }
                 }
                 stage("linux") {
+                    when {
+                        beforeAgent true
+                        expression { !SKIP_LINUX }
+                    }
                     agent { label "linux-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
@@ -401,6 +413,10 @@ pipeline {
                     }
                 }
                 stage("mac") {
+                    when {
+                        beforeAgent true
+                        expression { !SKIP_MACOS }
+                    }
                     agent { label "mac-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
@@ -581,6 +597,10 @@ pipeline {
                     }
                 }
                 stage("windows-x64") {
+                    when {
+                        beforeAgent true
+                        expression { !SKIP_WINDOWS }
+                    }
                     agent { label "windows-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
