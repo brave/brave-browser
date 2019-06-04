@@ -190,13 +190,13 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=android
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=android --target_arch=arm64
                                 """
                             }
                         }
                         stage("archive") {
                             steps {
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "android_" + BUILD_TYPE + "_arm64")
                             }
                         }
                     }
@@ -711,7 +711,7 @@ pipeline {
                                     \$ErrorActionPreference = "Stop"
                                     npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING}
                                     (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL} --target_arch=x64
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
                                 """
                             }
                         }
