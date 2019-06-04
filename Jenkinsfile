@@ -196,7 +196,129 @@ pipeline {
                         }
                         stage("archive") {
                             steps {
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "android_" + BUILD_TYPE + "_arm64")
+                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm64")
+                            }
+                        }
+                    }
+                }
+                stage("ios") {
+                    when {
+                        beforeAgent true
+                        expression { !SKIP_IOS }
+                    }
+                    agent { label "mac-${RELEASE_TYPE}-xcode-10" }
+                    environment {
+                        GIT_CACHE_PATH = "${HOME}/cache"
+                        // SCCACHE_BUCKET = credentials("brave-browser-sccache-ios-s3-bucket")
+                        // SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
+                    }
+                    stages {
+                        stage("checkout") {
+                            when {
+                                anyOf {
+                                    expression { WIPE_WORKSPACE }
+                                    expression { return !fileExists("package.json") }
+                                }
+                            }
+                            steps {
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                            }
+                        }
+                        stage("pin") {
+                            when {
+                                expression { BRANCH_EXISTS_IN_BC }
+                            }
+                            steps {
+                                echo "Pinning brave-core to use branch ${BRANCH}"
+                                sh """
+                                    set -e
+                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
+                                    mv package.json.new package.json
+                                """
+                            }
+                        }
+                        stage("install") {
+                            steps {
+                                sh "npm install --no-optional"
+                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
+                            }
+                        }
+                        stage("init") {
+                            when {
+                                expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
+                            }
+                            steps {
+                                sh """
+                                    set -e
+                                    rm -rf src/brave
+                                    npm run init -- --target_os=ios
+                                """
+                            }
+                        }
+                        stage("lint") {
+                            steps {
+                                script {
+                                    try {
+                                        sh """
+                                            set -e
+                                            git -C src/brave config user.name brave-builds
+                                            git -C src/brave config user.email devops@brave.com
+                                            git -C src/brave checkout -b ${LINT_BRANCH}
+                                            npm run lint -- --base=origin/${TARGET_BRANCH}
+                                            git -C src/brave checkout -q -
+                                            git -C src/brave branch -D ${LINT_BRANCH}
+                                        """
+                                    }
+                                    catch (ex) {
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
+                            }
+                        }
+                        stage("audit-deps") {
+                            steps {
+                                timeout(time: 1, unit: "MINUTES") {
+                                    script {
+                                        try {
+                                            sh "npm run audit_deps"
+                                        }
+                                        catch (ex) {
+                                            currentBuild.result = "UNSTABLE"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // stage("sccache") {
+                        //     when {
+                        //         allOf {
+                        //             expression { !DISABLE_SCCACHE }
+                        //             expression { RELEASE_TYPE.equals("ci") }
+                        //         }
+                        //     }
+                        //     steps {
+                        //         echo "Enabling sccache"
+                        //         sh "npm config --userconfig=.npmrc set sccache sccache"
+                        //     }
+                        // }
+                        stage("build") {
+                            steps {
+                                sh """
+                                    set -e
+                                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
+                                    npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+                                    npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
+                                    npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
+                                    npm config --userconfig=.npmrc set google_api_key dummytoken
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=ios
+                                """
+                            }
+                        }
+                        stage("archive") {
+                            steps {
+                                withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                    s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveRewards.framework/", path: BUILD_TAG_SLASHED, workingDir: "src/out/ios_" + BUILD_TYPE)
+                                }
                             }
                         }
                     }
@@ -763,9 +885,10 @@ def setEnv() {
     RUST_LOG = "sccache=warn"
     SKIP = false
     SKIP_ANDROID = false
+    SKIP_IOS = false
     SKIP_LINUX = false
     SKIP_MACOS = false
-    SKIP_WINDOWS = false   
+    SKIP_WINDOWS = false
     BRANCH = env.BRANCH_NAME
     TARGET_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
@@ -775,6 +898,7 @@ def setEnv() {
         def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
         SKIP_ANDROID = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
+        SKIP_IOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
         SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
         SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
         SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
@@ -791,6 +915,7 @@ def setEnv() {
             bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
+            SKIP_IOS = SKIP_IOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
             SKIP_LINUX = SKIP_LINUX || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
