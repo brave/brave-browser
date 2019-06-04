@@ -1,8 +1,7 @@
 pipeline {
     agent none
     options {
-        // TODO: set max. no. of concurrent builds to 2
-        timeout(time: 12, unit: "HOURS")
+        timeout(time: 6, unit: "HOURS")
         timestamps()
     }
     parameters {
@@ -32,46 +31,7 @@ pipeline {
         stage("abort") {
             steps {
                 script {
-                    if (SKIP) {
-                        echo "Aborting build as PR is in draft or has \"CI/skip\" label"
-                        stopCurrentBuild()
-                    }
-                    else if (BRANCH_EXISTS_IN_BC) {
-                        if (isStartedManually()) {
-                            if (env.BC_PR_NUMBER) {
-                                echo "Aborting build as PR exists in brave-core and build has not been started from there"
-                                echo "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger"
-                            }
-                            else {
-                                echo "Aborting build as there's a matching branch in brave-core, please create a PR there first"
-                                echo "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH + " to create PR"
-                            }
-                            SKIP = true
-                            stopCurrentBuild()
-                        }
-                    }
-                    def bb_package_json = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-browser/" + BRANCH + "/package.json", quiet: !DEBUG).content)
-                    def bb_version = bb_package_json.version
-                    def bc_branch = bb_package_json.config.projects["brave-core"].branch
-                    if (BRANCH_EXISTS_IN_BC) {
-                        bc_branch = BRANCH
-                    }
-                    def bc_version = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-core/" + bc_branch + "/package.json", quiet: !DEBUG).content).version
-                    if (bb_version != bc_version) {
-                        echo "Version mismatch between brave-browser (" + BRANCH + "/" + bb_version + ") and brave-core (" + bc_branch + "/" + bc_version + ") in package.json"
-                        SKIP = true
-                        stopCurrentBuild()
-                    }
-                    if (!SKIP) {
-                        for (build in getBuilds()) {
-                            if (build.isBuilding() && build.getNumber() < env.BUILD_NUMBER.toInteger()) {
-                                echo "Aborting older running build " + build
-                                build.doStop()
-                                // build.finish(hudson.model.Result.ABORTED, new java.io.IOException("Aborting build"))
-                            }
-                        }
-                        sleep(time: 1, unit: "MINUTES")
-                    }
+                    checkAndAbortBuild()
                 }
             }
         }
@@ -190,7 +150,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=android --target_arch=arm64
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm64
                                 """
                             }
                         }
@@ -206,11 +166,9 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_IOS }
                     }
-                    agent { label "mac-${RELEASE_TYPE}-xcode-10" }
+                    agent { label "mac-${RELEASE_TYPE}" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
-                        // SCCACHE_BUCKET = credentials("brave-browser-sccache-ios-s3-bucket")
-                        // SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
                     }
                     stages {
                         stage("checkout") {
@@ -289,18 +247,6 @@ pipeline {
                                 }
                             }
                         }
-                        // stage("sccache") {
-                        //     when {
-                        //         allOf {
-                        //             expression { !DISABLE_SCCACHE }
-                        //             expression { RELEASE_TYPE.equals("ci") }
-                        //         }
-                        //     }
-                        //     steps {
-                        //         echo "Enabling sccache"
-                        //         sh "npm config --userconfig=.npmrc set sccache sccache"
-                        //     }
-                        // }
                         stage("build") {
                             steps {
                                 sh """
@@ -310,14 +256,26 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true --target_os=ios
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=ios
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=ios --target_arch=arm64
+                                """
+                            }
+                        }
+                        stage("dist") {
+                            steps {
+                                sh """
+                                    set -e
+                                    cd src/out
+                                    cp -R ios_${BUILD_TYPE}_arm64/BraveRewards.framework .
+                                    lipo -create -output BraveRewards.framework/BraveRewards ios_${BUILD_TYPE}/BraveRewards.framework/BraveRewards ios_${BUILD_TYPE}_arm64/BraveRewards.framework/BraveRewards
+                                    zip -r BraveRewards.framework.zip BraveRewards.framework
                                 """
                             }
                         }
                         stage("archive") {
                             steps {
                                 withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                    s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveRewards.framework/", path: BUILD_TAG_SLASHED, workingDir: "src/out/ios_" + BUILD_TYPE)
+                                    s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveRewards.framework.zip", path: BUILD_TAG_SLASHED, workingDir: "src/out")
                                 }
                             }
                         }
@@ -432,7 +390,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}
                                 """
                             }
                         }
@@ -482,7 +440,7 @@ pipeline {
                         }
                         stage("dist") {
                             steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true"
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
                             }
                         }
                         stage("archive") {
@@ -608,7 +566,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}
                                 """
                             }
                         }
@@ -661,7 +619,7 @@ pipeline {
                                 sh """
                                     set -e
                                     security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
                                     security lock-keychain -a
                                 """
                             }
@@ -780,7 +738,6 @@ pipeline {
                                 }
                             }
                         }
-                        // TODO: add sccache
                         stage("build") {
                             steps {
                                 powershell """
@@ -790,7 +747,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}
                                 """
                             }
                         }
@@ -826,14 +783,13 @@ pipeline {
                                 }
                             }
                         }
-                        // TODO: add test-browser
                         stage("dist") {
                             steps {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING}
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}
                                     (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --official_build=true ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
                                 """
                             }
                         }
@@ -920,6 +876,49 @@ def setEnv() {
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
         }
+    }
+}
+
+def checkAndAbortBuild() {
+    if (SKIP) {
+        echo "Aborting build as PR is in draft or has \"CI/skip\" label"
+        stopCurrentBuild()
+    }
+    else if (BRANCH_EXISTS_IN_BC) {
+        if (isStartedManually()) {
+            if (env.BC_PR_NUMBER) {
+                echo "Aborting build as PR exists in brave-core and build has not been started from there"
+                echo "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger"
+            }
+            else {
+                echo "Aborting build as there's a matching branch in brave-core, please create a PR there first"
+                echo "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH + " to create PR"
+            }
+            SKIP = true
+            stopCurrentBuild()
+        }
+    }
+    def bb_package_json = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-browser/" + BRANCH + "/package.json", quiet: !DEBUG).content)
+    def bb_version = bb_package_json.version
+    def bc_branch = bb_package_json.config.projects["brave-core"].branch
+    if (BRANCH_EXISTS_IN_BC) {
+        bc_branch = BRANCH
+    }
+    def bc_version = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-core/" + bc_branch + "/package.json", quiet: !DEBUG).content).version
+    if (bb_version != bc_version) {
+        echo "Version mismatch between brave-browser (" + BRANCH + "/" + bb_version + ") and brave-core (" + bc_branch + "/" + bc_version + ") in package.json"
+        SKIP = true
+        stopCurrentBuild()
+    }
+    if (!SKIP) {
+        for (build in getBuilds()) {
+            if (build.isBuilding() && build.getNumber() < env.BUILD_NUMBER.toInteger()) {
+                echo "Aborting older running build " + build
+                build.doStop()
+                // build.finish(hudson.model.Result.ABORTED, new java.io.IOException("Aborting build"))
+            }
+        }
+        sleep(time: 1, unit: "MINUTES")
     }
 }
 
