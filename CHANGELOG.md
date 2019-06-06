@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.65.118](https://github.com/brave/brave-browser/releases/tag/v0.65.118)
+
+ - Added sidebar navigation for brave://settings. ([#958](https://github.com/brave/brave-browser/issues/958))
+ - Added Terms of Services link prior to Brave Rewards opt-in. ([#3124](https://github.com/brave/brave-browser/issues/3124))
+ - Added a new proxy endpoint for CRLSets. ([#3920](https://github.com/brave/brave-browser/issues/3920))
+ - Added privacy warning on Brave Sync code page. ([#4132](https://github.com/brave/brave-browser/issues/4132))
+ - Added more information under brave://rewards-internals to improve rewards debugging. ([#3624](https://github.com/brave/brave-browser/issues/3624))
+ - Updated design for brave://settings. ([#955](https://github.com/brave/brave-browser/issues/955))
+ - Improved error message for wrong device time when attempting to use Brave Sync. ([#3962](https://github.com/brave/brave-browser/issues/3962))
+ - Removed source and referrer URLs from download metadata. ([#2766](https://github.com/brave/brave-browser/issues/2766))
+ - Fixed not being able to join Brave Rewards using rewards panel when profile has been corrupted in certain cases. ([#3697](https://github.com/brave/brave-browser/issues/3697))
+ - Fixed publishers not being displayed as verified in certain cases. ([#3780](https://github.com/brave/brave-browser/issues/3780))
+ - Fixed incorrect system colors when changing theme to "Light". ([#4059](https://github.com/brave/brave-browser/issues/4059))
+ - Fixed "Extension" overlay issue in brave://settings. ([#3444](https://github.com/brave/brave-browser/issues/3444))
+ - Fixed capitalization for "Same as macOS" theme option under brave://settings. ([#3832](https://github.com/brave/brave-browser/issues/3832))
+ - Fixed incorrect brave://history page pre-load UI. ([#3826](https://github.com/brave/brave-browser/issues/3826))
+ - Fixed typo on Brave Sync page. ([#4088](https://github.com/brave/brave-browser/issues/4088))
+ - Upgraded Chromium to 75.0.3770.80. ([#4724](https://github.com/brave/brave-browser/issues/4724))
+
 ## [0.64.77](https://github.com/brave/brave-browser/releases/tag/v0.64.77)
 
  - Upgraded Chromium to 74.0.3729.169. ([#4526](https://github.com/brave/brave-browser/issues/4526))
