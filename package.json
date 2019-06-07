@@ -42,7 +42,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "p3a_rebased2",
+        "branch": "p3a_rebased3",
         "repository": {
           "url": "git@github.com:brave/brave-antibot.git"
         }
