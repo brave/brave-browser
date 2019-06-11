@@ -79,8 +79,8 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh "npm install --no-optional"
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
+                                sh "npm install --no-optional"
                             }
                         }
                         stage("init") {
@@ -88,11 +88,8 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    set -e
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=android
-                                """
+                                sh "rm -rf src/brave"
+                                sh "npm run init -- --target_os=android"
                             }
                         }
                         stage("lint") {
@@ -110,6 +107,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
+                                        echo ex
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -123,6 +121,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -156,7 +155,15 @@ pipeline {
                         }
                         stage("archive") {
                             steps {
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm64")
+                                script {
+                                    try {
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm64")
+                                    }
+                                    catch (ex) {
+                                        echo ex
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
                             }
                         }
                     }
@@ -197,8 +204,8 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh "npm install --no-optional"
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
+                                sh "npm install --no-optional"
                             }
                         }
                         stage("init") {
@@ -206,11 +213,8 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    set -e
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=ios
-                                """
+                                sh "rm -rf src/brave"
+                                sh "npm run init -- --target_os=ios"
                             }
                         }
                         stage("lint") {
@@ -228,6 +232,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
+                                        echo ex
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -241,6 +246,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -274,8 +280,16 @@ pipeline {
                         }
                         stage("archive") {
                             steps {
-                                withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                    s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveRewards.framework.zip", path: BUILD_TAG_SLASHED, workingDir: "src/out")
+                                script {
+                                    try {
+                                        withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveRewards.framework.zip", path: BUILD_TAG_SLASHED, workingDir: "src/out")
+                                        }
+                                    }
+                                    catch (ex) {
+                                        echo ex
+                                        currentBuild.result = "UNSTABLE"
+                                    }
                                 }
                             }
                         }
@@ -319,8 +333,8 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh "npm install --no-optional"
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
+                                sh "npm install --no-optional"
                             }
                         }
                         stage("init") {
@@ -328,11 +342,8 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    set -e
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                sh "rm -rf src/brave"
+                                sh "npm run init"
                             }
                         }
                         stage("lint") {
@@ -350,6 +361,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
+                                        echo ex
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -363,6 +375,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -402,6 +415,7 @@ pipeline {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -417,6 +431,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -432,6 +447,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -445,8 +461,16 @@ pipeline {
                         }
                         stage("archive") {
                             steps {
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.deb", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.rpm", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                script {
+                                    try {
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.deb", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.rpm", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                    }
+                                    catch (ex) {
+                                        echo ex
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
                             }
                         }
                     }
@@ -495,8 +519,8 @@ pipeline {
                         stage("install") {
                             steps {
                                 buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
-                                sh "npm install --no-optional"
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
+                                sh "npm install --no-optional"
                             }
                         }
                         stage("init") {
@@ -504,11 +528,8 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    set -e
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                sh "rm -rf src/brave"
+                                sh "npm run init"
                             }
                         }
                         stage("lint") {
@@ -526,6 +547,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
+                                        echo ex
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -539,6 +561,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -578,6 +601,7 @@ pipeline {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -593,6 +617,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -608,6 +633,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -626,10 +652,18 @@ pipeline {
                         }
                         stage("archive") {
                             steps {
-                                withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                    s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "unsigned_dmg/*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                    s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                    s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.pkg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                script {
+                                    try {
+                                        withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "unsigned_dmg/*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.pkg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        }
+                                    }
+                                    catch (ex) {
+                                        echo ex
+                                        currentBuild.result = "UNSTABLE"
+                                    }
                                 }
                             }
                         }
@@ -681,9 +715,9 @@ pipeline {
                         stage("install") {
                             steps {
                                 powershell """
+                                    Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
                                     \$ErrorActionPreference = "Stop"
                                     npm install --no-optional
-                                    Remove-Item -ErrorAction SilentlyContinue -Force ${GIT_CACHE_PATH}/*.lock
                                     Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
                                 """
                             }
@@ -694,8 +728,8 @@ pipeline {
                             }
                             steps {
                                 powershell """
+                                    Remove-Item -Recurse -Force src/brave
                                     \$ErrorActionPreference = "Stop"
-                                    Remove-Item -ErrorAction SilentlyContinue -Force src/brave
                                     git -C vendor/depot_tools clean -fxd
                                     npm run init
                                 """
@@ -716,6 +750,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
+                                        echo ex
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -732,6 +767,7 @@ pipeline {
                                             """
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -762,6 +798,7 @@ pipeline {
                                             """
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -773,10 +810,14 @@ pipeline {
                                 timeout(time: 20, unit: "MINUTES") {
                                     script {
                                         try {
-                                            powershell "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
+                                            powershell """
+                                                \$ErrorActionPreference = "Stop"
+                                                npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
+                                            """
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
+                                            echo ex
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -795,13 +836,21 @@ pipeline {
                         }
                         stage("archive") {
                             steps {
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "brave_installer_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowser" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandalone" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandaloneSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandaloneUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                script {
+                                    try {
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "brave_installer_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowser" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandalone" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandaloneSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandaloneUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                    }
+                                    catch (ex) {
+                                        echo ex
+                                        currentBuild.result = "UNSTABLE"
+                                    }
+                                }
                             }
                         }
                     }
