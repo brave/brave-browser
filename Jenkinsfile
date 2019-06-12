@@ -266,6 +266,21 @@ pipeline {
                                 """
                             }
                         }
+                        stage("test-unit") {
+                            steps {
+                                timeout(time: 2, unit: "MINUTES") {
+                                    script {
+                                        try {
+                                            sh "npm run test -- brave_rewards_ios_tests ${BUILD_TYPE} --target_os=ios"
+                                        }
+                                        catch (ex) {
+                                            echo ex.toString()
+                                            currentBuild.result = "UNSTABLE"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         stage("dist") {
                             steps {
                                 sh """
@@ -461,8 +476,8 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.deb", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.rpm", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "brave-*.deb", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "brave-*.rpm", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
                                     }
                                     catch (ex) {
                                         echo ex.toString()
@@ -659,9 +674,9 @@ pipeline {
                                 script {
                                     try {
                                         withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "unsigned_dmg/*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.pkg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "unsigned_dmg/Brave*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "Brave*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "Brave*.pkg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
                                         }
                                     }
                                     catch (ex) {
@@ -847,12 +862,7 @@ pipeline {
                                 script {
                                     try {
                                         s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "brave_installer_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowser" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserStandalone" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserStandaloneSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserStandaloneUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
                                     }
                                     catch (ex) {
                                         echo ex.toString()
