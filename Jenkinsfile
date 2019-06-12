@@ -10,15 +10,15 @@ pipeline {
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
-        booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
+        booleanParam(name: "SKIP_SIGNING", defaultValue: false, description: "")
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
     }
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
-        BRAVE_ARTIFACTS_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
-        BRAVE_S3_BUCKET = credentials("brave-binaries-s3-bucket")
+        BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
+        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
     }
     stages {
         stage("env") {
@@ -46,7 +46,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_ANDROID }
                     }
-                    agent { label "android-${RELEASE_TYPE}" }
+                    agent { label "android-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-android-s3-bucket")
@@ -107,7 +107,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -121,7 +121,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -132,7 +132,6 @@ pipeline {
                             when {
                                 allOf {
                                     expression { !DISABLE_SCCACHE }
-                                    expression { RELEASE_TYPE.equals("ci") }
                                 }
                             }
                             steps {
@@ -157,10 +156,10 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm64")
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm64")
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -173,7 +172,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_IOS }
                     }
-                    agent { label "mac-${RELEASE_TYPE}" }
+                    agent { label "mac-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                     }
@@ -232,7 +231,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -246,7 +245,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -283,11 +282,11 @@ pipeline {
                                 script {
                                     try {
                                         withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveRewards.framework.zip", path: BUILD_TAG_SLASHED, workingDir: "src/out")
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveRewards.framework.zip", path: BUILD_TAG_SLASHED, workingDir: "src/out")
                                         }
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -300,7 +299,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-${RELEASE_TYPE}" }
+                    agent { label "linux-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-linux-s3-bucket")
@@ -361,7 +360,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -375,7 +374,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -386,7 +385,6 @@ pipeline {
                             when {
                                 allOf {
                                     expression { !DISABLE_SCCACHE }
-                                    expression { RELEASE_TYPE.equals("ci") }
                                 }
                             }
                             steps {
@@ -415,7 +413,7 @@ pipeline {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -431,7 +429,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -447,7 +445,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -463,11 +461,11 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.deb", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.rpm", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.deb", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.rpm", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -475,24 +473,23 @@ pipeline {
                         }
                     }
                 }
-                stage("mac") {
+                stage("macos") {
                     when {
                         beforeAgent true
                         expression { !SKIP_MACOS }
                     }
-                    agent { label "mac-${RELEASE_TYPE}" }
+                    agent { label "mac-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
                         SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
-                        KEYCHAIN = "signing-${RELEASE_TYPE}"
+                        KEYCHAIN = "signing-ci"
                         KEYCHAIN_PATH = "/Users/jenkins/Library/Keychains/${KEYCHAIN}.keychain-db"
-                        KEYCHAIN_PASS = credentials("mac-${RELEASE_TYPE}-signing-keychain-password")
-                        MAC_APPLICATION_SIGNING_IDENTIFIER = credentials("mac-${RELEASE_TYPE}-signing-application-id")
-                        MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-${RELEASE_TYPE}-signing-installer-id")
+                        KEYCHAIN_PASS = credentials("mac-ci-signing-keychain-password")
+                        MAC_APPLICATION_SIGNING_IDENTIFIER = credentials("mac-ci-signing-application-id")
+                        MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-ci-signing-installer-id")
                         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
                         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -555,7 +552,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -569,7 +566,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -580,7 +577,6 @@ pipeline {
                             when {
                                 allOf {
                                     expression { !DISABLE_SCCACHE }
-                                    expression { RELEASE_TYPE.equals("ci") }
                                 }
                             }
                             steps {
@@ -609,7 +605,7 @@ pipeline {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -625,7 +621,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -641,7 +637,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -663,13 +659,13 @@ pipeline {
                                 script {
                                     try {
                                         withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "unsigned_dmg/*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "*.pkg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "unsigned_dmg/*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "*.pkg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
                                         }
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -682,7 +678,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_WINDOWS }
                     }
-                    agent { label "windows-${RELEASE_TYPE}" }
+                    agent { label "windows-ci" }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
@@ -691,11 +687,10 @@ pipeline {
                         CERT = "Brave"
                         KEY_CER_PATH = "C:\\jenkins\\digicert-key\\digicert.cer"
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
-                        AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
-                        AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
+                        AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-ci-certificate-ps-escaped")
+                        AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-ci-certificate")
                         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
                         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -764,7 +759,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -781,7 +776,7 @@ pipeline {
                                             """
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -812,7 +807,7 @@ pipeline {
                                             """
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -831,7 +826,7 @@ pipeline {
                                             xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
                                         }
                                         catch (ex) {
-                                            echo ex
+                                            echo ex.toString()
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -842,7 +837,6 @@ pipeline {
                             steps {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}
                                     (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
                                     npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
                                 """
@@ -852,16 +846,16 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "brave_installer_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowser" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandalone" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandaloneSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserStandaloneUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_BUCKET, includePathPattern: "BraveBrowserUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "brave_installer_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowser" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserStandalone" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserStandaloneSilent" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserStandaloneUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowserUntagged" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
                                     }
                                     catch (ex) {
-                                        echo ex
+                                        echo ex.toString()
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -894,7 +888,6 @@ def setEnv() {
     DISABLE_SCCACHE = params.DISABLE_SCCACHE
     SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
     DEBUG = params.DEBUG
-    RELEASE_TYPE = env.JOB_NAME.equals("brave-browser-build") ? "release" : "ci"
     OUT_DIR = "src/out/" + BUILD_TYPE
     BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
     LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
