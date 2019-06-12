@@ -523,7 +523,7 @@ pipeline {
                             steps {
                                 buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
                                 sh """
-                                    rm -rf ${GIT_CACHE_PATH}/*.lockß
+                                    rm -rf ${GIT_CACHE_PATH}/*.lock
                                     set -e
                                     npm install --no-optional
                                     mkdir -p src/third_party/widevine/scripts
