@@ -4,13 +4,16 @@
 - [ ] Used Github [auto-closing keywords](https://help.github.com/articles/closing-issues-via-commit-messages/) in the commit message.
 - [ ] Added/updated tests for this change (for new code or code which already has tests).
 - Verified that these changes build without errors on
-  - [ ] Windows
-  - [ ] macOS
+  - [ ] Android
+  - [ ] iOS
   - [ ] Linux
-- Verified that these changes pass automated tests (`npm test brave_unit_tests && npm test brave_browser_tests && npm run test-security`) on
-  - [ ] Windows
   - [ ] macOS
+  - [ ] Windows
+- Verified that these changes pass automated tests (unit, browser, security tests) on
+  - [ ] iOS
   - [ ] Linux
+  - [ ] macOS
+  - [ ] Windows
 - [ ] Ran `git rebase master` (if needed).
 - [ ] Ran `git rebase -i` to squash commits (if needed).
 - [ ] Tagged reviewers and labelled the pull request as needed.
