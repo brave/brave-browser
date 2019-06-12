@@ -148,7 +148,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm64
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
                                 """
                             }
                         }
@@ -156,7 +156,7 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm64")
+                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm")
                                     }
                                     catch (ex) {
                                         echo ex.toString()
