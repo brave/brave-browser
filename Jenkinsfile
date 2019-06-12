@@ -523,8 +523,8 @@ pipeline {
                             steps {
                                 buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
                                 sh """
+                                    rm -rf ${GIT_CACHE_PATH}/*.lockß
                                     set -e
-                                    rm -rf ${GIT_CACHE_PATH}/*.lock
                                     npm install --no-optional
                                     mkdir -p src/third_party/widevine/scripts
                                     cp ${HOME}/signature_generator.py src/third_party/widevine/scripts
