@@ -490,6 +490,9 @@ pipeline {
                         KEYCHAIN_PASS = credentials("mac-${RELEASE_TYPE}-signing-keychain-password")
                         MAC_APPLICATION_SIGNING_IDENTIFIER = credentials("mac-${RELEASE_TYPE}-signing-application-id")
                         MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-${RELEASE_TYPE}-signing-installer-id")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -519,8 +522,13 @@ pipeline {
                         stage("install") {
                             steps {
                                 buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
-                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
-                                sh "npm install --no-optional"
+                                sh """
+                                    rm -rf ${GIT_CACHE_PATH}/*.lockß
+                                    set -e
+                                    npm install --no-optional
+                                    mkdir -p src/third_party/widevine/scripts
+                                    cp ${HOME}/signature_generator.py src/third_party/widevine/scripts
+                                """
                             }
                         }
                         stage("init") {
@@ -589,7 +597,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}
                                 """
                             }
                         }
@@ -685,6 +693,9 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-development-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-development-certificate")
+                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
                     }
                     stages {
                         stage("checkout") {
@@ -718,7 +729,10 @@ pipeline {
                                     Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
                                     \$ErrorActionPreference = "Stop"
                                     npm install --no-optional
+                                    Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
                                     Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
+                                    New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
+                                    Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
                                 """
                             }
                         }
@@ -783,7 +797,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}
                                 """
                             }
                         }
