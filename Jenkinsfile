@@ -101,7 +101,7 @@ pipeline {
                                             git -C src/brave config user.name brave-builds
                                             git -C src/brave config user.email devops@brave.com
                                             git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${TARGET_BRANCH}
+                                            npm run lint -- --base=origin/${BASE_BRANCH}
                                             git -C src/brave checkout -q -
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
@@ -225,7 +225,7 @@ pipeline {
                                             git -C src/brave config user.name brave-builds
                                             git -C src/brave config user.email devops@brave.com
                                             git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${TARGET_BRANCH}
+                                            npm run lint -- --base=origin/${BASE_BRANCH}
                                             git -C src/brave checkout -q -
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
@@ -369,7 +369,7 @@ pipeline {
                                             git -C src/brave config user.name brave-builds
                                             git -C src/brave config user.email devops@brave.com
                                             git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${TARGET_BRANCH}
+                                            npm run lint -- --base=origin/${BASE_BRANCH}
                                             git -C src/brave checkout -q -
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
@@ -561,7 +561,7 @@ pipeline {
                                             git -C src/brave config user.name brave-builds
                                             git -C src/brave config user.email devops@brave.com
                                             git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${TARGET_BRANCH}
+                                            npm run lint -- --base=origin/${BASE_BRANCH}
                                             git -C src/brave checkout -q -
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
@@ -768,7 +768,7 @@ pipeline {
                                             git -C src/brave config user.name brave-builds
                                             git -C src/brave config user.email devops@brave.com
                                             git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${TARGET_BRANCH}
+                                            npm run lint -- --base=origin/${BASE_BRANCH}
                                             git -C src/brave checkout -q -
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
@@ -912,10 +912,10 @@ def setEnv() {
     SKIP_MACOS = false
     SKIP_WINDOWS = false
     BRANCH = env.BRANCH_NAME
-    TARGET_BRANCH = "master"
+    BASE_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
-        TARGET_BRANCH = env.CHANGE_TARGET
+        BASE_BRANCH = env.CHANGE_TARGET
         def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
         def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -935,6 +935,7 @@ def setEnv() {
         if (bcPrDetails) {
             env.BC_PR_NUMBER = bcPrDetails.number
             bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
+            BASE_BRANCH = bcPrDetails.base.ref
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
             SKIP_IOS = SKIP_IOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
@@ -958,7 +959,7 @@ def checkAndAbortBuild() {
             }
             else {
                 echo "Aborting build as there's a matching branch in brave-core, please create a PR there first"
-                echo "Use https://github.com/brave/brave-core/compare/" + TARGET_BRANCH + "..." + BRANCH + " to create PR"
+                echo "Use https://github.com/brave/brave-core/compare/" + BASE_BRANCH + "..." + BRANCH + " to create PR"
             }
             SKIP = true
             stopCurrentBuild()
