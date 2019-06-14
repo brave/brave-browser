@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.65.120](https://github.com/brave/brave-browser/releases/tag/v0.65.120)
+ 
+ - Fixed inability to tip Twitch channels. ([#4680](https://github.com/brave/brave-browser/issues/4680))
+ - Fixed incorrect rewards panel when viewing VODs on twitch.tv. ([#3590](https://github.com/brave/brave-browser/issues/3590))
+ - Fixed rewards panel showing incorrect publisher when viewing a Twitch channel. ([#3417](https://github.com/brave/brave-browser/issues/3417))
+ - Fixed incorrect text display when restoring a wallet under Norwegian locale. ([#4880](https://github.com/brave/brave-browser/issues/4880))
+ - Upgraded Chromium to 75.0.3770.90. ([#4888](https://github.com/brave/brave-browser/issues/4888))
+
 ## [0.65.118](https://github.com/brave/brave-browser/releases/tag/v0.65.118)
 
  - Added sidebar navigation for brave://settings. ([#958](https://github.com/brave/brave-browser/issues/958))
