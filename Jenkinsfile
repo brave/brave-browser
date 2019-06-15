@@ -69,7 +69,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core to use branch ${BRANCH}"
+                                echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
                                     set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
@@ -156,7 +156,7 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "apks/*.apk", path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm")
+                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm", includePathPattern: "apks/*.apk")
                                     }
                                     catch (ex) {
                                         echo ex.toString()
@@ -193,7 +193,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core to use branch ${BRANCH}"
+                                echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
                                     set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
@@ -297,7 +297,7 @@ pipeline {
                                 script {
                                     try {
                                         withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveRewards.framework.zip", path: BUILD_TAG_SLASHED, workingDir: "src/out")
+                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out", includePathPattern: "BraveRewards.framework.zip")
                                         }
                                     }
                                     catch (ex) {
@@ -337,7 +337,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core to use branch ${BRANCH}"
+                                echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
                                     set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
@@ -441,7 +441,7 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
+                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
                                             echo ex.toString()
@@ -457,7 +457,7 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
+                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
                                             echo ex.toString()
@@ -476,8 +476,8 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "brave-*.deb", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "brave-*.rpm", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.deb")
+                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.rpm")
                                     }
                                     catch (ex) {
                                         echo ex.toString()
@@ -523,7 +523,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core to use branch ${BRANCH}"
+                                echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
                                     set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
@@ -633,7 +633,7 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
+                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
                                             echo ex.toString()
@@ -649,7 +649,7 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
+                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
                                             echo ex.toString()
@@ -674,9 +674,9 @@ pipeline {
                                 script {
                                     try {
                                         withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "unsigned_dmg/Brave*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "Brave*.dmg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                            s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "Brave*.pkg", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "unsigned_dmg/Brave*.dmg")
+                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.dmg")
+                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.pkg")
                                         }
                                     }
                                     catch (ex) {
@@ -724,7 +724,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core to use branch ${BRANCH}"
+                                echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
                                     \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
@@ -838,7 +838,7 @@ pipeline {
                                                 \$ErrorActionPreference = "Stop"
                                                 npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
                                             """
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
+                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
                                             echo ex.toString()
@@ -861,8 +861,8 @@ pipeline {
                             steps {
                                 script {
                                     try {
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "brave_installer_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
-                                        s3Upload(acl: "Private", bucket: BRAVE_ARTIFACTS_S3_BUCKET, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe", path: BUILD_TAG_SLASHED, workingDir: OUT_DIR)
+                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave_installer_*.exe")
+                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe")
                                     }
                                     catch (ex) {
                                         echo ex.toString()
@@ -991,6 +991,7 @@ def checkAndAbortBuild() {
 
 @NonCPS
 def stopCurrentBuild() {
+    // TODO abort here
     Jenkins.instance.getItemByFullName(env.JOB_NAME).getLastBuild().doStop()
 }
 
