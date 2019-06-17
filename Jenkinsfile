@@ -848,6 +848,25 @@ pipeline {
                                 }
                             }
                         }
+                        stage("test-browser") {
+                            steps {
+                                timeout(time: 20, unit: "MINUTES") {
+                                    script {
+                                        try {
+                                            powershell """
+                                                \$ErrorActionPreference = "Stop"
+                                                npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml
+                                            """
+                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: true)])
+                                        }
+                                        catch (ex) {
+                                            echo ex.toString()
+                                            currentBuild.result = "UNSTABLE"
+                                        }
+                                    }
+                                }
+                            }
+                        }                        
                         stage("dist") {
                             steps {
                                 powershell """
