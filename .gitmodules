@@ -4,3 +4,6 @@
 [submodule "vendor/jinja"]
 	path = vendor/jinja
 	url = git://github.com/pallets/jinja.git
+[submodule "vendor/gn-project-generators"]
+	path = vendor/gn-project-generators
+	url = git://github.com/brave/gn-project-generators
