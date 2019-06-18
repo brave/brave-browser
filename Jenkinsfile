@@ -54,14 +54,8 @@ pipeline {
                     }
                     stages {
                         stage("checkout") {
-                            when {
-                                anyOf {
-                                    expression { WIPE_WORKSPACE }
-                                    expression { return !fileExists("package.json") }
-                                }
-                            }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -178,14 +172,8 @@ pipeline {
                     }
                     stages {
                         stage("checkout") {
-                            when {
-                                anyOf {
-                                    expression { WIPE_WORKSPACE }
-                                    expression { return !fileExists("package.json") }
-                                }
-                            }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -322,14 +310,8 @@ pipeline {
                     }
                     stages {
                         stage("checkout") {
-                            when {
-                                anyOf {
-                                    expression { WIPE_WORKSPACE }
-                                    expression { return !fileExists("package.json") }
-                                }
-                            }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -508,14 +490,9 @@ pipeline {
                     }
                     stages {
                         stage("checkout") {
-                            when {
-                                anyOf {
-                                    expression { WIPE_WORKSPACE }
-                                    expression { return !fileExists("package.json") }
-                                }
-                            }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
                             }
                         }
                         stage("pin") {
@@ -533,7 +510,6 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
                                 sh """
                                     rm -rf ${GIT_CACHE_PATH}/*.lock
                                     set -e
@@ -709,14 +685,8 @@ pipeline {
                     }
                     stages {
                         stage("checkout") {
-                            when {
-                                anyOf {
-                                    expression { WIPE_WORKSPACE }
-                                    expression { return !fileExists("package.json") }
-                                }
-                            }
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: "WipeWorkspace"]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -881,7 +851,7 @@ pipeline {
             script {
                 if (env.SLACK_USERNAME) {
                     def slackColorMap = ["SUCCESS": "good", "FAILURE": "danger", "UNSTABLE": "warning", "ABORTED": null]
-                    slackSend(color: slackColorMap[currentBuild.currentResult], channel: env.SLACK_USERNAME, message: currentBuild.currentResult + " " + BUILD_TAG_SLASHED + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
+                    slackSend(color: slackColorMap[currentBuild.currentResult], channel: env.SLACK_USERNAME, message: "[${BUILD_TAG_SLASHED} `${BRANCH}`] " + currentBuild.currentResult + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
                 }
             }
         }
@@ -893,7 +863,7 @@ def setEnv() {
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
     BUILD_TYPE = params.BUILD_TYPE
-    WIPE_WORKSPACE = params.WIPE_WORKSPACE
+    WIPE_WORKSPACE = params.WIPE_WORKSPACE ? "WipeWorkspace" : "RelativeTargetDirectory"
     SKIP_INIT = params.SKIP_INIT
     DISABLE_SCCACHE = params.DISABLE_SCCACHE
     SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
@@ -905,6 +875,7 @@ def setEnv() {
     GITHUB_API = "https://api.github.com/repos/brave"
     GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
     RUST_LOG = "sccache=warn"
+    RUST_BACKTRACE = "1"
     SKIP = false
     SKIP_ANDROID = false
     SKIP_IOS = false
@@ -924,10 +895,7 @@ def setEnv() {
         SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
         SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
         SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
-        env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[env.CHANGE_AUTHOR]
-        if (env.SLACK_USERNAME) {
-            slackSend(color: null, channel: env.SLACK_USERNAME, message: "STARTED " + BUILD_TAG_SLASHED + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
-        }
+        env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bbPrDetails.user.login]
     }
     BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
     if (BRANCH_EXISTS_IN_BC) {
@@ -942,7 +910,11 @@ def setEnv() {
             SKIP_LINUX = SKIP_LINUX || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+            env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
         }
+    }
+    if (env.SLACK_USERNAME) {
+        slackSend(color: null, channel: env.SLACK_USERNAME, message: "[${BUILD_TAG_SLASHED} `${BRANCH}`] STARTED (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
     }
 }
 
@@ -991,7 +963,6 @@ def checkAndAbortBuild() {
 
 @NonCPS
 def stopCurrentBuild() {
-    // TODO abort here
     Jenkins.instance.getItemByFullName(env.JOB_NAME).getLastBuild().doStop()
 }
 
