@@ -8,7 +8,6 @@ const fs = require('fs-extra')
 const config = require('../lib/config')
 const util = require('../lib/util')
 const build = require('../lib/build')
-const xcodeGen = require('../lib/xcodeGen')
 const versions = require('../lib/versions')
 const start = require('../lib/start')
 const updatePatches = require('../lib/updatePatches')
@@ -43,6 +42,7 @@ program
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--ignore_compile_failure', 'Keep compiling regardless of error')
   .option('--skip_signing', 'skip signing binaries')
+  .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
   .arguments('[build_config]')
   .action(build)
 
@@ -138,14 +138,6 @@ program
   .command('lint')
   .option('--base <base branch>', 'set the destination branch for the PR')
   .action(util.lint)
-
-program
-  .command('xcode_gen')
-  .option('--target_os <target_os>', 'target OS')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
-  .option('--filter <filter>', 'set label patterns used to limit the set of generated projects')
-  .arguments('[build_config]')
-  .action(xcodeGen)
 
 program
   .parse(process.argv)
