@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.65.121](https://github.com/brave/brave-browser/releases/tag/v0.65.121)
+ 
+ - Upgraded Chromium to 75.0.3770.100. ([#4962](https://github.com/brave/brave-browser/issues/4962))
+
 ## [0.65.120](https://github.com/brave/brave-browser/releases/tag/v0.65.120)
  
  - Fixed inability to tip Twitch channels. ([#4680](https://github.com/brave/brave-browser/issues/4680))
