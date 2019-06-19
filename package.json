@@ -255,6 +255,7 @@
   },
   "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
+    "chalk": "^2.4.2",
     "commander": "^2.9.0",
     "fs-extra": "^1.0.0"
   },
