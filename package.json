@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "0.68.68",
+  "version": "0.68.69",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
