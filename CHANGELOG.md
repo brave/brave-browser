@@ -1,5 +1,74 @@
 # Changelog
 
+## [0.65.121](https://github.com/brave/brave-browser/releases/tag/v0.65.121)
+ 
+ - Upgraded Chromium to 75.0.3770.100. ([#4962](https://github.com/brave/brave-browser/issues/4962))
+
+## [0.65.120](https://github.com/brave/brave-browser/releases/tag/v0.65.120)
+ 
+ - Fixed inability to tip Twitch channels. ([#4680](https://github.com/brave/brave-browser/issues/4680))
+ - Fixed incorrect rewards panel when viewing VODs on twitch.tv. ([#3590](https://github.com/brave/brave-browser/issues/3590))
+ - Fixed rewards panel showing incorrect publisher when viewing a Twitch channel. ([#3417](https://github.com/brave/brave-browser/issues/3417))
+ - Fixed incorrect text display when restoring a wallet under Norwegian locale. ([#4880](https://github.com/brave/brave-browser/issues/4880))
+ - Upgraded Chromium to 75.0.3770.90. ([#4888](https://github.com/brave/brave-browser/issues/4888))
+
+## [0.65.118](https://github.com/brave/brave-browser/releases/tag/v0.65.118)
+
+ - Added sidebar navigation for brave://settings. ([#958](https://github.com/brave/brave-browser/issues/958))
+ - Added Terms of Services link prior to Brave Rewards opt-in. ([#3124](https://github.com/brave/brave-browser/issues/3124))
+ - Added a new proxy endpoint for CRLSets. ([#3920](https://github.com/brave/brave-browser/issues/3920))
+ - Added privacy warning on Brave Sync code page. ([#4132](https://github.com/brave/brave-browser/issues/4132))
+ - Added more information under brave://rewards-internals to improve rewards debugging. ([#3624](https://github.com/brave/brave-browser/issues/3624))
+ - Updated design for brave://settings. ([#955](https://github.com/brave/brave-browser/issues/955))
+ - Improved error message for wrong device time when attempting to use Brave Sync. ([#3962](https://github.com/brave/brave-browser/issues/3962))
+ - Removed source and referrer URLs from download metadata. ([#2766](https://github.com/brave/brave-browser/issues/2766))
+ - Fixed not being able to join Brave Rewards using rewards panel when profile has been corrupted in certain cases. ([#3697](https://github.com/brave/brave-browser/issues/3697))
+ - Fixed publishers not being displayed as verified in certain cases. ([#3780](https://github.com/brave/brave-browser/issues/3780))
+ - Fixed incorrect system colors when changing theme to "Light". ([#4059](https://github.com/brave/brave-browser/issues/4059))
+ - Fixed "Extension" overlay issue in brave://settings. ([#3444](https://github.com/brave/brave-browser/issues/3444))
+ - Fixed capitalization for "Same as macOS" theme option under brave://settings. ([#3832](https://github.com/brave/brave-browser/issues/3832))
+ - Fixed incorrect brave://history page pre-load UI. ([#3826](https://github.com/brave/brave-browser/issues/3826))
+ - Fixed typo on Brave Sync page. ([#4088](https://github.com/brave/brave-browser/issues/4088))
+ - Upgraded Chromium to 75.0.3770.80. ([#4724](https://github.com/brave/brave-browser/issues/4724))
+
+## [0.64.77](https://github.com/brave/brave-browser/releases/tag/v0.64.77)
+
+ - Upgraded Chromium to 74.0.3729.169. ([#4526](https://github.com/brave/brave-browser/issues/4526))
+
+## [0.64.76](https://github.com/brave/brave-browser/releases/tag/v0.64.76)
+
+ - Upgraded Chromium to 74.0.3729.157. ([#4443](https://github.com/brave/brave-browser/issues/4443))
+
+## [0.64.75](https://github.com/brave/brave-browser/releases/tag/v0.64.75)
+
+ - Added a manual refresh button to fetch new version of the verified publishers list. ([#3339](https://github.com/brave/brave-browser/issues/3339))
+ - Added new proxy endpoint for Safe Browsing. ([#4328](https://github.com/brave/brave-browser/issues/4328))
+ - Added switch under brave://settings for IPFS companion extension. ([#3918](https://github.com/brave/brave-browser/issues/3918))
+ - Added notification for monthly tip contribution. ([#3637](https://github.com/brave/brave-browser/issues/3637))
+ - Added horizontal scrolling under Brave Shields on read-only detailed views. ([#1892](https://github.com/brave/brave-browser/issues/1892))
+ - Added regional filters in brave://adblock. ([#1931](https://github.com/brave/brave-browser/issues/1931))
+ - Added custom filter selection in brave://adblock. ([#403](https://github.com/brave/brave-browser/issues/403))
+ - Enabled certificate revocation. ([#518](https://github.com/brave/brave-browser/issues/518))
+ - Disabled Safe Browsing in Tor. ([#4335](https://github.com/brave/brave-browser/issues/4335))
+ - Updated Brave Shields colors and label UI. ([#2565](https://github.com/brave/brave-browser/issues/2565))
+ - Fixed theme under Brave Shields not being changed when switching themes. ([#3870](https://github.com/brave/brave-browser/issues/3870))
+ - Fixed "Reset settings" feature under brave://settings. ([#2708](https://github.com/brave/brave-browser/issues/2708))
+ - Fixed notifications not being dismissible under reward panel in certain cases causing performance issues. ([#4344](https://github.com/brave/brave-browser/issues/4344))
+ - Fixed updating from older versions of Brave fails to enable Brave ads. ([#4224](https://github.com/brave/brave-browser/issues/4224))
+ - Fixed "Brave Ads has arrived!" notification not being displayed when updating on Linux. ([#4202](https://github.com/brave/brave-browser/issues/4202))
+ - Fixed blank drop down menu under Brave Shields in certain cases. ([#2488](https://github.com/brave/brave-browser/issues/2488))
+ - Fixed not being able to enable Brave Rewards in certain cases. ([#3851](https://github.com/brave/brave-browser/issues/3851))
+ - Fixed incorrect attention percentage being displayed under auto-contribution table in certain cases. ([#3668](https://github.com/brave/brave-browser/issues/3668))
+ - Fixed attention data for publishers not being removed when removing publishers from auto-contribution table. ([#3459](https://github.com/brave/brave-browser/issues/3459))
+ - Fixed several resizing issues by making rewards panel height dynamic based on content. ([#2874](https://github.com/brave/brave-browser/issues/2874))
+ - Fixed IPFS companion options page not being displayed. ([#4218](https://github.com/brave/brave-browser/issues/4218))
+ - Fixed "This is a secondary installation of Brave" error when attempting to set Brave as default. ([#3817](https://github.com/brave/brave-browser/issues/3817))
+ - Fixed autofill popup for credentials unexpectedly being displayed in odd locations upon page load. ([#1713](https://github.com/brave/brave-browser/issues/1713))
+ - Fixed brave://crash not crashing brave:// tabs. ([#4111](https://github.com/brave/brave-browser/issues/4111))
+ - Fixed visiting http://www.bbcnews.com and several other websites triggering warning due to the lookalike url navigation feature. ([#4304](https://github.com/brave/brave-browser/issues/4304))
+ - Fixed https://www.huffpost.com not loading due to default Brave Shields settings. ([#4149](https://github.com/brave/brave-browser/issues/4149))
+ - Limited JavaScript set cookie lifetime to seven days. ([#3443](https://github.com/brave/brave-browser/issues/3443))
+
 ## [0.63.55](https://github.com/brave/brave-browser/releases/tag/v0.63.55)
 
  - Fixed display of Ad Rewards earnings in settings panel. ([#4008](https://github.com/brave/brave-browser/issues/4008))
