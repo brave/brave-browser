@@ -101,7 +101,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -115,7 +115,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -153,7 +153,7 @@ pipeline {
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm", includePathPattern: "apks/*.apk")
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -219,7 +219,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -233,7 +233,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -262,7 +262,7 @@ pipeline {
                                             sh "npm run test -- brave_rewards_ios_tests ${BUILD_TYPE} --target_os=ios"
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -289,7 +289,7 @@ pipeline {
                                         }
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -357,7 +357,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -371,7 +371,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -410,7 +410,7 @@ pipeline {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -423,10 +423,10 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -439,10 +439,10 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -462,7 +462,7 @@ pipeline {
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.rpm")
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -543,7 +543,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -557,7 +557,7 @@ pipeline {
                                             sh "npm run audit_deps"
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -596,7 +596,7 @@ pipeline {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -609,10 +609,10 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -625,10 +625,10 @@ pipeline {
                                     script {
                                         try {
                                             sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_browser_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -656,7 +656,7 @@ pipeline {
                                         }
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -723,8 +723,8 @@ pipeline {
                             steps {
                                 powershell """
                                     Remove-Item -Recurse -Force src/brave
-                                    \$ErrorActionPreference = "Stop"
                                     git -C vendor/depot_tools clean -fxd
+                                    \$ErrorActionPreference = "Stop"
                                     npm run init
                                 """
                             }
@@ -744,7 +744,7 @@ pipeline {
                                         """
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -761,7 +761,7 @@ pipeline {
                                             """
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -792,7 +792,7 @@ pipeline {
                                             """
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -808,10 +808,12 @@ pipeline {
                                                 \$ErrorActionPreference = "Stop"
                                                 npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
                                             """
-                                            xunit([GoogleTest(deleteOutputFiles: true, failIfNotNew: true, pattern: "src/brave_unit_tests.xml", skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            timeout(time: 1, unit: "MINUTES") {
+                                                xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            }
                                         }
                                         catch (ex) {
-                                            echo ex.toString()
+                                            printException(ex)
                                             currentBuild.result = "UNSTABLE"
                                         }
                                     }
@@ -835,7 +837,7 @@ pipeline {
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe")
                                     }
                                     catch (ex) {
-                                        echo ex.toString()
+                                        printException(ex)
                                         currentBuild.result = "UNSTABLE"
                                     }
                                 }
@@ -974,4 +976,15 @@ def isStartedManually() {
 @NonCPS
 def getBuilds() {
     return Jenkins.instance.getItemByFullName(env.JOB_NAME).builds
+}
+
+def printException(ex) {
+    echo "Exception: " + ex.toString()
+    echo "Stack trace: " + ex.getStackTrace().toString()
+    echo "Causes: " + ex.getCauses()
+    echo "Suppressed: " + ex.getSuppressed().toString()
+    ex.printStackTrace()
+    echo "Cause: " + ex.getCause()
+    echo "Message: " + ex.getMessage()
+    echo "Localized: " + ex.getLocalizedMessage()
 }
