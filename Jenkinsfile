@@ -1,6 +1,7 @@
 pipeline {
     agent none
     options {
+        ansiColor("xterm")
         timeout(time: 6, unit: "HOURS")
         timestamps()
     }
@@ -33,6 +34,13 @@ pipeline {
                 script {
                     checkAndAbortBuild()
                 }
+            }
+        }
+        stage("s3-init") {
+            agent { label "master" }
+            steps {
+                sh "echo ${BUILD_URL} > build.txt"
+                s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, includePathPattern: "build.txt")
             }
         }
         stage("build-all") {
@@ -146,7 +154,7 @@ pipeline {
                                 """
                             }
                         }
-                        stage("archive") {
+                        stage("s3-upload") {
                             steps {
                                 script {
                                     try {
@@ -280,7 +288,7 @@ pipeline {
                                 """
                             }
                         }
-                        stage("archive") {
+                        stage("s3-upload") {
                             steps {
                                 script {
                                     try {
@@ -454,7 +462,7 @@ pipeline {
                                 sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
                             }
                         }
-                        stage("archive") {
+                        stage("s3-upload") {
                             steps {
                                 script {
                                     try {
@@ -645,7 +653,7 @@ pipeline {
                                 """
                             }
                         }
-                        stage("archive") {
+                        stage("s3-upload") {
                             steps {
                                 script {
                                     try {
@@ -808,9 +816,7 @@ pipeline {
                                                 \$ErrorActionPreference = "Stop"
                                                 npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
                                             """
-                                            timeout(time: 1, unit: "MINUTES") {
-                                                xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                            }
+                                            // xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                         }
                                         catch (ex) {
                                             printException(ex)
@@ -829,7 +835,7 @@ pipeline {
                                 """
                             }
                         }
-                        stage("archive") {
+                        stage("s3-upload") {
                             steps {
                                 script {
                                     try {
@@ -981,10 +987,9 @@ def getBuilds() {
 def printException(ex) {
     echo "Exception: " + ex.toString()
     echo "Stack trace: " + ex.getStackTrace().toString()
-    echo "Causes: " + ex.getCauses()
-    echo "Suppressed: " + ex.getSuppressed().toString()
-    ex.printStackTrace()
-    echo "Cause: " + ex.getCause()
-    echo "Message: " + ex.getMessage()
-    echo "Localized: " + ex.getLocalizedMessage()
+    // echo "Suppressed: " + ex.getSuppressed().toString()
+    // ex.printStackTrace()
+    // echo "Cause: " + ex.getCause()
+    // echo "Message: " + ex.getMessage()
+    // echo "Localized: " + ex.getLocalizedMessage()
 }
