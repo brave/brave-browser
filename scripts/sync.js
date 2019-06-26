@@ -79,32 +79,34 @@ async function RunCommand () {
     util.gclientSync(alwaysReset)
   }
   
+  progressLog('Applying patches...')
+  // Always detect if we need to apply patches, since user may have modified
+  // either chromium source files, or .patch files manually
+  const coreRepoPath = config.projects['brave-core'].dir
+  const patchesPath = path.join(coreRepoPath, 'patches')
+  const v8PatchesPath = path.join(patchesPath, 'v8')
+  const chromiumRepoPath = config.projects['chrome'].dir
+  const v8RepoPath = path.join(chromiumRepoPath, 'v8')
+  const chromiumPatcher = new GitPatcher(patchesPath, chromiumRepoPath)
+
+  const v8Patcher = new GitPatcher(v8PatchesPath, v8RepoPath)
+
+  const chromiumPatchStatus = await chromiumPatcher.applyPatches()
+  const v8PatchStatus = await v8Patcher.applyPatches()
+  // Differentiate entries for logging
+  v8PatchStatus.forEach(s => s.path = path.join('v8', s.path))
+  // Log patch status
+  const allPatchStatus = chromiumPatchStatus.concat(v8PatchStatus)
+  logAllPatchStatus(allPatchStatus, 'Chromium')
+  const hasPatchError = allPatchStatus.some(p => p.error)
+  // Exit on error in any patch
+  if (hasPatchError) {
+    console.error(chalk.red.bgBlack('Exiting as not all patches were successful!'))
+    process.exit(1)
+  }
+  progressLog('Done applying patches.')
+
   if (wasSomeDepUpdated || program.init || program.run_hooks) {
-    progressLog('Applying patches...')
-    // Apply patches if either chromium (the source)
-    // or brave-core (the patches) change.
-    const coreRepoPath = config.projects['brave-core'].dir
-    const patchesPath = path.join(coreRepoPath, 'patches')
-    const v8PatchesPath = path.join(patchesPath, 'v8')
-    const chromiumRepoPath = config.projects['chrome'].dir
-    const v8RepoPath = path.join(chromiumRepoPath, 'v8')
-    const chromiumPatcher = new GitPatcher(patchesPath, chromiumRepoPath)
-
-    const v8Patcher = new GitPatcher(v8PatchesPath, v8RepoPath)
-
-    const chromiumPatchStatus = await chromiumPatcher.applyPatches()
-    const v8PatchStatus = await v8Patcher.applyPatches()
-    // differentiate entries for logging
-    v8PatchStatus.forEach(s => s.path = path.join('v8', s.path))
-    const allPatchStatus = chromiumPatchStatus.concat(v8PatchStatus)
-
-    logAllPatchStatus(allPatchStatus, 'Chromium')
-    progressLog('Done applying patches.')
-    const hasPatchError = allPatchStatus.some(p => p.error)
-    if (hasPatchError) {
-      console.error(chalk.red.bgBlack('Exiting as not all patches were successful!'))
-      process.exit(1)
-    }
     progressLog('Running gclient hooks...')
     util.gclientRunhooks()
     progressLog('Done running gclient hooks.')
