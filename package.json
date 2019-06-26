@@ -258,7 +258,8 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^2.9.0",
-    "fs-extra": "^8.0.1"
+    "fs-extra": "^8.0.1",
+    "log-update": "^3.2.0"
   },
   "devDependencies": {
     "ip": "^1.1.5",

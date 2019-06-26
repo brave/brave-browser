@@ -1,19 +1,19 @@
+// Copyright (c) 2019 The Brave Authors. All rights reserved.
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this file,
+// you can obtain one at http://mozilla.org/MPL/2.0/.
+
 const path = require('path')
-const program = require('commander');
+const os = require('os')
+const program = require('commander')
 const fs = require('fs-extra')
 const chalk = require('chalk')
 const config = require('../lib/config')
 const util = require('../lib/util')
 const GitPatcher = require('../lib/gitPatcher')
+const { progressLog, errorLog, logUpdateStatus, logAllPatchStatus } = require('../lib/sync/logging')
 
-const divider = Array(32).join('-')
 const projectNames = config.projectNames.filter((project) => config.projects[project].ref)
-
-const progressStyle = chalk.bold.inverse
-
-function progressLog (message) {
-  console.log(progressStyle( message))
-}
 
 program
   .version(process.env.npm_package_version)
@@ -51,7 +51,6 @@ async function RunCommand () {
     util.gclientSync(true)
   }
   
-  
   progressLog('Updating project repositories...')
   const alwaysReset = program.init ? true : false
   if (alwaysReset) {
@@ -59,13 +58,24 @@ async function RunCommand () {
   }
   let wasSomeDepUpdated = alwaysReset ? true : false
   
+  const projectUpdateStatus = {}
   await Promise.all(
     projectNames.map(async (name) => {
       let project = config.projects[name]
       if (alwaysReset || program.all || program[project.arg_name + '_ref']) {
-        console.log(`Ensuring ${name} repository is at latest version of: ${project.ref}...`)
+        projectUpdateStatus[name] = {
+          name,
+          phase: 'fetching...',
+          ref: project.ref
+        }
+        logUpdateStatus(projectUpdateStatus)
+        await util.fetch(project.dir)
+        projectUpdateStatus[name].phase = 'ensuring up to date...'
+        logUpdateStatus(projectUpdateStatus)
         const thisDepUpdated = await util.setGitVersion(project.dir, project.ref, alwaysReset)
-        console.log(`Repository for ${name} ${thisDepUpdated ? 'required' : 'did not require'} a repository reset.`)
+        projectUpdateStatus[name].phase = `done (reset ${thisDepUpdated ? 'was' : 'not'} required).`
+        projectUpdateStatus[name].requiredUpdate = thisDepUpdated
+        logUpdateStatus(projectUpdateStatus)
         if (thisDepUpdated) {
           wasSomeDepUpdated = true
         }
@@ -75,8 +85,9 @@ async function RunCommand () {
   progressLog('Done updating project repositories.')
   
   if (wasSomeDepUpdated || alwaysReset || program.run_sync) {
-    progressLog(`Syncing Gclient (${alwaysReset ? '' : 'not '} with reset)`)
+    progressLog(`Running gclient sync (${alwaysReset ? '' : 'not '}with reset)...`)
     util.gclientSync(alwaysReset)
+    progressLog('Done running gclient sync.')
   }
   
   progressLog('Applying patches...')
@@ -88,14 +99,14 @@ async function RunCommand () {
   const chromiumRepoPath = config.projects['chrome'].dir
   const v8RepoPath = path.join(chromiumRepoPath, 'v8')
   const chromiumPatcher = new GitPatcher(patchesPath, chromiumRepoPath)
-
   const v8Patcher = new GitPatcher(v8PatchesPath, v8RepoPath)
 
   const chromiumPatchStatus = await chromiumPatcher.applyPatches()
   const v8PatchStatus = await v8Patcher.applyPatches()
+
+  // Log status for all patches
   // Differentiate entries for logging
   v8PatchStatus.forEach(s => s.path = path.join('v8', s.path))
-  // Log patch status
   const allPatchStatus = chromiumPatchStatus.concat(v8PatchStatus)
   logAllPatchStatus(allPatchStatus, 'Chromium')
   const hasPatchError = allPatchStatus.some(p => p.error)
@@ -119,53 +130,6 @@ RunCommand()
   progressLog('Brave Browser Sync complete')
 })
 .catch((err) => {
-  console.error(progressStyle('Brave Browser Sync ERROR:'))
+  errorLog('Brave Browser Sync ERROR:')
   console.error(err)
 })
-
-function logAllPatchStatus(allPatchStatus, patchGroupName) {
-  if (!allPatchStatus.length) {
-    console.log(chalk.bold.italic(`There were no ${patchGroupName} code patch updates to apply.`))
-  } else {
-    const successfulPatches = []
-    const failedPatches = []
-    for (const patchStatus of allPatchStatus) {
-      if (!patchStatus.error) {
-        successfulPatches.push(patchStatus)
-      } else {
-        failedPatches.push(patchStatus)
-      }
-    }
-    console.log(chalk.bold(`There were ${allPatchStatus.length} ${patchGroupName} code patch updates to apply.`))
-    if (successfulPatches.length) {
-      console.log(chalk.green(`${successfulPatches.length} successful patches:`))
-      successfulPatches.forEach(logPatchStatus)
-    }
-    if (failedPatches.length) {
-      console.log(chalk.red(`${failedPatches.length} failed patches:`))
-      failedPatches.forEach(logPatchStatus)
-    }
-  }
-}
-
-function logPatchStatus ({ reason, path, patchPath, error, warning }) {
-  const success = !error
-  const statusColor = success ? chalk.green : chalk.red
-  console.log(statusColor.bold.underline(path || patchPath))
-  console.log(`  - Reason: ${GitPatcher.patchApplyReasonMessages[reason]}`)
-  if (error) {
-    console.log(chalk.red(`  - Error - ${error.message}`))
-  }
-  if (warning) {
-    console.warn(chalk.yellow(`  - Warning - ${warning}`))
-  }
-  if (error)  {
-    if (error.stdout) {
-      console.log(chalk.blue(error.stdout))
-    }
-    if (error.stderr) {
-      console.error(chalk.red(error.stderr))
-    }
-  }
-  console.log(divider)
-}
