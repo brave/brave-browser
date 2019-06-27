@@ -43,6 +43,7 @@ program
   .option('--ignore_compile_failure', 'Keep compiling regardless of error')
   .option('--skip_signing', 'skip signing binaries')
   .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
+  .option('--force_component_build', 'Link individual components instead of one big executable')
   .arguments('[build_config]')
   .action(build)
 
