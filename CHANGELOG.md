@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.66.99](https://github.com/brave/brave-browser/releases/tag/v0.66.99)
+
+ - Added new Brave Rewards icon for verified publishers. ([#4043](https://github.com/brave/brave-browser/issues/4043))
+ - Added country specific "add funds" for Brave Rewards. ([#4476](https://github.com/brave/brave-browser/issues/4476))
+ - Added WebUSB support. ([#4669](https://github.com/brave/brave-browser/issues/4669))
+ - Added ability for Brave to use system theme on Windows 10. ([#3804](https://github.com/brave/brave-browser/issues/3804))
+ - Added requirement to install brave-keyring when installing brave-browser release channel version on Linux. ([#4205](https://github.com/brave/brave-browser/issues/4205))
+ - Disabled client hints. ([#3539](https://github.com/brave/brave-browser/issues/3539))
+ - Fixed display of ad summary on brave://rewards to more accurately reflect estimated pending rewards, next payment date, and ad notifications received this month. ([#4330](https://github.com/brave/brave-browser/issues/4330))
+ - Fixed tips not going through when using a VPN. ([#4153](https://github.com/brave/brave-browser/issues/4153))
+ - Fixed incorrect Twitch link in auto-contribution and tips tables. ([#4921](https://github.com/brave/brave-browser/issues/4921))
+ - Fixed incorrect Twitch link in auto-contribution table when channel name contains an underscore. ([#4045](https://github.com/brave/brave-browser/issues/4045))
+ - Fixed incorrect size of grant claim banner on brave://rewards page. ([#4171](https://github.com/brave/brave-browser/issues/4171))
+ - Fixed PWA crashes on macOS. ([#3750](https://github.com/brave/brave-browser/issues/3750))
+ - Fixed PWA shortcuts on Windows. ([#4654](https://github.com/brave/brave-browser/issues/4654))
+ - Fixed incorrect system colors when changing theme to "Light" on Windows. ([#4056](https://github.com/brave/brave-browser/issues/4056))
+ - Fixed download toolbar not always respecting current theme on Windows. ([#4272](https://github.com/brave/brave-browser/issues/4272))
+ - Fixed loading delay on some sites like https://www.theverge.com. ([#4402](https://github.com/brave/brave-browser/issues/4402))
+ - Fixed binary on Linux; brave-browser command will now always open release channel version (instead of the the most recent install). ([#1324](https://github.com/brave/brave-browser/issues/1324))
+
 ## [0.65.121](https://github.com/brave/brave-browser/releases/tag/v0.65.121)
  
  - Upgraded Chromium to 75.0.3770.100. ([#4962](https://github.com/brave/brave-browser/issues/4962))
