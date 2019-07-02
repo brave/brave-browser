@@ -27,7 +27,7 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt update
 
-    sudo apt install brave-keyring brave-browser
+    sudo apt install brave-browser
 
 Mint 17
 -------
@@ -39,7 +39,7 @@ Mint 17
 
     sudo apt update
 
-    sudo apt install brave-keyring brave-browser
+    sudo apt install brave-browser
 
 Fedora 28+
 ----------
@@ -49,7 +49,7 @@ Fedora 28+
 
     sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-    sudo dnf install brave-keyring brave-browser
+    sudo dnf install brave-browser
 
 CentOS/RHEL
 -----------
@@ -64,7 +64,7 @@ CentOS/RHEL
     enabled=1
     EOF
 
-    sudo yum install brave-keyring brave-browser
+    sudo yum install brave-browser
 
 The key you're importing should have fingerprint ``D8BA D4DE 7EE1 7AF5 2A83  4B2D 0BB7 5829 C2D4 E821``.
 
