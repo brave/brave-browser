@@ -4,6 +4,11 @@ const fs = require('fs-extra')
 const config = require('../lib/config')
 const util = require('../lib/util')
 
+// TEMP
+console.log('IS CI Envorinment?', isCIEnvironment)
+process.exit(1)
+// TEMP
+
 const projectNames = config.projectNames.filter((project) => config.projects[project].ref)
 
 program
