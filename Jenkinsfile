@@ -643,6 +643,40 @@ pipeline {
                                 }
                             }
                         }
+                        stage("test-dmg") {
+                            steps {
+                                timeout(time: 5, unit: "MINUTES") {
+                                    sh '''
+                                        open ${OUT_DIR}/Brave-Browser.dmg
+                                        sleep 10
+                                        open "/Volumes/Brave Browser/Brave Browser.app"
+                                        sleep 10
+                                        pkill Brave
+                                        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
+                                        declare -a arr=($VOLUME)
+                                        # loop through the above array to eject all volumes
+                                        for i in "${arr[@]}"
+                                        do
+                                            diskutil unmountDisk force $i
+                                            diskutil eject $i
+                                        done
+                                    '''
+                                }
+                            }
+                        }
+                        stage("test-pkg") {
+                            steps {
+                                timeout(time: 5, unit: "MINUTES") {
+                                    sh '''
+                                        /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave-Browser.pkg" -target CurrentUserHomeDirectory
+                                        open "/Users/jenkins/Applications/Brave Browser.app"
+                                        sleep 10
+                                        pkill Brave
+                                        rm -rf "/Users/jenkins/Applications/Brave Browser.app"
+                                    '''
+                                }
+                            }
+                        }
                         stage("dist") {
                             steps {
                                 sh """
