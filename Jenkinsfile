@@ -6,12 +6,13 @@ pipeline {
         timestamps()
     }
     parameters {
-        choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release"], description: "")
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
+        choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release"], description: "")
+        booleanParam(name: "OFFICIAL_BUILD", defaultValue: true, description: "")
+        booleanParam(name: "SKIP_SIGNING", defaultValue: false, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
-        booleanParam(name: "SKIP_SIGNING", defaultValue: false, description: "")
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
     }
     environment {
@@ -150,7 +151,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=android --target_arch=arm
                                 """
                             }
                         }
@@ -257,8 +258,8 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=ios
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=ios --target_arch=arm64
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios --target_arch=arm64
                                 """
                             }
                         }
@@ -406,7 +407,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD}
                                 """
                             }
                         }
@@ -459,7 +460,7 @@ pipeline {
                         }
                         stage("dist") {
                             steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD}"
                             }
                         }
                         stage("s3-upload") {
@@ -592,7 +593,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING}
                                 """
                             }
                         }
@@ -648,7 +649,7 @@ pipeline {
                                 sh """
                                     set -e
                                     security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
                                     security lock-keychain -a
                                 """
                             }
@@ -785,7 +786,7 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING}
                                 """
                             }
                         }
@@ -831,7 +832,7 @@ pipeline {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
                                     (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
                                 """
                             }
                         }
@@ -867,14 +868,15 @@ pipeline {
 }
 
 def setEnv() {
+    BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
-    BUILD_TYPE = params.BUILD_TYPE
+    OFFICIAL_BUILD = params.OFFICIAL_BUILD ? "--official_build=true" : "--official_build=false"
+    SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
     WIPE_WORKSPACE = params.WIPE_WORKSPACE ? "WipeWorkspace" : "RelativeTargetDirectory"
     SKIP_INIT = params.SKIP_INIT
     DISABLE_SCCACHE = params.DISABLE_SCCACHE
-    SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
     DEBUG = params.DEBUG
     OUT_DIR = "src/out/" + BUILD_TYPE
     BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
