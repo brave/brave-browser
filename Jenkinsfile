@@ -658,9 +658,9 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        open "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.dmg"
+                                        open "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED}.dmg"
                                         sleep 10
-                                        open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app"
+                                        open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
                                         pkill Brave
                                         VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
@@ -680,10 +680,10 @@ pipeline {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
                                         /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.pkg" -target CurrentUserHomeDirectory
-                                        open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app"
+                                        open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
                                         pkill Brave
-                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app"
+                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED}.app"
                                     '''
                                 }
                             }
