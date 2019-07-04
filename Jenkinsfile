@@ -644,13 +644,23 @@ pipeline {
                                 }
                             }
                         }
+                        stage("dist") {
+                            steps {
+                                sh """
+                                    set -e
+                                    security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
+                                    security lock-keychain -a
+                                """
+                            }
+                        }
                         stage("test-dmg") {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        open ${OUT_DIR}/Brave-Browser.dmg
+                                        open ${OUT_DIR}/Brave-Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.dmg
                                         sleep 10
-                                        open "/Volumes/Brave Browser/Brave Browser.app"
+                                        open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
                                         VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
@@ -669,23 +679,13 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave-Browser.pkg" -target CurrentUserHomeDirectory
-                                        open "/Users/jenkins/Applications/Brave Browser.app"
+                                        /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave-Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.pkg" -target CurrentUserHomeDirectory
+                                        open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
-                                        rm -rf "/Users/jenkins/Applications/Brave Browser.app"
+                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app"
                                     '''
                                 }
-                            }
-                        }
-                        stage("dist") {
-                            steps {
-                                sh """
-                                    set -e
-                                    security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
-                                    security lock-keychain -a
-                                """
                             }
                         }
                         stage("s3-upload") {
