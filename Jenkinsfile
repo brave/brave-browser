@@ -658,9 +658,10 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        open "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED}.dmg"
+                                        ls ${OUT_DIR} | grep "Brave Browser ${CHANNEL_CAPITALIZED}"
+                                        open "${OUT_DIR}/Brave Browser ${CHANNEL_CAPITALIZED}.dmg"
                                         sleep 10
-                                        open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED}.app"
+                                        open "/Volumes/Brave Browser/Brave Browser ${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
                                         pkill Brave
                                         VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
@@ -679,11 +680,11 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.pkg" -target CurrentUserHomeDirectory
-                                        open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED}.app"
+                                        /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser ${CHANNEL_CAPITALIZED}.pkg" -target CurrentUserHomeDirectory
+                                        open "/Users/jenkins/Applications/Brave Browser ${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
                                         pkill Brave
-                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED}.app"
+                                        rm -rf "/Users/jenkins/Applications/Brave Browser ${CHANNEL_CAPITALIZED}.app"
                                     '''
                                 }
                             }
