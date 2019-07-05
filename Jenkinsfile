@@ -658,13 +658,13 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        ls ${OUT_DIR} | grep "Brave Browser ${CHANNEL_CAPITALIZED}"
+                                        CHANNEL_CAPITALIZED=$(echo ${CHANNEL} | awk '{print toupper(substr($0,0,1))substr($0,2)}')
                                         open "${OUT_DIR}/Brave Browser ${CHANNEL_CAPITALIZED}.dmg"
                                         sleep 10
                                         open "/Volumes/Brave Browser/Brave Browser ${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
                                         pkill Brave
-                                        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
+                                        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }'))
                                         declare -a arr=($VOLUME)
                                         # loop through the above array to eject all volumes
                                         for i in "${arr[@]}"
@@ -680,6 +680,7 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
+                                        CHANNEL_CAPITALIZED=$(echo ${CHANNEL} | awk '{print toupper(substr($0,0,1))substr($0,2)}')
                                         /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser ${CHANNEL_CAPITALIZED}.pkg" -target CurrentUserHomeDirectory
                                         open "/Users/jenkins/Applications/Brave Browser ${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
