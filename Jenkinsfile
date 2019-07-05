@@ -659,7 +659,7 @@ pipeline {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
                                         CHANNEL_CAPITALIZED=$(echo ${CHANNEL} | awk '{print toupper(substr($0,0,1))substr($0,2)}')
-                                        open "${OUT_DIR}/Brave Browser ${CHANNEL_CAPITALIZED}.dmg"
+                                        open "src/out/${BUILD_TYPE}/Brave Browser ${CHANNEL_CAPITALIZED}.dmg"
                                         sleep 10
                                         open "/Volumes/Brave Browser/Brave Browser ${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
@@ -681,7 +681,7 @@ pipeline {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
                                         CHANNEL_CAPITALIZED=$(echo ${CHANNEL} | awk '{print toupper(substr($0,0,1))substr($0,2)}')
-                                        /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser ${CHANNEL_CAPITALIZED}.pkg" -target CurrentUserHomeDirectory
+                                        /usr/sbin/installer -verboseR -dumplog -pkg "src/out/${BUILD_TYPE}/Brave Browser ${CHANNEL_CAPITALIZED}.pkg" -target CurrentUserHomeDirectory
                                         open "/Users/jenkins/Applications/Brave Browser ${CHANNEL_CAPITALIZED}.app"
                                         sleep 10
                                         pkill Brave
