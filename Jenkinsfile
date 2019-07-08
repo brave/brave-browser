@@ -496,6 +496,7 @@ pipeline {
                         MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-ci-signing-installer-id")
                         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
                         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        CHANNEL_CAPITALIZED_SPACED = " "+CHANNEL.capitalize()
                     }
                     stages {
                         stage("checkout") {
@@ -658,10 +659,10 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        CHANNEL_CAPITALIZED=$(echo ${CHANNEL} | awk '{print toupper(substr($0,0,1))substr($0,2)}')
-                                        open "src/out/${BUILD_TYPE}/Brave Browser ${CHANNEL_CAPITALIZED}.dmg"
+                                        ls src/out/${BUILD_TYPE} | grep "Brave Browser"
+                                        open "src/out/${BUILD_TYPE}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.dmg"
                                         sleep 10
-                                        open "/Volumes/Brave Browser/Brave Browser ${CHANNEL_CAPITALIZED}.app"
+                                        open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
                                         VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }'))
@@ -680,12 +681,11 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh '''
-                                        CHANNEL_CAPITALIZED=$(echo ${CHANNEL} | awk '{print toupper(substr($0,0,1))substr($0,2)}')
-                                        /usr/sbin/installer -verboseR -dumplog -pkg "src/out/${BUILD_TYPE}/Brave Browser ${CHANNEL_CAPITALIZED}.pkg" -target CurrentUserHomeDirectory
-                                        open "/Users/jenkins/Applications/Brave Browser ${CHANNEL_CAPITALIZED}.app"
+                                        /usr/sbin/installer -verboseR -dumplog -pkg "src/out/${BUILD_TYPE}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.pkg" -target CurrentUserHomeDirectory
+                                        open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
-                                        rm -rf "/Users/jenkins/Applications/Brave Browser ${CHANNEL_CAPITALIZED}.app"
+                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                     '''
                                 }
                             }
