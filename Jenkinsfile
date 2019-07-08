@@ -657,12 +657,14 @@ pipeline {
                         stage("test-dmg") {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
-                                    sh '''
+                                    sh """
                                         ls src/out/${BUILD_TYPE} | grep "Brave Browser"
                                         open "src/out/${BUILD_TYPE}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.dmg"
                                         sleep 10
                                         open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
+                                    """
+                                    sh '''
                                         pkill Brave
                                         VOLUME=$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print $2 }'))
                                         declare -a arr=($VOLUME)
