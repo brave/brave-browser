@@ -661,7 +661,7 @@ pipeline {
                                         ls src/out/${BUILD_TYPE} | grep "Brave Browser"
                                         open "src/out/${BUILD_TYPE}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.dmg"
                                         sleep 10
-                                        open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        open "/Volumes/Brave Browser${CHANNEL_CAPITALIZED_SPACED}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                     """
                                     sh '''
@@ -908,8 +908,8 @@ def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
+    CHANNEL_CAPITALIZED_SPACED = CHANNEL.equals("release") ? "" : " " + CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
-    CHANNEL_CAPITALIZED_SPACED = " " + CHANNEL.capitalize()
     OFFICIAL_BUILD = params.OFFICIAL_BUILD ? "--official_build=true" : "--official_build=false"
     SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
     WIPE_WORKSPACE = params.WIPE_WORKSPACE ? "WipeWorkspace" : "RelativeTargetDirectory"
