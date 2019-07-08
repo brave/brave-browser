@@ -664,8 +664,8 @@ pipeline {
                                         open "/Volumes/Brave Browser${CHANNEL_CAPITALIZED_SPACED}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
-                                        VOLUME=\$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print \$2 }'))
-                                        declare -a arr=($VOLUME)
+                                        VOLUME=\$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print \$2 }')
+                                        declare -a arr=(\$VOLUME)
                                         # loop through the above array to eject all volumes
                                         for i in "\${arr[@]}"
                                         do
