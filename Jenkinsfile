@@ -667,10 +667,10 @@ pipeline {
                                         VOLUME=\$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print \$2 }'))
                                         declare -a arr=($VOLUME)
                                         # loop through the above array to eject all volumes
-                                        for i in "${arr[@]}"
+                                        for i in "\${arr[@]}"
                                         do
-                                            diskutil unmountDisk force $i
-                                            diskutil eject $i
+                                            diskutil unmountDisk force \$i
+                                            diskutil eject \$i
                                         done
                                     """
                                 }
