@@ -496,6 +496,8 @@ pipeline {
                         MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-ci-signing-installer-id")
                         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
                         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        CHANNEL = params.CHANNEL
+                        CHANNEL_CAPITALIZED_SPACED = " "+CHANNEL.capitalize()
                     }
                     stages {
                         stage("checkout") {
@@ -652,6 +654,41 @@ pipeline {
                                     npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
                                     security lock-keychain -a
                                 """
+                            }
+                        }
+                        stage("test-dmg") {
+                            steps {
+                                timeout(time: 5, unit: "MINUTES") {
+                                    sh '''
+                                        ls src/out/${BUILD_TYPE} | grep "Brave Browser"
+                                        open "src/out/${BUILD_TYPE}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.dmg"
+                                        sleep 10
+                                        open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        sleep 10
+                                        pkill Brave
+                                        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }'))
+                                        declare -a arr=($VOLUME)
+                                        # loop through the above array to eject all volumes
+                                        for i in "${arr[@]}"
+                                        do
+                                            diskutil unmountDisk force $i
+                                            diskutil eject $i
+                                        done
+                                    '''
+                                }
+                            }
+                        }
+                        stage("test-pkg") {
+                            steps {
+                                timeout(time: 5, unit: "MINUTES") {
+                                    sh '''
+                                        /usr/sbin/installer -verboseR -dumplog -pkg "src/out/${BUILD_TYPE}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.pkg" -target CurrentUserHomeDirectory
+                                        open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        sleep 10
+                                        pkill Brave
+                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                    '''
+                                }
                             }
                         }
                         stage("s3-upload") {
