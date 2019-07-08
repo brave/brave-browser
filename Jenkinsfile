@@ -496,8 +496,7 @@ pipeline {
                         MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-ci-signing-installer-id")
                         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
                         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                        CHANNEL = params.CHANNEL
-                        CHANNEL_CAPITALIZED_SPACED = " "+CHANNEL.capitalize()
+                        CHANNEL_CAPITALIZED_SPACED = " "+env.CHANNEL.capitalize()
                     }
                     stages {
                         stage("checkout") {
