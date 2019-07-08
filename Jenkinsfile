@@ -496,7 +496,6 @@ pipeline {
                         MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-ci-signing-installer-id")
                         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
                         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                        CHANNEL_CAPITALIZED_SPACED = " "+env.CHANNEL.capitalize()
                     }
                     stages {
                         stage("checkout") {
@@ -665,7 +664,7 @@ pipeline {
                                         open "/Volumes/Brave Browser/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
-                                        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }'))
+                                        VOLUME=$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print $2 }'))
                                         declare -a arr=($VOLUME)
                                         # loop through the above array to eject all volumes
                                         for i in "${arr[@]}"
@@ -680,13 +679,13 @@ pipeline {
                         stage("test-pkg") {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
-                                    sh '''
+                                    sh """
                                         /usr/sbin/installer -verboseR -dumplog -pkg "src/out/${BUILD_TYPE}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.pkg" -target CurrentUserHomeDirectory
                                         open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
                                         rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
-                                    '''
+                                    """
                                 }
                             }
                         }
@@ -908,6 +907,7 @@ def setEnv() {
     CHANNEL = params.CHANNEL
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
+    CHANNEL_CAPITALIZED_SPACED = " " + CHANNEL.capitalize()
     OFFICIAL_BUILD = params.OFFICIAL_BUILD ? "--official_build=true" : "--official_build=false"
     SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
     WIPE_WORKSPACE = params.WIPE_WORKSPACE ? "WipeWorkspace" : "RelativeTargetDirectory"
