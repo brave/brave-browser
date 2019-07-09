@@ -689,10 +689,10 @@ pipeline {
                                         # install pkg
                                         /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.pkg" -target CurrentUserHomeDirectory
                                         sleep 5
-                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         cd "/Users/jenkins/Applications" && open -a "Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
+                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                     """
                                 }
                             }
