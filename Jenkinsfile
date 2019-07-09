@@ -494,8 +494,6 @@ pipeline {
                         KEYCHAIN_PASS = credentials("mac-ci-signing-keychain-password")
                         MAC_APPLICATION_SIGNING_IDENTIFIER = credentials("mac-ci-signing-application-id")
                         MAC_INSTALLER_SIGNING_IDENTIFIER = credentials("mac-ci-signing-installer-id")
-                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
-                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
                     }
                     stages {
                         stage("checkout") {
@@ -585,6 +583,10 @@ pipeline {
                             }
                         }
                         stage("build") {
+                            environment {
+                                SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                                SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                            }
                             steps {
                                 sh """
                                     set -e
@@ -645,6 +647,10 @@ pipeline {
                             }
                         }
                         stage("dist") {
+                            environment {
+                                SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                                SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                            }
                             steps {
                                 sh """
                                     set -e
@@ -724,8 +730,6 @@ pipeline {
                         KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-ci-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-ci-certificate")
-                        SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
-                        SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
                     }
                     stages {
                         stage("checkout") {
@@ -748,6 +752,9 @@ pipeline {
                             }
                         }
                         stage("install") {
+                            environment {
+                                SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                            }
                             steps {
                                 powershell """
                                     Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
@@ -767,6 +774,7 @@ pipeline {
                             steps {
                                 powershell """
                                     Remove-Item -Recurse -Force src/brave
+                                    git gc
                                     git -C vendor/depot_tools clean -fxd
                                     \$ErrorActionPreference = "Stop"
                                     npm run init
@@ -813,6 +821,10 @@ pipeline {
                             }
                         }
                         stage("build") {
+                            environment {
+                                SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                                SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                            }
                             steps {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
@@ -863,6 +875,10 @@ pipeline {
                             }
                         }
                         stage("dist") {
+                            environment {
+                                SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                                SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                            }
                             steps {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
