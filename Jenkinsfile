@@ -666,7 +666,7 @@ pipeline {
                                     sh """
                                         ls ${OUT_DIR} | grep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}"
                                         open "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.dmg"
-                                        sleep 5
+                                        sleep 10
                                         ls "/Volumes/Brave Browser${CHANNEL_CAPITALIZED_SPACED}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         VOLUME=\$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print \$2 }')
                                         declare -a arr=(\$VOLUME)
@@ -682,7 +682,7 @@ pipeline {
                                         rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         # open directly from /Volumes and /Applications does not work always, open app here instead
                                         open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
-                                        sleep 5
+                                        sleep 10
                                         pkill Brave
                                     """
                                 }
