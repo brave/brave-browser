@@ -21,6 +21,7 @@ pipeline {
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
+        NPM_CONFIG_REGISTRY = "http://35.162.171.107:8081/repository/npm-proxy/"
     }
     stages {
         stage("env") {
