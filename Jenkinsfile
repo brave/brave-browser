@@ -681,7 +681,7 @@ pipeline {
                                         sleep 5
                                         rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         # open directly from /Volumes and /Applications does not work always, open app here instead
-                                        open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        cd ${OUT_DIR} && open -a "Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 10
                                         pkill Brave
                                     """
