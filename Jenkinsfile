@@ -686,7 +686,6 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh """
-                                        # install pkg
                                         /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.pkg" -target CurrentUserHomeDirectory
                                         sleep 5
                                         cd "/Users/jenkins/Applications" && open -a "Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
