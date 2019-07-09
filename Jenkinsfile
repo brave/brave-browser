@@ -660,16 +660,14 @@ pipeline {
                                 """
                             }
                         }
-                        stage("test-dmg") {
+                        stage("test-app") {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh """
                                         ls ${OUT_DIR} | grep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}"
                                         open "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.dmg"
-                                        sleep 10
-                                        open "/Volumes/Brave Browser${CHANNEL_CAPITALIZED_SPACED}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
-                                        sleep 10
-                                        pkill Brave
+                                        sleep 5
+                                        ls "/Volumes/Brave Browser${CHANNEL_CAPITALIZED_SPACED}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         VOLUME=\$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print \$2 }')
                                         declare -a arr=(\$VOLUME)
                                         # loop through the above array to eject all volumes
@@ -678,19 +676,14 @@ pipeline {
                                             diskutil unmountDisk force \$i
                                             diskutil eject \$i
                                         done
-                                    """
-                                }
-                            }
-                        }
-                        stage("test-pkg") {
-                            steps {
-                                timeout(time: 5, unit: "MINUTES") {
-                                    sh """
+                                        # install pkg
                                         /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.pkg" -target CurrentUserHomeDirectory
-                                        open "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
-                                        sleep 10
-                                        pkill Brave
+                                        sleep 5
                                         rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        # open directly from /Volumes and /Applications does not work always, open app here instead
+                                        open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        sleep 5
+                                        pkill Brave
                                     """
                                 }
                             }
