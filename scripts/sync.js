@@ -13,6 +13,11 @@ const util = require('../lib/util')
 const GitPatcher = require('../lib/gitPatcher')
 const { progressLog, errorLog, logUpdateStatus, logAllPatchStatus } = require('../lib/sync/logging')
 
+// TEMP
+console.log('IS CI Envorinment?', isCIEnvironment)
+process.exit(1)
+// TEMP
+
 const projectNames = config.projectNames.filter((project) => config.projects[project].ref)
 
 program
