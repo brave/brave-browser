@@ -86,6 +86,11 @@ pipeline {
                                 sh "npm install --no-optional"
                             }
                         }
+                        stage("test-scripts") {
+                            steps {
+                                sh "npm run test:scripts -- --verbose"
+                            }
+                        }
                         stage("init") {
                             when {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
@@ -202,6 +207,11 @@ pipeline {
                             steps {
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
                                 sh "npm install --no-optional"
+                            }
+                        }
+                        stage("test-scripts") {
+                            steps {
+                                sh "npm run test:scripts -- --verbose"
                             }
                         }
                         stage("init") {
@@ -340,6 +350,11 @@ pipeline {
                             steps {
                                 sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
                                 sh "npm install --no-optional"
+                            }
+                        }
+                        stage("test-scripts") {
+                            steps {
+                                sh "npm run test:scripts -- --verbose"
                             }
                         }
                         stage("init") {
@@ -525,6 +540,11 @@ pipeline {
                                     mkdir -p src/third_party/widevine/scripts
                                     cp ${HOME}/signature_generator.py src/third_party/widevine/scripts
                                 """
+                            }
+                        }
+                        stage("test-scripts") {
+                            steps {
+                                sh "npm run test:scripts -- --verbose"
                             }
                         }
                         stage("init") {
@@ -732,6 +752,14 @@ pipeline {
                                     New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
                                     Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
                                 """
+                            }
+                        }
+                        stage("test-scripts") {
+                            steps {
+                                powershell """
+                                                \$ErrorActionPreference = "Stop"
+                                                npm run test:scripts -- --verbose
+                                            """
                             }
                         }
                         stage("init") {
