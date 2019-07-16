@@ -18,6 +18,11 @@ const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
 
+const collect = (value, accumulator) => {
+  accumulator.push(value)
+  return accumulator
+}
+
 const parsedArgs = program.parseOptions(process.argv)
 
 program
@@ -43,6 +48,8 @@ program
   .option('--ignore_compile_failure', 'Keep compiling regardless of error')
   .option('--skip_signing', 'skip signing binaries')
   .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
+  .option('--gn <arg>', 'Additional gn args, in the form <key>:<value>', collect, [])
+  .option('--ninja <opt>', 'Additional Ninja command-line options, in the form <key>:<value>', collect, [])
   .arguments('[build_config]')
   .action(build)
 
