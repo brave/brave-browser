@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.66.100](https://github.com/brave/brave-browser/releases/tag/v0.66.100)
+
+ - Fixed Chromecast configuration - it no longer initiates UPnP connections by default. ([#5070](https://github.com/brave/brave-browser/issues/5070))
+ - Upgraded Chromium to 75.0.3770.142. ([#5253](https://github.com/brave/brave-browser/issues/5253))
+
 ## [0.66.99](https://github.com/brave/brave-browser/releases/tag/v0.66.99)
 
  - Added new Brave Rewards icon for verified publishers. ([#4043](https://github.com/brave/brave-browser/issues/4043))
