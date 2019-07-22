@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.66.101](https://github.com/brave/brave-browser/releases/tag/v0.66.101)
+
+ - Fixed bookmarks being synced more often than needed in certain conditions. ([#5300](https://github.com/brave/brave-browser/issues/5300))
+
 ## [0.66.100](https://github.com/brave/brave-browser/releases/tag/v0.66.100)
 
  - Fixed Chromecast configuration - it no longer initiates UPnP connections by default. ([#5070](https://github.com/brave/brave-browser/issues/5070))
