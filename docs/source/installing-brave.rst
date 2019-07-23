@@ -8,8 +8,6 @@ NOTE: If Brave does not start and shows an error about sandboxing, you may need
 to enable `user namespaces
 <https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977>`_. For security reasons, we do NOT recommend running with the ``--no-sandbox`` flag. For more info, see https://github.com/brave/brave-browser/issues/1986#issuecomment-445057361.
 
-NOTE: While we recommend you to use our official packages, there's a section for unofficial package in the case where we don't ship packages for your distribution. These packages are community maintained, and therefore we take no responsibility for them.
-
 Release Channel Installation
 ============================
 
@@ -18,6 +16,8 @@ Release Channel Installation
 Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
+
+    sudo apt install apt-transport-https
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
@@ -29,9 +29,11 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
+
+    sudo apt install apt-transport-https
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
@@ -78,6 +80,8 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
+    sudo apt install apt-transport-https
+
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
 
     source /etc/os-release
@@ -88,9 +92,11 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-beta
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
+
+    sudo apt install apt-transport-https
 
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
 
@@ -137,6 +143,8 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
+    sudo apt install apt-transport-https
+
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
 
     source /etc/os-release
@@ -147,9 +155,11 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-dev
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
+
+    sudo apt install apt-transport-https
 
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
 
@@ -196,6 +206,8 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
+    sudo apt install apt-transport-https
+
     curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
 
     source /etc/os-release
@@ -206,9 +218,11 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-nightly
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
+
+    sudo apt install apt-transport-https
 
     curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
 
@@ -248,6 +262,8 @@ The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE
 
 Unofficial packages
 ============================
+
+NOTE: While we recommend you to use our official packages, there's a section for unofficial package in the case where we don't ship packages for your distribution. These packages are community maintained, and therefore we take no responsibility for them.
 
 .. highlight:: console
 
