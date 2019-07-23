@@ -27,8 +27,8 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
@@ -86,8 +86,8 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-beta
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
 
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
@@ -145,8 +145,8 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-dev
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
 
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
@@ -204,8 +204,8 @@ Ubuntu 16.04+ and Mint 18+
 
     sudo apt install brave-browser-nightly
 
-Mint 17
--------
+Debian 9, Ubuntu 14.04 and Mint 17
+----------------------------------
 ::
 
     curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
