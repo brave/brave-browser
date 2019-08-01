@@ -28,7 +28,7 @@ program
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
 projectNames.forEach((name) => {
-  let project = config.projects[name]
+  const project = config.projects[name]
   program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
 })
 
@@ -61,7 +61,7 @@ async function RunCommand () {
   const projectUpdateStatus = {}
   await Promise.all(
     projectNames.map(async (name) => {
-      let project = config.projects[name]
+      const project = config.projects[name]
       if (alwaysReset || program.all || program[project.arg_name + '_ref']) {
         projectUpdateStatus[name] = {
           name,

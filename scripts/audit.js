@@ -19,7 +19,7 @@ function npmAudit (pathname) {
     fs.existsSync(path.join(pathname, 'package-lock.json')) &&
     fs.existsSync(path.join(pathname, 'node_modules'))) {
     console.log('Auditing', pathname)
-    let cmdOptions = {
+    const cmdOptions = {
       cwd: pathname,
       shell: process.platform === 'win32' ? true : false
     }
