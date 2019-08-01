@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.67.123](https://github.com/brave/brave-browser/releases/tag/v0.67.123)
+
+ - Added the ability to opt-in to user private Brave ads for Australia, New Zealand and Ireland. ([#5153](https://github.com/brave/brave-browser/issues/5153))
+ - Added the ability to tip Twitter publishers. ([#4346](https://github.com/brave/brave-browser/issues/4346))
+ - Added retries for pending contributions. ([#3741](https://github.com/brave/brave-browser/issues/3741))
+ - Added the ability to tweet about a tip. ([#4393](https://github.com/brave/brave-browser/issues/4393))
+ - Added detailed view of pending contributions under brave://rewards. ([#3175](https://github.com/brave/brave-browser/issues/3175))
+ - Added list view of excluded sites under brave://rewards. ([#3657](https://github.com/brave/brave-browser/issues/3657))
+ - Added visual confirmation that a verified publisher check is complete in rewards panel. ([#4351](https://github.com/brave/brave-browser/issues/4351))
+ - Updated verified publisher icon throughout Brave Rewards. ([#4162](https://github.com/brave/brave-browser/issues/4162))
+ - Updated default tipping banner text. ([#4616](https://github.com/brave/brave-browser/issues/4616))
+ - Fixed referrer spoofing disabling some forms of login CSRF protections. ([#3422](https://github.com/brave/brave-browser/issues/3422))
+ - Fixed ad summary not being refreshed after redeeming tokens. ([#5011](https://github.com/brave/brave-browser/issues/5011))
+ - Fixed retries for failed ad reward balances. ([#5175](https://github.com/brave/brave-browser/issues/5175))
+ - Fixed incorrect "Insufficient funds" notification when auto-contribute table is blank. ([#4104](https://github.com/brave/brave-browser/issues/4104))
+ - Fixed incorrectly showing publishers with zero attention in auto-contribute table. ([#4386](https://github.com/brave/brave-browser/issues/4386))
+ - Fixed restored wallet not checking for a grant. ([#4220](https://github.com/brave/brave-browser/issues/4220))
+ - Fixed inability to collect TFuel tokens on https://www.sliver.tv. ([#5380](https://github.com/brave/brave-browser/issues/5380))
+ - Fixed padding on the new tab page for right-to-left locales. ([#3574](https://github.com/brave/brave-browser/issues/3574))
+ - Upgraded Chromium to 76.0.3809.87. ([#5424](https://github.com/brave/brave-browser/issues/5424))
+
 ## [0.66.101](https://github.com/brave/brave-browser/releases/tag/v0.66.101)
 
  - Fixed bookmarks being synced more often than needed in certain conditions. ([#5300](https://github.com/brave/brave-browser/issues/5300))
