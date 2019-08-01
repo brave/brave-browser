@@ -2,10 +2,10 @@
 
 ## [0.67.123](https://github.com/brave/brave-browser/releases/tag/v0.67.123)
 
- - Added the ability to opt-in to user private Brave ads for Australia, New Zealand and Ireland. ([#5153](https://github.com/brave/brave-browser/issues/5153))
  - Added the ability to tip Twitter publishers. ([#4346](https://github.com/brave/brave-browser/issues/4346))
- - Added retries for pending contributions. ([#3741](https://github.com/brave/brave-browser/issues/3741))
  - Added the ability to tweet about a tip. ([#4393](https://github.com/brave/brave-browser/issues/4393))
+ - Added the ability to opt-in to user private Brave ads for Australia, New Zealand and Ireland. ([#5153](https://github.com/brave/brave-browser/issues/5153))
+ - Added retries for pending contributions. ([#3741](https://github.com/brave/brave-browser/issues/3741))
  - Added detailed view of pending contributions under brave://rewards. ([#3175](https://github.com/brave/brave-browser/issues/3175))
  - Added list view of excluded sites under brave://rewards. ([#3657](https://github.com/brave/brave-browser/issues/3657))
  - Added visual confirmation that a verified publisher check is complete in rewards panel. ([#4351](https://github.com/brave/brave-browser/issues/4351))
