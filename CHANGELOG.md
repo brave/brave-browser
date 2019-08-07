@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.67.124](https://github.com/brave/brave-browser/releases/tag/v0.67.124)
+
+ - Upgraded Chromium to 76.0.3809.100. ([#5554](https://github.com/brave/brave-browser/issues/5554))
+
 ## [0.67.123](https://github.com/brave/brave-browser/releases/tag/v0.67.123)
 
  - Added the ability to tip Twitter publishers. ([#4346](https://github.com/brave/brave-browser/issues/4346))
