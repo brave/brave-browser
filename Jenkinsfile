@@ -18,7 +18,7 @@ pipeline {
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
-        BRAVE_INFURA_PROJECT_ID = credentials("BRAVE_INFURA_PROJECT_ID")
+        BRAVE_INFURA_PROJECT_ID = credentials("brave-infura-project-id")
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
