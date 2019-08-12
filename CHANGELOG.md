@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.67.125](https://github.com/brave/brave-browser/releases/tag/v0.67.125)
+
+ - Fixed retry logic for failed ads confirmations. ([#5548](https://github.com/brave/brave-browser/issues/5548))
+
 ## [0.67.124](https://github.com/brave/brave-browser/releases/tag/v0.67.124)
 
  - Upgraded Chromium to 76.0.3809.100. ([#5554](https://github.com/brave/brave-browser/issues/5554))
