@@ -31,6 +31,11 @@ Ubuntu 16.04+ and Mint 18+
 
 Debian 9, Ubuntu 14.04 and Mint 17
 ----------------------------------
+
+If you get ``gnutls_handshake()`` errors after adding the Brave repository on Debian 9,
+you may need to `uninstall old conflicting packages
+<https://github.com/signalapp/Signal-Desktop/issues/2483#issuecomment-401047201>`_.
+
 ::
 
     sudo apt install apt-transport-https
