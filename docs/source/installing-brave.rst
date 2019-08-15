@@ -60,20 +60,10 @@ Fedora 28+
 
 CentOS/RHEL
 -----------
-::
 
-    sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+The current release of Brave is not compatible with CentOS 7 due incompatibilities with the system's ``GLIBC`` version. 
 
-    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-release.repo
-    [brave-browser-release]
-    name=Brave Browser Release Channel repository
-    baseurl=https://brave-browser-rpm-release.s3.brave.com/x86_64/
-    enabled=1
-    EOF
-
-    sudo yum install brave-browser
-
-The key you're importing should have fingerprint ``D8BA D4DE 7EE1 7AF5 2A83  4B2D 0BB7 5829 C2D4 E821``.
+Our team is working on this matter to make this distribution supported again.
 
 
 Beta Channel Installation
