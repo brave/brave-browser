@@ -17,7 +17,7 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
@@ -38,7 +38,7 @@ you may need to `uninstall old conflicting packages
 
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
@@ -85,7 +85,7 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
 
@@ -101,7 +101,7 @@ Debian 9, Ubuntu 14.04 and Mint 17
 ----------------------------------
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
 
@@ -148,7 +148,7 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
 
@@ -164,7 +164,7 @@ Debian 9, Ubuntu 14.04 and Mint 17
 ----------------------------------
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
 
@@ -211,7 +211,7 @@ Ubuntu 16.04+ and Mint 18+
 --------------------------
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
 
@@ -227,7 +227,7 @@ Debian 9, Ubuntu 14.04 and Mint 17
 ----------------------------------
 ::
 
-    sudo apt install apt-transport-https
+    sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
 
