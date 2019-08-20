@@ -987,8 +987,8 @@ def setEnv() {
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
             env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
-            env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bbPrNumber}"
-            env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails}"
+            env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bcPrDetails.number}"
+            env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails.number}"
             env.BRANCH_PRODUCTIVITY_DESCRIPTION = bcPrDetails.title
             env.BRANCH_PRODUCTIVITY_USER = bcPrDetails.user.login
         }
