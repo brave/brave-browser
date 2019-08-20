@@ -8,6 +8,7 @@ pipeline {
     parameters {
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release"], description: "")
+        string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
         booleanParam(name: "OFFICIAL_BUILD", defaultValue: true, description: "")
         booleanParam(name: "SKIP_SIGNING", defaultValue: false, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
@@ -916,6 +917,13 @@ pipeline {
                     slackSend(color: slackColorMap[currentBuild.currentResult], channel: env.SLACK_USERNAME, message: "[${BUILD_TAG_SLASHED} `${BRANCH}`] " + currentBuild.currentResult + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
                 }
             }
+            node("master") {
+                script {
+                    if (SLACK_BUILDS_CHANNEL) {
+                        sendSlackDownloadsNotification()
+                    }
+                }
+            }
         }
     }
 }
@@ -931,6 +939,7 @@ def setEnv() {
     SKIP_INIT = params.SKIP_INIT
     DISABLE_SCCACHE = params.DISABLE_SCCACHE
     DEBUG = params.DEBUG
+    SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
     OUT_DIR = "src/out/" + BUILD_TYPE
     BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
     LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
@@ -959,6 +968,10 @@ def setEnv() {
         SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
         SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bbPrDetails.user.login]
+        env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
+        env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
+        env.BRANCH_PRODUCTIVITY_DESCRIPTION = bbPrDetails.title
+        env.BRANCH_PRODUCTIVITY_USER = env.SLACK_USERNAME ?: bbPrDetails.user.login
     }
     BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
     if (BRANCH_EXISTS_IN_BC) {
@@ -974,6 +987,10 @@ def setEnv() {
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
             env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
+            env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bbPrNumber}"
+            env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails}"
+            env.BRANCH_PRODUCTIVITY_DESCRIPTION = bcPrDetails.title
+            env.BRANCH_PRODUCTIVITY_USER = bcPrDetails.user.login
         }
     }
     if (env.SLACK_USERNAME) {
@@ -1021,6 +1038,44 @@ def checkAndAbortBuild() {
             }
         }
         sleep(time: 1, unit: "MINUTES")
+    }
+}
+
+def sendSlackDownloadsNotification() {
+    // Notify links to all the build files
+    echo "Reading all uploaded files for slack notification..."
+    def files = s3FindFiles(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED)
+    def attachments = [ ]
+    files.each { file ->
+        echo "Found file: ${file.name}"
+        if (file.name != "build.txt") {
+            attachments.add([
+                title: file.name,
+                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path
+            ])
+        }
+    }
+    if (!attachments.isEmpty()) {
+        def messageText = "Downloads are available for branch `${BRANCH}`"
+        if (env.BRANCH_PRODUCTIVITY_NAME) {
+            messageText += "\n(<${env.BRANCH_PRODUCTIVITY_HOMEPAGE}|${env.BRANCH_PRODUCTIVITY_NAME}>)"
+        }
+        if (env.SLACK_USERNAME) {
+            messageText += " by <${env.SLACK_USERNAME}>"
+        } else if (env.BRANCH_PRODUCTIVITY_USER) {
+            messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
+        }
+        if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
+            messageText += "\n_${env.BRANCH_PRODUCTIVITY_DESCRIPTION}_"
+        }
+        echo "Sending builds message: '${messageText}'."
+        slackSend(
+            channel: SLACK_BUILDS_CHANNEL,
+            message: messageText,
+            attachments: attachments
+        )
+    } else {
+        echo "Not sending message, no files found."
     }
 }
 
