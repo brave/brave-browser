@@ -4,7 +4,7 @@ src
 npm-debug.log
 .gclient
 .sccache
-**.sw[po]
+*.sw[po]
 .vscode
 .cipd
 .idea
