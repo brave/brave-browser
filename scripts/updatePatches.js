@@ -1,16 +1,7 @@
 const path = require('path')
 const config = require('../lib/config')
 const updatePatches = require('../lib/updatePatches')
-
-const chromiumPathFilter = (s) => s.length > 0 &&
-  !s.startsWith('chrome/app/theme/default') &&
-  !s.startsWith('chrome/app/theme/brave') &&
-  !s.startsWith('chrome/app/theme/chromium') &&
-  !s.endsWith('.png') && !s.endsWith('.xtb') &&
-  !s.endsWith('.grd') && !s.endsWith('.grdp') &&
-  !s.endsWith('new_tab_page_view.xml') &&
-  !s.endsWith('channel_constants.xml') &&
-  !s.includes('google_update_idl')
+const chromiumPathFilter = require('../lib/chromiumPathFilter')
 
 module.exports = function RunCommand (options) {
   config.update(options)
