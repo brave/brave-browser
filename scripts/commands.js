@@ -108,10 +108,12 @@ program
 
 program
   .command('pull_l10n')
+  .option('--extension <extension>', 'Scope this command to localize a Brave extension such as ethereum-remote-client')
   .action(pullL10n)
 
 program
   .command('push_l10n')
+  .option('--extension <extension>', 'Scope this command to localize a Brave extension such as ethereum-remote-client')
   .action(pushL10n)
 
 program
