@@ -10,7 +10,7 @@ pipeline {
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
         booleanParam(name: "OFFICIAL_BUILD", defaultValue: true, description: "")
-        booleanParam(name: "SKIP_SIGNING", defaultValue: false, description: "")
+        booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
