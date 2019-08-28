@@ -1044,6 +1044,21 @@ def checkAndAbortBuild() {
 def sendSlackDownloadsNotification() {
     // Notify links to all the build files
     echo "Reading all uploaded files for slack notification..."
+    def attachments = getSlackFileAttachments()
+    if (!attachments.isEmpty()) {
+        def messageText = getSlackMessageText()
+        echo "Sending builds message: '${messageText}'."
+        slackSend(
+            channel: SLACK_BUILDS_CHANNEL,
+            message: messageText,
+            attachments: attachments
+        )
+    } else {
+        echo "Not sending message, no files found."
+    }
+}
+
+def getSlackFileAttachments () {
     def files = s3FindFiles(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, glob: "**")
     def attachments = [ ]
     files.each { file ->
@@ -1056,31 +1071,26 @@ def sendSlackDownloadsNotification() {
             ])
         }
     }
-    if (!attachments.isEmpty()) {
-        def messageText = "Downloads are available for branch `${BRANCH}`"
-        if (env.BRANCH_PRODUCTIVITY_NAME) {
-            messageText += "\n(<${env.BRANCH_PRODUCTIVITY_HOMEPAGE}|${env.BRANCH_PRODUCTIVITY_NAME}>)"
-        }
-        if (env.SLACK_USERNAME) {
-            messageText += " by <${env.SLACK_USERNAME}>"
-        } else if (env.BRANCH_PRODUCTIVITY_USER) {
-            messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
-        }
-        if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
-            messageText += "\n_${env.BRANCH_PRODUCTIVITY_DESCRIPTION}_"
-        }
-        echo "Sending builds message: '${messageText}'."
-        slackSend(
-            channel: SLACK_BUILDS_CHANNEL,
-            message: messageText,
-            attachments: attachments
-        )
-    } else {
-        echo "Not sending message, no files found."
-    }
+    return attachments
 }
 
-def byteLengthToString = { long byteLength ->
+def getSlackMessageText () {
+    def messageText = "Downloads are available for branch `${BRANCH}`"
+    if (env.BRANCH_PRODUCTIVITY_NAME) {
+        messageText += "\n(<${env.BRANCH_PRODUCTIVITY_HOMEPAGE}|${env.BRANCH_PRODUCTIVITY_NAME}>)"
+    }
+    if (env.SLACK_USERNAME) {
+        messageText += " by <${env.SLACK_USERNAME}>"
+    } else if (env.BRANCH_PRODUCTIVITY_USER) {
+        messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
+    }
+    if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
+        messageText += "\n_${env.BRANCH_PRODUCTIVITY_DESCRIPTION}_"
+    }
+    return messageText
+}
+
+def byteLengthToString (long byteLength) {
     long base = 1024L
     int decimals = 2
     String[] suffixes = ['b', 'Kb', 'Mb', 'Gb', 'Tb']
