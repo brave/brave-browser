@@ -1044,11 +1044,11 @@ def checkAndAbortBuild() {
 def sendSlackDownloadsNotification() {
     // Notify links to all the build files
     echo "Reading all uploaded files for slack notification..."
-    def files = s3FindFiles(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED)
+    def files = s3FindFiles(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, glob: "**")
     def attachments = [ ]
     files.each { file ->
         echo "Found file: ${file.name}"
-        if (file.name != "build.txt") {
+        if (!file.directory && file.name != "build.txt") {
             attachments.add([
                 title: file.name,
                 title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path
