@@ -1051,7 +1051,8 @@ def sendSlackDownloadsNotification() {
         if (!file.directory && file.name != "build.txt") {
             attachments.add([
                 title: file.name,
-                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path
+                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path,
+                footer: byteLengthToString(file.length)
             ])
         }
     }
@@ -1077,6 +1078,21 @@ def sendSlackDownloadsNotification() {
     } else {
         echo "Not sending message, no files found."
     }
+}
+
+def byteLengthToString = { long byteLength ->
+    long base = 1024L
+    int decimals = 2
+    String[] suffixes = ['b', 'Kb', 'Mb', 'Gb', 'Tb']
+	int suffixIndex = Math.log(byteLength)/Math.log(base) as Integer
+	suffixIndex = (
+        suffixIndex >= prefixes.size()
+        ? prefixes.size() - 1
+        : suffixIndex
+    )
+    String suffix = " ${suffixes[suffixIndex]}"
+	return Math.round((byteLength / base**i) * 10**decimals) / 10**decimals +
+        suffix
 }
 
 @NonCPS
