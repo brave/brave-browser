@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.68.132](https://github.com/brave/brave-browser/releases/tag/v0.68.132)
+
+ - Upgraded Chromium to 76.0.3809.132. ([#5801](https://github.com/brave/brave-browser/issues/5801))
+
 ## [0.68.131](https://github.com/brave/brave-browser/releases/tag/v0.68.131)
 
  - Added ability to tip Reddit publishers. ([#4745](https://github.com/brave/brave-browser/issues/4745))
