@@ -1091,18 +1091,9 @@ def getSlackMessageText () {
 }
 
 def byteLengthToString (long byteLength) {
-    long base = 1024L
-    int decimals = 2
-    String[] suffixes = ['b', 'Kb', 'Mb', 'Gb', 'Tb']
-	int suffixIndex = Math.log(byteLength)/Math.log(base) as Integer
-	suffixIndex = (
-        suffixIndex >= prefixes.size()
-        ? prefixes.size() - 1
-        : suffixIndex
-    )
-    String suffix = " ${suffixes[suffixIndex]}"
-	return Math.round((byteLength / base**i) * 10**decimals) / 10**decimals +
-        suffix
+    def base = 1048576L
+    def mbLength = (byteLength / base) as Double
+    return mbLength.round() + " Mb"
 }
 
 @NonCPS
