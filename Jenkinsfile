@@ -104,8 +104,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         sh """
                                             set -e
                                             git -C src/brave config user.name brave-builds
@@ -116,23 +116,15 @@ pipeline {
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
                                     }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
-                                    }
                                 }
                             }
                         }
                         stage("audit-deps") {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run audit_deps"
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -165,13 +157,9 @@ pipeline {
                         }
                         stage("s3-upload") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm", includePathPattern: "apks/*.apk")
-                                    }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
                                     }
                                 }
                             }
@@ -228,8 +216,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         sh """
                                             set -e
                                             git -C src/brave config user.name brave-builds
@@ -240,23 +228,15 @@ pipeline {
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
                                     }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
-                                    }
                                 }
                             }
                         }
                         stage("audit-deps") {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run audit_deps"
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -280,13 +260,9 @@ pipeline {
                         stage("test-unit") {
                             steps {
                                 timeout(time: 2, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run test -- brave_rewards_ios_tests ${BUILD_TYPE} --target_os=ios"
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -305,15 +281,11 @@ pipeline {
                         }
                         stage("s3-upload") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
                                             s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out", includePathPattern: "BraveRewards.framework.zip")
                                         }
-                                    }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
                                     }
                                 }
                             }
@@ -372,8 +344,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         sh """
                                             set -e
                                             git -C src/brave config user.name brave-builds
@@ -384,23 +356,15 @@ pipeline {
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
                                     }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
-                                    }
                                 }
                             }
                         }
                         stage("audit-deps") {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run audit_deps"
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -434,13 +398,9 @@ pipeline {
                         stage("audit-network") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -449,15 +409,11 @@ pipeline {
                         stage("test-unit") {
                             steps {
                                 timeout(time: 20, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
                                             xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                             xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -466,14 +422,10 @@ pipeline {
                         stage("test-browser") {
                             steps {
                                 timeout(time: 20, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
                                             xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -486,14 +438,10 @@ pipeline {
                         }
                         stage("s3-upload") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.deb")
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.rpm")
-                                    }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
                                     }
                                 }
                             }
@@ -563,8 +511,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         sh """
                                             set -e
                                             git -C src/brave config user.name brave-builds
@@ -575,23 +523,15 @@ pipeline {
                                             git -C src/brave branch -D ${LINT_BRANCH}
                                         """
                                     }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
-                                    }
                                 }
                             }
                         }
                         stage("audit-deps") {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run audit_deps"
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -629,13 +569,9 @@ pipeline {
                         stage("audit-network") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -644,15 +580,11 @@ pipeline {
                         stage("test-unit") {
                             steps {
                                 timeout(time: 20, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
                                             xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                             xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -661,14 +593,10 @@ pipeline {
                         stage("test-browser") {
                             steps {
                                 timeout(time: 20, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
                                             xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -690,17 +618,13 @@ pipeline {
                         }
                         stage("s3-upload") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
                                             s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "unsigned_dmg/Brave*.dmg")
                                             s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.dmg")
                                             s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.pkg")
                                         }
-                                    }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
                                     }
                                 }
                             }
@@ -860,18 +784,14 @@ pipeline {
                         stage("test-unit") {
                             steps {
                                 timeout(time: 20, unit: "MINUTES") {
-                                    script {
-                                        try {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
                                             powershell """
                                                 \$ErrorActionPreference = "Stop"
                                                 npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
                                             """
                                             // xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                             // xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
                                         }
                                     }
                                 }
@@ -903,14 +823,10 @@ pipeline {
                         }
                         stage("s3-upload") {
                             steps {
-                                script {
-                                    try {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    script {
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave_installer_*.exe")
                                         s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe")
-                                    }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
                                     }
                                 }
                             }
