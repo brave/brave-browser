@@ -894,27 +894,9 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        powershell """
-                                            \$ErrorActionPreference = "Stop"
-                                            Stop-Process -Name "Brave*" -Force
-                                            Start-Process "${OUT_DIR}/brave_installer.exe"
-                                            # sleep 60s
-                                            Start-Sleep -Second 60
-                                            # open Brave Browser
-                                            Start-Process "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\brave.exe"
-                                            # make sure there are brave process
-                                            \$Service = Get-Process | Where {\$_.ProcessName -eq "brave"}
-                                            If (\$Service) { "Brave Browser was installed and running"  }
-                                            Else { 
-                                                "Brave Browser was not running" 
-                                                exit 1
-                                            }
-                                            # Stop brave
-                                            Stop-Process -Name "Brave*" -Force
-                                            # Delete app data
-                                            rm -r "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware" -Force
-                                            rm -r "C:\\Users\\Administrator\\Desktop\\Brave*"
-                                        """
+                                        script {
+                                            testInstallWins()
+                                        }
                                     }
                                 }
                             }
@@ -1131,4 +1113,28 @@ def printException(ex) {
     // echo "Cause: " + ex.getCause()
     // echo "Message: " + ex.getMessage()
     // echo "Localized: " + ex.getLocalizedMessage()
+}
+
+def testInstallWins() {
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        Stop-Process -Name "Brave*" -Force
+        Start-Process "${OUT_DIR}/brave_installer.exe"
+        # sleep 60s
+        Start-Sleep -Second 60
+        # open Brave Browser
+        Start-Process "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\brave.exe"
+        # make sure there are brave process
+        \$Service = Get-Process | Where {\$_.ProcessName -eq "brave"}
+        If (\$Service) { "Brave Browser was installed and running"  }
+        Else { 
+            "Brave Browser was not running" 
+            exit 1
+        }
+        # Stop brave
+        Stop-Process -Name "Brave*" -Force
+        # Delete app data
+        rm -r "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware" -Force
+        rm -r "C:\\Users\\Administrator\\Desktop\\Brave*"
+    """
 }
