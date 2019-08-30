@@ -1049,8 +1049,6 @@ def testInstallWindows() {
         }
         # Stop brave
         Stop-Process -Name "Brave*" -Force
-        # Delete app data
-        rm -r "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware" -Force
         rm -r "C:\\Users\\Administrator\\Desktop\\Brave*"
     """
 }
