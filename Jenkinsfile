@@ -810,12 +810,12 @@ pipeline {
                                 """
                             }
                         }
-                        stage("test-install-x64") {
+                        stage("test-install") {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         script {
-                                            testInstallWins()
+                                            testInstallWindows()
                                         }
                                     }
                                 }
@@ -1031,7 +1031,7 @@ def printException(ex) {
     // echo "Localized: " + ex.getLocalizedMessage()
 }
 
-def testInstallWins() {
+def testInstallWindows() {
     powershell """
         \$ErrorActionPreference = "Stop"
         Stop-Process -Name "Brave*" -Force
