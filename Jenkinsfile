@@ -1039,7 +1039,7 @@ def testInstallWins() {
         # sleep 60s
         Start-Sleep -Second 60
         # open Brave Browser
-        Start-Process "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\brave.exe"
+        Start-Process "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
         # make sure there are brave process
         \$Service = Get-Process | Where {\$_.ProcessName -eq "brave"}
         If (\$Service) { "Brave Browser was installed and running"  }
