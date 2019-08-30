@@ -7,10 +7,10 @@ pipeline {
     }
     parameters {
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
-        choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release"], description: "")
+        choice(name: "CHANNEL", choices: ["development", "nightly", "dev", "beta", "release"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
         booleanParam(name: "OFFICIAL_BUILD", defaultValue: true, description: "")
-        booleanParam(name: "SKIP_SIGNING", defaultValue: false, description: "")
+        booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
@@ -971,30 +971,9 @@ def checkAndAbortBuild() {
 def sendSlackDownloadsNotification() {
     // Notify links to all the build files
     echo "Reading all uploaded files for slack notification..."
-    def files = s3FindFiles(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED)
-    def attachments = [ ]
-    files.each { file ->
-        echo "Found file: ${file.name}"
-        if (file.name != "build.txt") {
-            attachments.add([
-                title: file.name,
-                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path
-            ])
-        }
-    }
+    def attachments = getSlackFileAttachments()
     if (!attachments.isEmpty()) {
-        def messageText = "Downloads are available for branch `${BRANCH}`"
-        if (env.BRANCH_PRODUCTIVITY_NAME) {
-            messageText += "\n(<${env.BRANCH_PRODUCTIVITY_HOMEPAGE}|${env.BRANCH_PRODUCTIVITY_NAME}>)"
-        }
-        if (env.SLACK_USERNAME) {
-            messageText += " by <${env.SLACK_USERNAME}>"
-        } else if (env.BRANCH_PRODUCTIVITY_USER) {
-            messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
-        }
-        if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
-            messageText += "\n_${env.BRANCH_PRODUCTIVITY_DESCRIPTION}_"
-        }
+        def messageText = getSlackMessageText()
         echo "Sending builds message: '${messageText}'."
         slackSend(
             channel: SLACK_BUILDS_CHANNEL,
@@ -1004,6 +983,44 @@ def sendSlackDownloadsNotification() {
     } else {
         echo "Not sending message, no files found."
     }
+}
+
+def getSlackFileAttachments () {
+    def files = s3FindFiles(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, glob: "**")
+    def attachments = [ ]
+    files.each { file ->
+        echo "Found file: ${file.name}"
+        if (!file.directory && file.name != "build.txt") {
+            attachments.add([
+                title: file.name,
+                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path,
+                footer: byteLengthToString(file.length)
+            ])
+        }
+    }
+    return attachments
+}
+
+def getSlackMessageText () {
+    def messageText = "Downloads are available for branch `${BRANCH}`"
+    if (env.BRANCH_PRODUCTIVITY_NAME) {
+        messageText += "\n(<${env.BRANCH_PRODUCTIVITY_HOMEPAGE}|${env.BRANCH_PRODUCTIVITY_NAME}>)"
+    }
+    if (env.SLACK_USERNAME) {
+        messageText += " by <${env.SLACK_USERNAME}>"
+    } else if (env.BRANCH_PRODUCTIVITY_USER) {
+        messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
+    }
+    if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
+        messageText += "\n_${env.BRANCH_PRODUCTIVITY_DESCRIPTION}_"
+    }
+    return messageText
+}
+
+def byteLengthToString (long byteLength) {
+    def base = 1048576L
+    def mbLength = (byteLength / base) as Double
+    return mbLength.round() + " Mb"
 }
 
 @NonCPS
