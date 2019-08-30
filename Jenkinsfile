@@ -1049,6 +1049,6 @@ def testInstallWindows() {
         }
         # Stop brave
         Stop-Process -Name "Brave*" -Force
-        rm -r "C:\\Users\\Administrator\\Desktop\\Brave*"
+        Remove-Item -Recurse -Force "C:\\Users\\Administrator\\Desktop\\Brave*"
     """
 }
