@@ -1005,3 +1005,17 @@ def testInstallWindows() {
         Remove-Item -Recurse -Force "C:\\Users\\Administrator\\Desktop\\Brave*"
     """
 }
+
+def installWindows() {
+    powershell """
+        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
+        \$ErrorActionPreference = "Stop"
+        npm install --no-optional
+        Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
+        Copy-Item "${SOURCE_KEY_PFX_PATH}" -Destination "${KEY_PFX_PATH}"
+        Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
+        Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
+        New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
+        Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
+    """
+}
