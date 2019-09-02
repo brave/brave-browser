@@ -57,7 +57,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_ANDROID }
                     }
-                    agent { label "android-ci" }
+                    agent { label "android-ci-test" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-android-s3-bucket")
@@ -266,7 +266,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-ci" }
+                    agent { label "linux-ci-test" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-linux-s3-bucket")
