@@ -106,15 +106,7 @@ pipeline {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
-                                        sh """
-                                            set -e
-                                            git -C src/brave config user.name brave-builds
-                                            git -C src/brave config user.email devops@brave.com
-                                            git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${BASE_BRANCH}
-                                            git -C src/brave checkout -q -
-                                            git -C src/brave branch -D ${LINT_BRANCH}
-                                        """
+                                        lint()
                                     }
                                 }
                             }
@@ -123,9 +115,7 @@ pipeline {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run audit_deps"
-                                        }
+                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -143,24 +133,16 @@ pipeline {
                         }
                         stage("build") {
                             steps {
-                                sh """
-                                    set -e
-                                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
-                                    npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-                                    npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
-                                    npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=android --target_arch=arm
-                                """
+                                script {
+                                    config()
+                                }
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=android --target_arch=arm"
                             }
                         }
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm", includePathPattern: "apks/*.apk")
-                                    }
+                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm", includePathPattern: "apks/*.apk")
                                 }
                             }
                         }
@@ -218,15 +200,7 @@ pipeline {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
-                                        sh """
-                                            set -e
-                                            git -C src/brave config user.name brave-builds
-                                            git -C src/brave config user.email devops@brave.com
-                                            git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${BASE_BRANCH}
-                                            git -C src/brave checkout -q -
-                                            git -C src/brave branch -D ${LINT_BRANCH}
-                                        """
+                                        lint()
                                     }
                                 }
                             }
@@ -235,35 +209,27 @@ pipeline {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run audit_deps"
-                                        }
+                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
                         }
                         stage("build") {
                             steps {
-                                sh """
-                                    set -e
-                                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
-                                    npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-                                    npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
-                                    npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios --target_arch=arm64
-                                """
+                                script {
+                                    config()
+                                    sh """
+                                        npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios
+                                        npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios --target_arch=arm64
+                                    """
+                                }
                             }
                         }
                         stage("test-unit") {
                             steps {
                                 timeout(time: 2, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run test -- brave_rewards_ios_tests ${BUILD_TYPE} --target_os=ios"
-                                        }
+                                        sh "npm run test -- brave_rewards_ios_tests ${BUILD_TYPE} --target_os=ios"
                                     }
                                 }
                             }
@@ -346,15 +312,7 @@ pipeline {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
-                                        sh """
-                                            set -e
-                                            git -C src/brave config user.name brave-builds
-                                            git -C src/brave config user.email devops@brave.com
-                                            git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${BASE_BRANCH}
-                                            git -C src/brave checkout -q -
-                                            git -C src/brave branch -D ${LINT_BRANCH}
-                                        """
+                                        lint()
                                     }
                                 }
                             }
@@ -363,9 +321,7 @@ pipeline {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run audit_deps"
-                                        }
+                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -383,25 +339,17 @@ pipeline {
                         }
                         stage("build") {
                             steps {
-                                sh """
-                                    set -e
-                                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
-                                    npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-                                    npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
-                                    npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD}
-                                """
+                                script {
+                                    config()
+                                }
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD}"
                             }
                         }
                         stage("audit-network") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
-                                        }
+                                        sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
                                     }
                                 }
                             }
@@ -439,10 +387,8 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.deb")
-                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.rpm")
-                                    }
+                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.deb")
+                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.rpm")
                                 }
                             }
                         }
@@ -513,15 +459,7 @@ pipeline {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
-                                        sh """
-                                            set -e
-                                            git -C src/brave config user.name brave-builds
-                                            git -C src/brave config user.email devops@brave.com
-                                            git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${BASE_BRANCH}
-                                            git -C src/brave checkout -q -
-                                            git -C src/brave branch -D ${LINT_BRANCH}
-                                        """
+                                        lint()
                                     }
                                 }
                             }
@@ -530,9 +468,7 @@ pipeline {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run audit_deps"
-                                        }
+                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -554,25 +490,17 @@ pipeline {
                                 SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
                             }
                             steps {
-                                sh """
-                                    set -e
-                                    npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
-                                    npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-                                    npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
-                                    npm config --userconfig=.npmrc set google_api_key dummytoken
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING}
-                                """
+                                script {
+                                    config()
+                                }
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING}"
                             }
                         }
                         stage("audit-network") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
-                                        }
+                                        sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
                                     }
                                 }
                             }
@@ -643,8 +571,8 @@ pipeline {
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.17134.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
-                        KEY_CER_PATH = "C:\\jenkins\\digicert-key\\digicert.cer"
-                        KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
+                        KEY_CER_PATH = "C:\\jenkins\\digicert.cer"
+                        KEY_PFX_PATH = "C:\\jenkins\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-ci-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-ci-certificate")
                     }
@@ -670,26 +598,22 @@ pipeline {
                         }
                         stage("install") {
                             environment {
+                                SOURCE_KEY_CER_PATH = credentials("digicert-brave-browser-ci-certificate-cer")
+                                SOURCE_KEY_PFX_PATH = credentials("digicert-brave-browser-ci-certificate-pfx")
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
                             }
                             steps {
-                                powershell """
-                                    Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
-                                    \$ErrorActionPreference = "Stop"
-                                    npm install --no-optional
-                                    Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
-                                    Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
-                                    New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
-                                    Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
-                                """
+                                script {
+                                    installWindows()
+                                }
                             }
                         }
                         stage("test-scripts") {
                             steps {
                                 powershell """
-                                                \$ErrorActionPreference = "Stop"
-                                                npm run test:scripts -- --verbose
-                                            """
+                                    \$ErrorActionPreference = "Stop"
+                                    npm run test:scripts -- --verbose
+                                """
                             }
                         }
                         stage("init") {
@@ -708,39 +632,27 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                script {
-                                    try {
-                                        powershell """
-                                            \$ErrorActionPreference = "Stop"
-                                            git -C src/brave config user.name brave-builds
-                                            git -C src/brave config user.email devops@brave.com
-                                            git -C src/brave checkout -b ${LINT_BRANCH}
-                                            npm run lint -- --base=origin/${BASE_BRANCH}
-                                            git -C src/brave checkout -q -
-                                            git -C src/brave branch -D ${LINT_BRANCH}
-                                        """
-                                    }
-                                    catch (ex) {
-                                        printException(ex)
-                                        currentBuild.result = "UNSTABLE"
-                                    }
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    powershell """
+                                        \$ErrorActionPreference = "Stop"
+                                        git -C src/brave config user.name brave-builds
+                                        git -C src/brave config user.email devops@brave.com
+                                        git -C src/brave checkout -b ${LINT_BRANCH}
+                                        npm run lint -- --base=origin/${BASE_BRANCH}
+                                        git -C src/brave checkout -q -
+                                        git -C src/brave branch -D ${LINT_BRANCH}
+                                    """
                                 }
                             }
                         }
                         stage("audit-deps") {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
-                                    script {
-                                        try {
-                                            powershell """
-                                                \$ErrorActionPreference = "Stop"
-                                                npm run audit_deps
-                                            """
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
-                                        }
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        powershell """
+                                            \$ErrorActionPreference = "Stop"
+                                            npm run audit_deps
+                                        """
                                     }
                                 }
                             }
@@ -766,17 +678,11 @@ pipeline {
                         stage("audit-network") {
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
-                                    script {
-                                        try {
-                                            powershell """
-                                                \$ErrorActionPreference = "Stop"
-                                                npm run network-audit -- --output_path="${OUT_DIR}/brave.exe"
-                                            """
-                                        }
-                                        catch (ex) {
-                                            printException(ex)
-                                            currentBuild.result = "UNSTABLE"
-                                        }
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        powershell """
+                                            \$ErrorActionPreference = "Stop"
+                                            npm run network-audit -- --output_path="${OUT_DIR}/brave.exe"
+                                        """
                                     }
                                 }
                             }
@@ -785,14 +691,12 @@ pipeline {
                             steps {
                                 timeout(time: 20, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            powershell """
-                                                \$ErrorActionPreference = "Stop"
-                                                npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
-                                            """
-                                            // xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                            // xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
+                                        powershell """
+                                            \$ErrorActionPreference = "Stop"
+                                            npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
+                                        """
+                                        // xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                        // xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                     }
                                 }
                             }
@@ -824,10 +728,8 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave_installer_*.exe")
-                                        s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe")
-                                    }
+                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave_installer_*.exe")
+                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe")
                                 }
                             }
                         }
@@ -1060,12 +962,50 @@ def testInstallWindows() {
         # make sure there are brave process
         \$Service = Get-Process | Where {\$_.ProcessName -eq "brave"}
         If (\$Service) { "Brave Browser was installed and running"  }
-        Else { 
-            "Brave Browser was not running" 
+        Else {
+            "Brave Browser was not running"
             exit 1
         }
         # Stop brave
         Stop-Process -Name "Brave*" -Force
         Remove-Item -Recurse -Force "C:\\Users\\Administrator\\Desktop\\Brave*"
+    """
+}
+
+def installWindows() {
+    powershell """
+        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
+        \$ErrorActionPreference = "Stop"
+        npm install --no-optional
+        Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
+        Copy-Item "${SOURCE_KEY_PFX_PATH}" -Destination "${KEY_PFX_PATH}"
+        Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
+        Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
+        New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
+        Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
+    """
+}
+
+def lint() {
+    sh """
+        set -e
+        git -C src/brave config user.name brave-builds
+        git -C src/brave config user.email devops@brave.com
+        git -C src/brave checkout -b ${LINT_BRANCH}
+        npm run lint -- --base=origin/${BASE_BRANCH}
+        git -C src/brave checkout -q -
+        git -C src/brave branch -D ${LINT_BRANCH}
+    """
+}
+
+def config() {
+    sh """
+        set -e
+        npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
+        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+        npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
+        npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
+        npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
+        npm config --userconfig=.npmrc set google_api_key dummytoken
     """
 }
