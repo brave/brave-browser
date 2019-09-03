@@ -267,7 +267,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-ci-test" }
+                    agent { label "linux-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-linux-s3-bucket")
@@ -572,7 +572,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_WINDOWS }
                     }
-                    agent { label "windows-ci-test" }
+                    agent { label "windows-ci" }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
