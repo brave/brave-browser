@@ -57,7 +57,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_ANDROID }
                     }
-                    agent { label "android-ci-test" }
+                    agent { label "android-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-android-s3-bucket")
