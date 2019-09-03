@@ -251,11 +251,10 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out", includePathPattern: "BraveRewards.framework.zip")
-                                        }
-                                    }
+                                    sh """
+                                        cd src/out
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveRewards.framework.zip"
+                                    """
                                 }
                             }
                         }
@@ -553,13 +552,12 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "unsigned_dmg/Brave*.dmg")
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.dmg")
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.pkg")
-                                        }
-                                    }
+                                    sh """
+                                        cd ${OUT_DIR}
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "unsigned_dmg/Brave*.dmg"
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.dmg"
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.pkg"
+                                    """
                                 }
                             }
                         }
