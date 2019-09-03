@@ -57,7 +57,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_ANDROID }
                     }
-                    agent { label "android-ci" }
+                    agent { label "android-ci-test" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-android-s3-bucket")
@@ -142,7 +142,10 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out/android_" + BUILD_TYPE + "_arm", includePathPattern: "apks/*.apk")
+                                    sh """
+                                        cd src/out/android_${BUILD_TYPE}_arm/apks
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "*.apk"
+                                    """
                                 }
                             }
                         }
@@ -248,10 +251,11 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: "src/out", includePathPattern: "BraveRewards.framework.zip")
-                                        }
+                                    withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                        sh """
+                                            cd src/out
+                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveRewards.framework.zip"
+                                        """
                                     }
                                 }
                             }
@@ -387,8 +391,11 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.deb")
-                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave-*.rpm")
+                                    sh """
+                                        cd ${OUT_DIR}
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
+                                    """
                                 }
                             }
                         }
@@ -547,12 +554,13 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "unsigned_dmg/Brave*.dmg")
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.dmg")
-                                            s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "Brave*.pkg")
-                                        }
+                                    withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                        sh """
+                                            cd ${OUT_DIR}
+                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "unsigned_dmg/Brave*.dmg"
+                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.dmg"
+                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.pkg"
+                                        """
                                     }
                                 }
                             }
@@ -728,8 +736,12 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "brave_installer_*.exe")
-                                    s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, workingDir: OUT_DIR, includePathPattern: "BraveBrowser*" + CHANNEL_CAPITALIZED + "Setup_*.exe")
+                                    powershell """
+                                        \$ErrorActionPreference = "Stop"
+                                        Set-Location -Path ${OUT_DIR}
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include ""brave_installer*.exe""
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveBrowser*Setup*.exe"
+                                    """
                                 }
                             }
                         }
@@ -940,52 +952,6 @@ def getBuilds() {
     return Jenkins.instance.getItemByFullName(env.JOB_NAME).builds
 }
 
-def printException(ex) {
-    echo "Exception: " + ex.toString()
-    echo "Stack trace: " + ex.getStackTrace().toString()
-    // echo "Suppressed: " + ex.getSuppressed().toString()
-    // ex.printStackTrace()
-    // echo "Cause: " + ex.getCause()
-    // echo "Message: " + ex.getMessage()
-    // echo "Localized: " + ex.getLocalizedMessage()
-}
-
-def testInstallWindows() {
-    powershell """
-        \$ErrorActionPreference = "Stop"
-        Stop-Process -Name "Brave*" -Force
-        Start-Process "${OUT_DIR}/brave_installer.exe"
-        # sleep 60s
-        Start-Sleep -Second 60
-        # open Brave Browser
-        Start-Process "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
-        # make sure there are brave process
-        \$Service = Get-Process | Where {\$_.ProcessName -eq "brave"}
-        If (\$Service) { "Brave Browser was installed and running"  }
-        Else {
-            "Brave Browser was not running"
-            exit 1
-        }
-        # Stop brave
-        Stop-Process -Name "Brave*" -Force
-        Remove-Item -Recurse -Force "C:\\Users\\Administrator\\Desktop\\Brave*"
-    """
-}
-
-def installWindows() {
-    powershell """
-        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
-        \$ErrorActionPreference = "Stop"
-        npm install --no-optional
-        Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
-        Copy-Item "${SOURCE_KEY_PFX_PATH}" -Destination "${KEY_PFX_PATH}"
-        Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
-        Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
-        New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
-        Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
-    """
-}
-
 def lint() {
     sh """
         set -e
@@ -1007,5 +973,41 @@ def config() {
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
+    """
+}
+
+def installWindows() {
+    powershell """
+        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
+        \$ErrorActionPreference = "Stop"
+        npm install --no-optional
+        Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
+        Copy-Item "${SOURCE_KEY_PFX_PATH}" -Destination "${KEY_PFX_PATH}"
+        Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
+        Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
+        New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
+        Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
+    """
+}
+
+def testInstallWindows() {
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        Stop-Process -Name "Brave*" -Force
+        Start-Process "${OUT_DIR}/brave_installer.exe"
+        # sleep 60s
+        Start-Sleep -Second 60
+        # open Brave Browser
+        Start-Process "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+        # make sure there are brave process
+        \$Service = Get-Process | Where {\$_.ProcessName -eq "brave"}
+        If (\$Service) { "Brave Browser was installed and running"  }
+        Else {
+            "Brave Browser was not running"
+            exit 1
+        }
+        # Stop brave
+        Stop-Process -Name "Brave*" -Force
+        Remove-Item -Recurse -Force "C:\\Users\\Administrator\\Desktop\\Brave*"
     """
 }
