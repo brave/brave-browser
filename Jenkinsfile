@@ -671,7 +671,12 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_WINDOWS }
                     }
-                    agent { label "windows-ci" }
+                    agent {
+                        node {
+                            label "windows-ci"
+                            customWorkspace "${WINDOWS_CUSTOM_WORKSPACE}"
+                        }
+                    }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
@@ -921,6 +926,7 @@ def setEnv() {
     if (env.SLACK_USERNAME) {
         slackSend(color: null, channel: env.SLACK_USERNAME, message: "[${BUILD_TAG_SLASHED} `${BRANCH}`] STARTED (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
     }
+    WINDOWS_CUSTOM_WORKSPACE = "C:\\temp\\" + "PR-" + env.BC_PR_NUMBER + "-BLD-" + env.BUILD_NUMBER
 }
 
 def checkAndAbortBuild() {
