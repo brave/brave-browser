@@ -42,7 +42,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "0.68.x",
+        "branch": "c77_0.68.x",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
