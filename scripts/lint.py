@@ -19,7 +19,6 @@ sys.path.append(os.path.realpath(os.path.join(scriptpath, "..", "vendor", "depot
 
 import git_cl
 import git_common
-import auth
 
 def main(args):
   """Runs cpplint on the current changelist."""
@@ -29,9 +28,7 @@ def main(args):
                     help='Comma-separated list of cpplint\'s category-filters')
   parser.add_option('--project_root')
   parser.add_option('--base_branch')
-  auth.add_auth_options(parser)
   options, args = parser.parse_args(args)
-  auth_config = auth.extract_auth_config_from_options(options)
 
   # Access to a protected member _XX of a client class
   # pylint: disable=protected-access
@@ -48,7 +45,7 @@ def main(args):
   previous_cwd = os.getcwd()
   os.chdir(settings.GetRoot())
   try:
-    cl = git_cl.Changelist(auth_config=auth_config)
+    cl = git_cl.Changelist()
     change = cl.GetChange(git_common.get_or_create_merge_base(cl.GetBranch(), options.base_branch), None)
     files = [f.LocalPath() for f in change.AffectedFiles()]
     if not files:
