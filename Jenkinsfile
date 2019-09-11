@@ -671,15 +671,20 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_WINDOWS }
                     }
-                    agent { label "windows-ci" }
+                    agent {
+                        node {
+                            label "windows-ci"
+                            customWorkspace "${WINDOWS_CUSTOM_WORKSPACE}"
+                        }
+                    }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.17134.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
-                        KEY_CER_PATH = "C:\\jenkins\\digicert-key\\digicert.cer"
-                        KEY_PFX_PATH = "C:\\jenkins\\digicert-key\\digicert.pfx"
+                        KEY_CER_PATH = "C:\\jenkins\\digicert.cer"
+                        KEY_PFX_PATH = "C:\\jenkins\\digicert.pfx"
                         AUTHENTICODE_PASSWORD = credentials("digicert-brave-browser-ci-certificate-ps-escaped")
                         AUTHENTICODE_PASSWORD_UNESCAPED = credentials("digicert-brave-browser-ci-certificate")
                         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -921,6 +926,7 @@ def setEnv() {
     if (env.SLACK_USERNAME) {
         slackSend(color: null, channel: env.SLACK_USERNAME, message: "[${BUILD_TAG_SLASHED} `${BRANCH}`] STARTED (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
     }
+    WINDOWS_CUSTOM_WORKSPACE = "C:\\temp\\" + "PR-" + env.BC_PR_NUMBER + "-BLD-" + env.BUILD_NUMBER
 }
 
 def checkAndAbortBuild() {
