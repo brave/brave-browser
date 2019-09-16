@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.68.138](https://github.com/brave/brave-browser/releases/tag/v0.68.138)
+
+ - Fixed reward panel not loading and appearing blank in certain cases. ([#6012](https://github.com/brave/brave-browser/issues/6012))
+ - Upgraded Chromium to 77.0.3865.75. ([#5966](https://github.com/brave/brave-browser/issues/5966))
+
 ## [0.68.132](https://github.com/brave/brave-browser/releases/tag/v0.68.132)
 
  - Upgraded Chromium to 76.0.3809.132. ([#5801](https://github.com/brave/brave-browser/issues/5801))
