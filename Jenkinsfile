@@ -101,8 +101,6 @@ pipeline {
                                 sh """
                                     rm -rf src/brave
                                     npm run init -- --target_os=android
-                                    git -C src/brave config user.name jenkins
-                                    git -C src/brave config user.email no@reply.com
                                 """
                             }
                         }
@@ -202,8 +200,6 @@ pipeline {
                                 sh """
                                     rm -rf src/brave
                                     npm run init -- --target_os=ios
-                                    git -C src/brave config user.name jenkins
-                                    git -C src/brave config user.email no@reply.com
                                 """
                             }
                         }
@@ -318,8 +314,6 @@ pipeline {
                                 sh """
                                     rm -rf src/brave
                                     npm run init
-                                    git -C src/brave config user.name jenkins
-                                    git -C src/brave config user.email no@reply.com
                                 """
                             }
                         }
@@ -471,8 +465,6 @@ pipeline {
                                 sh """
                                     rm -rf src/brave
                                     npm run init
-                                    git -C src/brave config user.name jenkins
-                                    git -C src/brave config user.email no@reply.com
                                 """
                             }
                         }
@@ -654,8 +646,6 @@ pipeline {
                                     git -C vendor/depot_tools clean -fxd
                                     \$ErrorActionPreference = "Stop"
                                     npm run init
-                                    git -C src/brave config user.name jenkins
-                                    git -C src/brave config user.email no@reply.com
                                 """
                             }
                         }
@@ -664,6 +654,8 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     powershell """
                                         \$ErrorActionPreference = "Stop"
+                                        git -C src/brave config user.name jenkins
+                                        git -C src/brave config user.email no@reply.com
                                         git -C src/brave checkout -b ${LINT_BRANCH}
                                         npm run lint -- --base=origin/${BASE_BRANCH}
                                         git -C src/brave checkout -q -
@@ -991,6 +983,8 @@ def install() {
 
 def lint() {
     sh """
+        git -C src/brave config user.name jenkins
+        git -C src/brave config user.email no@reply.com
         git -C src/brave checkout -b ${LINT_BRANCH}
         npm run lint -- --base=origin/${BASE_BRANCH}
         git -C src/brave checkout -q -
