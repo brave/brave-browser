@@ -43,7 +43,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "78.0.3904.34",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
