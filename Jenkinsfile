@@ -76,7 +76,6 @@ pipeline {
                             steps {
                                 echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
-                                    set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
                                     mv package.json.new package.json
                                 """
@@ -84,8 +83,9 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
-                                sh "npm install --no-optional"
+                                script {
+                                    install()
+                                }
                             }
                         }
                         stage("test-scripts") {
@@ -98,8 +98,10 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh "rm -rf src/brave"
-                                sh "npm run init -- --target_os=android"
+                                sh """
+                                    rm -rf src/brave
+                                    npm run init -- --target_os=android
+                                """
                             }
                         }
                         stage("lint") {
@@ -173,7 +175,6 @@ pipeline {
                             steps {
                                 echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
-                                    set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
                                     mv package.json.new package.json
                                 """
@@ -181,8 +182,9 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
-                                sh "npm install --no-optional"
+                                script {
+                                    install()
+                                }
                             }
                         }
                         stage("test-scripts") {
@@ -195,8 +197,10 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh "rm -rf src/brave"
-                                sh "npm run init -- --target_os=ios"
+                                sh """
+                                    rm -rf src/brave
+                                    npm run init -- --target_os=ios
+                                """
                             }
                         }
                         stage("lint") {
@@ -240,7 +244,6 @@ pipeline {
                         stage("dist") {
                             steps {
                                 sh """
-                                    set -e
                                     cd src/out
                                     cp -R ios_${BUILD_TYPE}_arm64/BraveRewards.framework .
                                     lipo -create -output BraveRewards.framework/BraveRewards ios_${BUILD_TYPE}/BraveRewards.framework/BraveRewards ios_${BUILD_TYPE}_arm64/BraveRewards.framework/BraveRewards
@@ -286,7 +289,6 @@ pipeline {
                             steps {
                                 echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
-                                    set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
                                     mv package.json.new package.json
                                 """
@@ -294,8 +296,9 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh "rm -rf ${GIT_CACHE_PATH}/*.lock"
-                                sh "npm install --no-optional"
+                                script {
+                                    install()
+                                }
                             }
                         }
                         stage("test-scripts") {
@@ -308,8 +311,10 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh "rm -rf src/brave"
-                                sh "npm run init"
+                                sh """
+                                    rm -rf src/brave
+                                    npm run init
+                                """
                             }
                         }
                         stage("lint") {
@@ -431,7 +436,6 @@ pipeline {
                             steps {
                                 echo "Pinning brave-core locally to use branch ${BRANCH}"
                                 sh """
-                                    set -e
                                     jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
                                     mv package.json.new package.json
                                 """
@@ -439,13 +443,13 @@ pipeline {
                         }
                         stage("install") {
                             steps {
-                                sh """
-                                    rm -rf ${GIT_CACHE_PATH}/*.lock
-                                    set -e
-                                    npm install --no-optional
-                                    mkdir -p src/third_party/widevine/scripts
-                                    cp ${HOME}/signature_generator.py src/third_party/widevine/scripts
-                                """
+                                script {
+                                    install()
+                                    sh """
+                                        mkdir -p src/third_party/widevine/scripts
+                                        cp ${HOME}/signature_generator.py src/third_party/widevine/scripts
+                                    """
+                                }
                             }
                         }
                         stage("test-scripts") {
@@ -458,8 +462,10 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh "rm -rf src/brave"
-                                sh "npm run init"
+                                sh """
+                                    rm -rf src/brave
+                                    npm run init
+                                """
                             }
                         }
                         stage("lint") {
@@ -544,7 +550,6 @@ pipeline {
                             }
                             steps {
                                 sh """
-                                    set -e
                                     security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
                                     npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
                                     security lock-keychain -a
@@ -572,11 +577,17 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_WINDOWS }
                     }
-                    agent { label "windows-ci" }
+                    agent {
+                        node {
+                            label "windows-ci"
+                            customWorkspace "C:\\" + BRANCH[-4..-1]
+                        }
+                    }
                     environment {
                         GIT_CACHE_PATH = "${USERPROFILE}\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
-                        PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.17134.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
+                        SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
+                        PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
                         KEY_CER_PATH = "C:\\jenkins\\digicert.cer"
@@ -643,8 +654,8 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     powershell """
                                         \$ErrorActionPreference = "Stop"
-                                        git -C src/brave config user.name brave-builds
-                                        git -C src/brave config user.email devops@brave.com
+                                        git -C src/brave config user.name jenkins
+                                        git -C src/brave config user.email no@reply.com
                                         git -C src/brave checkout -b ${LINT_BRANCH}
                                         npm run lint -- --base=origin/${BASE_BRANCH}
                                         git -C src/brave checkout -q -
@@ -665,6 +676,17 @@ pipeline {
                                 }
                             }
                         }
+                        // stage("sccache") {
+                        //     when {
+                        //         allOf {
+                        //             expression { !DISABLE_SCCACHE }
+                        //         }
+                        //     }
+                        //     steps {
+                        //         echo "Enabling sccache"
+                        //         powershell "npm config --userconfig=.npmrc set sccache sccache"
+                        //     }
+                        // }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -703,8 +725,8 @@ pipeline {
                                             \$ErrorActionPreference = "Stop"
                                             npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
                                         """
-                                        // xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        // xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                        xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                        xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
                                     }
                                 }
                             }
@@ -952,11 +974,17 @@ def getBuilds() {
     return Jenkins.instance.getItemByFullName(env.JOB_NAME).builds
 }
 
+def install() {
+    sh """
+        rm -rf ${GIT_CACHE_PATH}/*.lock
+        npm install --no-optional
+    """
+}
+
 def lint() {
     sh """
-        set -e
-        git -C src/brave config user.name brave-builds
-        git -C src/brave config user.email devops@brave.com
+        git -C src/brave config user.name jenkins
+        git -C src/brave config user.email no@reply.com
         git -C src/brave checkout -b ${LINT_BRANCH}
         npm run lint -- --base=origin/${BASE_BRANCH}
         git -C src/brave checkout -q -
@@ -966,7 +994,6 @@ def lint() {
 
 def config() {
     sh """
-        set -e
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
