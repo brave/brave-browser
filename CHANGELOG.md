@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.68.139](https://github.com/brave/brave-browser/releases/tag/v0.68.139)
+
+ - Fixed crash when closing tabs in certain cases. ([#6068](https://github.com/brave/brave-browser/issues/6068))
+ - Upgraded Chromium to 77.0.3865.90. ([#6062](https://github.com/brave/brave-browser/issues/6062))
+
 ## [0.68.138](https://github.com/brave/brave-browser/releases/tag/v0.68.138)
 
  - Fixed reward panel not loading and appearing blank in certain cases. ([#6012](https://github.com/brave/brave-browser/issues/6012))
