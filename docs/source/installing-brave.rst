@@ -60,6 +60,18 @@ Fedora 28+
 
     sudo dnf install brave-browser
 
+OpenSUSE 15+
+------------
+::
+
+    sudo zypper install curl
+
+    sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+    sudo zypper addrepo https://brave-browser-rpm-release.s3.brave.com/x86_64/ brave-browser
+
+    sudo zypper install brave-browser
+
 CentOS/RHEL
 -----------
 
@@ -113,6 +125,18 @@ Fedora 28+
 
     sudo dnf install brave-browser-beta
 
+OpenSUSE 15+
+------------
+::
+
+    sudo zypper install curl
+
+    sudo rpm --import https://brave-browser-rpm-beta.s3.brave.com/brave-core-nightly.asc
+
+    sudo zypper addrepo https://brave-browser-rpm-beta.s3.brave.com/x86_64/ brave-browser-beta
+
+    sudo zypper install brave-browser-beta
+
 
 Development Channel Installation
 ================================
@@ -159,6 +183,18 @@ Fedora 28+
 
     sudo dnf install brave-browser-dev
 
+OpenSUSE 15+
+------------
+::
+
+    sudo zypper install curl
+
+    sudo rpm --import https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
+
+    sudo zypper addrepo https://brave-browser-rpm-dev.s3.brave.com/x86_64/ brave-browser-dev
+
+    sudo zypper install brave-browser-dev
+
 
 Nightly Channel Installation
 ============================
@@ -204,6 +240,18 @@ Fedora 28+
     sudo rpm --import https://brave-browser-rpm-nightly.s3.brave.com/brave-core-nightly.asc
 
     sudo dnf install brave-browser-nightly
+
+OpenSUSE 15+
+------------
+::
+
+    sudo zypper install curl
+
+    sudo rpm --import https://brave-browser-rpm-nightly.s3.brave.com/brave-core-nightly.asc
+
+    sudo zypper addrepo https://brave-browser-rpm-nightly.s3.brave.com/x86_64/ brave-browser-nightly
+
+    sudo zypper install brave-browser-nightly
 
 
 Unofficial packages
