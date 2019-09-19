@@ -60,6 +60,18 @@ Fedora 28+
 
     sudo dnf install brave-browser
 
+OpenSUSE 15+
+------------
+::
+
+    sudo zypper install curl
+
+    sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+    sudo zypper addrepo https://brave-browser-rpm-release.s3.brave.com/x86_64/ brave-browser
+
+    sudo zypper install brave-browser
+
 CentOS/RHEL
 -----------
 
@@ -113,22 +125,17 @@ Fedora 28+
 
     sudo dnf install brave-browser-beta
 
-CentOS/RHEL
------------
+OpenSUSE 15+
+------------
 ::
+
+    sudo zypper install curl
 
     sudo rpm --import https://brave-browser-rpm-beta.s3.brave.com/brave-core-nightly.asc
 
-    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-beta.repo
-    [brave-browser-beta]
-    name=Brave Browser Beta Channel repository
-    baseurl=https://brave-browser-rpm-beta.s3.brave.com/x86_64/
-    enabled=1
-    EOF
+    sudo zypper addrepo https://brave-browser-rpm-beta.s3.brave.com/x86_64/ brave-browser-beta
 
-    sudo yum install brave-browser-beta
-
-The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
+    sudo zypper install brave-browser-beta
 
 
 Development Channel Installation
@@ -176,22 +183,17 @@ Fedora 28+
 
     sudo dnf install brave-browser-dev
 
-CentOS/RHEL
------------
+OpenSUSE 15+
+------------
 ::
 
-    sudo rpm --import  https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
+    sudo zypper install curl
 
-    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-dev.repo
-    [brave-browser-dev]
-    name=Brave Browser Dev Channel repository
-    baseurl=https://brave-browser-rpm-dev.s3.brave.com/x86_64/
-    enabled=1
-    EOF
+    sudo rpm --import https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
 
-    sudo yum install brave-browser-dev
+    sudo zypper addrepo https://brave-browser-rpm-dev.s3.brave.com/x86_64/ brave-browser-dev
 
-The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
+    sudo zypper install brave-browser-dev
 
 
 Nightly Channel Installation
@@ -239,22 +241,17 @@ Fedora 28+
 
     sudo dnf install brave-browser-nightly
 
-CentOS/RHEL
------------
+OpenSUSE 15+
+------------
 ::
 
-    sudo rpm --import  https://brave-browser-rpm-nightly.s3.brave.com/brave-core-nightly.asc
+    sudo zypper install curl
 
-    cat << EOF | sudo tee /etc/yum.repos.d/brave-browser-nightly.repo
-    [brave-browser-nightly]
-    name=Brave Browser Nightly Channel repository
-    baseurl=https://brave-browser-rpm-nightly.s3.brave.com/x86_64/
-    enabled=1
-    EOF
+    sudo rpm --import https://brave-browser-rpm-nightly.s3.brave.com/brave-core-nightly.asc
 
-    sudo yum install brave-browser-nightly
+    sudo zypper addrepo https://brave-browser-rpm-nightly.s3.brave.com/x86_64/ brave-browser-nightly
 
-The key you're importing should have fingerprint ``9228 DBCE 20DD E5EC 4648  8DE9 0B31 DBA0 6A8A 26F9``.
+    sudo zypper install brave-browser-nightly
 
 
 Unofficial packages
