@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.68.141](https://github.com/brave/brave-browser/releases/tag/v0.68.141)
+
+ - Fixed crash which occurred in certain cases when browsing. ([#6130](https://github.com/brave/brave-browser/issues/6130))
+
 ## [0.68.140](https://github.com/brave/brave-browser/releases/tag/v0.68.140)
 
  - Fixed duplicate records being synced causing throttling issues. ([#6125](https://github.com/brave/brave-browser/issues/6125))
