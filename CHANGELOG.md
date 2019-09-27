@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.68.142](https://github.com/brave/brave-browser/releases/tag/v0.68.142)
+
+ - Fixed sync crash in certain cases. ([#6169](https://github.com/brave/brave-browser/issues/6169))
+
 ## [0.68.141](https://github.com/brave/brave-browser/releases/tag/v0.68.141)
 
  - Fixed crash which occurred in certain cases when browsing. ([#6130](https://github.com/brave/brave-browser/issues/6130))
