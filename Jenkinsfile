@@ -109,6 +109,7 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
+                                        gn_check()
                                     }
                                 }
                             }
@@ -208,6 +209,7 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
+                                        gn_check()
                                     }
                                 }
                             }
@@ -322,6 +324,7 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
+                                        gn_check()
                                     }
                                 }
                             }
@@ -473,6 +476,7 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
+                                        gn_check()
                                     }
                                 }
                             }
@@ -989,6 +993,12 @@ def lint() {
         npm run lint -- --base=origin/${BASE_BRANCH}
         git -C src/brave checkout -q -
         git -C src/brave branch -D ${LINT_BRANCH}
+    """
+}
+
+def gn_check() {
+    sh """
+        gn check ${OUT_DIR}
     """
 }
 
