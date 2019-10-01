@@ -72,13 +72,6 @@ OpenSUSE 15+
 
     sudo zypper install brave-browser
 
-CentOS/RHEL 7
--------------
-
-The current release of Brave is not compatible with CentOS 7 due incompatibilities with the system's ``GLIBC`` version. 
-
-Our team is working on this matter to make this distribution supported again.
-
 
 Beta Channel Installation
 =========================
