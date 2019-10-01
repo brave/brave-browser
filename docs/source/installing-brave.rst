@@ -50,8 +50,8 @@ you may need to `uninstall old conflicting packages
 
     sudo apt install brave-browser
 
-Fedora 28+
-----------
+Fedora 28+, CentOS/RHEL 8+
+--------------------------
 ::
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
@@ -71,13 +71,6 @@ OpenSUSE 15+
     sudo zypper addrepo https://brave-browser-rpm-release.s3.brave.com/x86_64/ brave-browser
 
     sudo zypper install brave-browser
-
-CentOS/RHEL
------------
-
-The current release of Brave is not compatible with CentOS 7 due incompatibilities with the system's ``GLIBC`` version. 
-
-Our team is working on this matter to make this distribution supported again.
 
 
 Beta Channel Installation
@@ -115,8 +108,8 @@ Debian 9, Ubuntu 14.04 and Mint 17
 
     sudo apt install brave-browser-beta
 
-Fedora 28+
-----------
+Fedora 28+, CentOS/RHEL 8+
+--------------------------
 ::
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-beta.s3.brave.com/x86_64/
@@ -173,8 +166,8 @@ Debian 9, Ubuntu 14.04 and Mint 17
 
     sudo apt install brave-browser-dev
 
-Fedora 28+
-----------
+Fedora 28+, CentOS/RHEL 8+
+--------------------------
 ::
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-dev.s3.brave.com/x86_64/
@@ -231,8 +224,8 @@ Debian 9, Ubuntu 14.04 and Mint 17
 
     sudo apt install brave-browser-nightly
 
-Fedora 28+
-----------
+Fedora 28+, CentOS/RHEL 8+
+--------------------------
 ::
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-nightly.s3.brave.com/x86_64/
