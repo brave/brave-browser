@@ -43,10 +43,10 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
-        }
+        },
+        "commit": "19b8164ba5ca9940c4067f914c0ac956274dd599"
       }
     },
     "widevine": {
