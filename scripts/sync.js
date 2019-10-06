@@ -27,9 +27,9 @@ program
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
-projectNames.forEach((name) => {
-  let project = config.projects[name]
-  program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
+projectNames.forEach(name => {
+  let { arg_name } = config.projects[name];
+  program.option('--' + arg_name + '_ref <ref>', name + ' ref to checkout')
 })
 
 async function RunCommand () {
