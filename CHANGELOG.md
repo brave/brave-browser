@@ -23,7 +23,7 @@
  - Added ability to edit profile in brave://settings. ([#5211](https://github.com/brave/brave-browser/issues/5211))
  - Updated bookmark bar to be visible on New Tab Page by default. ([#5781](https://github.com/brave/brave-browser/issues/5781))
  - Hide profile icon in navigation bar until user creates a second profile. ([#5091](https://github.com/brave/brave-browser/issues/5091))
- - Improved WebTorrent by adding precentages and file size labelling. ([#3285](https://github.com/brave/brave-browser/issues/3285))
+ - Improved WebTorrent by adding percentages and file size labelling. ([#3285](https://github.com/brave/brave-browser/issues/3285))
  - Removed "Sign in to Brave" dialog when saving passwords. ([#5849](https://github.com/brave/brave-browser/issues/5849))
  - Disabled "Install Google Translate to translate this page?" popup when using Tor. ([#5657](https://github.com/brave/brave-browser/issues/5657))
  - Fixed Twitch tipping using the rewards panel. ([#5549](https://github.com/brave/brave-browser/issues/5549))
