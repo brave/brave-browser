@@ -48,12 +48,32 @@ For everything you'd need to get started, check out https://www.transifex.com/br
 ## Getting started
 * Make sure you have a [GitHub account](https://github.com/join).
 * Submit a [ticket](https://github.com/brave/brave-browser/issues) for your issue if one does not already exist. Please include the Brave version, operating system, and steps to reproduce the issue.
-* Fork the repository on GitHub.
+* Fork the repository on GitHub (this might be [`brave-browser`](https://github.com/brave/brave-browser), [`brave-core`](https://github.com/brave/brave-core), or both).
 * For changes to JavaScript files, we recommend installing a [Standard](http://standardjs.com/) plugin for your preferred text editor in order to ensure code style consistency.
-* For C++ changes, you can consider setting up [clang-format](https://chromium.googlesource.com/chromium/src/+/master/docs/sublime_ide.md#Format-Selection-with-Clang_Format-Chromium-only)
+* For C++ changes, you can consider setting up [clang-format](https://chromium.googlesource.com/chromium/src/+/master/docs/sublime_ide.md#Format-Selection-with-Clang_Format-Chromium-only) for your editor.
 
 ### Making changes
 Once you've cloned the repo to your computer, you're ready to start making edits!
+
+Please note that there are two repositories here:
+* the root project ([`brave-browser`](https://github.com/brave/brave-browser)), which pulls down all of the Chromium code into `src/`
+* [`brave-core`](https://github.com/brave/brave-core) which is located on disk under the root at `src/brave`
+
+Depending on which you're editing, you'll need to add your fork to the remotes list. By default, `origin` is set to upstream.
+For example, here's how GitHub user `bsclifton` would add BOTH remotes `brave-browser` and `brave-core`:
+```sh
+# root where project is cloned
+cd ~/brave-browser/
+git remote add bsclifton git@github.com:bsclifton/brave-browser.git
+git fetch bsclifton
+# root for the `brave-core` repo
+cd src/brave
+git remote add bsclifton git@github.com:bsclifton/brave-core.git
+git fetch bsclifton
+```
+
+Once you're setup, there's a few tips we can suggest:
+
 * Make a new branch for your work. It helps to have a descriptive name, like `fix-fullscreen-issue`.
 * Make commits in logical units. If needed, run `git rebase -i` to squash commits before opening a pull request.
 * New features and most other pull requests require a new [test](https://github.com/brave/brave-browser/wiki/Tests) to be written before the pull request will be accepted.  Some exceptions would be a tweak to an area of code that doesn't have tests yet, text changes, build config changes, things that can't be tested due to test suite limitations, etc.
@@ -70,6 +90,21 @@ Once you've cloned the repo to your computer, you're ready to start making edits
 
 * Run the tests by running `npm run test brave_unit_tests` and `npm run test brave_browser_tests`
 * JavaScript unit tests can be ran from the `src/brave` directory using `npm run test-unit`
+
+
+### Keeping your fork up to sync
+- Both `brave-browser` and `brave-core` clone themselves with the remote `origin` being upstream, so you can update either using `git pull`.
+- Once `origin` is fetched, you can rebase your `master` branch against `origin/master`
+    ```sh
+    git fetch origin
+    git fetch bsclifton
+    git checkout -b fork_master bsclifton/master
+    git rebase origin/master
+    git push bsclifton fork_master:master
+    ```
+
+An easier strategy might be to keep `origin` in sync and then create branches based on that (and push those to your fork).
+
 
 ### Pull requests
 After the changes are made in your branch, you're ready to submit a patch. Patches on GitHub are submitted in the format of a pull request.
@@ -89,7 +124,7 @@ Some helpful things to consider before submitting your work
 * steps to test the fix (if applicable)
 * for design-related changes, it is helpful to include screenshots
 
-Once you submit a pull request, you should tag reviewers and add any useful labels. If you do not have the necessary GitHub permissions to do so, a Brave member will take care of this for you.
+Once you submit a pull request, you should tag reviewers and add labels if needed. If you do not have the necessary GitHub permissions to do so, a Brave member will take care of this for you.
 
 #### Employees should
 * Ensure the owner is tagged using the `Assignees` field
