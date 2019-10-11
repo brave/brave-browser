@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.69.135](https://github.com/brave/brave-browser/releases/tag/v0.69.135)
+
+ - Added "Don't ask me again" option to Google Translate popup. ([#6340](https://github.com/brave/brave-browser/issues/6340))
+ - Fixed sync crash in certain cases. ([#6367](https://github.com/brave/brave-browser/issues/6367))
+ - Fixed WebTorrent crash in certain cases. ([#6320](https://github.com/brave/brave-browser/issues/6320))
+ - Fixed incorrect translation on Brave Shields for Korean. ([#6057](https://github.com/brave/brave-browser/issues/6057))
+ - Upgraded Chromium to 77.0.3865.120. ([#6414](https://github.com/brave/brave-browser/issues/6414))
+
 ## [0.69.132](https://github.com/brave/brave-browser/releases/tag/v0.69.132)
 
  - Added Uphold two-way wallets. ([#4774](https://github.com/brave/brave-browser/issues/4774))
