@@ -27,6 +27,12 @@ pipeline {
     stages {
         stage("env") {
             steps {
+                node("master") {
+                    script {
+                        def STATUS = load('./lib/ci/Status.groovy')
+                        echo STATUS.reportStep();
+                    }
+                }
                 script {
                     setEnv()
                 }
@@ -36,6 +42,7 @@ pipeline {
             steps {
                 script {
                     checkAndAbortBuild()
+                    
                 }
             }
         }
@@ -774,17 +781,17 @@ pipeline {
     }
     post {
         always {
-            script {
-                if (env.SLACK_USERNAME) {
-                    def slackColorMap = ["SUCCESS": "good", "FAILURE": "danger", "UNSTABLE": "warning", "ABORTED": null]
-                    slackSend(color: slackColorMap[currentBuild.currentResult], channel: env.SLACK_USERNAME, message: "[${BUILD_TAG_SLASHED} `${BRANCH}`] " + currentBuild.currentResult + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
-                }
-            }
             node("master") {
                 script {
                     if (SLACK_BUILDS_CHANNEL) {
                         sendSlackDownloadsNotification()
                     }
+                }
+            }
+            script {
+                if (env.SLACK_USERNAME) {
+                    def slackColorMap = ["SUCCESS": "good", "FAILURE": "danger", "UNSTABLE": "warning", "ABORTED": null]
+                    slackSend(color: slackColorMap[currentBuild.currentResult], channel: env.SLACK_USERNAME, message: "[${BUILD_TAG_SLASHED} `${BRANCH}`] " + currentBuild.currentResult + " (<${BUILD_URL}/flowGraphTable/?auto_refresh=true|Open>)")
                 }
             }
         }
