@@ -52,6 +52,7 @@ program
   .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
   .option('--gn <arg>', 'Additional gn args, in the form <key>:<value>', collect, [])
   .option('--ninja <opt>', 'Additional Ninja command-line options, in the form <key>:<value>', collect, [])
+  .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
   .arguments('[build_config]')
   .action(build)
 
@@ -71,6 +72,7 @@ program
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
   .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
+  .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
   .arguments('[build_config]')
   .action(createDist)
 
