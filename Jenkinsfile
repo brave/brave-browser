@@ -798,6 +798,8 @@ pipeline {
 def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
+    DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
+    IS_COMPONENT_BUILD = params.IS_COMPONENT_BUILD
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
     OFFICIAL_BUILD = params.OFFICIAL_BUILD ? "--official_build=true" : "--official_build=false"
