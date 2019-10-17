@@ -15,6 +15,8 @@ pipeline {
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
+        booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
+        booleanParam(name: "IS_COMPONENT_BUILD", defaultValue: true, description: "")
     }
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
@@ -701,6 +703,8 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
+                                    npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+                                    npm config --userconfig=.npmrc set is_component_build ${IS_COMPONENT_BUILD}
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING}
                                 """
                             }
@@ -1000,6 +1004,8 @@ def config() {
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
+        npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+        npm config --userconfig=.npmrc set is_component_build ${IS_COMPONENT_BUILD}
     """
 }
 
