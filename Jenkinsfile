@@ -580,7 +580,7 @@ pipeline {
                     }
                     agent {
                         node {
-                            label "windows-ci"
+                            label "windows-test"
                             customWorkspace "C:\\" + BRANCH[-4..-1]
                         }
                     }
@@ -677,17 +677,17 @@ pipeline {
                                 }
                             }
                         }
-                        // stage("sccache") {
-                        //     when {
-                        //         allOf {
-                        //             expression { !DISABLE_SCCACHE }
-                        //         }
-                        //     }
-                        //     steps {
-                        //         echo "Enabling sccache"
-                        //         powershell "npm config --userconfig=.npmrc set sccache sccache"
-                        //     }
-                        // }
+                        stage("sccache") {
+                            when {
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
+                            }
+                            steps {
+                                echo "Enabling sccache"
+                                powershell "npm config --userconfig=.npmrc set sccache sccache"
+                            }
+                        }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
