@@ -51,6 +51,7 @@ For everything you'd need to get started, check out https://www.transifex.com/br
 * Fork the repository on GitHub (this might be [`brave-browser`](https://github.com/brave/brave-browser), [`brave-core`](https://github.com/brave/brave-core), or both).
 * For changes to JavaScript files, we recommend installing a [Standard](http://standardjs.com/) plugin for your preferred text editor in order to ensure code style consistency.
 * For C++ changes, you can consider setting up [clang-format](https://chromium.googlesource.com/chromium/src/+/master/docs/sublime_ide.md#Format-Selection-with-Clang_Format-Chromium-only) for your editor.
+* For changes which involve patches, please check out our [Patching Chromium](https://github.com/brave/brave-browser/wiki/Patching-Chromium) guide.
 
 ### Making changes
 Once you've cloned the repo to your computer, you're ready to start making edits!
@@ -85,7 +86,7 @@ Once you're setup, there's a few tips we can suggest:
     This is a first pass at a contributor's guide so now people will know how to
     get pull requests accepted faster.
 
-    Fix #108
+    Fix https://github.com/brave/brave-browser/issues/108
 ````
 
 * Run the tests by running `npm run test brave_unit_tests` and `npm run test brave_browser_tests`
