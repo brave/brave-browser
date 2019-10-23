@@ -36,7 +36,7 @@ program
   .command('build')
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--target_os <target_os>', 'target OS')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic')
   .option('--android_override_version_name <android_override_version_name>', 'Android version number')
   .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
@@ -59,7 +59,7 @@ program
 program
   .command('create_dist')
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
   .option('--mac_installer_signing_identifier <id>', 'The identifier to use for signing the installer')
   .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
@@ -78,7 +78,7 @@ program
 
 program
   .command('upload')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .action(upload)
 
 program
@@ -129,7 +129,7 @@ program
 
 program
   .command('cibuild')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .action((options) => {
     options.official_build = true
     build('Release', options)
@@ -144,7 +144,7 @@ program
   .option('--single_process', 'uses a single process to run tests to help with debugging')
   .option('--test_launcher_jobs <test_launcher_jobs>', 'Number of jobs to launch')
   .option('--target_os <target_os>', 'target OS')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .arguments('[build_config]')
   .action(test)
 
