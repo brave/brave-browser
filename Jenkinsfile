@@ -130,8 +130,9 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "Enabling sccache"
-                                sh "npm config --userconfig=.npmrc set sccache sccache"
+                                script {
+                                    sccache()
+                                }
                             }
                         }
                         stage("build") {
@@ -343,8 +344,9 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "Enabling sccache"
-                                sh "npm config --userconfig=.npmrc set sccache sccache"
+                                script {
+                                    sccache()
+                                }
                             }
                         }
                         stage("build") {
@@ -494,8 +496,9 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "Enabling sccache"
-                                sh "npm config --userconfig=.npmrc set sccache sccache"
+                                script {
+                                    sccache()
+                                }
                             }
                         }
                         stage("build") {
@@ -585,9 +588,9 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "${USERPROFILE}\\cache"
+                        GIT_CACHE_PATH = "C:/Users/Administrator/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
-                        SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
+                        SCCACHE_ERROR_LOG  = "${WORKSPACE}\\sccache.log"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -677,17 +680,20 @@ pipeline {
                                 }
                             }
                         }
-                        // stage("sccache") {
-                        //     when {
-                        //         allOf {
-                        //             expression { !DISABLE_SCCACHE }
-                        //         }
-                        //     }
-                        //     steps {
-                        //         echo "Enabling sccache"
-                        //         powershell "npm config --userconfig=.npmrc set sccache sccache"
-                        //     }
-                        // }
+                        stage("sccache") {
+                            when {
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
+                            }
+                            steps {
+                                echo "Enabling sccache"
+                                powershell """
+                                    \$ErrorActionPreference = "Stop"
+                                    npm config --userconfig=.npmrc set sccache sccache
+                                """
+                            }
+                        }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -813,6 +819,7 @@ def setEnv() {
     GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
     RUST_LOG = "sccache=warn"
     RUST_BACKTRACE = "1"
+    SCCACHE_IDLE_TIMEOUT = 0
     SKIP = false
     SKIP_ANDROID = false
     SKIP_IOS = false
@@ -994,6 +1001,11 @@ def lint() {
     """
 }
 
+def sccache() {
+    echo "Enabling sccache"
+    sh "npm config --userconfig=.npmrc set sccache sccache"
+}
+
 def config() {
     sh """
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
@@ -1009,6 +1021,7 @@ def config() {
 def installWindows() {
     powershell """
         Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
+        Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
         Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
