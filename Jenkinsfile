@@ -20,8 +20,9 @@ pipeline {
     }
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
-        BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
+        BRAVE_SERVICES_KEY = credentials("brave-services-key")
         BRAVE_INFURA_PROJECT_ID = credentials("brave-infura-project-id")
+        BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
@@ -131,8 +132,9 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "Enabling sccache"
-                                sh "npm config --userconfig=.npmrc set sccache sccache"
+                                script {
+                                    sccache()
+                                }
                             }
                         }
                         stage("build") {
@@ -344,8 +346,9 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "Enabling sccache"
-                                sh "npm config --userconfig=.npmrc set sccache sccache"
+                                script {
+                                    sccache()
+                                }
                             }
                         }
                         stage("build") {
@@ -495,8 +498,9 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "Enabling sccache"
-                                sh "npm config --userconfig=.npmrc set sccache sccache"
+                                script {
+                                    sccache()
+                                }
                             }
                         }
                         stage("build") {
@@ -586,9 +590,9 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "${USERPROFILE}\\cache"
+                        GIT_CACHE_PATH = "C:/Users/Administrator/cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
-                        SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
+                        SCCACHE_ERROR_LOG  = "${WORKSPACE}\\sccache.log"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -678,17 +682,20 @@ pipeline {
                                 }
                             }
                         }
-                        // stage("sccache") {
-                        //     when {
-                        //         allOf {
-                        //             expression { !DISABLE_SCCACHE }
-                        //         }
-                        //     }
-                        //     steps {
-                        //         echo "Enabling sccache"
-                        //         powershell "npm config --userconfig=.npmrc set sccache sccache"
-                        //     }
-                        // }
+                        stage("sccache") {
+                            when {
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
+                            }
+                            steps {
+                                echo "Enabling sccache"
+                                powershell """
+                                    \$ErrorActionPreference = "Stop"
+                                    npm config --userconfig=.npmrc set sccache sccache
+                                """
+                            }
+                        }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -698,9 +705,10 @@ pipeline {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
                                     npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
+                                    npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
+                                    npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
                                     npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
                                     npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
-                                    npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
                                     npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
                                     npm config --userconfig=.npmrc set google_api_key dummytoken
                                     npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
@@ -817,6 +825,7 @@ def setEnv() {
     GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
     RUST_LOG = "sccache=warn"
     RUST_BACKTRACE = "1"
+    SCCACHE_IDLE_TIMEOUT = 0
     SKIP = false
     SKIP_ANDROID = false
     SKIP_IOS = false
@@ -998,12 +1007,18 @@ def lint() {
     """
 }
 
+def sccache() {
+    echo "Enabling sccache"
+    sh "npm config --userconfig=.npmrc set sccache sccache"
+}
+
 def config() {
     sh """
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
+        npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
+        npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
         npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
-        npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
@@ -1014,6 +1029,7 @@ def config() {
 def installWindows() {
     powershell """
         Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
+        Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
         Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
