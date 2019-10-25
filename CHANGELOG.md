@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.70.121](https://github.com/brave/brave-browser/releases/tag/v0.70.121)
+
+ - Added the ability to opt-in to user private Brave ads for over 20 new regions. ([#5655](https://github.com/brave/brave-browser/issues/5655))
+ - Added the ability for inline Twitter tip button to be keyboard accessible. ([#5791](https://github.com/brave/brave-browser/issues/5791))
+ - Added "Save All Files" option to WebTorrent. ([#1230](https://github.com/brave/brave-browser/issues/1230))
+ - Added widget menu for New Tab Page elements. ([#5015](https://github.com/brave/brave-browser/issues/5015))
+ - Added dark theme support for New Tab Page settings menu. ([#5014](https://github.com/brave/brave-browser/issues/5014))
+ - Updated default search engine to DuckDuckGo for Germany, Australia, New Zealand, and Ireland. ([#6187](https://github.com/brave/brave-browser/issues/6187))
+ - Updated auto-contribute to use "up to" budgeting and to only contribute to verified content creators. ([#6228](https://github.com/brave/brave-browser/issues/6228))
+ - Updated monthly contributions to process recurring tips individually before attempting auto-contribution. ([#6288](https://github.com/brave/brave-browser/issues/6288))
+ - Updated alert icon in rewards panel. ([#5501](https://github.com/brave/brave-browser/issues/5501))
+ - Updated Brave profile icons. ([#6443](https://github.com/brave/brave-browser/issues/6443))
+ - Updated profile manager menu. ([#5213](https://github.com/brave/brave-browser/issues/5213))
+ - Updated profile naming to use "Profile" instead of "Person" for both new and upgraded profiles. ([#5814](https://github.com/brave/brave-browser/issues/5814))
+ - Updated New Tab Page to respect 24 hour clock for locales which use this clock by default. ([#1308](https://github.com/brave/brave-browser/issues/1308))
+ - Fixed incorrect message display on tip banner in certain cases. ([#6182](https://github.com/brave/brave-browser/issues/6182))
+ - Fixed global shields setting for "Block all cookies" not working. ([#6389](https://github.com/brave/brave-browser/issues/6389))
+ - Fixed brave://welcome page being too tall for small screens. ([#5950](https://github.com/brave/brave-browser/issues/5950))
+ - Fixed resizing issues on brave://welcome page. ([#6183](https://github.com/brave/brave-browser/issues/6183))
+ - Fixed "Dashboard Settings" tooltip not showing on New Tab Page. ([#5797](https://github.com/brave/brave-browser/issues/5797))
+ - Fixed leaving sync chain not propagating to other devices. ([#6131](https://github.com/brave/brave-browser/issues/6131))
+ - Fixed sync records not updating in certain cases. ([#6310](https://github.com/brave/brave-browser/issues/6310))
+ - Upgraded Chromium to 78.0.3904.70. ([#6508](https://github.com/brave/brave-browser/issues/6508))
+
 ## [0.69.135](https://github.com/brave/brave-browser/releases/tag/v0.69.135)
 
  - Added "Don't ask me again" option to Google Translate popup. ([#6340](https://github.com/brave/brave-browser/issues/6340))
