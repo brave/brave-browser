@@ -1,0 +1,15 @@
+python_version: "2.7"
+
+# Used by:
+#   auth.py
+#   git_cl.py
+wheel: <
+  name: "infra/python/wheels/httplib2-py2_py3"
+  version: "version:0.10.3"
+>
+# Used by:
+#   git_cl.py
+wheel: <
+  name: "infra/python/wheels/six-py2_py3"
+  version: "version:1.10.0"
+>
