@@ -57,7 +57,7 @@ For everything you'd need to get started, check out https://www.transifex.com/br
 Once you've cloned the repo to your computer, you're ready to start making edits!
 
 Please note that there are two repositories here:
-* the root project ([`brave-browser`](https://github.com/brave/brave-browser)), which pulls down all of the Chromium code into `src/`
+* the root project (this repo, [`brave-browser`](https://github.com/brave/brave-browser)), which pulls down all of the Chromium code into `src/`
 * [`brave-core`](https://github.com/brave/brave-core) which is located on disk under the root at `src/brave`
 
 Depending on which you're editing, you'll need to add your fork to the remotes list. By default, `origin` is set to upstream.
