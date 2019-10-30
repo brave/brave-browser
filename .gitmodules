@@ -1,9 +1,9 @@
 [submodule "vendor/depot_tools"]
 	path = vendor/depot_tools
-	url = ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium-mirror
+	url = ec2-user@172.31.0.74:/home/ec2-user/depot_tools
 [submodule "vendor/jinja"]
 	path = vendor/jinja
-	url = ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/jinja
+	url = ec2-user@172.31.0.74:/home/ec2-user/jinja
 [submodule "vendor/gn-project-generators"]
 	path = vendor/gn-project-generators
-	url = ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/gn-project-generators
+	url = ec2-user@172.31.0.74:/home/ec2-user/gn
