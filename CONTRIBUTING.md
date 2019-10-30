@@ -24,11 +24,12 @@ One of the easiest ways to help is to [look through our issues tab](https://gith
 * Are there clear steps to reproduce the issue? If not, let's find and document some
 * Is the issue a duplicate? If so, share the issue that is being duplicated in the conversation
 * See our [Triage Guidelines page](https://github.com/brave/brave-browser/wiki/Triage-Guidelines) for more info about this process
+* Making sure issues that are fixed have the appropriate milestone set. There may be pull requests fixing the bug on the different product channels and sometimes the issues are forgotten about (and aren't updated)
 
 ### Updating documentation
 Documentation is extremely important. There are lots of areas we can improve:
 * Having more clear or up-to-date instructions in the README for both [`brave-browser`](https://github.com/brave/brave-browser/blob/master/README.md) and [`brave-core`](https://github.com/brave/brave-core/blob/master/README.md).
-* Capturing/updating helpful information [in our wiki](https://github.com/brave/brave-browser/wiki) (you'll need to request permission)
+* Capturing/updating helpful information [in our wiki](https://github.com/brave/brave-browser/wiki). You'll need to reach out to a Brave team member to request permission - you can do this by creating a new issue or tagging a Brave team member in an existing issue.
 * Helping to propose a way to bring documentation to other languages. Right now, everything is in English
 * Improving this document :smile:
 
@@ -58,7 +59,7 @@ Once you've cloned the repo to your computer, you're ready to start making edits
 
 Please note that there are two repositories here:
 * the root project (this repo, [`brave-browser`](https://github.com/brave/brave-browser)), which pulls down all of the Chromium code into `src/`
-* [`brave-core`](https://github.com/brave/brave-core) which is located on disk under the root at `src/brave`
+* [`brave-core`](https://github.com/brave/brave-core) is basically a sub-module (repo in a repo) which is located on disk under the root at `src/brave`
 
 Depending on which you're editing, you'll need to add your fork to the remotes list. By default, `origin` is set to upstream.
 For example, here's how GitHub user `bsclifton` would add BOTH remotes `brave-browser` and `brave-core`:
