@@ -584,7 +584,7 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "${USERPROFILE}\\cache"
+                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
                         SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
