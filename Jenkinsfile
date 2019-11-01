@@ -524,7 +524,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 30, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         script {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
@@ -727,7 +727,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 30, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         powershell """
                                             \$ErrorActionPreference = "Stop"
