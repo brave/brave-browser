@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.70.122](https://github.com/brave/brave-browser/releases/tag/v0.70.122)
+
+ - Upgraded Chromium to 78.0.3904.87. ([#6692](https://github.com/brave/brave-browser/issues/6692))
+
 ## [0.70.121](https://github.com/brave/brave-browser/releases/tag/v0.70.121)
 
  - Added the ability to opt-in to user private Brave ads for over 20 new regions. ([#5655](https://github.com/brave/brave-browser/issues/5655))
