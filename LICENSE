@@ -1,26 +1,5 @@
-LICENSES FOR INCORPORATED CODEBASES
-===================================
-
-Incorporating code from Privacy Badger Chrome,
-https://github.com/EFForg/privacybadger
-Copyright © 2015 Electronic Frontier Foundation and other contributors
-Licensed GPL v3
-
-Incorporating code from HTTPS Everywhere,
-Copyright © 2010-2017 Electronic Frontier Foundation and others
-Licensed GPL v2+
-
-Incorporating code from Chameleon,
-https://github.com/ghostwords/chameleon
-Copyright © 2015 ghostwords
-This Source Code Form is subject to the terms of the Mozilla Public
-License, v. 2.0. If a copy of the MPL was not distributed with this
-file, You can obtain one at http://mozilla.org/MPL/2.0/.
-Alternatively, this code may be distributed or
-otherwise used under the terms of GPL v3
-
-Text of Mozilla Public License Version 2.0
-==========================================
+Mozilla Public License Version 2.0
+==================================
 
 1. Definitions
 --------------
@@ -378,7 +357,7 @@ Exhibit A - Source Code Form License Notice
 
   This Source Code Form is subject to the terms of the Mozilla Public
   License, v. 2.0. If a copy of the MPL was not distributed with this
-  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 If it is not possible or desirable to put the notice in a particular
 file, then You may include the notice in a location (such as a LICENSE
