@@ -71,6 +71,7 @@ program
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
   .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
+  .option('--notarize', 'notarize the macOS app with Apple')
   .arguments('[build_config]')
   .action(createDist)
 
