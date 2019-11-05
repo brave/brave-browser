@@ -368,7 +368,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 60, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         script {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
@@ -524,7 +524,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 60, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         script {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
@@ -588,7 +588,7 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "C:/Users/Administrator/cache"
+                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
                         SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
                         SCCACHE_ERROR_LOG  = "${WORKSPACE}\\sccache.log"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
@@ -727,7 +727,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 60, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         powershell """
                                             \$ErrorActionPreference = "Stop"

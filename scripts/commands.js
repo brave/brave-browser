@@ -73,6 +73,7 @@ program
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
   .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
   .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
+  .option('--notarize', 'notarize the macOS app with Apple')
   .arguments('[build_config]')
   .action(createDist)
 
