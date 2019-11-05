@@ -1,9 +1,9 @@
 [submodule "vendor/depot_tools"]
 	path = vendor/depot_tools
-	url = ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/depot_tools
+	url = ubuntu@git-mirror.sandbox.omaha.aws-internal.brave.com:/home/ubuntu/depot_tools.git
 [submodule "vendor/jinja"]
 	path = vendor/jinja
-	url = ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/jinja
+	url = ubuntu@git-mirror.sandbox.omaha.aws-internal.brave.com:/home/ubuntu/jinja.git
 [submodule "vendor/gn-project-generators"]
 	path = vendor/gn-project-generators
-	url = ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/gn-project-generators
+	url = ubuntu@git-mirror.sandbox.omaha.aws-internal.brave.com:/home/ubuntu/gn-project-generators.git
