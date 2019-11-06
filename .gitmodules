@@ -1,9 +1,9 @@
 [submodule "vendor/depot_tools"]
 	path = vendor/depot_tools
-	url = /home/ubuntu/depot_tools.git
+	url = /Users/jenkins/mirror/depot_tools.git
 [submodule "vendor/jinja"]
 	path = vendor/jinja
-	url = /home/ubuntu/jinja.git
+	url = /Users/jenkins/mirror/jinja.git
 [submodule "vendor/gn-project-generators"]
 	path = vendor/gn-project-generators
-	url = /home/ubuntu/gn-project-generators.git
+	url = /Users/jenkins/mirror/gn-project-generators.git
