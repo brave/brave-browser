@@ -1,9 +1,9 @@
 [submodule "vendor/depot_tools"]
 	path = vendor/depot_tools
-	url = ubuntu@git-mirror.sandbox.omaha.aws-internal.brave.com:/home/ubuntu/depot_tools.git
+	url = /home/ubuntu/depot_tools.git
 [submodule "vendor/jinja"]
 	path = vendor/jinja
-	url = ubuntu@git-mirror.sandbox.omaha.aws-internal.brave.com:/home/ubuntu/jinja.git
+	url = /home/ubuntu/jinja.git
 [submodule "vendor/gn-project-generators"]
 	path = vendor/gn-project-generators
-	url = ubuntu@git-mirror.sandbox.omaha.aws-internal.brave.com:/home/ubuntu/gn-project-generators.git
+	url = /home/ubuntu/gn-project-generators.git
