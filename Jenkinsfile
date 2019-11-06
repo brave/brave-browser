@@ -656,15 +656,7 @@ pipeline {
                         stage("lint") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    powershell """
-                                        \$ErrorActionPreference = "Stop"
-                                        git -C src/brave config user.name jenkins
-                                        git -C src/brave config user.email no@reply.com
-                                        git -C src/brave checkout -b ${LINT_BRANCH}
-                                        npm run lint -- --base=origin/${BASE_BRANCH}
-                                        git -C src/brave checkout -q -
-                                        git -C src/brave branch -D ${LINT_BRANCH}
-                                    """
+                                    lint_powershell()
                                 }
                             }
                         }
@@ -992,6 +984,18 @@ def install() {
 
 def lint() {
     sh """
+        git -C src/brave config user.name jenkins
+        git -C src/brave config user.email no@reply.com
+        git -C src/brave checkout -b ${LINT_BRANCH}
+        npm run lint -- --base=origin/${BASE_BRANCH}
+        git -C src/brave checkout -q -
+        git -C src/brave branch -D ${LINT_BRANCH}
+    """
+}
+
+def lint_powershell() {
+    powershell """
+        \$ErrorActionPreference = "Stop"
         git -C src/brave config user.name jenkins
         git -C src/brave config user.email no@reply.com
         git -C src/brave checkout -b ${LINT_BRANCH}
