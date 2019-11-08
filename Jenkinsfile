@@ -645,15 +645,15 @@ pipeline {
                                 """
                             }
                         }
-                        stage("lint") {
-                            steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        lintWindows()
-                                    }
-                                }
-                            }
-                        }
+                        // stage("lint") {
+                        //     steps {
+                        //         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //             script {
+                        //                 lintWindows()
+                        //             }
+                        //         }
+                        //     }
+                        // }
                         stage("audit-deps") {
                             steps {
                                 timeout(time: 1, unit: "MINUTES") {
