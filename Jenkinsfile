@@ -270,7 +270,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-ecs" }
+                    agent { label "linux-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                     }
