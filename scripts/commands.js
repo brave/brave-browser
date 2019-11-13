@@ -18,6 +18,11 @@ const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
 
+const collect = (value, accumulator) => {
+  accumulator.push(value)
+  return accumulator
+}
+
 const parsedArgs = program.parseOptions(process.argv)
 
 program
@@ -31,25 +36,30 @@ program
   .command('build')
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--target_os <target_os>', 'target OS')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic')
+  .option('--android_override_version_name <android_override_version_name>', 'Android version number')
   .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
   .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
   .option('--debug_build <debug_build>', 'keep debugging symbols')
   .option('--official_build <official_build>', 'force official build settings')
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
+  .option('--brave_infura_project_id <brave_infura_project_id>')
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--ignore_compile_failure', 'Keep compiling regardless of error')
   .option('--skip_signing', 'skip signing binaries')
   .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
+  .option('--gn <arg>', 'Additional gn args, in the form <key>:<value>', collect, [])
+  .option('--ninja <opt>', 'Additional Ninja command-line options, in the form <key>:<value>', collect, [])
+  .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
   .arguments('[build_config]')
   .action(build)
 
 program
   .command('create_dist')
   .option('-C <build_dir>', 'build config (out/Debug, out/Release')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
   .option('--mac_installer_signing_identifier <id>', 'The identifier to use for signing the installer')
   .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
@@ -57,16 +67,19 @@ program
   .option('--official_build <official_build>', 'force official build settings')
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
+  .option('--brave_infura_project_id <brave_infura_project_id>')
   .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
   .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
+  .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
+  .option('--notarize', 'notarize the macOS app with Apple')
   .arguments('[build_config]')
   .action(createDist)
 
 program
   .command('upload')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .action(upload)
 
 program
@@ -99,10 +112,12 @@ program
 
 program
   .command('pull_l10n')
+  .option('--extension <extension>', 'Scope this command to localize a Brave extension such as ethereum-remote-client')
   .action(pullL10n)
 
 program
   .command('push_l10n')
+  .option('--extension <extension>', 'Scope this command to localize a Brave extension such as ethereum-remote-client')
   .action(pushL10n)
 
 program
@@ -115,7 +130,7 @@ program
 
 program
   .command('cibuild')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .action((options) => {
     options.official_build = true
     build('Release', options)
@@ -130,7 +145,7 @@ program
   .option('--single_process', 'uses a single process to run tests to help with debugging')
   .option('--test_launcher_jobs <test_launcher_jobs>', 'Number of jobs to launch')
   .option('--target_os <target_os>', 'target OS')
-  .option('--target_arch <target_arch>', 'target architecture', 'x64')
+  .option('--target_arch <target_arch>', 'target architecture')
   .arguments('[build_config]')
   .action(test)
 

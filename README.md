@@ -1,7 +1,7 @@
 # Brave Browser
 
 
-## Overview 
+## Overview
 
 This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects we define in `package.json` and `src/brave/DEPS`:
 
@@ -17,14 +17,14 @@ This repository holds the build tools needed to build the Brave desktop browser 
   - [tracking-protection](https://github.com/brave/tracking-protection)
     - Mounted at `src/brave/vendor/tracking-protection`.
     - Implements Brave's tracking-protection engine.
-    
+
 ## Build instructions
 
 See the [Brave Wiki](https://github.com/brave/brave-browser/wiki).
 
 ## Downloads
 
-You can [visit our website](https://brave.com/downloads.html) to get the latest stable release.
+You can [visit our website](https://brave.com/download) to get the latest stable release.
 
 ## Other repositories
 
@@ -35,8 +35,8 @@ For other versions of our browser, please see:
 
 ## Community
 
-[Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/help-me),
-[discuss features you'd like to see](https://community.brave.com/c/feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
+[Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/support-and-troubleshooting),
+[discuss features you'd like to see](https://community.brave.com/c/brave-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
 
 Help us translate Brave to your language by submitting translations at https://www.transifex.com/brave/brave/
 
