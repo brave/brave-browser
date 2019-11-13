@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.71.116](https://github.com/brave/brave-browser/releases/tag/v0.71.116)
+## [1.0.0](https://github.com/brave/brave-browser/releases/tag/v1.0.0)
 
  - Added Brave Rewards widget to the New Tab Page. ([#6370](https://github.com/brave/brave-browser/issues/6370))
  - Added notarization support for macOS Catalina. ([#5177](https://github.com/brave/brave-browser/issues/5177))
