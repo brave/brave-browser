@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1](https://github.com/brave/brave-browser/releases/tag/v1.0.1)
+
+ - Upgraded Chromium to 78.0.3904.108. ([#6987](https://github.com/brave/brave-browser/issues/6987))
+
 ## [1.0.0](https://github.com/brave/brave-browser/releases/tag/v1.0.0)
 
  - Added Brave Rewards widget to the New Tab Page. ([#6370](https://github.com/brave/brave-browser/issues/6370))
