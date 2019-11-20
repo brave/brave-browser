@@ -557,18 +557,11 @@ pipeline {
                         stage("test-install") {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
-                                    sh """
-                                        open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
-                                        sleep 15
-                                        processID=\$(pgrep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}")
-                                        if [ -z ${processID} ] ; then
-                                            echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was not running"
-                                            exit 1
-                                        else
-                                            kill -9 ${processID}
-                                            echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was running"
-                                        fi
-                                    """
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
+                                            testInstallMac()
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -1081,5 +1074,20 @@ def testInstallWindows() {
         # Stop brave
         Stop-Process -Name "Brave*" -Force
         Remove-Item -Recurse -Force "C:\\Users\\Administrator\\Desktop\\Brave*"
+    """
+}
+
+def testInstallMac() {
+    sh """
+        open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+        sleep 15
+        processID=\$(pgrep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}")
+        if [ -z ${processID} ] ; then
+            echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was not running"
+            exit 1
+        else
+            kill -9 ${processID}
+            echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was running"
+        fi
     """
 }
