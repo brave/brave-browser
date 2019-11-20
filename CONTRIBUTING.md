@@ -138,7 +138,7 @@ Once you submit a pull request, you should tag reviewers and add labels if neede
 * Issues should be assigned the milestone when the PR is merged (and the fix is landed in Nightly aka master).
 * Some issues may need to be uplifted to other channels (Dev / Beta / Release). Please see our notes on [uplifting a pull request](https://github.com/brave/brave-browser/wiki/Uplifting-a-pull-request).
 * If an issue is closed without a fix, because it was a duplicate, or perhaps it was invalid, then any milestone markers should be removed.
-* When a bug is fixed with a patch but still has a problem, let's open a new issue instead of re-opening an issue (unless the code was reverted).
+* If a bug is not fully fixed after its issue is closed, open a new issue instead of re-opening the existing one (unless the code has been reverted).
 
 ### Triage help
 
