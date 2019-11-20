@@ -554,38 +554,20 @@ pipeline {
                                 """
                             }
                         }
-                        stage("test-dmg") {
+                        stage("test-install") {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     sh """
-                                        ls ${OUT_DIR} | grep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}"
-                                        open "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.dmg"
-                                        sleep 10
-                                        cd "/Volumes/Brave Browser${CHANNEL_CAPITALIZED_SPACED}" && open -a "Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
                                         sleep 15
-                                        pkill Brave
-                                        VOLUME=\$(diskutil list | grep 'Brave Browser' | awk -F'MB   ' '{ print \$2 }')
-                                        declare -a arr=(\$VOLUME)
-                                        # loop through the above array to eject all volumes
-                                        for i in "\${arr[@]}"
-                                        do
-                                            diskutil unmountDisk force \$i
-                                            diskutil eject \$i
-                                        done
-                                    """
-                                }
-                            }
-                        }
-                        stage("test-pkg") {
-                            steps {
-                                timeout(time: 5, unit: "MINUTES") {
-                                    sh """
-                                        /usr/sbin/installer -verboseR -dumplog -pkg "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.pkg" -target CurrentUserHomeDirectory
-                                        sleep 10
-                                        cd "/Users/jenkins/Applications" && open -a "Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
-                                        sleep 15
-                                        pkill Brave
-                                        rm -rf "/Users/jenkins/Applications/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
+                                        processID=\$(pgrep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}")
+                                        if [ -z ${processID} ] ; then
+                                            echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was not running"
+                                            exit 1
+                                        else
+                                            kill -9 ${processID}
+                                            echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was running"
+                                        fi
                                     """
                                 }
                             }
