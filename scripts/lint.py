@@ -69,7 +69,8 @@ def main(args):
         if black_regex.match(filename):
           print('Ignoring file %s' % filename)
         else:
-          cpplint.ProcessFile(filename, cpplint._cpplint_state.verbose_level, extra_check_functions)
+          cpplint.ProcessFile(filename, cpplint._cpplint_state.verbose_level,
+                              extra_check_functions)
       else:
         print('Skipping file %s' % filename)
   finally:
@@ -80,4 +81,4 @@ def main(args):
   return 0
 
 if __name__ == '__main__':
-  sys.exit(main(sys.argv[1:]))
+    sys.exit(main(sys.argv[1:]))
