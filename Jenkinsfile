@@ -1082,11 +1082,11 @@ def testInstallMac() {
         open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
         sleep 15
         processID=\$(pgrep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}")
-        if [ -z ${processID} ] ; then
+        if [ -z \${processID} ] ; then
             echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was not running"
             exit 1
         else
-            kill -9 ${processID}
+            kill -9 \${processID}
             echo "Brave Browser${CHANNEL_CAPITALIZED_SPACED} was running"
         fi
     """
