@@ -558,9 +558,7 @@ pipeline {
                             steps {
                                 timeout(time: 5, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            testInstallMac()
-                                        }
+                                        testInstallMac()
                                     }
                                 }
                             }
