@@ -1079,6 +1079,7 @@ def testInstallWindows() {
 
 def testInstallMac() {
     sh """
+        ls ${OUT_DIR} | grep "Brave Browser"
         open -a "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_SPACED}.app"
         sleep 15
         processID=\$(pgrep "Brave Browser${CHANNEL_CAPITALIZED_SPACED}")
