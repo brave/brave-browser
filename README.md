@@ -1,7 +1,7 @@
 # Brave Browser
 
 
-## Overview 
+## Overview
 
 This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects we define in `package.json` and `src/brave/DEPS`:
 
@@ -17,14 +17,14 @@ This repository holds the build tools needed to build the Brave desktop browser 
   - [tracking-protection](https://github.com/brave/tracking-protection)
     - Mounted at `src/brave/vendor/tracking-protection`.
     - Implements Brave's tracking-protection engine.
-    
+
 ## Build instructions
 
 See the [Brave Wiki](https://github.com/brave/brave-browser/wiki).
 
 ## Downloads
 
-You can [visit our website](https://brave.com/downloads.html) to get the latest stable release.
+You can [visit our website](https://brave.com/download) to get the latest stable release.
 
 ## Other repositories
 
