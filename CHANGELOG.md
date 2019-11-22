@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.0.1](https://github.com/brave/brave-browser/releases/tag/v1.0.1)
+
+ - Upgraded Chromium to 78.0.3904.108. ([#6987](https://github.com/brave/brave-browser/issues/6987))
+
+## [1.0.0](https://github.com/brave/brave-browser/releases/tag/v1.0.0)
+
+ - Added Brave Rewards widget to the New Tab Page. ([#6370](https://github.com/brave/brave-browser/issues/6370))
+ - Added notarization support for macOS Catalina. ([#5177](https://github.com/brave/brave-browser/issues/5177))
+ - Added link to access https://brave.com/latest from brave://settings/help. ([#6152](https://github.com/brave/brave-browser/issues/6152))
+ - Updated buttons throughout Brave to match product branding. ([#6398](https://github.com/brave/brave-browser/issues/6398))
+ - Updated subheading text on wallet verification modal window. ([#6537](https://github.com/brave/brave-browser/issues/6537))
+ - Improved general performance by not loading the rewards extension until it's used. ([#3436](https://github.com/brave/brave-browser/issues/3436))
+ - Improved general performance by not loading WebTorrent component until first launch. ([#6342](https://github.com/brave/brave-browser/issues/6342))
+ - Removed the extraneous zero on the New Tab Page. ([#5710](https://github.com/brave/brave-browser/issues/5710))
+ - Fixed auto-contribution still occurring when auto-contribution is disabled within brave://rewards. ([#6716](https://github.com/brave/brave-browser/issues/6716))
+ - Fixed ad notifications not being displayed on macOS Catalina. ([#6466](https://github.com/brave/brave-browser/issues/6466))
+ - Fixed ad notifications not being displayed in certain cases. ([#6139](https://github.com/brave/brave-browser/issues/6139))
+ - Fixed notifications in rewards panel not being dismissible in certain instances. ([#5913](https://github.com/brave/brave-browser/issues/5913))
+ - Fixed incorrect spacing around inline Twitter tip button. ([#6456](https://github.com/brave/brave-browser/issues/6456))
+ - Fixed cookies not being imported from Chrome. ([#5975](https://github.com/brave/brave-browser/issues/5975))
+ - Fixed cookie mismatch when importing https://www.google.com cookies from other browsers. ([#5313](https://github.com/brave/brave-browser/issues/5313))
+ - Fixed WebTorrent crash in certain cases. ([#6193](https://github.com/brave/brave-browser/issues/6193))
+ - Fixed the "Clear cookies and site data when you quit Brave" toggle under brave://settings/content/cookies reverting to default state after closing the tab. ([#6119](https://github.com/brave/brave-browser/issues/6119))
+ - Fixed tab context menus using incorrect Russian translation. ([#6767](https://github.com/brave/brave-browser/issues/6767))
+
+## [0.70.123](https://github.com/brave/brave-browser/releases/tag/v0.70.123)
+
+ - Upgraded Chromium to 78.0.3904.97. ([#6789](https://github.com/brave/brave-browser/issues/6789))
+
+## [0.70.122](https://github.com/brave/brave-browser/releases/tag/v0.70.122)
+
+ - Upgraded Chromium to 78.0.3904.87. ([#6692](https://github.com/brave/brave-browser/issues/6692))
+
 ## [0.70.121](https://github.com/brave/brave-browser/releases/tag/v0.70.121)
 
  - Added the ability to opt-in to user private Brave ads for over 20 new regions. ([#5655](https://github.com/brave/brave-browser/issues/5655))

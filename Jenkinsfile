@@ -63,8 +63,6 @@ pipeline {
                     agent { label "android-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
-                        SCCACHE_BUCKET = credentials("brave-browser-sccache-android-s3-bucket")
-                        SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
                     }
                     stages {
                         stage("checkout") {
@@ -277,8 +275,6 @@ pipeline {
                     agent { label "linux-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
-                        SCCACHE_BUCKET = credentials("brave-browser-sccache-linux-s3-bucket")
-                        SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
                     }
                     stages {
                         stage("checkout") {
@@ -370,7 +366,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 60, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         script {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
@@ -419,8 +415,6 @@ pipeline {
                     agent { label "mac-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
-                        SCCACHE_BUCKET = credentials("brave-browser-sccache-mac-s3-bucket")
-                        SCCACHE_ERROR_LOG  = "${WORKSPACE}/sccache.log"
                         KEYCHAIN = "signing-ci"
                         KEYCHAIN_PATH = "/Users/jenkins/Library/Keychains/${KEYCHAIN}.keychain-db"
                         KEYCHAIN_PASS = credentials("mac-ci-signing-keychain-password")
@@ -526,7 +520,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 60, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         script {
                                             sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
@@ -591,8 +585,6 @@ pipeline {
                     }
                     environment {
                         GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
-                        SCCACHE_BUCKET = credentials("brave-browser-sccache-win-s3-bucket")
-                        SCCACHE_ERROR_LOG  = "${WORKSPACE}\\sccache.log"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -658,15 +650,9 @@ pipeline {
                         stage("lint") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    powershell """
-                                        \$ErrorActionPreference = "Stop"
-                                        git -C src/brave config user.name jenkins
-                                        git -C src/brave config user.email no@reply.com
-                                        git -C src/brave checkout -b ${LINT_BRANCH}
-                                        npm run lint -- --base=origin/${BASE_BRANCH}
-                                        git -C src/brave checkout -q -
-                                        git -C src/brave branch -D ${LINT_BRANCH}
-                                    """
+                                    script {
+                                        lintWindows()
+                                    }
                                 }
                             }
                         }
@@ -689,11 +675,9 @@ pipeline {
                                 }
                             }
                             steps {
-                                echo "Enabling sccache"
-                                powershell """
-                                    \$ErrorActionPreference = "Stop"
-                                    npm config --userconfig=.npmrc set sccache sccache
-                                """
+                                script {
+                                    sccacheWindows()
+                                }
                             }
                         }
                         stage("build") {
@@ -702,6 +686,9 @@ pipeline {
                                 SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
                             }
                             steps {
+                                script {
+                                    configWindows()
+                                }
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
                                     npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
@@ -731,7 +718,7 @@ pipeline {
                         }
                         stage("test-unit") {
                             steps {
-                                timeout(time: 20, unit: "MINUTES") {
+                                timeout(time: 60, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         powershell """
                                             \$ErrorActionPreference = "Stop"
@@ -823,9 +810,6 @@ def setEnv() {
     BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     GITHUB_API = "https://api.github.com/repos/brave"
     GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
-    RUST_LOG = "sccache=warn"
-    RUST_BACKTRACE = "1"
-    SCCACHE_IDLE_TIMEOUT = 0
     SKIP = false
     SKIP_ANDROID = false
     SKIP_IOS = false
@@ -1007,9 +991,29 @@ def lint() {
     """
 }
 
+def lintWindows() {
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        git -C src/brave config user.name jenkins
+        git -C src/brave config user.email no@reply.com
+        git -C src/brave checkout -b ${LINT_BRANCH}
+        npm run lint -- --base=origin/${BASE_BRANCH}
+        git -C src/brave checkout -q -
+        git -C src/brave branch -D ${LINT_BRANCH}
+    """
+}
+
 def sccache() {
     echo "Enabling sccache"
     sh "npm config --userconfig=.npmrc set sccache sccache"
+}
+
+def sccacheWindows() {
+    echo "Enabling sccache"
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        npm config --userconfig=.npmrc set sccache sccache
+    """
 }
 
 def config() {
@@ -1023,6 +1027,19 @@ def config() {
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
         npm config --userconfig=.npmrc set is_component_build ${IS_COMPONENT_BUILD}
+    """
+}
+
+def configWindows() {
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
+        npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
+        npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
+        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+        npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
+        npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
+        npm config --userconfig=.npmrc set google_api_key dummytoken
     """
 }
 
