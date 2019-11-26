@@ -1088,21 +1088,14 @@ def testInstallMac() {
         if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
         OUT_DIR="${WORKSPACE}/src/out/${BUILD_TYPE}"
         if [ ${SKIP_SIGNING} = true ] ; then
-            open "${OUT_DIR}/unsigned_dmg/${BROWSER}.dmg"
+            hdiutil attach "${OUT_DIR}/unsigned_dmg/${BROWSER}.dmg"
         else
-            open "${OUT_DIR}/${BROWSER}.dmg"
+            hdiutil attach "${OUT_DIR}/${BROWSER}.dmg"
         fi
         sleep 10
         open "/Volumes/${BROWSER}/${BROWSER}.app"
         sleep 10
         pkill Brave
-        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
-        declare -a arr=($VOLUME)
-        # loop through the above array to eject all volumes
-        for i in "${arr[@]}"
-        do
-            diskutil unmountDisk force $i
-            diskutil eject $i
-        done
+        hdiutil detach "/Volumes/${BROWSER}"
     '''
 }
