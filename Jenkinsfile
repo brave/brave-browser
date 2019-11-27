@@ -1096,6 +1096,13 @@ def testInstallMac() {
         open "/Volumes/${BROWSER}/${BROWSER}.app"
         sleep 10
         pkill Brave
-        hdiutil detach "/Volumes/${BROWSER}"
+        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
+        declare -a arr=($VOLUME)
+        # loop through the above array to eject all volumes
+        for i in "${arr[@]}"
+        do
+            diskutil unmountDisk force $i
+            diskutil eject $i
+        done
     '''
 }
