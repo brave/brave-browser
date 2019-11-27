@@ -1088,9 +1088,9 @@ def testInstallMac() {
         if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
         OUT_DIR="${WORKSPACE}/src/out/${BUILD_TYPE}"
         if [ ${SKIP_SIGNING} = true ] ; then
-            open "${OUT_DIR}/unsigned_dmg/${BROWSER}.dmg"
+            hdiutil attach -nobrowse "${OUT_DIR}/unsigned_dmg/${BROWSER}.dmg"
         else
-            open "${OUT_DIR}/${BROWSER}.dmg"
+            hdiutil attach -nobrowse "${OUT_DIR}/${BROWSER}.dmg"
         fi
         sleep 10
         open "/Volumes/${BROWSER}/${BROWSER}.app"
