@@ -291,19 +291,19 @@ pipeline {
                                 checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
-                        stage("prepare-container") {
-                            when {
-                                expression { NODE_NAME ==~ /.*ecs.*/ }
-                            }
-                            steps {
-                                //start sccache
-                                sh 'RUST_BACKTRACE=1 RUST_LOG="sccache=warn" SCCACHE_ERROR_LOG="/home/ubuntu/sccache.log" SCCACHE_IDLE_TIMEOUT=0 SCCACHE_BUCKET="sccache-brave-browser-lin" sccache --start-server'
-                                // start vncserver inside container for the test
-                                sh "rm -rf /tmp/.X3-lock && rm -rf /tmp/.X11-unix/X3 && vncserver :3"
-                                //enable overcommit memory for test browser
-                                sh "sudo sysctl vm.overcommit_memory=1"
-                            }
-                        }
+                        // stage("prepare-container") {
+                        //     when {
+                        //         expression { NODE_NAME ==~ /.*ecs.*/ }
+                        //     }
+                        //     steps {
+                        //         //start sccache
+                        //         sh 'RUST_BACKTRACE=1 RUST_LOG="sccache=warn" SCCACHE_ERROR_LOG="/home/ubuntu/sccache.log" SCCACHE_IDLE_TIMEOUT=0 SCCACHE_BUCKET="sccache-brave-browser-lin" sccache --start-server'
+                        //         // start vncserver inside container for the test
+                        //         sh "rm -rf /tmp/.X3-lock && rm -rf /tmp/.X11-unix/X3 && vncserver :3"
+                        //         //enable overcommit memory for test browser
+                        //         sh "sudo sysctl vm.overcommit_memory=1"
+                        //     }
+                        // }
                         stage("pin") {
                             when {
                                 expression { BRANCH_EXISTS_IN_BC }
