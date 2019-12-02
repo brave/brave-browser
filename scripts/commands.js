@@ -14,6 +14,7 @@ const updatePatches = require('./updatePatches')
 const pullL10n = require('../lib/pullL10n')
 const pushL10n = require('../lib/pushL10n')
 const chromiumRebaseL10n = require('../lib/chromiumRebaseL10n')
+const l10nDeleteTranslations = require('../lib/l10nDeleteTranslations')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
@@ -21,6 +22,10 @@ const test = require('../lib/test')
 const collect = (value, accumulator) => {
   accumulator.push(value)
   return accumulator
+}
+
+function commaSeparatedList(value, dummyPrevious) {
+  return value.split(',')
 }
 
 const parsedArgs = program.parseOptions(process.argv)
@@ -119,6 +124,19 @@ program
   .command('push_l10n')
   .option('--extension <extension>', 'Scope this command to localize a Brave extension such as ethereum-remote-client')
   .action(pushL10n)
+
+program
+  .command('delete_string_translations')
+  .option(
+    '--string_ids <string_ids>',
+    'Transifex string hash IDs to clear translated values from all languages (comma separated), e.g: "647dde44fb7eb1e62cd502c4b1c25cb8,8b03500bd8f2fa55928521a68bed4b1b"',
+    commaSeparatedList
+  )
+  .option(
+    '--resource_name <resource_name>',
+    'Transifex resource name from which to clear all translations for specified string IDs, e.g: "generated_resources"'
+  )
+  .action(l10nDeleteTranslations)
 
 program
   .command('chromium_rebase_l10n')
