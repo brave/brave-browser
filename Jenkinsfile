@@ -60,7 +60,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_ANDROID }
                     }
-                    agent { label "android-ci" }
+                    agent { label "ecs-android-test" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                     }
@@ -92,6 +92,15 @@ pipeline {
                         stage("test-scripts") {
                             steps {
                                 sh "npm run test:scripts -- --verbose"
+                            }
+                        }
+                        stage("prepare-container") {
+                            when {
+                                expression { NODE_NAME ==~ /.*ecs.*/ }
+                            }
+                            steps {
+                                //enable overcommit memory for test browser
+                                sh "sudo sysctl vm.overcommit_memory=1"
                             }
                         }
                         stage("init") {
