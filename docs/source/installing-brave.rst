@@ -4,7 +4,7 @@ Installing Brave
 Linux
 *****
 
-Brave supports 64-bit Linux distributions only.
+Brave is only supported on 64-bit AMD/Intel architectures (`amd64` / `x86_64`).
 
 NOTE: If Brave does not start and shows an error about sandboxing, you may need
 to enable `user namespaces
