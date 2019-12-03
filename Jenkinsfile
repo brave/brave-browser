@@ -75,11 +75,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -184,11 +180,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -309,11 +301,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -457,11 +445,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -995,6 +979,14 @@ def isStartedManually() {
 @NonCPS
 def getBuilds() {
     return Jenkins.instance.getItemByFullName(env.JOB_NAME).builds
+}
+
+def pin() {
+    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    sh """
+        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
+        mv package.json.new package.json
+    """
 }
 
 def install() {
