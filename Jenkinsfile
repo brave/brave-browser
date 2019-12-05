@@ -407,13 +407,11 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                        sh """
-                                            cd ${OUT_DIR}
-                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
-                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
-                                        """
-                                    }
+                                    sh """
+                                        cd ${OUT_DIR}
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
+                                    """
                                 }
                             }
                         }
