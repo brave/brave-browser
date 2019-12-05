@@ -1,11 +1,12 @@
 {
   "name": "brave",
-  "version": "1.3.22",
+  "version": "1.4.6",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
+    "delete_string_translations": "node ./scripts/commands.js delete_string_translations",
     "create_dist": "node ./scripts/commands.js create_dist",
     "sync": "node ./scripts/sync.js",
     "build": "node ./scripts/commands.js build",
@@ -27,7 +28,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "78.0.3904.108",
+        "tag": "79.0.3945.56",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
