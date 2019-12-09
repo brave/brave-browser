@@ -75,11 +75,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -92,6 +88,15 @@ pipeline {
                         stage("test-scripts") {
                             steps {
                                 sh "npm run test:scripts -- --verbose"
+                            }
+                        }
+                        stage("prepare-container") {
+                            when {
+                                expression { NODE_NAME ==~ /.*ecs.*/ }
+                            }
+                            steps {
+                                //enable overcommit memory for test browser
+                                sh "sudo sysctl vm.overcommit_memory=1"
                             }
                         }
                         stage("init") {
@@ -175,11 +180,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -282,16 +283,25 @@ pipeline {
                                 checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
+                        stage("prepare-container") {
+                            when {
+                                expression { NODE_NAME ==~ /.*ecs.*/ }
+                            }
+                            steps {
+                                //start sccache
+                                sh 'RUST_BACKTRACE=1 RUST_LOG="sccache=warn" SCCACHE_ERROR_LOG="/home/ubuntu/sccache.log" SCCACHE_IDLE_TIMEOUT=0 SCCACHE_BUCKET="sccache-brave-browser-lin" sccache --start-server'
+                                // start vncserver inside container for the test
+                                sh "rm -rf /tmp/.X3-lock && rm -rf /tmp/.X11-unix/X3 && vncserver :3"
+                                //enable overcommit memory for test browser
+                                sh "sudo sysctl vm.overcommit_memory=1"
+                            }
+                        }
                         stage("pin") {
                             when {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -433,11 +443,7 @@ pipeline {
                                 expression { BRANCH_EXISTS_IN_BC }
                             }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                sh """
-                                    jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-                                    mv package.json.new package.json
-                                """
+                                pin()
                             }
                         }
                         stage("install") {
@@ -971,6 +977,14 @@ def isStartedManually() {
 @NonCPS
 def getBuilds() {
     return Jenkins.instance.getItemByFullName(env.JOB_NAME).builds
+}
+
+def pin() {
+    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    sh """
+        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
+        mv package.json.new package.json
+    """
 }
 
 def install() {
