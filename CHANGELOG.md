@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.1.20](https://github.com/brave/brave-browser/releases/tag/v1.1.20)
+
+ - Added Privacy Preserving Product Analytics (P3A). ([#6285](https://github.com/brave/brave-browser/issues/6285))
+ - Added auto-contribute support for GitHub. ([#5120](https://github.com/brave/brave-browser/issues/5120))
+ - Added separate tip banner for monthly contributions to creators. ([#5996](https://github.com/brave/brave-browser/issues/5996))
+ - Added the ability to opt-in to user private Brave ads for Cayman Islands. ([#6006](https://github.com/brave/brave-browser/issues/6006))
+ - Added fingerprinting exception for 1Password. ([#6007](https://github.com/brave/brave-browser/issues/6007))
+ - Added setting to "Use Google Services for Push Messaging" in brave://settings. ([#2301](https://github.com/brave/brave-browser/issues/2301))
+ - Updated ads confirmations to redeem with the server every 24 hours instead of 7 days. ([#5999](https://github.com/brave/brave-browser/issues/5999))
+ - Updated brave://rewards to show monthly tips in a separate panel. ([#5957](https://github.com/brave/brave-browser/issues/5957))
+ - Improved accessibility on brave://welcome page. ([#5504](https://github.com/brave/brave-browser/issues/5504))
+ - Improved accessibility on Brave Rewards tip banners. ([#6147](https://github.com/brave/brave-browser/issues/6147))
+ - Removed known user tracking parameters from query strings. ([#4239](https://github.com/brave/brave-browser/issues/4239))
+ - Disabled Safe Browsing for downloads. ([#4341](https://github.com/brave/brave-browser/issues/4341))
+ - Disabled Motion Sensors by default. ([#4789](https://github.com/brave/brave-browser/issues/4789))
+ - Disabled Web Background Synchronization by default. ([#4709](https://github.com/brave/brave-browser/issues/4709))
+ - Fixed certain cases where users are stuck in the wallet verification flow for Brave Rewards. ([#7122](https://github.com/brave/brave-browser/issues/7122))
+ - Fixed inability to tweet after completing an inline tip on Reddit. ([#6223](https://github.com/brave/brave-browser/issues/6223))
+ - Fixed ad notifications being displayed while browser is in full screen mode. ([#5559](https://github.com/brave/brave-browser/issues/5559))
+ - Fixed inability to import from Firefox. ([#6521](https://github.com/brave/brave-browser/issues/6521))
+ - Fixed Tor windows not respecting custom global shields settings. ([#2978](https://github.com/brave/brave-browser/issues/2978))
+ - Fixed Tor windows not respecting the globally set option for "Block Scripts" in brave://settings. ([#4191](https://github.com/brave/brave-browser/issues/4191))
+ - Fixed download not cancelling in Tor window when the window is closed. ([#5367](https://github.com/brave/brave-browser/issues/5367))
+ - Fixed CORS issue with atlassian.net. ([#4419](https://github.com/brave/brave-browser/issues/4419))
+ - Upgraded Chromium to 79.0.3945.74. ([#7282](https://github.com/brave/brave-browser/issues/7282))
+
 ## [1.0.1](https://github.com/brave/brave-browser/releases/tag/v1.0.1)
 
  - Upgraded Chromium to 78.0.3904.108. ([#6987](https://github.com/brave/brave-browser/issues/6987))
