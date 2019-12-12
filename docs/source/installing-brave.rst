@@ -10,6 +10,8 @@ NOTE: If Brave does not start and shows an error about sandboxing, you may need
 to enable `user namespaces
 <https://superuser.com/questions/1094597/enable-user-namespaces-in-debian-kernel#1122977>`_. For security reasons, we do NOT recommend running with the ``--no-sandbox`` flag. For more info, see https://github.com/brave/brave-browser/issues/1986#issuecomment-445057361.
 
+The current signing keys are also available from <https://brave.com/signing-keys/>.
+
 Release Channel Installation
 ============================
 
