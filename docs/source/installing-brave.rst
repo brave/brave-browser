@@ -15,24 +15,8 @@ Release Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+ and Mint 18+
---------------------------
-::
-
-    sudo apt install apt-transport-https curl
-
-    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-
-    source /etc/os-release
-
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
-
-    sudo apt update
-
-    sudo apt install brave-browser
-
-Debian 9, Ubuntu 14.04 and Mint 17
-----------------------------------
+Debian 9+, Ubuntu 14.04+ and Mint 17+
+-------------------------------------
 
 If you get ``gnutls_handshake()`` errors after adding the Brave repository on Debian 9,
 you may need to `uninstall old conflicting packages
@@ -44,7 +28,7 @@ you may need to `uninstall old conflicting packages
 
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
 
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 
     sudo apt update
 
@@ -78,31 +62,15 @@ Beta Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+ and Mint 18+
---------------------------
+Debian 9+, Ubuntu 14.04+ and Mint 17+
+-------------------------------------
 ::
 
     sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
 
-    source /etc/os-release
-
-    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-${UBUNTU_CODENAME}.list
-
-    sudo apt update
-
-    sudo apt install brave-browser-beta
-
-Debian 9, Ubuntu 14.04 and Mint 17
-----------------------------------
-::
-
-    sudo apt install apt-transport-https curl
-
-    curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
-
-    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-trusty.list
+    echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta.list
 
     sudo apt update
 
@@ -136,31 +104,15 @@ Development Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+ and Mint 18+
---------------------------
+Debian 9+, Ubuntu 14.04+ and Mint 17+
+-------------------------------------
 ::
 
     sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
 
-    source /etc/os-release
-
-    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev-${UBUNTU_CODENAME}.list
-
-    sudo apt update
-
-    sudo apt install brave-browser-dev
-
-Debian 9, Ubuntu 14.04 and Mint 17
-----------------------------------
-::
-
-    sudo apt install apt-transport-https curl
-
-    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
-
-    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev-trusty.list
+    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev.list
 
     sudo apt update
 
@@ -194,31 +146,15 @@ Nightly Channel Installation
 
 .. highlight:: console
 
-Ubuntu 16.04+ and Mint 18+
---------------------------
+Debian 9+, Ubuntu 14.04+ and Mint 17+
+-------------------------------------
 ::
 
     sudo apt install apt-transport-https curl
 
     curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
 
-    source /etc/os-release
-
-    echo "deb [arch=amd64] https://brave-browser-apt-nightly.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-nightly-${UBUNTU_CODENAME}.list
-
-    sudo apt update
-
-    sudo apt install brave-browser-nightly
-
-Debian 9, Ubuntu 14.04 and Mint 17
-----------------------------------
-::
-
-    sudo apt install apt-transport-https curl
-
-    curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
-
-    echo "deb [arch=amd64] https://brave-browser-apt-nightly.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-nightly-trusty.list
+    echo "deb [arch=amd64] https://brave-browser-apt-nightly.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-nightly.list
 
     sudo apt update
 
