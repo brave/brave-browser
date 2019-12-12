@@ -68,7 +68,7 @@ Debian 9+, Ubuntu 14.04+ and Mint 17+
 
     sudo apt install apt-transport-https curl
 
-    curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
+    curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-prerelease.gpg add -
 
     echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta.list
 
@@ -110,7 +110,7 @@ Debian 9+, Ubuntu 14.04+ and Mint 17+
 
     sudo apt install apt-transport-https curl
 
-    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-dev.gpg add -
+    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-prerelease.gpg add -
 
     echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev.list
 
@@ -152,7 +152,7 @@ Debian 9+, Ubuntu 14.04+ and Mint 17+
 
     sudo apt install apt-transport-https curl
 
-    curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-nightly.gpg add -
+    curl -s https://brave-browser-apt-nightly.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-prerelease.gpg add -
 
     echo "deb [arch=amd64] https://brave-browser-apt-nightly.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-nightly.list
 
