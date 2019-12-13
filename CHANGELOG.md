@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.21](https://github.com/brave/brave-browser/releases/tag/v1.1.21)
+
+ - Added note describing Brave fees for user wallet transactions. ([#7278](https://github.com/brave/brave-browser/issues/7278))
+ - Fixed inline tipping on Twitter. ([#7324](https://github.com/brave/brave-browser/issues/7324))
+ - Upgraded Chromium to 79.0.3945.79. ([#7314](https://github.com/brave/brave-browser/issues/7314))
+
 ## [1.1.20](https://github.com/brave/brave-browser/releases/tag/v1.1.20)
 
  - Added Privacy Preserving Product Analytics (P3A). ([#6285](https://github.com/brave/brave-browser/issues/6285))
