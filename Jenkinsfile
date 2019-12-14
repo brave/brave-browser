@@ -16,7 +16,7 @@ pipeline {
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
         booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
-        booleanParam(name: "IS_COMPONENT_BUILD", defaultValue: true, description: "")
+        booleanParam(name: "IS_COMPONENT_BUILD", defaultValue: false, description: "")
     }
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
