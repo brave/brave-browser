@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.23](https://github.com/brave/brave-browser/releases/tag/v1.1.23)
+
+ - Upgraded Chromium to 79.0.3945.88. ([#7435](https://github.com/brave/brave-browser/issues/7435))
+
 ## [1.1.22](https://github.com/brave/brave-browser/releases/tag/v1.1.22)
 
  - Removed the ability to import cookies from Chrome and Firefox. ([#7044](https://github.com/brave/brave-browser/issues/7044))
