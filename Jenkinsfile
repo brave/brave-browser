@@ -318,8 +318,43 @@ pipeline {
                             }
                             steps {
                                 sh """
+cat > /home/ubuntu/squid.conf <<EOL
+http_port 3128
+
+acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
+acl localnet src 172.16.0.0/12  # RFC1918 possible internal network
+acl localnet src 192.168.0.0/16 # RFC1918 possible internal network
+acl localnet src fc00::/7       # RFC 4193 local private network range
+acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
+
+acl CONNECT method CONNECT
+
+http_access allow localhost manager
+http_access deny manager
+
+#
+# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+#
+
+http_access allow localnet
+http_access allow localhost
+http_access deny all
+
+maximum_object_size 6 GB
+cache_dir ufs /var/spool/squid 30720 16 256
+cache_mem 256 MB
+maximum_object_size_in_memory 512 KB
+cache_replacement_policy heap LFUDA
+range_offset_limit -1
+quick_abort_min -1 KB
+EOL
+                                    mkdir /home/ubuntu/squid || true
+                                    docker run --name squid -d --rm -p 3128:3128 --volume /home/ubuntu/squid:/var/spool/squid --volume /home/ubuntu/squid.conf:/etc/squid/squid.conf sameersbn/squid || true
+                                    docker restart squid
+                                    #docker run --name squid -d --rm --publish 3128:3128 --mount type=bind,source=sq,target=/etc/squid sameersbn/squid
+                                    #docker run --name squid -d -p 3128:3128 --volume ~/squid:/var/spool/squid datadog/squid
                                     rm -rf src/brave
-                                    npm run init
+                                    HTTP_PROXY=http://127.0.0.1:3128 HTTPS_PROXY=http://127.0.0.1:3128 npm run init
                                 """
                             }
                         }
