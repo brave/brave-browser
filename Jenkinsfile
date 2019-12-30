@@ -15,7 +15,6 @@ pipeline {
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
         booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
-        booleanParam(name: "IS_COMPONENT_BUILD", defaultValue: false, description: "")
     }
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
@@ -799,7 +798,6 @@ def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
     DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
-    IS_COMPONENT_BUILD = params.IS_COMPONENT_BUILD
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
     SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
@@ -1038,7 +1036,6 @@ def config() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
-        npm config --userconfig=.npmrc set is_component_build ${IS_COMPONENT_BUILD}
     """
 }
 
@@ -1053,7 +1050,6 @@ def configWindows() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
-        npm config --userconfig=.npmrc set is_component_build ${IS_COMPONENT_BUILD}
     """
 }
 
