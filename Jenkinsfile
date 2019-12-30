@@ -9,7 +9,6 @@ pipeline {
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release", "development"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
-        booleanParam(name: "OFFICIAL_BUILD", defaultValue: true, description: "")
         booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
@@ -803,7 +802,6 @@ def setEnv() {
     IS_COMPONENT_BUILD = params.IS_COMPONENT_BUILD
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
-    OFFICIAL_BUILD = params.OFFICIAL_BUILD ? "--official_build=true" : "--official_build=false"
     SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
     WIPE_WORKSPACE = params.WIPE_WORKSPACE ? "WipeWorkspace" : "RelativeTargetDirectory"
     SKIP_INIT = params.SKIP_INIT
