@@ -145,7 +145,7 @@ pipeline {
                                 script {
                                     config()
                                 }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=android --target_arch=arm"
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --skip_signing --target_os=android --target_arch=arm"
                             }
                         }
                         stage("s3-upload") {
