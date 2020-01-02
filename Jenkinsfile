@@ -9,14 +9,12 @@ pipeline {
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release", "development"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
-        booleanParam(name: "OFFICIAL_BUILD", defaultValue: true, description: "")
         booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
         booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
-        booleanParam(name: "IS_COMPONENT_BUILD", defaultValue: false, description: "")
     }
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
@@ -145,7 +143,7 @@ pipeline {
                                 script {
                                     config()
                                 }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=android --target_arch=arm"
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm"
                             }
                         }
                         stage("s3-upload") {
@@ -229,8 +227,8 @@ pipeline {
                                 script {
                                     config()
                                     sh """
-                                        npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios
-                                        npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} --target_os=ios --target_arch=arm64
+                                        npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=ios
+                                        npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=ios --target_arch=arm64
                                     """
                                 }
                             }
@@ -362,7 +360,7 @@ pipeline {
                                 script {
                                     config()
                                 }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD}"
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}"
                             }
                         }
                         stage("audit-network") {
@@ -401,7 +399,7 @@ pipeline {
                         }
                         stage("dist") {
                             steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD}"
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
                             }
                         }
                         stage("s3-upload") {
@@ -512,7 +510,7 @@ pipeline {
                                 script {
                                     config()
                                 }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING}"
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}"
                             }
                         }
                         stage("audit-network") {
@@ -557,7 +555,7 @@ pipeline {
                             steps {
                                 sh """
                                     security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
                                     security lock-keychain -a
                                 """
                             }
@@ -706,7 +704,7 @@ pipeline {
                                 }
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}
                                 """
                             }
                         }
@@ -745,7 +743,7 @@ pipeline {
                                 powershell """
                                     \$ErrorActionPreference = "Stop"
                                     (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${OFFICIAL_BUILD} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
                                 """
                             }
                         }
@@ -800,10 +798,8 @@ def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
     DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
-    IS_COMPONENT_BUILD = params.IS_COMPONENT_BUILD
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
-    OFFICIAL_BUILD = params.OFFICIAL_BUILD ? "--official_build=true" : "--official_build=false"
     SKIP_SIGNING = params.SKIP_SIGNING ? "--skip_signing" : ""
     WIPE_WORKSPACE = params.WIPE_WORKSPACE ? "WipeWorkspace" : "RelativeTargetDirectory"
     SKIP_INIT = params.SKIP_INIT
@@ -1040,7 +1036,6 @@ def config() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
-        npm config --userconfig=.npmrc set is_component_build ${IS_COMPONENT_BUILD}
     """
 }
 
@@ -1055,7 +1050,6 @@ def configWindows() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
-        npm config --userconfig=.npmrc set is_component_build ${IS_COMPONENT_BUILD}
     """
 }
 

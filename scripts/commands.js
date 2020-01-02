@@ -46,12 +46,10 @@ program
   .option('--android_override_version_name <android_override_version_name>', 'Android version number')
   .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
   .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
-  .option('--debug_build <debug_build>', 'keep debugging symbols')
-  .option('--official_build <official_build>', 'force official build settings')
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--brave_infura_project_id <brave_infura_project_id>')
-  .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
+  .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i)
   .option('--ignore_compile_failure', 'Keep compiling regardless of error')
   .option('--skip_signing', 'skip signing binaries')
   .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
@@ -68,12 +66,10 @@ program
   .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
   .option('--mac_installer_signing_identifier <id>', 'The identifier to use for signing the installer')
   .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
-  .option('--debug_build <debug_build>', 'keep debugging symbols')
-  .option('--official_build <official_build>', 'force official build settings')
   .option('--brave_google_api_key <brave_google_api_key>')
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--brave_infura_project_id <brave_infura_project_id>')
-  .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i, 'release')
+  .option('--channel <target_chanel>', 'target channel to build', /^(beta|dev|nightly|release)$/i)
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
   .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
@@ -90,6 +86,7 @@ program
 program
   .command('start')
   .allowUnknownOption(true)
+  .option('-C <build_dir>', 'build config (out/Debug, out/Release')
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
   .option('--vmodule [modules]', 'verbose log from specific modules')
   .option('--user_data_dir_name [base_name]', 'set user data directory base name to [base_name]')
@@ -151,7 +148,6 @@ program
   .command('cibuild')
   .option('--target_arch <target_arch>', 'target architecture')
   .action((options) => {
-    options.official_build = true
     build('Release', options)
   })
 
