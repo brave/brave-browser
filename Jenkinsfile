@@ -10,7 +10,7 @@ pipeline {
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release", "development"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
         booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
-        booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
+        booleanParam(name: "WIPE_WORKSPACE", defaultValue: true, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
         booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
@@ -336,10 +336,10 @@ http_access allow localnet
 http_access allow localhost
 http_access deny all
 
-#cache_dir ufs /var/spool/squid 30720 16 256
-#maximum_object_size 4 GB
-cache_mem 16 GB
-maximum_object_size_in_memory 4 GB
+cache_dir ufs /var/spool/squid 30720 16 256
+maximum_object_size 4 GB
+# cache_mem 16 GB
+# maximum_object_size_in_memory 4 GB
 cache_replacement_policy heap LFUDA
 range_offset_limit -1
 quick_abort_min -1 KB
