@@ -358,7 +358,7 @@ EOL
                                     # docker run --name squid -d --rm --publish 3128:3128 --mount type=bind,source=sq,target=/etc/squid sameersbn/squid
                                     # docker run --name squid -d -p 3128:3128 --volume ~/squid:/var/spool/squid datadog/squid
                                     rm -rf src/brave
-                                    HTTP_PROXY=http://127.0.0.1:3128 HTTPS_PROXY=http://127.0.0.1:3128 npm run init
+                                    http_proxy=http://127.0.0.1:3128 https_proxy=http://127.0.0.1:3128 HTTP_PROXY=http://127.0.0.1:3128 HTTPS_PROXY=http://127.0.0.1:3128 npm run init
                                 """
                             }
                         }
