@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.2.41](https://github.com/brave/brave-browser/releases/tag/v1.2.41)
+
+ - Added auto refresh of page after selecting "Always allow autoplay on..." from URL bar. ([#6700](https://github.com/brave/brave-browser/issues/6700))
+ - Added setting to allow "Remote debugging" in brave://settings/privacy. ([#5640](https://github.com/brave/brave-browser/issues/5640))
+ - Added ability to choose between Crypto Wallets or MetaMask for Dapps. ([#6600](https://github.com/brave/brave-browser/issues/6600))
+ - Updated Monthly Contribution text for Brave Rewards. ([#7093](https://github.com/brave/brave-browser/issues/7093))
+ - Updated tip banner to contain "Thank You" message after tip is made. ([#6151](https://github.com/brave/brave-browser/issues/6151))
+ - Improved general performance by only loading WebTorrent component when torrent or magnet pages are opened. ([#6372](https://github.com/brave/brave-browser/issues/6372))
+ - Revamped bookmark structure to improve syncing across multiple platforms. ([#5158](https://github.com/brave/brave-browser/issues/5158))
+ - Disabled option to open Tor in a Guest window. ([#7237](https://github.com/brave/brave-browser/issues/7237))
+ - Fixed certain cases where multiple auto contributions were occurring. ([#7579](https://github.com/brave/brave-browser/issues/7579))
+ - Fixed crash when attempting to open brave://sync from Tor window. ([#7225](https://github.com/brave/brave-browser/issues/7225))
+ - Fixed extensions denial of service issue as reported on HackerOne by world_languages. ([#7291](https://github.com/brave/brave-browser/issues/7291))
+ - Fixed incorrect number of maximum daily ad notifications. ([#4207](https://github.com/brave/brave-browser/issues/4207))
+ - Fixed Developer Tools Audit feature so it no longer freezes. ([#3199](https://github.com/brave/brave-browser/issues/3199))
+ - Fixed GTK+ dark theme display issue on Linux. ([#7245](https://github.com/brave/brave-browser/issues/7245))
+ - Fixed incorrect SUID sandbox on Linux. ([#6247](https://github.com/brave/brave-browser/issues/6247))
+ - Fixed inability to log into Bing Rewards. ([#3082](https://github.com/brave/brave-browser/issues/3082))
+ - Fixed "Relaunch" button resetting "Use Google Services for Push Messaging" selection. ([#6633](https://github.com/brave/brave-browser/issues/6633))
+
 ## [1.1.23](https://github.com/brave/brave-browser/releases/tag/v1.1.23)
 
  - Upgraded Chromium to 79.0.3945.88. ([#7435](https://github.com/brave/brave-browser/issues/7435))
