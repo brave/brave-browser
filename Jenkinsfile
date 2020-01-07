@@ -597,7 +597,7 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
+                        GIT_CACHE_PATH = "C:\\Users\\administrator\\cache"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
