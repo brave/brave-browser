@@ -1092,7 +1092,7 @@ def testInstallWindows() {
 
 def testInstallMac() {
     sh '''
-        if [ -z ${CHANNEL} -a ${CHANNEL} = " "]; then 
+        if [ -z ${CHANNEL} ]; then 
             BROWSER="Brave Browser Nightly"
             BUILD_TYPE="Release"
         else
