@@ -271,7 +271,10 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-ci" }
+                    agent {
+                        label "linux-ci"
+                        customWorkspace "/home/ubuntu/jenkins/mihai"
+                    }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                     }
@@ -320,8 +323,8 @@ pipeline {
                             }
                             steps {
                                 sh """
-                                    rm -rf src/brave
-                                    npm run init
+                                    # rm -rf src/brave
+                                    npm run sync -- --all
                                 """
                             }
                         }
@@ -420,7 +423,10 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_MACOS }
                     }
-                    agent { label "mac-ci" }
+                    agent {
+                        label "mac-ci"
+                        customWorkspace "/Users/jenkins/jenkins/mihai"
+                    }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         KEYCHAIN = "signing-ci"
@@ -466,8 +472,8 @@ pipeline {
                             }
                             steps {
                                 sh """
-                                    rm -rf src/brave
-                                    npm run init
+                                    # rm -rf src/brave
+                                    npm run sync -- --all
                                 """
                             }
                         }
@@ -593,7 +599,7 @@ pipeline {
                     agent {
                         node {
                             label "windows-ci"
-                            customWorkspace "C:\\" + BRANCH[-4..-1]
+                            customWorkspace "C:\\mihai"
                         }
                     }
                     environment {
@@ -652,11 +658,11 @@ pipeline {
                             }
                             steps {
                                 powershell """
-                                    Remove-Item -Recurse -Force src/brave
-                                    git gc
-                                    git -C vendor/depot_tools clean -fxd
+                                    #Remove-Item -Recurse -Force src/brave
+                                    #git gc
+                                    #git -C vendor/depot_tools clean -fxd
                                     \$ErrorActionPreference = "Stop"
-                                    npm run init
+                                    npm run sync -- --all
                                 """
                             }
                         }
