@@ -1092,8 +1092,13 @@ def testInstallWindows() {
 
 def testInstallMac() {
     sh '''
-        if [ ${CHANNEL} = "release" ]; then CHANNEL_CAPITALIZED_SPACED=""; else CHANNEL_CAPITALIZED="$(tr '[:lower:]' '[:upper:]' <<< ${CHANNEL:0:1})${CHANNEL:1}"; fi
-        if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
+        if [ -z ${CHANNEL} -a ${CHANNEL} = " "]; then 
+            BROWSER="Brave Browser Nightly"
+            BUILD_TYPE="Release"
+        else
+            if [ ${CHANNEL} = "release" ]; then CHANNEL_CAPITALIZED_SPACED=""; else CHANNEL_CAPITALIZED="$(tr '[:lower:]' '[:upper:]' <<< ${CHANNEL:0:1})${CHANNEL:1}"; fi
+            if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
+        fi
         OUT_DIR="${WORKSPACE}/src/out/${BUILD_TYPE}"
         if [ ${SKIP_SIGNING} = true ] ; then
             hdiutil attach -nobrowse "${OUT_DIR}/unsigned_dmg/${BROWSER}.dmg"
