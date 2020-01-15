@@ -681,18 +681,18 @@ pipeline {
                                 }
                             }
                         }
-                        stage("sccache") {
-                            when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
-                            }
-                            steps {
-                                script {
-                                    sccacheWindows()
-                                }
-                            }
-                        }
+                        // stage("sccache") {
+                        //     when {
+                        //         allOf {
+                        //             expression { !DISABLE_SCCACHE }
+                        //         }
+                        //     }
+                        //     steps {
+                        //         script {
+                        //             sccacheWindows()
+                        //         }
+                        //     }
+                        // }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
