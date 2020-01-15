@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.42](https://github.com/brave/brave-browser/releases/tag/v1.2.42)
+
+ - Upgraded Chromium to 79.0.3945.117. ([#7640](https://github.com/brave/brave-browser/issues/7640))
+
 ## [1.2.41](https://github.com/brave/brave-browser/releases/tag/v1.2.41)
 
  - Added auto refresh of page after selecting "Always allow autoplay on..." from URL bar. ([#6700](https://github.com/brave/brave-browser/issues/6700))
