@@ -1,5 +1,5 @@
 ---
-name: Desktop
+name: Desktop Issue
 about: 'Template for logging issues on Desktop '
 title: ''
 labels: ''
