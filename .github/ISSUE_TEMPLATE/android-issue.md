@@ -44,6 +44,7 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 
 ### Website problems only
 - Does the issue resolve itself when disabling Brave Shields? 
+- Does the issue resolve itself when disabling Brave Rewards?
 - Is the issue reproducible on the latest version of Chrome? 
 
 ### Additional information
