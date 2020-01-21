@@ -73,6 +73,7 @@ program
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
   .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
+  .option('--android_override_version_name <android_override_version_name>', 'Android version number')
   .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
   .option('--notarize', 'notarize the macOS app with Apple')
   .option('--target_os <target_os>', 'target OS')
