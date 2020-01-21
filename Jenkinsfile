@@ -271,14 +271,14 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-ci" }
+                    agent { label "linux-test" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                     }
                     stages {
                         stage("checkout") {
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("prepare-container") {
@@ -320,8 +320,7 @@ pipeline {
                             }
                             steps {
                                 sh """
-                                    rm -rf src/brave
-                                    npm run init
+                                    npm run sync -- --all
                                 """
                             }
                         }
