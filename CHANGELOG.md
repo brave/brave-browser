@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.43](https://github.com/brave/brave-browser/releases/tag/v1.2.43)
+
+ - Upgraded Chromium to 79.0.3945.130. ([#7781](https://github.com/brave/brave-browser/issues/7781))
+
 ## [1.2.42](https://github.com/brave/brave-browser/releases/tag/v1.2.42)
 
  - Upgraded Chromium to 79.0.3945.117. ([#7640](https://github.com/brave/brave-browser/issues/7640))
