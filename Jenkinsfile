@@ -271,7 +271,13 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-test" }
+                    
+                    agent {
+                        node {
+                            label "linux-test"
+                            customWorkspace "/home/ubuntu/ws"
+                        }
+                    }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                     }
