@@ -1095,6 +1095,7 @@ def testInstallMac() {
         if [ -z ${CHANNEL} ]; then 
             BROWSER="Brave Browser Nightly"
             BUILD_TYPE="Release"
+            SKIP_SIGNING=true
         else
             if [ ${CHANNEL} = "release" ]; then CHANNEL_CAPITALIZED_SPACED=""; else CHANNEL_CAPITALIZED="$(tr '[:lower:]' '[:upper:]' <<< ${CHANNEL:0:1})${CHANNEL:1}"; fi
             if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
