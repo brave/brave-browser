@@ -13,8 +13,8 @@ pipeline {
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
-        booleanParam(name: "DEBUG", defaultValue: false, description: "")
         booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
+        booleanParam(name: "DEBUG", defaultValue: false, description: "")
     }
     environment {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
@@ -146,12 +146,17 @@ pipeline {
                                 sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm"
                             }
                         }
+                        stage("dist") {
+                            steps {
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm"
+                            }
+                        }
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     sh """
-                                        cd src/out/android_${BUILD_TYPE}_arm/apks
-                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "*.apk"
+                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/apks/Bravearm.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/dist/Defaultarmclassic s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
                                     """
                                 }
                             }
@@ -256,10 +261,7 @@ pipeline {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                        sh """
-                                            cd src/out
-                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveRewards.framework.zip"
-                                        """
+                                        sh "aws s3 cp --no-progress src/out/BraveRewards.framework.zip s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/"
                                     }
                                 }
                             }
@@ -797,6 +799,7 @@ pipeline {
 def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
+    SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
     DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
@@ -805,7 +808,6 @@ def setEnv() {
     SKIP_INIT = params.SKIP_INIT
     DISABLE_SCCACHE = params.DISABLE_SCCACHE
     DEBUG = params.DEBUG
-    SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
     OUT_DIR = "src/out/" + BUILD_TYPE
     BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
     LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
@@ -1092,7 +1094,7 @@ def testInstallWindows() {
 
 def testInstallMac() {
     sh '''
-        if [ -z ${CHANNEL} ]; then 
+        if [ -z ${CHANNEL} ]; then
             BROWSER="Brave Browser Nightly"
             BUILD_TYPE="Release"
             SKIP_SIGNING=true
