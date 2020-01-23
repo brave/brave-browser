@@ -9,7 +9,7 @@ const util = require('../lib/util')
 const baseDir = path.resolve(path.join(__dirname, '..'))
 const braveDir = path.join(baseDir, 'src', 'brave')
 const braveVendorDir = path.join(braveDir, 'vendor')
-const syncDir = path.join(braveDir, 'components', 'brave_sync', 'extension')
+const syncDir = path.join(braveDir, 'components', 'brave_sync', 'extension', 'brave-sync')
 
 /**
  * Runs npm audit on a given directory located at pathname
@@ -21,7 +21,7 @@ function npmAudit (pathname) {
     console.log('Auditing', pathname)
     let cmdOptions = {
       cwd: pathname,
-      shell: process.platform === 'win32' ? true : false
+      shell: process.platform === 'win32'
     }
     util.run('npm', ['audit'], cmdOptions)
   } else {
@@ -31,9 +31,7 @@ function npmAudit (pathname) {
 
 npmAudit(baseDir)
 npmAudit(braveDir)
+npmAudit(syncDir)
 fs.readdirSync(braveVendorDir).forEach((dir) => {
   npmAudit(path.join(braveVendorDir, dir))
-})
-fs.readdirSync(syncDir).forEach((dir) => {
-  npmAudit(path.join(syncDir, dir))
 })
