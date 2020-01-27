@@ -61,6 +61,7 @@ pipeline {
                     agent { label "android-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
+                        QA_CODE = credentials("android-browser-qa-code")
                     }
                     stages {
                         stage("checkout") {
@@ -143,7 +144,10 @@ pipeline {
                                 script {
                                     config()
                                 }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm"
+                                sh """
+                                    npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
+                                """
                             }
                         }
                         stage("dist") {
