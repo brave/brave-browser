@@ -1,2 +1,6 @@
 # Licensing of third-party components
 lib/licensing.js @fmarier
+
+# Network auditor
+lib/whitelistedUrlPatterns.js @fmarier
+lib/whitelistedUrlPrefixes.js @fmarier
