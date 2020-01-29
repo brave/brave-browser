@@ -2,5 +2,5 @@
 lib/licensing.js @fmarier
 
 # Network auditor
-lib/whitelistedUrlPatterns.js @fmarier
-lib/whitelistedUrlPrefixes.js @fmarier
+lib/whitelistedUrlPatterns.js @brave/sec-team
+lib/whitelistedUrlPrefixes.js @brave/sec-team
