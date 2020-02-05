@@ -374,56 +374,56 @@ pipeline {
                                 sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}"
                             }
                         }
-                        stage("audit-network") {
-                            steps {
-                                timeout(time: 4, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
-                                    }
-                                }
-                            }
-                        }
-                        stage("test-unit") {
-                            steps {
-                                timeout(time: 60, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
-                                            xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                            xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        stage("test-browser") {
-                            steps {
-                                timeout(time: 20, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
-                                            xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        stage("dist") {
-                            steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
-                            }
-                        }
-                        stage("s3-upload") {
-                            steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    sh """
-                                        cd ${OUT_DIR}
-                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
-                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
-                                    """
-                                }
-                            }
-                        }
+                        // stage("audit-network") {
+                        //     steps {
+                        //         timeout(time: 4, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        // stage("test-unit") {
+                        //     steps {
+                        //         timeout(time: 60, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 script {
+                        //                     sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
+                        //                     xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                        //                     xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        // stage("test-browser") {
+                        //     steps {
+                        //         timeout(time: 20, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 script {
+                        //                     sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
+                        //                     xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        // stage("dist") {
+                        //     steps {
+                        //         sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
+                        //     }
+                        // }
+                        // stage("s3-upload") {
+                        //     steps {
+                        //         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //             sh """
+                        //                 cd ${OUT_DIR}
+                        //                 aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
+                        //                 aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
+                        //             """
+                        //         }
+                        //     }
+                        // }
                     }
                 }
                 stage("macos") {
@@ -603,8 +603,8 @@ pipeline {
                     }
                     agent {
                         node {
-                            label "windows-ci"
-                            customWorkspace "C:\\" + BRANCH[-4..-1]
+                            label "windows-test"
+                            customWorkspace "C:\\ws"
                         }
                     }
                     environment {
@@ -620,7 +620,7 @@ pipeline {
                     stages {
                         stage("checkout") {
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -663,11 +663,7 @@ pipeline {
                             }
                             steps {
                                 powershell """
-                                    Remove-Item -Recurse -Force src/brave
-                                    git gc
-                                    git -C vendor/depot_tools clean -fxd
-                                    \$ErrorActionPreference = "Stop"
-                                    npm run init
+                                    npm run sync -- --all
                                 """
                             }
                         }
@@ -680,30 +676,30 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        powershell """
-                                            \$ErrorActionPreference = "Stop"
-                                            npm run audit_deps
-                                        """
-                                    }
-                                }
-                            }
-                        }
-                        // stage("sccache") {
-                        //     when {
-                        //         allOf {
-                        //             expression { !DISABLE_SCCACHE }
-                        //         }
-                        //     }
+                        // stage("audit-deps") {
                         //     steps {
-                        //         script {
-                        //             sccacheWindows()
+                        //         timeout(time: 1, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 powershell """
+                        //                     \$ErrorActionPreference = "Stop"
+                        //                     npm run audit_deps
+                        //                 """
+                        //             }
                         //         }
                         //     }
                         // }
+                        stage("sccache") {
+                            when {
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
+                            }
+                            steps {
+                                script {
+                                    sccacheWindows()
+                                }
+                            }
+                        }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -719,68 +715,68 @@ pipeline {
                                 """
                             }
                         }
-                        stage("audit-network") {
-                            steps {
-                                timeout(time: 4, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        powershell """
-                                            \$ErrorActionPreference = "Stop"
-                                            npm run network-audit -- --output_path="${OUT_DIR}/brave.exe"
-                                        """
-                                    }
-                                }
-                            }
-                        }
-                        stage("test-unit") {
-                            steps {
-                                timeout(time: 60, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        powershell """
-                                            \$ErrorActionPreference = "Stop"
-                                            npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
-                                        """
-                                        xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                        xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                                    }
-                                }
-                            }
-                        }
-                        stage("dist") {
-                            environment {
-                                SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
-                                SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                            }
-                            steps {
-                                powershell """
-                                    \$ErrorActionPreference = "Stop"
-                                    (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
-                                """
-                            }
-                        }
-                        stage("test-install") {
-                            steps {
-                                timeout(time: 5, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        script {
-                                            testInstallWindows()
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        stage("s3-upload") {
-                            steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    powershell """
-                                        \$ErrorActionPreference = "Stop"
-                                        Set-Location -Path ${OUT_DIR}
-                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include ""brave_installer*.exe""
-                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveBrowser*Setup*.exe"
-                                    """
-                                }
-                            }
-                        }
+                        // stage("audit-network") {
+                        //     steps {
+                        //         timeout(time: 4, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 powershell """
+                        //                     \$ErrorActionPreference = "Stop"
+                        //                     npm run network-audit -- --output_path="${OUT_DIR}/brave.exe"
+                        //                 """
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        // stage("test-unit") {
+                        //     steps {
+                        //         timeout(time: 60, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 powershell """
+                        //                     \$ErrorActionPreference = "Stop"
+                        //                     npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml
+                        //                 """
+                        //                 xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                        //                 xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        // stage("dist") {
+                        //     environment {
+                        //         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                        //         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                        //     }
+                        //     steps {
+                        //         powershell """
+                        //             \$ErrorActionPreference = "Stop"
+                        //             (Get-Content src/brave/vendor/omaha/omaha/hammer-brave.bat) | % { \$_ -replace "10.0.15063.0\\\\", "" } | Set-Content src/brave/vendor/omaha/omaha/hammer-brave.bat
+                        //             npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --build_omaha --tag_ap=x64-${CHANNEL}
+                        //         """
+                        //     }
+                        // }
+                        // stage("test-install") {
+                        //     steps {
+                        //         timeout(time: 5, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 script {
+                        //                     testInstallWindows()
+                        //                 }
+                        //             }
+                        //         }
+                        //     }
+                        // }
+                        // stage("s3-upload") {
+                        //     steps {
+                        //         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //             powershell """
+                        //                 \$ErrorActionPreference = "Stop"
+                        //                 Set-Location -Path ${OUT_DIR}
+                        //                 aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include ""brave_installer*.exe""
+                        //                 aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveBrowser*Setup*.exe"
+                        //             """
+                        //         }
+                        //     }
+                        // }
                     }
                 }
             }
