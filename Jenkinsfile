@@ -290,7 +290,7 @@ pipeline {
                     stages {
                         stage("checkout") {
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("prepare-container") {
