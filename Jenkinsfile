@@ -129,7 +129,9 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                expression { !DISABLE_SCCACHE }
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
                             }
                             steps {
                                 script {
@@ -349,7 +351,9 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                expression { !DISABLE_SCCACHE }
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
                             }
                             steps {
                                 script {
@@ -366,9 +370,6 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
-                            when {
-                                expression { RUN_NETWORK_AUDIT }
-                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -496,7 +497,9 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                expression { !DISABLE_SCCACHE }
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
                             }
                             steps {
                                 script {
@@ -517,9 +520,6 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
-                            when {
-                                expression { RUN_NETWORK_AUDIT }
-                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -687,6 +687,18 @@ pipeline {
                                 }
                             }
                         }
+                        stage("sccache") {
+                            when {
+                                allOf {
+                                    expression { !DISABLE_SCCACHE }
+                                }
+                            }
+                            steps {
+                                script {
+                                    sccacheWindows()
+                                }
+                            }
+                        }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -703,9 +715,6 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
-                            when {
-                                expression { RUN_NETWORK_AUDIT }
-                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -828,7 +837,6 @@ def setEnv() {
         SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
         SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
         SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
-        RUN_NETWORK_AUDIT = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bbPrDetails.user.login]
         env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
@@ -848,7 +856,6 @@ def setEnv() {
             SKIP_LINUX = SKIP_LINUX || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
-            RUN_NETWORK_AUDIT = RUN_NETWORK_AUDIT || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
             env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
             env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bcPrDetails.number}"
             env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails.number}"
@@ -1015,6 +1022,14 @@ def lintWindows() {
 def sccache() {
     echo "Enabling sccache"
     sh "npm config --userconfig=.npmrc set sccache sccache"
+}
+
+def sccacheWindows() {
+    echo "Enabling sccache"
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        npm config --userconfig=.npmrc set sccache sccache
+    """
 }
 
 def config() {
