@@ -129,9 +129,7 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -356,9 +354,7 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -374,15 +370,18 @@ pipeline {
                                 sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}"
                             }
                         }
-                        // stage("audit-network") {
-                        //     steps {
-                        //         timeout(time: 4, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
-                        //             }
-                        //         }
-                        //     }
-                        // }
+                        stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
+                            steps {
+                                timeout(time: 4, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
+                                    }
+                                }
+                            }
+                        }
                         // stage("test-unit") {
                         //     steps {
                         //         timeout(time: 60, unit: "MINUTES") {
@@ -424,6 +423,7 @@ pipeline {
                         //         }
                         //     }
                         // }
+                        
                     }
                 }
                 stage("macos") {
@@ -502,9 +502,7 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -525,6 +523,9 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -715,18 +716,21 @@ pipeline {
                                 """
                             }
                         }
-                        // stage("audit-network") {
-                        //     steps {
-                        //         timeout(time: 4, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 powershell """
-                        //                     \$ErrorActionPreference = "Stop"
-                        //                     npm run network-audit -- --output_path="${OUT_DIR}/brave.exe"
-                        //                 """
-                        //             }
-                        //         }
-                        //     }
-                        // }
+                        stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
+                            steps {
+                                timeout(time: 4, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        powershell """
+                                            \$ErrorActionPreference = "Stop"
+                                            npm run network-audit -- --output_path="${OUT_DIR}/brave.exe"
+                                        """
+                                    }
+                                }
+                            }
+                        }
                         // stage("test-unit") {
                         //     steps {
                         //         timeout(time: 60, unit: "MINUTES") {
@@ -825,6 +829,7 @@ def setEnv() {
     SKIP_LINUX = false
     SKIP_MACOS = false
     SKIP_WINDOWS = false
+    RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
@@ -838,6 +843,7 @@ def setEnv() {
         SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
         SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
         SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+        RUN_NETWORK_AUDIT = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bbPrDetails.user.login]
         env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
@@ -857,6 +863,7 @@ def setEnv() {
             SKIP_LINUX = SKIP_LINUX || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+            RUN_NETWORK_AUDIT = RUN_NETWORK_AUDIT || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
             env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
             env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bcPrDetails.number}"
             env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails.number}"
@@ -1023,14 +1030,6 @@ def lintWindows() {
 def sccache() {
     echo "Enabling sccache"
     sh "npm config --userconfig=.npmrc set sccache sccache"
-}
-
-def sccacheWindows() {
-    echo "Enabling sccache"
-    powershell """
-        \$ErrorActionPreference = "Stop"
-        npm config --userconfig=.npmrc set sccache sccache
-    """
 }
 
 def config() {
