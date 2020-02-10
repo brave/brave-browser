@@ -841,7 +841,7 @@ def setEnv() {
         def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0]
         if (bcPrDetails) {
             env.BC_PR_NUMBER = bcPrDetails.number
-            bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
+            bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" + env.BC_PR_NUMBER, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
@@ -1065,50 +1065,38 @@ def testInstallWindows() {
         \$ErrorActionPreference = "Stop"
         Stop-Process -Name "Brave*" -Force
         Start-Process "${OUT_DIR}/brave_installer.exe"
-        # sleep 60s
         Start-Sleep -Second 60
-        # open Brave Browser
         Start-Process "C:\\Users\\Administrator\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
-        # make sure there are brave process
         \$Service = Get-Process | Where {\$_.ProcessName -eq "brave"}
-        If (\$Service) { "Brave Browser was installed and running"  }
+        If (\$Service) {
+            "Brave Browser was installed and running"
+        }
         Else {
-            "Brave Browser was not running"
+            "Brave Browser was not running after install"
             exit 1
         }
-        # Stop brave
         Stop-Process -Name "Brave*" -Force
         Remove-Item -Recurse -Force "C:\\Users\\Administrator\\Desktop\\Brave*"
     """
 }
 
 def testInstallMac() {
-    sh '''
-        if [ -z ${CHANNEL} ]; then
-            BROWSER="Brave Browser Nightly"
-            BUILD_TYPE="Release"
-            SKIP_SIGNING=true
+    sh """
+        if [ ${SKIP_SIGNING} = true ]; then
+            hdiutil attach -nobrowse "${OUT_DIR}/unsigned_dmg/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.dmg"
         else
-            if [ ${CHANNEL} = "release" ]; then CHANNEL_CAPITALIZED_SPACED=""; else CHANNEL_CAPITALIZED="$(tr '[:lower:]' '[:upper:]' <<< ${CHANNEL:0:1})${CHANNEL:1}"; fi
-            if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
-        fi
-        OUT_DIR="${WORKSPACE}/src/out/${BUILD_TYPE}"
-        if [ ${SKIP_SIGNING} = true ] ; then
-            hdiutil attach -nobrowse "${OUT_DIR}/unsigned_dmg/${BROWSER}.dmg"
-        else
-            hdiutil attach -nobrowse "${OUT_DIR}/${BROWSER}.dmg"
+            hdiutil attach -nobrowse "${OUT_DIR}/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.dmg"
         fi
         sleep 10
-        open "/Volumes/${BROWSER}/${BROWSER}.app"
+        open "/Volumes/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}/Brave Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app"
         sleep 10
         pkill Brave
         VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
         declare -a arr=($VOLUME)
-        # loop through the above array to eject all volumes
         for i in "${arr[@]}"
         do
             diskutil unmountDisk force $i
             diskutil eject $i
         done
-    '''
+    """
 }
