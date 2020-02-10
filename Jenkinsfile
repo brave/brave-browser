@@ -20,7 +20,6 @@ pipeline {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_SERVICES_KEY = credentials("brave-services-key")
         BRAVE_INFURA_PROJECT_ID = credentials("brave-infura-project-id")
-        BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
@@ -1023,8 +1022,6 @@ def config() {
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
-        npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
@@ -1037,8 +1034,6 @@ def configWindows() {
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
-        npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
