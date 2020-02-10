@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.115](https://github.com/brave/brave-browser/releases/tag/v1.3.115)
+
+ - Fixed several crashes and stability issues by temporarily disabling sync. ([#7781](https://github.com/brave/brave-browser/issues/7781))
+
 ## [1.3.113](https://github.com/brave/brave-browser/releases/tag/v1.3.113)
 
  - Added New Tab Page Sponsored Images. ([#7883](https://github.com/brave/brave-browser/issues/7883))
