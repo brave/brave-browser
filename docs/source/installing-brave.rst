@@ -36,6 +36,8 @@ Fedora 28+, CentOS/RHEL 8+
 --------------------------
 ::
 
+    sudo dnf install dnf-plugins-core
+
     sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 
     sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -77,6 +79,8 @@ Debian 9+, Ubuntu 14.04+ and Mint 17+
 Fedora 28+, CentOS/RHEL 8+
 --------------------------
 ::
+
+    sudo dnf install dnf-plugins-core
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-beta.s3.brave.com/x86_64/
 
@@ -120,6 +124,8 @@ Fedora 28+, CentOS/RHEL 8+
 --------------------------
 ::
 
+    sudo dnf install dnf-plugins-core
+
     sudo dnf config-manager --add-repo https://brave-browser-rpm-dev.s3.brave.com/x86_64/
 
     sudo rpm --import https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
@@ -161,6 +167,8 @@ Debian 9+, Ubuntu 14.04+ and Mint 17+
 Fedora 28+, CentOS/RHEL 8+
 --------------------------
 ::
+
+    sudo dnf install dnf-plugins-core
 
     sudo dnf config-manager --add-repo https://brave-browser-rpm-nightly.s3.brave.com/x86_64/
 
