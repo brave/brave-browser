@@ -1084,6 +1084,15 @@ def testInstallWindows() {
 
 def testInstallMac() {
     sh '''
+        # eject all existing volume first for brave
+        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
+        declare -a arr=($VOLUME)
+        # loop through the above array to eject all volumes
+        for i in "${arr[@]}"
+        do
+            diskutil unmountDisk force $i
+            diskutil eject $i
+        done
         if [ -z ${CHANNEL} ]; then
             BROWSER="Brave Browser Nightly"
             BUILD_TYPE="Release"
