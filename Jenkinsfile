@@ -660,7 +660,7 @@ pipeline {
                         }
                         stage("init") {
                             when {
-                                expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
+                                expression { !SKIP_INIT }
                             }
                             steps {
                                 powershell """
@@ -674,7 +674,7 @@ pipeline {
                         }
                         stage("sync") {
                             when {
-                                expression { !SKIP_INIT }
+                                expression { SKIP_INIT }
                             }
                             steps {
                                 powershell """
