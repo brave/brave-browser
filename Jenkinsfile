@@ -11,7 +11,7 @@ pipeline {
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
         booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
-        booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
+        booleanParam(name: "SKIP_INIT", defaultValue: true, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
         booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
@@ -621,7 +621,7 @@ pipeline {
                     stages {
                         stage("checkout") {
                             steps {
-                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
+                                checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
                         stage("pin") {
@@ -661,6 +661,20 @@ pipeline {
                         stage("init") {
                             when {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
+                            }
+                            steps {
+                                powershell """
+                                    Remove-Item -Recurse -Force src/brave
+                                    git gc
+                                    git -C vendor/depot_tools clean -fxd
+                                    \$ErrorActionPreference = "Stop"
+                                    npm run init
+                                """
+                            }
+                        }
+                        stage("sync") {
+                            when {
+                                expression { !SKIP_INIT }
                             }
                             steps {
                                 powershell """
