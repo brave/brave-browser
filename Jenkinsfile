@@ -1023,7 +1023,7 @@ def config() {
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.brave.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
@@ -1037,7 +1037,7 @@ def configWindows() {
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.brave.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
