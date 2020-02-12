@@ -17,6 +17,7 @@ pipeline {
         booleanParam(name: "DEBUG", defaultValue: false, description: "")
     }
     environment {
+        GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_SERVICES_KEY = credentials("brave-services-key")
         BRAVE_INFURA_PROJECT_ID = credentials("brave-infura-project-id")
@@ -28,8 +29,10 @@ pipeline {
     stages {
         stage("env") {
             steps {
-                script {
-                    setEnv()
+                withCredentials([usernamePassword(credentialsId: "${GITHUB_CREDENTIAL_ID}", usernameVariable: "PR_BUILDER_USER", passwordVariable: "PR_BUILDER_TOKEN")]) {
+                    script {
+                        setEnv()
+                    }
                 }
             }
         }
@@ -808,7 +811,6 @@ def setEnv() {
     LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
     BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     GITHUB_API = "https://api.github.com/repos/brave"
-    GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
     SKIP = false
     SKIP_ANDROID = false
     SKIP_IOS = false
@@ -821,8 +823,8 @@ def setEnv() {
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
         BASE_BRANCH = env.CHANGE_TARGET
-        def bbPrNumber = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${GITHUB_CREDENTIAL_ID}"]], url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, quiet: !DEBUG).content)[0].number
-        def bbPrDetails = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${GITHUB_CREDENTIAL_ID}"]], url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, quiet: !DEBUG).content)
+        def bbPrNumber = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, quiet: !DEBUG).content)[0].number
+        def bbPrDetails = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
         SKIP_ANDROID = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
         SKIP_IOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
@@ -836,12 +838,12 @@ def setEnv() {
         env.BRANCH_PRODUCTIVITY_DESCRIPTION = bbPrDetails.title
         env.BRANCH_PRODUCTIVITY_USER = env.SLACK_USERNAME ?: bbPrDetails.user.login
     }
-    BRANCH_EXISTS_IN_BC = httpRequest(customHeaders: [[name: "Authorization", value: "token ${GITHUB_CREDENTIAL_ID}"]], url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", quiet: !DEBUG).status.equals(200)
+    BRANCH_EXISTS_IN_BC = httpRequest(customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", quiet: !DEBUG).status.equals(200)
     if (BRANCH_EXISTS_IN_BC) {
-        def bcPrDetails = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${GITHUB_CREDENTIAL_ID}"]], url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, quiet: !DEBUG).content)[0]
+        def bcPrDetails = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, quiet: !DEBUG).content)[0]
         if (bcPrDetails) {
             env.BC_PR_NUMBER = bcPrDetails.number
-            bcPrDetails = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${GITHUB_CREDENTIAL_ID}"]], url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, quiet: !DEBUG).content)
+            bcPrDetails = readJSON(text: httpRequest(customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
