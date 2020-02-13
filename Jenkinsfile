@@ -664,10 +664,10 @@ pipeline {
                             }
                             steps {
                                 powershell """
-                                    #Remove-Item -Recurse -Force src/brave
-                                    #git gc
-                                    #git -C vendor/depot_tools clean -fxd
-                                    #\$ErrorActionPreference = "Stop"
+                                    Remove-Item -Recurse -Force src/brave
+                                    git gc
+                                    git -C vendor/depot_tools clean -fxd
+                                    \$ErrorActionPreference = "Stop"
                                     npm run init
                                 """
                             }
