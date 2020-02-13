@@ -92,15 +92,6 @@ pipeline {
                                 sh "npm run test:scripts -- --verbose"
                             }
                         }
-                        stage("prepare-container") {
-                            when {
-                                expression { NODE_NAME ==~ /.*ecs.*/ }
-                            }
-                            steps {
-                                //enable overcommit memory for test browser
-                                sh "sudo sysctl vm.overcommit_memory=1"
-                            }
-                        }
                         stage("init") {
                             when {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
