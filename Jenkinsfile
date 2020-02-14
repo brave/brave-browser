@@ -130,9 +130,7 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -347,9 +345,7 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -366,6 +362,9 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -493,9 +492,7 @@ pipeline {
                         }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -516,6 +513,9 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -683,18 +683,6 @@ pipeline {
                                 }
                             }
                         }
-                        stage("sccache") {
-                            when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
-                            }
-                            steps {
-                                script {
-                                    sccacheWindows()
-                                }
-                            }
-                        }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -711,6 +699,9 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -822,6 +813,7 @@ def setEnv() {
     SKIP_LINUX = false
     SKIP_MACOS = false
     SKIP_WINDOWS = false
+    RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
@@ -835,6 +827,7 @@ def setEnv() {
         SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
         SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
         SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+        RUN_NETWORK_AUDIT = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bbPrDetails.user.login]
         env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
@@ -854,6 +847,7 @@ def setEnv() {
             SKIP_LINUX = SKIP_LINUX || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+            RUN_NETWORK_AUDIT = RUN_NETWORK_AUDIT || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
             env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
             env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bcPrDetails.number}"
             env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails.number}"
@@ -1022,14 +1016,6 @@ def sccache() {
     sh "npm config --userconfig=.npmrc set sccache sccache"
 }
 
-def sccacheWindows() {
-    echo "Enabling sccache"
-    powershell """
-        \$ErrorActionPreference = "Stop"
-        npm config --userconfig=.npmrc set sccache sccache
-    """
-}
-
 def config() {
     sh """
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
@@ -1098,8 +1084,23 @@ def testInstallWindows() {
 
 def testInstallMac() {
     sh '''
-        if [ ${CHANNEL} = "release" ]; then CHANNEL_CAPITALIZED_SPACED=""; else CHANNEL_CAPITALIZED="$(tr '[:lower:]' '[:upper:]' <<< ${CHANNEL:0:1})${CHANNEL:1}"; fi
-        if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
+        # eject all existing volume first for brave
+        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
+        declare -a arr=($VOLUME)
+        # loop through the above array to eject all volumes
+        for i in "${arr[@]}"
+        do
+            diskutil unmountDisk force $i
+            diskutil eject $i
+        done
+        if [ -z ${CHANNEL} ]; then
+            BROWSER="Brave Browser Nightly"
+            BUILD_TYPE="Release"
+            SKIP_SIGNING=true
+        else
+            if [ ${CHANNEL} = "release" ]; then CHANNEL_CAPITALIZED_SPACED=""; else CHANNEL_CAPITALIZED="$(tr '[:lower:]' '[:upper:]' <<< ${CHANNEL:0:1})${CHANNEL:1}"; fi
+            if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
+        fi
         OUT_DIR="${WORKSPACE}/src/out/${BUILD_TYPE}"
         if [ ${SKIP_SIGNING} = true ] ; then
             hdiutil attach -nobrowse "${OUT_DIR}/unsigned_dmg/${BROWSER}.dmg"
