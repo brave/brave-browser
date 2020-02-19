@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## [1.3.118](https://github.com/brave/brave-browser/releases/tag/v1.3.118)
 
  - Added flag under brave://flags to re-enable sync. ([#8187](https://github.com/brave/brave-browser/issues/8187))
