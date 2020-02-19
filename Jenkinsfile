@@ -279,11 +279,11 @@ pipeline {
                     agent {
                         node {
                             label "linux-test"
-                            customWorkspace "/home/ubuntu/ws"
                         }
                     }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
+                        NO_AUTH_BOTO_CONFIG = "/home/ubuntu/.boto"
                     }
                     stages {
                         stage("checkout") {
@@ -330,7 +330,7 @@ pipeline {
                             }
                             steps {
                                 sh """
-                                    npm run sync -- --all
+                                    http_proxy=http://127.0.0.1:3128 https_proxy=http://127.0.0.1:3128 HTTP_PROXY=http://127.0.0.1:3128 HTTPS_PROXY=http://127.0.0.1:3128 npm run init
                                 """
                             }
                         }
@@ -362,26 +362,26 @@ pipeline {
                                 }
                             }
                         }
-                        stage("build") {
-                            steps {
-                                script {
-                                    config()
-                                }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}"
-                            }
-                        }
-                        stage("audit-network") {
-                            when {
-                                expression { RUN_NETWORK_AUDIT }
-                            }
-                            steps {
-                                timeout(time: 4, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
-                                    }
-                                }
-                            }
-                        }
+                        // stage("build") {
+                        //     steps {
+                        //         script {
+                        //             config()
+                        //         }
+                        //         sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}"
+                        //     }
+                        // }
+                        // stage("audit-network") {
+                        //     when {
+                        //         expression { RUN_NETWORK_AUDIT }
+                        //     }
+                        //     steps {
+                        //         timeout(time: 4, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
+                        //             }
+                        //         }
+                        //     }
+                        // }
                         // stage("test-unit") {
                         //     steps {
                         //         timeout(time: 60, unit: "MINUTES") {
