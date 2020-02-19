@@ -1,5 +1,18 @@
 # Changelog
 
+
+## [1.3.118](https://github.com/brave/brave-browser/releases/tag/v1.3.118)
+
+ - Added flag under brave://flags to re-enable sync. ([#8187](https://github.com/brave/brave-browser/issues/8187))
+ - Improved P3A metrics for wallet states. ([#8187](https://github.com/brave/brave-browser/issues/8187))
+ - Reduced interval between P3A pings from 1 hour to 1 minute. ([#8084](https://github.com/brave/brave-browser/issues/8084))
+ - Fixed tokens not being successfully unblinded in certain cases leading to reduced balances. ([#8207](https://github.com/brave/brave-browser/issues/8207))
+ - Fixed sync crash when re-creating a new sync chain. ([#7412](https://github.com/brave/brave-browser/issues/7412))
+ - Fixed three consecutive sync updates will result in data deletion. ([#8203](https://github.com/brave/brave-browser/issues/8203))
+ - Fixed sync crash in certain cases. ([#8228](https://github.com/brave/brave-browser/issues/8228))
+ - Fixed incorrect Terms of Service link being used during onboarding and the rewards panel. ([#8229](https://github.com/brave/brave-browser/issues/8229))
+ - Upgraded Chromium to 80.0.3987.116. ([#8304](https://github.com/brave/brave-browser/issues/8304))
+
 ## [1.3.115](https://github.com/brave/brave-browser/releases/tag/v1.3.115)
 
  - Fixed several crashes and stability issues by temporarily disabling sync. ([#7781](https://github.com/brave/brave-browser/issues/7781))
