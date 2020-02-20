@@ -18,6 +18,7 @@ const l10nDeleteTranslations = require('../lib/l10nDeleteTranslations')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
+const coverage = require('../lib/coverage')
 
 const collect = (value, accumulator) => {
   accumulator.push(value)
@@ -173,6 +174,28 @@ program
   .command('lint')
   .option('--base <base branch>', 'set the destination branch for the PR')
   .action(util.lint)
+  
+program
+  .command('coverage')
+  .option('-C <build_dir>', 'build config (out/Debug, out/Release')
+  .option('--target_os <target_os>', 'target OS')
+  .option('--target_arch <target_arch>', 'target architecture')
+  .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic')
+  .option('--android_override_version_name <android_override_version_name>', 'Android version number')
+  .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
+  .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
+  .option('--brave_google_api_key <brave_google_api_key>')
+  .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
+  .option('--brave_infura_project_id <brave_infura_project_id>')
+  .option('--channel <target_channel>', 'target channel to build', /^(beta|dev|nightly|release)$/i)
+  .option('--ignore_compile_failure', 'Keep compiling regardless of error')
+  .option('--skip_signing', 'skip signing binaries')
+  .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
+  .option('--gn <arg>', 'Additional gn args, in the form <key>:<value>', collect, [])
+  .option('--ninja <opt>', 'Additional Ninja command-line options, in the form <key>:<value>', collect, [])
+  .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
+  .arguments('[build_config]')
+  .action(coverage)
 
 program
   .parse(process.argv)

@@ -22,7 +22,8 @@
     "lint": "node ./scripts/commands.js lint",
     "test": "node ./scripts/commands.js test",
     "test:scripts": "jest lib scripts",
-    "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
+    "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test",
+    "coverage": "node ./scripts/commands.js coverage"
   },
   "config": {
     "projects": {
