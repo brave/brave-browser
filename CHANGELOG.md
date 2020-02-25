@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.4.95](https://github.com/brave/brave-browser/releases/tag/v1.4.95)
+
+ - Added the ability to look up an archived page using the Wayback Machine. ([#6144](https://github.com/brave/brave-browser/issues/6144))
+ - Added option in brave://settings to disable Tor component. ([#6808](https://github.com/brave/brave-browser/issues/6808))
+ - Updated order of certain items on the hamburger menu. ([#5552](https://github.com/brave/brave-browser/issues/5552))
+ - Updated theme selection to be per install instead of per profile. ([#5373](https://github.com/brave/brave-browser/issues/5373))
+ - Fixed sync crash in certain cases. ([#8178](https://github.com/brave/brave-browser/issues/8178))
+ - Fixed ads history being limited to 99 entries. ([#8046](https://github.com/brave/brave-browser/issues/8046))
+ - Fixed ads history entries not being displayed in reverse chronological order. ([#6757](https://github.com/brave/brave-browser/issues/6757))
+ - Fixed ads history showing incorrect date on Linux. ([#6088](https://github.com/brave/brave-browser/issues/6088))
+ - Fixed multiple landed confirmations being created in certain cases. ([#7249](https://github.com/brave/brave-browser/issues/7249))
+ - Fixed broken formatting of monthly contributions on brave://rewards for some locales. ([#7296](https://github.com/brave/brave-browser/issues/7296))
+ - Fixed rewards notification icon not being shown on verified publisher sites. ([#7121](https://github.com/brave/brave-browser/issues/7121))
+ - Fixed extensions being blocked when verifying Brave Rewards wallet. ([#6309](https://github.com/brave/brave-browser/issues/6309))
+ - Fixed "too many redirects" error caused by Brave's user-agent. ([#6966](https://github.com/brave/brave-browser/issues/6966))
+ - Fixed P3A toggle selection not being respected in all open windows. ([#7289](https://github.com/brave/brave-browser/issues/7289))
+ - Upgraded Chromium to 80.0.3987.122. ([#8379](https://github.com/brave/brave-browser/issues/8379))
+
 ## [1.3.118](https://github.com/brave/brave-browser/releases/tag/v1.3.118)
 
  - Added flag under brave://flags to re-enable sync. ([#8187](https://github.com/brave/brave-browser/issues/8187))
