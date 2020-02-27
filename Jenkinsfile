@@ -106,10 +106,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        lint()
-                                    }
+                                script {
+                                    lint()
                                 }
                             }
                         }
@@ -208,10 +206,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        lint()
-                                    }
+                                script {
+                                    lint()
                                 }
                             }
                         }
@@ -326,10 +322,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        lint()
-                                    }
+                                script {
+                                    lint()
                                 }
                             }
                         }
@@ -472,10 +466,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        lint()
-                                    }
+                                script {
+                                    lint()
                                 }
                             }
                         }
@@ -662,10 +654,8 @@ pipeline {
                         }
                         stage("lint") {
                             steps {
-                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    script {
-                                        lintWindows()
-                                    }
+                                script {
+                                    lintWindows()
                                 }
                             }
                         }
@@ -799,7 +789,7 @@ def setEnv() {
     DEBUG = params.DEBUG
     OUT_DIR = "src/out/" + BUILD_TYPE
     BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
-    LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
+    LINT_BRANCH = "temp-lint-branch" + env.BUILD_NUMBER
     BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     GITHUB_API = "https://api.github.com/repos/brave"
     SKIP = false
@@ -865,13 +855,9 @@ def checkAndAbortBuild() {
             if (env.BC_PR_NUMBER) {
                 echo "Aborting build as PR exists in brave-core and build has not been started from there"
                 echo "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger"
+                SKIP = true
+                stopCurrentBuild()
             }
-            else {
-                echo "Aborting build as there's a matching branch in brave-core, please create a PR there first"
-                echo "Use https://github.com/brave/brave-core/compare/" + BASE_BRANCH + "..." + BRANCH + " to create PR"
-            }
-            SKIP = true
-            stopCurrentBuild()
         }
     }
     if (!SKIP) {
@@ -973,24 +959,26 @@ def install() {
 
 def lint() {
     sh """
-        git -C src/brave config user.name jenkins
-        git -C src/brave config user.email no@reply.com
-        git -C src/brave checkout -b ${LINT_BRANCH}
+        cd src/brave
+        git config user.name jenkins
+        git config user.email no@reply.com
+        git checkout -q -b ${LINT_BRANCH}
         npm run lint -- --base=origin/${BASE_BRANCH}
-        git -C src/brave checkout -q -
-        git -C src/brave branch -D ${LINT_BRANCH}
+        git checkout -q -
+        git branch -D ${LINT_BRANCH}
     """
 }
 
 def lintWindows() {
     powershell """
         \$ErrorActionPreference = "Stop"
-        git -C src/brave config user.name jenkins
-        git -C src/brave config user.email no@reply.com
-        git -C src/brave checkout -b ${LINT_BRANCH}
+        cd src/brave
+        git config user.name jenkins
+        git config user.email no@reply.com
+        git checkout -q -b ${LINT_BRANCH}
         npm run lint -- --base=origin/${BASE_BRANCH}
-        git -C src/brave checkout -q -
-        git -C src/brave branch -D ${LINT_BRANCH}
+        git checkout -q -
+        git branch -D ${LINT_BRANCH}
     """
 }
 
