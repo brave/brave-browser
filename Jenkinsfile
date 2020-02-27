@@ -48,7 +48,6 @@ pipeline {
             steps {
                 sh "echo ${BUILD_URL} > build.txt"
                 s3Upload(bucket: BRAVE_ARTIFACTS_S3_BUCKET, path: BUILD_TAG_SLASHED, includePathPattern: "build.txt")
-                buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
             }
         }
         stage("build-all") {
