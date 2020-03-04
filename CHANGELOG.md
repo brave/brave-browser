@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.4.96](https://github.com/brave/brave-browser/releases/tag/v1.4.96)
+
+ - Fixed Wayback Machine connections not going through Tor when checking for archived pages while in a Tor window. ([#8419](https://github.com/brave/brave-browser/issues/8419))
+ - Fixed crash when calculating the winning page classification category in certain cases. ([#7866](https://github.com/brave/brave-browser/issues/7866))
+ - Fixed sync crash when multiple bookmarks have the same object id. ([#8325](https://github.com/brave/brave-browser/issues/8325))
+ - Fixed audio not being played on https://meet.google.com and other sites due to autoplay being blocked. ([#4621](https://github.com/brave/brave-browser/issues/4621))
+ - Fixed button padding on the "Top sites removed." confirmation modal under New Tab Pages. ([#8282](https://github.com/brave/brave-browser/issues/8282))
+ - Upgraded Chromium to 80.0.3987.132. ([#8499](https://github.com/brave/brave-browser/issues/8499))
+
 ## [1.4.95](https://github.com/brave/brave-browser/releases/tag/v1.4.95)
 
  - Added the ability to look up an archived page using the Wayback Machine. ([#6144](https://github.com/brave/brave-browser/issues/6144))
