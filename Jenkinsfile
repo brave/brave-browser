@@ -319,44 +319,32 @@ pipeline {
                             }
                             steps {
                                 sh """
+                                    sudo DEBIAN_FRONTEND=noninteractive apt-install -q update
+                                    sudo DEBIAN_FRONTEND=noninteractive apt-install -q -y install squid
+
 cat > /home/ubuntu/.boto <<EOL
 [Boto]
 proxy = 127.0.0.1
 proxy_port = 3128
 EOL
 
-cat > /home/ubuntu/squid.conf <<EOL
+sudo cat > /etc/squid/squid.conf <<EOL
+http_access allow all
 http_port 3128
-
-acl localnet src 10.0.0.0/8     # RFC1918 possible internal network
-acl localnet src 172.16.0.0/12  # RFC1918 possible internal network
-acl localnet src 192.168.0.0/16 # RFC1918 possible internal network
-acl localnet src fc00::/7       # RFC 4193 local private network range
-acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
-
-acl CONNECT method CONNECT
-
-http_access allow localhost manager
-http_access deny manager
-
-http_access allow localnet
-http_access allow localhost
-http_access deny all
-
-cache_dir ufs /var/spool/squid 30720 16 256
-maximum_object_size 4 GB
-# cache_mem 16 GB
-# maximum_object_size_in_memory 4 GB
 cache_replacement_policy heap LFUDA
+cache_dir ufs /home/ubuntu/squid 30720 16 256
 range_offset_limit -1
 quick_abort_min -1 KB
+maximum_object_size 1024 MB
+refresh_pattern ^ftp: 1440 20% 10080
+refresh_pattern ^gopher: 1440 0% 1440
+refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
+refresh_pattern -i .(deb|rpm|exe|zip|tar|tgz|bz2|gz)$ 10080 90% 43200 override-expire ignore-no-cache ignore-no-store ignore-private
+refresh_pattern . 0 40% 40320
+refresh_all_ims on
 EOL
 
-                                    mkdir /home/ubuntu/squid || true
-                                    docker run --name squid -d --rm -p 3128:3128 --volume /home/ubuntu/squid:/var/spool/squid --volume /home/ubuntu/squid.conf:/etc/squid/squid.conf sameersbn/squid || true
-                                    docker restart squid
-                                    # docker run --name squid -d --rm --publish 3128:3128 --mount type=bind,source=sq,target=/etc/squid sameersbn/squid
-                                    # docker run --name squid -d -p 3128:3128 --volume ~/squid:/var/spool/squid datadog/squid
+                                    service squid restart
                                     rm -rf src/brave
                                     http_proxy=http://127.0.0.1:3128 https_proxy=http://127.0.0.1:3128 HTTP_PROXY=http://127.0.0.1:3128 HTTPS_PROXY=http://127.0.0.1:3128 npm run init
                                 """
