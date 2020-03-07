@@ -342,7 +342,9 @@ refresh_pattern -i .(deb|rpm|exe|zip|tar|tgz|bz2|gz)\$ 10080 90% 43200 override-
 refresh_pattern . 0 40% 40320
 refresh_all_ims on" | sudo tee /etc/squid/squid.conf
 
-                                    service squid restart
+                                    mkdir /home/ubuntu/squid || true
+                                    chmod -R 777 /home/ubuntu/squid
+                                    sudo service squid restart
                                     rm -rf src/brave
                                     http_proxy=http://127.0.0.1:3128 https_proxy=http://127.0.0.1:3128 HTTP_PROXY=http://127.0.0.1:3128 HTTPS_PROXY=http://127.0.0.1:3128 npm run init
                                 """
