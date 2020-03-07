@@ -319,8 +319,8 @@ pipeline {
                             }
                             steps {
                                 sh """
-                                    sudo DEBIAN_FRONTEND=noninteractive apt-install -q update
-                                    sudo DEBIAN_FRONTEND=noninteractive apt-install -q -y install squid
+                                    sudo DEBIAN_FRONTEND=noninteractive apt-get -q update
+                                    sudo DEBIAN_FRONTEND=noninteractive apt-get -q -y install squid
 
 cat > /home/ubuntu/.boto <<EOL
 [Boto]
