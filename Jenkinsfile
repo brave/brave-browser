@@ -339,7 +339,7 @@ maximum_object_size 1024 MB
 refresh_pattern ^ftp: 1440 20% 10080
 refresh_pattern ^gopher: 1440 0% 1440
 refresh_pattern -i (/cgi-bin/|\\?) 0 0% 0
-refresh_pattern -i .(deb|rpm|exe|zip|tar|tgz|bz2|gz)$ 10080 90% 43200 override-expire ignore-no-cache ignore-no-store ignore-private
+refresh_pattern -i .(deb|rpm|exe|zip|tar|tgz|bz2|gz)\$ 10080 90% 43200 override-expire ignore-no-cache ignore-no-store ignore-private
 refresh_pattern . 0 40% 40320
 refresh_all_ims on
 EOL
