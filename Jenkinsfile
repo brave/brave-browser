@@ -322,14 +322,13 @@ pipeline {
                                     sudo DEBIAN_FRONTEND=noninteractive apt-get -q update
                                     sudo DEBIAN_FRONTEND=noninteractive apt-get -q -y install squid
 
-cat > /home/ubuntu/.boto <<EOL
+echo > /home/ubuntu/.boto <<EOL
 [Boto]
 proxy = 127.0.0.1
 proxy_port = 3128
 EOL
 
-sudo cat > /etc/squid/squid.conf <<EOL
-http_access allow all
+echo "http_access allow all
 http_port 3128
 cache_replacement_policy heap LFUDA
 cache_dir ufs /home/ubuntu/squid 30720 16 256
@@ -341,8 +340,7 @@ refresh_pattern ^gopher: 1440 0% 1440
 refresh_pattern -i (/cgi-bin/|\\?) 0 0% 0
 refresh_pattern -i .(deb|rpm|exe|zip|tar|tgz|bz2|gz)\$ 10080 90% 43200 override-expire ignore-no-cache ignore-no-store ignore-private
 refresh_pattern . 0 40% 40320
-refresh_all_ims on
-EOL
+refresh_all_ims on" | sudo tee /etc/squid/squid.conf
 
                                     service squid restart
                                     rm -rf src/brave
