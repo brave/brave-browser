@@ -272,12 +272,12 @@ pipeline {
                     
                     agent {
                         node {
-                            label "linux-test"
+                            label "linux-ci-backup"
                         }
                     }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
-                        NO_AUTH_BOTO_CONFIG = "/home/ubuntu/.boto"
+                        
                     }
                     stages {
                         stage("checkout") {
@@ -324,7 +324,9 @@ pipeline {
                             }
                             steps {
                                 sh """
-                                    http_proxy=http://127.0.0.1:3128 https_proxy=http://127.0.0.1:3128 HTTP_PROXY=http://127.0.0.1:3128 HTTPS_PROXY=http://127.0.0.1:3128 npm run init
+                                    rm -rf src/brave
+                                    git -C vendor/depot_tools clean -fxd
+                                    npm run init
                                 """
                             }
                         }
@@ -337,33 +339,33 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
-                                    }
-                                }
-                            }
-                        }
-                        stage("sccache") {
-                            when {
-                                expression { !DISABLE_SCCACHE }
-                            }
-                            steps {
-                                script {
-                                    sccache()
-                                }
-                            }
-                        }
-                        // stage("build") {
+                        // stage("audit-deps") {
                         //     steps {
-                        //         script {
-                        //             config()
+                        //         timeout(time: 1, unit: "MINUTES") {
+                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                        //                 sh "npm run audit_deps"
+                        //             }
                         //         }
-                        //         sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}"
                         //     }
                         // }
+                        // stage("sccache") {
+                        //     when {
+                        //         expression { !DISABLE_SCCACHE }
+                        //     }
+                        //     steps {
+                        //         script {
+                        //             sccache()
+                        //         }
+                        //     }
+                        // }
+                        stage("build") {
+                            steps {
+                                script {
+                                    config()
+                                }
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=win --target_arch=x64 "
+                            }
+                        }
                         // stage("audit-network") {
                         //     when {
                         //         expression { RUN_NETWORK_AUDIT }
