@@ -112,15 +112,6 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
-                                    }
-                                }
-                            }
-                        }
                         stage("sccache") {
                             when {
                                 expression { !DISABLE_SCCACHE }
@@ -210,15 +201,6 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
-                                    }
-                                }
-                            }
-                        }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -328,15 +310,6 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
-                                    }
-                                }
-                            }
-                        }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -474,15 +447,6 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
-                                    }
-                                }
-                            }
-                        }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -664,18 +628,6 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lintWindows()
-                                    }
-                                }
-                            }
-                        }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        powershell """
-                                            \$ErrorActionPreference = "Stop"
-                                            npm run audit_deps
-                                        """
                                     }
                                 }
                             }
