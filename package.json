@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.5.43",
+  "version": "1.8.2",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -28,7 +28,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "79.0.3945.130",
+        "tag": "80.0.3987.132",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
@@ -264,6 +264,6 @@
   },
   "devDependencies": {
     "ip": "^1.1.5",
-    "jest": "^24.8.0"
+    "jest": "^25.1.0"
   }
 }

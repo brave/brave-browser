@@ -13,10 +13,11 @@ pipeline {
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
         booleanParam(name: "DISABLE_SCCACHE", defaultValue: false, description: "")
-        booleanParam(name: "DEBUG", defaultValue: false, description: "")
         booleanParam(name: "DCHECK_ALWAYS_ON", defaultValue: true, description: "")
+        booleanParam(name: "DEBUG", defaultValue: false, description: "")
     }
     environment {
+        GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_SERVICES_KEY = credentials("brave-services-key")
         BRAVE_INFURA_PROJECT_ID = credentials("brave-infura-project-id")
@@ -28,8 +29,10 @@ pipeline {
     stages {
         stage("env") {
             steps {
-                script {
-                    setEnv()
+                withCredentials([usernamePassword(credentialsId: "${GITHUB_CREDENTIAL_ID}", usernameVariable: "PR_BUILDER_USER", passwordVariable: "PR_BUILDER_TOKEN")]) {
+                    script {
+                        setEnv()
+                    }
                 }
             }
         }
@@ -61,6 +64,7 @@ pipeline {
                     agent { label "android-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
+                        QA_CODE = credentials("android-browser-qa-code")
                     }
                     stages {
                         stage("checkout") {
@@ -88,15 +92,6 @@ pipeline {
                                 sh "npm run test:scripts -- --verbose"
                             }
                         }
-                        stage("prepare-container") {
-                            when {
-                                expression { NODE_NAME ==~ /.*ecs.*/ }
-                            }
-                            steps {
-                                //enable overcommit memory for test browser
-                                sh "sudo sysctl vm.overcommit_memory=1"
-                            }
-                        }
                         stage("init") {
                             when {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
@@ -117,20 +112,9 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
-                                    }
-                                }
-                            }
-                        }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -143,15 +127,23 @@ pipeline {
                                 script {
                                     config()
                                 }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm"
+                                sh """
+                                    npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
+                                """
+                            }
+                        }
+                        stage("dist") {
+                            steps {
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm"
                             }
                         }
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     sh """
-                                        cd src/out/android_${BUILD_TYPE}_arm/apks
-                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "*.apk"
+                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/apks/Bravearm.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/dist/Defaultarmclassic s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
                                     """
                                 }
                             }
@@ -213,15 +205,6 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
-                                    }
-                                }
-                            }
-                        }
                         stage("build") {
                             steps {
                                 script {
@@ -256,10 +239,7 @@ pipeline {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                                        sh """
-                                            cd src/out
-                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveRewards.framework.zip"
-                                        """
+                                        sh "aws s3 cp --no-progress src/out/BraveRewards.framework.zip s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/"
                                     }
                                 }
                             }
@@ -334,20 +314,9 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
-                                    }
-                                }
-                            }
-                        }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -364,6 +333,9 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -433,7 +405,6 @@ pipeline {
                         stage("checkout") {
                             steps {
                                 checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
-                                buildName env.BUILD_NUMBER + "-" + BRANCH + "-" + env.GIT_COMMIT.substring(0, 7)
                             }
                         }
                         stage("pin") {
@@ -480,20 +451,9 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
-                                    }
-                                }
-                            }
-                        }
                         stage("sccache") {
                             when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
+                                expression { !DISABLE_SCCACHE }
                             }
                             steps {
                                 script {
@@ -514,6 +474,9 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -669,30 +632,6 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        powershell """
-                                            \$ErrorActionPreference = "Stop"
-                                            npm run audit_deps
-                                        """
-                                    }
-                                }
-                            }
-                        }
-                        stage("sccache") {
-                            when {
-                                allOf {
-                                    expression { !DISABLE_SCCACHE }
-                                }
-                            }
-                            steps {
-                                script {
-                                    sccacheWindows()
-                                }
-                            }
-                        }
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
@@ -709,6 +648,9 @@ pipeline {
                             }
                         }
                         stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
                             steps {
                                 timeout(time: 4, unit: "MINUTES") {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
@@ -797,6 +739,7 @@ pipeline {
 def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
+    SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
     DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
@@ -805,44 +748,44 @@ def setEnv() {
     SKIP_INIT = params.SKIP_INIT
     DISABLE_SCCACHE = params.DISABLE_SCCACHE
     DEBUG = params.DEBUG
-    SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
     OUT_DIR = "src/out/" + BUILD_TYPE
     BUILD_TAG_SLASHED = env.JOB_NAME + "/" + env.BUILD_NUMBER
     LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
     BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     GITHUB_API = "https://api.github.com/repos/brave"
-    GITHUB_CREDENTIAL_ID = "brave-builds-github-token-for-pr-builder"
     SKIP = false
     SKIP_ANDROID = false
     SKIP_IOS = false
     SKIP_LINUX = false
     SKIP_MACOS = false
     SKIP_WINDOWS = false
+    RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
         BASE_BRANCH = env.CHANGE_TARGET
-        def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0].number
-        def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
+        def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0].number
+        def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
         SKIP_ANDROID = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
         SKIP_IOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
         SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
         SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
         SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+        RUN_NETWORK_AUDIT = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
         env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bbPrDetails.user.login]
         env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_DESCRIPTION = bbPrDetails.title
         env.BRANCH_PRODUCTIVITY_USER = env.SLACK_USERNAME ?: bbPrDetails.user.login
     }
-    BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).status.equals(200)
+    BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).status.equals(200)
     if (BRANCH_EXISTS_IN_BC) {
-        def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)[0]
+        def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0]
         if (bcPrDetails) {
             env.BC_PR_NUMBER = bcPrDetails.number
-            bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, authentication: GITHUB_CREDENTIAL_ID, quiet: !DEBUG).content)
+            bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
@@ -850,6 +793,7 @@ def setEnv() {
             SKIP_LINUX = SKIP_LINUX || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
             SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
             SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+            RUN_NETWORK_AUDIT = RUN_NETWORK_AUDIT || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
             env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
             env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bcPrDetails.number}"
             env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails.number}"
@@ -880,18 +824,6 @@ def checkAndAbortBuild() {
             SKIP = true
             stopCurrentBuild()
         }
-    }
-    def bb_package_json = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-browser/" + BRANCH + "/package.json", quiet: !DEBUG).content)
-    def bb_version = bb_package_json.version
-    def bc_branch = bb_package_json.config.projects["brave-core"].branch
-    if (BRANCH_EXISTS_IN_BC) {
-        bc_branch = BRANCH
-    }
-    def bc_version = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-core/" + bc_branch + "/package.json", quiet: !DEBUG).content).version
-    if (bb_version != bc_version) {
-        echo "Version mismatch between brave-browser (" + BRANCH + "/" + bb_version + ") and brave-core (" + bc_branch + "/" + bc_version + ") in package.json"
-        SKIP = true
-        stopCurrentBuild()
     }
     if (!SKIP) {
         for (build in getBuilds()) {
@@ -1018,20 +950,12 @@ def sccache() {
     sh "npm config --userconfig=.npmrc set sccache sccache"
 }
 
-def sccacheWindows() {
-    echo "Enabling sccache"
-    powershell """
-        \$ErrorActionPreference = "Stop"
-        npm config --userconfig=.npmrc set sccache sccache
-    """
-}
-
 def config() {
     sh """
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.brave.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
@@ -1045,7 +969,7 @@ def configWindows() {
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
-        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.services.mozilla.com/v1/geolocate?key=
+        npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.brave.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
@@ -1092,9 +1016,19 @@ def testInstallWindows() {
 
 def testInstallMac() {
     sh '''
-        if [ -z ${CHANNEL} ]; then 
+        # eject all existing volume first for brave
+        VOLUME=$(diskutil list | grep "Brave Browser" | awk -F'MB   ' '{ print $2 }')
+        declare -a arr=($VOLUME)
+        # loop through the above array to eject all volumes
+        for i in "${arr[@]}"
+        do
+            diskutil unmountDisk force $i
+            diskutil eject $i
+        done
+        if [ -z ${CHANNEL} ]; then
             BROWSER="Brave Browser Nightly"
             BUILD_TYPE="Release"
+            SKIP_SIGNING=true
         else
             if [ ${CHANNEL} = "release" ]; then CHANNEL_CAPITALIZED_SPACED=""; else CHANNEL_CAPITALIZED="$(tr '[:lower:]' '[:upper:]' <<< ${CHANNEL:0:1})${CHANNEL:1}"; fi
             if [ ${CHANNEL} = "release" ]; then BROWSER="Brave Browser"; else BROWSER="Brave Browser ${CHANNEL_CAPITALIZED}"; fi
