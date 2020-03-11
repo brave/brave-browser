@@ -112,15 +112,6 @@ pipeline {
                                 }
                             }
                         }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
-                                    }
-                                }
-                            }
-                        }
                         stage("sccache") {
                             when {
                                 expression { !DISABLE_SCCACHE }
@@ -210,15 +201,6 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
-                                    }
-                                }
-                            }
-                        }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -363,7 +345,7 @@ pipeline {
                                 script {
                                     config()
                                 }
-                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=win --target_arch=x64 "
+                                sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} "
                             }
                         }
                         // stage("audit-network") {
@@ -482,15 +464,6 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     script {
                                         lint()
-                                    }
-                                }
-                            }
-                        }
-                        stage("audit-deps") {
-                            steps {
-                                timeout(time: 1, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run audit_deps"
                                     }
                                 }
                             }
@@ -676,6 +649,7 @@ pipeline {
                                 }
                             }
                         }
+<<<<<<< HEAD
                         // stage("audit-deps") {
                         //     steps {
                         //         timeout(time: 1, unit: "MINUTES") {
@@ -700,6 +674,8 @@ pipeline {
                         //         }
                         //     }
                         // }
+=======
+>>>>>>> 1f934d3cf5460fe523601c1f822862cfe5e97e46
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")

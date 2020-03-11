@@ -101,50 +101,6 @@ OpenSUSE 15+
     sudo zypper install brave-browser-beta
 
 
-Development Channel Installation
-================================
-
-.. highlight:: console
-
-Debian 9+, Ubuntu 14.04+ and Mint 17+
--------------------------------------
-::
-
-    sudo apt install apt-transport-https curl
-
-    curl -s https://brave-browser-apt-dev.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-prerelease.gpg add -
-
-    echo "deb [arch=amd64] https://brave-browser-apt-dev.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-dev.list
-
-    sudo apt update
-
-    sudo apt install brave-browser-dev
-
-Fedora 28+, CentOS/RHEL 8+
---------------------------
-::
-
-    sudo dnf install dnf-plugins-core
-
-    sudo dnf config-manager --add-repo https://brave-browser-rpm-dev.s3.brave.com/x86_64/
-
-    sudo rpm --import https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
-
-    sudo dnf install brave-browser-dev
-
-OpenSUSE 15+
-------------
-::
-
-    sudo zypper install curl
-
-    sudo rpm --import https://brave-browser-rpm-dev.s3.brave.com/brave-core-nightly.asc
-
-    sudo zypper addrepo https://brave-browser-rpm-dev.s3.brave.com/x86_64/ brave-browser-dev
-
-    sudo zypper install brave-browser-dev
-
-
 Nightly Channel Installation
 ============================
 

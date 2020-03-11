@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.7.51",
+  "version": "1.8.3",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -264,6 +264,6 @@
   },
   "devDependencies": {
     "ip": "^1.1.5",
-    "jest": "^24.8.0"
+    "jest": "^25.1.0"
   }
 }

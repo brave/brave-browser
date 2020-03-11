@@ -1,8 +1,8 @@
 ---
 name: Android Issue
 about: Template for logging issues on Android
-title: "[Android] "
-labels: android-related
+title: "[Android]"
+labels: OS/Android
 assignees: ''
 
 ---
