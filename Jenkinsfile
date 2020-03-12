@@ -649,7 +649,6 @@ pipeline {
                                 }
                             }
                         }
-<<<<<<< HEAD
                         // stage("audit-deps") {
                         //     steps {
                         //         timeout(time: 1, unit: "MINUTES") {
@@ -674,8 +673,6 @@ pipeline {
                         //         }
                         //     }
                         // }
-=======
->>>>>>> 1f934d3cf5460fe523601c1f822862cfe5e97e46
                         stage("build") {
                             environment {
                                 SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
