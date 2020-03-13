@@ -47,8 +47,7 @@ def main(args):
   os.chdir(settings.GetRoot())
   try:
     cl = git_cl.Changelist()
-    change = cl.GetChange(git_common.get_or_create_merge_base(cl.GetBranch(), options.base_branch), "")
-    files = [f.LocalPath() for f in change.AffectedFiles()]
+    files = cl.GetAffectedFiles(git_common.get_or_create_merge_base(cl.GetBranch(), options.base_branch))
     if not files:
       print('Cannot lint an empty CL')
       return 0
