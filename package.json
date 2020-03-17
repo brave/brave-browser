@@ -21,6 +21,7 @@
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
     "lint": "node ./scripts/commands.js lint",
     "test": "node ./scripts/commands.js test",
+    "pretest:scripts": "optional-dev-dependency -t jest",
     "test:scripts": "jest lib scripts",
     "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
   },
@@ -264,6 +265,12 @@
   },
   "devDependencies": {
     "ip": "^1.1.5",
-    "jest": "^25.1.0"
+    "optional-dev-dependency": "^2.0.1"
+  },
+  "optionalDevDependencies": {
+    "jest": [
+      "^25.1.0",
+      "jest"
+    ]
   }
 }
