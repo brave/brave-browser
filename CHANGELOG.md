@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.5.112](https://github.com/brave/brave-browser/releases/tag/v1.5.112)
+
+ - Added ad conversion attribution for Brave ads. ([#6536](https://github.com/brave/brave-browser/issues/6536))
+ - Added ability for websites to determine if browser is Brave. ([#8216](https://github.com/brave/brave-browser/issues/8216))
+ - Improved compatibility with MetaMask and allow web3 provider selection. ([#7503](https://github.com/brave/brave-browser/issues/7503))
+ - Improved fingerprinting privacy by removing "navigator.deviceMemory". ([#1157](https://github.com/brave/brave-browser/issues/1157))
+ - Removed reference to star icon used to bookmark pages under the bookmark manager. ([#2494](https://github.com/brave/brave-browser/issues/2494))
+ - Updated top sites background from translucent to opaque under New Tab Page. ([#6642](https://github.com/brave/brave-browser/issues/6642))
+ - Updated text in the "Ads" panel under brave://rewards. ([#7500](https://github.com/brave/brave-browser/issues/7500))
+ - Fixed favorites and bookmarks not importing from Safari. ([#2710](https://github.com/brave/brave-browser/issues/2710))
+ - Fixed intermittent crash if ad confirmations library is called before being instantiated. ([#7728](https://github.com/brave/brave-browser/issues/7728))
+ - Fixed 5% fee for Brave Rewards not always being sent when multiple tips are sent in quick succession. ([#7425](https://github.com/brave/brave-browser/issues/7425))
+ - Fixed all confirmation types such as viewed, clicked and dismissed being counted towards the ads per hour limit. ([#8539](https://github.com/brave/brave-browser/issues/8539))
+ - Fixed incorrect message being displayed on panel and tip banner in certain cases. ([#7739](https://github.com/brave/brave-browser/issues/7739))
+ - Fixed duplicate ads entries not being added into "7-day Ads History" in brave://rewards. ([#7869](https://github.com/brave/brave-browser/issues/7869))
+ - Fixed incorrect color being used for the "thumbs up" icon in "7-day Ads History" under brave://rewards. ([#7437](https://github.com/brave/brave-browser/issues/7437))
+ - Fixed PDFium displaying "Brave Software Drive" in the "Save as PDF" modal. ([#5450](https://github.com/brave/brave-browser/issues/5450))
+ - Fixed shields content should be specific to the page that the shields panel is opened from. ([#6601](https://github.com/brave/brave-browser/issues/6601))
+ - Fixed shields warning not visible when changing between advanced vs simple view while using dark theme. ([#7628](https://github.com/brave/brave-browser/issues/7628))
+ - Fixed "brave-browser.list" being removed on Linux whenever upgrading Brave. ([#6912](https://github.com/brave/brave-browser/issues/6912))
+
 ## [1.4.96](https://github.com/brave/brave-browser/releases/tag/v1.4.96)
 
  - Fixed Wayback Machine connections not going through Tor when checking for archived pages while in a Tor window. ([#8419](https://github.com/brave/brave-browser/issues/8419))
