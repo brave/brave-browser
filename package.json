@@ -3,6 +3,7 @@
   "version": "1.8.21",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "audit_deps": "node ./scripts/audit.js",
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
@@ -264,6 +265,10 @@
   },
   "devDependencies": {
     "ip": "^1.1.5",
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "npm-force-resolutions": "0.0.3"
+  },
+  "resolutions": {
+    "minimist": "1.2.3"
   }
 }
