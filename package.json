@@ -31,7 +31,7 @@
         "dir": "src",
         "tag": "80.0.3987.132",
         "repository": {
-          "url": "https://chromium.googlesource.com/chromium/src.git"
+          "url": "https://github.com/chromium/chromium.git"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
