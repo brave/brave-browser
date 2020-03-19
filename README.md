@@ -33,6 +33,10 @@ For other versions of our browser, please see:
 * iOS - [brave/brave-ios](https://github.com/brave/brave-ios)
 * Android - [brave/browser-android-tabs](https://github.com/brave/browser-android-tabs)
 
+## Contributing
+
+Please see the [contributing guidelines](./CONTRIBUTING.md)
+
 ## Community
 
 [Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/support-and-troubleshooting),
