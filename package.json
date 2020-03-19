@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.8.19",
+  "version": "1.8.24",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -21,7 +21,6 @@
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
     "lint": "node ./scripts/commands.js lint",
     "test": "node ./scripts/commands.js test",
-    "pretest:scripts": "optional-dev-dependency -t jest",
     "test:scripts": "jest lib scripts",
     "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
   },
@@ -29,7 +28,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "80.0.3987.132",
+        "tag": "80.0.3987.149",
         "repository": {
           "url": "ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium_src"
         },
@@ -265,12 +264,6 @@
   },
   "devDependencies": {
     "ip": "^1.1.5",
-    "optional-dev-dependency": "^2.0.1"
-  },
-  "optionalDevDependencies": {
-    "jest": [
-      "^25.1.0",
-      "jest"
-    ]
+    "jest": "^25.1.0"
   }
 }
