@@ -261,19 +261,6 @@ pipeline {
                                 checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
-                        stage("prepare-container") {
-                            when {
-                                expression { NODE_NAME ==~ /.*ecs.*/ }
-                            }
-                            steps {
-                                //start sccache
-                                sh 'RUST_BACKTRACE=1 RUST_LOG="sccache=warn" SCCACHE_ERROR_LOG="/home/ubuntu/sccache.log" SCCACHE_IDLE_TIMEOUT=0 SCCACHE_BUCKET="sccache-brave-browser-lin" sccache --start-server'
-                                // start vncserver inside container for the test
-                                sh "rm -rf /tmp/.X3-lock && rm -rf /tmp/.X11-unix/X3 && vncserver :3"
-                                //enable overcommit memory for test browser
-                                sh "sudo sysctl vm.overcommit_memory=1"
-                            }
-                        }
                         stage("pin") {
                             when {
                                 expression { BRANCH_EXISTS_IN_BC }
@@ -381,6 +368,7 @@ pipeline {
                                         cd ${OUT_DIR}
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
+                                        aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.zip"
                                     """
                                 }
                             }
@@ -541,6 +529,7 @@ pipeline {
                                             aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "unsigned_dmg/Brave*.dmg"
                                             aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.dmg"
                                             aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.pkg"
+                                            aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.zip"
                                         """
                                     }
                                 }
@@ -708,6 +697,7 @@ pipeline {
                                         Set-Location -Path ${OUT_DIR}
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include ""brave_installer*.exe""
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveBrowser*Setup*.exe"
+                                        aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "*.zip"
                                     """
                                 }
                             }
