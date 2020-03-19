@@ -163,7 +163,7 @@ program
   .option('--output <output>', 'set test output (results) file path')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
   .option('--single_process', 'uses a single process to run tests to help with debugging')
-  .option('--test_launcher_jobs <test_launcher_jobs>', 'Number of jobs to launch')
+  .option('--test_launcher_jobs <test_launcher_jobs>', 'Number of jobs to launch', parseInt, '4')
   .option('--target_os <target_os>', 'target OS')
   .option('--target_arch <target_arch>', 'target architecture')
   .arguments('[build_config]')
