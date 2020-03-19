@@ -31,7 +31,7 @@
         "dir": "src",
         "tag": "80.0.3987.132",
         "repository": {
-          "url": "https://github.com/chromium/chromium.git"
+          "url": "ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium_src"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
