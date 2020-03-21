@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env vpython
+# Copyright (c) 2019 The Brave Authors. All rights reserved.
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
-#!/usr/bin/env python
+#!/usr/bin/env vpython
 # Copyright (c) 2013 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -19,7 +20,6 @@ sys.path.append(os.path.realpath(os.path.join(scriptpath, "..", "vendor", "depot
 
 import git_cl
 import git_common
-import auth
 
 def main(args):
   """Runs cpplint on the current changelist."""
@@ -29,9 +29,7 @@ def main(args):
                     help='Comma-separated list of cpplint\'s category-filters')
   parser.add_option('--project_root')
   parser.add_option('--base_branch')
-  auth.add_auth_options(parser)
   options, args = parser.parse_args(args)
-  auth_config = auth.extract_auth_config_from_options(options)
 
   # Access to a protected member _XX of a client class
   # pylint: disable=protected-access
@@ -48,9 +46,8 @@ def main(args):
   previous_cwd = os.getcwd()
   os.chdir(settings.GetRoot())
   try:
-    cl = git_cl.Changelist(auth_config=auth_config)
-    change = cl.GetChange(git_common.get_or_create_merge_base(cl.GetBranch(), options.base_branch), None)
-    files = [f.LocalPath() for f in change.AffectedFiles()]
+    cl = git_cl.Changelist()
+    files = cl.GetAffectedFiles(git_common.get_or_create_merge_base(cl.GetBranch(), options.base_branch))
     if not files:
       print('Cannot lint an empty CL')
       return 0

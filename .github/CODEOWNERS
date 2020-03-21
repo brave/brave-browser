@@ -1,0 +1,6 @@
+# Licensing of third-party components
+lib/licensing.js @fmarier
+
+# Network auditor
+lib/whitelistedUrlPatterns.js @brave/sec-team
+lib/whitelistedUrlPrefixes.js @brave/sec-team

@@ -1,11 +1,12 @@
 {
   "name": "brave",
-  "version": "0.65.39",
+  "version": "1.8.31",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
     "cibuild": "node ./scripts/commands.js cibuild",
     "init": "node ./scripts/sync.js --init",
+    "delete_string_translations": "node ./scripts/commands.js delete_string_translations",
     "create_dist": "node ./scripts/commands.js create_dist",
     "sync": "node ./scripts/sync.js",
     "build": "node ./scripts/commands.js build",
@@ -20,13 +21,14 @@
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
     "lint": "node ./scripts/commands.js lint",
     "test": "node ./scripts/commands.js test",
+    "test:scripts": "jest lib scripts",
     "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
   },
   "config": {
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "74.0.3729.61",
+        "tag": "81.0.4044.69",
         "repository": {
           "url": "https://chromium.googlesource.com/chromium/src.git"
         },
@@ -49,7 +51,7 @@
       }
     },
     "widevine": {
-      "version": "4.10.1196.0"
+      "version": "4.10.1582.2"
     }
   },
   "repository": {
@@ -255,10 +257,13 @@
   },
   "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
+    "chalk": "^2.4.2",
     "commander": "^2.9.0",
-    "fs-extra": "^1.0.0"
+    "fs-extra": "^8.0.1",
+    "log-update": "^3.2.0"
   },
   "devDependencies": {
-    "ip": "^1.1.5"
+    "ip": "^1.1.5",
+    "jest": "^25.1.0"
   }
 }
