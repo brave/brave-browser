@@ -115,7 +115,7 @@ html_favicon = '_static/product_logo_32.png'
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'BraveBrowserdoc'
 
-html_css_files = '_static/custom.css'
+html_css_files = ['_static/custom.css']
 
 
 # -- Options for LaTeX output ------------------------------------------------
