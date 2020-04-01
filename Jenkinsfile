@@ -9,6 +9,7 @@ pipeline {
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release", "development"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
+        string(name: "CHROMIUM_SRC", defaultValue: "https://github.com/chromium/chromium", description: "or use https://chromium.googlesource.com/chromium/src.git")
         booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
@@ -97,10 +98,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=android
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init -- --target_os=android
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -190,10 +193,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=ios
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init -- --target_os=ios
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -286,10 +291,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -424,10 +431,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -574,7 +583,7 @@ pipeline {
                                     \$ErrorActionPreference = "Stop"
                                     \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
                                     jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
-                                    Move-Item -Force package.json.new package.json
+                                    jq '.config.projects.chrome.repository.url=\\`"${CHROMIUM_SRC}\\`"' package.json.new > package.json
                                 """
                             }
                         }
@@ -603,13 +612,15 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                powershell """
-                                    Remove-Item -Recurse -Force src/brave
-                                    git gc
-                                    git -C vendor/depot_tools clean -fxd
-                                    \$ErrorActionPreference = "Stop"
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    powershell """
+                                        Remove-Item -Recurse -Force src/brave
+                                        git gc
+                                        git -C vendor/depot_tools clean -fxd
+                                        \$ErrorActionPreference = "Stop"
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -768,7 +779,7 @@ def setEnv() {
         env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_DESCRIPTION = bbPrDetails.title
-        env.BRANCH_PRODUCTIVITY_USER = env.SLACK_USERNAME ?: bbPrDetails.user.login
+        env.BRANCH_PRODUCTIVITY_USER = bbPrDetails.user.login
     }
     BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).status.equals(200)
     if (BRANCH_EXISTS_IN_BC) {
@@ -834,11 +845,7 @@ def sendSlackDownloadsNotification() {
     if (!attachments.isEmpty()) {
         def messageText = getSlackMessageText()
         echo "Sending builds message: '${messageText}'."
-        slackSend(
-            channel: SLACK_BUILDS_CHANNEL,
-            message: messageText,
-            attachments: attachments
-        )
+        slackSend(channel: SLACK_BUILDS_CHANNEL, message: messageText, attachments: attachments)
     } else {
         echo "Not sending message, no files found."
     }
@@ -852,7 +859,7 @@ def getSlackFileAttachments () {
         if (!file.directory && file.name != "build.txt") {
             attachments.add([
                 title: file.name,
-                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path,
+                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED.replace('%2F', '%252F') + "/" + file.path,
                 footer: byteLengthToString(file.length)
             ])
         }
@@ -867,7 +874,8 @@ def getSlackMessageText () {
     }
     if (env.SLACK_USERNAME) {
         messageText += " by <${env.SLACK_USERNAME}>"
-    } else if (env.BRANCH_PRODUCTIVITY_USER) {
+    }
+    else if (env.BRANCH_PRODUCTIVITY_USER) {
         messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
     }
     if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
@@ -901,7 +909,7 @@ def pin() {
     echo "Pinning brave-core locally to use branch ${BRANCH}"
     sh """
         jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-        mv package.json.new package.json
+        jq '.config.projects.chrome.repository.url="${CHROMIUM_SRC}"' package.json.new > package.json
     """
 }
 
