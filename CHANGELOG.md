@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.115](https://github.com/brave/brave-browser/releases/tag/v1.5.115)
+
+ - Fixed CPU/performance issues in certain cases. ([#8779](https://github.com/brave/brave-browser/issues/8779))
+
+## [1.5.113](https://github.com/brave/brave-browser/releases/tag/v1.5.113)
+
+ - Upgraded Chromium to 80.0.3987.149. ([#8728](https://github.com/brave/brave-browser/issues/8728))
+
 ## [1.5.112](https://github.com/brave/brave-browser/releases/tag/v1.5.112)
 
  - Added ad conversion attribution for Brave ads. ([#6536](https://github.com/brave/brave-browser/issues/6536))

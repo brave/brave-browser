@@ -251,7 +251,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_LINUX }
                     }
-                    agent { label "linux-ci-backup" }
+                    agent { label "linux-ci" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                     }
@@ -259,19 +259,6 @@ pipeline {
                         stage("checkout") {
                             steps {
                                 checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
-                            }
-                        }
-                        stage("prepare-container") {
-                            when {
-                                expression { NODE_NAME ==~ /.*ecs.*/ }
-                            }
-                            steps {
-                                //start sccache
-                                sh 'RUST_BACKTRACE=1 RUST_LOG="sccache=warn" SCCACHE_ERROR_LOG="/home/ubuntu/sccache.log" SCCACHE_IDLE_TIMEOUT=0 SCCACHE_BUCKET="sccache-brave-browser-lin" sccache --start-server'
-                                // start vncserver inside container for the test
-                                sh "rm -rf /tmp/.X3-lock && rm -rf /tmp/.X11-unix/X3 && vncserver :3"
-                                //enable overcommit memory for test browser
-                                sh "sudo sysctl vm.overcommit_memory=1"
                             }
                         }
                         stage("pin") {
@@ -332,59 +319,60 @@ pipeline {
                                 sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL}"
                             }
                         }
-                        // stage("audit-network") {
-                        //     when {
-                        //         expression { RUN_NETWORK_AUDIT }
-                        //     }
-                        //     steps {
-                        //         timeout(time: 4, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // stage("test-unit") {
-                        //     steps {
-                        //         timeout(time: 60, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 script {
-                        //                     sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
-                        //                     xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                        //                     xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // stage("test-browser") {
-                        //     steps {
-                        //         timeout(time: 20, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 script {
-                        //                     sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
-                        //                     xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // stage("dist") {
-                        //     steps {
-                        //         sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
-                        //     }
-                        // }
-                        // stage("s3-upload") {
-                        //     steps {
-                        //         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //             sh """
-                        //                 cd ${OUT_DIR}
-                        //                 aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
-                        //                 aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
-                        //             """
-                        //         }
-                        //     }
-                        // }
+                        stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
+                            steps {
+                                timeout(time: 4, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        sh "npm run network-audit -- --output_path=\"${OUT_DIR}/brave\""
+                                    }
+                                }
+                            }
+                        }
+                        stage("test-unit") {
+                            steps {
+                                timeout(time: 60, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
+                                            sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
+                                            xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        stage("test-browser") {
+                            steps {
+                                timeout(time: 20, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
+                                            sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
+                                            xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        stage("dist") {
+                            steps {
+                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL}"
+                            }
+                        }
+                        stage("s3-upload") {
+                            steps {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    sh """
+                                        cd ${OUT_DIR}
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
+                                        aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
+                                        aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.zip"
+                                    """
+                                }
+                            }
+                        }
                     }
                 }
                 stage("macos") {
@@ -473,79 +461,80 @@ pipeline {
                                 sh "npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING}"
                             }
                         }
-                        // stage("audit-network") {
-                        //     when {
-                        //         expression { RUN_NETWORK_AUDIT }
-                        //     }
-                        //     steps {
-                        //         timeout(time: 4, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // stage("test-unit") {
-                        //     steps {
-                        //         timeout(time: 60, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 script {
-                        //                     sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
-                        //                     xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                        //                     xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // stage("test-browser") {
-                        //     steps {
-                        //         timeout(time: 20, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 script {
-                        //                     sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
-                        //                     xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
-                        //                 }
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // stage("dist") {
-                        //     environment {
-                        //         SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
-                        //         SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
-                        //     }
-                        //     steps {
-                        //         sh """
-                        //             security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
-                        //             npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
-                        //             security lock-keychain -a
-                        //         """
-                        //     }
-                        // }
-                        // stage("test-install") {
-                        //     steps {
-                        //         timeout(time: 5, unit: "MINUTES") {
-                        //             catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //                 testInstallMac()
-                        //             }
-                        //         }
-                        //     }
-                        // }
-                        // stage("s3-upload") {
-                        //     steps {
-                        //         catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                        //             withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
-                        //                 sh """
-                        //                     cd ${OUT_DIR}
-                        //                     aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "unsigned_dmg/Brave*.dmg"
-                        //                     aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.dmg"
-                        //                     aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.pkg"
-                        //                 """
-                        //             }
-                        //         }
-                        //     }
-                        // }
+                        stage("audit-network") {
+                            when {
+                                expression { RUN_NETWORK_AUDIT }
+                            }
+                            steps {
+                                timeout(time: 4, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        sh "npm run network-audit -- --output_path=\"${OUT_DIR}/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}.app/Contents/MacOS/Brave\\ Browser${CHANNEL_CAPITALIZED_BACKSLASHED_SPACED}\""
+                                    }
+                                }
+                            }
+                        }
+                        stage("test-unit") {
+                            steps {
+                                timeout(time: 60, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
+                                            sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --output brave_unit_tests.xml"
+                                            xunit([GoogleTest(pattern: "src/brave_unit_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                            xunit([GoogleTest(pattern: "src/brave_installer_unittests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        stage("test-browser") {
+                            steps {
+                                timeout(time: 20, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        script {
+                                            sh "npm run test -- brave_browser_tests ${BUILD_TYPE} --output brave_browser_tests.xml"
+                                            xunit([GoogleTest(pattern: "src/brave_browser_tests.xml", deleteOutputFiles: false, failIfNotNew: true, skipNoTestFiles: false, stopProcessingIfError: false)])
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        stage("dist") {
+                            environment {
+                                SIGN_WIDEVINE_CERT = credentials("widevine_brave_prod_cert.der")
+                                SIGN_WIDEVINE_KEY = credentials("widevine_brave_prod_key.pem")
+                            }
+                            steps {
+                                sh """
+                                    security unlock-keychain -p "${KEYCHAIN_PASS}" "${KEYCHAIN_PATH}"
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} ${SKIP_SIGNING} --mac_signing_keychain=${KEYCHAIN} --mac_signing_identifier=${MAC_APPLICATION_SIGNING_IDENTIFIER} --mac_installer_signing_identifier=${MAC_INSTALLER_SIGNING_IDENTIFIER}
+                                    security lock-keychain -a
+                                """
+                            }
+                        }
+                        stage("test-install") {
+                            steps {
+                                timeout(time: 5, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        testInstallMac()
+                                    }
+                                }
+                            }
+                        }
+                        stage("s3-upload") {
+                            steps {
+                                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                    withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                        sh """
+                                            cd ${OUT_DIR}
+                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "unsigned_dmg/Brave*.dmg"
+                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.dmg"
+                                            aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.pkg"
+                                            aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.zip"
+                                        """
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 stage("windows-x64") {
@@ -708,6 +697,7 @@ pipeline {
                                         Set-Location -Path ${OUT_DIR}
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include ""brave_installer*.exe""
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveBrowser*Setup*.exe"
+                                        aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "*.zip"
                                     """
                                 }
                             }
