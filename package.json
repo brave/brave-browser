@@ -30,7 +30,7 @@
         "dir": "src",
         "tag": "81.0.4044.83",
         "repository": {
-          "url": "ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium_src"
+          "url": "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium_src"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
