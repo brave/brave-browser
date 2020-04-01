@@ -14,9 +14,6 @@ This repository holds the build tools needed to build the Brave desktop browser 
   - [ad-block](https://github.com/brave/ad-block)
     - Mounted at `src/brave/vendor/ad-block`.
     - Implements Brave's ad-block engine.
-  - [tracking-protection](https://github.com/brave/tracking-protection)
-    - Mounted at `src/brave/vendor/tracking-protection`.
-    - Implements Brave's tracking-protection engine.
 
 ## Build instructions
 
