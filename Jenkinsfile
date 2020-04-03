@@ -74,9 +74,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -169,9 +166,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -267,9 +261,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -403,9 +394,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -574,17 +562,10 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                powershell """
-                                    \$ErrorActionPreference = "Stop"
-                                    \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
-                                    jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
-                                    jq '.config.projects.chrome.repository.url=\\`"${CHROMIUM_SRC}\\`"' package.json.new > package.json
-                                """
+                                script {
+                                    pinWindows()
+                                }
                             }
                         }
                         stage("install") {
@@ -741,6 +722,7 @@ def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
     SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
+    CHROMIUM_SRC = params.CHROMIUM_SRC
     DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
@@ -763,9 +745,11 @@ def setEnv() {
     RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
+    PIN_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
         BASE_BRANCH = env.CHANGE_TARGET
+        PIN_BRANCH = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-browser/${BRANCH}/package.json").content).config.projects["brave-core"].branch
         def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0].number
         def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -788,6 +772,7 @@ def setEnv() {
             env.BC_PR_NUMBER = bcPrDetails.number
             bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
+            PIN_BRANCH = BRANCH
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
             SKIP_IOS = SKIP_IOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
@@ -906,10 +891,20 @@ def getBuilds() {
 }
 
 def pin() {
-    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    echo "Pinning brave-core locally to use branch ${PIN_BRANCH}"
     sh """
-        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
+        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${PIN_BRANCH}"' package.json > package.json.new
         jq '.config.projects.chrome.repository.url="${CHROMIUM_SRC}"' package.json.new > package.json
+    """
+}
+
+def pinWindows() {
+    echo "Pinning brave-core locally to use branch ${PIN_BRANCH}"
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
+        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${PIN_BRANCH}\\`"" package.json > package.json.new
+        jq ".config.projects.chrome.repository.url=\\`"${CHROMIUM_SRC}\\`"" package.json.new > package.json
     """
 }
 
