@@ -28,9 +28,8 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "81.0.4044.83",
         "repository": {
-          "url": "https://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium_src"
+          "url": "ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium-81.0.4044.83"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
