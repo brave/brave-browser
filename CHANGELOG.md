@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.5.122](https://github.com/brave/brave-browser/releases/tag/v1.5.122)
+
+ - Upgraded Chromium to 80.0.3987.162. ([#8947](https://github.com/brave/brave-browser/issues/8947))
+
 ## [1.5.115](https://github.com/brave/brave-browser/releases/tag/v1.5.115)
 
  - Fixed CPU/performance issues in certain cases. ([#8779](https://github.com/brave/brave-browser/issues/8779))
