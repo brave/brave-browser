@@ -29,7 +29,7 @@
       "chrome": {
         "dir": "src",
         "repository": {
-          "url": "ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/chromium-81.0.4044.83"
+          "url": "https://github.com/brave/chromium-81.0.4044.83.git"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
