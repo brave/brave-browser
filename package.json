@@ -30,7 +30,7 @@
         "dir": "src",
         "tag": "81.0.4044.92",
         "repository": {
-          "url": "https://chromium.googlesource.com/chromium/src.git"
+          "url": "https://github.com/brave-chromium/chromium-81.0.4044.83.git"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
