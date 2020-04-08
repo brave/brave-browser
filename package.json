@@ -44,7 +44,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "1.7.x",
+        "branch": "1.7.x.updates-dev",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
