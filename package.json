@@ -28,7 +28,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "branch": "master",
+        "tag": "81.0.4044.92",
         "repository": {
           "url": "https://github.com/brave-chromium/chromium-81.0.4044.92.git"
         },
