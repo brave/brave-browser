@@ -9,6 +9,7 @@ pipeline {
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release", "development"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
+        string(name: "CHROMIUM_SRC", defaultValue: "https://github.com/chromium/chromium", description: "or use https://chromium.googlesource.com/chromium/src.git")
         booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
@@ -73,9 +74,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -97,10 +95,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=android
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init -- --target_os=android
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -166,9 +166,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -190,10 +187,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=ios
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init -- --target_os=ios
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -262,9 +261,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -286,10 +282,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -396,9 +394,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -424,10 +419,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -565,17 +562,10 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                powershell """
-                                    \$ErrorActionPreference = "Stop"
-                                    \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
-                                    jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
-                                    Move-Item -Force package.json.new package.json
-                                """
+                                script {
+                                    pinWindows()
+                                }
                             }
                         }
                         stage("install") {
@@ -603,13 +593,15 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                powershell """
-                                    Remove-Item -Recurse -Force src/brave
-                                    git gc
-                                    git -C vendor/depot_tools clean -fxd
-                                    \$ErrorActionPreference = "Stop"
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    powershell """
+                                        Remove-Item -Recurse -Force src/brave
+                                        git gc
+                                        git -C vendor/depot_tools clean -fxd
+                                        \$ErrorActionPreference = "Stop"
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -730,6 +722,7 @@ def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
     SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
+    CHROMIUM_SRC = params.CHROMIUM_SRC
     DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
@@ -752,9 +745,11 @@ def setEnv() {
     RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
+    PIN_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
         BASE_BRANCH = env.CHANGE_TARGET
+        PIN_BRANCH = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-browser/${BRANCH}/package.json").content).config.projects["brave-core"].branch
         def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0].number
         def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -768,7 +763,7 @@ def setEnv() {
         env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_DESCRIPTION = bbPrDetails.title
-        env.BRANCH_PRODUCTIVITY_USER = env.SLACK_USERNAME ?: bbPrDetails.user.login
+        env.BRANCH_PRODUCTIVITY_USER = bbPrDetails.user.login
     }
     BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).status.equals(200)
     if (BRANCH_EXISTS_IN_BC) {
@@ -777,6 +772,7 @@ def setEnv() {
             env.BC_PR_NUMBER = bcPrDetails.number
             bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
+            PIN_BRANCH = BRANCH
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
             SKIP_IOS = SKIP_IOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
@@ -834,11 +830,7 @@ def sendSlackDownloadsNotification() {
     if (!attachments.isEmpty()) {
         def messageText = getSlackMessageText()
         echo "Sending builds message: '${messageText}'."
-        slackSend(
-            channel: SLACK_BUILDS_CHANNEL,
-            message: messageText,
-            attachments: attachments
-        )
+        slackSend(channel: SLACK_BUILDS_CHANNEL, message: messageText, attachments: attachments)
     } else {
         echo "Not sending message, no files found."
     }
@@ -852,7 +844,7 @@ def getSlackFileAttachments () {
         if (!file.directory && file.name != "build.txt") {
             attachments.add([
                 title: file.name,
-                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path,
+                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED.replace('%2F', '%252F') + "/" + file.path,
                 footer: byteLengthToString(file.length)
             ])
         }
@@ -867,7 +859,8 @@ def getSlackMessageText () {
     }
     if (env.SLACK_USERNAME) {
         messageText += " by <${env.SLACK_USERNAME}>"
-    } else if (env.BRANCH_PRODUCTIVITY_USER) {
+    }
+    else if (env.BRANCH_PRODUCTIVITY_USER) {
         messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
     }
     if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
@@ -898,10 +891,20 @@ def getBuilds() {
 }
 
 def pin() {
-    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    echo "Pinning brave-core locally to use branch ${PIN_BRANCH}"
     sh """
-        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
-        mv package.json.new package.json
+        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${PIN_BRANCH}"' package.json > package.json.new
+        jq '.config.projects.chrome.repository.url="${CHROMIUM_SRC}"' package.json.new > package.json
+    """
+}
+
+def pinWindows() {
+    echo "Pinning brave-core locally to use branch ${PIN_BRANCH}"
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
+        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${PIN_BRANCH}\\`"" package.json > package.json.new
+        jq ".config.projects.chrome.repository.url=\\`"${CHROMIUM_SRC}\\`"" package.json.new > package.json
     """
 }
 
@@ -973,10 +976,6 @@ def installWindows() {
         Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
-        Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
-        Copy-Item "${SOURCE_KEY_PFX_PATH}" -Destination "${KEY_PFX_PATH}"
-        Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
-        Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
         New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
         Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
     """
