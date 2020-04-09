@@ -30,7 +30,7 @@
         "dir": "src",
         "tag": "81.0.4044.92",
         "repository": {
-          "url": "https://github.com/brave-chromium/chromium-81.0.4044.92.git"
+          "url": "https://github.com/bridiver/chromium-releases.git"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
