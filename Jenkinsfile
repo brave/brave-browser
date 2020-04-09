@@ -63,7 +63,6 @@ pipeline {
                     }
                     agent { label "android-ci" }
                     environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
                         QA_CODE = credentials("android-browser-qa-code")
                         KEYSTORE_NAME = "linkbubble"
                         KEYSTORE_PATH = credentials("android-browser-sign-key-store")
@@ -165,9 +164,6 @@ pipeline {
                         expression { !SKIP_IOS }
                     }
                     agent { label "mac-ci" }
-                    environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
-                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -260,9 +256,6 @@ pipeline {
                         expression { !SKIP_LINUX }
                     }
                     agent { label "linux-ci" }
-                    environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
-                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -389,7 +382,6 @@ pipeline {
                     }
                     agent { label "mac-ci" }
                     environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
                         KEYCHAIN = "signing-ci"
                         KEYCHAIN_PATH = "/Users/jenkins/Library/Keychains/${KEYCHAIN}.keychain-db"
                         KEYCHAIN_PASS = credentials("mac-ci-signing-keychain-password")
@@ -555,7 +547,6 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -915,7 +906,6 @@ def pinWindows() {
 
 def install() {
     sh """
-        rm -rf ${GIT_CACHE_PATH}/*.lock
         npm install --no-optional
     """
 }
@@ -977,7 +967,6 @@ def configWindows() {
 
 def installWindows() {
     powershell """
-        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
         Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
