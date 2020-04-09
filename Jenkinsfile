@@ -73,9 +73,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -97,10 +94,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=android
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init -- --target_os=android
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -166,9 +165,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -190,10 +186,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init -- --target_os=ios
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init -- --target_os=ios
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -261,23 +259,7 @@ pipeline {
                                 checkout([$class: "GitSCM", branches: [[name: BRANCH]], extensions: [[$class: WIPE_WORKSPACE]], userRemoteConfigs: [[url: "https://github.com/brave/brave-browser.git"]]])
                             }
                         }
-                        stage("prepare-container") {
-                            when {
-                                expression { NODE_NAME ==~ /.*ecs.*/ }
-                            }
-                            steps {
-                                //start sccache
-                                sh 'RUST_BACKTRACE=1 RUST_LOG="sccache=warn" SCCACHE_ERROR_LOG="/home/ubuntu/sccache.log" SCCACHE_IDLE_TIMEOUT=0 SCCACHE_BUCKET="sccache-brave-browser-lin" sccache --start-server'
-                                // start vncserver inside container for the test
-                                sh "rm -rf /tmp/.X3-lock && rm -rf /tmp/.X11-unix/X3 && vncserver :3"
-                                //enable overcommit memory for test browser
-                                sh "sudo sysctl vm.overcommit_memory=1"
-                            }
-                        }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -299,10 +281,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -381,6 +365,7 @@ pipeline {
                                         cd ${OUT_DIR}
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.deb"
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.rpm"
+                                        aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.zip"
                                     """
                                 }
                             }
@@ -408,9 +393,6 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
                                 pin()
                             }
@@ -436,10 +418,12 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                sh """
-                                    rm -rf src/brave
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    sh """
+                                        rm -rf src/brave
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -541,6 +525,7 @@ pipeline {
                                             aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "unsigned_dmg/Brave*.dmg"
                                             aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.dmg"
                                             aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "Brave*.pkg"
+                                            aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "brave-*.zip"
                                         """
                                     }
                                 }
@@ -576,17 +561,10 @@ pipeline {
                             }
                         }
                         stage("pin") {
-                            when {
-                                expression { BRANCH_EXISTS_IN_BC }
-                            }
                             steps {
-                                echo "Pinning brave-core locally to use branch ${BRANCH}"
-                                powershell """
-                                    \$ErrorActionPreference = "Stop"
-                                    \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
-                                    jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
-                                    Move-Item -Force package.json.new package.json
-                                """
+                                script {
+                                    pinWindows()
+                                }
                             }
                         }
                         stage("install") {
@@ -614,13 +592,15 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                powershell """
-                                    Remove-Item -Recurse -Force src/brave
-                                    git gc
-                                    git -C vendor/depot_tools clean -fxd
-                                    \$ErrorActionPreference = "Stop"
-                                    npm run init
-                                """
+                                timeout(time: 1, unit: "HOURS") {
+                                    powershell """
+                                        Remove-Item -Recurse -Force src/brave
+                                        git gc
+                                        git -C vendor/depot_tools clean -fxd
+                                        \$ErrorActionPreference = "Stop"
+                                        npm run init
+                                    """
+                                }
                             }
                         }
                         stage("lint") {
@@ -708,6 +688,7 @@ pipeline {
                                         Set-Location -Path ${OUT_DIR}
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include ""brave_installer*.exe""
                                         aws s3 cp --no-progress . s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "BraveBrowser*Setup*.exe"
+                                        aws s3 cp --no-progress dist s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED} --recursive --exclude="*" --include "*.zip"
                                     """
                                 }
                             }
@@ -778,7 +759,7 @@ def setEnv() {
         env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
         env.BRANCH_PRODUCTIVITY_DESCRIPTION = bbPrDetails.title
-        env.BRANCH_PRODUCTIVITY_USER = env.SLACK_USERNAME ?: bbPrDetails.user.login
+        env.BRANCH_PRODUCTIVITY_USER = bbPrDetails.user.login
     }
     BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRANCH, validResponseCodes: "100:499", customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).status.equals(200)
     if (BRANCH_EXISTS_IN_BC) {
@@ -844,11 +825,7 @@ def sendSlackDownloadsNotification() {
     if (!attachments.isEmpty()) {
         def messageText = getSlackMessageText()
         echo "Sending builds message: '${messageText}'."
-        slackSend(
-            channel: SLACK_BUILDS_CHANNEL,
-            message: messageText,
-            attachments: attachments
-        )
+        slackSend(channel: SLACK_BUILDS_CHANNEL, message: messageText, attachments: attachments)
     } else {
         echo "Not sending message, no files found."
     }
@@ -862,7 +839,7 @@ def getSlackFileAttachments () {
         if (!file.directory && file.name != "build.txt") {
             attachments.add([
                 title: file.name,
-                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED + "/" + file.path,
+                title_link: "https://" + BRAVE_ARTIFACTS_S3_BUCKET + ".s3.amazonaws.com/" + BUILD_TAG_SLASHED.replace('%2F', '%252F') + "/" + file.path,
                 footer: byteLengthToString(file.length)
             ])
         }
@@ -877,7 +854,8 @@ def getSlackMessageText () {
     }
     if (env.SLACK_USERNAME) {
         messageText += " by <${env.SLACK_USERNAME}>"
-    } else if (env.BRANCH_PRODUCTIVITY_USER) {
+    }
+    else if (env.BRANCH_PRODUCTIVITY_USER) {
         messageText += " by ${env.BRANCH_PRODUCTIVITY_USER}"
     }
     if (env.BRANCH_PRODUCTIVITY_DESCRIPTION) {
@@ -912,6 +890,16 @@ def pin() {
     sh """
         jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
         mv package.json.new package.json
+    """
+}
+
+def pinWindows() {
+    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    powershell """
+        \$ErrorActionPreference = "Stop"
+        \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
+        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
+        Move-Item -Force package.json.new package.json
     """
 }
 
