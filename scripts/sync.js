@@ -137,4 +137,5 @@ RunCommand()
 .catch((err) => {
   errorLog('Brave Browser Sync ERROR:')
   console.error(err)
+  process.exit(1)
 })
