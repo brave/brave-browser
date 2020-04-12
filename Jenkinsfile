@@ -63,8 +63,11 @@ pipeline {
                     }
                     agent { label "android-ci" }
                     environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
                         QA_CODE = credentials("android-browser-qa-code")
+                        KEYSTORE_NAME = "linkbubble"
+                        KEYSTORE_PATH = credentials("android-browser-sign-key-store")
+                        KEYSTORE_PASSWORD_1 = credentials("android-browser-sign-key-password-1")
+                        KEYSTORE_PASSWORD_2 = credentials("android-browser-sign-key-password-2")
                     }
                     stages {
                         stage("checkout") {
@@ -125,6 +128,12 @@ pipeline {
                             steps {
                                 script {
                                     config()
+                                    sh """
+                                        npm config --userconfig=.npmrc set brave_android_keystore_name ${KEYSTORE_NAME}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_path ${KEYSTORE_PATH}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_password ${KEYSTORE_PASSWORD_1}
+                                        npm config --userconfig=.npmrc set brave_android_key_password ${KEYSTORE_PASSWORD_2}
+                                    """
                                 }
                                 sh """
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
@@ -155,9 +164,6 @@ pipeline {
                         expression { !SKIP_IOS }
                     }
                     agent { label "mac-ci" }
-                    environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
-                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -250,9 +256,6 @@ pipeline {
                         expression { !SKIP_LINUX }
                     }
                     agent { label "linux-ci" }
-                    environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
-                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -379,7 +382,6 @@ pipeline {
                     }
                     agent { label "mac-ci" }
                     environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
                         KEYCHAIN = "signing-ci"
                         KEYCHAIN_PATH = "/Users/jenkins/Library/Keychains/${KEYCHAIN}.keychain-db"
                         KEYCHAIN_PASS = credentials("mac-ci-signing-keychain-password")
@@ -545,7 +547,6 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -743,9 +744,11 @@ def setEnv() {
     RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
+    BRAVE_CORE_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
         BASE_BRANCH = env.CHANGE_TARGET
+        BRAVE_CORE_BRANCH = BASE_BRANCH
         def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0].number
         def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -766,6 +769,7 @@ def setEnv() {
         def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0]
         if (bcPrDetails) {
             env.BC_PR_NUMBER = bcPrDetails.number
+            BRAVE_CORE_BRANCH = BRANCH
             bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -886,26 +890,25 @@ def getBuilds() {
 }
 
 def pin() {
-    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    echo "Pinning brave-core locally to use branch ${BRAVE_CORE_BRANCH}"
     sh """
-        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
+        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRAVE_CORE_BRANCH}"' package.json > package.json.new
         mv package.json.new package.json
     """
 }
 
 def pinWindows() {
-    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    echo "Pinning brave-core locally to use branch ${BRAVE_CORE_BRANCH}"
     powershell """
         \$ErrorActionPreference = "Stop"
         \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
-        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
+        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRAVE_CORE_BRANCH}\\`"" package.json > package.json.new
         Move-Item -Force package.json.new package.json
     """
 }
 
 def install() {
     sh """
-        rm -rf ${GIT_CACHE_PATH}/*.lock
         npm install --no-optional
     """
 }
@@ -967,7 +970,6 @@ def configWindows() {
 
 def installWindows() {
     powershell """
-        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
         Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
