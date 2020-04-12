@@ -65,6 +65,10 @@ pipeline {
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         QA_CODE = credentials("android-browser-qa-code")
+                        KEYSTORE_NAME = "linkbubble"
+                        KEYSTORE_PATH = credentials("android-browser-sign-key-store")
+                        KEYSTORE_PASSWORD_1 = credentials("android-browser-sign-key-password-1")
+                        KEYSTORE_PASSWORD_2 = credentials("android-browser-sign-key-password-2")
                     }
                     stages {
                         stage("checkout") {
@@ -125,6 +129,12 @@ pipeline {
                             steps {
                                 script {
                                     config()
+                                    sh """
+                                        npm config --userconfig=.npmrc set brave_android_keystore_name ${KEYSTORE_NAME}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_path ${KEYSTORE_PATH}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_password ${KEYSTORE_PASSWORD_1}
+                                        npm config --userconfig=.npmrc set brave_android_key_password ${KEYSTORE_PASSWORD_2}
+                                    """
                                 }
                                 sh """
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
