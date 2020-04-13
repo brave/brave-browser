@@ -25,6 +25,7 @@ pipeline {
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
+        BINANCE_CLIENT_ID = credentials("binance-client-id")
     }
     stages {
         stage("env") {
@@ -958,6 +959,7 @@ def config() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
     """
 }
 
@@ -972,6 +974,7 @@ def configWindows() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
     """
 }
 
