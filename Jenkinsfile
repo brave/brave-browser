@@ -753,9 +753,11 @@ def setEnv() {
     RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
+    BRAVE_CORE_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
         BASE_BRANCH = env.CHANGE_TARGET
+        BRAVE_CORE_BRANCH = BASE_BRANCH
         def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0].number
         def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -776,6 +778,7 @@ def setEnv() {
         def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0]
         if (bcPrDetails) {
             env.BC_PR_NUMBER = bcPrDetails.number
+            BRAVE_CORE_BRANCH = BRANCH
             bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -896,19 +899,19 @@ def getBuilds() {
 }
 
 def pin() {
-    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    echo "Pinning brave-core locally to use branch ${BRAVE_CORE_BRANCH}"
     sh """
-        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRANCH}"' package.json > package.json.new
+        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRAVE_CORE_BRANCH}"' package.json > package.json.new
         mv package.json.new package.json
     """
 }
 
 def pinWindows() {
-    echo "Pinning brave-core locally to use branch ${BRANCH}"
+    echo "Pinning brave-core locally to use branch ${BRAVE_CORE_BRANCH}"
     powershell """
         \$ErrorActionPreference = "Stop"
         \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
-        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRANCH}\\`"" package.json > package.json.new
+        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRAVE_CORE_BRANCH}\\`"" package.json > package.json.new
         Move-Item -Force package.json.new package.json
     """
 }
