@@ -21,6 +21,7 @@ pipeline {
         REFERRAL_API_KEY = credentials("REFERRAL_API_KEY")
         BRAVE_SERVICES_KEY = credentials("brave-services-key")
         BRAVE_INFURA_PROJECT_ID = credentials("brave-infura-project-id")
+        BINANCE_CLIENT_ID = credentials("binance-client-id")
         BRAVE_GOOGLE_API_KEY = credentials("npm_config_brave_google_api_key")
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
@@ -946,6 +947,7 @@ def config() {
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
         npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.brave.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
@@ -960,6 +962,7 @@ def configWindows() {
         npm config --userconfig=.npmrc set brave_referrals_api_key ${REFERRAL_API_KEY}
         npm config --userconfig=.npmrc set brave_services_key ${BRAVE_SERVICES_KEY}
         npm config --userconfig=.npmrc set brave_infura_project_id ${BRAVE_INFURA_PROJECT_ID}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
         npm config --userconfig=.npmrc set brave_google_api_endpoint https://location.brave.com/v1/geolocate?key=
         npm config --userconfig=.npmrc set brave_google_api_key ${BRAVE_GOOGLE_API_KEY}
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
