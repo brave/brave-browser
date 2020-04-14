@@ -2,7 +2,7 @@
 
 ## [1.7.92](https://github.com/brave/brave-browser/releases/tag/v1.7.92)
 
- - Added Monthly Statements for Brave Rewards. ([#930](https://github.com/brave/brave-browser/issues/930))
+ - Added monthly statements for Brave Rewards. ([#930](https://github.com/brave/brave-browser/issues/930))
  - Added purchase intent classifier for Brave ads. ([#8047](https://github.com/brave/brave-browser/issues/8047))
  - Added P3A metric for default search engine. ([#8341](https://github.com/brave/brave-browser/issues/8341))
  - Added a new proxy endpoint for location service. ([#8167](https://github.com/brave/brave-browser/issues/8167))
