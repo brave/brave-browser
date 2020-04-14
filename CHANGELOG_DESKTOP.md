@@ -9,6 +9,7 @@
  - Added the ability to hide Brave Shields activity count. ([#3121](https://github.com/brave/brave-browser/issues/3121))
  - Added new wallpaper images for New Tab Page. ([#6904](https://github.com/brave/brave-browser/issues/6904))
  - Added ability to access extension keyboard shortcuts from brave://settings/extensions. ([#4024](https://github.com/brave/brave-browser/issues/4024))
+ - Added promotion for Tap Network (US only). ([#8617](https://github.com/brave/brave-browser/issues/8617))
  - [Security] Added auto-upgrade of mixed content connections where available. ([#4381](https://github.com/brave/brave-browser/issues/4381))
  - Enhanced privacy by randomizing HTML canvas fingerprints by first-party domain. ([#5614](https://github.com/brave/brave-browser/issues/5614))
  - Changed rewards publisher list fetch interval from 1 day to every 3 days. ([#8955](https://github.com/brave/brave-browser/issues/8955))
