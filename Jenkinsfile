@@ -98,7 +98,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init -- --target_os=android
@@ -196,7 +196,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init -- --target_os=ios
@@ -291,7 +291,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init
@@ -428,7 +428,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init
@@ -602,7 +602,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     powershell """
                                         Remove-Item -Recurse -Force src/brave
                                         git gc
