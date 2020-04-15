@@ -9,7 +9,6 @@ pipeline {
         choice(name: "BUILD_TYPE", choices: ["Release", "Debug"], description: "")
         choice(name: "CHANNEL", choices: ["nightly", "dev", "beta", "release", "development"], description: "")
         string(name: "SLACK_BUILDS_CHANNEL", defaultValue: "#build-downloads-bot", description: "The Slack channel to send the list of artifact download links to. Leave blank to skip sending the message.")
-        string(name: "CHROMIUM_SRC", defaultValue: "https://github.com/chromium/chromium", description: "or use https://chromium.googlesource.com/chromium/src.git")
         booleanParam(name: "SKIP_SIGNING", defaultValue: true, description: "")
         booleanParam(name: "WIPE_WORKSPACE", defaultValue: false, description: "")
         booleanParam(name: "SKIP_INIT", defaultValue: false, description: "")
@@ -26,6 +25,7 @@ pipeline {
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
+        BINANCE_CLIENT_ID = credentials("binance-client-id")
     }
     stages {
         stage("env") {
@@ -64,8 +64,11 @@ pipeline {
                     }
                     agent { label "android-ci" }
                     environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
                         QA_CODE = credentials("android-browser-qa-code")
+                        KEYSTORE_NAME = "linkbubble"
+                        KEYSTORE_PATH = credentials("android-browser-sign-key-store")
+                        KEYSTORE_PASSWORD_1 = credentials("android-browser-sign-key-password-1")
+                        KEYSTORE_PASSWORD_2 = credentials("android-browser-sign-key-password-2")
                     }
                     stages {
                         stage("checkout") {
@@ -95,7 +98,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init -- --target_os=android
@@ -126,6 +129,12 @@ pipeline {
                             steps {
                                 script {
                                     config()
+                                    sh """
+                                        npm config --userconfig=.npmrc set brave_android_keystore_name ${KEYSTORE_NAME}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_path ${KEYSTORE_PATH}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_password ${KEYSTORE_PASSWORD_1}
+                                        npm config --userconfig=.npmrc set brave_android_key_password ${KEYSTORE_PASSWORD_2}
+                                    """
                                 }
                                 sh """
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
@@ -143,7 +152,7 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     sh """
                                         aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/apks/Bravearm.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
-                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/dist/Defaultarmclassic s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/dist/Defaultarmclassic* s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
                                     """
                                 }
                             }
@@ -156,9 +165,6 @@ pipeline {
                         expression { !SKIP_IOS }
                     }
                     agent { label "mac-ci" }
-                    environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
-                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -187,7 +193,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init -- --target_os=ios
@@ -251,9 +257,6 @@ pipeline {
                         expression { !SKIP_LINUX }
                     }
                     agent { label "linux-ci" }
-                    environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
-                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -282,7 +285,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init
@@ -380,7 +383,6 @@ pipeline {
                     }
                     agent { label "mac-ci" }
                     environment {
-                        GIT_CACHE_PATH = "${HOME}/cache"
                         KEYCHAIN = "signing-ci"
                         KEYCHAIN_PATH = "/Users/jenkins/Library/Keychains/${KEYCHAIN}.keychain-db"
                         KEYCHAIN_PASS = credentials("mac-ci-signing-keychain-password")
@@ -419,7 +421,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
                                         npm run init
@@ -546,7 +548,6 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -593,7 +594,7 @@ pipeline {
                                 expression { return !fileExists("src/brave/package.json") || !SKIP_INIT }
                             }
                             steps {
-                                timeout(time: 1, unit: "HOURS") {
+                                timeout(time: 2, unit: "HOURS") {
                                     powershell """
                                         Remove-Item -Recurse -Force src/brave
                                         git gc
@@ -722,7 +723,6 @@ def setEnv() {
     BUILD_TYPE = params.BUILD_TYPE
     CHANNEL = params.CHANNEL
     SLACK_BUILDS_CHANNEL = params.SLACK_BUILDS_CHANNEL
-    CHROMIUM_SRC = params.CHROMIUM_SRC
     DCHECK_ALWAYS_ON = params.DCHECK_ALWAYS_ON
     CHANNEL_CAPITALIZED = CHANNEL.equals("release") ? "" : CHANNEL.capitalize()
     CHANNEL_CAPITALIZED_BACKSLASHED_SPACED = CHANNEL.equals("release") ? "" : "\\ " + CHANNEL.capitalize()
@@ -745,11 +745,11 @@ def setEnv() {
     RUN_NETWORK_AUDIT = false
     BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
-    PIN_BRANCH = "master"
+    BRAVE_CORE_BRANCH = "master"
     if (env.CHANGE_BRANCH) {
         BRANCH = env.CHANGE_BRANCH
         BASE_BRANCH = env.CHANGE_TARGET
-        PIN_BRANCH = readJSON(text: httpRequest(url: "https://raw.githubusercontent.com/brave/brave-browser/${BRANCH}/package.json").content).config.projects["brave-core"].branch
+        BRAVE_CORE_BRANCH = BASE_BRANCH
         def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0].number
         def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
         SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
@@ -770,9 +770,9 @@ def setEnv() {
         def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)[0]
         if (bcPrDetails) {
             env.BC_PR_NUMBER = bcPrDetails.number
+            BRAVE_CORE_BRANCH = BRANCH
             bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]], quiet: !DEBUG).content)
             BASE_BRANCH = bcPrDetails.base.ref
-            PIN_BRANCH = BRANCH
             SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
             SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
             SKIP_IOS = SKIP_IOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
@@ -891,26 +891,25 @@ def getBuilds() {
 }
 
 def pin() {
-    echo "Pinning brave-core locally to use branch ${PIN_BRANCH}"
+    echo "Pinning brave-core locally to use branch ${BRAVE_CORE_BRANCH}"
     sh """
-        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${PIN_BRANCH}"' package.json > package.json.new
-        jq '.config.projects.chrome.repository.url="${CHROMIUM_SRC}"' package.json.new > package.json
+        jq 'del(.config.projects["brave-core"].branch) | .config.projects["brave-core"].branch="${BRAVE_CORE_BRANCH}"' package.json > package.json.new
+        mv package.json.new package.json
     """
 }
 
 def pinWindows() {
-    echo "Pinning brave-core locally to use branch ${PIN_BRANCH}"
+    echo "Pinning brave-core locally to use branch ${BRAVE_CORE_BRANCH}"
     powershell """
         \$ErrorActionPreference = "Stop"
         \$PSDefaultParameterValues['Out-File:Encoding'] = "utf8"
-        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${PIN_BRANCH}\\`"" package.json > package.json.new
-        jq ".config.projects.chrome.repository.url=\\`"${CHROMIUM_SRC}\\`"" package.json.new > package.json
+        jq "del(.config.projects[\\`"brave-core\\`"].branch) | .config.projects[\\`"brave-core\\`"].branch=\\`"${BRAVE_CORE_BRANCH}\\`"" package.json > package.json.new
+        Move-Item -Force package.json.new package.json
     """
 }
 
 def install() {
     sh """
-        rm -rf ${GIT_CACHE_PATH}/*.lock
         npm install --no-optional
     """
 }
@@ -953,6 +952,7 @@ def config() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
     """
 }
 
@@ -967,15 +967,19 @@ def configWindows() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
     """
 }
 
 def installWindows() {
     powershell """
-        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
         Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
+        Copy-Item "${SOURCE_KEY_CER_PATH}" -Destination "${KEY_CER_PATH}"
+        Copy-Item "${SOURCE_KEY_PFX_PATH}" -Destination "${KEY_PFX_PATH}"
+        Import-Certificate -FilePath "${SIGN_WIDEVINE_CERT}" -CertStoreLocation "Cert:\\LocalMachine\\My"
+        Import-PfxCertificate -FilePath "${KEY_PFX_PATH}" -CertStoreLocation "Cert:\\LocalMachine\\My" -Password (ConvertTo-SecureString -String "${AUTHENTICODE_PASSWORD_UNESCAPED}" -AsPlaintext -Force)
         New-Item -Force -ItemType directory -Path "src\\third_party\\widevine\\scripts"
         Copy-Item "C:\\jenkins\\signature_generator.py" -Destination "src\\third_party\\widevine\\scripts\\"
     """

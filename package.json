@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.9.1",
+  "version": "1.9.23",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -28,9 +28,9 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "81.0.4044.83",
+        "tag": "81.0.4044.92",
         "repository": {
-          "url": "https://github.com/brave/chromium-81.0.4044.83.git"
+          "url": "https://github.com/brave-chromium/chromium-81.0.4044.92.git"
         },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
