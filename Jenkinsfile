@@ -745,6 +745,7 @@ def setEnv() {
     LINT_BRANCH = "TEMP_LINT_BRANCH_" + env.BUILD_NUMBER
     BRAVE_GITHUB_TOKEN = "brave-browser-releases-github"
     GITHUB_API = "https://api.github.com/repos/brave"
+    GCLIENT_PY3 = 0
     SKIP = false
     SKIP_ANDROID = false
     SKIP_IOS = false
