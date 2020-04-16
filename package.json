@@ -28,7 +28,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "81.0.4044.92",
+        "tag": "81.0.4044.113",
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
           "src/chrome_frame/tools/test/reference_build/chrome": "%None%",
