@@ -100,6 +100,7 @@ pipeline {
                             steps {
                                 timeout(time: 2, unit: "HOURS") {
                                     sh """
+                                        git config --global http.postBuffer 524288000
                                         rm -rf src/brave
                                         npm run init -- --target_os=android
                                     """
@@ -198,6 +199,7 @@ pipeline {
                             steps {
                                 timeout(time: 2, unit: "HOURS") {
                                     sh """
+                                        git config --global http.postBuffer 524288000
                                         rm -rf src/brave
                                         npm run init -- --target_os=ios
                                     """
@@ -293,6 +295,7 @@ pipeline {
                             steps {
                                 timeout(time: 2, unit: "HOURS") {
                                     sh """
+                                        git config --global http.postBuffer 524288000
                                         rm -rf src/brave
                                         npm run init
                                     """
@@ -430,6 +433,7 @@ pipeline {
                             steps {
                                 timeout(time: 2, unit: "HOURS") {
                                     sh """
+                                        git config --global http.postBuffer 524288000
                                         rm -rf src/brave
                                         npm run init
                                     """
@@ -604,6 +608,7 @@ pipeline {
                             steps {
                                 timeout(time: 2, unit: "HOURS") {
                                     powershell """
+                                        git config --global http.postBuffer 524288000
                                         Remove-Item -Recurse -Force src/brave
                                         git gc
                                         git -C vendor/depot_tools clean -fxd
