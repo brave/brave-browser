@@ -62,7 +62,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_ANDROID }
                     }
-                    agent { label "android-ci" }
+                    agent { label "android-metal" }
                     environment {
                         QA_CODE = credentials("android-browser-qa-code")
                         KEYSTORE_NAME = "linkbubble"
@@ -138,8 +138,17 @@ pipeline {
                                 }
                                 sh """
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86
                                 """
+                            }
+                        }
+                        stage("test-unit") {
+                            steps {
+                                timeout(time: 2, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --target_os=android --target_arch=x86"
+                                    }
+                                }
                             }
                         }
                         stage("dist") {
