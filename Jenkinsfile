@@ -25,6 +25,7 @@ pipeline {
         BRAVE_ARTIFACTS_S3_BUCKET = credentials("brave-jenkins-artifacts-s3-bucket")
         SLACK_USERNAME_MAP = credentials("github-to-slack-username-map")
         SIGN_WIDEVINE_PASSPHRASE = credentials("447b2fa7-c989-43af-9047-8ae158fad0a3")
+        BINANCE_CLIENT_ID = credentials("binance-client-id")
     }
     stages {
         stage("env") {
@@ -125,7 +126,7 @@ pipeline {
                                 }
                             }
                         }
-                        stage("build") {
+                        stage("dist") {
                             steps {
                                 script {
                                     config()
@@ -138,13 +139,8 @@ pipeline {
                                 }
                                 sh """
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
                                 """
-                            }
-                        }
-                        stage("dist") {
-                            steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm"
                             }
                         }
                         stage("s3-upload") {
@@ -152,7 +148,7 @@ pipeline {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                     sh """
                                         aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/apks/Bravearm.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
-                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/dist/Defaultarmclassic s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/dist/Defaultarmclassic* s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
                                     """
                                 }
                             }
@@ -961,6 +957,7 @@ def config() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
     """
 }
 
@@ -975,6 +972,7 @@ def configWindows() {
         npm config --userconfig=.npmrc set google_api_endpoint safebrowsing.brave.com
         npm config --userconfig=.npmrc set google_api_key dummytoken
         npm config --userconfig=.npmrc set dcheck_always_on ${DCHECK_ALWAYS_ON}
+        npm config --userconfig=.npmrc set binance_client_id ${BINANCE_CLIENT_ID}
     """
 }
 
