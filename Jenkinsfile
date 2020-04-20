@@ -126,6 +126,23 @@ pipeline {
                                 }
                             }
                         }
+                        stage("dist") {
+                            steps {
+                                script {
+                                    config()
+                                    sh """
+                                        npm config --userconfig=.npmrc set brave_android_keystore_name ${KEYSTORE_NAME}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_path ${KEYSTORE_PATH}
+                                        npm config --userconfig=.npmrc set brave_android_keystore_password ${KEYSTORE_PASSWORD_1}
+                                        npm config --userconfig=.npmrc set brave_android_key_password ${KEYSTORE_PASSWORD_2}
+                                    """
+                                }
+                                sh """
+                                    npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
+                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86
+                                """
+                            }
+                        }
                         stage("test-unit") {
                             steps {
                                 timeout(time: 20, unit: "MINUTES") {
@@ -146,23 +163,6 @@ pipeline {
                                         sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --target_os=android --target_arch=x86"
                                     }
                                 }
-                            }
-                        }
-                        stage("dist") {
-                            steps {
-                                script {
-                                    config()
-                                    sh """
-                                        npm config --userconfig=.npmrc set brave_android_keystore_name ${KEYSTORE_NAME}
-                                        npm config --userconfig=.npmrc set brave_android_keystore_path ${KEYSTORE_PATH}
-                                        npm config --userconfig=.npmrc set brave_android_keystore_password ${KEYSTORE_PASSWORD_1}
-                                        npm config --userconfig=.npmrc set brave_android_key_password ${KEYSTORE_PASSWORD_2}
-                                    """
-                                }
-                                sh """
-                                    npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86
-                                """
                             }
                         }
                         stage("s3-upload") {
