@@ -35,61 +35,20 @@ projectNames.forEach((name) => {
 async function RunCommand () {
   program.parse(process.argv)
   config.update(program)
-  
+
   if (program.init || program.submodule_sync) {
     progressLog('Updating submodules...')
     util.submoduleSync()
     progressLog('Done updating submodules...')
   }
-  
+
   if (program.init) {
     util.buildGClientConfig()
   }
-  
-  if (program.init) {
-    progressLog(`Syncing Gclient (with reset)`)
-    util.gclientSync(true)
-  }
-  
-  progressLog('Updating project repositories...')
-  const alwaysReset = program.init ? true : false
-  if (alwaysReset) {
-    console.log(chalk.italic('A git reset will be performed for all repositories because the "init" param was specified'))
-  }
-  let wasSomeDepUpdated = alwaysReset ? true : false
-  
-  const projectUpdateStatus = {}
-  await Promise.all(
-    projectNames.map(async (name) => {
-      let project = config.projects[name]
-      if (alwaysReset || program.all || program[project.arg_name + '_ref']) {
-        projectUpdateStatus[name] = {
-          name,
-          phase: 'fetching...',
-          ref: project.ref
-        }
-        logUpdateStatus(projectUpdateStatus)
-        await util.fetch(project.dir)
-        projectUpdateStatus[name].phase = 'ensuring up to date...'
-        logUpdateStatus(projectUpdateStatus)
-        const thisDepUpdated = await util.setGitVersion(project.dir, project.ref, alwaysReset)
-        projectUpdateStatus[name].phase = `done (reset ${thisDepUpdated ? 'was' : 'not'} required).`
-        projectUpdateStatus[name].requiredUpdate = thisDepUpdated
-        logUpdateStatus(projectUpdateStatus)
-        if (thisDepUpdated) {
-          wasSomeDepUpdated = true
-        }
-      }
-    })
-  )
-  progressLog('Done updating project repositories.')
-  
-  if (wasSomeDepUpdated || alwaysReset || program.run_sync) {
-    progressLog(`Running gclient sync (${alwaysReset ? '' : 'not '}with reset)...`)
-    util.gclientSync(alwaysReset)
-    progressLog('Done running gclient sync.')
-  }
-  
+
+  progressLog(`Syncing Gclient`)
+  util.gclientSync(program.init || program.all)
+
   progressLog('Applying patches...')
   // Always detect if we need to apply patches, since user may have modified
   // either chromium source files, or .patch files manually
@@ -122,11 +81,9 @@ async function RunCommand () {
   }
   progressLog('Done applying patches.')
 
-  if (wasSomeDepUpdated || program.init || program.run_hooks) {
-    progressLog('Running gclient hooks...')
-    util.gclientRunhooks()
-    progressLog('Done running gclient hooks.')
-  }
+  progressLog('Running gclient hooks...')
+  util.gclientRunhooks()
+  progressLog('Done running gclient hooks.')
 }
 
 progressLog('Brave Browser Sync starting')
