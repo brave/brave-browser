@@ -64,6 +64,7 @@ pipeline {
                     }
                     agent { label "android-ci" }
                     environment {
+                        GIT_CACHE_PATH = "${HOME}/cache"
                         QA_CODE = credentials("android-browser-qa-code")
                         KEYSTORE_NAME = "linkbubble"
                         KEYSTORE_PATH = credentials("android-browser-sign-key-store")
@@ -125,7 +126,29 @@ pipeline {
                                 }
                             }
                         }
-                        stage("build") {
+                        stage("test-unit") {
+                            steps {
+                                timeout(time: 20, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        sh '''
+                                            set -e
+                                            # remove old image and create new one as one mksdcard can only run one test
+                                            rm -rf android.img
+                                            $HOME/android-sdk/tools/mksdcard -l android29 10240M android.img
+                                            # delete old avd if exists
+                                            $HOME/android-sdk/tools/bin/avdmanager delete avd -n android || true
+                                            # create avd 
+                                            echo no | $HOME/android-sdk/tools/bin/avdmanager create avd -f -c android.img  -n android -k "system-images;android-29;google_apis;x86"
+                                            # start emulator
+                                            $HOME/android-sdk/emulator/emulator -ports 5554,5555 -avd  android -no-window -no-audio -gpu swiftshader_indirect -show-kernel -use-system-libs -no-snapshot -wipe-data -verbose &> /dev/null &
+                                            sleep 160
+                                        '''
+                                        sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --target_os=android --target_arch=x86"
+                                    }
+                                }
+                            }
+                        }
+                        stage("dist") {
                             steps {
                                 script {
                                     config()
@@ -140,20 +163,6 @@ pipeline {
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
                                     npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86
                                 """
-                            }
-                        }
-                        stage("test-unit") {
-                            steps {
-                                timeout(time: 20, unit: "MINUTES") {
-                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                        sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --target_os=android --target_arch=x86"
-                                    }
-                                }
-                            }
-                        }
-                        stage("dist") {
-                            steps {
-                                sh "npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86"
                             }
                         }
                         stage("s3-upload") {
@@ -174,6 +183,9 @@ pipeline {
                         expression { !SKIP_IOS }
                     }
                     agent { label "mac-ci" }
+                    environment {
+                        GIT_CACHE_PATH = "${HOME}/cache"
+                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -266,6 +278,9 @@ pipeline {
                         expression { !SKIP_LINUX }
                     }
                     agent { label "linux-ci" }
+                    environment {
+                        GIT_CACHE_PATH = "${HOME}/cache"
+                    }
                     stages {
                         stage("checkout") {
                             steps {
@@ -392,6 +407,7 @@ pipeline {
                     }
                     agent { label "mac-ci" }
                     environment {
+                        GIT_CACHE_PATH = "${HOME}/cache"
                         KEYCHAIN = "signing-ci"
                         KEYCHAIN_PATH = "/Users/jenkins/Library/Keychains/${KEYCHAIN}.keychain-db"
                         KEYCHAIN_PASS = credentials("mac-ci-signing-keychain-password")
@@ -557,6 +573,7 @@ pipeline {
                         }
                     }
                     environment {
+                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -919,6 +936,7 @@ def pinWindows() {
 
 def install() {
     sh """
+        rm -rf ${GIT_CACHE_PATH}/*.lock
         npm install --no-optional
     """
 }
@@ -982,6 +1000,7 @@ def configWindows() {
 
 def installWindows() {
     powershell """
+        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
         Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
