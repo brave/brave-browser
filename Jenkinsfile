@@ -139,7 +139,7 @@ pipeline {
                                 }
                                 sh """
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
-                                    npm run build -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86
                                 """
                             }
                         }
