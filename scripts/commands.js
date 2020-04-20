@@ -10,6 +10,7 @@ const util = require('../lib/util')
 const build = require('../lib/build')
 const versions = require('../lib/versions')
 const start = require('../lib/start')
+const applyPatches = require('../lib/applyPatches')
 const updatePatches = require('./updatePatches')
 const pullL10n = require('../lib/pullL10n')
 const pushL10n = require('../lib/pushL10n')
@@ -36,6 +37,11 @@ program
 program
   .command('versions')
   .action(versions)
+
+program
+  .command('apply_patches')
+  .arguments('[build_config]')
+  .action(applyPatches)
 
 program
   .command('build')
