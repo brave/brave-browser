@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.98](https://github.com/brave/brave-browser/releases/tag/v1.7.98)
+
+ - Removed monthly statements for Brave Rewards prior to February 2020. ([#8987](https://github.com/brave/brave-browser/issues/8987))
+ - Fixed certain websites not being classified correctly for Brave ads. ([#9021](https://github.com/brave/brave-browser/issues/9021))
+ - Fixed retry logic for bad or duplicate Brave ad confirmations. ([#9242](https://github.com/brave/brave-browser/issues/9242))
+ - Upgraded Chromium to 81.0.4044.113. ([#9251](https://github.com/brave/brave-browser/issues/9251))
+
 ## [1.7.92](https://github.com/brave/brave-browser/releases/tag/v1.7.92)
 
  - Added monthly statements for Brave Rewards. ([#930](https://github.com/brave/brave-browser/issues/930))
