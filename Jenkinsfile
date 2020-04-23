@@ -168,10 +168,12 @@ pipeline {
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    sh """
-                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_x86/apks/Bravex86.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
-                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_x86/dist/Defaultx86classic* s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
-                                    """
+                                    withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                        sh """
+                                            aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_x86/apks/Bravex86.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                            aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_x86/dist/Defaultx86classic* s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                        """
+                                    }
                                 }
                             }
                         }
