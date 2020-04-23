@@ -102,7 +102,7 @@ pipeline {
                                 timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
-                                        npm run init -- --target_os=android
+                                        npm run init -- --target_os=android --target_arch=x86
                                     """
                                 }
                             }
