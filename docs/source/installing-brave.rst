@@ -56,6 +56,12 @@ OpenSUSE 15+
 
     sudo zypper install brave-browser
 
+Manjaro
+------------
+::
+
+    sudo pacman -S brave
+    
 
 Beta Channel Installation
 =========================
@@ -99,6 +105,12 @@ OpenSUSE 15+
     sudo zypper addrepo https://brave-browser-rpm-beta.s3.brave.com/x86_64/ brave-browser-beta
 
     sudo zypper install brave-browser-beta
+    
+Manjaro
+------------
+::
+
+    sudo pacman -S brave-beta
 
 
 Nightly Channel Installation
