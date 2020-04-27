@@ -116,16 +116,6 @@ pipeline {
                                 }
                             }
                         }
-                        stage("sccache") {
-                            when {
-                                expression { !DISABLE_SCCACHE }
-                            }
-                            steps {
-                                script {
-                                    sccache()
-                                }
-                            }
-                        }
                         stage("dist") {
                             steps {
                                 script {
