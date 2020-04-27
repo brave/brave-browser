@@ -149,20 +149,29 @@ pipeline {
                                     catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                                         sh '''
                                             set -e
-                                            # remove old image and create new one as one mksdcard can only run one test
-                                            rm -rf android.img
                                             $HOME/android-sdk/tools/mksdcard -l android29 10240M android.img
-                                            # delete old avd if exists
-                                            $HOME/android-sdk/tools/bin/avdmanager delete avd -n android || true
                                             # create avd 
-                                            echo no | $HOME/android-sdk/tools/bin/avdmanager create avd -f -c android.img  -n android -k "system-images;android-29;google_apis;x86"
+                                            echo no | $HOME/android-sdk/tools/bin/avdmanager create avd -f -c android.img  -n android-${BUILD_NUMBER} -k "system-images;android-29;google_apis;x86"
                                             # start emulator
-                                            $HOME/android-sdk/emulator/emulator -ports 5554,5555 -avd  android -no-window -no-audio -gpu swiftshader_indirect -show-kernel -use-system-libs -no-snapshot -wipe-data -verbose &> /dev/null &
+                                            $HOME/android-sdk/emulator/emulator -ports 5554,5555 -avd  android-${BUILD_NUMBER} -no-window -no-audio -gpu swiftshader_indirect -show-kernel -use-system-libs -no-snapshot -wipe-data -verbose &> /dev/null &
                                             sleep 160
                                         '''
                                         sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --target_os=android --target_arch=x86"
                                     }
                                 }
+                            }
+                        }
+                        stage("cleanup-container") {
+                            when {
+                                expression { NODE_NAME ==~ /.*ecs.*/ }
+                            }
+                            steps {
+                                sh '''
+                                    # remove old image
+                                    rm -rf android.img
+                                    # delete old avd if exists
+                                    $HOME/android-sdk/tools/bin/avdmanager delete avd -n android-${BUILD_NUMBER} || true
+                                '''
                             }
                         }
                         stage("s3-upload") {
