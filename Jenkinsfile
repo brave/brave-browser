@@ -62,7 +62,7 @@ pipeline {
                         beforeAgent true
                         expression { !SKIP_ANDROID }
                     }
-                    agent { label "android-ci" }
+                    agent { label "android-ecs" }
                     environment {
                         GIT_CACHE_PATH = "${HOME}/cache"
                         QA_CODE = credentials("android-browser-qa-code")
@@ -102,7 +102,7 @@ pipeline {
                                 timeout(time: 2, unit: "HOURS") {
                                     sh """
                                         rm -rf src/brave
-                                        npm run init -- --target_os=android
+                                        npm run init -- --target_os=android --target_arch=x86
                                     """
                                 }
                             }
@@ -113,16 +113,6 @@ pipeline {
                                     script {
                                         lint()
                                     }
-                                }
-                            }
-                        }
-                        stage("sccache") {
-                            when {
-                                expression { !DISABLE_SCCACHE }
-                            }
-                            steps {
-                                script {
-                                    sccache()
                                 }
                             }
                         }
@@ -139,17 +129,50 @@ pipeline {
                                 }
                                 sh """
                                     npm config --userconfig=.npmrc set brave_android_developer_options_code ${QA_CODE}
-                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=arm
+                                    npm run create_dist -- ${BUILD_TYPE} --channel=${CHANNEL} --target_os=android --target_arch=x86
                                 """
+                            }
+                        }
+                        stage("test-unit") {
+                            steps {
+                                timeout(time: 20, unit: "MINUTES") {
+                                    catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                                        sh '''
+                                            set -e
+                                            $HOME/android-sdk/tools/mksdcard -l android29 10240M android.img
+                                            # create avd 
+                                            echo no | $HOME/android-sdk/tools/bin/avdmanager create avd -f -c android.img  -n android-${BUILD_NUMBER} -k "system-images;android-29;google_apis;x86"
+                                            # start emulator
+                                            $HOME/android-sdk/emulator/emulator -ports 5554,5555 -avd  android-${BUILD_NUMBER} -no-window -no-audio -gpu swiftshader_indirect -show-kernel -use-system-libs -no-snapshot -wipe-data -verbose &> /dev/null &
+                                            sleep 160
+                                        '''
+                                        sh "npm run test -- brave_unit_tests ${BUILD_TYPE} --target_os=android --target_arch=x86"
+                                    }
+                                }
+                            }
+                        }
+                        stage("cleanup-container") {
+                            when {
+                                expression { NODE_NAME ==~ /.*ecs.*/ }
+                            }
+                            steps {
+                                sh '''
+                                    # remove old image
+                                    rm -rf android.img
+                                    # delete old avd if exists
+                                    $HOME/android-sdk/tools/bin/avdmanager delete avd -n android-${BUILD_NUMBER} || true
+                                '''
                             }
                         }
                         stage("s3-upload") {
                             steps {
                                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
-                                    sh """
-                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/apks/Bravearm.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
-                                        aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_arm/dist/Defaultarmclassic* s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
-                                    """
+                                    withAWS(credentials: "mac-build-s3-upload-artifacts", region: "us-west-2") {
+                                        sh """
+                                            aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_x86/apks/Bravex86.apk s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                            aws s3 cp --no-progress src/out/android_${BUILD_TYPE}_x86/dist/Defaultx86classic* s3://${BRAVE_ARTIFACTS_S3_BUCKET}/${BUILD_TAG_SLASHED}/
+                                        """
+                                    }
                                 }
                             }
                         }
