@@ -584,7 +584,6 @@ pipeline {
                         }
                     }
                     environment {
-                        GIT_CACHE_PATH = "C:\\Users\\Administrator\\cache"
                         PATH = "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x64\\;C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\IDE\\Remote Debugger\\x64;${PATH}"
                         SIGNTOOL_ARGS = "sign /t http://timestamp.digicert.com /fd sha256 /sm"
                         CERT = "Brave"
@@ -1011,7 +1010,6 @@ def configWindows() {
 
 def installWindows() {
     powershell """
-        Remove-Item -Recurse -Force ${GIT_CACHE_PATH}/*.lock
         Get-ChildItem "Cert:\\LocalMachine\\My" | Remove-Item
         \$ErrorActionPreference = "Stop"
         npm install --no-optional
