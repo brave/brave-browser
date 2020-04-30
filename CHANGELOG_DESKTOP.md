@@ -13,7 +13,7 @@
  - Improved top site tiles on the New Tab Page. ([#2971](https://github.com/brave/brave-browser/issues/2971))
  - Switched from "Prebake Cookie" to "Easylist Cookie" list. ([#5318](https://github.com/brave/brave-browser/issues/5318))
  - Removed ability to import data from legacy Brave (muon). ([#7403](https://github.com/brave/brave-browser/issues/7403))
- - Removed autoplay whitelist to match Chromium behavior. ([#8408](https://github.com/brave/brave-browser/issues/8408))
+ - Removed autoplay allow list to match Chromium behavior. ([#8408](https://github.com/brave/brave-browser/issues/8408))
  - Disabled ScrollToTextFragment. ([#8342](https://github.com/brave/brave-browser/issues/8342))
  - Fixed Brave ads server retry logic running into an infinite loop in certain cases causing performance issues. ([#7226](https://github.com/brave/brave-browser/issues/7226))
  - Fixed issue where attention percentage would display as zero on rewards panel. ([#8463](https://github.com/brave/brave-browser/issues/8463))
