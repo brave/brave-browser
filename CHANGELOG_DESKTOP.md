@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.8.86](https://github.com/brave/brave-browser/releases/tag/v1.8.86)
+
+ - Added Binance widget to the New Tab Page. ([#9118](https://github.com/brave/brave-browser/issues/9118))
+ - Added support for referral background images and top sites on the New Tab Page. ([#8218](https://github.com/brave/brave-browser/issues/8218))
+ - Added the ability to import extensions from Chrome. ([#7974](https://github.com/brave/brave-browser/issues/7974))
+ - Added "Customize" text to the New Tab Page dashboard settings icon. ([#4930](https://github.com/brave/brave-browser/issues/4930))
+ - Enhanced privacy by farbling convertToBlob. ([#8682](https://github.com/brave/brave-browser/issues/8682))
+ - Updated text for "Device recognition" to "Fingerprinting" on Brave Shields panel and brave://settings/shields. ([#7949](https://github.com/brave/brave-browser/issues/7949))
+ - Updated category text on ads history panel from "untargeted" to "general". ([#6553](https://github.com/brave/brave-browser/issues/6553))
+ - Improved publisher list load time. ([#9376](https://github.com/brave/brave-browser/issues/9376))
+ - Improved top site tiles on the New Tab Page. ([#2971](https://github.com/brave/brave-browser/issues/2971))
+ - Switched from "Prebake Cookie" to "Easylist Cookie" list. ([#5318](https://github.com/brave/brave-browser/issues/5318))
+ - Removed ability to import data from legacy Brave (muon). ([#7403](https://github.com/brave/brave-browser/issues/7403))
+ - Removed autoplay whitelist to match Chromium behavior. ([#8408](https://github.com/brave/brave-browser/issues/8408))
+ - Disabled ScrollToTextFragment. ([#8342](https://github.com/brave/brave-browser/issues/8342))
+ - Fixed Brave ads server retry logic running into an infinite loop in certain cases causing performance issues. ([#7226](https://github.com/brave/brave-browser/issues/7226))
+ - Fixed issue where attention percentage would display as zero on rewards panel. ([#8463](https://github.com/brave/brave-browser/issues/8463))
+ - Fixed inability to import passwords from Chrome on Windows. ([#3674](https://github.com/brave/brave-browser/issues/3674))
+ - Fixed crash when enabling IPFS on Linux. ([#7325](https://github.com/brave/brave-browser/issues/7325))
+ - Fixed multiple web compatibility issues related to fingerprinting protection. ([#8858](https://github.com/brave/brave-browser/issues/8858),[#8855](https://github.com/brave/brave-browser/issues/8855))
+ - Fixed inability to use Twitter in certain cases when "Cross-site cookies blocked" is selected from Brave Shields. ([#9337](https://github.com/brave/brave-browser/issues/9337))
+ - Fixed missing translation on the New Tab Page title. ([#9169](https://github.com/brave/brave-browser/issues/9169))
+ - Upgraded Chromium to 81.0.4044.129. ([#9493](https://github.com/brave/brave-browser/issues/9493))
+
 ## [1.7.98](https://github.com/brave/brave-browser/releases/tag/v1.7.98)
 
  - Removed monthly statements for Brave Rewards prior to February 2020. ([#8987](https://github.com/brave/brave-browser/issues/8987))
