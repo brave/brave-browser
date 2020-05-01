@@ -46,18 +46,18 @@ pipeline {
 
 @NonCPS
 def stopCurrentBuild() {
-    Jenkins.instance.getItemByFullName(env.JOB_NAME).getLastBuild().doStop()
+    Jenkins.instance.getItemByFullName(JOB_NAME).getLastBuild().doStop()
     sleep(time: 1, unit: "MINUTES")
 }
 
 @NonCPS
 def isStartedManually() {
-    return Jenkins.instance.getItemByFullName(env.JOB_NAME).getLastBuild().getCause(hudson.model.Cause$UpstreamCause) == null
+    return Jenkins.instance.getItemByFullName(JOB_NAME).getLastBuild().getCause(hudson.model.Cause$UpstreamCause) == null
 }
 
 @NonCPS
 def getBuilds() {
-    return Jenkins.instance.getItemByFullName(env.JOB_NAME).builds
+    return Jenkins.instance.getItemByFullName(JOB_NAME).builds
 }
 
 def setEnv() {
@@ -75,49 +75,40 @@ def setEnv() {
     SKIP_LINUX = false
     SKIP_MACOS = false
     SKIP_WINDOWS = false
-    BRAVE_BROWSER_BRANCH = env.BRANCH_NAME
     BASE_BRANCH = "master"
     BRAVE_CORE_BRANCH = "master"
+    BRAVE_BROWSER_BRANCH = BRANCH_NAME
     GITHUB_API = "https://api.github.com/repos/brave"
-    if (env.CHANGE_BRANCH) {
-        BRAVE_BROWSER_BRANCH = env.CHANGE_BRANCH
-        BASE_BRANCH = env.CHANGE_TARGET
-        BRAVE_CORE_BRANCH = BASE_BRANCH
-        def bbPrNumber = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRAVE_BROWSER_BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).content)[0].number
-        def bbPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls/" + bbPrNumber, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).content)
-        SKIP = bbPrDetails.mergeable_state.equals("draft") || bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
-        SKIP_ANDROID = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
-        SKIP_IOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
-        SKIP_LINUX = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
-        SKIP_MACOS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
-        SKIP_WINDOWS = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
-        RUN_NETWORK_AUDIT = bbPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
-        env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bbPrDetails.user.login]
-        env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${bbPrNumber}"
-        env.BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${bbPrNumber}"
-        env.BRANCH_PRODUCTIVITY_DESCRIPTION = bbPrDetails.title
-        env.BRANCH_PRODUCTIVITY_USER = bbPrDetails.user.login
-    }
-    BRANCH_EXISTS_IN_BC = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRAVE_BROWSER_BRANCH, validResponseCodes: "100:499", customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).status.equals(200)
-    if (BRANCH_EXISTS_IN_BC) {
-        def bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRAVE_BROWSER_BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).content)[0]
-        if (bcPrDetails) {
-            env.BC_PR_NUMBER = bcPrDetails.number
+    if (CHANGE_BRANCH) {
+        BASE_BRANCH = CHANGE_TARGET
+        BRAVE_CORE_BRANCH = CHANGE_TARGET
+        BRAVE_BROWSER_BRANCH = CHANGE_BRANCH
+        def braveBrowserPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + BRAVE_BROWSER_BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).content)[0]
+        SKIP = braveBrowserPrDetails.mergeable_state.equals("draft") || braveBrowserPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
+        SKIP_ANDROID = braveBrowserPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
+        SKIP_IOS = braveBrowserPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
+        SKIP_LINUX = braveBrowserPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
+        SKIP_MACOS = braveBrowserPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
+        SKIP_WINDOWS = braveBrowserPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+        RUN_NETWORK_AUDIT = braveBrowserPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
+        SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[braveBrowserPrDetails.user.login]
+        BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-browser/pull/${braveBrowserPrDetails.number}"
+        BRANCH_PRODUCTIVITY_NAME = "Brave Browser PR #${braveBrowserPrDetails.number}"
+        BRANCH_PRODUCTIVITY_DESCRIPTION = braveBrowserPrDetails.title
+        BRANCH_PRODUCTIVITY_USER = braveBrowserPrDetails.user.login
+        def branchExistsInBraveCore = httpRequest(url: GITHUB_API + "/brave-core/branches/" + BRAVE_BROWSER_BRANCH, validResponseCodes: "100:499", customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).status.equals(200)
+        if (branchExistsInBraveCore) {
             BRAVE_CORE_BRANCH = BRAVE_BROWSER_BRANCH
-            bcPrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls/" +  env.BC_PR_NUMBER, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).content)
-            BASE_BRANCH = bcPrDetails.base.ref
-            SKIP = bcPrDetails.mergeable_state.equals("draft") || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
-            SKIP_ANDROID = SKIP_ANDROID || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
-            SKIP_IOS = SKIP_IOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
-            SKIP_LINUX = SKIP_LINUX || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
-            SKIP_MACOS = SKIP_MACOS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
-            SKIP_WINDOWS = SKIP_WINDOWS || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
-            RUN_NETWORK_AUDIT = RUN_NETWORK_AUDIT || bcPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
-            env.SLACK_USERNAME = readJSON(text: SLACK_USERNAME_MAP)[bcPrDetails.user.login]
-            env.BRANCH_PRODUCTIVITY_HOMEPAGE = "https://github.com/brave/brave-core/pull/${bcPrDetails.number}"
-            env.BRANCH_PRODUCTIVITY_NAME = "Brave Core PR #${bcPrDetails.number}"
-            env.BRANCH_PRODUCTIVITY_DESCRIPTION = bcPrDetails.title
-            env.BRANCH_PRODUCTIVITY_USER = bcPrDetails.user.login
+            def braveCorePrDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-core/pulls?head=brave:" + BRAVE_CORE_BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).content)[0]
+            if (braveCorePrDetails) {
+                SKIP = SKIP || braveCorePrDetails.mergeable_state.equals("draft") || braveCorePrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
+                SKIP_ANDROID = SKIP_ANDROID || braveCorePrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
+                SKIP_IOS = SKIP_IOS || braveCorePrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
+                SKIP_LINUX = SKIP_LINUX || braveCorePrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-linux") }.equals(1)
+                SKIP_MACOS = SKIP_MACOS || braveCorePrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-macos") }.equals(1)
+                SKIP_WINDOWS = SKIP_WINDOWS || braveCorePrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-windows") }.equals(1)
+                RUN_NETWORK_AUDIT = RUN_NETWORK_AUDIT || braveCorePrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/run-network-audit") }.equals(1)
+            }
         }
     }
 }
@@ -127,23 +118,9 @@ def checkAndAbortBuild() {
         echo "Aborting build as PR is in draft or has \"CI/skip\" label"
         stopCurrentBuild()
     }
-    else if (BRANCH_EXISTS_IN_BC) {
-        if (isStartedManually()) {
-            if (env.BC_PR_NUMBER) {
-                echo "Aborting build as PR exists in brave-core and build has not been started from there"
-                echo "Use " + env.JENKINS_URL + "view/ci/job/brave-core-build-pr/view/change-requests/job/PR-" + env.BC_PR_NUMBER + " to trigger"
-            }
-            else {
-                echo "Aborting build as there's a matching branch in brave-core, please create a PR there first"
-                echo "Use https://github.com/brave/brave-core/compare/" + BASE_BRANCH + "..." + BRAVE_BROWSER_BRANCH + " to create PR"
-            }
-            SKIP = true
-            stopCurrentBuild()
-        }
-    }
-    if (!SKIP) {
+    else {
         for (build in getBuilds()) {
-            if (build.isBuilding() && build.getNumber() < env.BUILD_NUMBER.toInteger()) {
+            if (build.isBuilding() && build.getNumber() < BUILD_NUMBER.toInteger()) {
                 echo "Aborting older running build " + build
                 build.doStop()
             }
