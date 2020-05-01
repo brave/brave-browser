@@ -187,7 +187,7 @@ def startBraveBrowserBuild() {
                                 credentials('brave-builds-github-token-for-pr-builder')
                                 github('brave/devops', 'https')
                             }
-                            branch('master)
+                            branch('master')
                         }
                     }
                     scriptPath('jenkins/jobs/browser/Jenkinsfile')
