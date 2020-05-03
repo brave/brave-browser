@@ -16,7 +16,7 @@
     "update_patches": "node ./scripts/commands.js update_patches",
     "apply_patches": "node ./scripts/commands.js apply_patches",
     "start": "node ./scripts/commands.js start",
-    "network-audit": "node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test",
+    "network-audit": "node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test --disable-doh",
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
