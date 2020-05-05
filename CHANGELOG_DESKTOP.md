@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.90](https://github.com/brave/brave-browser/releases/tag/v1.8.90)
+
+ - Added Memo ID for applicable assets in the Binance widget. ([#9535](https://github.com/brave/brave-browser/issues/9535))
+ - [Security] Fixed an out-of-bound read crash in the renderer process. ([#9552](https://github.com/brave/brave-browser/issues/9552))
+ - Fixed incorrect Safe Browsing label in brave://settings/privacy. ([#9266](https://github.com/brave/brave-browser/issues/9266))
+ - Fixed deposit addresses and QR codes not being displayed for all assets in the Binance widget. ([#9250](https://github.com/brave/brave-browser/issues/9250))
+ - Fixed inability to toggle off referral background images on brave://settings/themes. ([#9515](https://github.com/brave/brave-browser/issues/9515))
+
 ## [1.8.86](https://github.com/brave/brave-browser/releases/tag/v1.8.86)
 
  - Added Binance widget to the New Tab Page. ([#9118](https://github.com/brave/brave-browser/issues/9118))
