@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.8.95](https://github.com/brave/brave-browser/releases/tag/v1.8.95)
+
+ - Fixed Memo ID and wallet address not being displayed for applicable assets in the Binance widget. ([#9605](https://github.com/brave/brave-browser/issues/9605))
+ - Fixed stablecoins not being included in the wallet balance total for the Binance widget. ([#9559](https://github.com/brave/brave-browser/issues/9559))
+ - Upgraded Chromium to 81.0.4044.138. ([#9632](https://github.com/brave/brave-browser/issues/9632))
+
 ## [1.8.90](https://github.com/brave/brave-browser/releases/tag/v1.8.90)
 
  - Added Memo ID for applicable assets in the Binance widget. ([#9535](https://github.com/brave/brave-browser/issues/9535))
