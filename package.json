@@ -44,7 +44,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "1.8.x",
+        "branch": "1.8.x-desktop",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
