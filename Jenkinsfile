@@ -40,13 +40,13 @@ pipeline {
             }
             steps {
                 script {
-                    if (BUILD_STATUS) {
+                    if (params.BUILD_STATUS) {
                         if (isStartedManually()) {
                             echo "Aborting build as it has been started manually with BUILD_STATUS set"
                             stopCurrentBuild()
                         }
                         else {
-                            currentBuild.result = BUILD_STATUS
+                            currentBuild.result = params.BUILD_STATUS
                         }
                     }
                     else {
@@ -169,13 +169,13 @@ def startBraveBrowserBuild() {
         }
     """)
     params = [
-        string(name: "CHANNEL", value: CHANNEL),
-        string(name: "BUILD_TYPE", value: BUILD_TYPE),
-        booleanParam(name: "WIPE_WORKSPACE", value: WIPE_WORKSPACE),
-        booleanParam(name: "SKIP_INIT", value: SKIP_INIT),
-        booleanParam(name: "DISABLE_SCCACHE", value: DISABLE_SCCACHE),
-        booleanParam(name: "SKIP_SIGNING", value: SKIP_SIGNING),
-        booleanParam(name: "DCHECK_ALWAYS_ON", value: DCHECK_ALWAYS_ON),
+        string(name: "CHANNEL", value: params.CHANNEL),
+        string(name: "BUILD_TYPE", value: params.BUILD_TYPE),
+        booleanParam(name: "WIPE_WORKSPACE", value: params.WIPE_WORKSPACE),
+        booleanParam(name: "SKIP_INIT", value: params.SKIP_INIT),
+        booleanParam(name: "DISABLE_SCCACHE", value: params.DISABLE_SCCACHE),
+        booleanParam(name: "SKIP_SIGNING", value: params.SKIP_SIGNING),
+        booleanParam(name: "DCHECK_ALWAYS_ON", value: params.DCHECK_ALWAYS_ON),
         booleanParam(name: "RUN_NETWORK_AUDIT", value: RUN_NETWORK_AUDIT),
         booleanParam(name: "SKIP_ANDROID", value: SKIP_ANDROID),
         booleanParam(name: "SKIP_IOS", value: SKIP_IOS),
