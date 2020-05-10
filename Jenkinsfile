@@ -79,6 +79,7 @@ def setEnv() {
     OTHER_REPO_BRANCH = CHANGE_TARGET
     REPO_BRANCH = CHANGE_BRANCH
     def prDetails = readJSON(text: httpRequest(url: GITHUB_API + "/brave-browser/pulls?head=brave:" + REPO_BRANCH, customHeaders: [[name: "Authorization", value: "token ${PR_BUILDER_TOKEN}"]]).content)[0]
+    OTHER_PR_DETAILS = ''
     SKIP = prDetails.draft.equals(true) || prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip") }.equals(1)
     SKIP_ANDROID = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-android") }.equals(1)
     SKIP_IOS = prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-ios") }.equals(1)
