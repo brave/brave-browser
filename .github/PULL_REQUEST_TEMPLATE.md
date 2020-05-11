@@ -23,7 +23,7 @@
 - [ ] Public documentation has been updated as necessary. For instance:
   - [ ] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)
   - [ ] https://github.com/brave/brave-browser/wiki/Proxy-redirected-URLs
-  - [ ] https://github.com/brave/brave-browser/wiki/Fingerprinting-Protection-Mode
+  - [ ] https://github.com/brave/brave-browser/wiki/Fingerprinting-Protections
   - [ ] https://github.com/brave/brave-browser/wiki/Brave%E2%80%99s-Use-of-Referral-Codes
   - [ ] https://github.com/brave/brave-browser/wiki/Custom-Headers
   - [ ] https://github.com/brave/brave-browser/wiki/Web-compatibility-issues-with-tracking-protection

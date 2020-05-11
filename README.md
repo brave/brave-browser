@@ -28,7 +28,6 @@ You can [visit our website](https://brave.com/download) to get the latest stable
 For other versions of our browser, please see:
 
 * iOS - [brave/brave-ios](https://github.com/brave/brave-ios)
-* Android - [brave/browser-android-tabs](https://github.com/brave/browser-android-tabs)
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.9.29",
+  "version": "1.10.45",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -9,13 +9,14 @@
     "delete_string_translations": "node ./scripts/commands.js delete_string_translations",
     "create_dist": "node ./scripts/commands.js create_dist",
     "sync": "node ./scripts/sync.js",
+    "gclient": "node ./scripts/gclient.js",
     "build": "node ./scripts/commands.js build",
     "versions": "node ./scripts/commands.js versions",
     "upload": "node ./scripts/commands.js upload",
     "update_patches": "node ./scripts/commands.js update_patches",
-    "apply_patches": "node ./scripts/sync.js --run_hooks",
+    "apply_patches": "node ./scripts/commands.js apply_patches",
     "start": "node ./scripts/commands.js start",
-    "network-audit": "node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test",
+    "network-audit": "node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test --disable-doh",
     "push_l10n": "node ./scripts/commands.js push_l10n",
     "pull_l10n": "node ./scripts/commands.js pull_l10n",
     "chromium_rebase_l10n": "node ./scripts/commands.js chromium_rebase_l10n",
@@ -28,7 +29,10 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "81.0.4044.113",
+        "tag": "81.0.4044.138",
+        "repository": {
+          "url": "https://github.com/chromium/chromium"
+        },
         "custom_deps": {
           "src/third_party/WebKit/LayoutTests": "%None%",
           "src/chrome_frame/tools/test/reference_build/chrome": "%None%",
