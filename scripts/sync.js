@@ -20,6 +20,8 @@ program
   .option('--target_arch <target_arch>', 'target architecture')
   .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)')
   .option('--submodule_sync', 'run submodule sync')
+  .option('--no_update', 'do not reset brave or chromium working tree, (but do re-apply patches, sync DEPS and run hooks unless further overridden)')
+  .option('--no_patches', 'do not apply patches')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'update all projects')
 projectNames.forEach((name) => {
@@ -39,9 +41,13 @@ async function RunCommand () {
     util.buildGClientConfig()
   }
 
-  util.gclientSync(program.init || program.all)
-
-  await util.applyPatches()
+  if (!program.no_update) {
+    util.gclientSync(program.init || program.all)
+  }
+  
+  if (!program.no_patches) {
+    await util.applyPatches()
+  }
 
   util.gclientRunhooks()
 }
