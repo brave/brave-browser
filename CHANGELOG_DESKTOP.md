@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.8.96](https://github.com/brave/brave-browser/releases/tag/v1.8.96)
+
+ - Fixed users not receiving ad promotion due to empty public key in certain cases. ([#9684](https://github.com/brave/brave-browser/issues/9684))
+ - Implemented pagination for publisher list. ([#9607](https://github.com/brave/brave-browser/issues/9607))
+
 ## [1.8.95](https://github.com/brave/brave-browser/releases/tag/v1.8.95)
 
  - Fixed Memo ID and wallet address not being displayed for applicable assets in the Binance widget. ([#9605](https://github.com/brave/brave-browser/issues/9605))
@@ -78,7 +83,7 @@
  - Fixed notification icon incorrectly displaying on rewards icon in URL bar after claiming grants from rewards panel. ([#8239](https://github.com/brave/brave-browser/issues/8239))
  - Fixed incorrect message being displayed on panel and tip banner in certain cases. ([#8512](https://github.com/brave/brave-browser/issues/8512))
  - Fixed persistent Brave ads service errors on startup. ([#8138](https://github.com/brave/brave-browser/issues/8138))
- - Fixed embedded maps not loading on certain websites by adding fingerprinting exception for both https://public.tableau.com and https://www.arcgis.com. ([#8902](https://github.com/brave/brave-browser/issues/8902)
+ - Fixed embedded maps not loading on certain websites by adding fingerprinting exception for both https://public.tableau.com and https://www.arcgis.com. ([#8902](https://github.com/brave/brave-browser/issues/8902))
  - Fixed sync crash when multiple bookmarks have the same object id. ([#8358](https://github.com/brave/brave-browser/issues/8358))
  - Fixed several cases where sync would hang the browser. ([#7986](https://github.com/brave/brave-browser/issues/7986))
  - Fixed ad service crash when migrating to new database. ([#8132](https://github.com/brave/brave-browser/issues/8132))
