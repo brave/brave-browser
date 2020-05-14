@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.8.112](https://github.com/brave/brave-browser/releases/tag/v1.8.112)
+
+ - Fixed users not receiving ad promotion due to empty public key in certain cases. ([#9733](https://github.com/brave/brave-browser/issues/9733))
+ - Implemented pagination for publisher list. ([#9724](https://github.com/brave/brave-browser/issues/9724))
+ - Upgraded to Chromium 81.0.4044.138. ([#9736](https://github.com/brave/brave-browser/issues/9736))
+
 ## [1.8.93](https://github.com/brave/brave-browser/releases/tag/v1.8.93)
 
  - Added support for referral background images and top sites on the New Tab Page. ([#8217](https://github.com/brave/brave-browser/issues/8217))
