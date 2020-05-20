@@ -12,13 +12,13 @@
  - Updated P3A metric responses for window count. ([#9676](https://github.com/brave/brave-browser/issues/9676))
  - Updated P3A metric responses for bookmark count. ([#9634](https://github.com/brave/brave-browser/issues/9634))
  - Removed content-level tip button on GitHub org pages. ([#9024](https://github.com/brave/brave-browser/issues/9024))
+ - Fixed Brave not using OS locale and language settings as the default on Windows. ([#9712](https://github.com/brave/brave-browser/issues/9712))
  - Fixed incorrect or no publisher data being displayed on the rewards panel in certain cases when using Twitter. ([#8289](https://github.com/brave/brave-browser/issues/8289))
  - Fixed intermittent crash in confirmations. ([#8535](https://github.com/brave/brave-browser/issues/8535))
  - Fixed inability to enable Brave ads if regional format is set to "English (Europe)" on Windows. ([#7815](https://github.com/brave/brave-browser/issues/7815))
  - Fixed converted ads still being displayed in certain cases. ([#9436](https://github.com/brave/brave-browser/issues/9436))
  - Fixed ad notification timeout timers not being cancelled in certain cases. ([#9154](https://github.com/brave/brave-browser/issues/9154))
  - Fixed Brave ad campaign startAt and endAt times using local time instead of UTC. ([#8933](https://github.com/brave/brave-browser/issues/8933))
- - Fixed Brave not using OS locale and language settings as the default on Windows. ([#9712](https://github.com/brave/brave-browser/issues/9712))
 
 ## [1.8.96](https://github.com/brave/brave-browser/releases/tag/v1.8.96)
 
