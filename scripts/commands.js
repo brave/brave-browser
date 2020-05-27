@@ -169,6 +169,7 @@ program
 program
   .command('test <suite>')
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
+  .option('--vmodule [modules]', 'verbose log from specific modules')
   .option('--filter <filter>', 'set test filter')
   .option('--output <output>', 'set test output (results) file path')
   .option('--disable_brave_extension', 'disable loading the Brave extension')
