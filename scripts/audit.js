@@ -10,6 +10,7 @@ const baseDir = path.resolve(path.join(__dirname, '..'))
 const braveDir = path.join(baseDir, 'src', 'brave')
 const braveVendorDir = path.join(braveDir, 'vendor')
 const syncDir = path.join(braveDir, 'components', 'brave_sync', 'extension', 'brave-sync')
+const auditScript = path.join(braveDir, 'script', 'audit_deps.py')
 
 /**
  * Runs npm audit on a given directory located at pathname
@@ -23,7 +24,7 @@ function npmAudit (pathname) {
       cwd: pathname,
       shell: process.platform === 'win32'
     }
-    util.run('npm', ['audit'], cmdOptions)
+    util.run('python', [auditScript], cmdOptions)
   } else {
     console.log('Skipping audit of "' + pathname + '" (no package.json or node_modules directory found)')
   }
