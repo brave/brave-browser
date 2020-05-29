@@ -12,6 +12,7 @@ const projectNames = config.projectNames.filter((project) => config.projects[pro
 
 program
   .version(process.env.npm_package_version)
+  .arguments('[ref]')
   .option('--gclient_file <file>', 'gclient config file location')
   .option('--gclient_verbose', 'verbose output for gclient')
   .option('--run_hooks', 'run gclient hooks')
@@ -43,8 +44,11 @@ async function RunCommand () {
     util.buildGClientConfig()
   }
 
-  const braveCoreRef = program.init ? config.getProjectRef('brave-core') : null
-  util.gclientSync(program.init || program.all, braveCoreRef)
+  let braveCoreRef = program.args[0]
+  if (!braveCoreRef) {
+    braveCoreRef = program.init ? config.getProjectRef('brave-core') : null
+  }
+  util.gclientSync(program.init || program.reset, braveCoreRef)
 
   await util.applyPatches()
 
