@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.9.76](https://github.com/brave/brave-browser/releases/tag/v1.9.76)
+
+ - Removed bookmark icon from top site tiles on the New Tab Page. ([#9672](https://github.com/brave/brave-browser/issues/9672))
+ - Fixed notifications not working on Wordpress sites. ([#9064](https://github.com/brave/brave-browser/issues/9064))
+ - Fixed to allow cookies in first-party iframes nested inside third-party iframes when third-party cookie blocking is enabled. ([#9564](https://github.com/brave/brave-browser/issues/9564))
+ - Fixed to allow storage in first-party iframes regardless of the relative parents of that first-party iframe. ([#9105](https://github.com/brave/brave-browser/issues/9105))
+ - Fixed stats ping not being sent for users who updated to 1.9.72. ([#9921](https://github.com/brave/brave-browser/issues/9921))
+ - Fixed unsuccessful login to the Binance widget after creating a new account. ([#9863](https://github.com/brave/brave-browser/issues/9863))
+
 ## [1.9.72](https://github.com/brave/brave-browser/releases/tag/v1.9.72)
 
  - Added the ability to opt-in to user private Brave ads for over 150 new regions. ([#7817](https://github.com/brave/brave-browser/issues/7817))
