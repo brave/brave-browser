@@ -39,7 +39,8 @@ async function RunCommand () {
     util.buildGClientConfig()
   }
 
-  util.gclientSync(program.init || program.all)
+  const braveCoreRef = program.init ? config.getProjectRef('brave-core') : null
+  util.gclientSync(program.init || program.all, braveCoreRef)
 
   await util.applyPatches()
 
