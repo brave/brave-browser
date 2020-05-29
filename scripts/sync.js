@@ -21,7 +21,7 @@ program
   .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)')
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
-  .option('--all', 'update all projects')
+  .option('--reset --all', 'force reset all projects to origin/ref')
 projectNames.forEach((name) => {
   let project = config.projects[name]
   program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
