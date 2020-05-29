@@ -31,6 +31,10 @@ async function RunCommand () {
   program.parse(process.argv)
   config.update(program)
 
+  if (program.init) {
+    util.checkoutBraveCore()
+  }
+
   if (program.init || program.submodule_sync) {
     util.submoduleSync()
   }
