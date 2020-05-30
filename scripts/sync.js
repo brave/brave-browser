@@ -23,7 +23,7 @@ program
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--reset --all', 'force reset all projects to origin/ref')
-  .option('--create', 'create a new branch if needed')
+  .option('--create', 'create a new branch if needed for [ref]')
 projectNames.forEach((name) => {
   let project = config.projects[name]
   program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
