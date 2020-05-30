@@ -23,6 +23,7 @@ program
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
   .option('--reset --all', 'force reset all projects to origin/ref')
+  .option('--create', 'create a new branch if needed')
 projectNames.forEach((name) => {
   let project = config.projects[name]
   program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
@@ -48,6 +49,22 @@ async function RunCommand () {
   if (!braveCoreRef) {
     braveCoreRef = program.init ? config.getProjectVersion('brave-core') : null
   }
+
+  if (braveCoreRef) {
+    // try to checkout to the right ref if possible
+    util.run('git', ['-C', config.braveCoreDir, 'stash'], {continueOnFail: true})
+    util.run('git', ['-C', config.braveCoreDir, 'reset', '--hard', 'HEAD'], {continueOnFail: true})
+    let prog = util.run('git', ['-C', config.braveCoreDir, 'checkout', braveCoreRef], {continueOnFail: true})
+    if (prog.status !== 0 && program.create) {
+      util.run('git', ['-C', config.braveCoreDir, 'checkout', '-b', braveCoreRef], {continueOnFail: true})
+    }
+
+    if (prog.status !== 0) {
+      errorLog('Could not checkout: ' + braveCoreRef)
+      errorLog(prog.stdout.toString())
+    }
+  }
+
   util.gclientSync(program.init || program.all, program.init, braveCoreRef)
 
   await util.applyPatches()
