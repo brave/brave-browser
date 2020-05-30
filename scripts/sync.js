@@ -50,9 +50,14 @@ async function RunCommand () {
     braveCoreRef = program.init ? config.getProjectVersion('brave-core') : null
   }
 
+  if (braveCoreRef || program.init || program.all) {
+    // we're doing a reset of brave-core so try to stash any changes
+    progressLog('Stashing any local changes')
+    util.run('git', ['-C', config.braveCoreDir, 'stash'], {continueOnFail: true})
+  }
+
   if (braveCoreRef) {
     // try to checkout to the right ref if possible
-    util.run('git', ['-C', config.braveCoreDir, 'stash'], {continueOnFail: true})
     util.run('git', ['-C', config.braveCoreDir, 'reset', '--hard', 'HEAD'], {continueOnFail: true})
     let prog = util.run('git', ['-C', config.braveCoreDir, 'checkout', braveCoreRef], {continueOnFail: true})
     if (prog.status !== 0 && program.create) {
