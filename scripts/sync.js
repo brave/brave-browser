@@ -46,9 +46,9 @@ async function RunCommand () {
 
   let braveCoreRef = program.args[0]
   if (!braveCoreRef) {
-    braveCoreRef = program.init ? config.getProjectRef('brave-core') : null
+    braveCoreRef = program.init ? config.getProjectVersion('brave-core') : null
   }
-  util.gclientSync(program.init || program.all, braveCoreRef)
+  util.gclientSync(program.init || program.all, program.init, braveCoreRef)
 
   await util.applyPatches()
 
