@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.79](https://github.com/brave/brave-browser/releases/tag/v1.9.79)
+
+- Implemented import/export db options for rewards. ([#9766](https://github.com/brave/brave-browser/issues/))
+- Added settings for `Top sites suggestions` and `Brave suggested sites`. ([#9782](https://github.com/brave/brave-browser/issues/))
+- Added `Estimated Bandwidth Savings` stats on new tab page. ([#8845](https://github.com/brave/brave-browser/issues/))
+- Fixed crash on certain devices on custom tabs. ([#9857](https://github.com/brave/brave-browser/issues/))
+
 ## [1.8.112](https://github.com/brave/brave-browser/releases/tag/v1.8.112)
 
  - Fixed users not receiving ad promotion due to empty public key in certain cases. ([#9733](https://github.com/brave/brave-browser/issues/9733))
