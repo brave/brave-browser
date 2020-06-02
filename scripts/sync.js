@@ -6,7 +6,7 @@
 const program = require('commander')
 const config = require('../lib/config')
 const util = require('../lib/util')
-const { progressLog, errorLog } = require('../lib/sync/logging')
+const Log = require('../lib/sync/logging')
 
 const projectNames = config.projectNames.filter((project) => config.projects[project].ref)
 
@@ -25,20 +25,18 @@ program
   .option('--all', 'This flag is deprecated and no longer has any effect')
   .option('--force', 'force reset all projects to origin/ref')
   .option('--create', 'create a new branch if needed for [ref]')
-projectNames.forEach((name) => {
-  let project = config.projects[name]
-  program.option('--' + project.arg_name + '_ref <ref>', name + ' ref to checkout')
-})
 
 async function RunCommand () {
   program.parse(process.argv)
   config.update(program)
 
   if (program.all) {
-    console.warn('The --all flag is deprecated. Will behave as if flag was not passed. Please update your command to `npm run sync` in the future.')
+    Log.warn('The --all flag is deprecated. Will behave as if flag was not passed. Please update your command to `npm run sync` in the future.')
   }
 
+  // Perform initial brave-core clone and checkout
   if (program.init) {
+    Log.progress('Performing initial checkout of brave-core')
     util.checkoutBraveCore()
   }
 
@@ -57,21 +55,21 @@ async function RunCommand () {
 
   if (braveCoreRef || program.init || program.force) {
     // we're doing a reset of brave-core so try to stash any changes
-    progressLog('Stashing any local changes')
+    Log.progress('Stashing any local changes')
     util.run('git', ['-C', config.braveCoreDir, 'stash'], {continueOnFail: true})
   }
 
   if (braveCoreRef) {
     // try to checkout to the right ref if possible
-    util.run('git', ['-C', config.braveCoreDir, 'reset', '--hard', 'HEAD'], {continueOnFail: true})
+    util.runGit(config.braveCoreDir, ['reset', '--hard', 'HEAD'])
     let prog = util.run('git', ['-C', config.braveCoreDir, 'checkout', braveCoreRef], {continueOnFail: true})
     if (prog.status !== 0 && program.create) {
-      util.run('git', ['-C', config.braveCoreDir, 'checkout', '-b', braveCoreRef], {continueOnFail: true})
+      util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef])
     }
 
     if (prog.status !== 0) {
-      errorLog('Could not checkout: ' + braveCoreRef)
-      errorLog(prog.stdout.toString())
+      Log.error('Could not checkout: ' + braveCoreRef)
+      Log.error(prog.stdout.toString())
     }
   }
 
@@ -82,13 +80,13 @@ async function RunCommand () {
   util.gclientRunhooks()
 }
 
-progressLog('Brave Browser Sync starting')
+Log.progress('Brave Browser Sync starting')
 RunCommand()
 .then(() => {
-  progressLog('Brave Browser Sync complete')
+  Log.progress('Brave Browser Sync complete')
 })
 .catch((err) => {
-  errorLog('Brave Browser Sync ERROR:')
+  Log.error('Brave Browser Sync ERROR:')
   console.error(err)
   process.exit(1)
 })
