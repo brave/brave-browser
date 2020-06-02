@@ -85,7 +85,7 @@ npm run build Release
 
 brave-core based android builds should use `npm run build -- --target_os=android --target_arch=arm` or set the npm config variables as specified above for `init`
 
-### Speed up the builds
+### Build Configurations
 
 Running a release build with `npm run build Release` can be very slow and use a lot of RAM especially on Linux with the Gold LLVM plugin.
 
@@ -112,7 +112,7 @@ To start the build:
 
 `npm run sync -- [--force] [--init] [--create] [brave_core_ref]`
 
-**This will attempt to stash your local changes, but it's safer to commit and local changes before running this**
+**This will attempt to stash your local changes in brave-core, but it's safer to commit local changes before running this**
 
 `npm run sync` will (depending on the below flags):
 
@@ -123,26 +123,41 @@ To start the build:
 
 | flag | Description |
 |---|---|
-|`[no flags]`|updates _brave-core_ to the latest remote commit for the current branch. Will re-apply only patches that changed. Will update child dependencies **only if any project needed updating during this script run** <br> **Use this if you want the script to manage keeping you up to date instead of pulling or switching branch manually. **|
+|`[no flags]`|updates chromium if needed and re-applies patches. If the chromium version did not change it will only re-apply patches that have changed. Will update child dependencies **only if any project needed updating during this script run** <br> **Use this if you want the script to manage keeping you up to date instead of pulling or switching branch manually. **|
 |`--create`|when used with `brave_core_ref` it will create a branch if one does not already exist|
 |`--force`|updates both _Chromium_ and _brave-core_ to the latest remote commit for the current brave-core branch and the _Chromium_ ref specified in brave-browser/package.json (e.g. `master` or `74.0.0.103`). Will re-apply all patches. Will force update all child dependencies <br> **Use this if you're having trouble and want to force the branches back to a known state. **|
 |`--init`|force update both _Chromium_ and _brave-core_ to the versions specified in brave-browser/package.json and force updates all dependent repos - same as `npm run init`|
 
 
-- Run `npm run sync` to update the current _brave-core_ and update the chromium branch if needed.
-- Run `npm run sync -- --force` to force update _brave-core_, _Chromium_ and all dependent repos.
-- Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and update all dependent repos
+Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and update all dependent repos including chromium if needed
 
 ### Scenarios
 
 #### Create a new branch
+```bash
+brave-core> git checkout -b branch_name
+```
+
+or
+
 ```bash
 brave-browser> npn run sync -- --create branch_name
 ```
 
 ### Checkout an existing branch or tag
 ```bash
-brave-browser> npn run sync branch_name
+brave-core> git fetch origin
+brave-core> git checkout [-b] branch_name
+brave-core> npm run sync
+...Updating 2 patches...
+...Updating child dependencies...
+...Running hooks...
+```
+
+or
+
+```bash
+brave-browser> npn run sync --create branch_name
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -150,7 +165,8 @@ brave-browser> npn run sync branch_name
 
 ### Update the current branch to latest remote
 ```bash
-brave-browser> npn run sync
+brave-core> git pull
+brave-core> npm run sync
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -169,7 +185,6 @@ brave-core> git checkout featureB
 brave-core> git pull
 brave-browser> npm run apply_patches
 ...Applying 2 patches...
-brave-browser>
 ```
 
 # Troubleshooting
