@@ -22,7 +22,8 @@ program
   .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)')
   .option('--submodule_sync', 'run submodule sync')
   .option('--init', 'initialize all dependencies')
-  .option('--reset --all', 'force reset all projects to origin/ref')
+  .option('--all', 'This flag is deprecated and no longer has any effect')
+  .option('--force', 'force reset all projects to origin/ref')
   .option('--create', 'create a new branch if needed for [ref]')
 projectNames.forEach((name) => {
   let project = config.projects[name]
@@ -32,6 +33,10 @@ projectNames.forEach((name) => {
 async function RunCommand () {
   program.parse(process.argv)
   config.update(program)
+
+  if (program.all) {
+    console.warn('The --all flag is deprecated. Will behave as if flag was not passed. Please update your command to `npm run sync` in the future.')
+  }
 
   if (program.init) {
     util.checkoutBraveCore()
@@ -50,7 +55,7 @@ async function RunCommand () {
     braveCoreRef = program.init ? config.getProjectVersion('brave-core') : null
   }
 
-  if (braveCoreRef || program.init || program.all) {
+  if (braveCoreRef || program.init || program.force) {
     // we're doing a reset of brave-core so try to stash any changes
     progressLog('Stashing any local changes')
     util.run('git', ['-C', config.braveCoreDir, 'stash'], {continueOnFail: true})
@@ -70,7 +75,7 @@ async function RunCommand () {
     }
   }
 
-  util.gclientSync(program.init || program.all, program.init, braveCoreRef)
+  util.gclientSync(program.init || program.force, program.init, braveCoreRef)
 
   await util.applyPatches()
 
