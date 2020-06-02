@@ -56,18 +56,18 @@ async function RunCommand () {
   if (braveCoreRef || program.init || program.force) {
     // we're doing a reset of brave-core so try to stash any changes
     Log.progress('Stashing any local changes')
-    util.run('git', ['-C', config.braveCoreDir, 'stash'], {continueOnFail: true})
+    util.runGit(config.braveCoreDir, ['stash'], true)
   }
 
   if (braveCoreRef) {
     // try to checkout to the right ref if possible
-    util.runGit(config.braveCoreDir, ['reset', '--hard', 'HEAD'])
-    let prog = util.run('git', ['-C', config.braveCoreDir, 'checkout', braveCoreRef], {continueOnFail: true})
-    if (prog.status !== 0 && program.create) {
-      util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef])
+    util.runGit(config.braveCoreDir, ['reset', '--hard', 'HEAD'], true)
+    result = util.runGit(config.braveCoreDir, ['checkout', braveCoreRef], true)
+    if (result === null && program.create) {
+      result = util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef], true)
     }
 
-    if (prog.status !== 0) {
+    if (result === null) {
       Log.error('Could not checkout: ' + braveCoreRef)
       Log.error(prog.stdout.toString())
     }
