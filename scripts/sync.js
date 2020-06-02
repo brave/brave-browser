@@ -15,8 +15,8 @@ program
   .arguments('[ref]')
   .option('--gclient_file <file>', 'gclient config file location')
   .option('--gclient_verbose', 'verbose output for gclient')
-  .option('--run_hooks', 'run gclient hooks')
-  .option('--run_sync', 'run gclient sync')
+  .option('--run_hooks', 'This flag is deprecated and no longer has any effect')
+  .option('--run_sync', 'This flag is deprecated and no longer has any effect')
   .option('--target_os <target_os>', 'target OS')
   .option('--target_arch <target_arch>', 'target architecture')
   .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)')
@@ -30,8 +30,8 @@ async function RunCommand () {
   program.parse(process.argv)
   config.update(program)
 
-  if (program.all) {
-    Log.warn('The --all flag is deprecated. Will behave as if flag was not passed. Please update your command to `npm run sync` in the future.')
+  if (program.all || program.run_hooks || program.run_sync) {
+    Log.warn('--all, --run_hooks and --run_sync are deprecated. Will behave as if flag was not passed. Please update your command to `npm run sync` in the future.')
   }
 
   // Perform initial brave-core clone and checkout
