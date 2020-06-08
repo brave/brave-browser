@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.9.80](https://github.com/brave/brave-browser/releases/tag/v1.9.80)
+
+ - Fixed default setting for "Show Brave suggested sites in autocomplete suggestions" to be off under brave://settings/appearance. ([#10131](https://github.com/brave/brave-browser/issues/10131))
+
 ## [1.9.76](https://github.com/brave/brave-browser/releases/tag/v1.9.76)
 
  - Removed bookmark icon from top site tiles on the New Tab Page. ([#9672](https://github.com/brave/brave-browser/issues/9672))
