@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Brave Browser'
-copyright = '2018, Brave Software'
+copyright = '2019, Brave Software'
 author = 'Brave Software'
 
 # The short X.Y version

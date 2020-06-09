@@ -1,4 +1,4 @@
-.. Copyright (c) 2018 Brave Software
+.. Copyright (c) 2019 Brave Software
 
 
 .. _rs_welcome:

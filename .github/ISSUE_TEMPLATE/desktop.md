@@ -1,3 +1,12 @@
+---
+name: Desktop Issue
+about: 'Template for logging issues on Desktop '
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 <!-- Have you searched for similar issues? Before submitting this issue, please check the open issues and add a note before logging a new issue. 
 
 PLEASE USE THE TEMPLATE BELOW TO PROVIDE INFORMATION ABOUT THE ISSUE. 
