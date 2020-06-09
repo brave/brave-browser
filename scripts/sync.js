@@ -60,17 +60,20 @@ async function RunCommand () {
   }
 
   if (braveCoreRef) {
+    Log.progress(`Resetting brave core to "${braveCoreRef}"...`)
     // try to checkout to the right ref if possible
     util.runGit(config.braveCoreDir, ['reset', '--hard', 'HEAD'], true)
-    result = util.runGit(config.braveCoreDir, ['checkout', braveCoreRef], true)
-    if (result === null && program.create) {
-      result = util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef], true)
+    let checkoutResult = util.runGit(config.braveCoreDir, ['checkout', braveCoreRef], true)
+    if (checkoutResult === null && program.create) {
+      checkoutResult = util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef], true)
     }
-
-    if (result === null) {
-      Log.error('Could not checkout: ' + braveCoreRef)
-      Log.error(prog.stdout.toString())
+    // Handle checkout failure
+    if (checkoutResult === null) {
+      throw new Error(`Could not checkout brave-core ref "${braveCoreRef}"`)
     }
+    // Checkout was successful
+    const braveCoreSha = util.runGit(config.braveCoreDir, ['rev-parse', 'HEAD'])
+    Log.progress(`...brave core is now at commit ID ${braveCoreSha}`)
   }
 
   util.gclientSync(program.init || program.force, program.init, braveCoreRef)
