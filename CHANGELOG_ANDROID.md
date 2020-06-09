@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.9.80](https://github.com/brave/brave-browser/releases/tag/v1.9.80)
+
+ - Fixed default setting for "Show Brave suggested sites in autocomplete suggestions" to be off under brave://settings/appearance. ([#10131](https://github.com/brave/brave-browser/issues/10131))
+
 ## [1.9.79](https://github.com/brave/brave-browser/releases/tag/v1.9.79)
 
 - Implemented import/export database options for rewards. ([#9766](https://github.com/brave/brave-browser/issues/9766))
