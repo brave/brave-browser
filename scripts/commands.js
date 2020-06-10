@@ -10,6 +10,7 @@ const util = require('../lib/util')
 const build = require('../lib/build')
 const versions = require('../lib/versions')
 const start = require('../lib/start')
+const applyPatches = require('../lib/applyPatches')
 const updatePatches = require('./updatePatches')
 const pullL10n = require('../lib/pullL10n')
 const pushL10n = require('../lib/pushL10n')
@@ -36,6 +37,11 @@ program
 program
   .command('versions')
   .action(versions)
+
+program
+  .command('apply_patches')
+  .arguments('[build_config]')
+  .action(applyPatches)
 
 program
   .command('build')
@@ -75,6 +81,8 @@ program
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')
   .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
+  .option('--build_delta_installer', 'build delta mini installer')
+  .option('--last_chrome_installer <last_chrome_installer>', 'folder contains previous version uncompressed chrome.7z pack file. This folder should be in out dir.')
   .option('--android_override_version_name <android_override_version_name>', 'Android version number')
   .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
   .option('--notarize', 'notarize the macOS app with Apple')
@@ -161,6 +169,7 @@ program
 program
   .command('test <suite>')
   .option('--v [log_level]', 'set log level to [log_level]', parseInt, '0')
+  .option('--vmodule [modules]', 'verbose log from specific modules')
   .option('--filter <filter>', 'set test filter')
   .option('--output <output>', 'set test output (results) file path')
   .option('--disable_brave_extension', 'disable loading the Brave extension')

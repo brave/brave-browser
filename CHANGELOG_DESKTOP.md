@@ -1,5 +1,88 @@
 # Changelog
 
+## [1.9.80](https://github.com/brave/brave-browser/releases/tag/v1.9.80)
+
+ - Fixed default setting for "Show Brave suggested sites in autocomplete suggestions" to be off under brave://settings/appearance. ([#10131](https://github.com/brave/brave-browser/issues/10131))
+
+## [1.9.76](https://github.com/brave/brave-browser/releases/tag/v1.9.76)
+
+ - Removed bookmark icon from top site tiles on the New Tab Page. ([#9672](https://github.com/brave/brave-browser/issues/9672))
+ - Fixed notifications not working on Wordpress sites. ([#9064](https://github.com/brave/brave-browser/issues/9064))
+ - Fixed to allow cookies in first-party iframes nested inside third-party iframes when third-party cookie blocking is enabled. ([#9564](https://github.com/brave/brave-browser/issues/9564))
+ - Fixed to allow storage in first-party iframes regardless of the relative parents of that first-party iframe. ([#9105](https://github.com/brave/brave-browser/issues/9105))
+ - Fixed stats ping not being sent for users who updated to 1.9.72. ([#9921](https://github.com/brave/brave-browser/issues/9921))
+ - Fixed unsuccessful login to the Binance widget after creating a new account. ([#9863](https://github.com/brave/brave-browser/issues/9863))
+
+## [1.9.72](https://github.com/brave/brave-browser/releases/tag/v1.9.72)
+
+ - Added the ability to opt-in to user private Brave ads for over 150 new regions. ([#7817](https://github.com/brave/brave-browser/issues/7817))
+ - Added platform and build channel to ad confirmation calls. ([#8100](https://github.com/brave/brave-browser/issues/8100))
+ - Added settings to disable top sites and Brave suggested sites in address bar autocomplete under brave://settings/appearance. ([#9572](https://github.com/brave/brave-browser/issues/9572))
+ - Added ability to modify New Tab Page settings under brave://settings/newTab. ([#8760](https://github.com/brave/brave-browser/issues/8760))
+ - Added support for web compatibility scriptlet injections that can modify window attributes. ([#9496](https://github.com/brave/brave-browser/issues/9496))
+ - Added retry logic for referral program promotion code. ([#7742](https://github.com/brave/brave-browser/issues/7742))
+ - Added P3A metric for search volume. ([#8854](https://github.com/brave/brave-browser/issues/8854))
+ - Updated P3A metric responses for window count. ([#9676](https://github.com/brave/brave-browser/issues/9676))
+ - Updated P3A metric responses for bookmark count. ([#9634](https://github.com/brave/brave-browser/issues/9634))
+ - Removed content-level tip button on GitHub org pages. ([#9024](https://github.com/brave/brave-browser/issues/9024))
+ - Fixed Brave not using OS locale and language settings as the default on Windows. ([#9712](https://github.com/brave/brave-browser/issues/9712))
+ - Fixed incorrect or no publisher data being displayed on the rewards panel in certain cases when using Twitter. ([#8289](https://github.com/brave/brave-browser/issues/8289))
+ - Fixed intermittent crash in confirmations. ([#8535](https://github.com/brave/brave-browser/issues/8535))
+ - Fixed inability to enable Brave ads if regional format is set to "English (Europe)" on Windows. ([#7815](https://github.com/brave/brave-browser/issues/7815))
+ - Fixed converted ads still being displayed in certain cases. ([#9436](https://github.com/brave/brave-browser/issues/9436))
+ - Fixed ad notification timeout timers not being cancelled in certain cases. ([#9154](https://github.com/brave/brave-browser/issues/9154))
+ - Fixed Brave ad campaign startAt and endAt times using local time instead of UTC. ([#8933](https://github.com/brave/brave-browser/issues/8933))
+
+## [1.8.96](https://github.com/brave/brave-browser/releases/tag/v1.8.96)
+
+ - Fixed users not receiving ad promotion due to empty public key in certain cases. ([#9684](https://github.com/brave/brave-browser/issues/9684))
+ - Implemented pagination for publisher list. ([#9607](https://github.com/brave/brave-browser/issues/9607))
+
+## [1.8.95](https://github.com/brave/brave-browser/releases/tag/v1.8.95)
+
+ - Fixed Memo ID and wallet address not being displayed for applicable assets in the Binance widget. ([#9605](https://github.com/brave/brave-browser/issues/9605))
+ - Fixed stablecoins not being included in the wallet balance total for the Binance widget. ([#9559](https://github.com/brave/brave-browser/issues/9559))
+ - Upgraded Chromium to 81.0.4044.138. ([#9632](https://github.com/brave/brave-browser/issues/9632))
+
+## [1.8.90](https://github.com/brave/brave-browser/releases/tag/v1.8.90)
+
+ - Added Memo ID for applicable assets in the Binance widget. ([#9535](https://github.com/brave/brave-browser/issues/9535))
+ - [Security] Fixed an out-of-bound read crash in the renderer process. ([#9552](https://github.com/brave/brave-browser/issues/9552))
+ - Fixed incorrect Safe Browsing label in brave://settings/privacy. ([#9266](https://github.com/brave/brave-browser/issues/9266))
+ - Fixed deposit addresses and QR codes not being displayed for all assets in the Binance widget. ([#9250](https://github.com/brave/brave-browser/issues/9250))
+ - Fixed inability to toggle off referral background images on brave://settings/themes. ([#9515](https://github.com/brave/brave-browser/issues/9515))
+
+## [1.8.86](https://github.com/brave/brave-browser/releases/tag/v1.8.86)
+
+ - Added Binance widget to the New Tab Page. ([#9118](https://github.com/brave/brave-browser/issues/9118))
+ - Added support for referral background images and top sites on the New Tab Page. ([#8218](https://github.com/brave/brave-browser/issues/8218))
+ - Added the ability to import extensions from Chrome. ([#7974](https://github.com/brave/brave-browser/issues/7974))
+ - Added "Customize" text to the New Tab Page dashboard settings icon. ([#4930](https://github.com/brave/brave-browser/issues/4930))
+ - Enhanced privacy by farbling convertToBlob. ([#8682](https://github.com/brave/brave-browser/issues/8682))
+ - Updated text for "Device recognition" to "Fingerprinting" on Brave Shields panel and brave://settings/shields. ([#7949](https://github.com/brave/brave-browser/issues/7949))
+ - Updated category text on ads history panel from "untargeted" to "general". ([#6553](https://github.com/brave/brave-browser/issues/6553))
+ - Improved publisher list load time. ([#9376](https://github.com/brave/brave-browser/issues/9376))
+ - Improved top site tiles on the New Tab Page. ([#2971](https://github.com/brave/brave-browser/issues/2971))
+ - Switched from "Prebake Cookie" to "Easylist Cookie" list. ([#5318](https://github.com/brave/brave-browser/issues/5318))
+ - Removed ability to import data from legacy Brave (muon). ([#7403](https://github.com/brave/brave-browser/issues/7403))
+ - Removed autoplay allow list to match Chromium behavior. ([#8408](https://github.com/brave/brave-browser/issues/8408))
+ - Disabled ScrollToTextFragment. ([#8342](https://github.com/brave/brave-browser/issues/8342))
+ - Fixed Brave ads server retry logic running into an infinite loop in certain cases causing performance issues. ([#7226](https://github.com/brave/brave-browser/issues/7226))
+ - Fixed issue where attention percentage would display as zero on rewards panel. ([#8463](https://github.com/brave/brave-browser/issues/8463))
+ - Fixed inability to import passwords from Chrome on Windows. ([#3674](https://github.com/brave/brave-browser/issues/3674))
+ - Fixed crash when enabling IPFS on Linux. ([#7325](https://github.com/brave/brave-browser/issues/7325))
+ - Fixed multiple web compatibility issues related to fingerprinting protection. ([#8858](https://github.com/brave/brave-browser/issues/8858),[#8855](https://github.com/brave/brave-browser/issues/8855))
+ - Fixed inability to use Twitter in certain cases when "Cross-site cookies blocked" is selected from Brave Shields. ([#9337](https://github.com/brave/brave-browser/issues/9337))
+ - Fixed missing translation on the New Tab Page title. ([#9169](https://github.com/brave/brave-browser/issues/9169))
+ - Upgraded Chromium to 81.0.4044.129. ([#9493](https://github.com/brave/brave-browser/issues/9493))
+
+## [1.7.98](https://github.com/brave/brave-browser/releases/tag/v1.7.98)
+
+ - Removed monthly statements for Brave Rewards prior to February 2020. ([#8987](https://github.com/brave/brave-browser/issues/8987))
+ - Fixed certain websites not being classified correctly for Brave ads. ([#9021](https://github.com/brave/brave-browser/issues/9021))
+ - Fixed retry logic for bad or duplicate Brave ad confirmations. ([#9242](https://github.com/brave/brave-browser/issues/9242))
+ - Upgraded Chromium to 81.0.4044.113. ([#9251](https://github.com/brave/brave-browser/issues/9251))
+
 ## [1.7.92](https://github.com/brave/brave-browser/releases/tag/v1.7.92)
 
  - Added monthly statements for Brave Rewards. ([#930](https://github.com/brave/brave-browser/issues/930))
@@ -33,7 +116,7 @@
  - Fixed notification icon incorrectly displaying on rewards icon in URL bar after claiming grants from rewards panel. ([#8239](https://github.com/brave/brave-browser/issues/8239))
  - Fixed incorrect message being displayed on panel and tip banner in certain cases. ([#8512](https://github.com/brave/brave-browser/issues/8512))
  - Fixed persistent Brave ads service errors on startup. ([#8138](https://github.com/brave/brave-browser/issues/8138))
- - Fixed embedded maps not loading on certain websites by adding fingerprinting exception for both https://public.tableau.com and https://www.arcgis.com. ([#8902](https://github.com/brave/brave-browser/issues/8902)
+ - Fixed embedded maps not loading on certain websites by adding fingerprinting exception for both https://public.tableau.com and https://www.arcgis.com. ([#8902](https://github.com/brave/brave-browser/issues/8902))
  - Fixed sync crash when multiple bookmarks have the same object id. ([#8358](https://github.com/brave/brave-browser/issues/8358))
  - Fixed several cases where sync would hang the browser. ([#7986](https://github.com/brave/brave-browser/issues/7986))
  - Fixed ad service crash when migrating to new database. ([#8132](https://github.com/brave/brave-browser/issues/8132))

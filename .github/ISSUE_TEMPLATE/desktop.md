@@ -1,8 +1,8 @@
 ---
 name: Desktop Issue
 about: 'Template for logging issues on Desktop '
-title: ''
-labels: ''
+title: "[Desktop]"
+labels: OS/Desktop
 assignees: ''
 
 ---
@@ -41,15 +41,15 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 ## Version/Channel Information:
 <!--Does this issue happen on any other channels? Or is it specific to a certain channel?-->
 
-- Can you reproduce this issue with the current release?
-- Can you reproduce this issue with the beta channel?
-- Can you reproduce this issue with the dev channel?
-- Can you reproduce this issue with the nightly channel?
+- Can you reproduce this issue with the current release? 
+- Can you reproduce this issue with the beta channel? 
+- Can you reproduce this issue with the dev channel? 
+- Can you reproduce this issue with the nightly channel? 
 
 ## Other Additional Information:
 
-- Does the issue resolve itself when disabling Brave Shields?
-- Does the issue resolve itself when disabling Brave Rewards?
+- Does the issue resolve itself when disabling Brave Shields? 
+- Does the issue resolve itself when disabling Brave Rewards? 
 - Is the issue reproducible on the latest version of Chrome? 
 
 ## Miscellaneous Information:

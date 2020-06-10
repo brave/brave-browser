@@ -120,7 +120,7 @@ Some helpful things to consider before submitting your work
 * If your change affects session or preferences, did you include steps to test? You may also consider manually testing an upgrade.
 
 #### Each pull request should include
-* a descriptive title; this gets used in the [release notes](https://github.com/brave/brave-browser/blob/master/CHANGELOG.md)
+* a descriptive title; this gets used in the release notes ([desktop](https://github.com/brave/brave-browser/blob/master/CHANGELOG_DESKTOP.md) or [android](https://github.com/brave/brave-browser/blob/master/CHANGELOG_ANDROID.md))
 * a short summary of the changes
 * a reference to the issue that it fixes
 * steps to test the fix (if applicable)
