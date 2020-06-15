@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.10.90](https://github.com/brave/brave-browser/releases/tag/v1.10.90)
+
+ - Added the ability to view promotions information on brave://rewards-internals page. ([#9527](https://github.com/brave/brave-browser/issues/9527))
+ - Added balance information on brave://rewards-internals to improve rewards debugging. ([#9512](https://github.com/brave/brave-browser/issues/9512))
+ - Added ability to import from Chrome while Chrome is still running. ([#2049](https://github.com/brave/brave-browser/issues/2049))
+ - Added a new proxy endpoint for remote debugging and enabled by default under brave://settings/privacy. ([#7645](https://github.com/brave/brave-browser/issues/7645))
+ - Improved general performance by lazy loading Brave Crypto Wallets. ([#9757](https://github.com/brave/brave-browser/issues/9757))
+ - Improved privacy by extending farbling protection for several other API surfaces. ([#8661](https://github.com/brave/brave-browser/issues/8661))
+ - Replaced "HTTPS Upgrades" with "Bandwidth saved" under the New Tab Page. ([#8969](https://github.com/brave/brave-browser/issues/8969))
+ - Disabled Wayback Machine for ".onion" URLs. ([#9342](https://github.com/brave/brave-browser/issues/9342))
+ - Disabled tab hover cards for Windows and Linux by default. ([#9509](https://github.com/brave/brave-browser/issues/9509))
+ - Removed the Binance widget toggle for Japan and OFAC countries from customize dashboard under the New Tab Page. ([#9416](https://github.com/brave/brave-browser/issues/9416))
+ - Fixed to only send tokens that have not been redeemed during the claim process. ([#9891](https://github.com/brave/brave-browser/issues/9891))
+ - Fixed low resolution favicons on rewards panel and contribution table. ([#1597](https://github.com/brave/brave-browser/issues/1597))
+ - Fixed to only add jitter for Brave Ads token redemption when creating the timestamp. ([#9624](https://github.com/brave/brave-browser/issues/9624))
+ - Fixed themes from Chrome Web Store not working when switching between light and dark themes. ([#9808](https://github.com/brave/brave-browser/issues/9808))
+ - Fixed incorrect changelog URL on macOS. ([#9415](https://github.com/brave/brave-browser/issues/9415))
+ - Fixed software update dialog on macOS displaying raw HTML in the release notes box. ([#9274](https://github.com/brave/brave-browser/issues/9274))
+ - Fixed display issue where Brave Rewards and Binance widget menus go off screen on certain window widths. ([#9390](https://github.com/brave/brave-browser/issues/9390))
+ - Fixed assets in the Binance widget summary under the New Tab Page appearing as clickable. ([#9375](https://github.com/brave/brave-browser/issues/9375))
+ - Fixed content under the Crypto Wallets welcome screen not fully visible on smaller window sizes. ([#6595](https://github.com/brave/brave-browser/issues/6595))
+ - Fixed skip button missing on YouTube ads when shields are disabled. ([#8209](https://github.com/brave/brave-browser/issues/8209))
+ - Fixed display issue where clock widget menu goes off the screen on certain window widths. ([#9389](https://github.com/brave/brave-browser/issues/9389))
+ - Upgraded Chromium to 83.0.4103.97. ([#10075](https://github.com/brave/brave-browser/issues/10075))
+
 ## [1.9.80](https://github.com/brave/brave-browser/releases/tag/v1.9.80)
 
  - Fixed default setting for "Show Brave suggested sites in autocomplete suggestions" to be off under brave://settings/appearance. ([#10131](https://github.com/brave/brave-browser/issues/10131))
