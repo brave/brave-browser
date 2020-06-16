@@ -69,7 +69,6 @@ async function RunCommand () {
 
     if (result === null) {
       Log.error('Could not checkout: ' + braveCoreRef)
-      Log.error(prog.stdout.toString())
     }
   }
 
