@@ -4,7 +4,7 @@
 
  - Removed proxy for download of Widevine component. ([#10269](https://github.com/brave/brave-browser/issues/10269))
  - Fixed issue where auto-contribute could be re-enabled in certain cases. ([#9750](https://github.com/brave/brave-browser/issues/9750))
- - Upgraded Chromium to 83.0.4103.106. ([#10268](https://github.com/brave/brave-browser/issues/10268))
+ - Upgraded Chromium to 83.0.4103.106. ([#10268](https://github.com/brave/brave-browser/issues/10268)) 
 
 ## [1.10.90](https://github.com/brave/brave-browser/releases/tag/v1.10.90)
 
