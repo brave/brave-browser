@@ -1,15 +1,23 @@
 # Changelog
 
+## [1.10.94](https://github.com/brave/brave-browser/releases/tag/v1.10.94)
+
+ - Added Uphold two-way user wallets. ([#8511](https://github.com/brave/brave-browser/issues/8511))
+ - Added 25 BAT threshold before being able to verify Uphold two-way user wallet. ([#9636](https://github.com/brave/brave-browser/issues/9636))
+ - Fixed promotion notification not being cleared when error occurs. ([#9657](https://github.com/brave/brave-browser/issues/9657))
+ - Fixed referral QR code using incorrect URL format. ([#10079](https://github.com/brave/brave-browser/issues/10079))
+ - Upgraded to Chromium 83.0.4103.106. ([#10268](https://github.com/brave/brave-browser/issues/10268))
+
 ## [1.9.80](https://github.com/brave/brave-browser/releases/tag/v1.9.80)
 
  - Fixed default setting for "Show Brave suggested sites in autocomplete suggestions" to be off under brave://settings/appearance. ([#10131](https://github.com/brave/brave-browser/issues/10131))
 
 ## [1.9.79](https://github.com/brave/brave-browser/releases/tag/v1.9.79)
 
-- Implemented import/export database options for rewards. ([#9766](https://github.com/brave/brave-browser/issues/9766))
-- Added settings for "Top sites suggestions" and "Brave suggested sites". ([#9782](https://github.com/brave/brave-browser/issues/9782))
-- Added "Estimated Bandwidth Savings" stats on new tab page. ([#8845](https://github.com/brave/brave-browser/issues/8845))
-- Fixed crash on certain devices when opening custom tabs. ([#9857](https://github.com/brave/brave-browser/issues/9857))
+ - Implemented import/export database options for rewards. ([#9766](https://github.com/brave/brave-browser/issues/9766))
+ - Added settings for "Top sites suggestions" and "Brave suggested sites". ([#9782](https://github.com/brave/brave-browser/issues/9782))
+ - Added "Estimated Bandwidth Savings" stats on new tab page. ([#8845](https://github.com/brave/brave-browser/issues/8845))
+ - Fixed crash on certain devices when opening custom tabs. ([#9857](https://github.com/brave/brave-browser/issues/9857))
 
 ## [1.8.112](https://github.com/brave/brave-browser/releases/tag/v1.8.112)
 
