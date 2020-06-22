@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.10.95](https://github.com/brave/brave-browser/releases/tag/v1.10.95)
+
+ - Fixed cosmetic scriptlets not being injected in iframes. ([#10319](https://github.com/brave/brave-browser/issues/10319))
+
 ## [1.10.93](https://github.com/brave/brave-browser/releases/tag/v1.10.93)
 
  - Removed proxy for download of Widevine component. ([#10269](https://github.com/brave/brave-browser/issues/10269))
