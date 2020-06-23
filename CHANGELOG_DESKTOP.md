@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.10.97](https://github.com/brave/brave-browser/releases/tag/v1.10.97)
+
+ - Upgraded Chromium to 83.0.4103.116. ([#10406](https://github.com/brave/brave-browser/issues/10406))
+
 ## [1.10.95](https://github.com/brave/brave-browser/releases/tag/v1.10.95)
 
  - Fixed cosmetic scriptlets not being injected in iframes. ([#10319](https://github.com/brave/brave-browser/issues/10319))
