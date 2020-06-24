@@ -86,7 +86,8 @@ async function RunCommand () {
   }
   Log.progress('...gclient sync done')
 
-  await util.applyPatches()
+  const canIgnoreSomePatchErrors = !program.init && !program.force
+  await util.applyPatches(canIgnoreSomePatchErrors)
 
   util.gclientRunhooks()
 }
