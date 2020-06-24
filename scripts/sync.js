@@ -60,19 +60,31 @@ async function RunCommand () {
   }
 
   if (braveCoreRef) {
+    Log.progress(`Resetting brave core to "${braveCoreRef}"...`)
     // try to checkout to the right ref if possible
     util.runGit(config.braveCoreDir, ['reset', '--hard', 'HEAD'], true)
-    result = util.runGit(config.braveCoreDir, ['checkout', braveCoreRef], true)
-    if (result === null && program.create) {
-      result = util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef], true)
+    let checkoutResult = util.runGit(config.braveCoreDir, ['checkout', braveCoreRef], true)
+    if (checkoutResult === null && program.create) {
+      checkoutResult = util.runGit(config.braveCoreDir, ['checkout', '-b', braveCoreRef], true)
     }
-
-    if (result === null) {
+    // Handle checkout failure
+    if (checkoutResult === null) {
       Log.error('Could not checkout: ' + braveCoreRef)
     }
+    // Checkout was successful
+    const braveCoreSha = util.runGit(config.braveCoreDir, ['rev-parse', 'HEAD'])
+    Log.progress(`...brave core is now at commit ID ${braveCoreSha}`)
   }
-
-  util.gclientSync(program.init || program.force, program.init, braveCoreRef)
+  
+  Log.progress('Running gclient sync...')
+  const result = util.gclientSync(program.init || program.force, program.init, braveCoreRef)
+  const postSyncBraveCoreRef = util.getGitReadableLocalRef(config.braveCoreDir)
+  Log.status(`Brave Core is now at ${postSyncBraveCoreRef || '[unknown]'}`)
+  if (result.didUpdateChromium) {
+    const postSyncChromiumRef = util.getGitReadableLocalRef(config.srcDir)
+    Log.status(`Chromium is now at ${postSyncChromiumRef || '[unknown]'}`)
+  }
+  Log.progress('...gclient sync done')
 
   await util.applyPatches()
 
