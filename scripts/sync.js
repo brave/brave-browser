@@ -21,6 +21,7 @@ program
   .option('--target_arch <target_arch>', 'target architecture')
   .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)')
   .option('--submodule_sync', 'run submodule sync')
+  .option('--ignore_chromium', 'do not update chromium')
   .option('--init', 'initialize all dependencies')
   .option('--all', 'This flag is deprecated and no longer has any effect')
   .option('--force', 'force reset all projects to origin/ref')
@@ -72,7 +73,7 @@ async function RunCommand () {
     }
   }
 
-  util.gclientSync(program.init || program.force, program.init, braveCoreRef)
+  util.gclientSync(program.init || program.force, program.init, program.ignore_chromium, braveCoreRef)
 
   await util.applyPatches()
 
