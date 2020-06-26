@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.10.99](https://github.com/brave/brave-browser/releases/tag/v1.10.99)
+
+- Fixed rewards balance appearing as "0.0 BAT" in certain cases. ([#9992](https://github.com/brave/brave-browser/issues/9992))
+- Fixed ads being shown on embedded YouTube videos. ([#10436](https://github.com/brave/brave-browser/issues/10436))
+- Upgraded to Chromium 83.0.4103.116. ([#10482](https://github.com/brave/brave-browser/issues/10482))
+
 ## [1.10.95](https://github.com/brave/brave-browser/releases/tag/v1.10.95)
 
 - Disabled Twitter support in the rewards panel. ([#10208](https://github.com/brave/brave-browser/issues/10208))
