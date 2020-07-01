@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.12.23",
+  "version": "1.12.63",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -29,7 +29,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "83.0.4103.97",
+        "tag": "83.0.4103.116",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         },
@@ -228,8 +228,8 @@
       "email": "darkdh@gmail.com"
     },
     {
-      "name": "Sriram Bellur Venkataram",
-      "email": "srirambv@gmail.com"
+      "name": "Sriram Venkataram",
+      "email": "srirambv@brave.com"
     },
     {
       "name": "Lauren Wagner",
