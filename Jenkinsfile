@@ -141,7 +141,7 @@ def startBraveBrowserBuild() {
                                 credentials('brave-builds-github-token-for-pr-builder')
                                 github('brave/devops', 'https')
                             }
-                            branch('add-audit-deps')
+                            branch('wins-browser-test')
                         }
                     }
                     scriptPath('jenkins/jobs/browser/Jenkinsfile')
