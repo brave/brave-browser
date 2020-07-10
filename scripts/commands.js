@@ -43,53 +43,48 @@ program
   .arguments('[build_config]')
   .action(applyPatches)
 
-program
-  .command('build')
-  .option('-C <build_dir>', 'build config (out/Debug, out/Release')
-  .option('--target_os <target_os>', 'target OS')
-  .option('--target_arch <target_arch>', 'target architecture')
-  .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic')
-  .option('--android_override_version_name <android_override_version_name>', 'Android version number')
-  .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
-  .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
-  .option('--brave_google_api_key <brave_google_api_key>')
-  .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
-  .option('--brave_infura_project_id <brave_infura_project_id>')
-  .option('--binance_client_id <binance_client_id>')
-  .option('--channel <target_channel>', 'target channel to build', /^(beta|dev|nightly|release)$/i)
-  .option('--ignore_compile_failure', 'Keep compiling regardless of error')
-  .option('--skip_signing', 'skip signing binaries')
-  .option('--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.')
-  .option('--gn <arg>', 'Additional gn args, in the form <key>:<value>', collect, [])
-  .option('--ninja <opt>', 'Additional Ninja command-line options, in the form <key>:<value>', collect, [])
-  .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
-  .arguments('[build_config]')
-  .action(build)
+const baseBuildArgs = [
+  ['-C <build_dir>', 'build config (out/Debug, out/Release'],
+  ['--target_os <target_os>', 'target OS'],
+  ['--target_arch <target_arch>', 'target architecture'],
+  ['--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic'],
+  ['--android_override_version_name <android_override_version_name>', 'Android version number'],
+  ['--mac_signing_identifier <id>', 'The identifier to use for signing'],
+  ['--mac_installer_signing_identifier <id>', 'The identifier to use for signing the installer'],
+  ['--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login'],
+  ['--brave_google_api_key <brave_google_api_key>'],
+  ['--brave_google_api_endpoint <brave_google_api_endpoint>'],
+  ['--brave_infura_project_id <brave_infura_project_id>'],
+  ['--binance_client_id <binance_client_id>'],
+  ['--channel <target_channel>', 'target channel to build', /^(beta|dev|nightly|release)$/i],
+  ['--build_omaha', 'build omaha stub/standalone installer'],
+  ['--tag_ap <ap>', 'ap for stub/standalone installer'],
+  ['--ignore_compile_failure', 'Keep compiling regardless of error'],
+  ['--skip_signing', 'skip signing binaries'],
+  ['--build_delta_installer', 'build delta mini installer'],
+  ['--last_chrome_installer <last_chrome_installer>', 'folder contains previous version uncompressed chrome.7z pack file. This folder should be in out dir.'],
+  ['--xcode_gen <target>', 'Generate an Xcode workspace ("ios" or a list of semi-colon separated label patterns, run `gn help label_pattern` for more info.'],
+  ['--gn <arg>', 'Additional gn args, in the form <key>:<value>', collect, []],
+  ['--ninja <opt>', 'Additional Ninja command-line options, in the form <key>:<value>', collect, []],
+  ['--brave_safetynet_api_key <brave_safetynet_api_key>'],
+  ['--notarize', 'notarize the macOS app with Apple'],
+]
 
-program
+const buildCommand = program
+  .command('build')
+baseBuildArgs.forEach((item, index) => {
+  buildCommand.option(...item)
+})
+buildCommand.arguments('[build_config]')
+            .action(build)
+
+const createDistCommand = program
   .command('create_dist')
-  .option('-C <build_dir>', 'build config (out/Debug, out/Release')
-  .option('--target_arch <target_arch>', 'target architecture')
-  .option('--mac_signing_identifier <id>', 'The identifier to use for signing')
-  .option('--mac_installer_signing_identifier <id>', 'The identifier to use for signing the installer')
-  .option('--mac_signing_keychain <keychain>', 'The identifier to use for signing', 'login')
-  .option('--brave_google_api_key <brave_google_api_key>')
-  .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
-  .option('--brave_infura_project_id <brave_infura_project_id>')
-  .option('--binance_client_id <binance_client_id>')
-  .option('--channel <target_channel>', 'target channel to build', /^(beta|dev|nightly|release)$/i)
-  .option('--build_omaha', 'build omaha stub/standalone installer')
-  .option('--tag_ap <ap>', 'ap for stub/standalone installer')
-  .option('--skip_signing', 'skip signing dmg/brave_installer.exe')
-  .option('--build_delta_installer', 'build delta mini installer')
-  .option('--last_chrome_installer <last_chrome_installer>', 'folder contains previous version uncompressed chrome.7z pack file. This folder should be in out dir.')
-  .option('--android_override_version_name <android_override_version_name>', 'Android version number')
-  .option('--brave_safetynet_api_key <brave_safetynet_api_key>')
-  .option('--notarize', 'notarize the macOS app with Apple')
-  .option('--target_os <target_os>', 'target OS')
-  .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic')
-  .arguments('[build_config]')
-  .action(createDist)
+baseBuildArgs.forEach((item, index) => {
+  createDistCommand.option(...item)
+})
+createDistCommand.arguments('[build_config]')
+                 .action(createDist)
 
 program
   .command('upload')
