@@ -11,6 +11,7 @@
     "sync": "node ./scripts/sync.js",
     "gclient": "node ./scripts/gclient.js",
     "build": "node ./scripts/commands.js build",
+    "gn_check": "node ./scripts/commands.js gn_check",
     "versions": "node ./scripts/commands.js versions",
     "upload": "node ./scripts/commands.js upload",
     "update_patches": "node ./scripts/commands.js update_patches",
