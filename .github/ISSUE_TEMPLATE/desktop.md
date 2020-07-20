@@ -43,7 +43,6 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 
 - Can you reproduce this issue with the current release? 
 - Can you reproduce this issue with the beta channel? 
-- Can you reproduce this issue with the dev channel? 
 - Can you reproduce this issue with the nightly channel? 
 
 ## Other Additional Information:
