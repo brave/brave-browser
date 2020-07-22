@@ -19,6 +19,7 @@ const l10nDeleteTranslations = require('../lib/l10nDeleteTranslations')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
+const gnCheck = require('../lib/gnCheck')
 
 const collect = (value, accumulator) => {
   accumulator.push(value)
@@ -37,6 +38,14 @@ program
 program
   .command('versions')
   .action(versions)
+
+program
+  .command('gn_check')
+  .option('--target_os <target_os>', 'target OS')
+  .option('--target_arch <target_arch>', 'target architecture')
+  .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic')
+  .arguments('[build_config]')
+  .action(gnCheck)
 
 program
   .command('apply_patches')
