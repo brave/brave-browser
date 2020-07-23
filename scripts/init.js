@@ -20,11 +20,8 @@ if (!fs.existsSync(path.join(DirConfig.braveCoreDir, '.git'))) {
   util.runGit(DirConfig.braveCoreDir, ['clone', DirConfig.braveCoreRepo, '.'])
 }
 
-// util.runGit(DirConfig.braveCoreDir, ['reset', '--hard', 'HEAD'])
-// util.runGit(DirConfig.braveCoreDir, ['checkout', braveCoreRef])
-
 util.run('npm', ['install'], { cwd: DirConfig.braveCoreDir })
-util.run('npm', ['run', 'sync'].concat(process.argv.slice(1)), {
+util.run('npm', ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(1)), {
   cwd: DirConfig.braveCoreDir,
   env: process.env,
   stdio: 'inherit',
