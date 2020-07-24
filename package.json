@@ -23,7 +23,7 @@
     "chromium_rebase_l10n": "npm --prefix src/brave run chromium_rebase_l10n --",
     "lint": "npm --prefix src/brave run lint --",
     "test": "npm --prefix src/brave run test --",
-    "test:scripts": "npm --prefix src/brave run test:scripts --",
+    "test:scripts": "jest lib scripts --passWithNoTests",
     "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
   },
   "config": {
@@ -46,7 +46,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "brave-core-commmands",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
