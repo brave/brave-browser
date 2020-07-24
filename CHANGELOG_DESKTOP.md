@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.101](https://github.com/brave/brave-browser/releases/tag/v1.11.101)
+
+ - [Security] Filtered sensitive information from brave://rewards-internals logs. ([#10875](https://github.com/brave/brave-browser/issues/10875))
+ - [Security] Added disclaimer to brave://rewards-internals page. ([#10873](https://github.com/brave/brave-browser/issues/10873))
+ - Fixed issue where browser would freeze on launch in certain cases. ([#9481](https://github.com/brave/brave-browser/issues/9481))
+ - Fixed crash with Wayback Machine info bar in certain cases. ([#10764](https://github.com/brave/brave-browser/issues/10764))
+
 ## [1.11.97](https://github.com/brave/brave-browser/releases/tag/v1.11.97)
 
  - Added an infobar to indicate that sync v2 is coming if sync v1 is currently enabled. ([#10231](https://github.com/brave/brave-browser/issues/10231))
