@@ -21,7 +21,7 @@ if (!fs.existsSync(path.join(DirConfig.braveCoreDir, '.git'))) {
 }
 
 util.run('npm', ['install'], { cwd: DirConfig.braveCoreDir })
-util.run('npm', ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(1)), {
+util.run('npm', ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
   cwd: DirConfig.braveCoreDir,
   env: process.env,
   stdio: 'inherit',
