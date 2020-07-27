@@ -11,7 +11,7 @@ const util = require('../lib/util')
 
 Log.progress('Performing initial checkout of brave-core')
 
-const braveCoreDir = path.join(__dirname, '..', 'src', 'brave')
+const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
 const braveCoreRef = util.getProjectVersion('brave-core')
 
 if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
