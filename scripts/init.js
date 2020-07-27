@@ -3,7 +3,6 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
 // you can obtain one at http://mozilla.org/MPL/2.0/.
 
-const DirConfig = require('../lib/dirConfig')
 const fs = require('fs-extra')
 const Log = require('../lib/logging')
 const path = require('path')
@@ -12,18 +11,19 @@ const util = require('../lib/util')
 
 Log.progress('Performing initial checkout of brave-core')
 
+const braveCoreDir = path.resolve(path.join(__dirname, '..', 'src', 'brave'))
 const braveCoreRef = util.getProjectVersion('brave-core')
 
-if (!fs.existsSync(path.join(DirConfig.braveCoreDir, '.git'))) {
-  Log.status(`Cloning brave-core [${braveCoreRef}] into ${DirConfig.braveCoreDir}...`)
-  fs.mkdirSync(DirConfig.braveCoreDir)
-  util.runGit(DirConfig.braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
-  util.runGit(DirConfig.braveCoreDir, ['checkout', braveCoreRef])
+if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
+  Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
+  fs.mkdirSync(braveCoreDir)
+  util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
+  util.runGit(braveCoreDir, ['checkout', braveCoreRef])
 }
 
-util.run('npm', ['install'], { cwd: DirConfig.braveCoreDir })
+util.run('npm', ['install'], { cwd: braveCoreDir })
 util.run('npm', ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
-  cwd: DirConfig.braveCoreDir,
+  cwd: braveCoreDir,
   env: process.env,
   stdio: 'inherit',
   shell: true,
