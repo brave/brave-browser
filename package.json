@@ -260,7 +260,6 @@
   "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "fs-extra": "^8.0.1",
     "log-update": "^3.2.0"
   },
   "devDependencies": {
