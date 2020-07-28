@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.11.104](https://github.com/brave/brave-browser/releases/tag/v1.11.104)
+
+ - Upgraded Chromium to 84.0.4147.105. ([#10950](https://github.com/brave/brave-browser/issues/10950))
+
 ## [1.11.101](https://github.com/brave/brave-browser/releases/tag/v1.11.101)
 
  - [Security] Filtered sensitive information from brave://rewards-internals logs. ([#10875](https://github.com/brave/brave-browser/issues/10875))
