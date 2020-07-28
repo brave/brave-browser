@@ -21,13 +21,14 @@ if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
   util.runGit(braveCoreDir, ['checkout', braveCoreRef])
 }
 
+let npmCommand = 'npm'
 if (process.platform === 'win32') {
-  util.run('npm.cmd', ['install'], { cwd: braveCoreDir })
-} else {
-  util.run('npm', ['install'], { cwd: braveCoreDir })
+  npmCommand += '.cmd'
 }
 
-util.run('npm', ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
+util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+
+util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
   cwd: braveCoreDir,
   env: process.env,
   stdio: 'inherit',
