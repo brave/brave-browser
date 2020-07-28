@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.12.63",
+  "version": "1.13.49",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "node ./scripts/audit.js",
@@ -11,6 +11,7 @@
     "sync": "node ./scripts/sync.js",
     "gclient": "node ./scripts/gclient.js",
     "build": "node ./scripts/commands.js build",
+    "gn_check": "node ./scripts/commands.js gn_check",
     "versions": "node ./scripts/commands.js versions",
     "upload": "node ./scripts/commands.js upload",
     "update_patches": "node ./scripts/commands.js update_patches",
@@ -29,7 +30,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "83.0.4103.116",
+        "tag": "84.0.4147.89",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         },

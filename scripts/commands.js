@@ -19,6 +19,7 @@ const l10nDeleteTranslations = require('../lib/l10nDeleteTranslations')
 const createDist = require('../lib/createDist')
 const upload = require('../lib/upload')
 const test = require('../lib/test')
+const gnCheck = require('../lib/gnCheck')
 
 const collect = (value, accumulator) => {
   accumulator.push(value)
@@ -39,6 +40,14 @@ program
   .action(versions)
 
 program
+  .command('gn_check')
+  .option('--target_os <target_os>', 'target OS')
+  .option('--target_arch <target_arch>', 'target architecture')
+  .option('--target_apk_base <target_apk_base>', 'target Android OS apk (classic, modern, mono)', 'classic')
+  .arguments('[build_config]')
+  .action(gnCheck)
+
+program
   .command('apply_patches')
   .arguments('[build_config]')
   .action(applyPatches)
@@ -56,6 +65,8 @@ program
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--brave_infura_project_id <brave_infura_project_id>')
   .option('--binance_client_id <binance_client_id>')
+  .option('--gemini_client_id <gemini_client_id>')
+  .option('--gemini_client_secret <gemini_client_secret>')
   .option('--channel <target_channel>', 'target channel to build', /^(beta|dev|nightly|release)$/i)
   .option('--ignore_compile_failure', 'Keep compiling regardless of error')
   .option('--skip_signing', 'skip signing binaries')
@@ -77,6 +88,8 @@ program
   .option('--brave_google_api_endpoint <brave_google_api_endpoint>')
   .option('--brave_infura_project_id <brave_infura_project_id>')
   .option('--binance_client_id <binance_client_id>')
+  .option('--gemini_client_id <gemini_client_id>')
+  .option('--gemini_client_secret <gemini_client_secret>')
   .option('--channel <target_channel>', 'target channel to build', /^(beta|dev|nightly|release)$/i)
   .option('--build_omaha', 'build omaha stub/standalone installer')
   .option('--tag_ap <ap>', 'ap for stub/standalone installer')

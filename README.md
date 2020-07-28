@@ -141,7 +141,7 @@ brave-core> git checkout -b branch_name
 or
 
 ```bash
-brave-browser> npn run sync -- --create branch_name
+brave-browser> npm run sync -- --create branch_name
 ```
 
 ### Checkout an existing branch or tag
@@ -157,7 +157,7 @@ brave-core> npm run sync
 or
 
 ```bash
-brave-browser> npn run sync --create branch_name
+brave-browser> npm run sync --create branch_name
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...

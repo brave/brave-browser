@@ -18,8 +18,6 @@
 - [ ] Ran `git rebase -i` to squash commits (if needed).
 - [ ] Tagged reviewers and labelled the pull request as needed.
 - [ ] Requested a security/privacy review as needed.
-- [ ] If adding a new directory with NPM packages, ensure this directory is
-  added to `scripts/audit.js`.
 - [ ] Public documentation has been updated as necessary. For instance:
   - [ ] https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-(features-we-disable-or-remove)
   - [ ] https://github.com/brave/brave-browser/wiki/Proxy-redirected-URLs
