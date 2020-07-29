@@ -17,7 +17,7 @@
     "update_patches": "npm --prefix src/brave run update_patches --",
     "apply_patches": "npm --prefix src/brave run apply_patches --",
     "start": "npm --prefix src/brave run start --",
-    "network-audit": "npm --prefix src/brave run network_audit --",
+    "network-audit": "npm --prefix src/brave run network-audit --",
     "push_l10n": "npm --prefix src/brave run push_l10n --",
     "pull_l10n": "npm --prefix src/brave run pull_l10n --",
     "chromium_rebase_l10n": "npm --prefix src/brave run chromium_rebase_l10n --",
