@@ -1,17 +1,27 @@
 # Changelog
 
+## [1.11.105](https://github.com/brave/brave-browser/releases/tag/v1.11.105)
+
+ - Implemented new Shields design to match desktop. ([#9888](https://github.com/brave/brave-browser/issues/9888))
+ - Implemented "Rate Brave" feature to capture feedback from within the app. ([#8243](https://github.com/brave/brave-browser/issues/8243))
+ - Implemented Sync v1 deprecation info-bar for devices that have Sync enabled. ([#10416](https://github.com/brave/brave-browser/issues/10416))
+ - Added ability to view and download server error logs for Brave Rewards under "brave://rewards-internals" to improve rewards debugging.([#10712](https://github.com/brave/brave-browser/issues/10712))
+ - Fixed Shields not working on custom tab when app is removed from memory. ([#10612](https://github.com/brave/brave-browser/issues/10612))
+ - Updated Brave Rewards to display BAT values to three decimal places. ([#10028](https://github.com/brave/brave-browser/issues/10028))
+ - Upgraded to Chromium 81.0.4147.105. ([#10732](https://github.com/brave/brave-browser/issues/10732))
+
 ## [1.10.99](https://github.com/brave/brave-browser/releases/tag/v1.10.99)
 
-- Fixed rewards balance appearing as "0.0 BAT" in certain cases. ([#9992](https://github.com/brave/brave-browser/issues/9992))
-- Fixed ads being shown on embedded YouTube videos. ([#10436](https://github.com/brave/brave-browser/issues/10436))
-- Upgraded to Chromium 83.0.4103.116. ([#10482](https://github.com/brave/brave-browser/issues/10482))
+ - Fixed rewards balance appearing as "0.0 BAT" in certain cases. ([#9992](https://github.com/brave/brave-browser/issues/9992))
+ - Fixed ads being shown on embedded YouTube videos. ([#10436](https://github.com/brave/brave-browser/issues/10436))
+ - Upgraded to Chromium 83.0.4103.116. ([#10482](https://github.com/brave/brave-browser/issues/10482))
 
 ## [1.10.95](https://github.com/brave/brave-browser/releases/tag/v1.10.95)
 
-- Disabled Twitter support in the rewards panel. ([#10208](https://github.com/brave/brave-browser/issues/10208))
-- Fixed "Enable bottom toolbar" being reverted in certain cases. ([#9843](https://github.com/brave/brave-browser/issues/9843))
-- Fixed ads being shown on YouTube in certain cases. ([#10241](https://github.com/brave/brave-browser/issues/10241))
-- Fixed crash when opening new tab with Sponsored Image on certain screen resolutions. ([#10296](https://github.com/brave/brave-browser/issues/10296))
+ - Disabled Twitter support in the rewards panel. ([#10208](https://github.com/brave/brave-browser/issues/10208))
+ - Fixed "Enable bottom toolbar" being reverted in certain cases. ([#9843](https://github.com/brave/brave-browser/issues/9843))
+ - Fixed ads being shown on YouTube in certain cases. ([#10241](https://github.com/brave/brave-browser/issues/10241))
+ - Fixed crash when opening new tab with Sponsored Image on certain screen resolutions. ([#10296](https://github.com/brave/brave-browser/issues/10296))
 
 ## [1.10.94](https://github.com/brave/brave-browser/releases/tag/v1.10.94)
 
