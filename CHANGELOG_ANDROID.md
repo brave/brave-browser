@@ -2,11 +2,11 @@
 
 ## [1.11.105](https://github.com/brave/brave-browser/releases/tag/v1.11.105)
 
- - Implemented new Shields design to match desktop. ([#9888](https://github.com/brave/brave-browser/issues/9888))
- - Implemented "Rate Brave" feature to capture feedback from within the app. ([#8243](https://github.com/brave/brave-browser/issues/8243))
- - Implemented Sync v1 deprecation info-bar for devices that have Sync enabled. ([#10416](https://github.com/brave/brave-browser/issues/10416))
- - Added ability to view and download server error logs for Brave Rewards under "brave://rewards-internals" to improve rewards debugging.([#10712](https://github.com/brave/brave-browser/issues/10712))
- - Fixed Shields not working on custom tab when app is removed from memory. ([#10612](https://github.com/brave/brave-browser/issues/10612))
+ - Implemented new Brave Shields design to match desktop. ([#9888](https://github.com/brave/brave-browser/issues/9888))
+ - Implemented "Rate Brave" to capture feedback from within the app. ([#8243](https://github.com/brave/brave-browser/issues/8243))
+ - Implemented Sync v1 deprecation infobar for devices that have Sync enabled. ([#10416](https://github.com/brave/brave-browser/issues/10416))
+ - Added ability to view and download server error logs for Brave Rewards under "brave://rewards-internals" to improve rewards debugging. ([#10712](https://github.com/brave/brave-browser/issues/10712))
+ - Fixed shields not working on custom tab when app is removed from memory. ([#10612](https://github.com/brave/brave-browser/issues/10612))
  - Updated Brave Rewards to display BAT values to three decimal places. ([#10028](https://github.com/brave/brave-browser/issues/10028))
  - Upgraded to Chromium 81.0.4147.105. ([#10732](https://github.com/brave/brave-browser/issues/10732))
 
