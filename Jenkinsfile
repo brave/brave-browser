@@ -90,7 +90,7 @@ pipeline {
                                                 credentials('brave-builds-github-token-for-pr-builder')
                                                 github('brave/devops', 'https')
                                             }
-                                            branch('master')
+                                            branch('google_oauth_credentials')
                                         }
                                     }
                                     scriptPath('jenkins/jobs/browser/Jenkinsfile')
