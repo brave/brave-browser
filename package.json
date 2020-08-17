@@ -30,7 +30,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "84.0.4147.125",
+        "tag": "85.0.4183.69",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         },
@@ -42,6 +42,9 @@
           "src/chrome/tools/test/reference_build/chrome_linux": "%None%",
           "src/chrome/tools/test/reference_build/chrome_mac": "%None%",
           "src/chrome/tools/test/reference_build/chrome_win": "%None%"
+        },
+        "custom_vars": {
+          "checkout_pgo_profiles": "%False%"
         }
       },
       "brave-core": {
