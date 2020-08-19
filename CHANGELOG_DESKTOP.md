@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.12.114](https://github.com/brave/brave-browser/releases/tag/v1.12.114)
+
+ - [Security] Reduce logging as reported on HackerOne by hihouhou. ([#11255](https://github.com/brave/brave-browser/issues/11255))
+ - Upgraded Chromium to 84.0.4147.135. ([#11303](https://github.com/brave/brave-browser/issues/11303))
+
 ## [1.12.112](https://github.com/brave/brave-browser/releases/tag/v1.12.112)
 
  - Added Sync v2. ([#9989](https://github.com/brave/brave-browser/issues/9989))
