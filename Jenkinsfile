@@ -112,8 +112,8 @@ pipeline {
                         booleanParam(name: 'DCHECK_ALWAYS_ON', value: params.DCHECK_ALWAYS_ON),
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
                         string(name: 'BRANCH', value: CHANGE_BRANCH),
-                        string(name: 'NODE_LABEL', value: NODE_LABEL),
-                        string(name: 'SLACK_NOTIFY', value: SLACK_NOTIFY)
+                        string(name: 'NODE_LABEL', value: params.NODE_LABEL),
+                        string(name: 'SLACK_NOTIFY', value: params.SLACK_NOTIFY)
                     ]
 
                     currentBuild.result = build(job: PIPELINE_NAME, parameters: params, propagate: false).result
