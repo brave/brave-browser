@@ -30,13 +30,16 @@ INSUFFICIENT INFO WILL GET THE ISSUE CLOSED. IT WILL ONLY BE REOPENED AFTER SUFF
 ## Issue reproduces how often <!-- [Easily reproduced/Intermittent issue/No steps to reproduce] -->
 
 
-## Issue happens on <!-- Mention yes or no -->
-   - Current Play Store version?
-   - Beta build?
+## Version/Channel Information:
+<!--Does this issue happen on any other channels? Or is it specific to a certain channel?-->
+
+- Can you reproduce this issue with the current Play Store version? 
+- Can you reproduce this issue with the current Play Store Beta version? 
+- Can you reproduce this issue with the current Play Store Nightly version?
 
 ## Device details
    - Install type (ARM, x86):
-   - Device (Phone, Tablet, Phablet):
+   - Device type (Phone, Tablet, Phablet):
    - Android version:
    
 ## Brave version
