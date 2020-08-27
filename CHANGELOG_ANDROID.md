@@ -33,7 +33,7 @@
  - Added ability to view and download server error logs for Brave Rewards under "brave://rewards-internals" to improve rewards debugging. ([#10712](https://github.com/brave/brave-browser/issues/10712))
  - Fixed shields not working on custom tab when app is removed from memory. ([#10612](https://github.com/brave/brave-browser/issues/10612))
  - Updated Brave Rewards to display BAT values to three decimal places. ([#10028](https://github.com/brave/brave-browser/issues/10028))
- - Upgraded to Chromium 81.0.4147.105. ([#10732](https://github.com/brave/brave-browser/issues/10732))
+ - Upgraded to Chromium 84.0.4147.105. ([#10732](https://github.com/brave/brave-browser/issues/10732))
 
 ## [1.10.99](https://github.com/brave/brave-browser/releases/tag/v1.10.99)
 
