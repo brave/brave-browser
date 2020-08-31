@@ -152,6 +152,13 @@ NOTE: While we recommend you to use our official packages, there's a section for
 
 .. highlight:: console
 
+Manjaro
+------------
+::
+
+    sudo pacman -S brave
+    sudo pacman -S brave-beta
+
 Solus 
 -----------
 ::
