@@ -159,6 +159,17 @@ Manjaro
     sudo pacman -S brave
     sudo pacman -S brave-beta
 
+Arch
+-----------
+The Arch package is available as ``brave-bin`` in the Arch User Repository. To install it, you'll need to use an AUR helper, such as ``yay``.
+
+::
+
+    yay -S brave-bin
+
+The Arch Linux wiki contains a `comparison of common AUR helpers
+<https://wiki.archlinux.org/index.php/AUR_helpers>`_.
+
 Solus 
 -----------
 ::
