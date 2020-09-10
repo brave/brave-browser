@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.13.86](https://github.com/brave/brave-browser/releases/tag/v1.13.86)
+
+ - Fixed Brave Rewards service being associated to Tor profiles. ([#11223](https://github.com/brave/brave-browser/issues/11223))
+ - Fixed "setup.exe" not being signed. ([#11378](https://github.com/brave/brave-browser/issues/11378))
+ - Fixed Gemini widget being displayed in unsupported region(s). ([#11483](https://github.com/brave/brave-browser/issues/11483))
+ - Fixed clicks not being registered on ad notifications in certain cases. ([#11042](https://github.com/brave/brave-browser/issues/11042))
+ - Upgraded Chromium to 85.0.4183.102. ([#11621](https://github.com/brave/brave-browser/issues/11621))
+
 ## [1.13.82](https://github.com/brave/brave-browser/releases/tag/v1.13.82)
 
  - Added Gemini widget to the New Tab Page. ([#11457](https://github.com/brave/brave-browser/issues/11457))
