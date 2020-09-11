@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.87](https://github.com/brave/brave-browser/releases/tag/v1.13.87)
+
+ - Fixed crash when opening "Privacy Report" notification while Brave running in background. ([#11625](https://github.com/brave/brave-browser/issues/11625))
+ - Fixed "Settings" menu not reachable on devices running Android 7. ([#11620](https://github.com/brave/brave-browser/issues/11620))
+ - Fixed text under the location permission modal displaying "Chromium" instead of "Brave". ([#11656](https://github.com/brave/brave-browser/issues/11656))
+ - Upgraded Chromium to 85.0.4183.102. ([#11621](https://github.com/brave/brave-browser/issues/11621))
+
 ## [1.13.85](https://github.com/brave/brave-browser/releases/tag/v1.13.85)
 
  - Implemented cross-platform promotion modal. ([#10571](https://github.com/brave/brave-browser/issues/10571))
