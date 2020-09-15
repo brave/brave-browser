@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.14.81](https://github.com/brave/brave-browser/releases/tag/v1.14.81)
+
+ - Implemented additional farbling protections for fingerprinters accessing CPU information. ([#10808](https://github.com/brave/brave-browser/issues/10808))
+ - Implemented additional farbling protections for fingerprinters accessing media hardware information. ([#11271](https://github.com/brave/brave-browser/issues/11271))
+ - Added "Event" tab under brave://rewards-internals to assist with rewards support. ([#10781](https://github.com/brave/brave-browser/issues/10781))
+ - Added metric to better calibrate availability of Brave ads. ([#10081](https://github.com/brave/brave-browser/issues/10081))
+ - Removed backup and restore notifications for verified wallet users. ([#6259](https://github.com/brave/brave-browser/issues/6259))
+ - Fixed Brave accepting TLS 1.0 and TLS 1.1 certificates without warning users. ([#10607](https://github.com/brave/brave-browser/issues/10607))
+ - Fixed WebRTC Web APIs being modified when fingerprinting protection is set to "strict". ([#11310](https://github.com/brave/brave-browser/issues/11310))
+ - Fixed overlapping text on Uphold promotional card under brave://rewards. ([#11257](https://github.com/brave/brave-browser/issues/11257))
+ - Fixed Brave Ads intermittently crashing when clicking on thumbs up, thumbs down, opt-in, out-out, save ad and flag ad under "7-day Ads History". ([#11044](https://github.com/brave/brave-browser/issues/11044))
+ - Fixed Brave Ads page classification scores from locally persisting in the diagnostic log. ([#11220](https://github.com/brave/brave-browser/issues/11220))
+ - Fixed purchase intent parent only segments blocking page classification parent segments. ([#11410](https://github.com/brave/brave-browser/issues/11410))
+ - Fixed crash on macOS when checking currently installed version in certain cases. ([#11008](https://github.com/brave/brave-browser/issues/11008))
+ - Fixed Gemini toggle appearing under brave://settings#newTab for unsupported regions. ([#11136](https://github.com/brave/brave-browser/issues/11136))
+ - Fixed not being able to authenticate and use the Google Keep extension. ([#3650](https://github.com/brave/brave-browser/issues/3650))
+ - Fixed not being able to authenticate and use the Google Calendar extension. ([#4672](https://github.com/brave/brave-browser/issues/4672))
+ - Fixed not being able to automatically set Brave as the default browser Debian systems with Chrome. ([#11001](https://github.com/brave/brave-browser/issues/11001))
+ - Fixed Brave registering as Chromium instead of Brave under Pulseaudio. ([#10919](https://github.com/brave/brave-browser/issues/10919))
+
 ## [1.13.86](https://github.com/brave/brave-browser/releases/tag/v1.13.86)
 
  - Fixed Brave Rewards service being associated to Tor profiles. ([#11223](https://github.com/brave/brave-browser/issues/11223))
