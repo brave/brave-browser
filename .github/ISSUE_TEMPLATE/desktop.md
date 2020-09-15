@@ -1,7 +1,7 @@
 ---
 name: Desktop Issue
 about: 'Template for logging issues on Desktop '
-title: "[Desktop]"
+title: ""
 labels: OS/Desktop
 assignees: ''
 
