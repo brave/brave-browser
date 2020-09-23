@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.14.84](https://github.com/brave/brave-browser/releases/tag/v1.14.84)
+
+ - Implemented client ads pacing mechanism. ([#11643](https://github.com/brave/brave-browser/issues/11643))
+ - Upgraded Chromium to 85.0.4183.121. ([#11793](https://github.com/brave/brave-browser/issues/11793))
+
 ## [1.14.81](https://github.com/brave/brave-browser/releases/tag/v1.14.81)
 
  - Implemented additional farbling protections for fingerprinters accessing CPU information. ([#10808](https://github.com/brave/brave-browser/issues/10808))
