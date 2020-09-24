@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.16.19",
+  "version": "1.16.35",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "npm --prefix src/brave run audit_deps --",
@@ -24,13 +24,13 @@
     "lint": "npm --prefix src/brave run lint --",
     "test": "npm --prefix src/brave run test --",
     "test:scripts": "jest lib scripts --passWithNoTests",
-    "test-security": "npm run audit_deps && node ./scripts/commands.js start --enable_brave_update --network_log --user_data_dir_name=brave-network-test"
+    "test-security": "npm --prefix src/brave run test-security --"
   },
   "config": {
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "86.0.4240.30",
+        "tag": "86.0.4240.42",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         }
