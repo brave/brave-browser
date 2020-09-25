@@ -14,6 +14,7 @@ pipeline {
         booleanParam(name: 'DISABLE_SCCACHE', defaultValue: false)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
+        booleanParam(name: "TERMINATE_NODE", defaultValue: false)
         string(name: 'NODE_LABEL', defaultValue: '')
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
@@ -93,7 +94,7 @@ pipeline {
                                                 credentials('brave-builds-github-token-for-pr-builder')
                                                 github('brave/devops', 'https')
                                             }
-                                            branch('linh-separate-ci-node-template')
+                                            branch('linh-add-terminate-node')
                                         }
                                     }
                                     scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
@@ -111,6 +112,7 @@ pipeline {
                         booleanParam(name: 'SKIP_SIGNING', value: params.SKIP_SIGNING),
                         booleanParam(name: 'DCHECK_ALWAYS_ON', value: params.DCHECK_ALWAYS_ON),
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
+                        booleanParam(name: "TERMINATE_NODE", defaultValue: false)
                         string(name: 'BRANCH', value: CHANGE_BRANCH),
                         string(name: 'NODE_LABEL', value: params.NODE_LABEL),
                         string(name: 'SLACK_NOTIFY', value: params.SLACK_NOTIFY)
