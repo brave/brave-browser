@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.16.35",
+  "version": "1.16.38",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "npm --prefix src/brave run audit_deps --",
@@ -30,7 +30,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "86.0.4240.42",
+        "tag": "86.0.4240.55",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         }
