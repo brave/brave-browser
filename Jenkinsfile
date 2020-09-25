@@ -14,7 +14,7 @@ pipeline {
         booleanParam(name: 'DISABLE_SCCACHE', defaultValue: false)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
-        booleanParam(name: "TERMINATE_NODE", defaultValue: false)
+        booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         string(name: 'NODE_LABEL', defaultValue: '')
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
