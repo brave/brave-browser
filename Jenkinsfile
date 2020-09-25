@@ -9,12 +9,12 @@ pipeline {
         choice(name: 'CHANNEL', choices: ['nightly', 'dev', 'beta', 'release', 'development'])
         choice(name: 'BUILD_TYPE', choices: ['Release', 'Debug'])
         choice(name: 'BUILD_STATUS', choices: ['', 'SUCCESS', 'FAILURE', 'UNSTABLE', 'ABORTED'])
+        booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         booleanParam(name: 'WIPE_WORKSPACE', defaultValue: false)
         booleanParam(name: 'SKIP_INIT', defaultValue: false)
         booleanParam(name: 'DISABLE_SCCACHE', defaultValue: false)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
-        booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         string(name: 'NODE_LABEL', defaultValue: '')
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
@@ -76,13 +76,13 @@ pipeline {
                             parameters {
                                 choiceParam('CHANNEL', ['nightly', 'dev', 'beta', 'release', 'development'])
                                 choiceParam('BUILD_TYPE', ['Release', 'Debug'])
+                                booleanParam('TERMINATE_NODE', ${TERMINATE_NODE})
                                 booleanParam('WIPE_WORKSPACE', false)
                                 booleanParam('SKIP_INIT', false)
                                 booleanParam('DISABLE_SCCACHE', false)
                                 booleanParam('SKIP_SIGNING', true)
                                 booleanParam('DCHECK_ALWAYS_ON', true)
                                 booleanParam('RUN_NETWORK_AUDIT', false)
-                                booleanParam('TERMINATE_NODE', ${TERMINATE_NODE})
                                 stringParam('BRANCH', '${CHANGE_BRANCH}')
                                 stringParam('NODE_LABEL', '')
                                 stringParam('SLACK_NOTIFY', '')
@@ -107,13 +107,13 @@ pipeline {
                     params = [
                         string(name: 'CHANNEL', value: params.CHANNEL),
                         string(name: 'BUILD_TYPE', value: params.BUILD_TYPE),
+                        booleanParam(name: "TERMINATE_NODE", value: TERMINATE_NODE),
                         booleanParam(name: 'WIPE_WORKSPACE', value: params.WIPE_WORKSPACE),
                         booleanParam(name: 'SKIP_INIT', value: params.SKIP_INIT),
                         booleanParam(name: 'DISABLE_SCCACHE', value: params.DISABLE_SCCACHE),
                         booleanParam(name: 'SKIP_SIGNING', value: params.SKIP_SIGNING),
                         booleanParam(name: 'DCHECK_ALWAYS_ON', value: params.DCHECK_ALWAYS_ON),
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
-                        booleanParam(name: "TERMINATE_NODE", value: TERMINATE_NODE),
                         string(name: 'BRANCH', value: CHANGE_BRANCH),
                         string(name: 'NODE_LABEL', value: params.NODE_LABEL),
                         string(name: 'SLACK_NOTIFY', value: params.SLACK_NOTIFY)
