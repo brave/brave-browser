@@ -14,6 +14,7 @@ pipeline {
         booleanParam(name: 'DISABLE_SCCACHE', defaultValue: false)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
+        booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         string(name: 'NODE_LABEL', defaultValue: '')
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
@@ -81,6 +82,7 @@ pipeline {
                                 booleanParam('SKIP_SIGNING', true)
                                 booleanParam('DCHECK_ALWAYS_ON', true)
                                 booleanParam('RUN_NETWORK_AUDIT', false)
+                                booleanParam('TERMINATE_NODE', ${TERMINATE_NODE})
                                 stringParam('BRANCH', '${CHANGE_BRANCH}')
                                 stringParam('NODE_LABEL', '')
                                 stringParam('SLACK_NOTIFY', '')
@@ -111,6 +113,7 @@ pipeline {
                         booleanParam(name: 'SKIP_SIGNING', value: params.SKIP_SIGNING),
                         booleanParam(name: 'DCHECK_ALWAYS_ON', value: params.DCHECK_ALWAYS_ON),
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
+                        booleanParam(name: "TERMINATE_NODE", value: TERMINATE_NODE),
                         string(name: 'BRANCH', value: CHANGE_BRANCH),
                         string(name: 'NODE_LABEL', value: params.NODE_LABEL),
                         string(name: 'SLACK_NOTIFY', value: params.SLACK_NOTIFY)
