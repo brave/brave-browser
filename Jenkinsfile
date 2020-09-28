@@ -76,7 +76,7 @@ pipeline {
                             parameters {
                                 choiceParam('CHANNEL', ['nightly', 'dev', 'beta', 'release', 'development'])
                                 choiceParam('BUILD_TYPE', ['Release', 'Debug'])
-                                booleanParam('TERMINATE_NODE', ${TERMINATE_NODE})
+                                booleanParam('TERMINATE_NODE', false)
                                 booleanParam('WIPE_WORKSPACE', false)
                                 booleanParam('SKIP_INIT', false)
                                 booleanParam('DISABLE_SCCACHE', false)
@@ -107,7 +107,7 @@ pipeline {
                     params = [
                         string(name: 'CHANNEL', value: params.CHANNEL),
                         string(name: 'BUILD_TYPE', value: params.BUILD_TYPE),
-                        booleanParam(name: "TERMINATE_NODE", value: TERMINATE_NODE),
+                        booleanParam(name: "TERMINATE_NODE", value: params.TERMINATE_NODE),
                         booleanParam(name: 'WIPE_WORKSPACE', value: params.WIPE_WORKSPACE),
                         booleanParam(name: 'SKIP_INIT', value: params.SKIP_INIT),
                         booleanParam(name: 'DISABLE_SCCACHE', value: params.DISABLE_SCCACHE),
