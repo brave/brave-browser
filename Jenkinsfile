@@ -9,6 +9,7 @@ pipeline {
         choice(name: 'CHANNEL', choices: ['nightly', 'dev', 'beta', 'release', 'development'])
         choice(name: 'BUILD_TYPE', choices: ['Release', 'Debug'])
         choice(name: 'BUILD_STATUS', choices: ['', 'SUCCESS', 'FAILURE', 'UNSTABLE', 'ABORTED'])
+        booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         booleanParam(name: 'WIPE_WORKSPACE', defaultValue: false)
         booleanParam(name: 'SKIP_INIT', defaultValue: false)
         booleanParam(name: 'DISABLE_SCCACHE', defaultValue: false)
@@ -75,6 +76,7 @@ pipeline {
                             parameters {
                                 choiceParam('CHANNEL', ['nightly', 'dev', 'beta', 'release', 'development'])
                                 choiceParam('BUILD_TYPE', ['Release', 'Debug'])
+                                booleanParam('TERMINATE_NODE', false)
                                 booleanParam('WIPE_WORKSPACE', false)
                                 booleanParam('SKIP_INIT', false)
                                 booleanParam('DISABLE_SCCACHE', false)
@@ -105,6 +107,7 @@ pipeline {
                     params = [
                         string(name: 'CHANNEL', value: params.CHANNEL),
                         string(name: 'BUILD_TYPE', value: params.BUILD_TYPE),
+                        booleanParam(name: "TERMINATE_NODE", value: params.TERMINATE_NODE),
                         booleanParam(name: 'WIPE_WORKSPACE', value: params.WIPE_WORKSPACE),
                         booleanParam(name: 'SKIP_INIT', value: params.SKIP_INIT),
                         booleanParam(name: 'DISABLE_SCCACHE', value: params.DISABLE_SCCACHE),
