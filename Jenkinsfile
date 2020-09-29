@@ -84,7 +84,6 @@ pipeline {
                                 booleanParam('SKIP_SIGNING', true)
                                 booleanParam('DCHECK_ALWAYS_ON', true)
                                 booleanParam('RUN_NETWORK_AUDIT', false)
-                                booleanParam('TERMINATE_NODE', ${TERMINATE_NODE})
                                 stringParam('BRANCH', '${CHANGE_BRANCH}')
                                 stringParam('NODE_LABEL', '')
                                 stringParam('SLACK_NOTIFY', '')
