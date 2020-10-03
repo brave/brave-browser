@@ -8,6 +8,10 @@ Brave is only supported on 64-bit AMD/Intel architectures (`amd64` / `x86_64`).
 
 The current signing keys are also available from <https://brave.com/signing-keys/>.
 
+.. note::
+
+    Linux is not presently supported within Brave's `referral program <https://brave.com/refer>`_. At this time, supported platforms are Windows, MacOS, Android, and iOS.
+
 Release Channel Installation
 ============================
 
