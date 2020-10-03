@@ -115,7 +115,7 @@ html_favicon = '_static/product_logo_32.png'
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'BraveBrowserdoc'
 
-html_css_files = '_static/custom.css'
+html_css_files = ['custom.css']
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -169,4 +169,4 @@ texinfo_documents = [
 ]
 
 def setup(app):
-    app.add_stylesheet('custom.css')
+    app.add_css_file('custom.css')
