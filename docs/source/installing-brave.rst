@@ -4,7 +4,7 @@ Installing Brave
 Linux
 *****
 
-Brave is only supported on 64-bit AMD/Intel architectures (`amd64` / `x86_64`).
+Brave is supported only on 64-bit AMD/Intel architectures (`amd64` / `x86_64`).
 
 The current signing keys are also available from <https://brave.com/signing-keys/>.
 
