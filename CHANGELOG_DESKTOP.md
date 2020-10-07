@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.15.72](https://github.com/brave/brave-browser/releases/tag/v1.15.72)
+
+ - Added Bitcoin.com widget to the New Tab Page. ([#11982](https://github.com/brave/brave-browser/issues/11982))
+ - [Security] Added rel=noopener to webtorrent links as reported on HackerOne by d3f4u17. ([#11487](https://github.com/brave/brave-browser/issues/11487))
+ - [Security] Fixed webtorrent file detection issue as reported on HackerOne by d3f4u17. ([#11488](https://github.com/brave/brave-browser/issues/11488))
+ - Fixed ad notifications being delivered when not enough unblinded tokens available. ([#11789](https://github.com/brave/brave-browser/issues/11789))
+ - Fixed rewards restore modal displaying "Please re-enter keys or try different keys." error before entering keys. ([#11235](https://github.com/brave/brave-browser/issues/11235))
+ - Fixed "Trackers & Ads Blocking" setting not persisting after restarting Brave in some cases. ([#11585](https://github.com/brave/brave-browser/issues/11585))
+ - Fixed WebGL and OpenGL being disabled in Linux due to "libEGL.so" and "libGLESv2.so" missing from Brave package. ([#11504](https://github.com/brave/brave-browser/issues/11504))
+ - Upgraded Chromium to 86.0.4240.75. ([#12021](https://github.com/brave/brave-browser/issues/12021))
+
 ## [1.14.84](https://github.com/brave/brave-browser/releases/tag/v1.14.84)
 
  - Implemented client ads pacing mechanism. ([#11643](https://github.com/brave/brave-browser/issues/11643))
