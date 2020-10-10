@@ -1,0 +1,7 @@
+{
+  "name": "Brave-Browser",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "custom"
+}

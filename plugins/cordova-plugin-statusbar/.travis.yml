@@ -1,0 +1,86 @@
+sudo: false
+addons:
+  jwt:
+    secure: Rd/wGSUWGWbc0Y/vqPgI29nybq+j/zWilEIOCBJeRQVwfubdbJNZUIb5DFlSSVzMEavkxZ0PYJ45h21iXyWo3aOoxUJwhkO7QZNzW2MsYzy9qpiKK1jOESXMrpboRWoxg+BL85YbaDF3u1XRy+Xm1nraStT6mDfx5LlUG1Lac6A=
+env:
+  global:
+  - SAUCE_USERNAME=snay
+  - TRAVIS_NODE_VERSION="4.2"
+matrix:
+  include:
+  - env: PLATFORM=browser-chrome
+    os: linux
+    language: node_js
+    node_js: '4.2'
+  - env: PLATFORM=browser-firefox
+    os: linux
+    language: node_js
+    node_js: '4.2'
+  - env: PLATFORM=browser-safari
+    os: linux
+    language: node_js
+    node_js: '4.2'
+  - env: PLATFORM=browser-edge
+    os: linux
+    language: node_js
+    node_js: '4.2'
+  - env: PLATFORM=ios-9.3
+    os: osx
+    osx_image: xcode7.3
+    language: node_js
+    node_js: '4.2'
+  - env: PLATFORM=ios-10.0
+    os: osx
+    osx_image: xcode7.3
+    language: node_js
+    node_js: '4.2'
+  - env: PLATFORM=android-4.4
+    os: linux
+    language: android
+    jdk: oraclejdk8
+    android:
+      components:
+      - tools
+      - build-tools-26.0.2
+  - env: PLATFORM=android-5.1
+    os: linux
+    language: android
+    jdk: oraclejdk8
+    android:
+      components:
+      - tools
+      - build-tools-26.0.2
+  - env: PLATFORM=android-6.0
+    os: linux
+    language: android
+    jdk: oraclejdk8
+    android:
+      components:
+      - tools
+      - build-tools-26.0.2
+  - env: PLATFORM=android-7.0
+    os: linux
+    language: android
+    jdk: oraclejdk8
+    android:
+      components:
+      - tools
+      - build-tools-26.0.2
+before_install:
+- rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm
+  && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm
+  install $TRAVIS_NODE_VERSION
+- node --version
+- if [[ "$PLATFORM" =~ android ]]; then gradle --version; fi
+- if [[ "$PLATFORM" =~ ios ]]; then npm install -g ios-deploy; fi
+- if [[ "$PLATFORM" =~ android ]]; then echo y | android update sdk -u --filter android-22,android-23,android-24,android-25,android-26;
+  fi
+- git clone https://github.com/apache/cordova-paramedic /tmp/paramedic && pushd /tmp/paramedic
+  && npm install && popd
+- npm install -g cordova
+install:
+- npm install
+script:
+- npm test
+- node /tmp/paramedic/main.js --config pr/$PLATFORM --plugin $(pwd) --shouldUseSauce
+  --buildName travis-plugin-statusbar-$TRAVIS_JOB_NUMBER

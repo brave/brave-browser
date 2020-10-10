@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7E9F51AB19DA10AE00DA31AC /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F51A919DA10AE00DA31AC /* CDVSplashScreen.m */; };
+		7E9F51B119DA114400DA31AC /* ImageNameTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F51B019DA114400DA31AC /* ImageNameTest.m */; };
+		7E9F51B319DA116500DA31AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F51B219DA116500DA31AC /* Foundation.framework */; };
+		7E9F51B519DA127E00DA31AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F51B419DA127E00DA31AC /* UIKit.framework */; };
+		7E9F51B819DA14FD00DA31AC /* ImageNameTestDelegates.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9F51B719DA14FD00DA31AC /* ImageNameTestDelegates.m */; };
+		7E9F51B919DA1B1600DA31AC /* libCDVSplashScreenLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F519519DA102000DA31AC /* libCDVSplashScreenLib.a */; };
+		7E9F51BA19DA1B2000DA31AC /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F519019DA0F8300DA31AC /* libCordova.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E9F518F19DA0F8300DA31AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9F518B19DA0F8300DA31AC /* CordovaLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 68A32D7114102E1C006B237C;
+			remoteInfo = CordovaLib;
+		};
+		7E9F51AC19DA10DE00DA31AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9F517219DA09CE00DA31AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E9F519419DA102000DA31AC;
+			remoteInfo = CDVSplashScreenLib;
+		};
+		7E9F51AE19DA10E100DA31AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E9F518B19DA0F8300DA31AC /* CordovaLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = CordovaLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7E9F519319DA102000DA31AC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		7E9F518B19DA0F8300DA31AC /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = "../node_modules/cordova-ios/CordovaLib/CordovaLib.xcodeproj"; sourceTree = "<group>"; };
+		7E9F519519DA102000DA31AC /* libCDVSplashScreenLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCDVSplashScreenLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E9F519F19DA102000DA31AC /* CDVSplashScreenLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDVSplashScreenLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E9F51A219DA102000DA31AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E9F51A919DA10AE00DA31AC /* CDVSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = ../../../src/ios/CDVSplashScreen.m; sourceTree = SOURCE_ROOT; };
+		7E9F51AA19DA10AE00DA31AC /* CDVSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVSplashScreen.h; path = ../../../src/ios/CDVSplashScreen.h; sourceTree = SOURCE_ROOT; };
+		7E9F51B019DA114400DA31AC /* ImageNameTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageNameTest.m; sourceTree = "<group>"; };
+		7E9F51B219DA116500DA31AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7E9F51B419DA127E00DA31AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		7E9F51B619DA12C600DA31AC /* ImageNameTestDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageNameTestDelegates.h; sourceTree = "<group>"; };
+		7E9F51B719DA14FD00DA31AC /* ImageNameTestDelegates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageNameTestDelegates.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E9F519219DA102000DA31AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9F519C19DA102000DA31AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9F51BA19DA1B2000DA31AC /* libCordova.a in Frameworks */,
+				7E9F51B919DA1B1600DA31AC /* libCDVSplashScreenLib.a in Frameworks */,
+				7E9F51B519DA127E00DA31AC /* UIKit.framework in Frameworks */,
+				7E9F51B319DA116500DA31AC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7E9F517119DA09CE00DA31AC = {
+			isa = PBXGroup;
+			children = (
+				7E9F51B419DA127E00DA31AC /* UIKit.framework */,
+				7E9F51B219DA116500DA31AC /* Foundation.framework */,
+				7E9F518B19DA0F8300DA31AC /* CordovaLib.xcodeproj */,
+				7E9F519619DA102000DA31AC /* CDVSplashScreenLib */,
+				7E9F51A019DA102000DA31AC /* CDVSplashScreenLibTests */,
+				7E9F517D19DA0A0A00DA31AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7E9F517D19DA0A0A00DA31AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F519519DA102000DA31AC /* libCDVSplashScreenLib.a */,
+				7E9F519F19DA102000DA31AC /* CDVSplashScreenLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E9F518C19DA0F8300DA31AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F519019DA0F8300DA31AC /* libCordova.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E9F519619DA102000DA31AC /* CDVSplashScreenLib */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F51A919DA10AE00DA31AC /* CDVSplashScreen.m */,
+				7E9F51AA19DA10AE00DA31AC /* CDVSplashScreen.h */,
+			);
+			path = CDVSplashScreenLib;
+			sourceTree = SOURCE_ROOT;
+		};
+		7E9F51A019DA102000DA31AC /* CDVSplashScreenLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F51A119DA102000DA31AC /* Supporting Files */,
+				7E9F51B019DA114400DA31AC /* ImageNameTest.m */,
+				7E9F51B619DA12C600DA31AC /* ImageNameTestDelegates.h */,
+				7E9F51B719DA14FD00DA31AC /* ImageNameTestDelegates.m */,
+			);
+			path = CDVSplashScreenLibTests;
+			sourceTree = "<group>";
+		};
+		7E9F51A119DA102000DA31AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F51A219DA102000DA31AC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E9F519419DA102000DA31AC /* CDVSplashScreenLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E9F51A319DA102000DA31AC /* Build configuration list for PBXNativeTarget "CDVSplashScreenLib" */;
+			buildPhases = (
+				7E9F519119DA102000DA31AC /* Sources */,
+				7E9F519219DA102000DA31AC /* Frameworks */,
+				7E9F519319DA102000DA31AC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CDVSplashScreenLib;
+			productName = CDVSplashScreenLib;
+			productReference = 7E9F519519DA102000DA31AC /* libCDVSplashScreenLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7E9F519E19DA102000DA31AC /* CDVSplashScreenLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E9F51A619DA102000DA31AC /* Build configuration list for PBXNativeTarget "CDVSplashScreenLibTests" */;
+			buildPhases = (
+				7E9F519B19DA102000DA31AC /* Sources */,
+				7E9F519C19DA102000DA31AC /* Frameworks */,
+				7E9F519D19DA102000DA31AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E9F51AF19DA10E100DA31AC /* PBXTargetDependency */,
+				7E9F51AD19DA10DE00DA31AC /* PBXTargetDependency */,
+			);
+			name = CDVSplashScreenLibTests;
+			productName = CDVSplashScreenLibTests;
+			productReference = 7E9F519F19DA102000DA31AC /* CDVSplashScreenLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E9F517219DA09CE00DA31AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				TargetAttributes = {
+					7E9F519419DA102000DA31AC = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					7E9F519E19DA102000DA31AC = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = 7E9F517519DA09CE00DA31AC /* Build configuration list for PBXProject "CDVSplashScreenTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7E9F517119DA09CE00DA31AC;
+			productRefGroup = 7E9F517D19DA0A0A00DA31AC /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7E9F518C19DA0F8300DA31AC /* Products */;
+					ProjectRef = 7E9F518B19DA0F8300DA31AC /* CordovaLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				7E9F519419DA102000DA31AC /* CDVSplashScreenLib */,
+				7E9F519E19DA102000DA31AC /* CDVSplashScreenLibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7E9F519019DA0F8300DA31AC /* libCordova.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCordova.a;
+			remoteRef = 7E9F518F19DA0F8300DA31AC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E9F519D19DA102000DA31AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E9F519119DA102000DA31AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9F51AB19DA10AE00DA31AC /* CDVSplashScreen.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9F519B19DA102000DA31AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9F51B119DA114400DA31AC /* ImageNameTest.m in Sources */,
+				7E9F51B819DA14FD00DA31AC /* ImageNameTestDelegates.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E9F51AD19DA10DE00DA31AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7E9F519419DA102000DA31AC /* CDVSplashScreenLib */;
+			targetProxy = 7E9F51AC19DA10DE00DA31AC /* PBXContainerItemProxy */;
+		};
+		7E9F51AF19DA10E100DA31AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CordovaLib;
+			targetProxy = 7E9F51AE19DA10E100DA31AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7E9F517619DA09CE00DA31AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		7E9F517719DA09CE00DA31AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		7E9F51A419DA102000DA31AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
+					"\"$(OBJROOT)/UninstalledProducts/include\"",
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7E9F51A519DA102000DA31AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(TARGET_BUILD_DIR)/usr/local/lib/include\"",
+					"\n\"$(OBJROOT)/UninstalledProducts/include\"\n\"$(BUILT_PRODUCTS_DIR)\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E9F51A719DA102000DA31AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = CDVSplashScreenLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7E9F51A819DA102000DA31AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = CDVSplashScreenLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E9F517519DA09CE00DA31AC /* Build configuration list for PBXProject "CDVSplashScreenTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E9F517619DA09CE00DA31AC /* Debug */,
+				7E9F517719DA09CE00DA31AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E9F51A319DA102000DA31AC /* Build configuration list for PBXNativeTarget "CDVSplashScreenLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E9F51A419DA102000DA31AC /* Debug */,
+				7E9F51A519DA102000DA31AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E9F51A619DA102000DA31AC /* Build configuration list for PBXNativeTarget "CDVSplashScreenLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E9F51A719DA102000DA31AC /* Debug */,
+				7E9F51A819DA102000DA31AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E9F517219DA09CE00DA31AC /* Project object */;
+}

@@ -1,0 +1,57 @@
+version: 2
+
+aliases:
+  - &restore-cache
+      keys:
+        - dependency-cache-{{ checksum "package.json" }}-1
+
+  - &save-cache
+      key: dependency-cache-{{ checksum "package.json" }}-1
+      paths:
+        - node_modules
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:10
+  working_directory: /tmp/workspace
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache: *restore-cache
+      - run: npm install
+      - save_cache: *save-cache
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - "*"
+
+  deploy:
+    <<: *defaults
+    environment:
+      GIT_AUTHOR_NAME: Ionitron
+      GIT_AUTHOR_EMAIL: hi@ionicframework.com
+      GIT_COMMITTER_NAME: Ionitron
+      GIT_COMMITTER_EMAIL: hi@ionicframework.com
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "ae:6d:3a:f1:cf:39:e1:94:6e:22:2a:9f:54:f9:b0:1b" # ionitron user key
+      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: npx semantic-release
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          requires: [build]
+          filters:
+            branches:
+              only: stable

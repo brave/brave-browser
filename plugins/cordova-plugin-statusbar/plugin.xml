@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-statusbar"
+    version="2.4.2">
+    <name>StatusBar</name>
+    <description>Cordova StatusBar Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,statusbar</keywords>
+
+    <engines>
+            <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/statusbar.js" name="statusbar">
+        <clobbers target="window.StatusBar" />
+    </js-module>
+
+    <platform name="android">
+        <source-file src="src/android/StatusBar.java" target-dir="src/org/apache/cordova/statusbar" />
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+    </platform>
+
+    <platform name="browser">
+        <js-module src="src/browser/StatusBarProxy.js" name="StatusBarProxy">
+            <runs />
+        </js-module>
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="ios-package" value="CDVStatusBar" />
+                <param name="onload" value="true" />
+            </feature>
+            <preference name="StatusBarOverlaysWebView" value="true" />
+            <preference name="StatusBarStyle" value="lightcontent" />
+        </config-file>
+
+        <header-file src="src/ios/CDVStatusBar.h" />
+        <source-file src="src/ios/CDVStatusBar.m" />
+
+    </platform>
+
+    <!-- wp7 -->
+    <platform name="wp7">
+        <config-file target="config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="wp-package" value="StatusBar"/>
+            </feature>
+        </config-file>
+        <source-file src="src/wp/StatusBar.cs" />
+    </platform>
+
+    <!-- wp8 -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="StatusBar">
+                <param name="wp-package" value="StatusBar"/>
+            </feature>
+        </config-file>
+        <source-file src="src/wp/StatusBar.cs" />
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/StatusBarProxy.js" name="StatusBarProxy">
+            <runs />
+        </js-module>
+    </platform>
+</plugin>

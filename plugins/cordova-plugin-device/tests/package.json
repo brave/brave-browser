@@ -1,0 +1,14 @@
+{
+  "name": "cordova-plugin-device-tests",
+  "version": "1.1.6-dev",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-device-tests",
+    "platforms": []
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "",
+  "license": "Apache 2.0"
+}

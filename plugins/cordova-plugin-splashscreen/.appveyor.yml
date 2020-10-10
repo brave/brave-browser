@@ -1,0 +1,28 @@
+# appveyor file
+# http://www.appveyor.com/docs/appveyor-yml
+
+max_jobs: 1
+
+shallow_clone: true
+
+init:
+  - git config --global core.autocrlf true
+
+image:
+  - Visual Studio 2017
+
+environment:
+  nodejs_version: "4"
+  matrix:
+    - PLATFORM: windows-10-store
+      JUST_BUILD: --justBuild
+install:
+  - npm cache clean -f
+  - node --version
+  - npm install -g cordova-paramedic@https://github.com/apache/cordova-paramedic.git
+  - npm install -g cordova
+
+build: off
+
+test_script:
+  - cordova-paramedic --config pr\%PLATFORM% --plugin . %JUST_BUILD%

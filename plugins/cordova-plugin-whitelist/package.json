@@ -1,0 +1,64 @@
+{
+  "_from": "cordova-plugin-whitelist@1.3.3",
+  "_id": "cordova-plugin-whitelist@1.3.3",
+  "_inBundle": false,
+  "_integrity": "sha1-tehezbv+Wu3tQKG/TuI3LmfZb7Q=",
+  "_location": "/cordova-plugin-whitelist",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-whitelist@1.3.3",
+    "name": "cordova-plugin-whitelist",
+    "escapedName": "cordova-plugin-whitelist",
+    "rawSpec": "1.3.3",
+    "saveSpec": null,
+    "fetchSpec": "1.3.3"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz",
+  "_shasum": "b5e85ecdbbfe5aeded40a1bf4ee2372e67d96fb4",
+  "_spec": "cordova-plugin-whitelist@1.3.3",
+  "_where": "/Users/brendanmulhern/brave-browser",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Whitelist Plugin",
+  "engines": {
+    "cordovaDependencies": {
+      "0.0.0": {
+        "cordova-android": ">=4.0.0"
+      },
+      "2.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-whitelist#readme",
+  "keywords": [
+    "cordova",
+    "whitelist",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-whitelist",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-whitelist.git"
+  },
+  "version": "1.3.3"
+}

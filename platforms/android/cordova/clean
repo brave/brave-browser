@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+/*
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+*/
+
+var Api = require('./Api');
+var path = require('path');
+var nopt = require('nopt');
+
+// Support basic help commands
+if (['--help', '/?', '-h', 'help', '-help', '/help'].indexOf(process.argv[2]) >= 0) {
+    console.log('Usage: ' + path.relative(process.cwd(), process.argv[1]));
+    console.log('Cleans the project directory.');
+    process.exit(0);
+}
+
+// Do some basic argument parsing
+var opts = nopt({
+    verbose: Boolean,
+    silent: Boolean
+}, { d: '--verbose' });
+
+// Make buildOptions compatible with PlatformApi clean method spec
+opts.argv = opts.argv.original;
+
+// Skip cleaning prepared files when not invoking via cordova CLI.
+opts.noPrepare = true;
+
+require('./loggingHelper').adjustLoggerLevel(opts);
+
+new Api().clean(opts)
+    .catch(function (err) {
+        console.error(err.stack);
+        process.exit(2);
+    });

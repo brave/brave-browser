@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6BE9AD73-1B9F-4362-98D7-DC631BEC6185</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CDVSplashScreenTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BEF5A5D0FF64801E558286389440357A9233D7DB</key>
+		<string>https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tests/ios/CDVSplashScreenTest/CDVSplashScreenTest.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BEF5A5D0FF64801E558286389440357A9233D7DB</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BEF5A5D0FF64801E558286389440357A9233D7DB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BEF5A5D0FF64801E558286389440357A9233D7DB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>cordova-plugin-splashscreen</string>
+		</dict>
+	</array>
+</dict>
+</plist>

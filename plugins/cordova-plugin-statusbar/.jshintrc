@@ -1,0 +1,16 @@
+{
+    "browser": true
+  , "devel": true
+  , "bitwise": true
+  , "undef": true
+  , "trailing": true
+  , "quotmark": false
+  , "indent": 4
+  , "unused": "vars"
+  , "latedef": "nofunc"
+  , "globals": {
+        "module": false,
+        "exports": false,
+        "require": false
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "cordova-plugin-splashscreen-test-ios",
+    "version": "1.0.0",
+    "description": "iOS Unit Tests for Splashscreen Plugin",
+    "author": "Apache Software Foundation",
+    "license": "Apache Version 2.0",
+    "dependencies": {
+        "cordova-ios": "*"
+    },
+    "scripts": {
+        "test": "xcodebuild test -workspace CDVSplashScreenTest.xcworkspace -scheme CDVSplashScreenLibTests -destination 'platform=iOS Simulator,name=iPhone 5' CONFIGURATION_BUILD_DIR='/tmp' HEADER_SEARCH_PATHS='$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include'"
+    }
+}

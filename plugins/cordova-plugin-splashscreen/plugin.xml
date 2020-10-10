@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="cordova-plugin-splashscreen"
+      version="5.0.2">
+    <name>Splashscreen</name>
+    <description>Cordova Splashscreen Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,splashscreen</keywords>
+    <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git</repo>
+    <issue>https://issues.apache.org/jira/browse/CB/component/12320653</issue>
+
+    <engines>
+        <engine name="cordova-android" version=">=3.6.0" /><!-- Requires CordovaPlugin.preferences -->
+        <engine name="cordova-windows" version=">=4.4.0" />
+    </engines>
+
+    <js-module src="www/splashscreen.js" name="SplashScreen">
+        <clobbers target="navigator.splashscreen" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SplashScreen">
+                <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/SplashScreen.java" target-dir="src/org/apache/cordova/splashscreen" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+		    <feature name="SplashScreen">
+			    <param name="ios-package" value="CDVSplashScreen"/>
+			    <param name="onload" value="true"/>
+		    </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVSplashScreen.h" />
+        <source-file src="src/ios/CDVSplashScreen.m" />
+        <header-file src="src/ios/CDVViewController+SplashScreen.h" />
+        <source-file src="src/ios/CDVViewController+SplashScreen.m" />
+
+	    <framework src="CoreGraphics.framework" />
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="www/windows/SplashScreenProxy.js" name="SplashScreenProxy">
+            <runs />
+        </js-module>
+    </platform>
+
+    <!-- browser -->
+    <platform name="browser">
+        <js-module src="src/browser/SplashScreenProxy.js" name="SplashScreenProxy">
+            <runs />
+        </js-module>
+    </platform>
+</plugin>

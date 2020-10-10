@@ -1,0 +1,10 @@
+root: true
+extends: semistandard
+rules:
+  indent:
+    - error
+    - 4
+  camelcase: off
+  padded-blocks: off
+  operator-linebreak: off
+  no-throw-literal: off

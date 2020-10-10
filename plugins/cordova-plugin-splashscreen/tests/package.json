@@ -1,0 +1,14 @@
+{
+  "name": "cordova-plugin-splashscreen-tests",
+  "version": "4.0.3-dev",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-splashscreen-tests",
+    "platforms": []
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "",
+  "license": "Apache 2.0"
+}

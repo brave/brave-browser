@@ -1,0 +1,81 @@
+{
+  "_from": "cordova-plugin-statusbar@2.4.2",
+  "_id": "cordova-plugin-statusbar@2.4.2",
+  "_inBundle": false,
+  "_integrity": "sha1-/B+9wNjXAzp+jh8ff/FnrJvU+vY=",
+  "_location": "/cordova-plugin-statusbar",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-statusbar@2.4.2",
+    "name": "cordova-plugin-statusbar",
+    "escapedName": "cordova-plugin-statusbar",
+    "rawSpec": "2.4.2",
+    "saveSpec": null,
+    "fetchSpec": "2.4.2"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-statusbar/-/cordova-plugin-statusbar-2.4.2.tgz",
+  "_shasum": "fc1fbdc0d8d7033a7e8e1f1f7ff167ac9bd4faf6",
+  "_spec": "cordova-plugin-statusbar@2.4.2",
+  "_where": "/Users/brendanmulhern/brave-browser",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-statusbar",
+    "platforms": [
+      "android",
+      "ios",
+      "wp7",
+      "wp8",
+      "windows"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova StatusBar Plugin",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "0.1.0": {
+        "cordova": ">=3.0.0"
+      },
+      "3.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-statusbar#readme",
+  "keywords": [
+    "cordova",
+    "statusbar",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp7",
+    "cordova-wp8",
+    "cordova-windows"
+  ],
+  "license": "Apache-2.0",
+  "name": "cordova-plugin-statusbar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-statusbar.git"
+  },
+  "scripts": {
+    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests",
+    "test": "npm run jshint"
+  },
+  "types": "./types/index.d.ts",
+  "version": "2.4.2"
+}
