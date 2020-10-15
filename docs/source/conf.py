@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Brave Browser'
-copyright = '2019, Brave Software'
 author = 'Brave Software'
+project = 'Brave browser'
+copyright = '2020, Brave Software'
 
 # The short X.Y version
 version = ''
@@ -63,7 +63,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = ['_build','build',]
+exclude_patterns = ['_build', 'build']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -81,15 +81,15 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-'description': 'Next generation Brave browser for macOS, Windows, Linux. <a href="https://www.brave.com">brave.com</a>',
-'logo': 'brave-release.svg',
-'head_font_family': 'Muli, Proxima Nova, Avenir',
-'caption_font_size': '14px',
-'caption_font_family': 'Muli, Proxima Nova, Avenir',
-'code_font_size': '14px',
-'code_font_family': 'Menlo, DejaVu Sans Mono, monospace',
-'font_family': 'Muli, Proxima Nova, Avenir',
-'font_size': '16px',
+    'description': '<a href="https://www.brave.com">brave.com</a><meta http-equiv="refresh" content="2; URL=https://brave.com/linux">',
+    'logo': 'brave-release.svg',
+    'head_font_family': 'Muli, Proxima Nova, Avenir',
+    'caption_font_size': '14px',
+    'caption_font_family': 'Muli, Proxima Nova, Avenir',
+    'code_font_size': '14px',
+    'code_font_family': 'Menlo, DejaVu Sans Mono, monospace',
+    'font_family': 'Muli, Proxima Nova, Avenir',
+    'font_size': '16px',
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -115,7 +115,7 @@ html_favicon = '_static/product_logo_32.png'
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'BraveBrowserdoc'
 
-html_css_files = '_static/custom.css'
+html_css_files = ['custom.css']
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -168,5 +168,6 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
+
 def setup(app):
-    app.add_stylesheet('custom.css')
+    app.add_css_file('custom.css')
