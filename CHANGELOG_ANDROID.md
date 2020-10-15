@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.15.75](https://github.com/brave/brave-browser/releases/tag/v1.15.75)
+
+  - Fixed "Estimated pending rewards" and "Ad notifications received this month" not being updated even though ads are being displayed in certain cases. ([#11952](https://github.com/brave/brave-browser/issues/11952))
+  - Upgraded Chromium to 86.0.4240.99. ([#12124](https://github.com/brave/brave-browser/issues/12124))
+
 ## [1.15.73](https://github.com/brave/brave-browser/releases/tag/v1.15.73)
 
  - Added "Night Mode" under "Appearance" settings. ([#11085](https://github.com/brave/brave-browser/issues/11085))
