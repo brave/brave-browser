@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.15.76](https://github.com/brave/brave-browser/releases/tag/v1.15.76)
+
+ - Upgraded Chromium to 86.0.4240.111. ([#12225](https://github.com/brave/brave-browser/issues/12225))
+
 ## [1.15.75](https://github.com/brave/brave-browser/releases/tag/v1.15.75)
 
   - Fixed "Estimated pending rewards" and "Ad notifications received this month" not being updated even though ads are being displayed in certain cases. ([#11952](https://github.com/brave/brave-browser/issues/11952))
