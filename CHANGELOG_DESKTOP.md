@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.16.68](https://github.com/brave/brave-browser/releases/tag/v1.16.68)
+
+ - Added Crypto.com widget to the New Tab Page. ([#12074](https://github.com/brave/brave-browser/issues/12074))
+ - Added the ability to use 24-hour clock on the New Tab Page. ([#9038](https://github.com/brave/brave-browser/issues/9038))
+ - Added QR code under brave://rewards for iOS devices. ([#12176](https://github.com/brave/brave-browser/issues/12176))
+ - Added Greaselion support for YouTube creators. ([#9133](https://github.com/brave/brave-browser/issues/9133))
+ - Added Auto-Contribute feature flag to Greaselion. ([#11670](https://github.com/brave/brave-browser/issues/11670))
+ - [Security] Fixed WebTorrent redirect issue as reported on HackerOne by d3f4u17. ([#11683](https://github.com/brave/brave-browser/issues/11683))
+ - [Security] Encrypted private wallet data preferences for Brave Rewards. ([#2555](https://github.com/brave/brave-browser/issues/2555))
+ - Updated Startpage search to give attribution to Brave. ([#12257](https://github.com/brave/brave-browser/issues/12257))
+ - Updated Dapp detection script to be minified. ([#11725](https://github.com/brave/brave-browser/issues/11725))
+ - Updated Dapp detection to use window.ethereum. ([#11698](https://github.com/brave/brave-browser/issues/11698))
+ - Updated Brave Ads to automatically limit unwanted Brave Ads delivery. ([#11617](https://github.com/brave/brave-browser/issues/11617))
+ - Updated Tor to use an OS selected port number. ([#649](https://github.com/brave/brave-browser/issues/649))
+ - Updated "Learn more" link under brave://settings/help which displays in certain cases on Windows. ([#11746](https://github.com/brave/brave-browser/issues/11746))
+ - Renamed "Web3 provider for using Dapps" to "Ethereum provider for using Dapps" under brave://settings/extensions. ([#11711](https://github.com/brave/brave-browser/issues/11711))
+ - Removed known email tracking parameters from Vero URLs. ([#11817](https://github.com/brave/brave-browser/issues/11817))
+ - Removed known tracking parameter "yclid" from URLs. ([#11578](https://github.com/brave/brave-browser/issues/11578))
+ - Removed intra-site requests from the query string filter. ([#9020](https://github.com/brave/brave-browser/issues/9020))
+ - Removed prompt to select Dapp provider when MetaMask is installed. ([#11623](https://github.com/brave/brave-browser/issues/11623))
+ - Removed login flow from Brave Rewards in certain cases when a KYC'd Uphold user wallet was previously connected. ([#11760](https://github.com/brave/brave-browser/issues/11760))
+ - Fixed issue where restoring a Brave Rewards wallet failed in certain cases. ([#11647](https://github.com/brave/brave-browser/issues/11647))
+ - Fixed breakage on sites that use "addthis" scripts in certain cases. ([#11744](https://github.com/brave/brave-browser/issues/11744))
+ - Fixed issue where long translations on the "Connect to Gemini" button for the Gemini widget did not display properly. ([#11445](https://github.com/brave/brave-browser/issues/11445))
+ - Fixed "Customize Dashboard" modal to remove unnecessary scroll bars. ([#11374](https://github.com/brave/brave-browser/issues/11374))
+
 ## [1.15.76](https://github.com/brave/brave-browser/releases/tag/v1.15.76)
 
  - Upgraded Chromium to 86.0.4240.111. ([#12225](https://github.com/brave/brave-browser/issues/12225))
