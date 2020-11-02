@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.16.70](https://github.com/brave/brave-browser/releases/tag/v1.16.70)
+
+- Fixed "Desktop Mode". ([#11928](https://github.com/brave/brave-browser/issues/11928))
+
 ## [1.16.68](https://github.com/brave/brave-browser/releases/tag/v1.16.68)
 
 - Added cosmetic filtering. ([#11599](https://github.com/brave/brave-browser/issues/11599))
