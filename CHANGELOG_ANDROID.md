@@ -3,6 +3,7 @@
 ## [1.16.70](https://github.com/brave/brave-browser/releases/tag/v1.16.70)
 
 - Fixed "Desktop Mode". ([#11928](https://github.com/brave/brave-browser/issues/11928))
+- Fixed webview crash in certain cases by using proper origin. ([#12268](https://github.com/brave/brave-browser/issues/12268))
 
 ## [1.16.68](https://github.com/brave/brave-browser/releases/tag/v1.16.68)
 
