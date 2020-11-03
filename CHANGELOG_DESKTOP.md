@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.16.72](https://github.com/brave/brave-browser/releases/tag/v1.16.72)
+
+- Fixed reCAPTCHA constantly being displayed when logging into certain websites. ([#12359](https://github.com/brave/brave-browser/issues/12359))
+- Fixed fingerprinting issues in certain cases by reverting "navigator.deviceMemory". ([#12289](https://github.com/brave/brave-browser/issues/12289))
+- Fixed webview crash in certain cases by using proper origin. ([#12268](https://github.com/brave/brave-browser/issues/12268))
+- Removed iOS QR code function from brave://rewards. ([#12475](https://github.com/brave/brave-browser/issues/12475))
+- Upgraded Chromium to 86.0.4240.183. ([#12471](https://github.com/brave/brave-browser/issues/12471))
+
 ## [1.16.68](https://github.com/brave/brave-browser/releases/tag/v1.16.68)
 
  - Added Crypto.com widget to the New Tab Page. ([#12074](https://github.com/brave/brave-browser/issues/12074))
