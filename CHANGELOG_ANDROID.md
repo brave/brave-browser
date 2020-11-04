@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.16.74](https://github.com/brave/brave-browser/releases/tag/v1.16.74)
+
+- Fixed reCAPTCHA constantly being displayed when logging into certain websites. ([#12359](https://github.com/brave/brave-browser/issues/12359))
+- Fixed crash when tapping on rewards panel after skipping onboarding. ([#12509](https://github.com/brave/brave-browser/issues/12509))
+- Upgraded Chromium to 86.0.4240.185. ([#12479](https://github.com/brave/brave-browser/issues/12479))
+
 ## [1.16.70](https://github.com/brave/brave-browser/releases/tag/v1.16.70)
 
 - Fixed "Desktop Mode". ([#11928](https://github.com/brave/brave-browser/issues/11928))
