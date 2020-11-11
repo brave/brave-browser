@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.16.75](https://github.com/brave/brave-browser/releases/tag/v1.16.75)
+
+ - Changed HTTP error code Brave uses when blocking network request to better match what other browsers and tools expect, to increase compatibility with crowdsourced filter lists. ([#10063](https://github.com/brave/brave-browser/issues/10063))
+ - Upgraded Chromium to 86.0.4240.193. ([#12603](https://github.com/brave/brave-browser/issues/12603))
+
 ## [1.16.72](https://github.com/brave/brave-browser/releases/tag/v1.16.72)
 
 - Fixed reCAPTCHA constantly being displayed when logging into certain websites. ([#12359](https://github.com/brave/brave-browser/issues/12359))
