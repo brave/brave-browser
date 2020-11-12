@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.16.76](https://github.com/brave/brave-browser/releases/tag/v1.16.76)
+
+ - Upgraded Chromium to 86.0.4240.198. ([#12645](https://github.com/brave/brave-browser/issues/12645))
+
 ## [1.16.75](https://github.com/brave/brave-browser/releases/tag/v1.16.75)
 
 - Fixed supported links not being opened in external applications. ([#12330](https://github.com/brave/brave-browser/issues/12330))
