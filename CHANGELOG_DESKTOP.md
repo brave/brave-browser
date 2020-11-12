@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.16.76](https://github.com/brave/brave-browser/releases/tag/v1.16.76)
+
+ - Upgraded Chromium to 86.0.4240.198. ([#12645](https://github.com/brave/brave-browser/issues/12645))
+
 ## [1.16.75](https://github.com/brave/brave-browser/releases/tag/v1.16.75)
 
  - Changed HTTP error code Brave uses when blocking network request to better match what other browsers and tools expect, to increase compatibility with crowdsourced filter lists. ([#10063](https://github.com/brave/brave-browser/issues/10063))
