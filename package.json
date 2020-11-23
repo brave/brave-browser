@@ -42,9 +42,6 @@
           "url": "https://github.com/brave/brave-core.git"
         }
       }
-    },
-    "widevine": {
-      "version": "4.10.1582.2"
     }
   },
   "repository": {
