@@ -96,7 +96,7 @@ pipeline {
                                                 github('brave/devops', 'https')
                                             }
                                             
-                                            branch(/mplesa-jenkins-ci-pipeline-version-fix')
+                                            branch('mplesa-jenkins-ci-pipeline-version-fix')
                                         }
                                     }
                                     scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
