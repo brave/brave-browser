@@ -37,7 +37,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "mplesa-rust-deps-split",
+        "branch": "master",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
