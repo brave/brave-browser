@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.17.72](https://github.com/brave/brave-browser/releases/tag/v1.17.72)
+
+ - Added widgets under New Tab Page. ([#11658](https://github.com/brave/brave-browser/issues/11658))
+ - Added support for CNAME adblocking. ([#11712](https://github.com/brave/brave-browser/issues/11712))
+ - Implemented WebGL2 fingerprint farbling protections. ([#9189](https://github.com/brave/brave-browser/issues/9189))
+ - Removed known user tracking parameter "_openstat" from query strings. ([#11579](https://github.com/brave/brave-browser/issues/11579))
+ - Fixed cosmetic filters crash in certain cases. ([#12745](https://github.com/brave/brave-browser/issues/12745))
+ - Fixed Startpage missing from onboarding. ([#12340](https://github.com/brave/brave-browser/issues/12340))
+ - Upgraded Chromium to 87.0.4280.66. ([#12741](https://github.com/brave/brave-browser/issues/12741))
+
 ## [1.16.76](https://github.com/brave/brave-browser/releases/tag/v1.16.76)
 
  - Upgraded Chromium to 86.0.4240.198. ([#12645](https://github.com/brave/brave-browser/issues/12645))
