@@ -96,7 +96,7 @@ pipeline {
                                                 github('brave/devops', 'https')
                                             }
                                             
-                                            branch('master')
+                                            branch('mplesa-jenkins-ci-pipeline-tag-pinning')
                                         }
                                     }
                                     scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
