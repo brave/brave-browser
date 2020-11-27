@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.17.74](https://github.com/brave/brave-browser/releases/tag/v1.17.74)
+
+ - Fixed only four top sites appearing under New Tab Page when background images are disabled. ([#12837](https://github.com/brave/brave-browser/issues/12837))
+ - Fixed crash when "Tab Groups" or "Conditional Tab Strip" are enabled using brave://flags. ([#12809](https://github.com/brave/brave-browser/issues/12809))
+ - Fixed crash under privacy report in certain cases. ([#12834](https://github.com/brave/brave-browser/issues/12834))
+ - Fixed Brave stats formatting error under privacy report when reaching certain values. ([#12831](https://github.com/brave/brave-browser/issues/12831))
+ - Fixed settings menu appearing on both the top and bottom when opening links using custom tabs. ([#12784](https://github.com/brave/brave-browser/issues/12784))
+ - Upgraded Chromium to 87.0.4280.67. ([#12793](https://github.com/brave/brave-browser/issues/12793))
+
 ## [1.17.72](https://github.com/brave/brave-browser/releases/tag/v1.17.72)
 
  - Added widgets under New Tab Page. ([#11658](https://github.com/brave/brave-browser/issues/11658))
