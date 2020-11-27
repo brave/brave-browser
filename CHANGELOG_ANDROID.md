@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.16.76](https://github.com/brave/brave-browser/releases/tag/v1.16.76)
+
+ - Upgraded Chromium to 86.0.4240.198. ([#12645](https://github.com/brave/brave-browser/issues/12645))
+
+## [1.16.75](https://github.com/brave/brave-browser/releases/tag/v1.16.75)
+
+- Fixed supported links not being opened in external applications. ([#12330](https://github.com/brave/brave-browser/issues/12330))
+- Changed HTTP error code Brave uses when blocking network request to better match what other browsers and tools expect, to increase compatibility with crowdsourced filter lists. ([#10063](https://github.com/brave/brave-browser/issues/10063))
+- Disabled Brave notification when upgrading to a new version. ([#12507](https://github.com/brave/brave-browser/issues/12507))
+- Upgraded Chromium to 86.0.4240.193. ([#12603](https://github.com/brave/brave-browser/issues/12603))
+
+## [1.16.74](https://github.com/brave/brave-browser/releases/tag/v1.16.74)
+
+- Fixed reCAPTCHA constantly being displayed when logging into certain websites. ([#12359](https://github.com/brave/brave-browser/issues/12359))
+- Fixed crash when tapping on rewards panel after skipping onboarding. ([#12509](https://github.com/brave/brave-browser/issues/12509))
+- Upgraded Chromium to 86.0.4240.185. ([#12479](https://github.com/brave/brave-browser/issues/12479))
+
+## [1.16.70](https://github.com/brave/brave-browser/releases/tag/v1.16.70)
+
+- Fixed "Desktop Mode". ([#11928](https://github.com/brave/brave-browser/issues/11928))
+- Fixed webview crash in certain cases by using proper origin. ([#12268](https://github.com/brave/brave-browser/issues/12268))
+
+## [1.16.68](https://github.com/brave/brave-browser/releases/tag/v1.16.68)
+
+- Added cosmetic filtering. ([#11599](https://github.com/brave/brave-browser/issues/11599))
+- Added social media blocking for Google, Twitter, LinkedIn and Facebook. ([#9536](https://github.com/brave/brave-browser/issues/9536))
+- [Security] Fixed file-path for cookies as reported on HackerOne by kanytu. ([#11520](https://github.com/brave/brave-browser/issues/11520))
+- [Security] Encrypted private wallet data preferences for Brave Rewards. ([#2555](https://github.com/brave/brave-browser/issues/2555))
+- Updated Startpage search to give attribution to Brave. ([#12257](https://github.com/brave/brave-browser/issues/12257))
+- Removed known email tracking parameters from Vero URLs. ([#11817](https://github.com/brave/brave-browser/issues/11817))
+- Removed known tracking parameter "yclid" from URLs. ([#11578](https://github.com/brave/brave-browser/issues/11578))
+- Removed intra-site requests from the query string filter. ([#9020](https://github.com/brave/brave-browser/issues/9020))
+- Fixed breakage on sites that use "addthis" scripts in certain cases. ([#11744](https://github.com/brave/brave-browser/issues/11744))
+
+## [1.15.76](https://github.com/brave/brave-browser/releases/tag/v1.15.76)
+
+ - Upgraded Chromium to 86.0.4240.111. ([#12225](https://github.com/brave/brave-browser/issues/12225))
+
+## [1.15.75](https://github.com/brave/brave-browser/releases/tag/v1.15.75)
+
+  - Fixed "Estimated pending rewards" and "Ad notifications received this month" not being updated even though ads are being displayed in certain cases. ([#11952](https://github.com/brave/brave-browser/issues/11952))
+  - Upgraded Chromium to 86.0.4240.99. ([#12124](https://github.com/brave/brave-browser/issues/12124))
+
 ## [1.15.73](https://github.com/brave/brave-browser/releases/tag/v1.15.73)
 
  - Added "Night Mode" under "Appearance" settings. ([#11085](https://github.com/brave/brave-browser/issues/11085))
