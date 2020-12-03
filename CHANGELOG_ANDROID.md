@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.17.75](https://github.com/brave/brave-browser/releases/tag/v1.17.75)
+
+ - Upgraded Chromium to 87.0.4280.88. ([#13006](https://github.com/brave/brave-browser/issues/13006))
+
 ## [1.17.74](https://github.com/brave/brave-browser/releases/tag/v1.17.74)
 
  - Fixed only four top sites appearing under New Tab Page when background images are disabled. ([#12837](https://github.com/brave/brave-browser/issues/12837))
