@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.75](https://github.com/brave/brave-browser/releases/tag/v1.17.75)
+
+ - Added "Don't ask again" button under Crypto Wallet infobar. ([#12482](https://github.com/brave/brave-browser/issues/12482))
+ - Fixed menu items missing from bookmark context menu when using German locale. ([#12844](https://github.com/brave/brave-browser/issues/12844))
+ - Updated "Ad notifications received this month" text under brave://rewards to "Ads received this month". ([#12719](https://github.com/brave/brave-browser/issues/12719))
+ - Upgraded Chromium to 87.0.4280.88. ([#13006](https://github.com/brave/brave-browser/issues/13006))
+
 ## [1.17.73](https://github.com/brave/brave-browser/releases/tag/v1.17.73)
 
  - Added support for CNAME adblocking. ([#11712](https://github.com/brave/brave-browser/issues/11712))
