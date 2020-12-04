@@ -96,7 +96,7 @@ pipeline {
                                                 github('brave/devops', 'https')
                                             }
                                             
-                                            branch('pr-build-chromium-version-bug')
+                                            branch('mplesa-jenkins-ci-pipeline-fixes')
                                         }
                                     }
                                     scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
