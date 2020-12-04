@@ -38,6 +38,7 @@
       "brave-core": {
         "dir": "src/brave",
         "branch": "master",
+        "tag": "v1.19.35",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
