@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.18.75](https://github.com/brave/brave-browser/releases/tag/v1.18.75)
+
+ - Added QR code under brave://rewards for iOS devices. ([#13159](https://github.com/brave/brave-browser/issues/13159))
+ - Fixed issue where the New Tab Page was causing persistently higher CPU usage. ([#13194](https://github.com/brave/brave-browser/issues/13194))
+ - Fixed issue where the number of Brave Ads delivered per day was incorrectly being limited to the ads per hour selection. ([#13215](https://github.com/brave/brave-browser/issues/13215))
+
 ## [1.18.70](https://github.com/brave/brave-browser/releases/tag/v1.18.70)
 
  - Added Brave Today news feed on the New Tab Page. ([#12574](https://github.com/brave/brave-browser/issues/12574))
