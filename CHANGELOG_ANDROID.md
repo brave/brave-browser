@@ -5,7 +5,6 @@
  - Added protection against private browsing detection. ([#11543](https://github.com/brave/brave-browser/issues/11543))
  - Implemented the ability to remove other devices in a sync chain. ([#11232](https://github.com/brave/brave-browser/issues/11232))
  - Implemented Brave Rewards onboarding. ([#12141](https://github.com/brave/brave-browser/issues/12141))
- - Improved heuristic for determining first/third-party-ness of ads for default cosmetic filtering. ([#1998](https://github.com/brave/brave-browser/issues/1998))
  - Enabled Global Privacy Control. ([#12875](https://github.com/brave/brave-browser/issues/12875))
  - Updated default search engine to Yandex for new installations in certain regions. ([#12327](https://github.com/brave/brave-browser/issues/12327))
  - Removed redundant rewards setting to address user confusion. ([#11467](https://github.com/brave/brave-browser/issues/11467))
