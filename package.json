@@ -249,9 +249,5 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "log-update": "^3.2.0"
-  },
-  "devDependencies": {
-    "ip": "^1.1.5",
-    "jest": "^25.1.0"
   }
 }
