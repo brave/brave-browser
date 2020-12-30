@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.77](https://github.com/brave/brave-browser/releases/tag/v1.18.77)
+
+- Added Arm64 support for macOS (Apple Silicon, M1 CPU). ([#12819](https://github.com/brave/brave-browser/issues/12819))
+- Fixed rewards panel not being translated in certain locales. ([#13199](https://github.com/brave/brave-browser/issues/13199))
+- Fixed not being able to play HBO Max content due to "kVideoPlaybackQuality" being disabled. ([#13183](https://github.com/brave/brave-browser/issues/13183))
+- Fixed not being able to play videos on https://www.imdb.com. ([#13101](https://github.com/brave/brave-browser/issues/13101))
+
 ## [1.18.75](https://github.com/brave/brave-browser/releases/tag/v1.18.75)
 
  - Added QR code under brave://rewards for iOS devices. ([#13159](https://github.com/brave/brave-browser/issues/13159))
