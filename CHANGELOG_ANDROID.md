@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.18.77](https://github.com/brave/brave-browser/releases/tag/v1.18.77)
+
+- Fixed not being able to play videos on https://www.imdb.com. ([#13101](https://github.com/brave/brave-browser/issues/13101))
+
 ## [1.18.75](https://github.com/brave/brave-browser/releases/tag/v1.18.75)
 
  - Added protection against private browsing detection. ([#11543](https://github.com/brave/brave-browser/issues/11543))
