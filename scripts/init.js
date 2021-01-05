@@ -6,7 +6,6 @@
 const fs = require('fs')
 const Log = require('../lib/logging')
 const path = require('path')
-const { spawnSync } = require('child_process')
 const util = require('../lib/util')
 
 Log.progress('Performing initial checkout of brave-core')
