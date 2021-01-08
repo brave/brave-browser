@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.18.78](https://github.com/brave/brave-browser/releases/tag/v1.18.78)
+
+ - Upgraded Chromium to 87.0.4280.141. ([#13399](https://github.com/brave/brave-browser/issues/13399))
+
 ## [1.18.77](https://github.com/brave/brave-browser/releases/tag/v1.18.77)
 
 - Fixed not being able to play videos on https://www.imdb.com. ([#13101](https://github.com/brave/brave-browser/issues/13101))
