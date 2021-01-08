@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.20.9",
+  "version": "1.20.67",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "npm --prefix src/brave run audit_deps --",
@@ -30,7 +30,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "87.0.4280.88",
+        "tag": "88.0.4324.51",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         }
@@ -42,9 +42,6 @@
           "url": "https://github.com/brave/brave-core.git"
         }
       }
-    },
-    "widevine": {
-      "version": "4.10.1582.2"
     }
   },
   "repository": {
@@ -252,9 +249,5 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "log-update": "^3.2.0"
-  },
-  "devDependencies": {
-    "ip": "^1.1.5",
-    "jest": "^25.1.0"
   }
 }

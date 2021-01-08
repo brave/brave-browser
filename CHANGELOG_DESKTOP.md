@@ -1,5 +1,47 @@
 # Changelog
 
+## [1.18.77](https://github.com/brave/brave-browser/releases/tag/v1.18.77)
+
+- Added Arm64 support for macOS (Apple Silicon, M1 CPU). ([#12819](https://github.com/brave/brave-browser/issues/12819))
+- Fixed rewards panel not being translated in certain locales. ([#13199](https://github.com/brave/brave-browser/issues/13199))
+- Fixed not being able to play HBO Max content due to "kVideoPlaybackQuality" being disabled. ([#13183](https://github.com/brave/brave-browser/issues/13183))
+- Fixed not being able to play videos on https://www.imdb.com. ([#13101](https://github.com/brave/brave-browser/issues/13101))
+
+## [1.18.75](https://github.com/brave/brave-browser/releases/tag/v1.18.75)
+
+ - Added QR code under brave://rewards for iOS devices. ([#13159](https://github.com/brave/brave-browser/issues/13159))
+ - Fixed issue where the New Tab Page was causing persistently higher CPU and GPU usage. ([#13194](https://github.com/brave/brave-browser/issues/13194))
+ - Fixed issue where the number of Brave Ads delivered per day was incorrectly being limited by the ads per hour selection. ([#13215](https://github.com/brave/brave-browser/issues/13215))
+
+## [1.18.70](https://github.com/brave/brave-browser/releases/tag/v1.18.70)
+
+ - Added Brave Today news feed on the New Tab Page. ([#12574](https://github.com/brave/brave-browser/issues/12574))
+ - Added support for day-parting of Brave Ads. ([#5234](https://github.com/brave/brave-browser/issues/5234))
+ - Added P3A metrics for Brave Today. ([#12974](https://github.com/brave/brave-browser/issues/12974))
+ - Added P2A metrics in Brave Ads. ([#11060](https://github.com/brave/brave-browser/issues/11060))
+ - Added Greaselion support for Vimeo creators. ([#11465](https://github.com/brave/brave-browser/issues/11465))
+ - Added setting for "New tab page shows" under brave://settings/newTab. ([#2999](https://github.com/brave/brave-browser/issues/2999))
+ - Added protection against private browsing detection. ([#11543](https://github.com/brave/brave-browser/issues/11543))
+ - [Security] Added privacy notice to Uphold wallet linking modals. ([#11431](https://github.com/brave/brave-browser/issues/11431))
+ - Implemented the ability to remove other devices in a sync chain. ([#11232](https://github.com/brave/brave-browser/issues/11232))
+ - Implemented navigator.deviceMemory farbling. ([#12348](https://github.com/brave/brave-browser/issues/12348))
+ - Implemented Brave Rewards onboarding. ([#12138](https://github.com/brave/brave-browser/issues/12138))
+ - Implemented new panel design for monthly contributions. ([#11929](https://github.com/brave/brave-browser/issues/11929))
+ - Improved the display of custom background images in the Brave Rewards tipping banner. ([#12057](https://github.com/brave/brave-browser/issues/12057))
+ - Improved heuristic for determining first/third-party-ness of ads for default cosmetic filtering. ([#1998](https://github.com/brave/brave-browser/issues/1998))
+ - Improved contrast among tabs. ([#8576](https://github.com/brave/brave-browser/issues/8576))
+ - Enabled Global Privacy Control. ([#12875](https://github.com/brave/brave-browser/issues/12875))
+ - Updated default search engine to Yandex for new installations in certain regions. ([#12327](https://github.com/brave/brave-browser/issues/12327))
+ - Updated Brave Rewards extension to be non-persistent. ([#6462](https://github.com/brave/brave-browser/issues/6462))
+ - Updated error messaging on Brave Rewards tipping banners. ([#12224](https://github.com/brave/brave-browser/issues/12224))
+ - Updated macOS dock icons to be smaller. ([#8662](https://github.com/brave/brave-browser/issues/8662))
+ - Removed redundant rewards setting to address user confusion. ([#11467](https://github.com/brave/brave-browser/issues/11467))
+ - Removed Dapp detection for https://www.nytimes.com. ([#12709](https://github.com/brave/brave-browser/issues/12709))
+ - Fixed Crypto Wallet infobar incorrectly being displayed for Google Calendar and Gmail. ([#12942](https://github.com/brave/brave-browser/issues/12942))
+ - Fixed navigator.userAgent farbling not being applied in workers. ([#12230](https://github.com/brave/brave-browser/issues/12230))
+ - Fixed Canvas farbling in disconnected iframes. ([#12303](https://github.com/brave/brave-browser/issues/12303))
+ - Upgraded Chromium to 87.0.4280.101. ([#13081](https://github.com/brave/brave-browser/issues/13081))
+
 ## [1.17.75](https://github.com/brave/brave-browser/releases/tag/v1.17.75)
 
  - Added "Don't ask again" button under Crypto Wallet infobar. ([#12482](https://github.com/brave/brave-browser/issues/12482))

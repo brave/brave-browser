@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.18.77](https://github.com/brave/brave-browser/releases/tag/v1.18.77)
+
+- Fixed not being able to play videos on https://www.imdb.com. ([#13101](https://github.com/brave/brave-browser/issues/13101))
+
+## [1.18.75](https://github.com/brave/brave-browser/releases/tag/v1.18.75)
+
+ - Added protection against private browsing detection. ([#11543](https://github.com/brave/brave-browser/issues/11543))
+ - Implemented the ability to remove other devices in a sync chain. ([#11232](https://github.com/brave/brave-browser/issues/11232))
+ - Implemented Brave Rewards onboarding. ([#12141](https://github.com/brave/brave-browser/issues/12141))
+ - Enabled Global Privacy Control. ([#12875](https://github.com/brave/brave-browser/issues/12875))
+ - Updated default search engine to Yandex for new installations in certain regions. ([#12327](https://github.com/brave/brave-browser/issues/12327))
+ - Removed redundant rewards setting to address user confusion. ([#11467](https://github.com/brave/brave-browser/issues/11467))
+ - Fixed issue where the number of Brave Ads delivered per day was incorrectly being limited by the ads per hour selection. ([#13215](https://github.com/brave/brave-browser/issues/13215))
+ - Fixed issue where "Hide Brave Rewards Icon" setting was not being respected. ([#12533](https://github.com/brave/brave-browser/issues/12533))
+ - Upgraded Chromium to 87.0.4280.101. ([#13081](https://github.com/brave/brave-browser/issues/13081))
+
 ## [1.17.75](https://github.com/brave/brave-browser/releases/tag/v1.17.75)
 
  - Upgraded Chromium to 87.0.4280.88. ([#13006](https://github.com/brave/brave-browser/issues/13006))
