@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.18.78](https://github.com/brave/brave-browser/releases/tag/v1.18.78)
+
+ - Upgraded Chromium to 87.0.4280.141. ([#13399](https://github.com/brave/brave-browser/issues/13399))
+
 ## [1.18.77](https://github.com/brave/brave-browser/releases/tag/v1.18.77)
 
 - Added Arm64 support for macOS (Apple Silicon, M1 CPU). ([#12819](https://github.com/brave/brave-browser/issues/12819))
