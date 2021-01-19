@@ -16,7 +16,7 @@
  - Removed duplicate controls from brave://settings/newTab. ([#12505](https://github.com/brave/brave-browser/issues/12505))
  - Replaced the "Add Card" tab under New Tab Page with sub-tab "Edit Cards". ([#12625](https://github.com/brave/brave-browser/issues/12625))
  - Fixed ad crash when refilling unblinded tokens after downloading catalog due to invalid blinded tokens. ([#12836](https://github.com/brave/brave-browser/issues/12836))
- - Fixed ads not being displayed after restart if catalog fails to downlead but a previous catalog bundle exists. ([#10904](https://github.com/brave/brave-browser/issues/10904))
+ - Fixed ads not being displayed after restart if catalog fails to download but a previous catalog bundle exists. ([#10904](https://github.com/brave/brave-browser/issues/10904))
  - Fixed fifth background image (yellow) not being used on tip banner. ([#12596](https://github.com/brave/brave-browser/issues/12596))
  - Fixed clicking on "Open in Tor" button from Guest window does not connect to Tor network. ([#12470](https://github.com/brave/brave-browser/issues/12470))
  - Fixed Tor crash in certain cases. ([#12798](https://github.com/brave/brave-browser/issues/12798))
