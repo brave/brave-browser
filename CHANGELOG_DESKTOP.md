@@ -28,7 +28,6 @@
  - Fixed Brave Today intro card not being dismissed after being viewed. ([#12960](https://github.com/brave/brave-browser/issues/12960))
  - Fixed Brave Today history scoring being limited to 100 items. ([#13041](https://github.com/brave/brave-browser/issues/13041))
  - Fixed geolocations using the wrong endpoints in certain cases. ([#11862](https://github.com/brave/brave-browser/issues/11862))
- - Fixed PDF files automatically downloading and opening on click. ([#12902](https://github.com/brave/brave-browser/issues/12902))
  - Upgraded Chromium to 88.0.4324.96. ([#13637](https://github.com/brave/brave-browser/issues/13637))
 
 ## [1.18.78](https://github.com/brave/brave-browser/releases/tag/v1.18.78)
