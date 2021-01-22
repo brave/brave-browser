@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.19.86](https://github.com/brave/brave-browser/releases/tag/v1.19.86)
+
+ - Updated pre-populated search engine list. ([#13283](https://github.com/brave/brave-browser/issues/13283))
+ - Update referrer handling for better compatibility. ([#13464](https://github.com/brave/brave-browser/issues/13464))
+ - Fixed PDF files automatically downloading and opening on click. ([#12902](https://github.com/brave/brave-browser/issues/12902))
+ - Fixed menu buttons not properly aligned when bottom toolbar is disabled. ([#12926](https://github.com/brave/brave-browser/issues/12926))
+ - Upgraded Chromium to 88.0.4324.96. ([#13637](https://github.com/brave/brave-browser/issues/13637))
+
 ## [1.18.78](https://github.com/brave/brave-browser/releases/tag/v1.18.78)
 
  - Upgraded Chromium to 87.0.4280.141. ([#13399](https://github.com/brave/brave-browser/issues/13399))
