@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.21.29",
+  "version": "1.21.30",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "scripts": {
     "audit_deps": "npm --prefix src/brave run audit_deps --",
@@ -247,7 +247,7 @@
   },
   "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
-    "chalk": "^2.4.2",
-    "log-update": "^3.2.0"
+    "chalk": "2.4.2",
+    "log-update": "3.4.0"
   }
 }
