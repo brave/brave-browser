@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.19.88](https://github.com/brave/brave-browser/releases/tag/v1.19.88)
+
+ - Added Ecosia to the default search engine list for several new regions. ([#13511](https://github.com/brave/brave-browser/issues/13511))
+ - Fixed crash when updating home button state in certain cases. ([#13680](https://github.com/brave/brave-browser/issues/13680))
+
 ## [1.19.86](https://github.com/brave/brave-browser/releases/tag/v1.19.86)
 
  - Updated pre-populated search engine list. ([#13283](https://github.com/brave/brave-browser/issues/13283))
