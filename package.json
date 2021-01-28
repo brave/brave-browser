@@ -247,7 +247,7 @@
   },
   "homepage": "https://github.com/brave/brave-browser#readme",
   "dependencies": {
-    "chalk": "2.4.2",
+    "chalk": "4.1.0",
     "log-update": "4.0.0"
   }
 }
