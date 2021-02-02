@@ -30,7 +30,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "88.0.4324.96",
+        "tag": "88.0.4324.141",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         }
