@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.19.90](https://github.com/brave/brave-browser/releases/tag/v1.19.90)
+
+ - Fixed incorrect time being displayed on the New Tab Page in certain cases. ([#13669](https://github.com/brave/brave-browser/issues/13669))
+ - Upgraded Chromium to 88.0.4324.146. ([#13900](https://github.com/brave/brave-browser/issues/13900))
+
 ## [1.19.88](https://github.com/brave/brave-browser/releases/tag/v1.19.88)
 
  - Added Apple entitlement for Chromium PWA support. ([#8027](https://github.com/brave/brave-browser/issues/8027))
