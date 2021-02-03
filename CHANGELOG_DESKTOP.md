@@ -2,6 +2,7 @@
 
 ## [1.19.90](https://github.com/brave/brave-browser/releases/tag/v1.19.90)
 
+ - Fixed accessibility crash which occurred on macOS in certain cases. ([#13778](https://github.com/brave/brave-browser/issues/13778))
  - Fixed incorrect time being displayed on the New Tab Page in certain cases. ([#13669](https://github.com/brave/brave-browser/issues/13669))
  - Upgraded Chromium to 88.0.4324.146. ([#13900](https://github.com/brave/brave-browser/issues/13900))
 
