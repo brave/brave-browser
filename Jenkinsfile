@@ -19,14 +19,6 @@ pipeline {
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
     stages {
-        stage("check-lock-file") {
-            when {
-                expression { fileExists(".git/index.lock")}
-            }
-            steps {
-                sh 'rm -rf .git/index.lock'
-            }
-        }
         stage('build') {
             agent { label 'master' }
             steps {
@@ -131,6 +123,15 @@ pipeline {
                     if (env.OTHER_PR_NUMBER) {
                         build(job: OTHER_REPO + '-build-pr-' + PLATFORM + '/PR-' + env.OTHER_PR_NUMBER, parameters: [string(name: 'BUILD_STATUS', value: currentBuild.result)], propagate: false)
                     }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            node('master') {
+                script {
+                    sh 'rm -rf .git/index.lock || true'
                 }
             }
         }
