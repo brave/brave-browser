@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.19.92](https://github.com/brave/brave-browser/releases/tag/v1.19.92)
+
+ - Upgraded Chromium to 88.0.4324.152. ([#13969](https://github.com/brave/brave-browser/issues/13969))
+
 ## [1.19.91](https://github.com/brave/brave-browser/releases/tag/v1.19.91)
 
  - Removed "Homepage" under settings when bottom toolbar has been disabled which fixes a known crash. ([#13809](https://github.com/brave/brave-browser/issues/13809))
