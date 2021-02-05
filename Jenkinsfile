@@ -131,7 +131,7 @@ pipeline {
         always {
             node('master') {
                 script {
-                    sh 'rm -rf .git/index.lock || true'
+                    sh 'rm -rf .git/index.lock'
                 }
             }
         }
