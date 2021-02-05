@@ -19,6 +19,14 @@ pipeline {
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
     stages {
+        stage("check-lock-file") {
+            when {
+                expression { fileExists(".git/index.lock")}
+            }
+            steps {
+                sh 'rm -rf .git/index.lock'
+            }
+        }
         stage('build') {
             agent { label 'master' }
             steps {
