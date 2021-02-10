@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.19.92](https://github.com/brave/brave-browser/releases/tag/v1.19.92)
+
+ - Upgraded Chromium to 88.0.4324.152. ([#13969](https://github.com/brave/brave-browser/issues/13969))
+
+## [1.19.91](https://github.com/brave/brave-browser/releases/tag/v1.19.91)
+
+ - Removed "Homepage" under settings when bottom toolbar has been disabled which fixes a known crash. ([#13809](https://github.com/brave/brave-browser/issues/13809))
+ - Improved appearance of several text strings on the rewards onboarding panels. ([#13800](https://github.com/brave/brave-browser/issues/13800))
+ - Fixed several broken images on the rewards onboarding panels. ([#13749](https://github.com/brave/brave-browser/issues/13749))
+ - Fixed crash when loading background images on New Tab Page in certain cases. ([#12627](https://github.com/brave/brave-browser/issues/12627))
+ - Upgraded Chromium to 88.0.4324.146. ([#13900](https://github.com/brave/brave-browser/issues/13900))
+
+## [1.19.88](https://github.com/brave/brave-browser/releases/tag/v1.19.88)
+
+ - Added Ecosia to the default search engine list for several new regions. ([#13511](https://github.com/brave/brave-browser/issues/13511))
+ - Fixed crash when updating home button state in certain cases. ([#13680](https://github.com/brave/brave-browser/issues/13680))
+
 ## [1.19.86](https://github.com/brave/brave-browser/releases/tag/v1.19.86)
 
  - Updated pre-populated search engine list. ([#13283](https://github.com/brave/brave-browser/issues/13283))

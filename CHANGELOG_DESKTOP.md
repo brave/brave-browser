@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.19.92](https://github.com/brave/brave-browser/releases/tag/v1.19.92)
+
+ - Upgraded Chromium to 88.0.4324.152. ([#13969](https://github.com/brave/brave-browser/issues/13969))
+
+## [1.19.90](https://github.com/brave/brave-browser/releases/tag/v1.19.90)
+
+ - Fixed accessibility crash which occurred on macOS in certain cases. ([#13778](https://github.com/brave/brave-browser/issues/13778))
+ - Fixed incorrect time being displayed on the New Tab Page in certain cases. ([#13669](https://github.com/brave/brave-browser/issues/13669))
+ - Upgraded Chromium to 88.0.4324.146. ([#13900](https://github.com/brave/brave-browser/issues/13900))
+
+## [1.19.88](https://github.com/brave/brave-browser/releases/tag/v1.19.88)
+
+ - Added Apple entitlement for Chromium PWA support. ([#8027](https://github.com/brave/brave-browser/issues/8027))
+ - Added Ecosia to the default search engine list for several new regions. ([#13511](https://github.com/brave/brave-browser/issues/13511))
+ - Fixed not being able to play HBO Max content due to "kVideoPlaybackQuality" being disabled. ([#13679](https://github.com/brave/brave-browser/issues/13679))
+ - Fixed sponsored logo under New Tab Page being hidden on certain window sizes. ([#13694](https://github.com/brave/brave-browser/issues/13694))
+
 ## [1.19.86](https://github.com/brave/brave-browser/releases/tag/v1.19.86)
 
  - Added native IPFS support. ([#10220](https://github.com/brave/brave-browser/issues/10220))
