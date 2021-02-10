@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.20.103](https://github.com/brave/brave-browser/releases/tag/v1.20.103)
+
+ - Added several educational onboarding notifications for Brave Shields. ([#12209](https://github.com/brave/brave-browser/issues/12209))
+ - Added onboarding for Privacy Preserving Product Analytics (P3A). ([#12723](https://github.com/brave/brave-browser/issues/12723))
+ - Implemented User Agent fingerprint farbling protections. ([#12638](https://github.com/brave/brave-browser/issues/12638))
+ - Updated the default browser modal. ([#12390](https://github.com/brave/brave-browser/issues/12390))
+ - Updated New Tab Page background images. ([#13447](https://github.com/brave/brave-browser/issues/13447))
+ - Improved UI on several onboarding modals. ([#11939](https://github.com/brave/brave-browser/issues/11939))
+ - Fixed rewards onboarding under rewards panel being displayed twice. ([#13423](https://github.com/brave/brave-browser/issues/13423))
+ - Fixed cases where the search engine onboarding is being displayed when URL bar not empty. ([#13392](https://github.com/brave/brave-browser/issues/13392))
+ - Fixed bookmark button under the bottom toolbar opening "Edit bookmark" rather than removing bookmark. ([#14033](https://github.com/brave/brave-browser/issues/14033))
+
 ## [1.19.88](https://github.com/brave/brave-browser/releases/tag/v1.19.88)
 
  - Added Ecosia to the default search engine list for several new regions. ([#13511](https://github.com/brave/brave-browser/issues/13511))
