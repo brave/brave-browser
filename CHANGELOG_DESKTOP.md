@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.20.102](https://github.com/brave/brave-browser/releases/tag/v1.20.102)
+## [1.20.103](https://github.com/brave/brave-browser/releases/tag/v1.20.103)
 
  - Added extension support for Tor windows. ([#2761](https://github.com/brave/brave-browser/issues/2761))
  - Added "IPFS public gateway address" setting under brave://settings/extensions. ([#11563](https://github.com/brave/brave-browser/issues/11563))
