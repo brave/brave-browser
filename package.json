@@ -37,7 +37,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "1.21.x",
+        "branch": "maxk-more-ja-l10n",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
