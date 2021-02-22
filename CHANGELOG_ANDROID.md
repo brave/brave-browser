@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.20.108](https://github.com/brave/brave-browser/releases/tag/v1.20.108)
+
+ - [Security] Fixed ISP DNS leak when shields are enabled. ([#12575](https://github.com/brave/brave-browser/issues/12575))
+ - Fixed onboarding tooltip being displayed when shields icon not currently in view. ([#14060](https://github.com/brave/brave-browser/issues/14060))
+ - Upgraded Chromium to 88.0.4324.182. ([#14187](https://github.com/brave/brave-browser/issues/14187))
+
 ## [1.20.103](https://github.com/brave/brave-browser/releases/tag/v1.20.103)
 
  - Added several educational onboarding notifications for Brave Shields. ([#12209](https://github.com/brave/brave-browser/issues/12209))
