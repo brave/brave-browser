@@ -3,16 +3,17 @@ Resolves
 
 ## Submitter Checklist:
 
+- [ ] I confirm that no security/privacy review [is needed](https://github.com/brave/handbook/blob/master/development/security.md#when-is-a-security-review-needed), or that I have [requested](https://github.com/brave/security/issues/new/choose) one
 - [ ] There is a [ticket](https://github.com/brave/brave-browser/issues) for my issue
 - [ ] Used Github [auto-closing keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) in the PR description above
 - [ ] Wrote a good [PR/commit description](https://google.github.io/eng-practices/review/developer/cl-descriptions.html)
 - [ ] Added appropriate labels (`QA/Yes` or `QA/No`; `release-notes/include` or `release-notes/exclude`; `OS/...`) to the associated issue
 - [ ] Checked the PR locally: `npm run test -- brave_browser_tests`, `npm run test -- brave_unit_tests`, `npm run lint`, `npm run gn_check`, `npm run tslint`
 - [ ] Ran `git rebase master` (if needed)
-- [ ] Requested a security/privacy review as needed
 
 ## Reviewer Checklist:
 
+- [ ] A security review [is not needed](https://github.com/brave/handbook/blob/master/development/security.md#when-is-a-security-review-needed), or a link to one is included in the PR description
 - [ ] New files have MPL-2.0 license header
 - [ ] Adequate test coverage exists to prevent regressions
 - [ ] Major classes, functions and non-trivial code blocks are well-commented
