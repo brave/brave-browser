@@ -2,7 +2,7 @@
 
 ## [1.20.110](https://github.com/brave/brave-browser/releases/tag/v1.20.110)
 
- - [Security] Fixed issue where visiting ".onion" URL in a normal window would cause DNS leak. ([#14261](https://github.com/brave/brave-browser/issues/14261))
+ - [Security] Fixed issue when visiting ".onion" URL in a normal window would cause DNS leak. ([#14261](https://github.com/brave/brave-browser/issues/14261))
  - Fixed crash when opening ".onion" link in certain cases on Linux. ([#13736](https://github.com/brave/brave-browser/issues/13736))
  - Fixed ledger process incorrectly starting when visiting certain sites. ([#14307](https://github.com/brave/brave-browser/issues/14307))
  - Upgraded Chromium to 88.0.4324.192. ([#14302](https://github.com/brave/brave-browser/issues/14302))
