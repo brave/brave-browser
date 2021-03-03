@@ -26,7 +26,7 @@
  - Fixed Brave Shields being disabled when using IPFS with local node. ([#13741](https://github.com/brave/brave-browser/issues/13741))
  - Fixed ipfs:// background tabs not re-connecting on session restore in certain cases. ([#13519](https://github.com/brave/brave-browser/issues/13519))
  - Fixed Binance widget and autocomplete always using "en" URLs for all locales. ([#9691](https://github.com/brave/brave-browser/issues/9691))
- - Fixed issue where query parameters and fragments were removed from IFPS URLs. ([#13722](https://github.com/brave/brave-browser/issues/13722))
+ - Fixed issue where query parameters and fragments were removed from IPFS URLs. ([#13722](https://github.com/brave/brave-browser/issues/13722))
  - Fixed Nightly shortcut opening the wrong version when there are multiple installations of Brave on Linux. ([#1746](https://github.com/brave/brave-browser/issues/1746))
  - Upgraded Chromium to 89.0.4389.72. ([#14412](https://github.com/brave/brave-browser/issues/14412))
 
