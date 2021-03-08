@@ -4,7 +4,7 @@
 
  - Fixed the frequency of the default browser dialog being displayed when Brave is not set as the default browser. ([#14502](https://github.com/brave/brave-browser/issues/14502))
  - Fixed ads incorrectly displaying on https://www.youtube.com in certain cases. ([#14471](https://github.com/brave/brave-browser/issues/14471))
- - Fixed ads incorrectly displaying on https://www.reuters.com/. ([#14483](https://github.com/brave/brave-browser/issues/14483))
+ - Fixed ads incorrectly displaying on https://www.reuters.com. ([#14483](https://github.com/brave/brave-browser/issues/14483))
  - Fixed issue where some extensions did not work properly. ([#14473](https://github.com/brave/brave-browser/issues/14473))
  - Fixed cosmetic filter not working. ([#14458](https://github.com/brave/brave-browser/issues/14458))
 

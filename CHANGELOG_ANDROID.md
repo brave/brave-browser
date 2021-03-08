@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.21.74](https://github.com/brave/brave-browser/releases/tag/v1.21.74)
+
+ - Fixed crash when closing tabs while "Tab Groups" is enabled via brave://flags. ([#14491](https://github.com/brave/brave-browser/issues/14491))
+ - Fixed ads incorrectly displaying on https://www.reuters.com. ([#14483](https://github.com/brave/brave-browser/issues/14483))
+
 ## [1.21.73](https://github.com/brave/brave-browser/releases/tag/v1.21.73)
 
  - Added support for overriding default network adblocking using custom exception rules in brave://adblock. ([#5440](https://github.com/brave/brave-browser/issues/5440))
