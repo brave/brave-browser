@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.21.76](https://github.com/brave/brave-browser/releases/tag/v1.21.76)
+
+ - Fixed ads service crashing when fetching estimated earnings via rewards widget under the New Tab Page. ([#14447](https://github.com/brave/brave-browser/issues/14447))
+ - Upgraded Chromium to 89.0.4389.86. ([#14579](https://github.com/brave/brave-browser/issues/14579))
+
 ## [1.21.74](https://github.com/brave/brave-browser/releases/tag/v1.21.74)
 
  - Fixed crash when closing tabs while "Tab Groups" is enabled via brave://flags. ([#14491](https://github.com/brave/brave-browser/issues/14491))
