@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.21.77](https://github.com/brave/brave-browser/releases/tag/v1.21.77)
+
+ - Updated the default number of ads per hour from 2 to 5 for new users and users who have not changed the "Maximum number of ads displayed" setting for Brave Ads. ([#14377](https://github.com/brave/brave-browser/issues/14377))
+ - Fixed crash on startup in certain cases due to stats ping being called before the profile is initialized. ([#14594](https://github.com/brave/brave-browser/issues/14594))
+ - Upgraded Chromium to 89.0.4389.90. ([#14694](https://github.com/brave/brave-browser/issues/14694))
+
 ## [1.21.76](https://github.com/brave/brave-browser/releases/tag/v1.21.76)
 
  - Fixed ads service crashing when fetching estimated earnings via rewards widget under the New Tab Page. ([#14447](https://github.com/brave/brave-browser/issues/14447))
