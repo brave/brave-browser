@@ -2,52 +2,15 @@
   "name": "brave",
   "version": "1.24.5",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
-  "scripts": {
-    "audit_deps": "npm --prefix src/brave run audit_deps --",
-    "cibuild": "npm --prefix src/brave run cibuild --",
-    "init": "node ./scripts/init.js",
-    "delete_string_translations": "npm --prefix src/brave run delete_string_translations --",
-    "create_dist": "npm --prefix src/brave run create_dist --",
-    "sync": "npm --prefix src/brave run sync --",
-    "gclient": "npm --prefix src/brave run gclient --",
-    "build": "npm --prefix src/brave run build --",
-    "gn_check": "npm --prefix src/brave run gn_check --",
-    "versions": "npm --prefix src/brave run versions --",
-    "upload": "npm --prefix src/brave run upload --",
-    "update_patches": "npm --prefix src/brave run update_patches --",
-    "apply_patches": "npm --prefix src/brave run apply_patches --",
-    "start": "npm --prefix src/brave run start --",
-    "network-audit": "npm --prefix src/brave run network-audit --",
-    "push_l10n": "npm --prefix src/brave run push_l10n --",
-    "pull_l10n": "npm --prefix src/brave run pull_l10n --",
-    "chromium_rebase_l10n": "npm --prefix src/brave run chromium_rebase_l10n --",
-    "lint": "npm --prefix src/brave run lint --",
-    "test": "npm --prefix src/brave run test --",
-    "test:scripts": "jest lib scripts --passWithNoTests",
-    "test-security": "npm --prefix src/brave run test-security --"
-  },
-  "config": {
-    "projects": {
-      "chrome": {
-        "dir": "src",
-        "tag": "89.0.4389.90",
-        "repository": {
-          "url": "https://github.com/chromium/chromium"
-        }
-      },
-      "brave-core": {
-        "dir": "src/brave",
-        "branch": "master",
-        "repository": {
-          "url": "https://github.com/brave/brave-core.git"
-        }
-      }
-    }
+  "homepage": "https://github.com/brave/brave-browser#readme",
+  "bugs": {
+    "url": "https://github.com/brave/brave-browser/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brave/brave-browser.git"
   },
+  "license": "MPL-2.0",
   "author": {
     "name": "Brave Software <support@brave.com>"
   },
@@ -241,11 +204,48 @@
       "email": "serg@brave.com"
     }
   ],
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/brave/brave-browser/issues"
+  "scripts": {
+    "apply_patches": "npm --prefix src/brave run apply_patches --",
+    "audit_deps": "npm --prefix src/brave run audit_deps --",
+    "build": "npm --prefix src/brave run build --",
+    "chromium_rebase_l10n": "npm --prefix src/brave run chromium_rebase_l10n --",
+    "cibuild": "npm --prefix src/brave run cibuild --",
+    "create_dist": "npm --prefix src/brave run create_dist --",
+    "delete_string_translations": "npm --prefix src/brave run delete_string_translations --",
+    "gclient": "npm --prefix src/brave run gclient --",
+    "gn_check": "npm --prefix src/brave run gn_check --",
+    "init": "node ./scripts/init.js",
+    "lint": "npm --prefix src/brave run lint --",
+    "network-audit": "npm --prefix src/brave run network-audit --",
+    "pull_l10n": "npm --prefix src/brave run pull_l10n --",
+    "push_l10n": "npm --prefix src/brave run push_l10n --",
+    "start": "npm --prefix src/brave run start --",
+    "sync": "npm --prefix src/brave run sync --",
+    "test": "npm --prefix src/brave run test --",
+    "test-security": "npm --prefix src/brave run test-security --",
+    "test:scripts": "jest lib scripts --passWithNoTests",
+    "update_patches": "npm --prefix src/brave run update_patches --",
+    "upload": "npm --prefix src/brave run upload --",
+    "versions": "npm --prefix src/brave run versions --"
   },
-  "homepage": "https://github.com/brave/brave-browser#readme",
+  "config": {
+    "projects": {
+      "chrome": {
+        "dir": "src",
+        "tag": "89.0.4389.90",
+        "repository": {
+          "url": "https://github.com/chromium/chromium"
+        }
+      },
+      "brave-core": {
+        "dir": "src/brave",
+        "branch": "master",
+        "repository": {
+          "url": "https://github.com/brave/brave-core.git"
+        }
+      }
+    }
+  },
   "dependencies": {
     "chalk": "4.1.0",
     "log-update": "4.0.0"
