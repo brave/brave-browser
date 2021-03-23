@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.22.66](https://github.com/brave/brave-browser/releases/tag/v1.22.66)
+
+ - Added Ethereum Name Service (ENS) support. ([#14477](https://github.com/brave/brave-browser/issues/14477))
+ - Added Unstoppable Domains support. ([#14099](https://github.com/brave/brave-browser/issues/14099))
+ - Added support for Japanese content feed of Brave Today. ([#14306](https://github.com/brave/brave-browser/issues/14306))
+ - Added the ability to modify Brave Wallet settings under brave://settings/wallet. ([#14069](https://github.com/brave/brave-browser/issues/14069))
+ - Added the ability to modify IPFS settings under brave://settings/ipfs. ([#13682](https://github.com/brave/brave-browser/issues/13682))
+ - Added ipfs:// and ipns:// protocol associations. ([#13266](https://github.com/brave/brave-browser/issues/13266))
+ - Added retry logic to fetch IPFS pages if zero peers are available on session restore. ([#13177](https://github.com/brave/brave-browser/issues/13177))
+ - [Security] Improved handling of address bar display for ipfs:// and ipns:// URLs. ([#13872](https://github.com/brave/brave-browser/issues/13872))
+ - Implemented interstitial page for when "Method to resolve IPFS resources" is set to "Ask". ([#13655](https://github.com/brave/brave-browser/issues/13655))
+ - Improved canvas fingerprinting protections. ([#12069](https://github.com/brave/brave-browser/issues/12069))
+ - Improved IPFS diagnostics page under brave://ipfs. ([#13173](https://github.com/brave/brave-browser/issues/13173))
+ - Enabled re-linking when Uphold wallet is connected to Brave Rewards. ([#14573](https://github.com/brave/brave-browser/issues/14573))
+ - Updated wording on Private, Tor, and Guest windows to clarify Tor connectivity. ([#14385](https://github.com/brave/brave-browser/issues/14385))
+ - Updated query filter to enabled or disabled using shields toggle. ([#13242](https://github.com/brave/brave-browser/issues/13242))
+ - Removed known Drip tracking parameters from URLs. ([#8975](https://github.com/brave/brave-browser/issues/8975))
+ - Fixed "Estimated earnings so far this month" showing zero on the New Tab Page until the ads service has initialized. ([#13267](https://github.com/brave/brave-browser/issues/13267))
+ - Fixed CNAME adblocking breakage. ([#14755](https://github.com/brave/brave-browser/issues/14755) & [#14756](https://github.com/brave/brave-browser/issues/14756))
+ - Fixed "Start" and "Stop" buttons under brave://ipfs to only show when applicable. ([#14115](https://github.com/brave/brave-browser/issues/14115))
+ - Fixed issue where Crypto Wallets could not be disabled and re-enabled without browser restart. ([#14083](https://github.com/brave/brave-browser/issues/14083))
+ - Fixed BrowserGuestModeEnabled policy not being respected. ([#12524](https://github.com/brave/brave-browser/issues/12524))
+
 ## [1.21.77](https://github.com/brave/brave-browser/releases/tag/v1.21.77)
 
  - Updated the default number of ads per hour from 2 to 5 for new users and users who have not changed the "Maximum number of ads displayed" setting for Brave Ads. ([#14377](https://github.com/brave/brave-browser/issues/14377))
