@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.22.67](https://github.com/brave/brave-browser/releases/tag/v1.22.67)
+
+ - Reverted part of CNAME adblocking breakage ([#14755](https://github.com/brave/brave-browser/issues/14755)) due to DevTools regressing. ([#14721](https://github.com/brave/brave-browser/issues/14721))
+
 ## [1.22.66](https://github.com/brave/brave-browser/releases/tag/v1.22.66)
 
  - Added Ethereum Name Service (ENS) support. ([#14477](https://github.com/brave/brave-browser/issues/14477))
