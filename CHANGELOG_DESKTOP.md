@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.22.70](https://github.com/brave/brave-browser/releases/tag/v1.22.70)
+
+ - Fixed delay when opening DevTools in certain cases. ([#14880](https://github.com/brave/brave-browser/issues/14880))
+ - Upgraded Chromium to 89.0.4389.105. ([#14891](https://github.com/brave/brave-browser/issues/14891))
+
 ## [1.22.67](https://github.com/brave/brave-browser/releases/tag/v1.22.67)
 
  - Reverted part of CNAME adblocking breakage ([#14755](https://github.com/brave/brave-browser/issues/14755)) due to DevTools regressing. ([#14721](https://github.com/brave/brave-browser/issues/14721))
