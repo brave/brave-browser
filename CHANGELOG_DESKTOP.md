@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.22.71](https://github.com/brave/brave-browser/releases/tag/v1.22.71)
+
+ - Upgraded Chromium to 89.0.4389.114. ([#15030](https://github.com/brave/brave-browser/issues/15030))
+
 ## [1.22.70](https://github.com/brave/brave-browser/releases/tag/v1.22.70)
 
  - Fixed delay when opening DevTools in certain cases. ([#14880](https://github.com/brave/brave-browser/issues/14880))
