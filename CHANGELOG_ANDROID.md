@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.22.71](https://github.com/brave/brave-browser/releases/tag/v1.22.71)
+
+ - Fixed referral pings not initializing correctly. ([#15034](https://github.com/brave/brave-browser/issues/15034))
+ - Upgraded Chromium to 89.0.4389.114. ([#15030](https://github.com/brave/brave-browser/issues/15030))
+
 ## [1.22.69](https://github.com/brave/brave-browser/releases/tag/v1.22.69)
 
 - Improved canvas fingerprinting protections. ([#12069](https://github.com/brave/brave-browser/issues/12069))
