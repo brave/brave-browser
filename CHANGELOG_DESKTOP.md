@@ -1,5 +1,97 @@
 # Changelog
 
+## [1.22.71](https://github.com/brave/brave-browser/releases/tag/v1.22.71)
+
+ - Upgraded Chromium to 89.0.4389.114. ([#15030](https://github.com/brave/brave-browser/issues/15030))
+
+## [1.22.70](https://github.com/brave/brave-browser/releases/tag/v1.22.70)
+
+ - Fixed delay when opening DevTools in certain cases. ([#14880](https://github.com/brave/brave-browser/issues/14880))
+ - Upgraded Chromium to 89.0.4389.105. ([#14891](https://github.com/brave/brave-browser/issues/14891))
+
+## [1.22.67](https://github.com/brave/brave-browser/releases/tag/v1.22.67)
+
+ - Reverted part of CNAME adblocking breakage ([#14755](https://github.com/brave/brave-browser/issues/14755)) due to DevTools regressing. ([#14721](https://github.com/brave/brave-browser/issues/14721))
+
+## [1.22.66](https://github.com/brave/brave-browser/releases/tag/v1.22.66)
+
+ - Added Ethereum Name Service (ENS) support. ([#14477](https://github.com/brave/brave-browser/issues/14477))
+ - Added Unstoppable Domains support. ([#14099](https://github.com/brave/brave-browser/issues/14099))
+ - Added support for Japanese content feed of Brave Today. ([#14306](https://github.com/brave/brave-browser/issues/14306))
+ - Added the ability to modify Brave Wallet settings under brave://settings/wallet. ([#14069](https://github.com/brave/brave-browser/issues/14069))
+ - Added the ability to modify IPFS settings under brave://settings/ipfs. ([#13682](https://github.com/brave/brave-browser/issues/13682))
+ - Added ipfs:// and ipns:// protocol associations. ([#13266](https://github.com/brave/brave-browser/issues/13266))
+ - Added retry logic to fetch IPFS pages if zero peers are available on session restore. ([#13177](https://github.com/brave/brave-browser/issues/13177))
+ - [Security] Improved handling of address bar display for ipfs:// and ipns:// URLs. ([#13872](https://github.com/brave/brave-browser/issues/13872))
+ - Implemented interstitial page for when "Method to resolve IPFS resources" is set to "Ask". ([#13655](https://github.com/brave/brave-browser/issues/13655))
+ - Improved canvas fingerprinting protections. ([#12069](https://github.com/brave/brave-browser/issues/12069))
+ - Improved IPFS diagnostics page under brave://ipfs. ([#13173](https://github.com/brave/brave-browser/issues/13173))
+ - Enabled re-linking when Uphold wallet is connected to Brave Rewards. ([#14573](https://github.com/brave/brave-browser/issues/14573))
+ - Updated wording on Private, Tor, and Guest windows to clarify Tor connectivity. ([#14385](https://github.com/brave/brave-browser/issues/14385))
+ - Updated query filter to enabled or disabled using shields toggle. ([#13242](https://github.com/brave/brave-browser/issues/13242))
+ - Removed known Drip tracking parameters from URLs. ([#8975](https://github.com/brave/brave-browser/issues/8975))
+ - Fixed "Estimated earnings so far this month" showing zero on the New Tab Page until the ads service has initialized. ([#13267](https://github.com/brave/brave-browser/issues/13267))
+ - Fixed CNAME adblocking breakage. ([#14755](https://github.com/brave/brave-browser/issues/14755) & [#14756](https://github.com/brave/brave-browser/issues/14756))
+ - Fixed "Start" and "Stop" buttons under brave://ipfs to only show when applicable. ([#14115](https://github.com/brave/brave-browser/issues/14115))
+ - Fixed issue where Crypto Wallets could not be disabled and re-enabled without browser restart. ([#14083](https://github.com/brave/brave-browser/issues/14083))
+ - Fixed BrowserGuestModeEnabled policy not being respected. ([#12524](https://github.com/brave/brave-browser/issues/12524))
+
+## [1.21.77](https://github.com/brave/brave-browser/releases/tag/v1.21.77)
+
+ - Updated the default number of ads per hour from 2 to 5 for new users and users who have not changed the "Maximum number of ads displayed" setting for Brave Ads. ([#14377](https://github.com/brave/brave-browser/issues/14377))
+ - Fixed crash on startup in certain cases due to stats ping being called before the profile is initialized. ([#14594](https://github.com/brave/brave-browser/issues/14594))
+ - Upgraded Chromium to 89.0.4389.90. ([#14694](https://github.com/brave/brave-browser/issues/14694))
+
+## [1.21.76](https://github.com/brave/brave-browser/releases/tag/v1.21.76)
+
+ - Fixed ads service crashing when fetching estimated earnings via rewards widget under the New Tab Page. ([#14447](https://github.com/brave/brave-browser/issues/14447))
+ - Upgraded Chromium to 89.0.4389.86. ([#14579](https://github.com/brave/brave-browser/issues/14579))
+
+## [1.21.74](https://github.com/brave/brave-browser/releases/tag/v1.21.74)
+
+ - Fixed the frequency of the default browser dialog being displayed when Brave is not set as the default browser. ([#14502](https://github.com/brave/brave-browser/issues/14502))
+ - Fixed ads incorrectly displaying on https://www.youtube.com in certain cases. ([#14471](https://github.com/brave/brave-browser/issues/14471))
+ - Fixed ads incorrectly displaying on https://www.reuters.com. ([#14483](https://github.com/brave/brave-browser/issues/14483))
+ - Fixed issue where some extensions did not work properly. ([#14473](https://github.com/brave/brave-browser/issues/14473))
+ - Fixed cosmetic filter not working. ([#14458](https://github.com/brave/brave-browser/issues/14458))
+
+## [1.21.73](https://github.com/brave/brave-browser/releases/tag/v1.21.73)
+
+ - Added default browser dialog on first run for macOS and Linux. ([#12679](https://github.com/brave/brave-browser/issues/12679))
+ - Added ability to uninstall/disable the Widevine plugin via brave://settings/extensions (Muon parity). ([#2791](https://github.com/brave/brave-browser/issues/2791))
+ - Added settings panel to Brave Rewards onboarding tour. ([#13379](https://github.com/brave/brave-browser/issues/13379))
+ - Added "Peer ID" and "Version" under brave://ipfs. ([#13839](https://github.com/brave/brave-browser/issues/13839))
+ - Added "Repo Stats" under brave://ipfs. ([#13528](https://github.com/brave/brave-browser/issues/13528))
+ - Added support for overriding default network adblocking using custom exception rules in brave://adblock. ([#5440](https://github.com/brave/brave-browser/issues/5440))
+ - Added additional padding to the new tab button. ([#13835](https://github.com/brave/brave-browser/issues/13835))
+ - [Security] Enabled Safe Browsing endpoint for extension block list. ([#12297](https://github.com/brave/brave-browser/issues/12297))
+ - Implemented cosmetic filters. ([#13070](https://github.com/brave/brave-browser/issues/13070))
+ - Enabled DNS-over-HTTPS UI on Linux. ([#13617](https://github.com/brave/brave-browser/issues/13617))
+ - Updated referral system to skip initialization when no referral code present. ([#14428](https://github.com/brave/brave-browser/issues/14428))
+ - Updated frequency to show Brave as default browser dialog when not already configured. ([#12203](https://github.com/brave/brave-browser/issues/12203))
+ - Updated User Agent farbling to add workers support. ([#12392](https://github.com/brave/brave-browser/issues/12392))
+ - Updated wording on Brave Rewards widget. ([#13397](https://github.com/brave/brave-browser/issues/13397))
+ - Removed known Olytics tracking parameters from URLs. ([#13644](https://github.com/brave/brave-browser/issues/13644))
+ - Removed known tracking parameter "wickedid" from URLs. ([#13647](https://github.com/brave/brave-browser/issues/13647))
+ - Fixed crash when clicking on profile icon in certain cases. ([#13762](https://github.com/brave/brave-browser/issues/13762))
+ - Fixed Monthly Statement showing incorrect month in drop down. ([#13590](https://github.com/brave/brave-browser/issues/13590))
+ - Fixed issue where "Estimated pending rewards" showed incorrect balance in certain cases. ([#13601](https://github.com/brave/brave-browser/issues/13601))
+ - Fixed regression which allowed some network requests initiated by service workers to bypass adblocking. ([#13781](https://github.com/brave/brave-browser/issues/13781))
+ - Fixed adblock rules not being applied to HTTP subresources of an IPFS page. ([#13742](https://github.com/brave/brave-browser/issues/13742))
+ - Fixed Brave Shields being disabled when using IPFS with local node. ([#13741](https://github.com/brave/brave-browser/issues/13741))
+ - Fixed ipfs:// background tabs not re-connecting on session restore in certain cases. ([#13519](https://github.com/brave/brave-browser/issues/13519))
+ - Fixed Binance widget and autocomplete always using "en" URLs for all locales. ([#9691](https://github.com/brave/brave-browser/issues/9691))
+ - Fixed issue where query parameters and fragments were removed from IPFS URLs. ([#13722](https://github.com/brave/brave-browser/issues/13722))
+ - Fixed Nightly shortcut opening the wrong version when there are multiple installations of Brave on Linux. ([#1746](https://github.com/brave/brave-browser/issues/1746))
+ - Upgraded Chromium to 89.0.4389.72. ([#14412](https://github.com/brave/brave-browser/issues/14412))
+
+## [1.20.110](https://github.com/brave/brave-browser/releases/tag/v1.20.110)
+
+ - [Security] Fixed issue when visiting ".onion" URL in a normal window would cause DNS leak. ([#14261](https://github.com/brave/brave-browser/issues/14261))
+ - Fixed crash when opening ".onion" link in certain cases on Linux. ([#13736](https://github.com/brave/brave-browser/issues/13736))
+ - Fixed ledger process incorrectly starting when visiting certain sites. ([#14307](https://github.com/brave/brave-browser/issues/14307))
+ - Upgraded Chromium to 88.0.4324.192. ([#14302](https://github.com/brave/brave-browser/issues/14302))
+
 ## [1.20.108](https://github.com/brave/brave-browser/releases/tag/v1.20.108)
 
  - [Security] Fixed DNS leak regression in Tor windows as reported on HackerOne by xiaoyinl. ([#13527](https://github.com/brave/brave-browser/issues/13527))

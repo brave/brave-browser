@@ -24,7 +24,6 @@ pipeline {
             agent { label 'master' }
             steps {
                 script {
-                    GITHUB_API = 'https://api.github.com/repos/brave'
                     REPO = JOB_NAME.substring(0, JOB_NAME.indexOf('-build-pr'))
                     OTHER_REPO = REPO.equals('brave-browser') ? 'brave-core' : 'brave-browser'
                     PLATFORM = JOB_NAME.substring(JOB_NAME.indexOf('-build-pr') + 10, JOB_NAME.indexOf('/PR-'))
@@ -44,12 +43,14 @@ pipeline {
                     }
 
                     withCredentials([usernamePassword(credentialsId: 'brave-builds-github-token-for-pr-builder', usernameVariable: 'PR_BUILDER_USER', passwordVariable: 'PR_BUILDER_TOKEN')]) {
-                        def prDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: [[name: 'Authorization', value: 'token ' + PR_BUILDER_TOKEN]]).content)[0]
+                        GITHUB_API = 'https://api.github.com/repos/brave'
+                        GITHUB_AUTH_HEADERS = [[name: 'Authorization', value: 'token ' + PR_BUILDER_TOKEN]]
+                        def prDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
                         SKIP = prDetails.draft.equals(true) || prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/skip') }.equals(1) || prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-${PLATFORM}") }.equals(1)
                         RUN_NETWORK_AUDIT = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-network-audit') }.equals(1)
-                        def branchExistsInOtherRepo = httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/branches/' + CHANGE_BRANCH, validResponseCodes: '100:499', customHeaders: [[name: 'Authorization', value: 'token ' + PR_BUILDER_TOKEN]]).status.equals(200)
+                        def branchExistsInOtherRepo = httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/branches/' + CHANGE_BRANCH, validResponseCodes: '100:499', customHeaders: GITHUB_AUTH_HEADERS, quiet: true).status.equals(200)
                         if (branchExistsInOtherRepo) {
-                            def otherPrDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: [[name: 'Authorization', value: 'token ' + PR_BUILDER_TOKEN]]).content)[0]
+                            def otherPrDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
                             if (otherPrDetails) {
                                 env.OTHER_PR_NUMBER = otherPrDetails.number
                                 SKIP = SKIP || otherPrDetails.draft.equals(true) || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/skip') }.equals(1) || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-${PLATFORM}") }.equals(1)
@@ -58,9 +59,9 @@ pipeline {
                         }
                     }
 
-                    if (SKIP) {
+                    if (SKIP && PLATFORM != 'pre-init' && PLATFORM != 'post-init' ) {
                         echo "Aborting build as PRs are either in draft or have a skip label (CI/skip or CI/skip-${PLATFORM})"
-                        currentBuild.result = 'ABORTED'
+                        currentBuild.result = 'SUCCESS'
                         return
                     }
 

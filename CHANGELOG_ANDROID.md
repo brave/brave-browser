@@ -1,5 +1,51 @@
 # Changelog
 
+## [1.22.71](https://github.com/brave/brave-browser/releases/tag/v1.22.71)
+
+ - Fixed referral pings not initializing correctly. ([#15034](https://github.com/brave/brave-browser/issues/15034))
+ - Upgraded Chromium to 89.0.4389.114. ([#15030](https://github.com/brave/brave-browser/issues/15030))
+
+## [1.22.69](https://github.com/brave/brave-browser/releases/tag/v1.22.69)
+
+- Improved canvas fingerprinting protections. ([#12069](https://github.com/brave/brave-browser/issues/12069))
+- Enabled re-linking when Uphold wallet is connected to Brave Rewards. ([#14573](https://github.com/brave/brave-browser/issues/14573))
+- Removed known Drip tracking parameters from URLs. ([#8975](https://github.com/brave/brave-browser/issues/8975))
+- Updated query filter to enabled or disabled using shields toggle. ([#13242](https://github.com/brave/brave-browser/issues/13242))
+- Fixed shields appearing disabled when opening links using “Open in browser” via custom tabs. ([#14645](https://github.com/brave/brave-browser/issues/14645))
+- Fixed bottom toolbar appearing in landscape mode. ([#14254](https://github.com/brave/brave-browser/issues/14254))
+- Fixed CNAME adblocking breakage. ([#14756](https://github.com/brave/brave-browser/issues/14756))
+- Upgraded Chromium to 89.0.4389.105. ([#14891](https://github.com/brave/brave-browser/issues/14891))
+
+## [1.21.77](https://github.com/brave/brave-browser/releases/tag/v1.21.77)
+
+ - Updated the default number of ads per hour from 2 to 5 for new users and users who have not changed the "Maximum number of ads displayed" setting for Brave Ads. ([#14377](https://github.com/brave/brave-browser/issues/14377))
+ - Fixed crash on startup in certain cases due to stats ping being called before the profile is initialized. ([#14594](https://github.com/brave/brave-browser/issues/14594))
+ - Upgraded Chromium to 89.0.4389.90. ([#14694](https://github.com/brave/brave-browser/issues/14694))
+
+## [1.21.76](https://github.com/brave/brave-browser/releases/tag/v1.21.76)
+
+ - Fixed ads service crashing when fetching estimated earnings via rewards widget under the New Tab Page. ([#14447](https://github.com/brave/brave-browser/issues/14447))
+ - Upgraded Chromium to 89.0.4389.86. ([#14579](https://github.com/brave/brave-browser/issues/14579))
+
+## [1.21.74](https://github.com/brave/brave-browser/releases/tag/v1.21.74)
+
+ - Fixed crash when closing tabs while "Tab Groups" is enabled via brave://flags. ([#14491](https://github.com/brave/brave-browser/issues/14491))
+ - Fixed ads incorrectly displaying on https://www.reuters.com. ([#14483](https://github.com/brave/brave-browser/issues/14483))
+
+## [1.21.73](https://github.com/brave/brave-browser/releases/tag/v1.21.73)
+
+ - Added support for overriding default network adblocking using custom exception rules in brave://adblock. ([#5440](https://github.com/brave/brave-browser/issues/5440))
+ - Added warning into Brave Sync if auto-sync has been disabled on the device. ([#11128](https://github.com/brave/brave-browser/issues/11128))
+ - Implemented cosmetic filters. ([#13070](https://github.com/brave/brave-browser/issues/13070))
+ - Updated referral system to skip initialization when no referral code present. ([#14428](https://github.com/brave/brave-browser/issues/14428))
+ - Updated User Agent farbling to add workers support. ([#12392](https://github.com/brave/brave-browser/issues/12392))
+ - Removed known Olytics tracking parameters from URLs. ([#13644](https://github.com/brave/brave-browser/issues/13644))
+ - Removed known tracking parameter "wickedid" from URLs. ([#13647](https://github.com/brave/brave-browser/issues/13647))
+ - Fixed default browser modal being displayed if another Brave version is already set as the default browser. ([#14078](https://github.com/brave/brave-browser/issues/14078))
+ - Fixed Binance widget and autocomplete always using "en" URLs for all locales. ([#9691](https://github.com/brave/brave-browser/issues/9691))
+ - Fixed cast dialog not being displayed on https://gem.cbc.ca/live/channel/ottawa. ([#13898](https://github.com/brave/brave-browser/issues/13898))
+ - Upgraded Chromium to 89.0.4389.72. ([#14412](https://github.com/brave/brave-browser/issues/14412))
+
 ## [1.20.108](https://github.com/brave/brave-browser/releases/tag/v1.20.108)
 
  - [Security] Fixed ISP DNS leak when shields are enabled. ([#12575](https://github.com/brave/brave-browser/issues/12575))
