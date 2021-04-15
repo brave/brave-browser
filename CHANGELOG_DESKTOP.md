@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.23.71](https://github.com/brave/brave-browser/releases/tag/v1.23.71)
+
+ - Added the ability to customize the top site tiles on the New Tab Page. ([#7493](https://github.com/brave/brave-browser/issues/7493))
+ - Added support for DNSLink resolution. ([#13609](https://github.com/brave/brave-browser/issues/13609))
+ - Added "Manage custom filters" option to right click context menu. ([#14978](https://github.com/brave/brave-browser/issues/14978))
+ - Added the ability to manually refresh status for verified creators in the rewards panel. ([#14313](https://github.com/brave/brave-browser/issues/14313))
+ - Added IPFS installation progress under brave://ipfs-internals. ([#13170](https://github.com/brave/brave-browser/issues/13170))
+ - Added "Maximum IPFS cache size (GB)" under brave://settings/ipfs. ([#13720](https://github.com/brave/brave-browser/issues/13720))
+ - Added RFC3986 support for IPFS. ([#13677](https://github.com/brave/brave-browser/issues/13677))
+ - Added node status errors under brave://ipfs-internals. ([#11976](https://github.com/brave/brave-browser/issues/11976))
+ - Implemented verifiable advertiser conversions for Brave Ads. ([#13368](https://github.com/brave/brave-browser/issues/13368))
+ - Improved Tor user experience by preventing an orphan Tor process. ([#14044](https://github.com/brave/brave-browser/issues/14044))
+ - Updated adblocking via right click context menu to be editable under the brave://adblock "Custom filters" section. ([#9581](https://github.com/brave/brave-browser/issues/9581))
+ - Fixed statistical voting issue for auto-contribute which occurred in certain cases. ([#15071](https://github.com/brave/brave-browser/issues/15071))
+ - Fixed race condition which caused inconsistent wallet UI in the rewards panel. ([#13801](https://github.com/brave/brave-browser/issues/13801))
+ - Fixed crash reports not being uploaded on Linux. ([#14326](https://github.com/brave/brave-browser/issues/14326))
+ - Fixed CNAME adblocking breakage in certain cases. ([#14755](https://github.com/brave/brave-browser/issues/14755))
+ - Fixed ipfs:// background tabs not re-connecting on session restore in certain cases. ([#14328](https://github.com/brave/brave-browser/issues/14328))
+ - Fixed IPFS URI loading over 127.0.0.1 instead of localhost. ([#14499](https://github.com/brave/brave-browser/issues/14499))
+ - Fixed HTTP subresources being blocked on an IPFS page when shields are disabled. ([#14147](https://github.com/brave/brave-browser/issues/14147))
+ - Fixed Tor window being stuck in a disconnected state while Tor circuit is established. ([#14461](https://github.com/brave/brave-browser/issues/14461))
+ - Fixed ".onion" pages being opened in normal windows in certain cases. ([#14188](https://github.com/brave/brave-browser/issues/14188))
+ - Upgraded Chromium to 90.0.4430.72. ([#15299](https://github.com/brave/brave-browser/issues/15299))
+
 ## [1.22.72](https://github.com/brave/brave-browser/releases/tag/v1.22.72)
 
  - Upgraded Chromium to 89.0.4389.128. ([#15270](https://github.com/brave/brave-browser/issues/15270))
