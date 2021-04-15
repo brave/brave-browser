@@ -225,7 +225,6 @@
     "test-security": "npm --prefix src/brave run test-security --",
     "test:scripts": "jest lib scripts --passWithNoTests",
     "update_patches": "npm --prefix src/brave run update_patches --",
-    "upload": "npm --prefix src/brave run upload --",
     "versions": "npm --prefix src/brave run versions --"
   },
   "config": {
