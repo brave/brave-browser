@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.23](https://github.com/brave/brave-ios/releases/tag/v1.23)
+## [1.23.71](https://github.com/brave/brave-ios/releases/tag/v1.23.71)
 
  - Implemented verifiable advertiser conversions for Brave Ads. ([#13368](https://github.com/brave/brave-browser/issues/13368))
  - Fixed CNAME adblocking breakage in certain cases. ([#14755](https://github.com/brave/brave-browser/issues/14755))
