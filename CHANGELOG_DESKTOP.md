@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.23.73](https://github.com/brave/brave-browser/releases/tag/v1.23.73)
+
+ - Updated handling of User Agent fingerprinting protections, including using Chrome's frozen UA string on macOS. ([#15372](https://github.com/brave/brave-browser/issues/15372))
+ - Upgraded Chromium to 90.0.4430.85. ([#15397](https://github.com/brave/brave-browser/issues/15397))
+
 ## [1.23.71](https://github.com/brave/brave-browser/releases/tag/v1.23.71)
 
  - Added the ability to customize the top site tiles on the New Tab Page. ([#7493](https://github.com/brave/brave-browser/issues/7493))
