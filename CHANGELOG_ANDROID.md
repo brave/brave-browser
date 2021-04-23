@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.23.73](https://github.com/brave/brave-browser/releases/tag/v1.23.73)
+## [1.23.74](https://github.com/brave/brave-browser/releases/tag/v1.23.74)
 
  - Added ability to disable Tab Groups through settings. ([#15453](https://github.com/brave/brave-browser/issues/15453))
  - Fixed issue where device information was sometimes reported in User Agent string. ([#15372](https://github.com/brave/brave-browser/issues/15372))
