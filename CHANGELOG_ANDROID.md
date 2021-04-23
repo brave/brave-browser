@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.23.73](https://github.com/brave/brave-browser/releases/tag/v1.23.73)
+
+ - Added ability to disable Tab Groups through settings. ([#15453](https://github.com/brave/brave-browser/issues/15453))
+ - Fixed issue where device information was sometimes reported in User Agent string. ([#15372](https://github.com/brave/brave-browser/issues/15372))
+ - Upgraded Chromium to 90.0.4430.85. ([#15397](https://github.com/brave/brave-browser/issues/15397))
+
 ## [1.23.71](https://github.com/brave/brave-ios/releases/tag/v1.23.71)
 
  - Implemented verifiable advertiser conversions for Brave Ads. ([#13368](https://github.com/brave/brave-browser/issues/13368))
