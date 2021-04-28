@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.23.75](https://github.com/brave/brave-browser/releases/tag/v1.23.75)
+
+ - Fixed “Estimated pending rewards” being temporarily reset to zero when server endpoint returns a non HTTP_OK status. ([#15460](https://github.com/brave/brave-browser/issues/15460))
+ - Upgraded Chromium to 90.0.4430.93. ([#15502](https://github.com/brave/brave-browser/issues/15502))
+
 ## [1.23.73](https://github.com/brave/brave-browser/releases/tag/v1.23.73)
 
  - Updated handling of User Agent fingerprinting protections, including using Chrome's frozen UA string on macOS. ([#15372](https://github.com/brave/brave-browser/issues/15372))
