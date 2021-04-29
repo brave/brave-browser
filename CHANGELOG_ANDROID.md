@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.23.76](https://github.com/brave/brave-browser/releases/tag/v1.23.76)
+
+ - Fixed “Estimated pending rewards” being temporarily reset to zero when server endpoint returns a non HTTP_OK status. ([#15460](https://github.com/brave/brave-browser/issues/15460))
+ - Fixed artifacts appearing when using fullscreen on YouTube. ([#15548](https://github.com/brave/brave-browser/issues/15548))
+ - Upgraded Chromium to 90.0.4430.93. ([#15502](https://github.com/brave/brave-browser/issues/15502))
+
 ## [1.23.74](https://github.com/brave/brave-browser/releases/tag/v1.23.74)
 
  - Added ability to disable Tab Groups through settings. ([#15453](https://github.com/brave/brave-browser/issues/15453))
