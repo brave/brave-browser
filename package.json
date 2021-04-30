@@ -231,14 +231,14 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "91.0.4472.19",
+        "tag": "91.0.4472.28",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         }
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "cr91",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
