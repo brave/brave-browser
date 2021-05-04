@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.24.82](https://github.com/brave/brave-browser/releases/tag/v1.24.82)
+
+ - Added Brave Rewards notification when user has exceeded the wallet linking limit. ([#15028](https://github.com/brave/brave-browser/issues/15028))
+ - Added top level domain blocking in aggressive mode, to warn users before they visit sites suspected to be bounce trackers. ([#15095](https://github.com/brave/brave-browser/issues/15095))
+ - Added the ability to resolve IPFS links through "x-ipfs-path" and DNSLink values. ([#14657](https://github.com/brave/brave-browser/issues/14657))
+ - Added IPFS permission rule to expose chrome.ipfs API to extensions by request. ([#13998](https://github.com/brave/brave-browser/issues/13998))
+ - Added custom IPFS badge to ipfs:// and ipns:// pages. ([#13172](https://github.com/brave/brave-browser/issues/13172))
+ - Added "Don't ask again" option to the default browser dialog. ([#14469](https://github.com/brave/brave-browser/issues/14469))
+ - [Security] Removed timestamp value from Wayback Machine query as reported on HackerOne by xiaoyinl. ([#14843](https://github.com/brave/brave-browser/issues/14843))
+ - [Security] Invalidated callback parameters on Wayback Machine query as reported on HackerOne by xiaoyinl. ([#14991](https://github.com/brave/brave-browser/issues/14991))
+ - [Security] Improved handling of reverse mapping for ipfs:// URLs. ([#13874](https://github.com/brave/brave-browser/issues/13874))
+ - [Security] Improved handling of reverse mapping for ipns:// URLs. ([#13873](https://github.com/brave/brave-browser/issues/13873))
+ - Implemented Brave Ads anti-targeting. ([#14224](https://github.com/brave/brave-browser/issues/14224))
+ - Updated rewards tipping banner UI to handle displaying decimal values when present for tips. ([#15050](https://github.com/brave/brave-browser/issues/15050))
+ - Updated 5% fee for Brave Rewards tips to only attempt to contribute 3 times per browsing session. ([#14386](https://github.com/brave/brave-browser/issues/14386))
+ - Updated URL bar icon flyout text for IPFS local node connections. ([#14889](https://github.com/brave/brave-browser/issues/14889))
+ - Updated "Method to resolve IPFS resources" under brave://settings/ipfs to always have the "Local node" option. ([#13171](https://github.com/brave/brave-browser/issues/13171))
+ - Updated certain UI elements to better interact with macOS accessibility settings. ([#14176](https://github.com/brave/brave-browser/issues/14176))
+ - Fixed crash which occurred when attempting to tweet after tipping in certain cases on Windows and Linux. ([#5516](https://github.com/brave/brave-browser/issues/5516))
+ - Fixed issue where active promotions could not be claimed if they were marked as "Over" on the client. ([#14741](https://github.com/brave/brave-browser/issues/14741))
+ - Fixed "Hide Brave Rewards" setting not working after using a private window. ([#14531](https://github.com/brave/brave-browser/issues/14531))
+ - Fixed issue where auto-contribute was enabled via the rewards widget on the New Tab Page. ([#14735](https://github.com/brave/brave-browser/issues/14735))
+ - Fixed issue where "Include in Auto-Contribute" toggle on rewards panel did not retain user selection in certain cases. ([#14413](https://github.com/brave/brave-browser/issues/14413))
+ - Fixed brave://ipfs loading blank page in certain cases. ([#14923](https://github.com/brave/brave-browser/issues/14923))
+ - Fixed IPFS links not opening from command line interface on Windows. ([#14283](https://github.com/brave/brave-browser/issues/14283))
+ - Fixed issue where local node was not stopped if another option was selected for "Method to resolve IPFS resources" under brave://settings/ipfs. ([#14450](https://github.com/brave/brave-browser/issues/14450))
+
 ## [1.23.75](https://github.com/brave/brave-browser/releases/tag/v1.23.75)
 
  - Fixed “Estimated pending rewards” being temporarily reset to zero when server endpoint returns a non HTTP_OK status. ([#15460](https://github.com/brave/brave-browser/issues/15460))
