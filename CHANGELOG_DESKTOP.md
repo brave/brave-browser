@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.24.85](https://github.com/brave/brave-browser/releases/tag/v1.24.85)
+
+ - Upgraded Chromium to 90.0.4430.212. ([#15725](https://github.com/brave/brave-browser/issues/15725))
+
 ## [1.24.84](https://github.com/brave/brave-browser/releases/tag/v1.24.84)
 
  - Added bitFlyer two-way Brave Rewards wallet for Japan region. ([#15631](https://github.com/brave/brave-browser/issues/15631))
