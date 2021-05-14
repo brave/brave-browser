@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.24.85](https://github.com/brave/brave-browser/releases/tag/v1.24.85)
+
+ - Upgraded Chromium to 90.0.4430.212. ([#15725](https://github.com/brave/brave-browser/issues/15725))
+
 ## [1.24.84](https://github.com/brave/brave-browser/releases/tag/v1.24.84)
 
  - Added support for Unstoppable Domains and ENS via DNS over HTTPS. ([#15159](https://github.com/brave/brave-browser/issues/15159))
