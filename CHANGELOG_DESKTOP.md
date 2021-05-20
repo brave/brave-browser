@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.24.86](https://github.com/brave/brave-browser/releases/tag/v1.24.86)
+
+ - Fixed crash when attempting to open brave://sync from the omnibox in a private or Tor window. ([#15717](https://github.com/brave/brave-browser/issues/15717))
+
 ## [1.24.85](https://github.com/brave/brave-browser/releases/tag/v1.24.85)
 
  - Upgraded Chromium to 90.0.4430.212. ([#15725](https://github.com/brave/brave-browser/issues/15725))
