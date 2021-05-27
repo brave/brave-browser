@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.25.68](https://github.com/brave/brave-browser/releases/tag/v1.25.68)
+
+ - Added custom tip amounts to Brave Rewards. ([#15006](https://github.com/brave/brave-browser/issues/15006))
+ - Added the ability to publish a webpage to IPFS. ([#14770](https://github.com/brave/brave-browser/issues/14770))
+ - Added the ability to import local files to IPFS. ([#15078](https://github.com/brave/brave-browser/issues/15078))
+ - Added support for resolution of Unstoppable Domains with IPFS records via Ethereum. ([#15158](https://github.com/brave/brave-browser/issues/15158))
+ - Added support for "$csp" filter list rules in blocking engine. ([#14792](https://github.com/brave/brave-browser/issues/14792))
+ - Enabled logging of Brave Rewards errors by default. ([#15500](https://github.com/brave/brave-browser/issues/15500))
+ - Updated UI for selecting page elements to hide. ([#13808](https://github.com/brave/brave-browser/issues/13808))
+ - Updated UI for "My Node" button under brave://ipfs-internals. ([#14452](https://github.com/brave/brave-browser/issues/14452))
+ - Preserved ephemeral storage partitions for a few seconds to improve compatibility with some authentication flows. ([#15415](https://github.com/brave/brave-browser/issues/15415))
+ - Disabled additional parts of Google's FLoC system. ([#14942](https://github.com/brave/brave-browser/issues/14942))
+ - Disabled FirstParty Sets. ([#13098](https://github.com/brave/brave-browser/issues/13098))
+ - Disabled Brave Rewards on ipfs:// pages. ([#14841](https://github.com/brave/brave-browser/issues/14841))
+ - Reduced BAT threshold before being able to verify Uphold two-way user wallet from 25 to 15 BAT. ([#15055](https://github.com/brave/brave-browser/issues/15055))
+ - Removed Wallet and IPFS from brave://settings page in Guest windows. ([#14998](https://github.com/brave/brave-browser/issues/14998))
+ - Removed "Make a call from" Chromium dialog for synced mobile devices. ([#14601](https://github.com/brave/brave-browser/issues/14601))
+ - Fixed estimated pending rewards not correctly reflecting claims. ([#15801](https://github.com/brave/brave-browser/issues/15801))
+ - Fixed Brave Rewards panel display for ipns:// pages. ([#9631](https://github.com/brave/brave-browser/issues/9631))
+ - Fixed handling of Brave Rewards disabled state for various P3A metrics. ([#15374](https://github.com/brave/brave-browser/issues/15374))
+ - Upgraded Chromium to 91.0.4472.77. ([#16054](https://github.com/brave/brave-browser/issues/16054))
+
 ## [1.24.86](https://github.com/brave/brave-browser/releases/tag/v1.24.86)
 
  - Fixed crash when attempting to open brave://sync from the omnibox in a private or Tor window. ([#15717](https://github.com/brave/brave-browser/issues/15717))
