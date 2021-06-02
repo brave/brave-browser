@@ -85,7 +85,7 @@ npm run build Release
 
 brave-core based android builds should use `npm run build -- --target_os=android --target_arch=arm` or set the npm config variables as specified above for `init`
 
-### Build Configurations
+### Build Configurations and Options
 
 Running a release build with `npm run build Release` can be very slow and use a lot of RAM especially on Linux with the Gold LLVM plugin.
 
@@ -102,6 +102,11 @@ npm run build -- Debug
 ```
 
 You may also want to try [[using sccache|sccache-for-faster-builds]].
+
+#### Options
+  ```npm run build -- --help``` to list all available options.
+  
+  ```npm run build -- --auto_gn_gen``` to run ```gn gen``` only if required.
 
 ## Run Brave
 To start the build:
