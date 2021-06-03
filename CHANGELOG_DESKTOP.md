@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.25.70](https://github.com/brave/brave-browser/releases/tag/v1.25.70)
+
+ - Implemented temporary workaround for U2F transport for Ledger devices. ([#16204](https://github.com/brave/brave-browser/issues/16204))
+
 ## [1.25.68](https://github.com/brave/brave-browser/releases/tag/v1.25.68)
 
  - Added custom tip amounts to Brave Rewards. ([#15006](https://github.com/brave/brave-browser/issues/15006))
