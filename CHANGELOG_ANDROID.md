@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.25.71](https://github.com/brave/brave-browser/releases/tag/1.25.71)
+
+ - Fixed an issue with tab-groups setting from working and re-implemented stacked tab layout. ([#16140](https://github.com/brave/brave-browser/issues/16140))
+ - Upgraded Chromium to 91.0.4472.88. ([#16243](https://github.com/brave/brave-browser/issues/16243))
+
 ## [1.25.69](https://github.com/brave/brave-browser/releases/tag/v1.25.69)
 
  - Added support for Unstoppable Domains via Ethereum. ([#15373](https://github.com/brave/brave-browser/issues/15373))
