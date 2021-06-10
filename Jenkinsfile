@@ -98,8 +98,7 @@ pipeline {
                                                 credentials('brave-builds-github-token-for-pr-builder')
                                                 github('brave/devops', 'https')
                                             }
-                                            // FIXME
-                                            branch('wknapik-audit-deps-ondemand-in-prs')
+                                            branch('master')
                                         }
                                     }
                                     scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
