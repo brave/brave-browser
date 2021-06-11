@@ -2,6 +2,7 @@
 
 ## [1.25.72](https://github.com/brave/brave-browser/releases/tag/v1.25.72)
 
+- Added HID transport support for Ledger devices using Crypto Wallets. ([#16305](https://github.com/brave/brave-browser/issues/16305))
 - Fixed Brave Shields not respecting per website settings. ([#16265](https://github.com/brave/brave-browser/issues/16265))
 - Fixed $csp rules still being applied when Brave Shields has been disabled. ([#16283](https://github.com/brave/brave-browser/issues/16283))
 - Upgraded Chromium to 91.0.4472.101. ([#16314](https://github.com/brave/brave-browser/issues/16314))
