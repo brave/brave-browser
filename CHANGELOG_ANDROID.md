@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.25.73](https://github.com/brave/brave-browser/releases/tag/v1.25.73)
+
+- Upgraded Chromium to 91.0.4472.106. ([#16314](https://github.com/brave/brave-browser/issues/16314))
+
 ## [1.25.72](https://github.com/brave/brave-browser/releases/tag/v1.25.72)
 
 - Fixed $csp rules still being applied when Brave Shields has been disabled. ([#16283](https://github.com/brave/brave-browser/issues/16283))
