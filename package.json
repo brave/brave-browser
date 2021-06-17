@@ -241,7 +241,7 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.28.1"
+        "branch": "fix-versions-in-sparkle-popup"
       }
     }
   },
