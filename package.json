@@ -241,7 +241,7 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "branch": "fix-versions-in-sparkle-popup"
+        "branch": "mplesa-goma-tests"
       }
     }
   },
