@@ -3,7 +3,7 @@
 ## [1.25.73](https://github.com/brave/brave-browser/releases/tag/v1.25.73)
 
 - Fixed Brave Shields appearing disabled even though enabled in certain cases. ([#16362](https://github.com/brave/brave-browser/issues/16362))
-- Upgraded Chromium to 91.0.4472.106. ([#16314](https://github.com/brave/brave-browser/issues/16314))
+- Upgraded Chromium to 91.0.4472.106, including fix for CVE-2021-30554 ([#16422](https://github.com/brave/brave-browser/issues/16422))
 
 ## [1.25.72](https://github.com/brave/brave-browser/releases/tag/v1.25.72)
 
