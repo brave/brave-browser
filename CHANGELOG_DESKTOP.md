@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.26.67](https://github.com/brave/brave-browser/releases/tag/v1.26.67)
+
+ - Added Brave Search beta to the list of available search engines. ([#15663](https://github.com/brave/brave-browser/issues/15663))
+ - Added FTX widget to the New Tab Page. ([#15790](https://github.com/brave/brave-browser/issues/15790))
+ - Added QR code generator to the URL bar. ([#15900](https://github.com/brave/brave-browser/issues/15900))
+ - Added explict opt-in to Brave News. ([#15926](https://github.com/brave/brave-browser/issues/15926))
+ - Added the ability for users to import P2P keys for use with IPFS. ([#15566](https://github.com/brave/brave-browser/issues/15566))
+ - Added the ability for users to publish content using P2P keys with IPFS. ([#15422](https://github.com/brave/brave-browser/issues/15422))
+ - [Security] Fixed CNAME uncloaking when proxy is set as reported on HackerOne by neeythann. ([#16011](https://github.com/brave/brave-browser/issues/16011))
+ - Updated adblocking to prevent DNS lookups for CNAME decloaking when requests are already blocked. ([#15302](https://github.com/brave/brave-browser/issues/15302))
+ - Updated the "Learn more" link on the IPFS interstitial page and under brave://settings/ipfs. ([#15829](https://github.com/brave/brave-browser/issues/15829))
+ - Updated the Cloudflare privacy policy link on the Unstoppable Domains interstitial page. ([#15831](https://github.com/brave/brave-browser/issues/15831))
+ - Updated brave://version to show full variation names. ([#14780](https://github.com/brave/brave-browser/issues/14780))
+ - Renamed Brave Today to Brave News. ([#15925](https://github.com/brave/brave-browser/issues/15925))
+ - Removed "Block element via selector" from the Brave extension. ([#15419](https://github.com/brave/brave-browser/issues/15419))
+ - Fixed URL bar search not working in private windows when the search provider was set by an extension. ([#10601](https://github.com/brave/brave-browser/issues/10601))
+ - Fixed issue where users were unable to share a local file or folder using IPFS. ([#16020](https://github.com/brave/brave-browser/issues/16020))
+ - Fixed IPFS sub menu not appearing on the hamburger menu until browser restart. ([#15822](https://github.com/brave/brave-browser/issues/15822))
+ - Fixed Brave being registered as an FTP handler on Linux. ([#15812](https://github.com/brave/brave-browser/issues/15812))
+ - Fixed issue where the Brave News customize button could incorrectly link to "Customize Dashboard" modal in certain cases. ([#15221](https://github.com/brave/brave-browser/issues/15221))
+ - Upgraded Chromium to 91.0.4472.114. ([#16489](https://github.com/brave/brave-browser/issues/16489))
+
 ## [1.25.73](https://github.com/brave/brave-browser/releases/tag/v1.25.73)
 
 - Fixed Brave Shields appearing disabled even though enabled in certain cases. ([#16362](https://github.com/brave/brave-browser/issues/16362))
