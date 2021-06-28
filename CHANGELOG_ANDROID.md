@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.26.71](https://github.com/brave/brave-browser/releases/tag/v1.26.71)
+
+ - Fixed crash when opening links using custom tabs on certain locales. ([#16569](https://github.com/brave/brave-browser/issues/16569))
+ - Fixed permission crash in certain cases when sharing stats using Brave Shields. ([#16596](https://github.com/brave/brave-browser/issues/16596))
+ - Upgraded Chromium to 91.0.4472.120. ([#16576](https://github.com/brave/brave-browser/issues/16576))
+
 ## [1.26.67](https://github.com/brave/brave-browser/releases/tag/v1.26.67)
 
  - Added Brave Search beta to the list of available search engines. ([#15663](https://github.com/brave/brave-browser/issues/15663))
