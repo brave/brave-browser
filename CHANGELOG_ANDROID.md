@@ -2,7 +2,7 @@
 
 ## [1.26.74](https://github.com/brave/brave-browser/releases/tag/v1.26.74)
 
- - Renamed “Brave Search beta” to “Brave” in several locations including onboarding and the URL bar. ([#16564](https://github.com/brave/brave-browser/issues/16564))
+ - Renamed “Brave Search beta” to “Brave” in several locations including settings and the onboarding screen. ([#16564](https://github.com/brave/brave-browser/issues/16564))
  - Upgraded Chromium to 91.0.4472.124. ([#16600](https://github.com/brave/brave-browser/issues/16600))
 
 ## [1.26.71](https://github.com/brave/brave-browser/releases/tag/v1.26.71)
