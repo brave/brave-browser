@@ -14,6 +14,7 @@ pipeline {
         booleanParam(name: 'DISABLE_SCCACHE', defaultValue: false)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
+        string(name: 'DEVOPS_BRANCH', defaultValue: 'master')
         string(name: 'NODE_LABEL', defaultValue: '')
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
@@ -98,7 +99,7 @@ pipeline {
                                                 credentials('brave-builds-github-token-for-pr-builder')
                                                 github('brave/devops', 'https')
                                             }
-                                            branch('master')
+                                            branch('${params.DEVOPS_BRANCH}')
                                         }
                                     }
                                     scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
