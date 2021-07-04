@@ -51,7 +51,7 @@ Follow the instructions for your platform:
 Once you have the prerequisites installed, you can get the code and initialize the build environment.
 
 ```bash
-git clone git@github.com:brave/brave-browser.git
+git clone https://github.com/brave/brave-browser.git
 cd brave-browser
 npm install
 
