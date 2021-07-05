@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.25.15",
+  "version": "1.28.51",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "homepage": "https://github.com/brave/brave-browser#readme",
   "bugs": {
@@ -225,14 +225,13 @@
     "test-security": "npm --prefix src/brave run test-security --",
     "test:scripts": "jest lib scripts --passWithNoTests",
     "update_patches": "npm --prefix src/brave run update_patches --",
-    "upload": "npm --prefix src/brave run upload --",
     "versions": "npm --prefix src/brave run versions --"
   },
   "config": {
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "90.0.4430.70",
+        "tag": "92.0.4515.81",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         }
@@ -247,7 +246,7 @@
     }
   },
   "dependencies": {
-    "chalk": "4.1.0",
+    "chalk": "4.1.1",
     "log-update": "4.0.0"
   }
 }

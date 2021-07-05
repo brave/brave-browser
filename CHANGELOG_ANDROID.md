@@ -1,5 +1,103 @@
 # Changelog
 
+## [1.26.74](https://github.com/brave/brave-browser/releases/tag/v1.26.74)
+
+ - Renamed “Brave Search beta” to “Brave” in several locations including settings and the onboarding screen. ([#16564](https://github.com/brave/brave-browser/issues/16564))
+ - Upgraded Chromium to 91.0.4472.124. ([#16600](https://github.com/brave/brave-browser/issues/16600))
+
+## [1.26.71](https://github.com/brave/brave-browser/releases/tag/v1.26.71)
+
+ - Fixed crash when opening links using custom tabs on certain locales. ([#16569](https://github.com/brave/brave-browser/issues/16569))
+ - Fixed permission crash in certain cases when sharing stats using Brave Shields. ([#16596](https://github.com/brave/brave-browser/issues/16596))
+ - Upgraded Chromium to 91.0.4472.120. ([#16576](https://github.com/brave/brave-browser/issues/16576))
+
+## [1.26.67](https://github.com/brave/brave-browser/releases/tag/v1.26.67)
+
+ - Added Brave Search beta to the list of available search engines. ([#15663](https://github.com/brave/brave-browser/issues/15663))
+ - Added ability to clear data on exit via “Clear browsing data on exit” under settings. ([#7487](https://github.com/brave/brave-browser/issues/7487))
+ - Added share button in Brave Shields to increase app virality. ([#15021](https://github.com/brave/brave-browser/issues/15021))
+ - Updated brave://version to show full variation names. ([#14780](https://github.com/brave/brave-browser/issues/14780))
+ - Updated the “Learn more” link on the IPFS interstitial page and under brave://settings/ipfs. ([#15829](https://github.com/brave/brave-browser/issues/15829))
+ - Updated the Cloudflare privacy policy link on the Unstoppable Domains interstitial page. ([#15831](https://github.com/brave/brave-browser/issues/15831))
+ - Fixed New Tab Page Sponsored Image always being opened when creating new tabs after beign added into tab groups. ([#16263](https://github.com/brave/brave-browser/issues/16263))
+ - Fixed “Ask where to save files” state under “Downloads” not persisting when changed. ([#14246](https://github.com/brave/brave-browser/issues/14246))
+ - Upgraded Chromium to 91.0.4472.114. ([#16489](https://github.com/brave/brave-browser/issues/16489))
+
+## [1.25.73](https://github.com/brave/brave-browser/releases/tag/v1.25.73)
+
+- Upgraded Chromium to 91.0.4472.106. ([#16314](https://github.com/brave/brave-browser/issues/16314))
+
+## [1.25.72](https://github.com/brave/brave-browser/releases/tag/v1.25.72)
+
+- Fixed $csp rules still being applied when Brave Shields has been disabled. ([#16283](https://github.com/brave/brave-browser/issues/16283))
+- Upgraded Chromium to 91.0.4472.101. ([#16314](https://github.com/brave/brave-browser/issues/16314))
+
+## [1.25.71](https://github.com/brave/brave-browser/releases/tag/v1.25.71)
+
+ - Fixed an issue with tab-groups setting from working and re-implemented stacked tab layout. ([#16140](https://github.com/brave/brave-browser/issues/16140))
+ - Upgraded Chromium to 91.0.4472.88. ([#16243](https://github.com/brave/brave-browser/issues/16243))
+
+## [1.25.69](https://github.com/brave/brave-browser/releases/tag/v1.25.69)
+
+ - Added support for Unstoppable Domains via Ethereum. ([#15373](https://github.com/brave/brave-browser/issues/15373))
+ - Added support for “$csp” filter list rules in blocking engine. ([#14792](https://github.com/brave/brave-browser/issues/14792))
+ - Removed all Japan related Brave Rewards blocks. ([#15786](https://github.com/brave/brave-browser/issues/15786))
+ - Enabled logging of Brave Rewards errors by default. ([#15500](https://github.com/brave/brave-browser/issues/15500))
+ - Reduced BAT threshold before being able to verify Uphold two-way user wallet from 25 to 15 BAT. ([#15196](https://github.com/brave/brave-browser/issues/15196))
+ - Disabled additional parts of Google’s FLoC system. ([#14942](https://github.com/brave/brave-browser/issues/14942))
+ - Disabled FirstParty Sets. ([#13098](https://github.com/brave/brave-browser/issues/13098))
+ - Updated rewards wallet verification flow to match the current desktop flow. ([#13220](https://github.com/brave/brave-browser/issues/13220))
+ - Updated ad notification icons to distinguish between release and beta ads. ([#7571](https://github.com/brave/brave-browser/issues/7571))
+ - Updated Startpage icon under onboarding and search engine settings. ([#15515](https://github.com/brave/brave-browser/issues/15515))
+ - Fixed Binance widget not being dismissed when “Buy” button is clicked and landing page is loaded. ([#14405](https://github.com/brave/brave-browser/issues/14405))
+ - Fixed all tokens being displayed when viewing deposit address for a specific token. ([#15236](https://github.com/brave/brave-browser/issues/15236))
+ - Fixed certain setting pages missing “X” close button. ([#10375](https://github.com/brave/brave-browser/issues/10375))
+ - Fixed list of trackers being blocked under privacy report not visible when using dark theme. ([#13455](https://github.com/brave/brave-browser/issues/13455))
+ - Fixed “Nothing to see here” being shown on NTP instead of favorite icons when selecting search engine from onboarding. ([#14662](https://github.com/brave/brave-browser/issues/14662))
+ - Upgraded Chromium to 91.0.4472.77. ([#16054](https://github.com/brave/brave-browser/issues/16054))
+
+## [1.24.86](https://github.com/brave/brave-browser/releases/tag/v1.24.86)
+
+ - Fixed referral program codes not being retrieved from Google Play Store. ([#15903](https://github.com/brave/brave-browser/issues/15903))
+
+## [1.24.85](https://github.com/brave/brave-browser/releases/tag/v1.24.85)
+
+ - Upgraded Chromium to 90.0.4430.212. ([#15725](https://github.com/brave/brave-browser/issues/15725))
+
+## [1.24.84](https://github.com/brave/brave-browser/releases/tag/v1.24.84)
+
+ - Added support for Unstoppable Domains and ENS via DNS over HTTPS. ([#15159](https://github.com/brave/brave-browser/issues/15159))
+ - Added support for IPFS via gateway. ([#13683](https://github.com/brave/brave-browser/issues/13683))
+ - Updated 5% fee for Brave Rewards tips to only attempt to contribute 3 times per browsing session. ([#14386](https://github.com/brave/brave-browser/issues/14386))
+ - Removed Chrome logo when vertically flipping opened tabs. ([#9867](https://github.com/brave/brave-browser/issues/9867))
+ - Fixed “X” close button not working under “Site setting” pages. ([#12181](https://github.com/brave/brave-browser/issues/12181))
+ - Fixed crash when switching to existing rewards tab in certain cases. ([#15389](https://github.com/brave/brave-browser/issues/15389))
+ - Fixed Tab Groups toolbar occasionally still visible when the second last tab is closed. ([#14847](https://github.com/brave/brave-browser/issues/14847))
+
+## [1.23.76](https://github.com/brave/brave-browser/releases/tag/v1.23.76)
+
+ - Fixed “Estimated pending rewards” being temporarily reset to zero when server endpoint returns a non HTTP_OK status. ([#15460](https://github.com/brave/brave-browser/issues/15460))
+ - Fixed artifacts appearing when using fullscreen on YouTube. ([#15548](https://github.com/brave/brave-browser/issues/15548))
+ - Upgraded Chromium to 90.0.4430.93. ([#15502](https://github.com/brave/brave-browser/issues/15502))
+
+## [1.23.74](https://github.com/brave/brave-browser/releases/tag/v1.23.74)
+
+ - Added ability to disable Tab Groups through settings. ([#15453](https://github.com/brave/brave-browser/issues/15453))
+ - Fixed issue where device information was sometimes reported in User Agent string. ([#15372](https://github.com/brave/brave-browser/issues/15372))
+ - Upgraded Chromium to 90.0.4430.85. ([#15397](https://github.com/brave/brave-browser/issues/15397))
+
+## [1.23.71](https://github.com/brave/brave-ios/releases/tag/v1.23.71)
+
+ - Implemented verifiable advertiser conversions for Brave Ads. ([#13368](https://github.com/brave/brave-browser/issues/13368))
+ - Fixed CNAME adblocking breakage in certain cases. ([#14755](https://github.com/brave/brave-browser/issues/14755))
+ - Fixed Brave Shield icon being displayed in the incorrect position when using Custom Tabs. ([#9113](https://github.com/brave/brave-browser/issues/9113)) 
+ - Fixed text color to improve visuals in certain reward onboarding panels. ([#13911](https://github.com/brave/brave-browser/issues/13911)) 
+ - Upgraded Chromium to 90.0.4430.72. ([#15299](https://github.com/brave/brave-browser/issues/15299))
+
+## [1.22.72](https://github.com/brave/brave-browser/releases/tag/v1.22.72)
+
+ - Upgraded Chromium to 89.0.4389.128. ([#15270](https://github.com/brave/brave-browser/issues/15270))
+
 ## [1.22.71](https://github.com/brave/brave-browser/releases/tag/v1.22.71)
 
  - Fixed referral pings not initializing correctly. ([#15034](https://github.com/brave/brave-browser/issues/15034))
