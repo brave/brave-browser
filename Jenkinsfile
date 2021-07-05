@@ -11,7 +11,7 @@ pipeline {
         booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         booleanParam(name: 'WIPE_WORKSPACE', defaultValue: false)
         booleanParam(name: 'SKIP_INIT', defaultValue: false)
-        booleanParam(name: 'DISABLE_SCCACHE', defaultValue: false)
+        booleanParam(name: 'DISABLE_GOMA', defaultValue: false)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
         string(name: 'DEVOPS_BRANCH', defaultValue: 'master')
@@ -82,7 +82,7 @@ pipeline {
                                 booleanParam('TERMINATE_NODE', false)
                                 booleanParam('WIPE_WORKSPACE', false)
                                 booleanParam('SKIP_INIT', false)
-                                booleanParam('DISABLE_SCCACHE', false)
+                                booleanParam('DISABLE_GOMA', false)
                                 booleanParam('SKIP_SIGNING', true)
                                 booleanParam('DCHECK_ALWAYS_ON', true)
                                 booleanParam('RUN_NETWORK_AUDIT', false)
@@ -114,7 +114,7 @@ pipeline {
                         booleanParam(name: "TERMINATE_NODE", value: params.TERMINATE_NODE),
                         booleanParam(name: 'WIPE_WORKSPACE', value: params.WIPE_WORKSPACE),
                         booleanParam(name: 'SKIP_INIT', value: params.SKIP_INIT),
-                        booleanParam(name: 'DISABLE_SCCACHE', value: params.DISABLE_SCCACHE),
+                        booleanParam(name: 'DISABLE_GOMA', value: params.DISABLE_GOMA),
                         booleanParam(name: 'SKIP_SIGNING', value: params.SKIP_SIGNING),
                         booleanParam(name: 'DCHECK_ALWAYS_ON', value: params.DCHECK_ALWAYS_ON),
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
