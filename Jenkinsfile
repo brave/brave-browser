@@ -14,6 +14,7 @@ pipeline {
         booleanParam(name: 'DISABLE_GOMA', defaultValue: false)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
+        string(name: 'DEVOPS_BRANCH', defaultValue: 'master')
         string(name: 'NODE_LABEL', defaultValue: '')
         string(name: 'SLACK_NOTIFY', defaultValue: '')
     }
@@ -43,16 +44,19 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'brave-builds-github-token-for-pr-builder', usernameVariable: 'PR_BUILDER_USER', passwordVariable: 'PR_BUILDER_TOKEN')]) {
                         GITHUB_API = 'https://api.github.com/repos/brave'
                         GITHUB_AUTH_HEADERS = [[name: 'Authorization', value: 'token ' + PR_BUILDER_TOKEN]]
-                        def prDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
+                        CHANGE_BRANCH_ENCODED = java.net.URLEncoder.encode(CHANGE_BRANCH, 'UTF-8')
+                        def prDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + REPO + '/pulls?head=brave:' + CHANGE_BRANCH_ENCODED, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
                         SKIP = prDetails.draft.equals(true) || prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/skip') }.equals(1) || prDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-${PLATFORM}") }.equals(1)
                         RUN_NETWORK_AUDIT = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-network-audit') }.equals(1)
-                        def branchExistsInOtherRepo = httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/branches/' + CHANGE_BRANCH, validResponseCodes: '100:499', customHeaders: GITHUB_AUTH_HEADERS, quiet: true).status.equals(200)
+                        RUN_AUDIT_DEPS = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-audit-deps') }.equals(1)
+                        def branchExistsInOtherRepo = httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/branches/' + CHANGE_BRANCH_ENCODED, validResponseCodes: '100:499', customHeaders: GITHUB_AUTH_HEADERS, quiet: true).status.equals(200)
                         if (branchExistsInOtherRepo) {
-                            def otherPrDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/pulls?head=brave:' + CHANGE_BRANCH, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
+                            def otherPrDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/pulls?head=brave:' + CHANGE_BRANCH_ENCODED, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
                             if (otherPrDetails) {
                                 env.OTHER_PR_NUMBER = otherPrDetails.number
                                 SKIP = SKIP || otherPrDetails.draft.equals(true) || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/skip') }.equals(1) || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase("CI/skip-${PLATFORM}") }.equals(1)
                                 RUN_NETWORK_AUDIT = RUN_NETWORK_AUDIT || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-network-audit') }.equals(1)
+                                RUN_AUDIT_DEPS = RUN_AUDIT_DEPS || otherPrDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-audit-deps') }.equals(1)
                             }
                         }
                     }
@@ -83,6 +87,7 @@ pipeline {
                                 booleanParam('SKIP_SIGNING', true)
                                 booleanParam('DCHECK_ALWAYS_ON', true)
                                 booleanParam('RUN_NETWORK_AUDIT', false)
+                                booleanParam('RUN_AUDIT_DEPS', false)
                                 stringParam('BRANCH', '${CHANGE_BRANCH}')
                                 stringParam('NODE_LABEL', '')
                                 stringParam('SLACK_NOTIFY', '')
@@ -95,7 +100,7 @@ pipeline {
                                                 credentials('brave-builds-github-token-for-pr-builder')
                                                 github('brave/devops', 'https')
                                             }
-                                            branch('master')
+                                            branch('${params.DEVOPS_BRANCH}')
                                         }
                                     }
                                     scriptPath("jenkins/jobs/browser/pr-brave-browser-${PLATFORM}.Jenkinsfile")
@@ -114,6 +119,7 @@ pipeline {
                         booleanParam(name: 'SKIP_SIGNING', value: params.SKIP_SIGNING),
                         booleanParam(name: 'DCHECK_ALWAYS_ON', value: params.DCHECK_ALWAYS_ON),
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
+                        booleanParam(name: 'RUN_AUDIT_DEPS', value: RUN_AUDIT_DEPS),
                         string(name: 'BRANCH', value: CHANGE_BRANCH),
                         string(name: 'NODE_LABEL', value: params.NODE_LABEL),
                         string(name: 'SLACK_NOTIFY', value: params.SLACK_NOTIFY)
