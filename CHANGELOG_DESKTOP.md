@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.27.109](https://github.com/brave/brave-browser/releases/tag/v1.27.109)
+
+ - Fixed "Current earnings this month (estimated)" incorrectly being set to 0 after upgrade in certain cases. ([#17155](https://github.com/brave/brave-browser/issues/17155))
+ - Upgraded Chromium to 92.0.4515.115. ([#17162](https://github.com/brave/brave-browser/issues/17162))
+
 ## [1.27.108](https://github.com/brave/brave-browser/releases/tag/v1.27.108)
 
  - Added new hourly options under "Maximum number of ads displayed" for Brave Ads notifications. ([#16228](https://github.com/brave/brave-browser/issues/16228))
