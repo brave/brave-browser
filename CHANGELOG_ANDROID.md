@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.27.109](https://github.com/brave/brave-browser/releases/tag/v1.27.109)
+
+ - Added new hourly options under “Maximum number of ads displayed” for Brave Ads notifications. ([#16228](https://github.com/brave/brave-browser/issues/16228))
+ - Added ability to change “Block trackers & ads” to either “Standard”, “Aggressive” or “Allow all” via the shields panel. ([#16300](https://github.com/brave/brave-browser/issues/16300))
+ - Added a new tab tutorial page on startup for Japan region. ([#16033](https://github.com/brave/brave-browser/issues/16033))
+ - Updated default search engine for new installations in certain regions. ([#16870](https://github.com/brave/brave-browser/issues/16870))
+ - Updated “Block cross-site trackers” text to “Block trackers & ads” under the shields panel. ([#16299](https://github.com/brave/brave-browser/issues/16299))
+ - Updated fingerprinting protections to always return light mode when set to strict. ([#15265](https://github.com/brave/brave-browser/issues/15265))
+ - Updated Brave Ads UI to show estimated pending rewards for current month only. ([#15005](https://github.com/brave/brave-browser/issues/15005))
+ - Improved “Disconnected” Brave Rewards wallet state. ([#15237](https://github.com/brave/brave-browser/issues/15237))
+ - Fixed “Maximum number of ads displayed” incorrectly being set to 0 after upgrade in certain cases. ([#17155](https://github.com/brave/brave-browser/issues/17155))
+ - Upgraded Chromium to 92.0.4515.115. ([#17162](https://github.com/brave/brave-browser/issues/17162))
+
 ## [1.26.77](https://github.com/brave/brave-browser/releases/tag/v1.26.77)
 
  - Upgraded Chromium to 91.0.4472.164. ([#16977](https://github.com/brave/brave-browser/issues/16977))

@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.27.109](https://github.com/brave/brave-browser/releases/tag/v1.27.109)
+
+ - Fixed "Maximum number of ads displayed" incorrectly being set to 0 after upgrade in certain cases. ([#17155](https://github.com/brave/brave-browser/issues/17155))
+ - Upgraded Chromium to 92.0.4515.115. ([#17162](https://github.com/brave/brave-browser/issues/17162))
+
+## [1.27.108](https://github.com/brave/brave-browser/releases/tag/v1.27.108)
+
+ - Added new hourly options under "Maximum number of ads displayed" for Brave Ads notifications. ([#16228](https://github.com/brave/brave-browser/issues/16228))
+ - Added "Don't ask me again" button to Wayback Machine infobar. ([#8497](https://github.com/brave/brave-browser/issues/8497))
+ - [Security] Migrated Tor log from disk to memory as reported on HackerOne by sickcodes. ([#16747](https://github.com/brave/brave-browser/issues/16747))
+ - Implemented additional WebGL extensions blocking logic. ([#15882](https://github.com/brave/brave-browser/issues/15882))
+ - Improved "Disconnected" Brave Rewards wallet state. ([#15237](https://github.com/brave/brave-browser/issues/15237))
+ - Updated default search engine for new installations in certain regions. ([#16870](https://github.com/brave/brave-browser/issues/16870))
+ - Updated Brave Rewards wallet verification modal under brave://rewards/#verify. ([#16178](https://github.com/brave/brave-browser/issues/16178))
+ - Updated Brave Ads UI to show estimated pending rewards for current month only. ([#15005](https://github.com/brave/brave-browser/issues/15005))
+ - Updated fingerprinting protections to always return light mode when set to strict. ([#15265](https://github.com/brave/brave-browser/issues/15265))
+ - Fixed issue where "Current earnings this month (estimated)" incorrectly decreased in certain cases. ([#16861](https://github.com/brave/brave-browser/issues/16861))
+ - Fixed various IPFS issues. ([#17112](https://github.com/brave/brave-browser/issues/17112))
+ - Fixed TLS pins not working. ([#15667](https://github.com/brave/brave-browser/issues/15667))
+ - Upgraded Chromium to 92.0.4515.107. ([#17036](https://github.com/brave/brave-browser/issues/17036)
+
 ## [1.26.77](https://github.com/brave/brave-browser/releases/tag/v1.26.77)
 
  - Upgraded Chromium to 91.0.4472.164. ([#16977](https://github.com/brave/brave-browser/issues/16977))
