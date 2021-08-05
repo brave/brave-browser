@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.27.111](https://github.com/brave/brave-browser/releases/tag/v1.27.111)
+
+ - Fixed users not being rewarded for New Tab Page Sponsored Image views in certain cases. ([#17352](https://github.com/brave/brave-browser/issues/17352))
+ - Fixed ads from split groups not being displayed in certain cases. ([#17199](https://github.com/brave/brave-browser/issues/17199))
+ - Fixed Brave ads database failing to upgrade in certain cases. ([#17231](https://github.com/brave/brave-browser/issues/17231))
+ - Upgraded Chromium to 92.0.4515.131. ([#17306](https://github.com/brave/brave-browser/issues/17306)) ([**Changlog for 92.0.4515.131**](https://chromium.googlesource.com/chromium/src/+log/92.0.4515.115..92.0.4515.131?pretty=fuller&n=10000))
+
 ## [1.27.109](https://github.com/brave/brave-browser/releases/tag/v1.27.109)
 
  - Fixed "Maximum number of ads displayed" incorrectly being set to 0 after upgrade in certain cases. ([#17155](https://github.com/brave/brave-browser/issues/17155))
