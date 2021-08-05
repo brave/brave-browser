@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.29.40",
+  "version": "1.30.2",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
   "homepage": "https://github.com/brave/brave-browser#readme",
   "bugs": {
@@ -231,7 +231,7 @@
     "projects": {
       "chrome": {
         "dir": "src",
-        "tag": "92.0.4515.115",
+        "tag": "92.0.4515.131",
         "repository": {
           "url": "https://github.com/chromium/chromium"
         }
@@ -246,7 +246,7 @@
     }
   },
   "dependencies": {
-    "chalk": "4.1.1",
+    "chalk": "4.1.2",
     "log-update": "4.0.0"
   }
 }
