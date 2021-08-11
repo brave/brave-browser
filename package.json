@@ -238,7 +238,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "maxk-cr93",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
