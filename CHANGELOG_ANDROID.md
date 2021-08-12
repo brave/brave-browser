@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.28.105](https://github.com/brave/brave-browser/releases/tag/v1.28.105)
+
+ - Updated the custom header list to be hard-coded. ([#16455](https://github.com/brave/brave-browser/issues/16455))
+ - Updated adblocking to collapse HTML elements with blocked image or iframe requests. ([#14960](https://github.com/brave/brave-browser/issues/14960))
+ - Removed the mention of Gmail under the "Safe Browsing" settings. ([#16181](https://github.com/brave/brave-browser/issues/16181))
+ - Fixed Brave Rewards wallet being reset after upgrading in certain cases. ([#16449](https://github.com/brave/brave-browser/issues/16449))
+
 ## [1.27.111](https://github.com/brave/brave-browser/releases/tag/v1.27.111)
 
  - Fixed users not being rewarded for New Tab Page Sponsored Image views in certain cases. ([#17352](https://github.com/brave/brave-browser/issues/17352))
