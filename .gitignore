@@ -28,5 +28,3 @@ src
 npm-debug.log
 network_log.json
 network-audit-results.json
-
-.npmrc
