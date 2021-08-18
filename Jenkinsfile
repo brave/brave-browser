@@ -89,7 +89,7 @@ pipeline {
                                 booleanParam('RUN_NETWORK_AUDIT', false)
                                 booleanParam('RUN_AUDIT_DEPS', false)
                                 stringParam('BRANCH', '${CHANGE_BRANCH}')
-                                stringParam('NODE_LABEL', '')
+                                stringParam('NODE_LABEL', 'linh-test')
                                 stringParam('SLACK_NOTIFY', '')
                             }
                             definition {
@@ -121,7 +121,7 @@ pipeline {
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
                         booleanParam(name: 'RUN_AUDIT_DEPS', value: RUN_AUDIT_DEPS),
                         string(name: 'BRANCH', value: CHANGE_BRANCH),
-                        string(name: 'NODE_LABEL', value: params.NODE_LABEL),
+                        string(name: 'NODE_LABEL', 'linh-test'),
                         string(name: 'SLACK_NOTIFY', value: params.SLACK_NOTIFY)
                     ]
 
