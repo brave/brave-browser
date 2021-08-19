@@ -89,7 +89,7 @@ pipeline {
                                 booleanParam('RUN_NETWORK_AUDIT', false)
                                 booleanParam('RUN_AUDIT_DEPS', false)
                                 stringParam('BRANCH', '${CHANGE_BRANCH}')
-                                stringParam('NODE_LABEL', '')
+                                stringParam('NODE_LABEL', 'linh-test')
                                 stringParam('SLACK_NOTIFY', '')
                             }
                             definition {
