@@ -2,7 +2,7 @@
 
 ## [1.28.106](https://github.com/brave/brave-browser/releases/tag/v1.28.106)
 
- - Upgraded Chromium to 92.0.4515.159. ([#17553](https://github.com/brave/brave-browser/issues/17553))
+ - Upgraded Chromium to 92.0.4515.159. ([#17513](https://github.com/brave/brave-browser/issues/17513)) ([Changelog for 92.0.4515.159](https://chromium.googlesource.com/chromium/src/+log/92.0.4515.131..92.0.4515.159?pretty=fuller&n=10000))
 
 ## [1.28.105](https://github.com/brave/brave-browser/releases/tag/v1.28.105)
 
