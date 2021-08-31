@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.29.76](https://github.com/brave/brave-browser/releases/tag/v1.29.76)
+
+ - Added Gemini two-way Brave Rewards wallet. ([#17161](https://github.com/brave/brave-browser/issues/17161))
+ - Added prompt to enable crash reporting. ([#1841](https://github.com/brave/brave-browser/issues/1841))
+ - Added support for launching Brave with a Tor window when using the terminal/command line interface. ([#2105](https://github.com/brave/brave-browser/issues/2105))
+ - Added "Show Search Tabs button" setting under brave://settings/appearance. ([#16007](https://github.com/brave/brave-browser/issues/16007))
+ - Added "walletActive" parameter to the stats usage ping. ([#17059](https://github.com/brave/brave-browser/issues/17059))
+ - Added ephemeral support to "BroadcastChannel". ([#17220](https://github.com/brave/brave-browser/issues/17220))
+ - Added Uphold user ID under brave://rewards-internals to assist with rewards support. ([#16937](https://github.com/brave/brave-browser/issues/16937))
+ - Added a "Relaunch" button which displays after the in-line "Tips Settings" are modified. ([#16941](https://github.com/brave/brave-browser/issues/16941))
+ - Changed the location of QR code for iOS devices to be under the "Manage Your Wallet" modal on brave://rewards page. ([#16954](https://github.com/brave/brave-browser/issues/16954))
+ - Updated the date of installation parameter in the stats ping to expire in 30 days. ([#17089](https://github.com/brave/brave-browser/issues/17089))
+ - Reduced the height of the download bar. ([#1638](https://github.com/brave/brave-browser/issues/1638))
+ - Removed the Brave Rewards semi-verified user wallet state which occurred in certain cases. ([#15390](https://github.com/brave/brave-browser/issues/15390))
+ - Fixed IPFS links not being fully displayed in the Brave Rewards panel. ([#16612](https://github.com/brave/brave-browser/issues/16612))
+ - Fixed mute button moving when hovering on an inactive tab. ([#16860](https://github.com/brave/brave-browser/issues/16860))
+ - Fixed the close "x" button not being shown on tab hover with small tab size on macOS. ([#13946](https://github.com/brave/brave-browser/issues/13946))
+ - Fixed inconsistent capitalization in menu items on Windows and Linux. ([#17309](https://github.com/brave/brave-browser/issues/17309))
+ - Upgraded Chromium to 93.0.4577.58. ([#17668](https://github.com/brave/brave-browser/issues/17668)) ([Changelog for 93.0.4577.58](https://chromium.googlesource.com/chromium/src/+log/92.0.4515.159..93.0.4577.58?pretty=fuller&n=1000))
+
 ## [1.28.106](https://github.com/brave/brave-browser/releases/tag/v1.28.106)
 
  - Upgraded Chromium to 92.0.4515.159. ([#17513](https://github.com/brave/brave-browser/issues/17513)) ([Changelog for 92.0.4515.159](https://chromium.googlesource.com/chromium/src/+log/92.0.4515.131..92.0.4515.159?pretty=fuller&n=10000))
