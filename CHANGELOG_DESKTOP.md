@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.29.77](https://github.com/brave/brave-browser/releases/tag/v1.29.77)
+
+ - Fixed not being able to download files from Google Drive due to cookies being blocked. ([#17795](https://github.com/brave/brave-browser/issues/17795))
+ - Upgraded Chromium to 93.0.4577.63. ([#17790](https://github.com/brave/brave-browser/issues/17790)) ([Changelog for 93.0.4577.63](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.58..93.0.4577.63?pretty=fuller&n=1000))
+
 ## [1.29.76](https://github.com/brave/brave-browser/releases/tag/v1.29.76)
 
  - Added Gemini two-way Brave Rewards wallet. ([#17161](https://github.com/brave/brave-browser/issues/17161))
