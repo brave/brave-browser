@@ -101,7 +101,7 @@ To run a debug build (Component build with is_debug=true)
 npm run build -- Debug
 ```
 
-You may also want to try [[using sccache|sccache-for-faster-builds]].
+Brave staff may also want to try [Goma](https://github.com/brave/devops/wiki/Faster-browser-builds#goma) for faster builds.
 
 ## Run Brave
 To start the build:
