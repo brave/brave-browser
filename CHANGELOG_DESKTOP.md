@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.29.79](https://github.com/brave/brave-browser/releases/tag/v1.29.79)
+
+ - Fixed issue where site settings were not being retained in certain cases. ([#17859](https://github.com/brave/brave-browser/issues/17859))
+ - Fixed invalid certificate error being displayed when visiting "*.eth.link" sites. ([#17815](https://github.com/brave/brave-browser/issues/17815))
+ - Fixed issue where images were not being displayed for the promo cards under brave://rewards page in certain cases. ([#9553](https://github.com/brave/brave-browser/issues/9553))
+
 ## [1.29.77](https://github.com/brave/brave-browser/releases/tag/v1.29.77)
 
  - Fixed not being able to download files from Google Drive due to cookies being blocked. ([#17795](https://github.com/brave/brave-browser/issues/17795))
