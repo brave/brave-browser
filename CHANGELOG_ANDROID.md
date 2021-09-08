@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.29.79](https://github.com/brave/brave-browser/releases/tag/v1.29.79)
+
+ - Fixed issue where site settings were not being retained in certain cases. ([#17859](https://github.com/brave/brave-browser/issues/17859))
+
 ## [1.29.78](https://github.com/brave/brave-browser/releases/tag/v1.29.78)
 
  - Fixed Brave crash when launching Twitter App on tablets running Android 5. ([#17735](https://github.com/brave/brave-browser/issues/17735))
