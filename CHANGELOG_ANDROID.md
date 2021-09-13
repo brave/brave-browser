@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.29.80](https://github.com/brave/brave-browser/releases/tag/v1.29.80)
+
+ - Fixed Chromecast not working in certain cases. ([#17972](https://github.com/brave/brave-browser/issues/17972))
+
 ## [1.29.79](https://github.com/brave/brave-browser/releases/tag/v1.29.79)
 
  - Fixed issue where site settings were not being retained in certain cases. ([#17859](https://github.com/brave/brave-browser/issues/17859))
