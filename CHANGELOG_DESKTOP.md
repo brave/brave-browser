@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.29.80](https://github.com/brave/brave-browser/releases/tag/v1.29.80)
+
+ - Updated the bookmarks folder icon on the bookmarks bar. ([#17463](https://github.com/brave/brave-browser/issues/17463))
+ - Fixed Chromecast crashing in certain cases and re-added "Media Router" setting (disabled by default) under "brave://settings/extensions". ([#17873](https://github.com/brave/brave-browser/issues/17873))
+ - Fixed crash when opening brave://settings/content/autoplay. ([#17808](https://github.com/brave/brave-browser/issues/17808))
+ - Fixed Brave Talk not being recognized when rewards is enabled due to Greaselion precondition not being met with multiple profiles. ([#17914](https://github.com/brave/brave-browser/issues/17914))
+
 ## [1.29.79](https://github.com/brave/brave-browser/releases/tag/v1.29.79)
 
  - Fixed issue where site settings were not being retained in certain cases. ([#17859](https://github.com/brave/brave-browser/issues/17859))
