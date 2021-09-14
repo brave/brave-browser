@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.29.81](https://github.com/brave/brave-browser/releases/tag/v1.29.81)
+
+ - Upgraded Chromium to 93.0.4577.82. ([#18066](https://github.com/brave/brave-browser/issues/18066)) ([Changelog for 93.0.4577.82](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.63..93.0.4577.82?pretty=fuller&n=10000))
+
 ## [1.29.79](https://github.com/brave/brave-browser/releases/tag/v1.29.79)
 
  - Fixed issue where site settings were not being retained in certain cases. ([#17859](https://github.com/brave/brave-browser/issues/17859))
