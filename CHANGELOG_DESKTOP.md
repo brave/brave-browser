@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.30.86](https://github.com/brave/brave-browser/releases/tag/v1.30.86)
+
+ - Added the ability for Brave to handle searches from Windows Shell and Cortana. ([#13875](https://github.com/brave/brave-browser/issues/13875))
+ - Added "Index other search engines" setting under brave://settings/search. ([#14496](https://github.com/brave/brave-browser/issues/14496))
+ - Added the ability to disable Tor via Admin policy on macOS and Linux. ([#17530](https://github.com/brave/brave-browser/issues/17530))
+ - Added the ability to right click in brave://rewards-internals logs. ([#16915](https://github.com/brave/brave-browser/issues/16915))
+ - [Security] Added IPFS gateway URL validation. ([#16999](https://github.com/brave/brave-browser/issues/16999))
+ - Improved "Disconnected" Brave Rewards wallet options. ([#17154](https://github.com/brave/brave-browser/issues/17154))
+ - Updated default (standard) adblocking to generally allow first-party requests. ([#17366](https://github.com/brave/brave-browser/issues/17366))
+ - Removed known user tracking parameters from URLs. ([#17507](https://github.com/brave/brave-browser/issues/17507), [#17452](https://github.com/brave/brave-browser/issues/17452), [#17451](https://github.com/brave/brave-browser/issues/17451))
+ - Fixed overlapping text in download infobar. ([#17313](https://github.com/brave/brave-browser/issues/17313))
+ - Fixed Brave specific URLs not being listed under brave://about. ([#17299](https://github.com/brave/brave-browser/issues/17299))
+ - Fixed inability to remove IPNS keys under brave://settings/ipfs/keys. ([#17484](https://github.com/brave/brave-browser/issues/17484))
+ - Fixed issue with IPFS shutdown and restart in certain cases. ([#16978](https://github.com/brave/brave-browser/issues/16978))
+ - Upgraded Chromium to 94.0.4606.61. ([#18333](https://github.com/brave/brave-browser/issues/18333)) ([Changelog for 94.0.4606.61](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.82..94.0.4606.61?pretty=fuller&n=1000))
+
 ## [1.29.81](https://github.com/brave/brave-browser/releases/tag/v1.29.81)
 
  - Upgraded Chromium to 93.0.4577.82. ([#18066](https://github.com/brave/brave-browser/issues/18066)) ([Changelog for 93.0.4577.82](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.63..93.0.4577.82?pretty=fuller&n=10000))
