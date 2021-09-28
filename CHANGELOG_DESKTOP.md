@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.30.84](https://github.com/brave/brave-browser/releases/tag/v1.30.84)
+## [1.30.86](https://github.com/brave/brave-browser/releases/tag/v1.30.86)
 
  - Added the ability for Brave to handle searches from Windows Shell and Cortana. ([#13875](https://github.com/brave/brave-browser/issues/13875))
  - Added "Index other search engines" setting under brave://settings/search. ([#14496](https://github.com/brave/brave-browser/issues/14496))
@@ -14,7 +14,7 @@
  - Fixed Brave specific URLs not being listed under brave://about. ([#17299](https://github.com/brave/brave-browser/issues/17299))
  - Fixed inability to remove IPNS keys under brave://settings/ipfs/keys. ([#17484](https://github.com/brave/brave-browser/issues/17484))
  - Fixed issue with IPFS shutdown and restart in certain cases. ([#16978](https://github.com/brave/brave-browser/issues/16978))
- - Upgraded Chromium to 94.0.4606.54. ([#18222](https://github.com/brave/brave-browser/issues/18222)) ([Changelog for 94.0.4606.54](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.82..94.0.4606.54?pretty=fuller&n=1000))
+ - Upgraded Chromium to 94.0.4606.61. ([#18333](https://github.com/brave/brave-browser/issues/18333)) ([Changelog for 94.0.4606.61](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.82..94.0.4606.61?pretty=fuller&n=1000))
 
 ## [1.29.81](https://github.com/brave/brave-browser/releases/tag/v1.29.81)
 
