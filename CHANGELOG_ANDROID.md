@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.30.86](https://github.com/brave/brave-browser/releases/tag/v1.30.86)
+
+ - Added setting to "Automatically send daily usage ping to Brave" under brave://settings/privacy. ([#16583](https://github.com/brave/brave-browser/issues/16583))
+ - Removed known user tracking parameters from URLs. ([#17507](https://github.com/brave/brave-browser/issues/17507), [#17452](https://github.com/brave/brave-browser/issues/17452), [#17451](https://github.com/brave/brave-browser/issues/17451))
+ - Upgraded Chromium to 94.0.4606.61. ([#18333](https://github.com/brave/brave-browser/issues/18333)) ([Changelog for 94.0.4606.61](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.82..94.0.4606.61?pretty=fuller&n=1000))
+
 ## [1.29.81](https://github.com/brave/brave-browser/releases/tag/v1.29.81)
 
  - Upgraded Chromium to 93.0.4577.82. ([#18066](https://github.com/brave/brave-browser/issues/18066)) ([Changelog for 93.0.4577.82](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.63..93.0.4577.82?pretty=fuller&n=10000))
