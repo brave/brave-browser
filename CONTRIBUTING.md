@@ -74,7 +74,7 @@ git remote add bsclifton git@github.com:bsclifton/brave-core.git
 git fetch bsclifton
 ```
 
-Once you're setup, there's a few tips we can suggest:
+Once you're set up, there are a few tips we can suggest:
 
 * Make a new branch for your work. It helps to have a descriptive name, like `fix-fullscreen-issue`.
 * Make commits in logical units. If needed, run `git rebase -i` to squash commits before opening a pull request.
@@ -91,7 +91,7 @@ Once you're setup, there's a few tips we can suggest:
 ````
 
 * Run the tests by running `npm run test brave_unit_tests` and `npm run test brave_browser_tests`
-* JavaScript unit tests can be ran from the `src/brave` directory using `npm run test-unit`
+* JavaScript unit tests can be run from the `src/brave` directory using `npm run test-unit`
 
 
 ### Keeping your fork up to sync
