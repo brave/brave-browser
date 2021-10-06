@@ -74,7 +74,7 @@ git remote add bsclifton git@github.com:bsclifton/brave-core.git
 git fetch bsclifton
 ```
 
-Once you're set up, there's a few tips we can suggest:
+Once you're set up, there are a few tips we can suggest:
 
 * Make a new branch for your work. It helps to have a descriptive name, like `fix-fullscreen-issue`.
 * Make commits in logical units. If needed, run `git rebase -i` to squash commits before opening a pull request.
