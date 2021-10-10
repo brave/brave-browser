@@ -194,3 +194,31 @@ brave-browser> npm run apply_patches
 # Troubleshooting
 
 See [Troubleshooting](https://github.com/brave/brave-browser/wiki/Troubleshooting) for solutions to common problems.
+
+A more comprehensive guide to Max OS installation 
+First fork the repo
+
+  git clone <yourForkURL>
+  cd brave-browser
+  npm install
+
+Set up development environment  
+
+  brew install node@12
+  npm install npm@6.14.11 -g
+  now edit your package.json file
+
+edit your package.json file to point to your fork
+
+  >>package.json 
+
+  "brave_core": {
+    "dir": "src/brave",
+    "branch": "master",
+    "repository": {
+       "url": "<your fork url>"
+    }
+    
+Finally
+
+  npm run init

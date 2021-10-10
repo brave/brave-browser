@@ -240,17 +240,18 @@
           "url": "https://github.com/chromium/chromium"
         }
       },
-      "brave-core": {
+      "brave_core": {
         "dir": "src/brave",
         "branch": "master",
         "repository": {
-          "url": "https://github.com/brave/brave-core.git"
+          "url": "https://github.com/CatsMeow492/brave-browser"
         }
       }
     }
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "log-update": "4.0.0"
+    "log-update": "4.0.0",
+    "watch": "^0.13.0"
   }
 }
