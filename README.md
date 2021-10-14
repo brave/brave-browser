@@ -2,6 +2,7 @@
 
 ## Overview
 
+
 This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects we define in `package.json` and `src/brave/DEPS`:
 
   - [Chromium](https://chromium.googlesource.com/chromium/src.git)
