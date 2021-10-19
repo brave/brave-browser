@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.31.87](https://github.com/brave/brave-browser/releases/tag/v1.31.87)
+
+ - Added support for custom filter lists in shields via brave://adblock. ([#8107](https://github.com/brave/brave-browser/issues/8107))
+ - Added WDP (Web Discovery Project) into Brave. ([#18166](https://github.com/brave/brave-browser/issues/18166))
+ - Added support for adaptive CAPTCHA. ([#15600](https://github.com/brave/brave-browser/issues/15600))
+ - Added Brave agent version suffix to go-ipfs. ([#18505](https://github.com/brave/brave-browser/issues/18505)) 
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#18331](https://github.com/brave/brave-browser/issues/18331))
+ - Updated rewards panel design. ([#14602](https://github.com/brave/brave-browser/issues/14602))
+ - Updated Private Window New Tab page design. ([#18486](https://github.com/brave/brave-browser/issues/18486))
+ - Improved handling of default wallet settings under brave://settings/wallet. ([#18213](https://github.com/brave/brave-browser/issues/18213))
+ - Removed tipping banner warning for unverified publishers. ([#18341](https://github.com/brave/brave-browser/issues/18341))
+ - Removed "Brave" from User Agent when visiting DuckDuckGo. ([#15156](https://github.com/brave/brave-browser/issues/15156))
+ - Removed Uphold "x-client-partner" header. ([#18015](https://github.com/brave/brave-browser/issues/18015))
+ - Removed "IdleDetection" from brave://settings/content. ([#18409](https://github.com/brave/brave-browser/issues/18409))
+ - Removed known user tracking parameter "twclid" from Twitter query strings. ([#18020](https://github.com/brave/brave-browser/issues/18020))
+ - Disabled brave://flags/#copy-link-to-text by default. ([#17994](https://github.com/brave/brave-browser/issues/17994))
+ - Fixed CAPTCHA failing when using custom scaling in certain cases. ([#17476](https://github.com/brave/brave-browser/issues/17476))
+ - Fixed default settings under brave://settings/wallet not working in certain cases for both Crypto Wallet and MetaMask. ([#17984](https://github.com/brave/brave-browser/issues/17984))
+ - Fixed MetaMask failing to connect to web3 websites within Brave. ([#17168](https://github.com/brave/brave-browser/issues/17168))
+ - Fixed Greaselion extension appearing as corrupted in the terminal/command line interface. ([#17145](https://github.com/brave/brave-browser/issues/17145))
+ - Fixed IPFS protocol badge linked to node diagnostics instead of settings. ([#16907](https://github.com/brave/brave-browser/issues/16907))
+ - Fixed being able to both remove and add peers even though IPFS is not activated. ([#17981](https://github.com/brave/brave-browser/issues/17981))
+ - Fixed Speedreader icon incorrectly appearing in certain cases. ([#17355](https://github.com/brave/brave-browser/issues/17355))
+ - Fixed escape and encoded characters being displayed within articles when viewed using Speedreader. ([#18006](https://github.com/brave/brave-browser/issues/18006))
+ - Fixed article titles being cut short when viewed within Speedreader. ([#17983](https://github.com/brave/brave-browser/issues/17983))
+ - Fixed blue border appearing on top of window when focused. ([#9420](https://github.com/brave/brave-browser/issues/9420))
+ - Upgraded Chromium to 95.0.4638.54. ([#18840](https://github.com/brave/brave-browser/issues/18840)) ([Changelog for 95.0.4638.54](https://chromium.googlesource.com/chromium/src/+log/94.0.4606.81..95.0.4638.54?pretty=fuller&n=1000))
+
 ## [1.30.89](https://github.com/brave/brave-browser/releases/tag/v1.30.89)
 
  - Fixed renderer crash that could occur in certain cases. ([#18562](https://github.com/brave/brave-browser/issues/18562))
