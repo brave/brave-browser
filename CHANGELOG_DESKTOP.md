@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.31.88](https://github.com/brave/brave-browser/releases/tag/v1.31.88)
+
+ - Disabled Web Discovery Project in Tor windows. ([#18885](https://github.com/brave/brave-browser/issues/18885))
+ - Fixed crash when clicking on a promoted item in Brave News. ([#18898](https://github.com/brave/brave-browser/issues/18898))
+ - Upgraded Chromium to 95.0.4638.69. ([#19083](https://github.com/brave/brave-browser/issues/19083)) ([Changelog for 95.0.4638.69](https://chromium.googlesource.com/chromium/src/+log/95.0.4638.54..95.0.4638.69?pretty=fuller&n=1000))
+
 ## [1.31.87](https://github.com/brave/brave-browser/releases/tag/v1.31.87)
 
  - Added support for custom filter lists in shields via brave://adblock. ([#8107](https://github.com/brave/brave-browser/issues/8107))
