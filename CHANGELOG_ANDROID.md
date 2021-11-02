@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.31.88](https://github.com/brave/brave-browser/releases/tag/v1.31.88)
+
+ - Fixed startup crash on devices running Android 12. ([#18667](https://github.com/brave/brave-browser/issues/18667))
+ - Fixed startup crash when launching Brave for the first time without a network connection. ([#18825](https://github.com/brave/brave-browser/issues/18825))
+ - Fixed crash when tapping on "Continue" under the "Welcome to Brave Browser" on-boarding screen in certain cases. ([#18776](https://github.com/brave/brave-browser/issues/18776))
+ - Fixed incorrect search engine being set for both "Standard" and "Private" tab after making a selection under the search on-boarding screen. ([#18777](https://github.com/brave/brave-browser/issues/18777))
+ - Upgraded Chromium to 95.0.4638.69. ([#19083](https://github.com/brave/brave-browser/issues/19083)) ([Changelog for 95.0.4638.69](https://chromium.googlesource.com/chromium/src/+log/95.0.4638.54..95.0.4638.69?pretty=fuller&n=1000))
+
 ## [1.31.87](https://github.com/brave/brave-browser/releases/tag/v1.31.87)
 
  - Added support for custom filter lists in shields via brave://adblock. ([#8107](https://github.com/brave/brave-browser/issues/8107))
