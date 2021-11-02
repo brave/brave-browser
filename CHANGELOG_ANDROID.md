@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.31.87](https://github.com/brave/brave-browser/releases/tag/v1.31.87)
+
+ - Added support for custom filter lists in shields via brave://adblock. ([#8107](https://github.com/brave/brave-browser/issues/8107))
+ - Added support to retrieve New Tab Page background images via CRX which reduces the size of the initial app. ([#17328](https://github.com/brave/brave-browser/issues/17328))
+ - Added ability to disable Chrome Sharing Hub from the share sheet via "Appearance" settings. ([#17548](https://github.com/brave/brave-browser/issues/17548))
+ - Added support for Android crash reports to be uploaded to https://backtrace.io. ([#17563](https://github.com/brave/brave-browser/issues/17563))
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#18452](https://github.com/brave/brave-browser/issues/18452))
+ - Updated website that opens in a new tab when Brave Search is selected as the default. ([#18324](https://github.com/brave/brave-browser/issues/18324))
+ - Removed "Brave" from User Agent when visiting DuckDuckGo. ([#15156](https://github.com/brave/brave-browser/issues/15156))
+ - Removed Uphold "x-client-partner" header. ([#18015](https://github.com/brave/brave-browser/issues/18015))
+ - Removed "IdleDetection" from brave://settings/content. ([#18409](https://github.com/brave/brave-browser/issues/18409))
+ - Removed known user tracking parameter "twclid" from Twitter query strings. ([#18020](https://github.com/brave/brave-browser/issues/18020))
+ - Fixed "Incognito" being used instead of "Private" under "Search" settings on non-en-US locales. ([#10105](https://github.com/brave/brave-browser/issues/10105))
+ - Upgraded Chromium to 95.0.4638.54. ([#18840](https://github.com/brave/brave-browser/issues/18840)) ([Changelog for 95.0.4638.54](https://chromium.googlesource.com/chromium/src/+log/94.0.4606.81..95.0.4638.54?pretty=fuller&n=1000))
+
 ## [1.30.89](https://github.com/brave/brave-browser/releases/tag/v1.30.89)
 
  - Upgraded Chromium to 94.0.4606.81. ([#18620](https://github.com/brave/brave-browser/issues/18620)) ([Changelog for 94.0.4606.81](https://chromium.googlesource.com/chromium/src/+log/94.0.4606.71..94.0.4606.81?pretty=fuller&n=1000))
