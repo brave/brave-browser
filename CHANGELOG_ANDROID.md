@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.31.90](https://github.com/brave/brave-browser/releases/tag/v1.31.90)
+
+ - Fixed crash when tapping on "private product analytics" under the "Welcome to Brave Browser" on-boarding screen in certain cases. ([#19135](https://github.com/brave/brave-browser/issues/19135))
+ - Fixed crash when the initial "Brave Rewards" notification is displayed after enabling rewards for the first time in certain cases on Android 12 devices. ([#19149](https://github.com/brave/brave-browser/issues/19149))
+ - Fixed Brave freezing and crashing in certain cases. ([#19144](https://github.com/brave/brave-browser/issues/19144))
+
 ## [1.31.88](https://github.com/brave/brave-browser/releases/tag/v1.31.88)
 
  - Fixed startup crash on devices running Android 12. ([#18667](https://github.com/brave/brave-browser/issues/18667))
