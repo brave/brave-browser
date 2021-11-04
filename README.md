@@ -124,9 +124,9 @@ To start the build:
 | flag | Description |
 |---|---|
 |`[no flags]`|updates chromium if needed and re-applies patches. If the chromium version did not change it will only re-apply patches that have changed. Will update child dependencies **only if any project needed updating during this script run** <br> **Use this if you want the script to manage keeping you up to date instead of pulling or switching branch manually. **|
-|`--create`|when used with `brave_core_ref` it will create a branch if one does not already exist|
 |`--force`|updates both _Chromium_ and _brave-core_ to the latest remote commit for the current brave-core branch and the _Chromium_ ref specified in brave-browser/package.json (e.g. `master` or `74.0.0.103`). Will re-apply all patches. Will force update all child dependencies <br> **Use this if you're having trouble and want to force the branches back to a known state. **|
 |`--init`|force update both _Chromium_ and _brave-core_ to the versions specified in brave-browser/package.json and force updates all dependent repos - same as `npm run init`|
+|`--ignore_chromium`|Will not update the chromium version when applicable. Useful if you want to avoid a minor update when not ready for the larger build time a chromium update may result in. A warning will be output about the current code state expecting a different chromium version. Your build may fail as a result.|
 
 
 Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and update all dependent repos including chromium if needed
@@ -138,26 +138,11 @@ Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and
 brave-core> git checkout -b branch_name
 ```
 
-or
-
-```bash
-brave-browser> npm run sync -- --create branch_name
-```
-
 ### Checkout an existing branch or tag
 ```bash
 brave-core> git fetch origin
 brave-core> git checkout [-b] branch_name
 brave-core> npm run sync
-...Updating 2 patches...
-...Updating child dependencies...
-...Running hooks...
-```
-
-or
-
-```bash
-brave-browser> npm run sync --create branch_name
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -172,14 +157,14 @@ brave-core> npm run sync
 ...Running hooks...
 ```
 
-#### Reset to latest brave-browser master, brave-core master and chromium
+#### Reset to latest brave-browser master, and brave-core master (via `init`, will always result in a longer build and will remove any pending changes in your brave-core working directory)
 ```bash
 brave-browser> git checkout master
 brave-browser> git pull
 brave-browser> npm run sync -- --init
 ```
 
-#### When you know that DEPS didn't change, but .patch files did (quickest)
+#### When you know that DEPS didn't change, but .patch files did (quickest attempt to perform a mini-sync before a build)
 ```bash
 brave-core> git checkout featureB
 brave-core> git pull
