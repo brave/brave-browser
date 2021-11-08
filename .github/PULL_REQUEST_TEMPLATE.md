@@ -34,5 +34,6 @@ Resolves
   - [ ] https://github.com/brave/brave-browser/wiki/Web-Compatibility-Exceptions-in-Brave
   - [ ] https://github.com/brave/brave-browser/wiki/QA-Guide
   - [ ] https://github.com/brave/brave-browser/wiki/P3A
+  - [ ] https://github.com/brave/brave-browser/wiki/Brave-Wallet
 
 ## Test Plan:
