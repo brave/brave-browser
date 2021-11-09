@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.31.91](https://github.com/brave/brave-browser/releases/tag/v1.31.91)
+
+ - [Security] Clarified sync setup instructions. ([#19233](https://github.com/brave/brave-browser/issues/19233))
+ - Fixed crash when using "Spoken Content" setting on macOS in certain cases. ([#19230](https://github.com/brave/brave-browser/issues/19230)) 
+ - Fixed inability to leave sync chain in certain cases. ([#19199](https://github.com/brave/brave-browser/issues/19199))
+
 ## [1.31.88](https://github.com/brave/brave-browser/releases/tag/v1.31.88)
 
  - Disabled Web Discovery Project in Tor windows. ([#18885](https://github.com/brave/brave-browser/issues/18885))
