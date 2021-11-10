@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.31.91](https://github.com/brave/brave-browser/releases/tag/v1.31.91)
+
+ - [Security] Clarified sync setup instructions. ([#19233](https://github.com/brave/brave-browser/issues/19233))
+ - Disabled P3A temporarily due to possible instability issues and crashes in certain cases. ([#19280](https://github.com/brave/brave-browser/issues/19280))
+ - Fixed inability to leave sync chain in certain cases. ([#19199](https://github.com/brave/brave-browser/issues/19199))
+
 ## [1.31.90](https://github.com/brave/brave-browser/releases/tag/v1.31.90)
 
  - Fixed crash when tapping on "private product analytics" under the "Welcome to Brave Browser" on-boarding screen in certain cases. ([#19135](https://github.com/brave/brave-browser/issues/19135))
