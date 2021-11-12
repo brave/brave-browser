@@ -235,7 +235,7 @@
     "projects": {
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
+        "branch": "mplesa-vs-2019",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
