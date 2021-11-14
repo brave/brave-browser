@@ -1,0 +1,28 @@
+name: Rebase Pull Request
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  main:
+    if: ${{ github.event.label.name == 'rebase' }}
+    name: Rebase
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          fetch-depth: 0
+
+      - name: automatic rebase
+        uses: cirrus-actions/rebase@1.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: remove label
+        if: always()
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: rebase
