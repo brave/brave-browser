@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.32.106](https://github.com/brave/brave-browser/releases/tag/v1.32.106)
+
+ - Added native Brave Wallet. ([#17081](https://github.com/brave/brave-browser/issues/17081))
+ - Added link to custodian dashboard in monthly Rewards statements for verified users. ([#9211](https://github.com/brave/brave-browser/issues/9211))
+ - Added Apple Silicon IPFS binaries for macOS. ([#16912](https://github.com/brave/brave-browser/issues/16912))
+ - Improved error message when adding an IPFS gateway without origin isolation. ([#18212](https://github.com/brave/brave-browser/issues/18212))
+ - Updated payout banner messaging. ([#17943](https://github.com/brave/brave-browser/issues/17943))
+ - Removed "Send Feedback" from Tab Groups. ([#18314](https://github.com/brave/brave-browser/issues/18314))
+ - Fixed Brave Rewards wallet regeneration when wallet cannot be read. ([#18717](https://github.com/brave/brave-browser/issues/18717))
+ - Upgraded Chromium to 96.0.4664.45. ([#19387](https://github.com/brave/brave-browser/issues/19387)) ([Changelog for 96.0.4664.45](https://chromium.googlesource.com/chromium/src/+log/95.0.4638.69..96.0.4664.45?pretty=fuller&n=1000))
+
 ## [1.31.91](https://github.com/brave/brave-browser/releases/tag/v1.31.91)
 
  - [Security] Clarified sync setup instructions. ([#19233](https://github.com/brave/brave-browser/issues/19233))
