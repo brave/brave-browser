@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## [1.32.106](https://github.com/brave/brave-browser/releases/tag/v1.32.106)
 
  - Added native Brave Wallet. ([#17081](https://github.com/brave/brave-browser/issues/17081))
