@@ -59,7 +59,7 @@ npm install
 # the Chromium source is downloaded which has a large history
 npm run init
 ```
-brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whatever cpu type you want to build for)
+brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whatever CPU type you want to build for)
 
 You can also set the target_os and target_arch for init and build using
 
@@ -123,7 +123,7 @@ To start the build:
 
 | flag | Description |
 |---|---|
-|`[no flags]`|updates chromium if needed and re-applies patches. If the chromium version did not change it will only re-apply patches that have changed. Will update child dependencies **only if any project needed updating during this script run** <br> **Use this if you want the script to manage keeping you up to date instead of pulling or switching branch manually. **|
+|`[no flags]`|updates chromium if needed and re-applies patches. If the chromium version did not change it will only re-apply patches that have changed. Will update child dependencies **only if any project needed updating during this script run** <br> **Use this if you want the script to manage keeping you up to date instead of pulling or switching branches manually. **|
 |`--force`|updates both _Chromium_ and _brave-core_ to the latest remote commit for the current brave-core branch and the _Chromium_ ref specified in brave-browser/package.json (e.g. `master` or `74.0.0.103`). Will re-apply all patches. Will force update all child dependencies <br> **Use this if you're having trouble and want to force the branches back to a known state. **|
 |`--init`|force update both _Chromium_ and _brave-core_ to the versions specified in brave-browser/package.json and force updates all dependent repos - same as `npm run init`|
 |`--ignore_chromium`|Will not update the chromium version when applicable. Useful if you want to avoid a minor update when not ready for the larger build time a chromium update may result in. A warning will be output about the current code state expecting a different chromium version. Your build may fail as a result.|
@@ -148,7 +148,7 @@ brave-core> npm run sync
 ...Running hooks...
 ```
 
-### Update the current branch to latest remote
+### Update the current branch to the latest remote
 ```bash
 brave-core> git pull
 brave-core> npm run sync
