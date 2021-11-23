@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.32.106](https://github.com/brave/brave-browser/releases/tag/v1.32.106)
+
+ - Updated autoplay to behave the same as desktop (desktop parity). ([#14142](https://github.com/brave/brave-browser/issues/14142))
+ - Fixed not being able to scan sync QR code during initial setup if QR code modal was dismissed. ([#19389](https://github.com/brave/brave-browser/issues/19389))
+ - Fixed sync warning modal that appears before joining sync chain not being dismissed when screen timeout is reached. ([#19483](https://github.com/brave/brave-browser/issues/19483))
+ - Removed mention of "Incognito" from the "Cookie" section under "Site Settings". ([#12514](https://github.com/brave/brave-browser/issues/12514))
+ - Upgraded Chromium to 96.0.4664.45. ([#19387](https://github.com/brave/brave-browser/issues/19387)) ([Changelog for 96.0.4664.45](https://chromium.googlesource.com/chromium/src/+log/95.0.4638.69..96.0.4664.45?pretty=fuller&n=1000))
+
 ## [1.31.91](https://github.com/brave/brave-browser/releases/tag/v1.31.91)
 
  - [Security] Clarified sync setup instructions. ([#19233](https://github.com/brave/brave-browser/issues/19233))
