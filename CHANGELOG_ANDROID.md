@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.32.112](https://github.com/brave/brave-browser/releases/tag/v1.32.112)
+
+ - Re-enable P3A uploads if enabled by user. ([#19302](https://github.com/brave/brave-browser/issues/19302))
+ - Fixed P3A being automatically enabled if disabled after upgrading in certain cases. ([#19324](https://github.com/brave/brave-browser/issues/19324))
+
 ## [1.32.106](https://github.com/brave/brave-browser/releases/tag/v1.32.106)
 
  - Updated autoplay to behave the same as desktop (desktop parity). ([#14142](https://github.com/brave/brave-browser/issues/14142))
