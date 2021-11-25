@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.32.113](https://github.com/brave/brave-browser/releases/tag/v1.32.113)
+
+ - Added new entry under "brave://settings/system" for the "microsoft-edge" protocol on Windows. ([#17558](https://github.com/brave/brave-browser/issues/17558))
+ - Added menu item under the Brave Wallet panel for viewing account on Etherscan. ([#19655](https://github.com/brave/brave-browser/issues/19655))
+ - Added new confirmation prompt to switch chains after successfully adding a new network. ([#19291](https://github.com/brave/brave-browser/issues/19291))
+ - Fixed crash when permission requests for Ethereum are from a popup window. ([#19566](https://github.com/brave/brave-browser/issues/19566))
+ - Fixed crash when importing data into the Brave Wallet. ([#19515](https://github.com/brave/brave-browser/issues/19515))
+ - Fixed wrong transaction type being used for EVM compatible networks in certain cases. ([#19617](https://github.com/brave/brave-browser/issues/19617))
+ - Fixed swapping via Quickswap chain (Polygon/MATIC) incorrectly displaying a insufficient funds error. ([#19536](https://github.com/brave/brave-browser/issues/19536))
+ - Fixed certain token balances appearing as 0 under Brave Wallet. ([#17081](https://github.com/brave/brave-browser/issues/17081))
+ - Fixed not being able to approve cancelled transaction using Brave Wallet. ([#19642](https://github.com/brave/brave-browser/issues/19642))
+ - Fixed several Brave Wallet UI issues due to translated strings. ([#19349](https://github.com/brave/brave-browser/issues/19349))
+ - Fixed not being able to connect to https://go.hex.com using the Brave Wallet. ([#19551](https://github.com/brave/brave-browser/issues/19551))
+ - Fixed not being able to switch networks within https://zapper.fi. ([#19656](https://github.com/brave/brave-browser/issues/19656))
+ - Fixed https://revvracing.com (Dapp on Polygon) appearing as blank when using the Brave Wallet. ([#19624](https://github.com/brave/brave-browser/issues/19624))
+
 ## [1.32.106](https://github.com/brave/brave-browser/releases/tag/v1.32.106)
 
  - Added native Brave Wallet. ([#17081](https://github.com/brave/brave-browser/issues/17081))
