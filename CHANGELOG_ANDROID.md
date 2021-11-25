@@ -1,5 +1,89 @@
 # Changelog
 
+## [1.32.112](https://github.com/brave/brave-browser/releases/tag/v1.32.112)
+
+ - Re-enable P3A uploads if enabled by user. ([#19302](https://github.com/brave/brave-browser/issues/19302))
+ - Fixed P3A being automatically enabled if disabled after upgrading in certain cases. ([#19324](https://github.com/brave/brave-browser/issues/19324))
+
+## [1.32.106](https://github.com/brave/brave-browser/releases/tag/v1.32.106)
+
+ - Updated autoplay to behave the same as desktop (desktop parity). ([#14142](https://github.com/brave/brave-browser/issues/14142))
+ - Fixed not being able to scan sync QR code during initial setup if QR code modal was dismissed. ([#19389](https://github.com/brave/brave-browser/issues/19389))
+ - Fixed sync warning modal that appears before joining sync chain not being dismissed when screen timeout is reached. ([#19483](https://github.com/brave/brave-browser/issues/19483))
+ - Removed mention of "Incognito" from the "Cookie" section under "Site Settings". ([#12514](https://github.com/brave/brave-browser/issues/12514))
+ - Upgraded Chromium to 96.0.4664.45. ([#19387](https://github.com/brave/brave-browser/issues/19387)) ([Changelog for 96.0.4664.45](https://chromium.googlesource.com/chromium/src/+log/95.0.4638.69..96.0.4664.45?pretty=fuller&n=1000))
+
+## [1.31.91](https://github.com/brave/brave-browser/releases/tag/v1.31.91)
+
+ - [Security] Clarified sync setup instructions. ([#19233](https://github.com/brave/brave-browser/issues/19233))
+ - Disabled P3A temporarily due to possible instability issues and crashes in certain cases. ([#19280](https://github.com/brave/brave-browser/issues/19280))
+ - Fixed inability to leave sync chain in certain cases. ([#19199](https://github.com/brave/brave-browser/issues/19199))
+
+## [1.31.90](https://github.com/brave/brave-browser/releases/tag/v1.31.90)
+
+ - Fixed crash when tapping on "private product analytics" under the "Welcome to Brave Browser" on-boarding screen in certain cases. ([#19135](https://github.com/brave/brave-browser/issues/19135))
+ - Fixed crash when the initial "Brave Rewards" notification is displayed after enabling rewards for the first time in certain cases on Android 12 devices. ([#19149](https://github.com/brave/brave-browser/issues/19149))
+ - Fixed Brave freezing and crashing in certain cases. ([#19144](https://github.com/brave/brave-browser/issues/19144))
+
+## [1.31.88](https://github.com/brave/brave-browser/releases/tag/v1.31.88)
+
+ - Fixed startup crash on devices running Android 12. ([#18667](https://github.com/brave/brave-browser/issues/18667))
+ - Fixed startup crash when launching Brave for the first time without a network connection. ([#18825](https://github.com/brave/brave-browser/issues/18825))
+ - Fixed crash when tapping on "Continue" under the "Welcome to Brave Browser" on-boarding screen in certain cases. ([#18776](https://github.com/brave/brave-browser/issues/18776))
+ - Fixed incorrect search engine being set for both "Standard" and "Private" tab after making a selection under the search on-boarding screen. ([#18777](https://github.com/brave/brave-browser/issues/18777))
+ - Upgraded Chromium to 95.0.4638.69. ([#19083](https://github.com/brave/brave-browser/issues/19083)) ([Changelog for 95.0.4638.69](https://chromium.googlesource.com/chromium/src/+log/95.0.4638.54..95.0.4638.69?pretty=fuller&n=1000))
+
+## [1.31.87](https://github.com/brave/brave-browser/releases/tag/v1.31.87)
+
+ - Added support for custom filter lists in shields via brave://adblock. ([#8107](https://github.com/brave/brave-browser/issues/8107))
+ - Added support to retrieve New Tab Page background images via CRX which reduces the size of the initial app. ([#17328](https://github.com/brave/brave-browser/issues/17328))
+ - Added ability to disable Chrome Sharing Hub from the share sheet via "Appearance" settings. ([#17548](https://github.com/brave/brave-browser/issues/17548))
+ - Added support for Android crash reports to be uploaded to https://backtrace.io. ([#17563](https://github.com/brave/brave-browser/issues/17563))
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#18452](https://github.com/brave/brave-browser/issues/18452))
+ - Updated website that opens in a new tab when Brave Search is selected as the default. ([#18324](https://github.com/brave/brave-browser/issues/18324))
+ - Removed "Brave" from User Agent when visiting DuckDuckGo. ([#15156](https://github.com/brave/brave-browser/issues/15156))
+ - Removed Uphold "x-client-partner" header. ([#18015](https://github.com/brave/brave-browser/issues/18015))
+ - Removed "IdleDetection" from brave://settings/content. ([#18409](https://github.com/brave/brave-browser/issues/18409))
+ - Removed known user tracking parameter "twclid" from Twitter query strings. ([#18020](https://github.com/brave/brave-browser/issues/18020))
+ - Fixed "Incognito" being used instead of "Private" under "Search" settings on non-en-US locales. ([#10105](https://github.com/brave/brave-browser/issues/10105))
+ - Upgraded Chromium to 95.0.4638.54. ([#18840](https://github.com/brave/brave-browser/issues/18840)) ([Changelog for 95.0.4638.54](https://chromium.googlesource.com/chromium/src/+log/94.0.4606.81..95.0.4638.54?pretty=fuller&n=1000))
+
+## [1.30.89](https://github.com/brave/brave-browser/releases/tag/v1.30.89)
+
+ - Upgraded Chromium to 94.0.4606.81. ([#18620](https://github.com/brave/brave-browser/issues/18620)) ([Changelog for 94.0.4606.81](https://chromium.googlesource.com/chromium/src/+log/94.0.4606.71..94.0.4606.81?pretty=fuller&n=1000))
+
+## [1.30.87](https://github.com/brave/brave-browser/releases/tag/v1.30.87)
+
+ - Upgraded Chromium to 94.0.4606.71. ([#18477](https://github.com/brave/brave-browser/issues/18477)) ([Changelog for 94.0.4606.71](https://chromium.googlesource.com/chromium/src/+log/94.0.4606.61..94.0.4606.71?pretty=fuller&n=1000))
+
+## [1.30.86](https://github.com/brave/brave-browser/releases/tag/v1.30.86)
+
+ - Added setting to "Automatically send daily usage ping to Brave" under brave://settings/privacy. ([#16583](https://github.com/brave/brave-browser/issues/16583))
+ - Removed known user tracking parameters from URLs. ([#17507](https://github.com/brave/brave-browser/issues/17507), [#17452](https://github.com/brave/brave-browser/issues/17452), [#17451](https://github.com/brave/brave-browser/issues/17451))
+ - Upgraded Chromium to 94.0.4606.61. ([#18333](https://github.com/brave/brave-browser/issues/18333)) ([Changelog for 94.0.4606.61](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.82..94.0.4606.61?pretty=fuller&n=1000))
+
+## [1.29.81](https://github.com/brave/brave-browser/releases/tag/v1.29.81)
+
+ - Upgraded Chromium to 93.0.4577.82. ([#18066](https://github.com/brave/brave-browser/issues/18066)) ([Changelog for 93.0.4577.82](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.63..93.0.4577.82?pretty=fuller&n=10000))
+
+## [1.29.79](https://github.com/brave/brave-browser/releases/tag/v1.29.79)
+
+ - Fixed issue where site settings were not being retained in certain cases. ([#17859](https://github.com/brave/brave-browser/issues/17859))
+
+## [1.29.78](https://github.com/brave/brave-browser/releases/tag/v1.29.78)
+
+ - Fixed Brave crash when launching Twitter App on tablets running Android 5. ([#17735](https://github.com/brave/brave-browser/issues/17735))
+ - Fixed browser crash when closing private tabs after interacting with shields on private tab. ([#17657](https://github.com/brave/brave-browser/issues/17657))
+ - Upgraded Chromium to 93.0.4577.63. ([#17790](https://github.com/brave/brave-browser/issues/17790)) ([Changelog for 93.0.4577.63](https://chromium.googlesource.com/chromium/src/+log/93.0.4577.58..93.0.4577.63?pretty=fuller&n=1000))
+
+## [1.29.76](https://github.com/brave/brave-browser/releases/tag/v1.29.76)
+
+ - Added ephemeral support to "BroadcastChannel". ([#17220](https://github.com/brave/brave-browser/issues/17220))
+ - Added Uphold user ID under brave://rewards-internals to assist with rewards support. ([#16937](https://github.com/brave/brave-browser/issues/16937))
+ - Updated the date of installation parameter in the stats ping to expire in 30 days. ([#17089](https://github.com/brave/brave-browser/issues/17089))
+ - Removed the Brave Rewards semi-verified user wallet state which occurred in certain cases. ([#15390](https://github.com/brave/brave-browser/issues/15390))
+ - Upgraded Chromium to 93.0.4577.58. ([#17668](https://github.com/brave/brave-browser/issues/17668)) ([Changelog for 93.0.4577.58](https://chromium.googlesource.com/chromium/src/+log/92.0.4515.159..93.0.4577.58?pretty=fuller&n=1000))
+
 ## [1.28.106](https://github.com/brave/brave-browser/releases/tag/v1.28.106)
 
  - Upgraded Chromium to 92.0.4515.159. ([#17513](https://github.com/brave/brave-browser/issues/17513)) ([Changelog for 92.0.4515.159](https://chromium.googlesource.com/chromium/src/+log/92.0.4515.131..92.0.4515.159?pretty=fuller&n=10000))
