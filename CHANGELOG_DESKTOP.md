@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.32.115](https://github.com/brave/brave-browser/releases/tag/v1.32.115)
+
+ - Added support for decimal chain ID when adding custom networks. ([#19583](https://github.com/brave/brave-browser/issues/19583))
+ - Updated token list by adding Ethereum Name Service (ENS) and several other tokens. ([#19774](https://github.com/brave/brave-browser/issues/19774))
+ - Fixed gas fee being incorrectly calculated on both Polygon and Binance Smart Chain. ([#19706](https://github.com/brave/brave-browser/issues/19706))
+ - Fixed gas limit for ETH transfers being hardcoded to 21000. ([#19835](https://github.com/brave/brave-browser/issues/19835))
+ - Fixed "The receiving address is a tokens contract address" should only be applied to ERC20 and NFT transfers. ([#19745](https://github.com/brave/brave-browser/issues/19745))
+ - Fixed confirm button in transaction confirmation panel being disabled when fiat value of gas fee is 0. ([#19821](https://github.com/brave/brave-browser/issues/19821))
+ - Upgraded Chromium to 96.0.4664.93. ([#19950](https://github.com/brave/brave-browser/issues/19950)) ([Changelog for 96.0.4664.93](https://chromium.googlesource.com/chromium/src/+log/96.0.4664.45..96.0.4664.93?pretty=fuller&n=1000))
+
 ## [1.32.113](https://github.com/brave/brave-browser/releases/tag/v1.32.113)
 
  - Added new entry under "brave://settings/system" for the "microsoft-edge" protocol on Windows. ([#17558](https://github.com/brave/brave-browser/issues/17558))
