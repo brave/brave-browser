@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.32.115](https://github.com/brave/brave-browser/releases/tag/v1.32.115)
+
+ - Fixed search engines not being added into Open Search. ([#19737](https://github.com/brave/brave-browser/issues/19737))
+ - Upgraded Chromium to 96.0.4664.93. ([#19950](https://github.com/brave/brave-browser/issues/19950)) ([Changelog for 96.0.4664.93](https://chromium.googlesource.com/chromium/src/+log/96.0.4664.45..96.0.4664.93?pretty=fuller&n=1000))
+
 ## [1.32.112](https://github.com/brave/brave-browser/releases/tag/v1.32.112)
 
  - Re-enable P3A uploads if enabled by user. ([#19302](https://github.com/brave/brave-browser/issues/19302))
