@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.33.106](https://github.com/brave/brave-browser/releases/tag/v1.33.106)
+
+ - Added first steps of Brave Wallet (Dapps and EVM support in future releases). ([#19702](https://github.com/brave/brave-browser/issues/19702))
+ - Implemented time-limited sync QR codes. ([#19550](https://github.com/brave/brave-browser/issues/19550))
+ - Removed known user tracking parameters "wbraid" and "gbraid" from certain URLs. ([#18758](https://github.com/brave/brave-browser/issues/18758))
+ - Upgraded Chromium to 96.0.4664.110. ([#20077](https://github.com/brave/brave-browser/issues/20077)) ([Changelog for 96.0.4664.110](https://chromium.googlesource.com/chromium/src/+log/96.0.4664.93..96.0.4664.110?pretty=fuller&n=1000))
+
 ## [1.32.115](https://github.com/brave/brave-browser/releases/tag/v1.32.115)
 
  - Fixed search engines not being added into Open Search. ([#19737](https://github.com/brave/brave-browser/issues/19737))
