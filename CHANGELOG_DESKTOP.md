@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.34.80](https://github.com/brave/brave-browser/releases/tag/v1.34.80)
+
+ - Added the ability to make the tab audio icon non-clickable using brave://flags/#tab-audio-icon-interactive. ([#19979](https://github.com/brave/brave-browser/issues/19979))
+ - Added indications for selected network. ([#19651](https://github.com/brave/brave-browser/issues/19651))
+ - [Security] Disabled CNAME uncloaking when DoH is enabled with an HTTPS proxy. ([#15038](https://github.com/brave/brave-browser/issues/15038))
+ - Updated error message text when Trezor is not connected. ([#19351](https://github.com/brave/brave-browser/issues/19351))
+ - Updated legacy gas controls to allow 0 gas price. ([#20103](https://github.com/brave/brave-browser/issues/20103))
+ - Updated price fetching to use contract address when possible. ([#19574](https://github.com/brave/brave-browser/issues/19574))
+ - Updated Omaha installer version for Windows to v1.3.36.111. ([#11904](https://github.com/brave/brave-browser/issues/11904))
+ - Removed "View on block explorer" button for rejected transactions. ([#19454](https://github.com/brave/brave-browser/issues/19454))
+ - Removed text label for the private icon on Private Windows. ([#13704](https://github.com/brave/brave-browser/issues/13704))
+ - Fixed crash when disabling Brave Shields in certain cases. ([#19958](https://github.com/brave/brave-browser/issues/19958))
+ - Fixed inability to download torrents with WebTorrent. ([#19818](https://github.com/brave/brave-browser/issues/19818))
+ - Fixed retry loop for token refill when server responds with 404 to adaptive CAPTCHA request. ([#18859](https://github.com/brave/brave-browser/issues/18859))
+ - Fixed issue in hardware wallet connect screen while switching derivation scheme. ([#20155](https://github.com/brave/brave-browser/issues/20155))
+ - Fixed error when importing Ledger accounts. ([#19451](https://github.com/brave/brave-browser/issues/19451))
+ - Fixed Trezor popup incorrectly reopening in certain cases. ([#19858](https://github.com/brave/brave-browser/issues/19858))
+ - Fixed plus icon for RPC URLs not being shown when editing a network. ([#19717](https://github.com/brave/brave-browser/issues/19717))
+ - Fixed inability to remove previously entered RPC URLs. ([#19782](https://github.com/brave/brave-browser/issues/19782))
+ - Fixed Dapp web compatibility issue with https://studio.manifold.xyz. ([#20283](https://github.com/brave/brave-browser/issues/20283))
+ - Fixed issues with voting and creating spaces or proposals on https://snapshot.org Dapp. ([#20282](https://github.com/brave/brave-browser/issues/20282))
+ - Fixed tooltip for unsupported networks on brave://wallet being retained on screen. ([#19400](https://github.com/brave/brave-browser/issues/19400))
+ - Fixed path names not appearing in the address bar for IPNS addresses. ([#18888](https://github.com/brave/brave-browser/issues/18888))
+ - Upgraded Chromium to 97.0.4692.71. ([#20269](https://github.com/brave/brave-browser/issues/20269)) ([Changelog for 97.0.4692.71](https://chromium.googlesource.com/chromium/src/+log/96.0.4664.110..97.0.4692.71?pretty=fuller&n=1000))
+
 ## [1.33.106](https://github.com/brave/brave-browser/releases/tag/v1.33.106)
 
  - Added the ability to sign typed data (eth_signTypedData_v3 and eth_signTypedData_v4). ([#18659](https://github.com/brave/brave-browser/issues/18659))
