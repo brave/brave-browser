@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.34.80](https://github.com/brave/brave-browser/releases/tag/v1.34.80)
+
+ - Added several new notifications to help onboard users and explain various features. ([#19888](https://github.com/brave/brave-browser/issues/19888))
+ - Updated the default widget list under New Tab Page. ([#19888](https://github.com/brave/brave-browser/issues/19888))
+ - Fixed autofill suggestions covering the URL bar in certain cases. ([#19575](https://github.com/brave/brave-browser/issues/19575))
+ - Fixed "Backup your wallet" error message not being clickable. ([#18945](https://github.com/brave/brave-browser/issues/18945))
+ - Upgraded Chromium to 97.0.4692.71. ([#20269](https://github.com/brave/brave-browser/issues/20269)) ([Changelog for 97.0.4692.71](https://chromium.googlesource.com/chromium/src/+log/96.0.4664.110..97.0.4692.71?pretty=fuller&n=1000))
+
 ## [1.33.106](https://github.com/brave/brave-browser/releases/tag/v1.33.106)
 
  - Added first steps of Brave Wallet (Dapps and EVM support in future releases). ([#19702](https://github.com/brave/brave-browser/issues/19702))
