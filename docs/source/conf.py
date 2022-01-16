@@ -21,7 +21,7 @@
 
 author = 'Brave Software'
 project = 'Brave browser'
-copyright = '2021, Brave Software'
+copyright = '2022, Brave Software'
 
 # The short X.Y version
 version = ''
