@@ -82,7 +82,7 @@ pipeline {
                             // this list has to match the parameters in the Jenkinsfile from devops repo
                             parameters {
                                 choiceParam('CHANNEL', ['nightly', 'dev', 'beta', 'release', 'development'])
-                                choiceParam('BUILD_TYPE', ['Release', 'Debug'])
+                                choiceParam('BUILD_TYPE', ['Release', 'Debug', 'Static', 'Component'])
                                 booleanParam('TERMINATE_NODE', false)
                                 booleanParam('WIPE_WORKSPACE', false)
                                 booleanParam('SKIP_INIT', false)
