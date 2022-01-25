@@ -6,7 +6,7 @@ pipeline {
     }
     parameters {
         choice(name: 'CHANNEL', choices: ['nightly', 'dev', 'beta', 'release', 'development'])
-        choice(name: 'BUILD_TYPE', choices: ['Release', 'Debug'])
+        choice(name: 'BUILD_TYPE', choices: ['Release', 'Debug', 'Static', 'Component'])
         choice(name: 'BUILD_STATUS', choices: ['', 'SUCCESS', 'FAILURE', 'UNSTABLE', 'ABORTED'])
         booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         booleanParam(name: 'WIPE_WORKSPACE', defaultValue: false)
