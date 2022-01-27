@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.34.81](https://github.com/brave/brave-browser/releases/tag/v1.34.81)
+
+ - Upgraded Chromium to 97.0.4692.99. ([#20553](https://github.com/brave/brave-browser/issues/20553)) ([Changelog for 97.0.4692.99](https://chromium.googlesource.com/chromium/src/+log/97.0.4692.71..97.0.4692.99?pretty=fuller&n=1000))
+
 ## [1.34.80](https://github.com/brave/brave-browser/releases/tag/v1.34.80)
 
  - Added several new notifications to help onboard users and explain various features. ([#19888](https://github.com/brave/brave-browser/issues/19888))
