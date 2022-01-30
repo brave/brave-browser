@@ -6,12 +6,12 @@ pipeline {
     }
     parameters {
         choice(name: 'CHANNEL', choices: ['nightly', 'dev', 'beta', 'release', 'development'])
-        choice(name: 'BUILD_TYPE', choices: ['Release', 'Debug'])
+        choice(name: 'BUILD_TYPE', choices: ['Release', 'Debug', 'Static', 'Component'])
         choice(name: 'BUILD_STATUS', choices: ['', 'SUCCESS', 'FAILURE', 'UNSTABLE', 'ABORTED'])
         booleanParam(name: 'TERMINATE_NODE', defaultValue: false)
         booleanParam(name: 'WIPE_WORKSPACE', defaultValue: false)
         booleanParam(name: 'SKIP_INIT', defaultValue: false)
-        booleanParam(name: 'DISABLE_GOMA', defaultValue: false)
+        booleanParam(name: 'USE_GOMA', defaultValue: true)
         booleanParam(name: 'SKIP_SIGNING', defaultValue: true)
         booleanParam(name: 'DCHECK_ALWAYS_ON', defaultValue: true)
         string(name: 'DEVOPS_BRANCH', defaultValue: 'master')
@@ -50,7 +50,7 @@ pipeline {
                         RUN_NETWORK_AUDIT = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-network-audit') }.equals(1)
                         RUN_AUDIT_DEPS = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-audit-deps') }.equals(1)
                         RUN_UPSTREAM_TESTS = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/run-upstream-tests') }.equals(1)
-                        STORYBOOK = prDetails.labels.count { label -> label.name.equalsIgnoreCase('dev/storybook') }.equals(1)
+                        STORYBOOK = prDetails.labels.count { label -> label.name.equalsIgnoreCase('CI/storybook-url') }.equals(1)
                         def branchExistsInOtherRepo = httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/branches/' + CHANGE_BRANCH_ENCODED, validResponseCodes: '100:499', customHeaders: GITHUB_AUTH_HEADERS, quiet: true).status.equals(200)
                         if (branchExistsInOtherRepo) {
                             def otherPrDetails = readJSON(text: httpRequest(url: GITHUB_API + '/' + OTHER_REPO + '/pulls?head=brave:' + CHANGE_BRANCH_ENCODED, customHeaders: GITHUB_AUTH_HEADERS, quiet: true).content)[0]
@@ -82,11 +82,11 @@ pipeline {
                             // this list has to match the parameters in the Jenkinsfile from devops repo
                             parameters {
                                 choiceParam('CHANNEL', ['nightly', 'dev', 'beta', 'release', 'development'])
-                                choiceParam('BUILD_TYPE', ['Release', 'Debug'])
+                                choiceParam('BUILD_TYPE', ['Release', 'Debug', 'Static', 'Component'])
                                 booleanParam('TERMINATE_NODE', false)
                                 booleanParam('WIPE_WORKSPACE', false)
                                 booleanParam('SKIP_INIT', false)
-                                booleanParam('DISABLE_GOMA', false)
+                                booleanParam('USE_GOMA', true)
                                 booleanParam('SKIP_SIGNING', true)
                                 booleanParam('DCHECK_ALWAYS_ON', true)
                                 booleanParam('RUN_NETWORK_AUDIT', false)
@@ -120,7 +120,7 @@ pipeline {
                         booleanParam(name: "TERMINATE_NODE", value: params.TERMINATE_NODE),
                         booleanParam(name: 'WIPE_WORKSPACE', value: params.WIPE_WORKSPACE),
                         booleanParam(name: 'SKIP_INIT', value: params.SKIP_INIT),
-                        booleanParam(name: 'DISABLE_GOMA', value: params.DISABLE_GOMA),
+                        booleanParam(name: 'USE_GOMA', value: params.USE_GOMA),
                         booleanParam(name: 'SKIP_SIGNING', value: params.SKIP_SIGNING),
                         booleanParam(name: 'DCHECK_ALWAYS_ON', value: params.DCHECK_ALWAYS_ON),
                         booleanParam(name: 'RUN_NETWORK_AUDIT', value: RUN_NETWORK_AUDIT),
