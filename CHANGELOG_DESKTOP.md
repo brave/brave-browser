@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.35.99](https://github.com/brave/brave-browser/releases/tag/v1.35.99)
+## [1.35.100](https://github.com/brave/brave-browser/releases/tag/v1.35.100)
 
  - Added "wallet_requestPermissions" and "wallet_getPermissions" for compatibility with https://market.x.immutable.com and others. ([#19274](https://github.com/brave/brave-browser/issues/19274))
  - Added web3 "currentProvider" shim for compatibility with both https://snowtrace.io and https://staking.trava.finance/staking. ([#20353](https://github.com/brave/brave-browser/issues/20353))
