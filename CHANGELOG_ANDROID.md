@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.35.100](https://github.com/brave/brave-browser/releases/tag/v1.35.100)
+
+ - Added bitFlyer two-way Brave Rewards wallet for Japan region. ([#18439](https://github.com/brave/brave-browser/issues/18439))
+ - Added "Brave" into the web search context menu when opening links in other browsers. ([#19842](https://github.com/brave/brave-browser/issues/19842))
+ - Added notification for Uphold verified users when Customer Due Diligence survey needs to be completed. ([#20497](https://github.com/brave/brave-browser/issues/20497))
+ - Added "wallet_requestPermissions" and "wallet_getPermissions" for compatibility with https://market.x.immutable.com and others. ([#19274](https://github.com/brave/brave-browser/issues/19274))
+ - Added support for "wallet_watchAsset" method to add suggested tokens. ([#17878](https://github.com/brave/brave-browser/issues/17878))
+ - Added EIP-55 checksum address checks in the send widget. ([#19532](https://github.com/brave/brave-browser/issues/19532))
+ - Updated rewards panel design. ([#18471](https://github.com/brave/brave-browser/issues/18471))
+ - Reduced BAT threshold before being able to verify Uphold two-way user wallet from 15 to 2 BAT. ([#19912](https://github.com/brave/brave-browser/issues/19912))
+ - Removed known user tracking parameters "igshid" from certain URLs. ([#11580](https://github.com/brave/brave-browser/issues/11580))
+ - Removed "navigator.connection". ([#20122](https://github.com/brave/brave-browser/issues/20122))
+ - Fixed last connected account being selected when multiple accounts are provided for OpenSea. ([#19750](https://github.com/brave/brave-browser/issues/19750))
+ - Fixed typed data signing issues with https://looksrare.org. ([#20541](https://github.com/brave/brave-browser/issues/20541))
+ - Fixed backup wallet message being displayed when restoring wallet account from seed phrase. ([#19966](https://github.com/brave/brave-browser/issues/19966))
+ - Fixed "My First Ad" notification not opening the correct website after rewards has been enabled. ([#19856](https://github.com/brave/brave-browser/issues/19856))
+ - Fixed "Brave Wallet" icon under "Settings" being a lot larger than other icons. ([#20034](https://github.com/brave/brave-browser/issues/20034))
+ - Upgraded Chromium to 98.0.4758.87. ([#20814](https://github.com/brave/brave-browser/issues/20814)) ([Changelog for 98.0.4758.87](https://chromium.googlesource.com/chromium/src/+log/97.0.4692.99..98.0.4758.87?pretty=fuller&n=1000))
+
 ## [1.34.81](https://github.com/brave/brave-browser/releases/tag/v1.34.81)
 
  - Upgraded Chromium to 97.0.4692.99. ([#20553](https://github.com/brave/brave-browser/issues/20553)) ([Changelog for 97.0.4692.99](https://chromium.googlesource.com/chromium/src/+log/97.0.4692.71..97.0.4692.99?pretty=fuller&n=1000))
