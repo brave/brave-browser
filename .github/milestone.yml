@@ -1,0 +1,6 @@
+base-branch:
+  - "(master)"
+  - "1\\.(\\d+)\\.x"
+
+head-branch:
+  - "feature\\/(v\\d+)\\/.+"

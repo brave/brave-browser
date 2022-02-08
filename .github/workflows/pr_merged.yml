@@ -1,0 +1,15 @@
+name: Pull Request Milestone
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  milestone:
+    name: Pull Request Milestone
+    runs-on: ubuntu-latest
+    steps:
+      - uses: iyu/actions-milestone@v1.1.0
+        with:
+          repo-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          configuration-path: .github/milestone.yml
