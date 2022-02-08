@@ -1,5 +1,5 @@
 base-branch:
-  - "(1.37.x - Nightly)"
+  - "(.+)"
 
 head-branch:
-  - "(.+)"
+  - "(1.37.x - Nightly)"
