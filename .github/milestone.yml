@@ -1,5 +1,6 @@
 base-branch:
   - "(master)"
+  - "(1.37.x - Nightly)"
   - "1\\.(\\d+)\\.x"
 
 head-branch:
