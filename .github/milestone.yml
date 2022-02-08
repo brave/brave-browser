@@ -1,6 +1,5 @@
 base-branch:
-  - "(1.37.x - Nightly)"
-  - "1\\.(\\d+)\\.x"
+  - "(.+)"
 
 head-branch:
-  - ".+"
+  - "(.+)"
