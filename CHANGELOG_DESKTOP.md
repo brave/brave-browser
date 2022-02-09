@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.35.101](https://github.com/brave/brave-browser/releases/tag/v1.35.101)
+
+ - Fixed ad confirmations not being sent when the viewed ad has been removed from the catalog for users with Brave Ads enabled. ([#20890](https://github.com/brave/brave-browser/issues/20890))
+ - Fixed swap quotes being incorrectly rounded in certain cases that lead to issues estimating gas fees for Brave Wallet. ([#20872](https://github.com/brave/brave-browser/issues/20872))
+ - Fixed token assets not selectable under the "Visible Asset" modal for Brave Wallet. ([#20857](https://github.com/brave/brave-browser/issues/20857))
+ - Fixed ETH fiat amounts always displaying zero within the transaction panel for Brave Wallet. ([#20883](https://github.com/brave/brave-browser/issues/20883))
+
 ## [1.35.100](https://github.com/brave/brave-browser/releases/tag/v1.35.100)
 
  - Added "wallet_requestPermissions" and "wallet_getPermissions" for compatibility with https://market.x.immutable.com and others. ([#19274](https://github.com/brave/brave-browser/issues/19274))
