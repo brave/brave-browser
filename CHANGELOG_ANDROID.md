@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.35.101](https://github.com/brave/brave-browser/releases/tag/v1.35.101)
+
+ - Fixed issues with "Desktop mode" which prevented users from being able to view websites in desktop mode. ([#20963](https://github.com/brave/brave-browser/issues/20963))
+ - Fixed phone model being leaked via "navigator.userAgent". ([#20499](https://github.com/brave/brave-browser/issues/20499))
+ - Fixed crash when adding large values into swap input field via Brave Wallet. ([#20881](https://github.com/brave/brave-browser/issues/20881))
+
 ## [1.35.100](https://github.com/brave/brave-browser/releases/tag/v1.35.100)
 
  - Added bitFlyer two-way Brave Rewards wallet for Japan region. ([#18439](https://github.com/brave/brave-browser/issues/18439))
