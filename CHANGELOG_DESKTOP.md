@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.35.102](https://github.com/brave/brave-browser/releases/tag/v1.35.102)
+## [1.35.103](https://github.com/brave/brave-browser/releases/tag/v1.35.103)
 
  - Fixed delta updates on Windows. ([#18696](https://github.com/brave/brave-browser/issues/18696))
  - Upgraded Chromium to 98.0.4758.102. ([#21093](https://github.com/brave/brave-browser/issues/21093)) ([Changelog for 98.0.4758.102](https://chromium.googlesource.com/chromium/src/+log/98.0.4758.87..98.0.4758.102?pretty=fuller&n=1000))
