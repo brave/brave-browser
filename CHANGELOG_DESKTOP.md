@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.35.103](https://github.com/brave/brave-browser/releases/tag/v1.35.103)
+
+ - Fixed delta updates on Windows. ([#18696](https://github.com/brave/brave-browser/issues/18696))
+ - Upgraded Chromium to 98.0.4758.102. ([#21093](https://github.com/brave/brave-browser/issues/21093)) ([Changelog for 98.0.4758.102](https://chromium.googlesource.com/chromium/src/+log/98.0.4758.87..98.0.4758.102?pretty=fuller&n=1000))
+
 ## [1.35.101](https://github.com/brave/brave-browser/releases/tag/v1.35.101)
 
  - Fixed ad confirmations not being sent when the viewed ad has been removed from the catalog for users with Brave Ads enabled. ([#20890](https://github.com/brave/brave-browser/issues/20890))
