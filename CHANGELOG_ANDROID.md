@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.35.103](https://github.com/brave/brave-browser/releases/tag/v1.35.103)
+
+ - Added bitFlyer notification for Japan region only to let users know bitFlyer is available as a custodian. ([#20725](https://github.com/brave/brave-browser/issues/20725))
+ - Fixed crash when attempting to send opened tab to another devices on sync chain using "Send to your devices". ([#21035](https://github.com/brave/brave-browser/issues/21035))
+ - Upgraded Chromium to 98.0.4758.102. ([#21093](https://github.com/brave/brave-browser/issues/21093)) ([Changelog for 98.0.4758.102](https://chromium.googlesource.com/chromium/src/+log/98.0.4758.87..98.0.4758.102?pretty=fuller&n=1000))
+
 ## [1.35.101](https://github.com/brave/brave-browser/releases/tag/v1.35.101)
 
  - Fixed issues with "Desktop mode" which prevented users from being able to view websites in desktop mode. ([#20963](https://github.com/brave/brave-browser/issues/20963))
