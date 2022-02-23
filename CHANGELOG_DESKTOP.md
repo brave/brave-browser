@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.35.104](https://github.com/brave/brave-browser/releases/tag/v1.35.104)
+
+ - Upgraded Chromium to 98.0.4758.109 on macOS. ([#21241](https://github.com/brave/brave-browser/issues/21241)) ([Changelog for 98.0.4758.109](https://chromium.googlesource.com/chromium/src/+log/98.0.4758.102..98.0.4758.109?pretty=fuller&n=1000))
+
 ## [1.35.103](https://github.com/brave/brave-browser/releases/tag/v1.35.103)
 
  - Fixed delta updates on Windows. ([#18696](https://github.com/brave/brave-browser/issues/18696))
