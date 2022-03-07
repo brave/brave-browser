@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.36.111](https://github.com/brave/brave-browser/releases/tag/v1.36.111)
+
+ - Added promotional banner to Brave Wallet. ([#21224](https://github.com/brave/brave-browser/issues/21224))
+
 ## [1.36.109](https://github.com/brave/brave-browser/releases/tag/v1.36.109)
 
  - Added custom RSS support to Brave News. ([#13095](https://github.com/brave/brave-browser/issues/13095))
