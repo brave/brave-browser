@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.36.112](https://github.com/brave/brave-browser/releases/tag/v1.36.112)
+
+ - Fixed not being able to search through assets via the "Buy", "Send" and "Swap" tabs under Brave Wallet. ([#21263](https://github.com/brave/brave-browser/issues/21263))
+
 ## [1.36.111](https://github.com/brave/brave-browser/releases/tag/v1.36.111)
 
  - Added promotional banner to Brave Wallet. ([#21224](https://github.com/brave/brave-browser/issues/21224))
