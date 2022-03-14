@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.36.111](https://github.com/brave/brave-browser/releases/tag/v1.36.111)
+
+ - Added EVM support for compatible chains under Brave Wallet. ([#20337](https://github.com/brave/brave-browser/issues/20337))
+ - Added ability to restore Brave Crypto wallets within Brave Wallet using legacy 24-word mnemonic. ([#18459](https://github.com/brave/brave-browser/issues/18459))
+ - Added WebSockets connection pool limit when shields are enabled. ([#19990](https://github.com/brave/brave-browser/issues/19990))
+ - Added ability to completely disable autocomplete under "Brave Shields and privacy" settings. ([#19647](https://github.com/brave/brave-browser/issues/19647))
+ - Added EIP-55 checksum address checks in the send widget. ([#20132](https://github.com/brave/brave-browser/issues/20132))
+ - Added ability to enable Brave News via settings. ([#21477](https://github.com/brave/brave-browser/issues/21477))
+ - Added ability to scroll through websites within tab groups using swipe gestures. ([#19902](https://github.com/brave/brave-browser/issues/19902))
+ - Updated P3A pings to use JSON format. ([#15967](https://github.com/brave/brave-browser/issues/15967))
+ - Updated setting name and description for "Automatically send diagnostic reports" under brave://settings/privacy for clarity. ([#19822](https://github.com/brave/brave-browser/issues/19822))
+ - Removed the tab stack layout in favor of tab overview mode. ([#21005](https://github.com/brave/brave-browser/issues/21005))
+ - Fixed crash during onboarding when creating a Brave Wallet on certain devices that have biometric unlock enabled. ([#21153](https://github.com/brave/brave-browser/issues/21153))
+ - Fixed biometric unlock only being displayed when initially launching Brave Wallet. ([#19973](https://github.com/brave/brave-browser/issues/19973))
+ - Fixed biometric unlock not being displayed when auto-lock is triggered within Brave Wallet. ([#20036](https://github.com/brave/brave-browser/issues/20036))
+ - Fixed custom network being removed when editing ChainID while custom network not set as default. ([#21046](https://github.com/brave/brave-browser/issues/21046))
+ - Fixed selecting unapproved transactions not displaying the approval screen. ([#19969](https://github.com/brave/brave-browser/issues/19969))
+ - Fixed both "Buy" and "Swap" screens not being closed when an unsupported network is selected. ([#20977](https://github.com/brave/brave-browser/issues/20977))
+ - Fixed being able to select the same token under both the "From" and "To" fields when using Swaps via Brave Wallet. ([#20005](https://github.com/brave/brave-browser/issues/20005))
+ - Fixed incorrect asset icons being used in certain cases for Brave Wallet. ([#20649](https://github.com/brave/brave-browser/issues/20649))
+ - Fixed verify recovery phrase page being displayed when backup wallet is selected after resetting Brave Wallet. ([#20532](https://github.com/brave/brave-browser/issues/20532))
+ - Fixed cursor being reset to beginning of recovery phrase when "Show recovery" is selected. ([#20465](https://github.com/brave/brave-browser/issues/20465))
+ - Fixed several theme issues with Brave Wallet. ([#19827](https://github.com/brave/brave-browser/issues/19827))
+ - Fixed both "Submit" and "Add" buttons being cutoff when adding custom networks via Brave Wallet. ([#20962](https://github.com/brave/brave-browser/issues/20962))
+ - Upgraded Chromium to 99.0.4844.51. ([#21370](https://github.com/brave/brave-browser/issues/21370)) ([Changelog for 99.0.4844.51](https://chromium.googlesource.com/chromium/src/+log/98.0.4758.109..99.0.4844.51?pretty=fuller&n=1000))
+
 ## [1.35.103](https://github.com/brave/brave-browser/releases/tag/v1.35.103)
 
  - Added bitFlyer notification for Japan region only to let users know bitFlyer is available as a custodian. ([#20725](https://github.com/brave/brave-browser/issues/20725))
