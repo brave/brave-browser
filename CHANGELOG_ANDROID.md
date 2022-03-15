@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.36.112](https://github.com/brave/brave-browser/releases/tag/v1.36.112)
+
+ - Fixed crash due to autocomplete in certain cases. ([#21558](https://github.com/brave/brave-browser/issues/21558))
+
 ## [1.36.111](https://github.com/brave/brave-browser/releases/tag/v1.36.111)
 
  - Added EVM support for compatible chains under Brave Wallet. ([#20337](https://github.com/brave/brave-browser/issues/20337))
