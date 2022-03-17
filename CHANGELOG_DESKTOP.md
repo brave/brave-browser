@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.36.117](https://github.com/brave/brave-browser/releases/tag/v1.36.117)
+
+ - Added Brave Search as the default search engine for Tor windows. ([#20583](https://github.com/brave/brave-browser/issues/20583))
+ - Removed the Brave Rewards card from brave://welcome page. ([#21400](https://github.com/brave/brave-browser/issues/21400))
+ - Disabled brave://flags/#enable-lens-region-search by default. ([#21442](https://github.com/brave/brave-browser/issues/21442))
+ - Upgraded Chromium to 99.0.4844.74 on macOS. ([#21693](https://github.com/brave/brave-browser/issues/21693)) ([Changelog for 99.0.4844.74](https://chromium.googlesource.com/chromium/src/+log/99.0.4844.51..99.0.4844.74?pretty=fuller&n=1000))
+
 ## [1.36.116](https://github.com/brave/brave-browser/releases/tag/v1.36.116)
 
  - Added Brave Search as the default search engine for Tor windows. ([#20583](https://github.com/brave/brave-browser/issues/20583))
