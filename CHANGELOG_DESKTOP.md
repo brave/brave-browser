@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.36.117](https://github.com/brave/brave-browser/releases/tag/v1.36.117)
+## [1.36.119](https://github.com/brave/brave-browser/releases/tag/v1.36.119)
 
  - Upgraded Chromium to 99.0.4844.83. ([#21778](https://github.com/brave/brave-browser/issues/21778)) ([Changelog for 99.0.4844.83](https://chromium.googlesource.com/chromium/src/+log/99.0.4844.74..99.0.4844.83?pretty=fuller&n=1000))
 
