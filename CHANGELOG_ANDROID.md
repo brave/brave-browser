@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.36.116](https://github.com/brave/brave-browser/releases/tag/v1.36.116)
+
+ - Fixed Brave News onboarding card still appearing under New Tab Page in certain cases when Brave News has already been enabled via settings. ([#21493](https://github.com/brave/brave-browser/issues/21493))
+ - Upgraded Chromium to 99.0.4844.74. ([#21693](https://github.com/brave/brave-browser/issues/21693)) ([Changelog for 99.0.4844.74](https://chromium.googlesource.com/chromium/src/+log/99.0.4844.51..99.0.4844.74?pretty=fuller&n=1000))
+
 ## [1.36.112](https://github.com/brave/brave-browser/releases/tag/v1.36.112)
 
  - Fixed crash due to autocomplete in certain cases. ([#21558](https://github.com/brave/brave-browser/issues/21558))
