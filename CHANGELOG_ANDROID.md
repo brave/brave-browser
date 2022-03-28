@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.36.122](https://github.com/brave/brave-browser/releases/tag/v1.36.122)
+
+ - Upgraded Chromium to 99.0.4844.88. ([#21889](https://github.com/brave/brave-browser/issues/21889)) ([Changelog for 99.0.4844.88](https://chromium.googlesource.com/chromium/src/+log/99.0.4844.83..99.0.4844.88?pretty=fuller&n=1000))
+
 ## [1.36.116](https://github.com/brave/brave-browser/releases/tag/v1.36.116)
 
  - Fixed Brave News onboarding card still appearing under New Tab Page in certain cases when Brave News has already been enabled via settings. ([#21493](https://github.com/brave/brave-browser/issues/21493))
