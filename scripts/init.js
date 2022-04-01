@@ -20,20 +20,8 @@ if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
   util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
   util.runGit(braveCoreDir, ['checkout', braveCoreRef])
 }
-
-// re-checkout as the commit ref because otherwise gclient sync clobbers
-// the branch for braveCoreRef and doesn't set it to the correct commit
-// for some reason
 const braveCoreSha = util.runGit(braveCoreDir, ['rev-parse', 'HEAD'])
-Log.progress(`Resetting brave core to "${braveCoreSha}"...`)
-util.runGit(braveCoreDir, ['reset', '--hard', 'HEAD'], true)
-let checkoutResult = util.runGit(braveCoreDir, ['checkout', braveCoreSha], true)
-// Handle checkout failure
-if (checkoutResult === null) {
-  Log.error('Could not checkout: ' + braveCoreSha)
-}
-// Checkout was successful
-Log.progress(`...brave core is now at commit ID ${braveCoreSha}`)
+Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}`)
 
 let npmCommand = 'npm'
 if (process.platform === 'win32') {
