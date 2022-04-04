@@ -235,7 +235,7 @@
     "projects": {
       "brave-core": {
         "dir": "src/brave",
-        "branch": "1.37.x",
+        "branch": "100.0.4896.79_1.37.release3",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }
