@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.37.110](https://github.com/brave/brave-browser/releases/tag/v1.37.110)
+
+ - Fixed crash when enabling or disabling P3A in certain cases. ([#22037](https://github.com/brave/brave-browser/issues/22037))
+
 ## [1.37.109](https://github.com/brave/brave-browser/releases/tag/v1.37.109)
 
  - Added fee oracle for EIP-1559 to estimate priority fees in Brave Wallet. ([#20469](https://github.com/brave/brave-browser/issues/20469))
