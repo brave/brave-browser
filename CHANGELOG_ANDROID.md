@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.37.109](https://github.com/brave/brave-browser/releases/tag/v1.37.109)
+
+ - Added fee oracle for EIP-1559 to estimate priority fees in Brave Wallet. ([#20469](https://github.com/brave/brave-browser/issues/20469))
+ - Added ability to to override page elements with "!important" styles using cosmetic filtering. ([#20177](https://github.com/brave/brave-browser/issues/20177))
+ - Improved selection of RPC URLs after input from chainlist.org with variables and wss:// (Affects Arbitrum). ([#20958](https://github.com/brave/brave-browser/issues/20958))
+ - Improved adblocking by applying generic cosmetic filters from brave://adblock into "Standard" shields blocking mode. ([#20855](https://github.com/brave/brave-browser/issues/20855))
+ - Removed references of "Brave DEX Aggregator" from Brave Wallet. ([#20463](https://github.com/brave/brave-browser/issues/20463))
+ - Fixed transaction status not being updated in certain cases for pending transactions in Brave Wallet. ([#21300](https://github.com/brave/brave-browser/issues/21300))
+ - Fixed biometric still enabled after Brave Wallet has been reset via brave://settings/wallet. ([#20444](https://github.com/brave/brave-browser/issues/20444))
+ - Fixed new Brave Wallet transactions not being added into the "Buy", "Send" and "Swap" panels. ([#20677](https://github.com/brave/brave-browser/issues/20677))
+ - Fixed switching to "Private" mode opened a "Standard" tab in certain cases. [#21877](https://github.com/brave/brave-browser/issues/21877))
+ - Fixed desktop mode not working in certain cases. ([#20936](https://github.com/brave/brave-browser/issues/20936))
+ - Fixed New Tab Page Sponsored Image text being cut off at the bottom on certain devices with smaller screen size. ([#21736](https://github.com/brave/brave-browser/issues/21736))
+ - Upgraded Chromium to 100.0.4896.60. ([#21953](https://github.com/brave/brave-browser/issues/21953)) ([Changelog for 100.0.4896.60](https://chromium.googlesource.com/chromium/src/+log/99.0.4844.88..100.0.4896.60?pretty=fuller&n=1000))
+
 ## [1.36.122](https://github.com/brave/brave-browser/releases/tag/v1.36.122)
 
  - Upgraded Chromium to 99.0.4844.88. ([#21889](https://github.com/brave/brave-browser/issues/21889)) ([Changelog for 99.0.4844.88](https://chromium.googlesource.com/chromium/src/+log/99.0.4844.83..99.0.4844.88?pretty=fuller&n=1000))
