@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.37.113](https://github.com/brave/brave-browser/releases/tag/v1.37.113)
+
+ - Added default browser first time dialog on Windows. ([#21464](https://github.com/brave/brave-browser/issues/21464))
+ - Upgraded Chromium to 100.0.4896.88. ([#22221](https://github.com/brave/brave-browser/issues/22221)) ([Changelog for 100.0.4896.88](https://chromium.googlesource.com/chromium/src/+log/100.0.4896.79..100.0.4896.88?pretty=fuller&n=1000))
+
 ## [1.37.111](https://github.com/brave/brave-browser/releases/tag/v1.37.111)
 
  - Upgraded Chromium to 100.0.4896.79. ([#22077](https://github.com/brave/brave-browser/issues/22077)) ([Changelog for 100.0.4896.79](https://chromium.googlesource.com/chromium/src/+log/100.0.4896.60..100.0.4896.79?pretty=fuller&n=1000))
