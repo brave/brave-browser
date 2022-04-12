@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.37.113](https://github.com/brave/brave-browser/releases/tag/v1.37.113)
+
+ - Upgraded Chromium to 100.0.4896.88. ([#22221](https://github.com/brave/brave-browser/issues/22221)) ([Changelog for 100.0.4896.88](https://chromium.googlesource.com/chromium/src/+log/100.0.4896.79..100.0.4896.88?pretty=fuller&n=1000))
+
 ## [1.37.112](https://github.com/brave/brave-browser/releases/tag/v1.37.112)
 
  - Fixed crash when enabling or disabling P3A in certain cases. ([#22037](https://github.com/brave/brave-browser/issues/22037))
