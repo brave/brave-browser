@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.37.114](https://github.com/brave/brave-browser/releases/tag/v1.37.114)
+
+ - Improved general performance by fixing cosmetic filters. ([#22030](https://github.com/brave/brave-browser/issues/22030))
+ - Fixed unreadable tab names when using certain accent colors on Windows. ([#22027](https://github.com/brave/brave-browser/issues/22027))
+ - Fixed tab hover card incorrectly replacing "Chrome" with "Brave" in certain cases. ([#22069](https://github.com/brave/brave-browser/issues/22069))
+ - Fixed brave://rewards loading blank due to local storage issues in certain cases. ([#22113](https://github.com/brave/brave-browser/issues/22113))
+
 ## [1.37.113](https://github.com/brave/brave-browser/releases/tag/v1.37.113)
 
  - Added default browser first time dialog on Windows. ([#21464](https://github.com/brave/brave-browser/issues/21464))
