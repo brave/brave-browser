@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.37.116](https://github.com/brave/brave-browser/releases/tag/v1.37.116)
+
+ - Upgraded Chromium to 100.0.4896.127. ([#22318](https://github.com/brave/brave-browser/issues/22318)) ([Changelog for 100.0.4896.127](https://chromium.googlesource.com/chromium/src/+log/100.0.4896.88..100.0.4896.127?pretty=fuller&n=1000))
+
 ## [1.37.114](https://github.com/brave/brave-browser/releases/tag/v1.37.114)
 
  - Improved general performance by fixing cosmetic filters. ([#22030](https://github.com/brave/brave-browser/issues/22030))
