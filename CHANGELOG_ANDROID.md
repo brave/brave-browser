@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.37.116](https://github.com/brave/brave-browser/releases/tag/v1.37.116)
+
+ - Improved general performance by fixing cosmetic filters. ([#22030](https://github.com/brave/brave-browser/issues/22030))
+ - Added "Enable Tab Group auto creation" setting under "Appearance" which controls the ability to open links in separate tabs. ([#22105](https://github.com/brave/brave-browser/issues/22105))
+ - Fixed rounding issues under Brave Wallet via the "Send" and "Swap" panels by increasing the digits after the decimal to 0.00000000 (8 digits) from 0.000000 (6 digits). ([#22257](https://github.com/brave/brave-browser/issues/22257))
+ - Fixed crash when attempting to send opened tab to another devices on sync chain using "Send to your devices". ([#22128](https://github.com/brave/brave-browser/issues/22128))
+ - Upgraded Chromium to 100.0.4896.127. ([#22318](https://github.com/brave/brave-browser/issues/22318)) ([Changelog for 100.0.4896.127](https://chromium.googlesource.com/chromium/src/+log/100.0.4896.88..100.0.4896.127?pretty=fuller&n=1000))
+
 ## [1.37.113](https://github.com/brave/brave-browser/releases/tag/v1.37.113)
 
  - Upgraded Chromium to 100.0.4896.88. ([#22221](https://github.com/brave/brave-browser/issues/22221)) ([Changelog for 100.0.4896.88](https://chromium.googlesource.com/chromium/src/+log/100.0.4896.79..100.0.4896.88?pretty=fuller&n=1000))
