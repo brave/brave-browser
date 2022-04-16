@@ -7,8 +7,6 @@
 ._*
 
 # editors
-CMakeLists.txt
-cmake-build-debug
 .idea
 .vscode
 *.sw[a-z]
@@ -16,17 +14,3 @@ cmake-build-debug
 
 docs/build
 docs/_build
-node_modules
-src
-
-.cipd
-.gclient_entries
-.gclient
-.sccache
-
-# logs and test results
-npm-debug.log
-network_log.json
-network-audit-results.json
-
-.npmrc
