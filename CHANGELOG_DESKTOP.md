@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.38.111](https://github.com/brave/brave-browser/releases/tag/v1.38.111)
+
+ - Upgraded Chromium to 101.0.4951.54. ([#22665](https://github.com/brave/brave-browser/issues/22665)) ([Changelog for 101.0.4951.54](https://chromium.googlesource.com/chromium/src/+log/101.0.4951.41..101.0.4951.54?pretty=fuller&n=1000))
+
 ## [1.38.109](https://github.com/brave/brave-browser/releases/tag/v1.38.109)
 
  - Added the ability to redirect an AMP page to its canonical non-AMP version. ([#20458](https://github.com/brave/brave-browser/issues/20458))
