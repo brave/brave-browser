@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.38.109](https://github.com/brave/brave-browser/releases/tag/v1.38.109)
+
+ - Added Gemini two-way Brave Rewards wallet. ([#17408](https://github.com/brave/brave-browser/issues/17408))
+ - Added the ability to redirect an AMP page to its canonical non-AMP version. ([#21643](https://github.com/brave/brave-browser/issues/21643))
+ - Added the ability to set custom nonce value for Brave Wallet transactions. ([#20887](https://github.com/brave/brave-browser/issues/20887))
+ - Added the ability to customize the nonce for unapproved Brave Wallet transactions via the transactions confirmation screen. ([#21459](https://github.com/brave/brave-browser/issues/21459))
+ - Added "Clear wallet transaction and nonce information" setting for Brave Wallet under "Settings". ([#21457](https://github.com/brave/brave-browser/issues/21457))
+ - Added notification for Brave Wallet pending transactions. ([#19837](https://github.com/brave/brave-browser/issues/19837))
+ - Added "Show all pending contributions" view into Brave Wallet. ([#17038](https://github.com/brave/brave-browser/issues/17038))
+ - Added isBraveWallet property to window.ethereum. ([#21949](https://github.com/brave/brave-browser/issues/21949))
+ - Updated the Brave Wallet network selector screen. ([#20471](https://github.com/brave/brave-browser/issues/20471))
+ - Updated adblocking to execute all cosmetic scriptlets even if one fails. ([#21932](https://github.com/brave/brave-browser/issues/21932))
+ - Renamed "Monthly Contributions" to "Monthly Tips" for Brave Rewards. ([#20564](https://github.com/brave/brave-browser/issues/20564))
+ - Removed referral code from P3A reports. ([#21460](https://github.com/brave/brave-browser/issues/21460))
+ - Fixed crash when opening the swap page under Brave Wallet for custom watchlist assets. ([#22164](https://github.com/brave/brave-browser/issues/22164))
+ - Fixed users swap values automatically being changed due to the market price constantly being updated in Brave Wallet. ([#22308](https://github.com/brave/brave-browser/issues/22308))
+ - Fixed both "Approve" and "Reject" buttons overlapping the details section when initiating swaps. ([#21605](https://github.com/brave/brave-browser/issues/21605))
+ - Fixed "Approve/Reject" dialog not being displayed for unapproved Brave Wallet transactions via "Asset Details". ([#21458](https://github.com/brave/brave-browser/issues/21458))
+ - Fixed switching networks in Brave Wallet via the "Send" screen not resetting input values. ([#21136](https://github.com/brave/brave-browser/issues/21136))
+ - Fixed unblocked cookie consent dialogs on some websites when the brave://flags/#brave-adblock-cookie-list-default is enabled. ([#22032](https://github.com/brave/brave-browser/issues/22032))
+ - Upgraded Chromium to 101.0.4951.41. ([#22431](https://github.com/brave/brave-browser/issues/22431)) ([Changelog for 101.0.4951.41](https://chromium.googlesource.com/chromium/src/+log/100.0.4896.127..101.0.4951.41?pretty=fuller&n=1000))
+
 ## [1.37.116](https://github.com/brave/brave-browser/releases/tag/v1.37.116)
 
  - Improved general performance by fixing cosmetic filters. ([#22030](https://github.com/brave/brave-browser/issues/22030))
