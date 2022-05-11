@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.38.113](https://github.com/brave/brave-browser/releases/tag/v1.38.113)
+
+ - Upgraded Chromium to 101.0.4951.61. ([#22760](https://github.com/brave/brave-browser/issues/22760)) ([Changelog for 101.0.4951.61](https://chromium.googlesource.com/chromium/src/+log/101.0.4951.41..101.0.4951.61?pretty=fuller&n=1000))
+
 ## [1.38.109](https://github.com/brave/brave-browser/releases/tag/v1.38.109)
 
  - Added Gemini two-way Brave Rewards wallet. ([#17408](https://github.com/brave/brave-browser/issues/17408))
