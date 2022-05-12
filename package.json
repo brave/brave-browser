@@ -238,7 +238,7 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "101.0.4951.64_1.38.release4"
+        "tag": "v1.38.117"
       }
     }
   },
