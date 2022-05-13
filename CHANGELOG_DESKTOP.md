@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.38.117](https://github.com/brave/brave-browser/releases/tag/v1.38.117)
+
+ - Upgraded Chromium to 101.0.4951.67 on Windows. ([#22809](https://github.com/brave/brave-browser/issues/22809)) ([Changelog for 101.0.4951.67](https://chromium.googlesource.com/chromium/src/+log/101.0.4951.64..101.0.4951.67?pretty=fuller&n=1000))
+
 ## [1.38.115](https://github.com/brave/brave-browser/releases/tag/v1.38.115)
 
  - Upgraded Chromium to 101.0.4951.64. ([#22775](https://github.com/brave/brave-browser/issues/22775)) ([Changelog for 101.0.4951.64](https://chromium.googlesource.com/chromium/src/+log/101.0.4951.54..101.0.4951.64?pretty=fuller&n=1000))
