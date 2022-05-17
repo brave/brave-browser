@@ -238,7 +238,7 @@
       },
       "brave-core": {
         "dir": "src/brave",
-        "branch": "page-graph",
+        "branch": "page-graph-rebase",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         }

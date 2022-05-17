@@ -86,7 +86,7 @@ RUN apt update &&\
 
 # Clone the brave-browser `page-graph` branch and build
 WORKDIR /home/docker/
-RUN git clone -b page-graph https://github.com/brave/brave-browser
+RUN git clone -b page-graph-rebase https://github.com/brave/brave-browser
 WORKDIR /home/docker/brave-browser
 RUN chown -R docker /home/docker/brave-browser
 RUN npm install
