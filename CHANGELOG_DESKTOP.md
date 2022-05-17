@@ -2,8 +2,8 @@
 
 ## [1.38.119](https://github.com/brave/brave-browser/releases/tag/v1.38.119)
 
- - Refactored gas fee estimations to help increase successful transactions. ([#22640](https://github.com/brave/brave-browser/issues/22640))
  - Reimplemented the ability to override page elements with "!important" styles using cosmetic filtering. ([#22264](https://github.com/brave/brave-browser/issues/22264))
+ - Refactored gas fee estimations to help increase successful transactions for Brave Wallet. ([#22640](https://github.com/brave/brave-browser/issues/22640))
  - Fixed missing "Hardware wallet requires confirmation on device" modal for Brave Wallet. ([#22652](https://github.com/brave/brave-browser/issues/22652))
  - Fixed Brave Wallet disambiguation between Thor on Avalanche vs Thorswap on Ethereum. ([#22651](https://github.com/brave/brave-browser/issues/22651))
  - Fixed Brave Wallet panel not dismissing on click after completing a transaction with hardware wallet on Windows and Linux. ([#22780](https://github.com/brave/brave-browser/issues/22780))
