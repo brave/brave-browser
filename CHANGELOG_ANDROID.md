@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.38.119](https://github.com/brave/brave-browser/releases/tag/v1.38.119)
+
+ - Added Brave News opt-in card via the New Tab Page. ([#22778](https://github.com/brave/brave-browser/issues/22778))
+ - Reimplemented the ability to override page elements with "!important" styles using cosmetic filtering. ([#22264](https://github.com/brave/brave-browser/issues/22264))
+ - Refactored gas fee estimations to help increase successful transactions for Brave Wallet. ([#22640](https://github.com/brave/brave-browser/issues/22640))
+ - Fixed Brave Wallet disambiguation between Thor on Avalanche vs Thorswap on Ethereum. ([#22651](https://github.com/brave/brave-browser/issues/22651))
+ - Fixed selected custom networks not being displayed within the Brave Wallet portfolio page when selected via the dropdown menu. ([#22425](https://github.com/brave/brave-browser/issues/22425))
+ - Fixed incorrect starting position being used when opening a new tab within another New Tab Page while Brave News is enabled. ([#22549](https://github.com/brave/brave-browser/issues/22549))
+ - Fixed crash when changing device orientation and scrolling through the New Tab Page after upgrade in certain cases. ([#22777](https://github.com/brave/brave-browser/issues/22777))
+ - Fixed Brave News feed reappearing via the New Tab Page after being disabled when changing the device orientation. ([#22444](https://github.com/brave/brave-browser/issues/22444))
+ - Fixed Brave News position not being retained when switching between different tabs. ([#22356](https://github.com/brave/brave-browser/issues/22356))
+ - Fixed tapping on "Load new content" takes user to the second card within the news feed rather than at the beginning of feed. ([#22183](https://github.com/brave/brave-browser/issues/22183))
+ - Upgraded Chromium to 101.0.4951.67. ([#22896](https://github.com/brave/brave-browser/issues/22896)) ([Changelog for 101.0.4951.67](https://chromium.googlesource.com/chromium/src/+log/101.0.4951.61..101.0.4951.67?pretty=fuller&n=1000))
+
 ## [1.38.113](https://github.com/brave/brave-browser/releases/tag/v1.38.113)
 
  - Upgraded Chromium to 101.0.4951.61. ([#22760](https://github.com/brave/brave-browser/issues/22760)) ([Changelog for 101.0.4951.61](https://chromium.googlesource.com/chromium/src/+log/101.0.4951.41..101.0.4951.61?pretty=fuller&n=1000))
@@ -8,12 +22,10 @@
 
  - Added Gemini two-way Brave Rewards wallet. ([#17408](https://github.com/brave/brave-browser/issues/17408))
  - Added the ability to redirect an AMP page to its canonical non-AMP version. ([#21643](https://github.com/brave/brave-browser/issues/21643))
- - Added the ability to set custom nonce value for Brave Wallet transactions. ([#20887](https://github.com/brave/brave-browser/issues/20887))
  - Added the ability to customize the nonce for unapproved Brave Wallet transactions via the transactions confirmation screen. ([#21459](https://github.com/brave/brave-browser/issues/21459))
  - Added "Clear wallet transaction and nonce information" setting for Brave Wallet under "Settings". ([#21457](https://github.com/brave/brave-browser/issues/21457))
  - Added notification for Brave Wallet pending transactions. ([#19837](https://github.com/brave/brave-browser/issues/19837))
  - Added "Show all pending contributions" view into Brave Wallet. ([#17038](https://github.com/brave/brave-browser/issues/17038))
- - Added isBraveWallet property to window.ethereum. ([#21949](https://github.com/brave/brave-browser/issues/21949))
  - Updated the Brave Wallet network selector screen. ([#20471](https://github.com/brave/brave-browser/issues/20471))
  - Updated adblocking to execute all cosmetic scriptlets even if one fails. ([#21932](https://github.com/brave/brave-browser/issues/21932))
  - Renamed "Monthly Contributions" to "Monthly Tips" for Brave Rewards. ([#20564](https://github.com/brave/brave-browser/issues/20564))
