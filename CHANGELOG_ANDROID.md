@@ -2,7 +2,7 @@
 
 ## [1.39.111](https://github.com/brave/brave-browser/releases/tag/v1.39.111)
 
- - Added Brave VPN. ([#12197](https://github.com/brave/brave-browser/issues/12197))
+ - Added Brave Firewall + VPN. ([#12197](https://github.com/brave/brave-browser/issues/12197))
  - Added support for blob partitioning. ([#21746](https://github.com/brave/brave-browser/issues/21746))
  - Implemented eth_getEncryptionPublicKey for Brave Wallet. ([#19276](https://github.com/brave/brave-browser/issues/19276))
  - Reduced adblock filter memory usage by optimizing unused regex rules. ([#21970](https://github.com/brave/brave-browser/issues/21970))
