@@ -6,6 +6,18 @@
  - Fixed cookies being cleared/removed when upgrading from Chromium 101 to Chromium 102. ([#23109](https://github.com/brave/brave-browser/issues/23109))
  - Upgraded Chromium to 102.0.5005.78. ([#23131](https://github.com/brave/brave-browser/issues/23131)) ([Changelog for 102.0.5005.78](https://chromium.googlesource.com/chromium/src/+log/102.0.5005.61..102.0.5005.78?pretty=fuller&n=1000))
 
+## [1.39.111](https://github.com/brave/brave-browser/releases/tag/v1.39.111)
+
+ - Added Brave Firewall + VPN. ([#12197](https://github.com/brave/brave-browser/issues/12197))
+ - Added support for blob partitioning. ([#21746](https://github.com/brave/brave-browser/issues/21746))
+ - Implemented eth_getEncryptionPublicKey for Brave Wallet. ([#19276](https://github.com/brave/brave-browser/issues/19276))
+ - Reduced adblock filter memory usage by optimizing unused regex rules. ([#21970](https://github.com/brave/brave-browser/issues/21970))
+ - Removed known Dialog Insight user tracking parameters from URLs. ([#22082](https://github.com/brave/brave-browser/issues/22082))
+ - Fixed breakage in webpack build caused by OpenSSL 3.0. ([#22305](https://github.com/brave/brave-browser/issues/22305))
+ - Fixed pending bell icon under Brave Wallet not being displayed when new unapproved requests are created. ([#21654](https://github.com/brave/brave-browser/issues/21654))
+ - Fixed expand icon under Brave Shields using incorrect color when the Privacy Hub has been enabled. ([#22049](https://github.com/brave/brave-browser/issues/22049))
+ - Upgraded Chromium to 102.0.5005.61. ([#22923](https://github.com/brave/brave-browser/issues/22923)) ([Changelog for 102.0.5005.61](https://chromium.googlesource.com/chromium/src/+log/101.0.4951.67..102.0.5005.61?pretty=fuller&n=1000))
+
 ## [1.38.119](https://github.com/brave/brave-browser/releases/tag/v1.38.119)
 
  - Added Brave News opt-in card via the New Tab Page. ([#22778](https://github.com/brave/brave-browser/issues/22778))
