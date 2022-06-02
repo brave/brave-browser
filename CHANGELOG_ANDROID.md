@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.39.115](https://github.com/brave/brave-browser/releases/tag/v1.39.115)
+
+ - Disabled Brave Firewall + VPN on both Android 6 and Android 7 due to several crashes. ([#23063](https://github.com/brave/brave-browser/issues/23063)) & ([#23089](https://github.com/brave/brave-browser/issues/23089))
+ - Fixed cookies being cleared/removed when upgrading from Chromium 101 to Chromium 102. ([#23109](https://github.com/brave/brave-browser/issues/23109))
+ - Upgraded Chromium to 102.0.5005.78. ([#23131](https://github.com/brave/brave-browser/issues/23131)) ([Changelog for 102.0.5005.78](https://chromium.googlesource.com/chromium/src/+log/102.0.5005.61..102.0.5005.78?pretty=fuller&n=1000))
+
 ## [1.39.111](https://github.com/brave/brave-browser/releases/tag/v1.39.111)
 
  - Added Brave Firewall + VPN. ([#12197](https://github.com/brave/brave-browser/issues/12197))
