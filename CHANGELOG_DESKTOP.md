@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.39.120](https://github.com/brave/brave-browser/releases/tag/v1.39.120)
+
+ - Updated Wyre and Ramp asset lists for Brave Wallet. ([#23103](https://github.com/brave/brave-browser/issues/23103))
+ - Fixed Solana icon not being displayed in Brave Wallet when using buy functionality with Ramp. ([#23013](https://github.com/brave/brave-browser/issues/23013))
+ - Fixed Testnet tokens not being returned when switching networks with Brave Wallet. ([#23038](https://github.com/brave/brave-browser/issues/23038))
+ - Fixed issue where selected accounts become unselected on the Brave Wallet panel. ([#22999](https://github.com/brave/brave-browser/issues/22999))
+ - Fixed inability to reselect a native asset on the Brave Wallet "Visible Assets" modal. ([#22952](https://github.com/brave/brave-browser/issues/22952))
+ - Fixed GenerateCryptoErrorForTypes error which caused Brave Sync to fail in certain cases. ([#22898](https://github.com/brave/brave-browser/issues/22898))
+ - Fixed navigation to partitioned blobs. ([#23171](https://github.com/brave/brave-browser/issues/23171))
+ - Fixed certain cases where AMP pages would go into loading loop. ([#22610](https://github.com/brave/brave-browser/issues/22610))
+ - Upgraded Chromium to 102.0.5005.99. ([#23311](https://github.com/brave/brave-browser/issues/23311))
+
 ## [1.39.111](https://github.com/brave/brave-browser/releases/tag/v1.39.111)
 
  - Added Solana support for account creation, sending SOL and sending SPL tokens with Brave Wallet. ([#22348](https://github.com/brave/brave-browser/issues/22348))
