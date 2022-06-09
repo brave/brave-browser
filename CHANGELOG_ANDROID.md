@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.39.120](https://github.com/brave/brave-browser/releases/tag/v1.39.120)
+
+ - Changed position of VPN toggle under settings menu. ([#23240](https://github.com/brave/brave-browser/issues/23240))
+ - Fixed browser crash when device attempts connecting to Google Play Store after losing network connectivity in certain cases. ([#23177](https://github.com/brave/brave-browser/issues/23177))
+ - Fixed subscription status under Brave Firewall + VPN settings not specifying if it's a trial, monthly or yearly subscription. ([#23004](https://github.com/brave/brave-browser/issues/23004))
+ - Fixed errors during sync decryption which caused Brave Sync to fail in certain cases. ([#22898](https://github.com/brave/brave-browser/issues/22898))
+ - Fixed certain cases where AMP pages would go into loading loop. ([#22610](https://github.com/brave/brave-browser/issues/22610))
+ - Upgraded Chromium to 102.0.5005.99. ([#23311](https://github.com/brave/brave-browser/issues/23311)) ([Changelog for 102.0.5005.99](https://chromium.googlesource.com/chromium/src/+log/102.0.5005.78..102.0.5005.99?pretty=fuller&n=1000))
+
 ## [1.39.115](https://github.com/brave/brave-browser/releases/tag/v1.39.115)
 
  - Disabled Brave Firewall + VPN on both Android 6 and Android 7 due to several crashes. ([#23063](https://github.com/brave/brave-browser/issues/23063)) & ([#23089](https://github.com/brave/brave-browser/issues/23089))
