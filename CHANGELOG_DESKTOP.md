@@ -2,6 +2,7 @@
 
 ## [1.39.122](https://github.com/brave/brave-browser/releases/tag/v1.39.122)
 
+ - Added Universal binaries for macOS. ([#23307](https://github.com/brave/brave-browser/issues/23307))
  - Upgraded Chromium to 102.0.5005.115. ([#23372](https://github.com/brave/brave-browser/issues/23372)) ([Changelog for 102.0.5005.115](https://chromium.googlesource.com/chromium/src/+log/102.0.5005.99..102.0.5005.115?pretty=fuller&n=1000))
 
 ## [1.39.120](https://github.com/brave/brave-browser/releases/tag/v1.39.120)
