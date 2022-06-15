@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.39.123](https://github.com/brave/brave-browser/releases/tag/v1.39.123)
+
+ - Fixed certain cases where AMP pages would get into a redirect loop. ([#23320](https://github.com/brave/brave-browser/issues/23320))
+ - Upgraded Chromium to 102.0.5005.125. ([#23444](https://github.com/brave/brave-browser/issues/23444)) ([Changelog for 102.0.5005.125](https://chromium.googlesource.com/chromium/src/+log/102.0.5005.99..102.0.5005.125?pretty=fuller&n=1000))
+
 ## [1.39.120](https://github.com/brave/brave-browser/releases/tag/v1.39.120)
 
  - Changed position of VPN toggle under settings menu. ([#23240](https://github.com/brave/brave-browser/issues/23240))
