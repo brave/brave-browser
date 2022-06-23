@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.40.106](https://github.com/brave/brave-browser/releases/tag/v1.40.106)
+
+ - Fixed browser crash when app is brought into view from background with a pending action in Brave Wallet panel while notification badge is shown. ([#23604](https://github.com/brave/brave-browser/issues/23604))
+
 ## [1.40.105](https://github.com/brave/brave-browser/releases/tag/v1.40.105)
 
  - Added Dapps support for Brave Wallet. ([#23159](https://github.com/brave/brave-browser/issues/23159))
