@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.40.105](https://github.com/brave/brave-browser/releases/tag/v1.40.105)
+
+ - Added Dapps support for Brave Wallet. ([#23159](https://github.com/brave/brave-browser/issues/23159))
+ - Added support to list Non-Fungible Token (ERC721) in Brave Wallet. ([#19565](https://github.com/brave/brave-browser/issues/19565))
+ - Added pre-loaded EVMs into Brave Wallet network selector (supported by 0x). ([#22888](https://github.com/brave/brave-browser/issues/22888))
+ - Added ability to remove "Top Tiles" from the New Tab Page via the "New Tab Page" settings. ([#23118](https://github.com/brave/brave-browser/issues/23118))
+ - Retired the option of using DNS over HTTPS for Unstoppable Domains resolution now that layer 2 support has been added. ([#22149](https://github.com/brave/brave-browser/issues/22149))
+ - Changed Ethereum Dapp provider to only be available in secure contexts. ([#23407](https://github.com/brave/brave-browser/issues/23407))
+ - Changed Unstoppable Domains user opt-in interstitial from Cloudflare DoH to Ethereum option. ([#22148](https://github.com/brave/brave-browser/issues/22148))
+ - Removed "Beta" from Brave Wallet via the settings menu. ([#23238](https://github.com/brave/brave-browser/issues/23238))
+ - Updated QR sync code generator to include Brave icon when creating new QR sync codes. ([#22420](https://github.com/brave/brave-browser/issues/22420)) 
+ - Fixed Ethereum Dapps dialog being opened in inactive tabs. ([#23460](https://github.com/brave/brave-browser/issues/23460))
+ - Fixed selected network being used when resolving Unstoppable Domains/Ethereum Name Service to ETH address. ([#22151](https://github.com/brave/brave-browser/issues/22151))
+ - Fixed crash when selecting "VPN Support" under the "Brave Firewall + VPN" settings in certain cases. ([#23492](https://github.com/brave/brave-browser/issues/23492))
+ - Fixed not being able to copy sync code from existing sync chain in certain cases. ([#23206](https://github.com/brave/brave-browser/issues/23206))
+ - Fixed issue where setting Brave as the default browser using the onboarding screen didn't work in certain cases. ([#22766](https://github.com/brave/brave-browser/issues/22766))
+ - Upgraded Chromium to 103.0.5060.53. ([#23482](https://github.com/brave/brave-browser/issues/23482)) ([Changelog for 103.0.5060.53](https://chromium.googlesource.com/chromium/src/+log/102.0.5005.115..103.0.5060.53?pretty=fuller&n=1000))
+
 ## [1.39.123](https://github.com/brave/brave-browser/releases/tag/v1.39.123)
 
  - Fixed certain cases where AMP pages would get into a redirect loop. ([#23320](https://github.com/brave/brave-browser/issues/23320))
