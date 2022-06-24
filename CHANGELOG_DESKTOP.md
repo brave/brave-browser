@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.40.107](https://github.com/brave/brave-browser/releases/tag/v1.40.107)
+
+ - Temporarily disabled Language/Font fingerprinting due to fonts being incorrectly displayed on various websites. ([#23093](https://github.com/brave/brave-browser/issues/23093))
+ - Fixed new tab button using incorrect background color. ([#23423](https://github.com/brave/brave-browser/issues/23423))
+ - Fixed unlimited token allowance incorrectly being displayed in transaction history. ([#23562](https://github.com/brave/brave-browser/issues/23562))
+
 ## [1.40.105](https://github.com/brave/brave-browser/releases/tag/v1.40.105)
 
  - Added Filecoin to Brave Wallet. ([#23169](https://github.com/brave/brave-browser/issues/23169))
