@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- android_chrome_strings.grd contains strings for Brave for Android.
+
+FAQ:
+  - How do I add, change, or remove a string?
+      Just update this file.
+  - Translations will happen automatically??
+      Yes, indeed. Just add your string before the branch point and
+      make the description good.
+  - Tell me more, please?
+      Ok: http://www.chromium.org/developers/design-documents/ui-localization
+
+CHAR_LIMIT guidelines:
+  Certain strings need character limits to prevent a long translation from breaking the UI.
+  Translators will ensure the translation fits within the limit, but may be forced to use odd
+  abbreviations to do so. There is a tradeoff here, so only use character limits when they're
+  necessary.
+
+  For example, a main menu item needs a character limit because the menu item can't wrap, so a long
+  translation will be cut off. On the other hand, an error message that can wrap over multiple lines
+  doesn't need a limit.
+
+  * Most strings - No limit. Omit "[CHAR_LIMIT=...]" altogether.
+  * Main menu items - 27, or 24 characters if it has a checkbox
+  * Settings headers - 32 characters
+  * Settings items - 32 characters
+  * Half-screen buttons - 20 characters
+  * Context menu items - 30 characters
+  * Action bar items - 32 characters
+-->
+<grit current_release="1" latest_public_release="0" output_all_resource_defines="false">
+  <translations>
+    <file path="translations/android_chrome_strings_override_af.xtb" lang="af" />
+    <file path="translations/android_chrome_strings_override_am.xtb" lang="am" />
+    <file path="translations/android_chrome_strings_override_ar.xtb" lang="ar" />
+    <file path="translations/android_chrome_strings_override_as.xtb" lang="as" />
+    <file path="translations/android_chrome_strings_override_az.xtb" lang="az" />
+    <file path="translations/android_chrome_strings_override_be.xtb" lang="be" />
+    <file path="translations/android_chrome_strings_override_bg.xtb" lang="bg" />
+    <file path="translations/android_chrome_strings_override_bn.xtb" lang="bn" />
+    <file path="translations/android_chrome_strings_override_bs.xtb" lang="bs" />
+    <file path="translations/android_chrome_strings_override_ca.xtb" lang="ca" />
+    <file path="translations/android_chrome_strings_override_cs.xtb" lang="cs" />
+    <file path="translations/android_chrome_strings_override_cy.xtb" lang="cy" />
+    <file path="translations/android_chrome_strings_override_da.xtb" lang="da" />
+    <file path="translations/android_chrome_strings_override_de.xtb" lang="de" />
+    <file path="translations/android_chrome_strings_override_el.xtb" lang="el" />
+    <file path="translations/android_chrome_strings_override_en-GB.xtb" lang="en-GB" />
+    <file path="translations/android_chrome_strings_override_es.xtb" lang="es" />
+    <file path="translations/android_chrome_strings_override_es-419.xtb" lang="es-419" />
+    <file path="translations/android_chrome_strings_override_et.xtb" lang="et" />
+    <file path="translations/android_chrome_strings_override_eu.xtb" lang="eu" />
+    <file path="translations/android_chrome_strings_override_fa.xtb" lang="fa" />
+    <file path="translations/android_chrome_strings_override_fi.xtb" lang="fi" />
+    <file path="translations/android_chrome_strings_override_fil.xtb" lang="fil" />
+    <file path="translations/android_chrome_strings_override_fr.xtb" lang="fr" />
+    <file path="translations/android_chrome_strings_override_fr-CA.xtb" lang="fr-CA" />
+    <file path="translations/android_chrome_strings_override_gl.xtb" lang="gl" />
+    <file path="translations/android_chrome_strings_override_gu.xtb" lang="gu" />
+    <file path="translations/android_chrome_strings_override_hi.xtb" lang="hi" />
+    <file path="translations/android_chrome_strings_override_hr.xtb" lang="hr" />
+    <file path="translations/android_chrome_strings_override_hu.xtb" lang="hu" />
+    <file path="translations/android_chrome_strings_override_hy.xtb" lang="hy" />
+    <file path="translations/android_chrome_strings_override_id.xtb" lang="id" />
+    <file path="translations/android_chrome_strings_override_is.xtb" lang="is" />
+    <file path="translations/android_chrome_strings_override_it.xtb" lang="it" />
+    <file path="translations/android_chrome_strings_override_iw.xtb" lang="iw" />
+    <file path="translations/android_chrome_strings_override_ja.xtb" lang="ja" />
+    <file path="translations/android_chrome_strings_override_ka.xtb" lang="ka" />
+    <file path="translations/android_chrome_strings_override_kk.xtb" lang="kk" />
+    <file path="translations/android_chrome_strings_override_km.xtb" lang="km" />
+    <file path="translations/android_chrome_strings_override_kn.xtb" lang="kn" />
+    <file path="translations/android_chrome_strings_override_ko.xtb" lang="ko" />
+    <file path="translations/android_chrome_strings_override_ky.xtb" lang="ky" />
+    <file path="translations/android_chrome_strings_override_lo.xtb" lang="lo" />
+    <file path="translations/android_chrome_strings_override_lt.xtb" lang="lt" />
+    <file path="translations/android_chrome_strings_override_lv.xtb" lang="lv" />
+    <file path="translations/android_chrome_strings_override_mk.xtb" lang="mk" />
+    <file path="translations/android_chrome_strings_override_ml.xtb" lang="ml" />
+    <file path="translations/android_chrome_strings_override_mn.xtb" lang="mn" />
+    <file path="translations/android_chrome_strings_override_mr.xtb" lang="mr" />
+    <file path="translations/android_chrome_strings_override_ms.xtb" lang="ms" />
+    <file path="translations/android_chrome_strings_override_my.xtb" lang="my" />
+    <file path="translations/android_chrome_strings_override_ne.xtb" lang="ne" />
+    <file path="translations/android_chrome_strings_override_nl.xtb" lang="nl" />
+    <file path="translations/android_chrome_strings_override_no.xtb" lang="no" />
+    <file path="translations/android_chrome_strings_override_or.xtb" lang="or" />
+    <file path="translations/android_chrome_strings_override_pa.xtb" lang="pa" />
+    <file path="translations/android_chrome_strings_override_pl.xtb" lang="pl" />
+    <file path="translations/android_chrome_strings_override_pt-BR.xtb" lang="pt-BR" />
+    <file path="translations/android_chrome_strings_override_pt-PT.xtb" lang="pt-PT" />
+    <file path="translations/android_chrome_strings_override_ro.xtb" lang="ro" />
+    <file path="translations/android_chrome_strings_override_ru.xtb" lang="ru" />
+    <file path="translations/android_chrome_strings_override_si.xtb" lang="si" />
+    <file path="translations/android_chrome_strings_override_sk.xtb" lang="sk" />
+    <file path="translations/android_chrome_strings_override_sl.xtb" lang="sl" />
+    <file path="translations/android_chrome_strings_override_sq.xtb" lang="sq" />
+    <file path="translations/android_chrome_strings_override_sr.xtb" lang="sr" />
+    <file path="translations/android_chrome_strings_override_sr-Latn.xtb" lang="sr-Latn" />
+    <file path="translations/android_chrome_strings_override_sv.xtb" lang="sv" />
+    <file path="translations/android_chrome_strings_override_sw.xtb" lang="sw" />
+    <file path="translations/android_chrome_strings_override_ta.xtb" lang="ta" />
+    <file path="translations/android_chrome_strings_override_te.xtb" lang="te" />
+    <file path="translations/android_chrome_strings_override_th.xtb" lang="th" />
+    <file path="translations/android_chrome_strings_override_tr.xtb" lang="tr" />
+    <file path="translations/android_chrome_strings_override_uk.xtb" lang="uk" />
+    <file path="translations/android_chrome_strings_override_ur.xtb" lang="ur" />
+    <file path="translations/android_chrome_strings_override_uz.xtb" lang="uz" />
+    <file path="translations/android_chrome_strings_override_vi.xtb" lang="vi" />
+    <file path="translations/android_chrome_strings_override_zh-CN.xtb" lang="zh-CN" />
+    <file path="translations/android_chrome_strings_override_zh-HK.xtb" lang="zh-HK" />
+    <file path="translations/android_chrome_strings_override_zh-TW.xtb" lang="zh-TW" />
+    <file path="translations/android_chrome_strings_override_zu.xtb" lang="zu" />
+  </translations>
+  <release seq="1">
+    <messages fallback_to_english="true">
+      <message name="IDS_NOTIFICATION_CATEGORY_INCOGNITO" desc="Label for notification that indicates Private mode is active, within a list of notification categories. [CHAR_LIMIT=32]">
+        Private
+      </message>
+      <message name="IDS_SETTINGS_INCOGNITO_TAB_LOCK_TITLE" desc="Title for a toggle in Settings that allows users to lock their existing Private tabs with a device reauthentication mechanism.">
+        Lock Private tabs when you leave Brave
+      </message>
+      <message name="IDS_SETTINGS_INCOGNITO_TAB_LOCK_SUMMARY_ANDROID_SETTING_ON" desc="Summary for a toggle in Settings that allows users to lock their existing Private tabs with a device reauthentication mechanism. This summary is shown to the user when the screen lock setting is on in the device.">
+        Use screen lock to see open Private tabs
+      </message>
+      <message name="IDS_PRIVACY_SANDBOX_SPAM_FRAUD_SUMMARY" desc="The description of card 3 of 3. * “help”: This API is one way that sites can fight fraud. Don’t suggest that sites must use this API to fight fraud. * “distinguish bots from profiles”: This touches on just one aspect of fraud but we hope it helps the user understand the purpose of this API, and that is to distinguish real users from malicious players.">
+        Help sites fight fraud and distinguish bots from profiles
+      </message>
+      <message name="IDS_PRIVACY_SANDBOX_SPAM_FRAUD_DESCRIPTION_TRIALS_ON" desc="The first of 3 paragraphs on the spam &amp; fraud card. This is a behind-the-scenes upgrade to Brave. There aren’t any user controls or data to interact with, at least not yet. * “trust tokens”: explained in the next paragraph * “help”: This feature is one way that sites can fight fraud. Don’t suggest that sites must use this API to fight fraud. * “distinguish bots from profiles”: This touches on just one aspect of fraud but we hope it helps the user understand the purpose of this API, and that is to distinguish real users from malicious players. * “interaction”: is broad. It’s not just viewing a site but also how you interact with it, like by signing in * “Later”:  is important to convey the passage of time. We don’t want to convey how much time (it could be tiny). What’s important is that the user understands this is essentially a two-step process. A trust token is issued. Sometime in the future, when hyou visit a different site, that trust token might get used. ">
+        Spam &amp; fraud reduction relies on trust tokens to help sites fight fraud and distinguish bots from profiles.
+
+Based on your interaction with a site, like regularly signing in to an account, that site can issue a trust token to your browser. Later, if other sites you visit check for and find a valid trust token, they’re more likely to treat you like a profile and not a bot.
+
+Trust tokens improve privacy on the web and can’t be used to find out who you are.
+      </message>
+            <message name="IDS_PRIVACY_SANDBOX_SPAM_FRAUD_DESCRIPTION_TRIALS_OFF" desc="The first of 3 paragraphs on the spam &amp; fraud card. This is a behind-the-scenes upgrade to Brave. There aren’t any user controls or data to interact with, at least not yet. * “trust tokens”: explained in the next paragraph * “help”: This feature is one way that sites can fight fraud. Don’t suggest that sites must use this API to fight fraud. * “distinguish bots from profiles”: This touches on just one aspect of fraud but we hope it helps the user understand the purpose of this API, and that is to distinguish real users from malicious players. * “interaction”: is broad. It’s not just viewing a site but also how you interact with it, like by signing in * “Later”:  is important to convey the passage of time. We don’t want to convey how much time (it could be tiny). What’s important is that the user understands this is essentially a two-step process. A trust token is issued. Sometime in the future, when hyou visit a different site, that trust token might get used. ">
+        When trials are on, Spam &amp; fraud reduction relies on trust tokens to help sites fight fraud and distinguish bots from profiles.
+
+Based on your interaction with a site, like regularly signing in to an account, that site can issue a trust token to your browser. Later, if other sites you visit check for and find a valid trust token, they’re more likely to treat you like a profile and not a bot.
+
+Trust tokens improve privacy on the web and can’t be used to find out who you are.
+      </message>
+      <message name="IDS_PRIVACY_REVIEW_COOKIES_BLOCK_INCOGNITO_TITLE" desc="Title for the radio button for blocking third-party cookies in private.">
+        Block while using private
+      </message>
+      <message name="IDS_PRIVACY_REVIEW_COOKIES_BLOCK_INCOGNITO_DESCRIPTION" desc="Description for the radio button for blocking third-party cookies in private.">
+        While in private, sites can’t use your cookies to see your browsing activity across different sites, for example, to personalize ads. Features on some sites may break.
+      </message>
+      <message name="IDS_DOWNLOAD_LOCATION_INCOGNITO_WARNING" desc="Text that indicates to the user that downloaded files in Private are still saved on the device and are visible to other users of this device.">
+        Anyone using this device can see files you download in Private
+      </message>
+      <message name="IDS_ACCESSIBILITY_TAB_SWITCHER_INCOGNITO_STACK" desc="Content description for the Private stack selection 'button'.">
+        Private tabs
+      </message>
+      <message name="IDS_ACCESSIBILITY_TAB_SWITCHER_INCOGNITO_STACK_SELECTED" desc="Announcement when the Private tab stack is selected.">
+        Switched to Private tabs
+      </message>
+      <message name="IDS_CONTEXTMENU_OPEN_IN_INCOGNITO_TAB" desc="Context sensitive menu item to open the selected link in a new Private tab. [CHAR_LIMIT=30]">
+        Open in Private tab
+      </message>
+      <message name="IDS_CONTEXTMENU_OPEN_IN_CHROME_INCOGNITO_TAB" desc="Context sensitive menu item to open the selected link in a Brave Private tab from Brave Custom Tab. [CHAR_LIMIT=30]">
+        Open in Private tab
+      </message>
+      <message name="IDS_DOWNLOAD_NOTIFICATION_INCOGNITO_SUBTEXT" desc="Displayed in Private mode download notification as subtext.">
+        Private tab
+      </message>
+      <message name="IDS_INCOGNITO_HISTORY_PLACEHOLDER_TITLE" desc="Title that states sites the users visit are not saved in Private mode.">
+        Sites you visit aren’t saved in Private
+      </message>
+      <message name="IDS_INCOGNITO_HISTORY_PLACEHOLDER_DESCRIPTION" desc="Description that states to clear Private browsing history from the device, users need to close all private tabs.">
+        To clear Private browsing history from your device, close all Private tabs.
+      </message>
+
+      <message name="IDS_CLOSE_ALL_INCOGNITO_NOTIFICATION_TITLE" desc="Title on the notification that closes all Private tabs on Android N+.">
+        Private Tabs
+      </message>
+      <message name="IDS_CLOSE_ALL_INCOGNITO_NOTIFICATION" desc="Message on the notification that closes all Private tabs.">
+        Close all Private tabs
+      </message>
+
+     <message name="IDS_INCOGNITO_REAUTH_PAGE_UNLOCK_INCOGNITO_BUTTON_LABEL" desc="The label of button which upon click allows user to start the re-authentication process to view their existing Private tabs.">
+       Unlock Private
+     </message>
+     <message name="IDS_SIGNIN_FRE_UMA_DIALOG_FIRST_SECTION_BODY" desc="Text that describes the benefits users will get if they turn on the metrics sharing option.">
+        Help make Brave better for profiles who use it the way you do
+      </message>
+      <message name="IDS_NEW_INCOGNITO_TAB_TITLE" desc="Title in tab strip when opening a new Private tab.">
+        New Private tab
+      </message>
+      <message name="IDS_FEATURE_NOTIFICATION_GUIDE_NOTIFICATION_MESSAGE_INCOGNITO_TAB" desc="Notification body text educating user about private tab in chrome.">
+        To browse privately on this device, try out Private
+      </message>
+      <message name="IDS_FEATURE_NOTIFICATION_GUIDE_TOOLTIP_MESSAGE_INCOGNITO_TAB" desc="Tooltip text educating user about using private tab in chrome.">
+        To open a new Private tab, open the menu
+      </message>
+      <message name="IDS_BUTTON_NEW_INCOGNITO_TAB" desc="Tooltip for the button to open a new Private browser tab.">
+        New Private tab
+      </message>
+      <message name="IDS_MENU_NEW_INCOGNITO_TAB" desc="Menu item for opening a new Private tab that facilitates pseudononymous browsing. [CHAR_LIMIT=27]" meaning="Android menu">
+        New Private tab
+      </message>
+      <message name="IDS_MENU_CLOSE_ALL_INCOGNITO_TABS" desc="Menu item for closing all open Private tabs. [CHAR_LIMIT=27]">
+        Close Private tabs
+      </message>
+      <message name="IDS_MENU_OPEN_IN_INCOGNITO_CHROME" desc="Context sensitive menu item for opening a link in Brave in a Private tab. [CHAR_LIMIT=30]" translateable="false">
+        Open in Private Brave
+      </message>
+      <message name="IDS_ACCESSIBILITY_NEW_INCOGNITO_TAB_PAGE" desc="Accessibility text to read aloud when the user focuses the new Private tab view.">
+        New Private tab
+      </message>
+      <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_NEW_INCOGNITO_TAB" desc="Content description for the new Private tab button.">
+        New Private tab
+      </message>
+      <message name="IDS_ACCESSIBILITY_INCOGNITO_BADGE" desc="Content description for the badge indicating that the user is in Private mode.">
+        Private mode
+      </message>
+
+      <message name="IDS_ACCESSIBILITY_TABSTRIP_BTN_INCOGNITO_TOGGLE_STANDARD" desc="Content description for the Private tabs toggle button when viewing standard tabs.">
+        Enter Private mode
+      </message>
+      <message name="IDS_ACCESSIBILITY_TABSTRIP_BTN_INCOGNITO_TOGGLE_INCOGNITO" desc="Content description for the Private tabs toggle button when viewing Private tabs.">
+        Leave Private mode
+      </message>
+      <message name="IDS_ACCESSIBILITY_TABSTRIP_INCOGNITO_IDENTIFIER" desc="Content description for tabs that are not selected in Private mode">
+        Private Tab
+      </message>
+      <message name="IDS_ACCESSIBILITY_TABSTRIP_INCOGNITO_IDENTIFIER_SELECTED" desc="Content description for the tab that is selected in Private mode">
+        Selected Private Tab
+      </message>
+      <message name="IDS_KEYBOARD_SHORTCUT_NEW_INCOGNITO_TAB" desc="A text label that appears next to a keyboard shortcut to open a new tab in Private mode in Brave. The shortcut description is shown in a system dialog along with all other supported shortcuts. [CHAR_LIMIT=55]">
+        Open a new tab in Private mode
+      </message>
+      <if expr="enable_arcore">
+        </if>
+
+      <message name="IDS_INSTANCE_SWITCHER_DESC_INCOGNITO" desc="Description of an instance entry with private tab(s) only.">
+        {TAB_COUNT, plural,
+          =1 {<ph name="TAB_COUNT_ONE">%1$s</ph> private tab}
+          other {<ph name="TAB_COUNT_NORMAL">%1$s<ex>2</ex></ph> private tabs}}
+      </message>
+      <message name="IDS_INSTANCE_SWITCHER_DESC_MIXED" desc="Description of an instance entry showing both normal and private tabs.">
+        {TAB_COUNT, plural,
+          =1 {<ph name="TAB_COUNT_ONE">%1$s</ph> tab}
+          other {<ph name="TAB_COUNT_MANY">%2$s<ex>1</ex></ph> tabs, <ph name="TAB_COUNT_INCOGNITO">%1$s</ph> private}}
+      </message>
+      <message name="IDS_INSTANCE_SWITCHER_CLOSE_CONFIRM_DELETED_INCOGNITO" desc="The phrase used in the message for deleting private-only instance.">
+        {TAB_COUNT, plural,
+          =1 {<ph name="TAB_COUNT_ONE">%1$s<ex>1</ex></ph> private tab will be closed}
+          other {<ph name="TAB_COUNT_MANY">%1$s<ex>4</ex></ph> private tabs will be closed}}
+      </message>
+      <message name="IDS_INSTANCE_SWITCHER_CLOSE_CONFIRM_DELETED_INCOGNITO_MIXED" desc="The phrase used in the message for deleting private-selected instance.">
+        {TAB_COUNT, plural,
+          =1 {<ph name="INCOGNITO_TAB_COUNT">%1$s<ex>2</ex></ph> private and <ph name="TAB_COUNT_ONE">%2$s<ex>1</ex></ph> more tab will be closed}
+          other {<ph name="INCOGNITO_TAB_COUNT">%1$s<ex>4</ex></ph> private and <ph name="TAB_COUNT_MANY">%2$s<ex>4</ex></ph> more tabs will be closed}}
+      </message>
+
+      <message name="IDS_QUICK_ACTION_SEARCH_WIDGET_MESSAGE_NO_INCOGNITO" desc="Toast message shown when the user tries to open Private tab which is disabled on the device.">
+        Private is not available on this device
+      </message>
+      <message name="IDS_QR_CODE_SHARE_DESCRIPTION" desc="Text on QR Code sharing tab describing how to use the QR Code.">
+        To share with profiles nearby, let them scan this QR Code
+      </message>
+
+      <message name="IDS_NOTIFICATION_PERMISSION_RATIONALE_DIALOG_MESSAGE" desc="The body text of a dialog explaining the benefits of enabling Brave notifications.">
+        You’ll be able to easily manage media controls, Private sessions, downloads and more
+      </message>
+      <message name="IDS_NOTIFICATION_PERMISSION_RATIONALE_DIALOG_TITLE_VARIATION_2" desc="The title of a dialog shown to users before asking for notification permission.">
+        Manage media controls, Private tabs, and more with notifications
+      </message>
+      </messages>
+  </release>
+</grit>
