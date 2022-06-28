@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.40.109](https://github.com/brave/brave-browser/releases/tag/v1.40.109)
+
+ - Upgraded Chromium to 103.0.5060.66 on Windows. ([#23707](https://github.com/brave/brave-browser/issues/23707)) ([Changelog for 103.0.5060.66](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.53..103.0.5060.66?pretty=fuller&n=1000))
+
 ## [1.40.107](https://github.com/brave/brave-browser/releases/tag/v1.40.107)
 
  - Temporarily disabled Language/Font fingerprinting due to fonts being incorrectly displayed on various websites. ([#23093](https://github.com/brave/brave-browser/issues/23093))
