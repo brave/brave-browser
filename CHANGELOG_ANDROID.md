@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.40.111](https://github.com/brave/brave-browser/releases/tag/v1.40.111)
+
+ - Upgraded Chromium to 103.0.5060.70. ([#23779](https://github.com/brave/brave-browser/issues/23779)) ([Changelog for 103.0.5060.70](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.53..103.0.5060.70?pretty=fuller&n=1000))
+
 ## [1.40.106](https://github.com/brave/brave-browser/releases/tag/v1.40.106)
 
  - Fixed browser crash when app is brought into view from background with a pending action in Brave Wallet panel while notification badge is shown. ([#23604](https://github.com/brave/brave-browser/issues/23604))
