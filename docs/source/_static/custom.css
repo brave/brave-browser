@@ -1,0 +1,23 @@
+/* add padding after logo */
+.logo {
+  height: 100%;
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+div.admonition.note p.admonition-title {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+div.admonition.note p.admonition-title ~ p {
+  margin-top: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+  background: #eee;
+  padding: 25px 30px;
+  margin: 15px 0px;
+  line-height: 1.3em;
+}

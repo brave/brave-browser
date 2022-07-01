@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "draftPR": true,
+  "prConcurrentLimit": 2,
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
+  "reviewers": [
+    "mihaiplesa"
+  ]
+}
