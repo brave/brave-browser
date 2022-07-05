@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.40.113](https://github.com/brave/brave-browser/releases/tag/v1.40.113)
+
+ - Upgraded Chromium to 103.0.5060.114. ([#23860](https://github.com/brave/brave-browser/issues/23860)) ([Changelog for 103.0.5060.114](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.66..103.0.5060.114?pretty=fuller&n=1000))
+
 ## [1.40.111](https://github.com/brave/brave-browser/releases/tag/v1.40.111)
 
  - Upgraded Chromium to 103.0.5060.70. ([#23779](https://github.com/brave/brave-browser/issues/23779)) ([Changelog for 103.0.5060.70](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.53..103.0.5060.70?pretty=fuller&n=1000))
