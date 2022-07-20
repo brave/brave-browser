@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.41.99](https://github.com/brave/brave-browser/releases/tag/v1.41.99)
+
+ - Updated Ramp.Network asset list for Brave Wallet. ([#23897](https://github.com/brave/brave-browser/issues/23897))
+ - Fixed error page being shown when debouncing in certain cases. ([#24080](https://github.com/brave/brave-browser/issues/24080))
+ - Fixed Brave News not loading additional content in certain cases. ([#13761](https://github.com/brave/brave-browser/issues/13761))
+ - Upgraded Chromium to 103.0.5060.134. ([#24122](https://github.com/brave/brave-browser/issues/24122)) ([Changelog for 103.0.5060.134](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.114..103.0.5060.134?pretty=fuller&n=1000))
+
 ## [1.41.96](https://github.com/brave/brave-browser/releases/tag/v1.41.96)
 
  - Added Solana DApp support for Brave Wallet. ([#23520](https://github.com/brave/brave-browser/issues/23520))
