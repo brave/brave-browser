@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.41.96](https://github.com/brave/brave-browser/releases/tag/v1.41.96)
+
+ - Implemented time-limited sync code words. ([#22242](https://github.com/brave/brave-browser/issues/22242))
+ - Added host related information including the ability to disconnect from Brave VPN via the persistent notification. ([#21997](https://github.com/brave/brave-browser/issues/21997))
+ - Added DApp decrypt request screen. ([#23260](https://github.com/brave/brave-browser/issues/23260))
+ - Improved privacy by preventing pages from passing identifiers through "window.name". ([#5910](https://github.com/brave/brave-browser/issues/5910))
+ - Updated the onboarding welcome screens. ([#22946](https://github.com/brave/brave-browser/issues/22946))
+ - Updated the brand logo for Ecosia throughout Brave. ([#23405](https://github.com/brave/brave-browser/issues/23405))
+ - Removed "Desktop Mode" from "Site Settings" as it's a duplicate of "Desktop site". ([#23652](https://github.com/brave/brave-browser/issues/23652))
+ - Fixed not being able to send Non-Fungible Token (ERC721) tokens. ([#23508](https://github.com/brave/brave-browser/issues/23508))
+ - Fixed Swap "To" token value from resetting to 0 when Swap "From" token is changed ([#23631](https://github.com/brave/brave-browser/issues/23631))
+ - Fixed crash when adding Harmony network into Brave Wallet when the locale is set to Hindi. ([#23775](https://github.com/brave/brave-browser/issues/23775))
+ - Fixed blogspot.com URLs not being debounced. ([#22894](https://github.com/brave/brave-browser/issues/22894))
+
 ## [1.40.113](https://github.com/brave/brave-browser/releases/tag/v1.40.113)
 
  - Upgraded Chromium to 103.0.5060.114. ([#23860](https://github.com/brave/brave-browser/issues/23860)) ([Changelog for 103.0.5060.114](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.66..103.0.5060.114?pretty=fuller&n=1000))
