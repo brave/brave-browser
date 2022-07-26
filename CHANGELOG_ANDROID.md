@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.41.100](https://github.com/brave/brave-browser/releases/tag/v1.41.100)
+
+ - Fixed crash which occurred when searching on certain sites due to debouncing. ([#24164](https://github.com/brave/brave-browser/issues/24164))
+
 ## [1.41.99](https://github.com/brave/brave-browser/releases/tag/v1.41.99)
 
  - Fixed error page being shown when debouncing in certain cases. ([#24080](https://github.com/brave/brave-browser/issues/24080))
