@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.41.99](https://github.com/brave/brave-browser/releases/tag/v1.41.99)
+
+ - Fixed error page being shown when debouncing in certain cases. ([#24080](https://github.com/brave/brave-browser/issues/24080))
+ - Upgraded Chromium to 103.0.5060.134. ([#24122](https://github.com/brave/brave-browser/issues/24122)) ([Changelog for 103.0.5060.134](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.114..103.0.5060.134?pretty=fuller&n=1000))
+
 ## [1.41.96](https://github.com/brave/brave-browser/releases/tag/v1.41.96)
 
  - Implemented time-limited sync code words. ([#22242](https://github.com/brave/brave-browser/issues/22242))
