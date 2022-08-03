@@ -9,7 +9,7 @@
  - Added a link to the Brave Help Center from various places within Brave Wallet. ([#22598](https://github.com/brave/brave-browser/issues/22598))
  - Added the ability to import from the Chromium version of Microsoft Edge. ([#13334](https://github.com/brave/brave-browser/issues/13334))
  - Added setting for search engines used in the address bar in private window under brave://settings/search. ([#23091](https://github.com/brave/brave-browser/issues/23091))
- - Added settings to refine autocomplete suggestions in URL bar under brave://settings/appearance. ([#22948](https://github.com/brave/brave-browser/issues/22948))
+ - Added settings to refine autocomplete suggestions in the address bar under brave://settings/appearance. ([#22948](https://github.com/brave/brave-browser/issues/22948))
  - Added the ability to debounce URLs based on a regex applied to the path. ([#23121](https://github.com/brave/brave-browser/issues/23121))
  - [Security] Added a warning to indicate that local IPFS node will bypass browser proxy as reported on HackerOne by neeythann. ([#23570](https://github.com/brave/brave-browser/issues/23570))
  - [Security] Fixed IPFS crash as reported on HackerOne by neeythann. ([#23646](https://github.com/brave/brave-browser/issues/23646))
