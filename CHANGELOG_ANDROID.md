@@ -12,11 +12,11 @@
  - Removed P3A protobuf reporting. ([#23147](https://github.com/brave/brave-browser/issues/23147))
  - Fixed incorrect token being set as default when selecting Buy/Send from token details page. ([#22574](http://github.com/brave/brave-browser/22574))
  - Fixed cosmetic filters not being applied inside of child frames. ([#22781](https://github.com/brave/brave-browser/issues/22781))
- - FIxed input field from being blocked by auto-complete suggestions on certain sites. ([#23487](https://github.com/brave/brave-browser/issues/23487))
+ - Fixed input field from being blocked by auto-complete suggestions on certain sites. ([#23487](https://github.com/brave/brave-browser/issues/23487))
  - Fixed Wallet account address to be displayed in the same line when selected. ([#23558](https://github.com/brave/brave-browser/issues/23558))
  - Fixed Wallet icon color to match based on site theme color. ([#23632](https://github.com/brave/brave-browser/issues/23632))
  - Fixed Wallet interaction notification when tab focus is changed. ([#23745](https://github.com/brave/brave-browser/issues/23745))
- - Fixed incorrect balance being shown for certain tokens. ([#23998](https://github.com/brave/brave-browser/issues/23998))
+ - Fixed incorrect balance being shown for certain tokens in Brave Wallet. ([#23998](https://github.com/brave/brave-browser/issues/23998))
  - Upgraded Chromium to 104.0.5112.81. ([#24364](https://github.com/brave/brave-browser/issues/24364)) ([Changelog for 104.0.5112.81](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.134..104.0.5112.81?pretty=fuller&n=1000))
 
 ## [1.41.100](https://github.com/brave/brave-browser/releases/tag/v1.41.100)
