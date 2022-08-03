@@ -10,7 +10,7 @@
  - Updated default search engine to Brave Search for new installations in certain regions. ([#23814](https://github.com/brave/brave-browser/issues/23814))
  - Removed known Marketo email tracking parameters from URLs. ([#9018](https://github.com/brave/brave-browser/issues/9018))
  - Removed P3A protobuf reporting. ([#23147](https://github.com/brave/brave-browser/issues/23147))
- - Fixed incorrect token being set as default when selecting Buy/Send from token details page in Brave Wallet. ([#22574](https://github.com/brave/brave-browser/22574))
+ - Fixed incorrect token being set as default when selecting Buy/Send from token details page in Brave Wallet. ([#22574](https://github.com/brave/brave-browser/issues/22574))
  - Fixed cosmetic filters not being applied inside of child frames. ([#22781](https://github.com/brave/brave-browser/issues/22781))
  - Fixed input field from being blocked by auto-complete suggestions on certain sites. ([#23487](https://github.com/brave/brave-browser/issues/23487))
  - Fixed Brave Wallet account address to be displayed in the same line when selected. ([#23558](https://github.com/brave/brave-browser/issues/23558))
