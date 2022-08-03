@@ -4,7 +4,7 @@
 
  - Added Aurora EVM chain to preloaded chains for Brave Wallet. ([#23522](https://github.com/brave/brave-browser/issues/23522))
  - Added the ability to debounce URLs based on a regex applied to the path. ([#23121](https://github.com/brave/brave-browser/issues/23121))
- - Added pending request notification to Brave Wallet's icon badge for Decrypt screen. ([#23613](https://github.com/brave/brave-browser/issues/23613))
+ - Added pending request notification to Brave Wallet icon badge for Decrypt screen. ([#23613](https://github.com/brave/brave-browser/issues/23613))
  - Improved Brave Wallet UI on various screens to show the gradient color when selected. ([#23556](https://github.com/brave/brave-browser/issues/23556))
  - Improved fingerprint farbling in aggressive mode. ([#24126](https://github.com/brave/brave-browser/issues/24126))
  - Updated default search engine to Brave Search for new installations in certain regions. ([#23814](https://github.com/brave/brave-browser/issues/23814))
