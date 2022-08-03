@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.42.86](https://github.com/brave/brave-browser/releases/tag/v1.42.86)
+
+ - Added Aurora EVM chain to preloaded chains for Brave Wallet. ([#23522](https://github.com/brave/brave-browser/issues/23522))
+ - Added the ability to debounce URLs based on a regex applied to the path. ([#23121](https://github.com/brave/brave-browser/issues/23121))
+ - Added pending request notification to Brave Wallet icon badge for Decrypt screen. ([#23613](https://github.com/brave/brave-browser/issues/23613))
+ - Improved Brave Wallet UI on various screens to show the gradient color when selected. ([#23556](https://github.com/brave/brave-browser/issues/23556))
+ - Improved fingerprint farbling in aggressive mode. ([#24126](https://github.com/brave/brave-browser/issues/24126))
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#23814](https://github.com/brave/brave-browser/issues/23814))
+ - Removed known Marketo email tracking parameters from URLs. ([#9018](https://github.com/brave/brave-browser/issues/9018))
+ - Removed P3A protobuf reporting. ([#23147](https://github.com/brave/brave-browser/issues/23147))
+ - Fixed incorrect token being set as default when selecting Buy/Send from token details page in Brave Wallet. ([#22574](https://github.com/brave/brave-browser/issues/22574))
+ - Fixed cosmetic filters not being applied inside of child frames. ([#22781](https://github.com/brave/brave-browser/issues/22781))
+ - Fixed input field from being blocked by auto-complete suggestions on certain sites. ([#23487](https://github.com/brave/brave-browser/issues/23487))
+ - Fixed Brave Wallet account address to be displayed in the same line when selected. ([#23558](https://github.com/brave/brave-browser/issues/23558))
+ - Fixed Brave Wallet icon color to match based on site theme color. ([#23632](https://github.com/brave/brave-browser/issues/23632))
+ - Fixed Brave Wallet interaction notification when tab focus is changed. ([#23745](https://github.com/brave/brave-browser/issues/23745))
+ - Fixed incorrect balance being shown for certain tokens in Brave Wallet. ([#23998](https://github.com/brave/brave-browser/issues/23998))
+ - Upgraded Chromium to 104.0.5112.81. ([#24364](https://github.com/brave/brave-browser/issues/24364)) ([Changelog for 104.0.5112.81](https://chromium.googlesource.com/chromium/src/+log/103.0.5060.134..104.0.5112.81?pretty=fuller&n=1000))
+
 ## [1.41.100](https://github.com/brave/brave-browser/releases/tag/v1.41.100)
 
  - Fixed crash which occurred when searching on certain sites due to debouncing. ([#24164](https://github.com/brave/brave-browser/issues/24164))
