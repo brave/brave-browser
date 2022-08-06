@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.42.88](https://github.com/brave/brave-browser/releases/tag/v1.42.88)
+
+ - Fixed webcompat issue on sites when default cryptocurrency wallet provider is set to "Brave Wallet (prefer extensions)". ([#24456](https://github.com/brave/brave-browser/issues/24456))
+
 ## [1.42.86](https://github.com/brave/brave-browser/releases/tag/v1.42.86)
 
  - Added Aurora EVM chain to preloaded chains for Brave Wallet. ([#23522](https://github.com/brave/brave-browser/issues/23522))
