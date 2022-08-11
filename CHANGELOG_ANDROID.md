@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.42.86](https://github.com/brave/brave-browser/releases/tag/v1.42.86)
+## [1.42.94](https://github.com/brave/brave-browser/releases/tag/v1.42.94)
 
  - Added Aurora EVM chain to preloaded chains for Brave Wallet. ([#23522](https://github.com/brave/brave-browser/issues/23522))
  - Added the ability to debounce URLs based on a regex applied to the path. ([#23121](https://github.com/brave/brave-browser/issues/23121))
