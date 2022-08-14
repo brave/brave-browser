@@ -183,3 +183,4 @@ brave-browser> npm run apply_patches
 # Troubleshooting
 
 See [Troubleshooting](https://github.com/brave/brave-browser/wiki/Troubleshooting) for solutions to common problems.
+#this is a test
