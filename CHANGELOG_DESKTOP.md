@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.42.95](https://github.com/brave/brave-browser/releases/tag/v1.42.95)
+
+ - [Security] Refactored Trezor and Ledger hardware wallet bridges to align better with chrome-untrusted:// boundaries. ([#23655](https://github.com/brave/brave-browser/issues/23655))
+ - Fixed Speedreader crash which occurred when using French locale. ([#24513](https://github.com/brave/brave-browser/issues/24513))
+ - Fixed fonts on certain websites not being displayed correctly when shields are enabled due to font fingerprinting on macOS. ([#24468](https://github.com/brave/brave-browser/issues/24468))
+
 ## [1.42.88](https://github.com/brave/brave-browser/releases/tag/v1.42.88)
 
  - Fixed webcompat issue on sites when default cryptocurrency wallet provider is set to "Brave Wallet (prefer extensions)". ([#24456](https://github.com/brave/brave-browser/issues/24456))
