@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.42.97](https://github.com/brave/brave-browser/releases/tag/v1.42.97)
+
+ - Improved fingerprint farbling for subresources. ([#24282](https://github.com/brave/brave-browser/issues/24282))
+ - Upgraded Chromium to 104.0.5112.102. ([#24713](https://github.com/brave/brave-browser/issues/24713)) ([Changelog for 104.0.5112.102](https://chromium.googlesource.com/chromium/src/+log/104.0.5112.81..104.0.5112.102?pretty=fuller&n=1000))
+
 ## [1.42.95](https://github.com/brave/brave-browser/releases/tag/v1.42.95)
 
  - [Security] Refactored Trezor and Ledger hardware wallet bridges to align better with chrome-untrusted:// boundaries. ([#23655](https://github.com/brave/brave-browser/issues/23655))
