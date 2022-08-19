@@ -1,5 +1,14 @@
 # Changelog
 
+
+## [1.42.97](https://github.com/brave/brave-browser/releases/tag/v1.42.97)
+
+ - Added Solana support for account creation, sending SOL and sending SPL tokens with Brave Wallet. ([#24133](https://github.com/brave/brave-browser/issues/24133))
+ - Improved fingerprint farbling for subresources. ([#24282](https://github.com/brave/brave-browser/issues/24282))
+ - Updated tokens list for Aurora Chain in Brave Wallet. ([#24473](https://github.com/brave/brave-browser/issues/24473))
+ - Fixed balance not being updated correctly when changing networks via Brave Wallet. ([#24272](https://github.com/brave/brave-browser/issues/24272))
+ - Upgraded Chromium to 104.0.5112.102. ([#24713](https://github.com/brave/brave-browser/issues/24713)) ([Changelog for 104.0.5112.102](https://chromium.googlesource.com/chromium/src/+log/104.0.5112.81..104.0.5112.102?pretty=fuller&n=1000))
+
 ## [1.42.94](https://github.com/brave/brave-browser/releases/tag/v1.42.94)
 
  - Added Aurora EVM chain to preloaded chains for Brave Wallet. ([#23522](https://github.com/brave/brave-browser/issues/23522))
