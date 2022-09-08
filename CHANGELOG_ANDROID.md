@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.43.88](https://github.com/brave/brave-browser/releases/tag/v1.43.88)
+
+ - Added Brave Translate. ([#23770](https://github.com/brave/brave-browser/issues/23770))
+ - Added dynamic Brave Ads payout status UI to Brave Rewards. ([#23429](https://github.com/brave/brave-browser/issues/23429))
+ - [Security] Implemented feature policy for Ethereum and Solana for iframes. ([#23710](https://github.com/brave/brave-browser/issues/23710))
+ - Updated several onboarding strings to improve the experience for users in India locales. ([#24111](https://github.com/brave/brave-browser/issues/24111))
+ - Updated IPFS to use a longer delay between reconnection attempts. ([#24461](https://github.com/brave/brave-browser/issues/24461))
+ - Fixed native token not being used when switching networks under both the "Send" and "Swap" panels in Brave Wallet. ([#22572](https://github.com/brave/brave-browser/issues/22572))
+ - Fixed native token not being updated when network is changed under the "DApp" panel in Brave Wallet. ([#24078](https://github.com/brave/brave-browser/issues/24078))
+ - Fixed incorrect image being used for the pending contribution message in Brave Rewards. ([#24006](https://github.com/brave/brave-browser/issues/24006))
+ - Fixed Brave News settings bar being cut off when scrolling through the news feed under the New Tab Page. ([#21737](https://github.com/brave/brave-browser/issues/21737))
+ - Fixed Brave News display issue when scrolling through the news feed after changing orientation while under the New Tab Page. ([#22439](https://github.com/brave/brave-browser/issues/22439))
+ - Fixed scrolling issue when swiping through the news feed under the New Tab Page for Brave News. ([#22434](https://github.com/brave/brave-browser/issues/22434))
+ - Fixed inconsistency between the "Sync Chain Code" and "Sync Chain QR Code" error messages in Brave Sync. ([#23948](https://github.com/brave/brave-browser/issues/23948))
+ - Fixed "Show simplified view" being displayed in certain cases even though the setting has been disabled via the "Accessibility" settings. ([#14749](https://github.com/brave/brave-browser/issues/14749))
+ - Fixed string alignment issue under the "Help make Brave better" onboarding panel at first launch. ([#24003](https://github.com/brave/brave-browser/issues/24003))
+ - Upgraded Chromium to 105.0.5195.68. ([#25009](https://github.com/brave/brave-browser/issues/25009)) ([Changelog for 105.0.5195.68](https://chromium.googlesource.com/chromium/src/+log/104.0.5112.102..105.0.5195.68?pretty=fuller&n=1000))
 
 ## [1.42.97](https://github.com/brave/brave-browser/releases/tag/v1.42.97)
 
