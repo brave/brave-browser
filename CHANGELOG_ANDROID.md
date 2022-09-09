@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.43.90](https://github.com/brave/brave-browser/releases/tag/v1.43.90)
+
+ - Fixed crash when disabling Brave Ads under brave://rewards. ([#25191](https://github.com/brave/brave-browser/issues/25191))
+ - Upgraded Chromium to 105.0.5195.102. ([#25173](https://github.com/brave/brave-browser/issues/25173)) ([Changelog for 105.0.5195.102](https://chromium.googlesource.com/chromium/src/+log/105.0.5195.68..105.0.5195.102?pretty=fuller&n=1000))
+
 ## [1.43.88](https://github.com/brave/brave-browser/releases/tag/v1.43.88)
 
  - Added Brave Translate. ([#23770](https://github.com/brave/brave-browser/issues/23770))
