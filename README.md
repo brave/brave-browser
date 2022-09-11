@@ -29,6 +29,8 @@ For other versions of our browser, please see:
 
 Please see the [contributing guidelines](./CONTRIBUTING.md).
 
+Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful technical information.
+
 ## Community
 
 [Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/support-and-troubleshooting),
@@ -55,8 +57,8 @@ git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/br
 cd path-to-your-project-folder/src/brave
 npm install
 
-# the Chromium source is downloaded, which has a large history
-# this might take really long to finish
+# the Chromium source is downloaded, which has a large history (gigabytes of data)
+# this might take really long to finish depending on internet speed
 
 npm run init
 ```
@@ -101,6 +103,7 @@ To run a debug build (Component build with is_debug=true):
 ```bash
 npm run build -- Debug
 ```
+NOTE: the build will take a while to complete. Depending on your processor and memory, it could potentially take a few hours.
 
 Brave staff may also want to try [Goma](https://github.com/brave/devops/wiki/Faster-browser-builds#goma) for faster builds.
 
@@ -136,14 +139,15 @@ Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and
 
 #### Create a new branch:
 ```bash
-brave-core> git checkout -b branch_name
+brave-browser> cd src/brave
+brave-browser/src/brave> git checkout -b branch_name
 ```
 
 #### Checkout an existing branch or tag:
 ```bash
-brave-core> git fetch origin
-brave-core> git checkout [-b] branch_name
-brave-core> npm run sync
+brave-browser/src/brave> git fetch origin
+brave-browser/src/brave> git checkout [-b] branch_name
+brave-browser/src/brave> npm run sync
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -151,8 +155,8 @@ brave-core> npm run sync
 
 #### Update the current branch to the latest remote:
 ```bash
-brave-core> git pull
-brave-core> npm run sync
+brave-browser/src/brave> git pull
+brave-browser/src/brave> npm run sync
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -167,8 +171,9 @@ brave-browser> npm run sync -- --init
 
 #### When you know that DEPS didn't change, but .patch files did (quickest attempt to perform a mini-sync before a build):
 ```bash
-brave-core> git checkout featureB
-brave-core> git pull
+brave-browser/src/brave> git checkout featureB
+brave-browser/src/brave> git pull
+brave-browser/src/brave> cd ../..
 brave-browser> npm run apply_patches
 ...Applying 2 patches...
 ```
