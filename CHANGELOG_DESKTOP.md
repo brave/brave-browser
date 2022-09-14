@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.43.93](https://github.com/brave/brave-browser/releases/tag/v1.43.93)
+
+ - Restored gesture requirement for async clipboard write access. ([#16890](https://github.com/brave/brave-browser/issues/16890))
+ - Fixed crash on brave://settings which occurred due to brave://flags/#brave-sync-v2 being disabled. ([#25156](https://github.com/brave/brave-browser/issues/25156))
+ - Fixed crash on the New Tab Page which occurred due to brave://flags/#brave-news being disabled. ([#25182](https://github.com/brave/brave-browser/issues/25182))
+ - Fixed crash when the "options" dictionary is null in a Brave Wallet "SignAndSendTransaction" request to a Solana provider. ([#25374](https://github.com/brave/brave-browser/issues/25374))
+ - Fixed the "Learn more" link for unverified creators on the Brave Rewards panel not working. ([#25223](https://github.com/brave/brave-browser/issues/25223))
+ - Fixed blank panel on brave://welcome page which displayed in certain cases. ([#24635](https://github.com/brave/brave-browser/issues/24635))
+ - Upgraded Chromium to 105.0.5195.127. ([#25377](https://github.com/brave/brave-browser/issues/25377)) ([Changelog for 105.0.5195.127](https://chromium.googlesource.com/chromium/src/+log/105.0.5195.102..105.0.5195.127?pretty=fuller&n=1000))
+
 ## [1.43.89](https://github.com/brave/brave-browser/releases/tag/v1.43.89)
 
  - Upgraded Chromium to 105.0.5195.102. ([#25173](https://github.com/brave/brave-browser/issues/25173)) ([Changelog for 105.0.5195.102](https://chromium.googlesource.com/chromium/src/+log/105.0.5195.68..105.0.5195.102?pretty=fuller&n=1000))
