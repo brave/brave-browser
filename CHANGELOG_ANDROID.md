@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.43.94](https://github.com/brave/brave-browser/releases/tag/v1.43.94)
+
+ - Upgraded Chromium to 105.0.5195.136. ([#25431](https://github.com/brave/brave-browser/issues/25431)) ([Changelog for 105.0.5195.136](https://chromium.googlesource.com/chromium/src/+log/105.0.5195.127..105.0.5195.136?pretty=fuller&n=1000))
+
 ## [1.43.93](https://github.com/brave/brave-browser/releases/tag/v1.43.93)
 
  - Added "Bridge to Aurora" button under the "Asset" panel in Brave Wallet. ([#24446](https://github.com/brave/brave-browser/issues/24446))
