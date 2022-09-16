@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.43.93](https://github.com/brave/brave-browser/releases/tag/v1.43.93)
+
+ - Added "Bridge to Aurora" button under the "Asset" panel in Brave Wallet. ([#24446](https://github.com/brave/brave-browser/issues/24446))
+ - Restored gesture requirement for async clipboard write access. ([#16890](https://github.com/brave/brave-browser/issues/16890))
+ - Fixed crash when reaching the end of Brave News feed. ([#25312](https://github.com/brave/brave-browser/issues/25312))
+ - Fixed button strings not visible while using dark mode. ([#25225](https://github.com/brave/brave-browser/issues/25225))
+ - Upgraded Chromium to 105.0.5195.127. ([#25377](https://github.com/brave/brave-browser/issues/25377)) ([Changelog for 105.0.5195.127](https://chromium.googlesource.com/chromium/src/+log/105.0.5195.102..105.0.5195.127?pretty=fuller&n=1000))
+
 ## [1.43.90](https://github.com/brave/brave-browser/releases/tag/v1.43.90)
 
  - Fixed crash when disabling Brave Ads under brave://rewards. ([#25191](https://github.com/brave/brave-browser/issues/25191))
