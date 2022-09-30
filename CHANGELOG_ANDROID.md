@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.44.101](https://github.com/brave/brave-browser/releases/tag/v1.44.101)
+
+ - Added .zil TLD support for Unstoppable Domains. ([#24621](https://github.com/brave/brave-browser/issues/24621))
+ - Added "Prevent fingerprinting via language settings" under the "Brave Shields & privacy" settings. ([#24621](https://github.com/brave/brave-browser/issues/23919))  
+ - Added Solana account creation dialog in Brave Wallet under the "Send" screen if Solana account doesn't exist. ([#24463](https://github.com/brave/brave-browser/issues/24463))  
+ - Updated Brave Wallet to create a Solana account by default when creating or restoring a wallet and set Solana as the default network. ([#25432](https://github.com/brave/brave-browser/issues/25432))
+ - Improved de-AMP functionality. ([#22917](https://github.com/brave/brave-browser/issues/22917))
+ - Removed extra whitespace being added when pasting a contract address while adding a custom token in Brave Wallet. ([#24728](https://github.com/brave/brave-browser/issues/24728))
+ - Removed support for legacy Brave Rewards anonymous Uphold cards. ([#24464](https://github.com/brave/brave-browser/issues/24464))
+ - Removed 2 BAT minimum threshold under Brave Rewards before being able to use Uphold as a custodial provider. ([#24759](https://github.com/brave/brave-browser/issues/24759))
+ - Fixed pending Solana Devnet requests not being displayed under "Transactions" via Brave Wallet. ([#24410](https://github.com/brave/brave-browser/issues/24410))
+ - Fixed "Reset Brave Rewards" not working correctly when the Brave Rewards page is opened. ([#8776](https://github.com/brave/brave-browser/issues/8776))
+ - Fixed Brave Rewards panel not displaying "Logged out" when wallet has been disconnected from custodian. ([#23480](https://github.com/brave/brave-browser/issues/23480))
+ - Fixed Brave News feed not being displayed under active NTP when enabling through settings. ([#25500](https://github.com/brave/brave-browser/issues/25500))
+ - Upgraded Chromium to 106.0.5249.65. ([#25629](https://github.com/brave/brave-browser/issues/25629)) ([Changelog for 106.0.5249.65](https://chromium.googlesource.com/chromium/src/+log/105.0.5195.127..106.0.5249.65?pretty=fuller&n=1000))
+
 ## [1.43.94](https://github.com/brave/brave-browser/releases/tag/v1.43.94)
 
  - Upgraded Chromium to 105.0.5195.136. ([#25431](https://github.com/brave/brave-browser/issues/25431)) ([Changelog for 105.0.5195.136](https://chromium.googlesource.com/chromium/src/+log/105.0.5195.127..105.0.5195.136?pretty=fuller&n=1000))
