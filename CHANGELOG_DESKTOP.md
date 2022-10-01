@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.44.105](https://github.com/brave/brave-browser/releases/tag/v1.44.105)
+
+ - Removed "Side panel" display setting from brave://settings/appearance. ([#25689](https://github.com/brave/brave-browser/issues/25689))
+ - Fixed incorrect transaction type for BSC swaps when using Brave Wallet. ([#25696](https://github.com/brave/brave-browser/issues/25696))
+ - Fixed inability to authorize and sign transactions for Ledger accounts when using Brave Wallet. ([#25623](https://github.com/brave/brave-browser/issues/25623))
+ - Fixed inability to migrate or import legacy wallets using the new Brave Wallet onboarding. ([#25612](https://github.com/brave/brave-browser/issues/25612))
+ - Upgraded Chromium to 106.0.5249.91. ([#25737](https://github.com/brave/brave-browser/issues/25737)) ([Changelog for 106.0.5249.91](https://chromium.googlesource.com/chromium/src/+log/106.0.5249.65..106.0.5249.91?pretty=fuller&n=1000))
+
 ## [1.44.101](https://github.com/brave/brave-browser/releases/tag/v1.44.101)
 
  - Added reading list. ([#17959](https://github.com/brave/brave-browser/issues/17959))
