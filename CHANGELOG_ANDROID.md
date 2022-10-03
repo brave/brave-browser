@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.44.105](https://github.com/brave/brave-browser/releases/tag/v1.44.105)
+
+ - Upgraded Chromium to 106.0.5249.91. ([#25737](https://github.com/brave/brave-browser/issues/25737)) ([Changelog for 106.0.5249.91](https://chromium.googlesource.com/chromium/src/+log/106.0.5249.65..106.0.5249.91?pretty=fuller&n=1000))
+
 ## [1.44.101](https://github.com/brave/brave-browser/releases/tag/v1.44.101)
 
  - Added .zil TLD support for Unstoppable Domains. ([#24621](https://github.com/brave/brave-browser/issues/24621))
