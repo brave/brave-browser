@@ -1,4 +1,4 @@
-<!-- Add brave-browser issue bellow that this PR will resolve -->
+<!-- Add brave-browser issue below that this PR will resolve -->
 Resolves 
 
 ## Submitter Checklist:
