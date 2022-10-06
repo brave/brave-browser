@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.44.108](https://github.com/brave/brave-browser/releases/tag/v1.44.108)
+
+ - Fixed broken toggle for "Show Brave Stats" under the "Customize Dashboard" settings modal on the New Tab Page. ([#24985](https://github.com/brave/brave-browser/issues/24985))
+ - Upgraded Chromium to 106.0.5249.103. ([#25827](https://github.com/brave/brave-browser/issues/25827)) ([Changelog for 106.0.5249.103](https://chromium.googlesource.com/chromium/src/+log/106.0.5249.91..106.0.5249.103?pretty=fuller&n=1000))
+
 ## [1.44.105](https://github.com/brave/brave-browser/releases/tag/v1.44.105)
 
  - Removed "Side panel" display setting from brave://settings/appearance. ([#25689](https://github.com/brave/brave-browser/issues/25689))
