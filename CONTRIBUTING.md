@@ -37,7 +37,7 @@ Documentation is extremely important. There are lots of areas we can improve:
 All text being added to Brave is done initially in English (en-US) and then is translated by real people into other languages.
 We're missing translations for many languages and some translations might be incomplete or poor quality.
 
-For everything you'd need to get started, check out https://www.transifex.com/brave/brave/ :smile:
+For everything you'd need to get started, check out https://explore.transifex.com/brave/brave_en/ :smile:
 
 ### Work on the code
 * The [repo's wiki](https://github.com/brave/brave-browser/wiki) has instructions for cloning the repo and getting setup on your platform of choice
