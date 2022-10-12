@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.44.112](https://github.com/brave/brave-browser/releases/tag/v1.44.112)
+
+ - Updated Sardine purchase link to be set to selected network when opened from Buy screen on Brave Wallet. ([#25839](https://github.com/brave/brave-browser/issues/25839))
+ - Removed deprecated Ethereum Testnet's (Ropsten/Rinkeby/Kovan) and added support for Sepolia Testnet for Brave Wallet. ([#25654](https://github.com/brave/brave-browser/issues/25654))
+ - Fixed issue with SignTransaction during NFT purchase on MagicEden when using Brave Wallet. ([#25802](https://github.com/brave/brave-browser/issues/25802))
+ - Fixed crash when opening the New Tab Page in certain cases on Linux. ([#25849](https://github.com/brave/brave-browser/issues/25849))
+ - Upgraded Chromium to 106.0.5249.119. ([#25926](https://github.com/brave/brave-browser/issues/25926)) ([Changelog for 106.0.5249.119](https://chromium.googlesource.com/chromium/src/+log/106.0.5249.103..106.0.5249.119?pretty=fuller&n=1000))
+
 ## [1.44.108](https://github.com/brave/brave-browser/releases/tag/v1.44.108)
 
  - Fixed broken toggle for "Show Brave Stats" under the "Customize Dashboard" settings modal on the New Tab Page. ([#24985](https://github.com/brave/brave-browser/issues/24985))
