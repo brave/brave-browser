@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.44.114](https://github.com/brave/brave-browser/releases/tag/v1.44.114)
+
+ - Fixed crash when tapping on Brave ads within the Brave News feed via the New Tab Page. ([#25933](https://github.com/brave/brave-browser/issues/25933))
+ - Upgraded Chromium to 106.0.5249.126. ([#26018](https://github.com/brave/brave-browser/issues/26018)) ([Changelog for 106.0.5249.126](https://chromium.googlesource.com/chromium/src/+log/106.0.5249.119..106.0.5249.126?pretty=fuller&n=1000))
+
 ## [1.44.112](https://github.com/brave/brave-browser/releases/tag/v1.44.112)
 
  - Removed deprecated Ethereum Testnet's (Ropsten/Rinkeby/Kovan) and added support for Sepolia Testnet for Brave Wallet. ([#25654](https://github.com/brave/brave-browser/issues/25654))
