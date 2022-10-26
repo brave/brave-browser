@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.45.114](https://github.com/brave/brave-browser/releases/tag/v1.45.114)
+
+ - Upgraded Chromium to 107.0.5304.68. ([#26250](https://github.com/brave/brave-browser/issues/26250)) ([Changelog for 107.0.5304.68](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.62..107.0.5304.68?pretty=fuller&n=1000))
+
 ## [1.45.113](https://github.com/brave/brave-browser/releases/tag/v1.45.113)
 
  - Added dialog for blocking cookie consent banners. ([#26203](https://github.com/brave/brave-browser/issues/26203))
