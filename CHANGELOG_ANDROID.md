@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.45.113](https://github.com/brave/brave-browser/releases/tag/v1.45.113)
+
+ - Added dialog for blocking cookie consent banners. ([#8974](https://github.com/brave/brave-browser/issues/8974))
+ - Added QR code scanner to address bar. ([#21478](https://github.com/brave/brave-browser/issues/21478))
+ - Added additional language pairs to Brave Translate. ([#24303](https://github.com/brave/brave-browser/issues/24303))
+ - Added support for province level targeting for select Canadian provinces when using Brave Ads. ([#16682](https://github.com/brave/brave-browser/issues/16682))
+ - [Security] Added additional password protection for Brave Wallet show private key. ([#24830](https://github.com/brave/brave-browser/issues/24830))
+ - Implemented Solana connection state indicator on Brave Wallet panel. ([#24810](https://github.com/brave/brave-browser/issues/24810))
+ - Implemented multi-chain pending transaction requests on Brave Wallet panel. ([#24928](https://github.com/brave/brave-browser/issues/24928))
+ - Enabled theme support for Speedreader. ([#25116](https://github.com/brave/brave-browser/issues/25116))
+ - Improved fingerprinting privacy by adding farbling protections for screen resolution and coordinates. ([#23170](https://github.com/brave/brave-browser/issues/23170))
+ - Improved privacy by preventing private windows from inheriting permissions set in normal windows. ([#24720](https://github.com/brave/brave-browser/issues/24720))
+ - Improved brave://rewards responsiveness. ([#24570](https://github.com/brave/brave-browser/issues/24570))
+ - Updated the text colour of pre-set values to be more legible on the Brave Wallet "Send" screen. ([#24522](https://github.com/brave/brave-browser/issues/24522))
+ - Updated verified vs. unverified criteria for Brave Rewards creator channels. ([#25085](https://github.com/brave/brave-browser/issues/25085))
+ - Removed known Blueshift email tracking parameters from URLs. ([#25238](https://github.com/brave/brave-browser/issues/25238))
+ - Fixed crash when switching/selecting networks and quickly viewing asset details via Brave Wallet. ([#25131](https://github.com/brave/brave-browser/issues/25131))
+ - Fixed misaligned autocomplete icons under the address bar. ([#26063](https://github.com/brave/brave-browser/issues/26063))
+ - Fixed misaligned on-touch animation under Top Sites. ([#24676](https://github.com/brave/brave-browser/issues/24676))
+ - Upgraded Chromium to 107.0.5304.62. ([#26151](https://github.com/brave/brave-browser/issues/26151)) ([Changelog for 107.0.5304.62](https://chromium.googlesource.com/chromium/src/+log/106.0.5249.119..107.0.5304.62?pretty=fuller&n=1000))
+
 ## [1.44.114](https://github.com/brave/brave-browser/releases/tag/v1.44.114)
 
  - Fixed crash when tapping on Brave ads within the Brave News feed via the New Tab Page. ([#25933](https://github.com/brave/brave-browser/issues/25933))
