@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.45.118](https://github.com/brave/brave-browser/releases/tag/v1.45.118)
+
+ - [Security] Fixed download crash which occurred in certain cases as reported on HackerOne by rebane2001. ([#26384](https://github.com/brave/brave-browser/issues/26384))
+ - Fixed crash caused by Crypto.com widget on the New Tab Page. ([#26412](https://github.com/brave/brave-browser/issues/26412))
+ - Fixed shields not blocking WebSocket connections when adding custom filter under brave://settings/shields/filters. ([#26285](https://github.com/brave/brave-browser/issues/26285))
+
 ## [1.45.116](https://github.com/brave/brave-browser/releases/tag/v1.45.116)
 
  - Fixed tab hover preview not being shown correctly when "Card with preview" is selected for the "Tab hover mode" setting under brave://settings/appearance. ([#26251](https://github.com/brave/brave-browser/issues/26251))
