@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.45.120](https://github.com/brave/brave-browser/releases/tag/v1.45.120)
+
+ - Fixed crash when viewing a retention notification in certain cases. ([#26444](https://github.com/brave/brave-browser/issues/26444))
+ - Fixed crash when using the built-in password manager in certain cases. ([#26396](https://github.com/brave/brave-browser/issues/26396))
+ - Fixed crash when viewing "In-app notification settings" under "App notification". ([#26440](https://github.com/brave/brave-browser/issues/26440))
+
 ## [1.45.116](https://github.com/brave/brave-browser/releases/tag/v1.45.116)
 
  - Upgraded Chromium to 107.0.5304.91. ([#26292](https://github.com/brave/brave-browser/issues/26292)) ([Changelog for 107.0.5304.91](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.62..107.0.5304.91?pretty=fuller&n=1000))
