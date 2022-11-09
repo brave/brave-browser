@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.45.123](https://github.com/brave/brave-browser/releases/tag/v1.45.123)
+
+ - Upgraded Chromium to 107.0.5304.110. ([#26621](https://github.com/brave/brave-browser/issues/26621)) ([Changelog for 107.0.5304.110](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.91..107.0.5304.110?pretty=fuller&n=1000))
+
 ## [1.45.120](https://github.com/brave/brave-browser/releases/tag/v1.45.120)
 
  - Fixed crash when viewing a retention notification in certain cases. ([#26444](https://github.com/brave/brave-browser/issues/26444))
