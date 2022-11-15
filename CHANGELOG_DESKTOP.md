@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.45.127](https://github.com/brave/brave-browser/releases/tag/v1.45.127)
+
+ - Added Solana NFT support in Brave Wallet. ([#25864](https://github.com/brave/brave-browser/issues/25864))
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#26181](https://github.com/brave/brave-browser/issues/26181))
+ - Removed FTX widget from the New Tab Page and widget gallery. ([#26683](https://github.com/brave/brave-browser/issues/26683))
+ - Fixed issue where Brave Rewards appears disabled in certain cases. ([#26484](https://github.com/brave/brave-browser/issues/26484))
+
 ## [1.45.123](https://github.com/brave/brave-browser/releases/tag/v1.45.123)
 
  - Upgraded Chromium to 107.0.5304.110. ([#26621](https://github.com/brave/brave-browser/issues/26621)) ([Changelog for 107.0.5304.110](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.91..107.0.5304.110?pretty=fuller&n=1000))
