@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.45.127](https://github.com/brave/brave-browser/releases/tag/v1.45.127)
+
+ - Added Solana NFT support in Brave Wallet. ([#26617](https://github.com/brave/brave-browser/issues/26617))
+ - Added new setting to enable/disable Brave Translate feature. ([#26154](https://github.com/brave/brave-browser/issues/26154))
+ - [Security] Fixed misleading signing request message in Brave Wallet. ([#26372](https://github.com/brave/brave-browser/issues/26372))
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#26318](https://github.com/brave/brave-browser/issues/26318))
+
 ## [1.45.123](https://github.com/brave/brave-browser/releases/tag/v1.45.123)
 
  - Upgraded Chromium to 107.0.5304.110. ([#26621](https://github.com/brave/brave-browser/issues/26621)) ([Changelog for 107.0.5304.110](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.91..107.0.5304.110?pretty=fuller&n=1000))
