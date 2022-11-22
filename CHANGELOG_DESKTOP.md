@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.45.131](https://github.com/brave/brave-browser/releases/tag/v1.45.131)
+
+ - Added header for search.brave.com so Brave Search is aware when Brave Ads are enabled. ([#25430](https://github.com/brave/brave-browser/issues/25430))
+ - Fixed issue where farbling protections for screen resolution and coordinates were incorrectly being applied to extension pages. ([#26715](https://github.com/brave/brave-browser/issues/26715))
+
 ## [1.45.127](https://github.com/brave/brave-browser/releases/tag/v1.45.127)
 
  - Added Solana NFT support in Brave Wallet. ([#25864](https://github.com/brave/brave-browser/issues/25864))
