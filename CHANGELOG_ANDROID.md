@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.45.133](https://github.com/brave/brave-browser/releases/tag/v1.45.133)
+
+ - Upgraded Chromium to 107.0.5304.141. ([#26965](https://github.com/brave/brave-browser/issues/26965)) ([Changelog for 107.0.5304.141](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.110..107.0.5304.141?pretty=fuller&n=1000))
+
 ## [1.45.131](https://github.com/brave/brave-browser/releases/tag/v1.45.131)
 
 - Added header for "search.brave.com" so Brave Search is aware when Brave Ads are enabled. ([#25430](https://github.com/brave/brave-browser/issues/25430))
