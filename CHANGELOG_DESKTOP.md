@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.45.133](https://github.com/brave/brave-browser/releases/tag/v1.45.133)
+
+ - Upgraded Chromium to 107.0.5304.141. ([#26965](https://github.com/brave/brave-browser/issues/26965)) ([Changelog for 107.0.5304.141](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.110..107.0.5304.141?pretty=fuller&n=1000))
+
+## [1.45.131](https://github.com/brave/brave-browser/releases/tag/v1.45.131)
+
+ - Added header for search.brave.com so Brave Search is aware when Brave Ads are enabled. ([#25430](https://github.com/brave/brave-browser/issues/25430))
+ - Fixed issue where farbling protections for screen resolution and coordinates were incorrectly being applied to extension pages. ([#26715](https://github.com/brave/brave-browser/issues/26715))
+
+## [1.45.127](https://github.com/brave/brave-browser/releases/tag/v1.45.127)
+
+ - Added Solana NFT support in Brave Wallet. ([#25864](https://github.com/brave/brave-browser/issues/25864))
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#26181](https://github.com/brave/brave-browser/issues/26181))
+ - Removed FTX widget from the New Tab Page and widget gallery. ([#26683](https://github.com/brave/brave-browser/issues/26683))
+ - Fixed issue where Brave Rewards appears disabled in certain cases. ([#26484](https://github.com/brave/brave-browser/issues/26484))
+
+## [1.45.123](https://github.com/brave/brave-browser/releases/tag/v1.45.123)
+
+ - Upgraded Chromium to 107.0.5304.110. ([#26621](https://github.com/brave/brave-browser/issues/26621)) ([Changelog for 107.0.5304.110](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.91..107.0.5304.110?pretty=fuller&n=1000))
+
+## [1.45.118](https://github.com/brave/brave-browser/releases/tag/v1.45.118)
+
+ - [Security] Fixed download crash which occurred in certain cases as reported on HackerOne by rebane2001. ([#26384](https://github.com/brave/brave-browser/issues/26384))
+ - Fixed crash caused by Crypto.com widget on the New Tab Page. ([#26412](https://github.com/brave/brave-browser/issues/26412))
+ - Fixed shields not blocking WebSocket connections when adding custom filter under brave://settings/shields/filters. ([#26285](https://github.com/brave/brave-browser/issues/26285))
+
 ## [1.45.116](https://github.com/brave/brave-browser/releases/tag/v1.45.116)
 
  - Fixed tab hover preview not being shown correctly when "Card with preview" is selected for the "Tab hover mode" setting under brave://settings/appearance. ([#26251](https://github.com/brave/brave-browser/issues/26251))

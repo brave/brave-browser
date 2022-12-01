@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.45.133](https://github.com/brave/brave-browser/releases/tag/v1.45.133)
+
+ - Upgraded Chromium to 107.0.5304.141. ([#26965](https://github.com/brave/brave-browser/issues/26965)) ([Changelog for 107.0.5304.141](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.110..107.0.5304.141?pretty=fuller&n=1000))
+
+## [1.45.131](https://github.com/brave/brave-browser/releases/tag/v1.45.131)
+
+- Added header for "search.brave.com" so Brave Search is aware when Brave Ads are enabled. ([#25430](https://github.com/brave/brave-browser/issues/25430))
+
+## [1.45.127](https://github.com/brave/brave-browser/releases/tag/v1.45.127)
+
+ - Added Solana NFT support in Brave Wallet. ([#26617](https://github.com/brave/brave-browser/issues/26617))
+ - Added new setting to enable/disable Brave Translate feature. ([#26154](https://github.com/brave/brave-browser/issues/26154))
+ - [Security] Fixed misleading signing request message in Brave Wallet. ([#26372](https://github.com/brave/brave-browser/issues/26372))
+ - Updated default search engine to Brave Search for new installations in certain regions. ([#26318](https://github.com/brave/brave-browser/issues/26318))
+
+## [1.45.123](https://github.com/brave/brave-browser/releases/tag/v1.45.123)
+
+ - Upgraded Chromium to 107.0.5304.110. ([#26621](https://github.com/brave/brave-browser/issues/26621)) ([Changelog for 107.0.5304.110](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.91..107.0.5304.110?pretty=fuller&n=1000))
+
+## [1.45.120](https://github.com/brave/brave-browser/releases/tag/v1.45.120)
+
+ - Fixed crash when viewing a retention notification in certain cases. ([#26444](https://github.com/brave/brave-browser/issues/26444))
+ - Fixed crash when using the built-in password manager in certain cases. ([#26396](https://github.com/brave/brave-browser/issues/26396))
+ - Fixed crash when viewing "In-app notification settings" under "App notification". ([#26440](https://github.com/brave/brave-browser/issues/26440))
+
 ## [1.45.116](https://github.com/brave/brave-browser/releases/tag/v1.45.116)
 
  - Upgraded Chromium to 107.0.5304.91. ([#26292](https://github.com/brave/brave-browser/issues/26292)) ([Changelog for 107.0.5304.91](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.62..107.0.5304.91?pretty=fuller&n=1000))
