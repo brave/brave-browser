@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.46.134](https://github.com/brave/brave-browser/releases/tag/v1.46.134)
+
+ - Upgraded Chromium to 108.0.5359.94. ([#27130](https://github.com/brave/brave-browser/issues/27130)) ([Changelog for 108.0.5359.94](https://chromium.googlesource.com/chromium/src/+log/108.0.5359.71..108.0.5359.94?pretty=fuller&n=1000))
+
 ## [1.46.133](https://github.com/brave/brave-browser/releases/tag/v1.46.133)
 
  - Added Filecoin to Brave Wallet onboarding for asset purchase. ([#25660](https://github.com/brave/brave-browser/issues/25660))
