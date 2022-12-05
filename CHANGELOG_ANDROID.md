@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.46.133](https://github.com/brave/brave-browser/releases/tag/v1.46.133)
+
+ - Added asset discovery for tokens with non-zero balance when restoring Brave Wallet via seed phrase, private key import or via hardware wallet import. ([#19746](https://github.com/brave/brave-browser/issues/19746))
+ - Added custom tip amounts to Brave Rewards. ([#16021](https://github.com/brave/brave-browser/issues/16021))
+ - Added country selection requirement for Brave Rewards. ([#24543](https://github.com/brave/brave-browser/issues/24543))
+ - Added permission request modals for Brave Rewards and Privacy Report when Android notifications are not enabled during onboarding or have been disabled. ([#25042](https://github.com/brave/brave-browser/issues/25042))
+ - Added font fingerprinting protections. ([#24975](https://github.com/brave/brave-browser/issues/24975))
+ - [Security] Fixed "Dark Mode" detection not being blocked when fingerprinting protection is set as strict. ([#25851](https://github.com/brave/brave-browser/issues/25851))
+ - Updated Brave Wallet to ignore Chain ID casing. ([#25707](https://github.com/brave/brave-browser/issues/25707))
+ - Updated Brave Rewards onboarding via the rewards panel. ([#26041](https://github.com/brave/brave-browser/issues/26041))
+ - Updated Brave Rewards tipping banner. ([#17070](https://github.com/brave/brave-browser/issues/17070))
+ - Updated the notifications permission request modal on Android 13. ([#25593](https://github.com/brave/brave-browser/issues/25593))
+ - Updated adblock components to use plaintext lists. ([#25363](https://github.com/brave/brave-browser/issues/25363))
+ - Updated debouncing to only apply to cross site navigations. ([#25859](https://github.com/brave/brave-browser/issues/25859))
+ - Fixed locale parsing of send values in a Brave Wallet transaction. ([#24909](https://github.com/brave/brave-browser/issues/24909))
+ - Fixed Brave Wallet addresses not resolving under the "Send" screen when using QR scanner. ([#25731](https://github.com/brave/brave-browser/issues/25731))
+ - Fixed Brave Rewards banner displaying "Tip Amount" instead of "One-time tip amount" when creating a recurring monthly tip. ([#26348](https://github.com/brave/brave-browser/issues/26348))
+ - Fixed crash on https://d3ward.github.io/toolz/adblock when "RU Adlist" is enabled under brave://settings/shields/filters. ([#26075](https://github.com/brave/brave-browser/issues/26075))
+ - Fixed HTTPSE redirects taking precedence over adblock redirects. ([#26415](https://github.com/brave/brave-browser/issues/26415))
+ - Upgraded Chromium to 108.0.5359.71. ([#27041](https://github.com/brave/brave-browser/issues/27041)) ([Changelog for 108.0.5359.71](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.141..108.0.5359.71?pretty=fuller&n=1000))
+
 ## [1.45.133](https://github.com/brave/brave-browser/releases/tag/v1.45.133)
 
  - Upgraded Chromium to 107.0.5304.141. ([#26965](https://github.com/brave/brave-browser/issues/26965)) ([Changelog for 107.0.5304.141](https://chromium.googlesource.com/chromium/src/+log/107.0.5304.110..107.0.5304.141?pretty=fuller&n=1000))
