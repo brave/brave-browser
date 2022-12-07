@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.46.138](https://github.com/brave/brave-browser/releases/tag/v1.46.138)
+
+ - Fixed performance issue where fingerprint farbling caused some sites to load slowly or not at all. ([#26700](https://github.com/brave/brave-browser/issues/26700))
+ 
 ## [1.46.134](https://github.com/brave/brave-browser/releases/tag/v1.46.134)
 
  - Upgraded Chromium to 108.0.5359.94. ([#27130](https://github.com/brave/brave-browser/issues/27130)) ([Changelog for 108.0.5359.94](https://chromium.googlesource.com/chromium/src/+log/108.0.5359.71..108.0.5359.94?pretty=fuller&n=1000))
