@@ -3,9 +3,14 @@ on:
   push:
     branches:
       - "aka/notify-social"
+  issues:
+    types:
+      - labeled
+      - closed
 
 jobs:
   dump_contexts_to_log:
+    # if: github.event.label.name == 'release-notes/social'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
