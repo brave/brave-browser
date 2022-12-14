@@ -14,3 +14,12 @@ jobs:
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
+
+      - name: Tweet
+        uses: ethomson/send-tweet-action@v1
+        with:
+          status: "🎉 Issue resolved: ${{ github.event.issue.title }}\n${{ github.event.issue.url }}\nfrom ${{ github.event.issue.user.login }}"
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
