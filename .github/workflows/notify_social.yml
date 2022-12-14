@@ -1,8 +1,5 @@
 name: Notify social
 on:
-  push:
-    branches:
-      - "aka/notify-social"
   issues:
     types:
       - labeled
