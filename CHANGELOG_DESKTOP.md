@@ -6,6 +6,7 @@
  - Updated Brave Wallet to not use first available pubkey as the "To" address for Solana unknown instructions. ([#27187](https://github.com/brave/brave-browser/issues/27187))
  - Updated the "Learn more" link on the Windows 7 and 8.1 deprecation infobar. ([#27176](https://github.com/brave/brave-browser/issues/27176))
  - Disabled Manifest V2 deprecation warning message. ([#26207](https://github.com/brave/brave-browser/issues/26207))
+ - Fixed crash when re-opening Brave News from the "Customize Dashboard" modal after following a source. ([#26876](https://github.com/brave/brave-browser/issues/26876))
  - Fixed issue where some websites failed to load when brave://flags#brave-block-screen-fingerprinting is enabled. ([#27021](https://github.com/brave/brave-browser/issues/27021))
  - Upgraded Chromium to 108.0.5359.128. ([#27351](https://github.com/brave/brave-browser/issues/27351)) ([Changelog for 108.0.5359.128](https://chromium.googlesource.com/chromium/src/+log/108.0.5359.99..108.0.5359.128?pretty=fuller&n=1000))
 
