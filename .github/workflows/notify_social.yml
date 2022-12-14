@@ -1,4 +1,4 @@
-name: Notify social
+name: Tweet nightly
 
 on:
   issues:
