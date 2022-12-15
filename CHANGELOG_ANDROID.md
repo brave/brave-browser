@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.46.146](https://github.com/brave/brave-browser/releases/tag/v1.46.146)
+
+ - Added close button ("X") under Brave Rewards tipping banner. ([#26744](https://github.com/brave/brave-browser/issues/26744))
+ - Updated Brave Wallet to sign Solana transactions with selected account instead of fee payer. ([#27051](https://github.com/brave/brave-browser/issues/27051))
+ - Fixed crash during Brave Rewards onboarding when selecting country on both Android 6 and 7. ([#26286](https://github.com/brave/brave-browser/issues/26286))
+ - Fixed "Support this creator" not being displayed under the Brave Rewards tipping banner. ([#26740](https://github.com/brave/brave-browser/issues/26740))
+ - Fixed several spacing issues on Brave Rewards tipping banner when using tablet devices. ([#26739](https://github.com/brave/brave-browser/issues/26739))
+ - Upgraded Chromium to 108.0.5359.128. ([#27351](https://github.com/brave/brave-browser/issues/27351)) ([Changelog for 108.0.5359.128](https://chromium.googlesource.com/chromium/src/+log/108.0.5359.99..108.0.5359.128?pretty=fuller&n=1000))
+
 ## [1.46.138](https://github.com/brave/brave-browser/releases/tag/v1.46.138)
 
  - Fixed performance issue where fingerprint farbling caused some sites to load slowly or not at all. ([#26700](https://github.com/brave/brave-browser/issues/26700))
