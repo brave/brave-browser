@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Tweet
-        uses: ethomson/send-tweet-action@v1
+        uses: snow-actions/tweet@v1.3.0
+        env:
+          CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+          CONSUMER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
         with:
-          status: "🎉 Issue resolved: ${{ github.event.issue.title }}\n${{ github.event.issue.html_url }}\nfrom ${{ github.event.issue.user.login }}"
-          consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
-          consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
-          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          status: "🎉 Issue resolved: ${{ github.event.issue.title }} by ${{ github.event.issue.user.login }}\n${{ github.event.issue.html_url }}"
