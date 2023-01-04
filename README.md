@@ -55,8 +55,9 @@ Once you have the prerequisites installed, you can get the code and initialize t
 ```bash
 git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/brave
 cd path-to-your-project-folder/src/brave
-npm install
+npm install 
 
+# npm commands can be replaced with your preferred package managar commands such as yarn
 # the Chromium source is downloaded, which has a large history (gigabytes of data)
 # this might take really long to finish depending on internet speed
 
