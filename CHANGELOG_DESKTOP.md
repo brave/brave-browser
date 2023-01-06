@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.46.153](https://github.com/brave/brave-browser/releases/tag/v1.46.153)
+
+ - Removed Wyre for buying crypto in Brave Wallet. ([#27634](https://github.com/brave/brave-browser/issues/27634))
+ - Enabled Brave News subscribe button by default. ([#26847](https://github.com/brave/brave-browser/issues/26847))
+
 ## [1.46.144](https://github.com/brave/brave-browser/releases/tag/v1.46.144)
 
  - Updated Brave Wallet to sign Solana transactions with selected account instead of fee payer. ([#27051](https://github.com/brave/brave-browser/issues/27051))
