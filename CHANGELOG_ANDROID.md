@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.46.154](https://github.com/brave/brave-browser/releases/tag/v1.46.154)
+
+ - Removed Wyre for buying crypto in Brave Wallet. ([#27681](https://github.com/brave/brave-browser/issues/27681))
+
 ## [1.46.146](https://github.com/brave/brave-browser/releases/tag/v1.46.146)
 
  - Added close button ("X") under Brave Rewards tipping banner. ([#26744](https://github.com/brave/brave-browser/issues/26744))
