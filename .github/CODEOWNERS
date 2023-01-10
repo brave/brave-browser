@@ -1,3 +1,4 @@
-* @brave/devops-team @brave/uplift-approvers
+* @brave/devops-team
+/CHANGELOG_*.md @brave/uplift-approvers
 lib/util.js @bridiver
 lib/build.js @bridiver
