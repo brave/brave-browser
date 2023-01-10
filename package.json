@@ -1,7 +1,7 @@
 {
   "name": "brave",
-  "version": "1.49.13",
-  "description": "Next generation Brave browser for macOS, Windows, Linux, and eventually Android",
+  "version": "1.49.14",
+  "description": "Next generation Brave browser for macOS, Windows, Linux, and Android",
   "homepage": "https://github.com/brave/brave-browser#readme",
   "bugs": {
     "url": "https://github.com/brave/brave-browser/issues"
