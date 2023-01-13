@@ -71,6 +71,10 @@ npm config set target_os android
 npm config set target_arch arm
 ```
 
+Additional parameters needed to build are documented at https://github.com/brave/brave-browser/wiki/Build-configuration
+
+Internal developers can find more information at https://github.com/brave/devops/wiki/npm-config-for-Brave-Developers
+
 ## Build Brave
 The default build type is component.
 
