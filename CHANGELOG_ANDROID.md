@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.47.172](https://github.com/brave/brave-browser/releases/tag/v1.47.172)
+
+ - Added Solana DApp support for Brave Wallet. ([#27527](https://github.com/brave/brave-browser/issues/27527))
+ - Added support for "$removeparam" adblock filter syntax under brave://settings/shields/filters. ([#23927](https://github.com/brave/brave-browser/issues/23927))
+ - Added "Connecting to selected custodian temporarily unavailable" error modal in Brave Rewards. ([#25125](https://github.com/brave/brave-browser/issues/25125))
+ - Added widget onboarding and updated widget previews to remove Chrome defaults. ([#22875](https://github.com/brave/brave-browser/issues/22875))
+ - Added ability to scroll through "Top Sites" on the New Tab Page. ([#26942](https://github.com/brave/brave-browser/issues/26942))
+ - [Security] Improved browser privacy by reducing high resolution timer precision as reported on HackerOne by joe12387. ([#24681](https://github.com/brave/brave-browser/issues/24681))
+ - [Security] Improved URL bar by always displaying eTLD+1 URLs. ([#26155](https://github.com/brave/brave-browser/issues/26155))
+ - Improved asset discovery for Brave Wallet. ([#25820](https://github.com/brave/brave-browser/issues/25820))
+ - Improved performance of cosmetic filtering in third-party iframes. ([#26212](https://github.com/brave/brave-browser/issues/26212))
+ - Updated permission request modals for Brave Rewards and Privacy Report when Android notifications are not enabled during onboarding or have been disabled. ([#27032](https://github.com/brave/brave-browser/issues/27032))
+ - Disabled the paint preview feature by default. ([#25123](https://github.com/brave/brave-browser/issues/25123))
+ - Removed "Restore" tab from "Manage Brave Rewards" modal. ([#26338](https://github.com/brave/brave-browser/issues/26338))
+ - Removed known tracking parameter "vgo_ee" from URLs. ([#26295](https://github.com/brave/brave-browser/issues/26295))
+ - Fixed NFT details page displaying as a token and listing all available accounts. ([#23507](https://github.com/brave/brave-browser/issues/23507))
+ - Fixed Brave News crash which occurred when certain characters were at the end of the title or description field. ([#26604](https://github.com/brave/brave-browser/issues/26604))
+ - Fixed default search engine for private tabs not updating until all private tabs have been closed. ([#25821](https://github.com/brave/brave-browser/issues/25821))
+ - Upgraded Chromium to 109.0.5414.87. ([#27710](https://github.com/brave/brave-browser/issues/27710)) ([Changelog for 109.0.5414.87](https://chromium.googlesource.com/chromium/src/+log/108.0.5359.128..109.0.5414.87?pretty=fuller&n=1000))
+
 ## [1.46.154](https://github.com/brave/brave-browser/releases/tag/v1.46.154)
 
  - Removed Wyre for buying crypto in Brave Wallet. ([#27681](https://github.com/brave/brave-browser/issues/27681))
