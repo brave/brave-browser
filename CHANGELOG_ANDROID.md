@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.47.175](https://github.com/brave/brave-browser/releases/tag/v1.47.175)
+
+ - Fixed several crashes related to the permission request modals for Brave Rewards and Privacy Report. ([#27810](https://github.com/brave/brave-browser/issues/27810)) ([#27809](https://github.com/brave/brave-browser/issues/27809))
+ - Fixed crash when viewing ad notifications in certain cases. ([#27808](https://github.com/brave/brave-browser/issues/27808))
+
 ## [1.47.172](https://github.com/brave/brave-browser/releases/tag/v1.47.172)
 
  - Added Solana DApp support for Brave Wallet. ([#27527](https://github.com/brave/brave-browser/issues/27527))
