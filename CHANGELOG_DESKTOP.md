@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.47.186](https://github.com/brave/brave-browser/releases/tag/v1.47.186)
+
+ - Added the ability to dismiss the end of support message on both Windows 7 and 8.1. ([#27649](https://github.com/brave/brave-browser/issues/27649))
+ - Fixed crash when viewing sync QR code in certain cases.  ([#27343](https://github.com/brave/brave-browser/issues/27343))
+ - Fixed crash in "DomainBlockNavigationThrottle" in certain cases when adding "$removeparam" rules into "brave://settings/shields/filters". ([#27791](https://github.com/brave/brave-browser/issues/27791))
+ - Fixed some "$removeparam" filter rules not being applied to document requests. ([#27819](https://github.com/brave/brave-browser/issues/27819))
+ - Upgraded Chromium to 109.0.5414.119. ([#28011](https://github.com/brave/brave-browser/issues/28011)) ([Changelog for 109.0.5414.119](https://chromium.googlesource.com/chromium/src/+log/109.0.5414.87..109.0.5414.119?pretty=fuller&n=1000))
+
 ## [1.47.171](https://github.com/brave/brave-browser/releases/tag/v1.47.171)
 
  - Added a fiat balance for each token and account total in the Brave Wallet "Select Token" modal. ([#26838](https://github.com/brave/brave-browser/issues/26838))
