@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.47.186](https://github.com/brave/brave-browser/releases/tag/v1.47.186)
+
+ - Added Ramp network support in Brave Wallet. ([#27678](https://github.com/brave/brave-browser/issues/27678))
+ - Fixed crash when creating a Brave Wallet in certain cases. ([#27805](https://github.com/brave/brave-browser/issues/27805))
+ - Fixed crash when displaying the Brave search widget onboarding in certain cases. ([#27903](https://github.com/brave/brave-browser/issues/27903))
+ - Fixed some "$removeparam" filter rules not being applied to document requests. ([#27819](https://github.com/brave/brave-browser/issues/27819))
+ - Fixed crash in "DomainBlockNavigationThrottle" in certain cases when adding "$removeparam" rules into "brave://settings/shields/filters". ([#27791](https://github.com/brave/brave-browser/issues/27791))
+ - Fixed intermittent crash when accessing DApps. ([#28015](https://github.com/brave/brave-browser/issues/28015))
+ - Fixed crash when scrolling through the Brave News feed in certain cases. ([#27836](https://github.com/brave/brave-browser/issues/27836))
+ - Fixed startup crash when attempting to access the ads notification channel when not created in certain cases. ([#27982](https://github.com/brave/brave-browser/issues/27982))
+ - Fixed crash when updating settings menu icon state in certain cases. ([#27856](https://github.com/brave/brave-browser/issues/27856))
+ - Fixed crash when accessing Brave VPN billing in certain cases. ([#27751](https://github.com/brave/brave-browser/issues/27751))
+ - Fixed "Top Tile" icons being cut off within the quick action widget on certain devices. ([#26645](https://github.com/brave/brave-browser/issues/26645))
+ - Fixed icons within the bookmark widget not being displayed correctly when minimized vertically. ([#27801](https://github.com/brave/brave-browser/issues/27801))
+ - Fixed placeholder text within search widget not being updated when changing default search engine. ([#27749](https://github.com/brave/brave-browser/issues/27749))
+ - Fixed legacy widgets not being removed from current widget list after updating profile. ([#27757](https://github.com/brave/brave-browser/issues/27757))
+ - Fixed text under the permission request modals when using dark theme. ([#27767](https://github.com/brave/brave-browser/issues/27767))
+ - Upgraded Chromium to 109.0.5414.119. ([#28011](https://github.com/brave/brave-browser/issues/28011)) ([Changelog for 109.0.5414.119](https://chromium.googlesource.com/chromium/src/+log/109.0.5414.87..109.0.5414.119?pretty=fuller&n=1000))
+
 ## [1.47.175](https://github.com/brave/brave-browser/releases/tag/v1.47.175)
 
  - Fixed several crashes related to the permission request modals for Brave Rewards and Privacy Report. ([#27810](https://github.com/brave/brave-browser/issues/27810)) ([#27809](https://github.com/brave/brave-browser/issues/27809))
