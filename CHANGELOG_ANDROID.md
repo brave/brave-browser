@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.47.188](https://github.com/brave/brave-browser/releases/tag/v1.47.188)
+
+ - Reverted [#27757](https://github.com/brave/brave-browser/issues/27757) which was causing issues on certain Samsung devices due to old widgets not being removed from the manifest file. ([#28118](https://github.com/brave/brave-browser/issues/28118))
+ - Fixed crash when scrolling through the Brave News feed in certain cases. ([#28086](https://github.com/brave/brave-browser/issues/28086))
+
 ## [1.47.186](https://github.com/brave/brave-browser/releases/tag/v1.47.186)
 
  - Added Ramp network support in Brave Wallet. ([#27678](https://github.com/brave/brave-browser/issues/27678))
