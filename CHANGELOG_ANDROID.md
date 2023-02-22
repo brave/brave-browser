@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.48.164](https://github.com/brave/brave-browser/releases/tag/v1.48.164)
+
+ - Upgraded Chromium to 110.0.5481.100. ([#28515](https://github.com/brave/brave-browser/issues/28515)) ([Changelog for 110.0.5481.100](https://chromium.googlesource.com/chromium/src/+log/110.0.5481.77..110.0.5481.100?pretty=fuller&n=1000))
+
 ## [1.48.160](https://github.com/brave/brave-browser/releases/tag/v1.48.160)
 
  - Added NFT asset details screen in Brave Wallet. ([#27276](https://github.com/brave/brave-browser/issues/27276))
