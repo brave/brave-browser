@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.48.171](https://github.com/brave/brave-browser/releases/tag/v1.48.171)
+
+ - [Security] Perform download safety check even when user is prompted for save location as reported on HackerOne by ameenbasha. ([#28079](https://github.com/brave/brave-browser/issues/28079))
+ - Implemented amount reset when user changes "Swap from" asset in Brave Wallet. ([#27816](https://github.com/brave/brave-browser/issues/27816))
+ - Fixed incorrect token symbol being displayed in Brave Wallet when sending MATIC over Mumbai Testnet. ([#28548](https://github.com/brave/brave-browser/issues/28548))
+ - Fixed Brave Wallet "Review order" button being incorrectly disabled when changing Swap tokens. ([#28248](https://github.com/brave/brave-browser/issues/28248))
+ - Fixed continuous fetch of Swap quote when an order is in review in Brave Wallet. ([#28063](https://github.com/brave/brave-browser/issues/28063))
+ - Fixed USDC/USDT not being shown as swappable tokens in Brave Wallet. ([#28032](https://github.com/brave/brave-browser/issues/28032))
+ - Fixed Brave fees for WETH, ETH, and BTC swaps on Solana in Brave Wallet. ([#27447](https://github.com/brave/brave-browser/issues/27447))
+ - Fixed preview images of pictures and web links not loading properly on Discord. ([#28428](https://github.com/brave/brave-browser/issues/28428))
+ - Fixed left margin padding for the top site tiles on the New Tab Page. ([#28071](https://github.com/brave/brave-browser/issues/28071))
+ - Fixed long wait times when starting a sync chain with multiple devices with a large amount of bookmarks. ([#27931](https://github.com/brave/brave-browser/issues/27931))
+ - Upgraded Chromium to 110.0.5481.177. ([#28690](https://github.com/brave/brave-browser/issues/28690)) ([Changelog for 110.0.5481.177](https://chromium.googlesource.com/chromium/src/+log/110.0.5481.104..110.0.5481.177?pretty=fuller&n=1000))
+
 ## [1.48.167](https://github.com/brave/brave-browser/releases/tag/v1.48.167)
 
  - Upgraded Chromium to 110.0.5481.104 on Windows. ([#28567](https://github.com/brave/brave-browser/issues/28567)) ([Changelog for 110.0.5481.104](https://chromium.googlesource.com/chromium/src/+log/110.0.5481.100..110.0.5481.104?pretty=fuller&n=1000))
