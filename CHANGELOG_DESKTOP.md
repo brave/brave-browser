@@ -39,7 +39,6 @@
 
 ### General
 
- - Added support for cross-platform Brave VPN. ([#25680](https://github.com/brave/brave-browser/issues/25680))
  - Added "Copy Text From Image" entry to image context menu. ([#27513](https://github.com/brave/brave-browser/issues/27513))
  - Added a keyboard shortcut for "Copy clean link". ([#26761](https://github.com/brave/brave-browser/issues/26761))
  - Added "Copy clean link" to the macOS application menu bar. ([#26825](https://github.com/brave/brave-browser/issues/26825))
