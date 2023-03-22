@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.49.128](https://github.com/brave/brave-browser/releases/tag/v1.49.128)
+
+### Web3
+
+ - Fixed inability to connect Brave Wallet to https://snapshot.org. ([#28896](https://github.com/brave/brave-browser/issues/28896))
+ - Fixed Brave Wallet to use selected account as "From" when adding Solana DApp transactions. ([#28955](https://github.com/brave/brave-browser/issues/28955))
+
+### General
+
+ - Added clickable centered area on New Tab Page Sponsored Images. ([#28736](https://github.com/brave/brave-browser/issues/28736))
+ - Added the ability to disable keyboard shortcut for "Copy clean link" under brave://flags/#brave-copy-clean-link-by-default. ([#29177](https://github.com/brave/brave-browser/issues/29177))
+ - Fixed issue where keyboard shortcut incorrectly copied URL instead of selected text in certain cases on macOS. ([#28694](https://github.com/brave/brave-browser/issues/28694))
+ - Fixed "Copy clean link" context menu option not displaying the associated keyboard shortcut on Linux. ([#28891](https://github.com/brave/brave-browser/issues/28891))
+ - Fixed issue where Brave News subscription modal showed incorrect blog name for https://brave.com/latest. ([#28064](https://github.com/brave/brave-browser/issues/28064))
+ - Upgraded Chromium to 111.0.5563.110. ([#29219](https://github.com/brave/brave-browser/issues/29219)) ([Changelog for 111.0.5563.110](https://chromium.googlesource.com/chromium/src/+log/111.0.5563.64..111.0.5563.110?pretty=fuller&n=1000))
+
 ## [1.49.120](https://github.com/brave/brave-browser/releases/tag/v1.49.120)
 
 ### Web3
