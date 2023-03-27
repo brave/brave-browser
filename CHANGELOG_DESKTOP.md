@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.49.131](https://github.com/brave/brave-browser/releases/tag/v1.49.131)
+
+ - Disabled keyboard shortcut for "Copy clean link" on macOS by default. ([#29303](https://github.com/brave/brave-browser/issues/29303))
+
 ## [1.49.128](https://github.com/brave/brave-browser/releases/tag/v1.49.128)
 
 ### Web3
