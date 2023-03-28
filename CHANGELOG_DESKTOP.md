@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.49.132](https://github.com/brave/brave-browser/releases/tag/v1.49.132)
+
+### Web3
+
+ - Fixed issue with multiple onboarding tabs opening up for Magic Eden. ([#28546](https://github.com/brave/brave-browser/issues/28546))
+
+### General
+
+ - Disabled keyboard shortcut for "Copy clean link" on macOS by default. ([#29303](https://github.com/brave/brave-browser/issues/29303))
+ - Upgraded Chromium to 111.0.5563.147. ([#29341](https://github.com/brave/brave-browser/issues/29341)) ([Changelog for 111.0.5563.147](https://chromium.googlesource.com/chromium/src/+log/111.0.5563.116..111.0.5563.147?pretty=fuller&n=1000))
+
 ## [1.49.128](https://github.com/brave/brave-browser/releases/tag/v1.49.128)
 
 ### Web3
