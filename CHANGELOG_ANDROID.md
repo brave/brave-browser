@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.49.132](https://github.com/brave/brave-browser/releases/tag/v1.49.132)
+
+### Web3
+
+ - Fixed issue with multiple onboarding tabs opening up for Magic Eden. ([#28546](https://github.com/brave/brave-browser/issues/28546))
+
+### General
+
+ - Fixed crash when scrolling through the Brave News feed in certain cases. ([#28576](https://github.com/brave/brave-browser/issues/28576))
+ - Upgraded Chromium to 111.0.5563.147. ([#29341](https://github.com/brave/brave-browser/issues/29341)) ([Changelog for 111.0.5563.147](https://chromium.googlesource.com/chromium/src/+log/111.0.5563.116..111.0.5563.147?pretty=fuller&n=1000))
+
 ## [1.49.129](https://github.com/brave/brave-browser/releases/tag/v1.49.129)
 
 ### Web3
