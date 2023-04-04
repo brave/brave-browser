@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.49.129](https://github.com/brave/brave-browser/releases/tag/v1.49.129)
+
+### Web3
+
+  - Added "Swap" button to the token details screen. ([#28914](https://github.com/brave/brave-browser/issues/28914))
+  - Fixed missing users wallet address as fee payer when submitting Solana transactions in certain cases. ([#28955](https://github.com/brave/brave-browser/issues/28955))
+  - Fixed token balance not being updated correctly when user changes network or accounts. ([#28879](https://github.com/brave/brave-browser/issues/28879))
+
+### General
+
+ - Fixed blob partitioning. ([#28934](https://github.com/brave/brave-browser/issues/28934)) 
+ - Fixed "Share via" not working in Custom Tabs. ([#28805](https://github.com/brave/brave-browser/issues/28805)) 
+ - Fixed searching or opening pages through the URL bar not correctly triggering events for user activity. ([#28826](https://github.com/brave/brave-browser/issues/28826)) 
+ - Fixed subscription "Status" and "Expires" fields appearing blank after redeeming a VPN subscription. ([#28910](https://github.com/brave/brave-browser/issues/28910)) 
+ - Fixed crash when adding VPN subscription in certain cases. ([#29037](https://github.com/brave/brave-browser/issues/29037)) 
+ - Fixed crash when the "Enable" VPN modal is displayed in certain cases. ([#29039](https://github.com/brave/brave-browser/issues/29039)) 
+ - Fixed crash when the bottom toolbar is initialized in certain cases. ([#29184](https://github.com/brave/brave-browser/issues/29184)) 
+ - Upgraded Chromium to 111.0.5563.116. ([#29229](https://github.com/brave/brave-browser/issues/29229)) ([Changelog for 111.0.5563.116](https://chromium.googlesource.com/chromium/src/+log/111.0.5563.64..111.0.5563.116?pretty=fuller&n=1000))
+
 ## [1.49.122](https://github.com/brave/brave-browser/releases/tag/v1.49.122)
 
 ### Web3
