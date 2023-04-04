@@ -16,7 +16,7 @@
 ### Web3
 
  - Fixed inability to connect Brave Wallet to https://snapshot.org. ([#28896](https://github.com/brave/brave-browser/issues/28896))
- - Fixed Brave Wallet to use selected account as "From" when adding Solana DApp transactions. ([#28955](https://github.com/brave/brave-browser/issues/28955))
+ - Fixed missing users wallet address as fee payer when submitting Solana transactions in certain cases. ([#28955](https://github.com/brave/brave-browser/issues/28955))
 
 ### General
 
