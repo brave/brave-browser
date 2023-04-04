@@ -1,5 +1,39 @@
 # Changelog
 
+## [1.49.122](https://github.com/brave/brave-browser/releases/tag/v1.49.122)
+
+### Web3
+
+ - Added auto-discovery of Solana assets. ([#27246](https://github.com/brave/brave-browser/issues/27246))
+ - Added loading skeletons to Brave Wallet asset list on the "Portfolio" and "Account" pages. ([#27344](https://github.com/brave/brave-browser/issues/27344))
+ - Implemented "logs" support for "eth_subscribe". ([#27283](https://github.com/brave/brave-browser/issues/27283))
+
+### Brave Rewards
+ 
+ - Implemented vBAT messaging. ([#27883](https://github.com/brave/brave-browser/issues/27883))
+ - Updated Brave Rewards for users in specific countries to disallow enabling and show clearer unavailable messaging. ([#25276](https://github.com/brave/brave-browser/issues/25276))
+ - Fixed accidental tipping by not selecting a tipping amount by default under the tipping banner. ([#7767](https://github.com/brave/brave-browser/issues/7767))
+ - Fixed crash in rewards tipping banner in certain cases. ([#28316](https://github.com/brave/brave-browser/issues/28316))
+ - Fixed crash in rewards site banner in certain cases. ([#28088](https://github.com/brave/brave-browser/issues/28088))
+ - Fixed "Accourding" spelling error under the limited functionality toast notification. ([#28215](https://github.com/brave/brave-browser/issues/28215)) 
+
+### General
+
+ - Added support for ":has" pseudoclass in cosmetic filters. ([#27874](https://github.com/brave/brave-browser/issues/27874))
+ - Added support for "$match-case" option for adblock filters. ([#28194](https://github.com/brave/brave-browser/issues/28194))
+ - Added ability to disable download progress notifications via "Downloads" settings. ([#25611](https://github.com/brave/brave-browser/issues/25611))
+ - Enabled Safe Browsing by default. ([#27642](https://github.com/brave/brave-browser/issues/27642))
+ - Included "Fanboy's Mobile Notifications List" in brave://adblock by default. ([#24506](https://github.com/brave/brave-browser/issues/24506))
+ - [Security] Restricted QR scanner to only open HTTP/HTTPS URL schemas rather than allowing any valid URL schema to be opened. ([#28703](https://github.com/brave/brave-browser/issues/28703))
+ - Removed the search engine onboarding for new installations in India. ([#28656](https://github.com/brave/brave-browser/issues/27709))
+ - Updated default search engine to Brave Search for new installations in India. ([#27709](https://github.com/brave/brave-browser/issues/28656))
+ - Fixed crash when accessing Brave VPN billing in certain cases. ([#28946](https://github.com/brave/brave-browser/issues/28946))
+ - Fixed crash when viewing the retention notification in certain cases. ([#28317](https://github.com/brave/brave-browser/issues/28317))
+ - Fixed "Open in New Tab" under Brave News not opening tabs in background. ([#26289](https://github.com/brave/brave-browser/issues/26289))
+ - Fixed "Rate Brave" button overlapping the "Liking Brave" rating card in certain cases. ([#28315](https://github.com/brave/brave-browser/issues/28315))
+ - Fixed Brave icons being incorrectly sized in Android's browser app picker. ([#27937](https://github.com/brave/brave-browser/issues/27937))
+ - Upgraded Chromium to 111.0.5563.64. ([#28922](https://github.com/brave/brave-browser/issues/28922)) ([Changelog for 111.0.5563.64](https://chromium.googlesource.com/chromium/src/+log/110.0.5481.177..111.0.5563.64?pretty=fuller&n=1000))
+
 ## [1.48.171](https://github.com/brave/brave-browser/releases/tag/v1.48.171)
 
  - Fixed crash when fetching balance on the "Portfolio" screen via Brave Wallet in certain cases. ([#28452](https://github.com/brave/brave-browser/issues/28452))
