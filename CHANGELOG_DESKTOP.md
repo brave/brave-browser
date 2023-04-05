@@ -1,5 +1,61 @@
 # Changelog
 
+## [1.50.114](https://github.com/brave/brave-browser/releases/tag/v1.50.114)
+
+### Web3
+
+ - Added Filecoin EVM to preloaded networks. ([#28954](https://github.com/brave/brave-browser/issues/28954))
+ - Added selected state to the side navigation bar. ([#28786](https://github.com/brave/brave-browser/issues/28786))
+ - Added additional currencies supported by Transak to the buy flow. ([#28412](https://github.com/brave/brave-browser/issues/28412))
+ - Added localized text for Filecoin transactions. ([#26136](https://github.com/brave/brave-browser/issues/26136))
+ - Added loading indicators on Brave Wallet panel when fetching transaction values. ([#23663](https://github.com/brave/brave-browser/issues/23663))
+ - Implemented NFT pinning. ([#26828](https://github.com/brave/brave-browser/issues/26828))
+ - Implemented filtering options for "eth_subscribe" with "logs". ([#27842](https://github.com/brave/brave-browser/issues/27842))
+ - Updated Brave Wallet to use BalanceScanner contracts for ETH asset discovery. ([#28203](https://github.com/brave/brave-browser/issues/28203))
+ - Updated Brave Wallet to hide accounts with zero balance in asset details view. ([#28761](https://github.com/brave/brave-browser/issues/28761))
+ - Updated error message when there is no FIL token linked to a domain address. ([#28041](https://github.com/brave/brave-browser/issues/28041))
+ - Updated "Portfolio" page to retain the selected network view between page refreshes. ([#27364](https://github.com/brave/brave-browser/issues/27364))
+ - Updated Brave Wallet to use Solana backend decoder instruction. ([#25681](https://github.com/brave/brave-browser/issues/25681))
+ - Removed Transak assets that are not supported in the US. ([#29334](https://github.com/brave/brave-browser/issues/29334))
+ - Disabled account selection drop down until a token is selected. ([#28777](https://github.com/brave/brave-browser/issues/28777))
+ - Fixed inability to deploy a contract using Brave Wallet. ([#29252](https://github.com/brave/brave-browser/issues/29252))
+ - Fixed Brave Wallet not showing lock screen when browser is reopened. ([#28402](https://github.com/brave/brave-browser/issues/28402))
+ - Fixed issue where the same token on different chains showed fiat value of zero. ([#28753](https://github.com/brave/brave-browser/issues/28753))
+ - Fixed asset discovery for cUSDT. ([#28752](https://github.com/brave/brave-browser/issues/28752))
+ - Fixed display of NFT icon when an NFT has a long name. ([#28276](https://github.com/brave/brave-browser/issues/28276))
+ - Fixed display of long NFT names on the "Visible assets" modal. ([#28275](https://github.com/brave/brave-browser/issues/28275))
+
+### Brave Rewards
+
+ - Added additional settings under brave://settings/rewards to control inline tip buttons without having to enable Brave Rewards. ([#28023](https://github.com/brave/brave-browser/issues/28023))
+ - Removed the "Backup" tab from the "Reset Brave Rewards" modal under brave://rewards. ([#27547](https://github.com/brave/brave-browser/issues/27547))
+
+### General
+
+ - Added brave://flags/#brave-sync-send-all-history flag to enable the ability to send all history entries to Brave Sync. ([#28062](https://github.com/brave/brave-browser/issues/28062))
+ - Added "Mute Tab" to the macOS application menu. ([#28705](https://github.com/brave/brave-browser/issues/28705))
+ - Added "Power" section under brave://settings/system. ([#28615](https://github.com/brave/brave-browser/issues/28615))
+ - Added keyboard shortcut to show/hide the sidebar. ([#27994](https://github.com/brave/brave-browser/issues/27994))
+ - Added support for ":-abp-has()" procedural selector in adblock rules. ([#28609](https://github.com/brave/brave-browser/issues/28609))
+ - Enabled "Screenshot" feature by default. ([#28560](https://github.com/brave/brave-browser/issues/28560))
+ - Enabled download bubble feature by default. ([#28562](https://github.com/brave/brave-browser/issues/28562))
+ - Enabled all available regional adblock filter lists for a given locale on first launch. ([#20825](https://github.com/brave/brave-browser/issues/20825))
+ - Implemented "HTTPS by Default" feature. ([#27141](https://github.com/brave/brave-browser/issues/27141))
+ - Updated Brave VPN SKU credentials to be cached until redeemed or expired. ([#29345](https://github.com/brave/brave-browser/issues/29345))
+ - Updated UI to display custom filter list subscriptions by title instead of URL. ([#28416](https://github.com/brave/brave-browser/issues/28416))
+ - Updated path for Brave VPN crash files so they can be uploaded. ([#28343](https://github.com/brave/brave-browser/issues/28343))
+ - Updated adblock rules created by the "Don't warn me about this site again" domain blocking interstitial to be more strict. ([#28390](https://github.com/brave/brave-browser/issues/28390))
+ - Disabled "Import" button on brave://welcome when no browser selection is made. ([#28788](https://github.com/brave/brave-browser/issues/28788))
+ - Fixed session cookies being persisted on session restore on Windows and Linux. ([#28379](https://github.com/brave/brave-browser/issues/28379))
+ - Fixed error when logging in https://account.t-mobile.com. ([#28945](https://github.com/brave/brave-browser/issues/28945))
+ - Fixed excessive CPU usage on https://mate-desktop.org. ([#29438](https://github.com/brave/brave-browser/issues/29438))
+ - Fixed incorrectly placed quick actions on the New Tab Page in certain cases. ([#29246](https://github.com/brave/brave-browser/issues/29246))
+ - Fixed current default browser not being selected on "Import Settings" screen of brave://welcome flow. ([#28573](https://github.com/brave/brave-browser/issues/28573))
+ - Fixed brave://welcome flow not showing previously set default browser for import. ([#28787](https://github.com/brave/brave-browser/issues/28787))
+ - Fixed brave://welcome displaying in a Private window. ([#28704](https://github.com/brave/brave-browser/issues/28704))
+ - Fixed "Add to Brave" button on Chrome Web Store not being properly localized for non-English locales. ([#10570](https://github.com/brave/brave-browser/issues/10570))
+ - Upgraded Chromium to 112.0.5615.49. ([#29396](https://github.com/brave/brave-browser/issues/29396))  ([Changelog for 112.0.5615.49](https://chromium.googlesource.com/chromium/src/+log/111.0.5563.147..112.0.5615.49?pretty=fuller&n=1000))
+
 ## [1.49.132](https://github.com/brave/brave-browser/releases/tag/v1.49.132)
 
 ### Web3
