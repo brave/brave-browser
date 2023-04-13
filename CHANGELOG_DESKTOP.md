@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.50.118](https://github.com/brave/brave-browser/releases/tag/v1.50.118)
+
+### General
+
+ - Upgraded Chromium to 112.0.5615.87. ([#29667](https://github.com/brave/brave-browser/issues/29667))  ([Changelog for 112.0.5615.87](https://chromium.googlesource.com/chromium/src/+log/112.0.5615.49..112.0.5615.87?pretty=fuller&n=1000))
+
 ## [1.50.114](https://github.com/brave/brave-browser/releases/tag/v1.50.114)
 
 ### Web3
