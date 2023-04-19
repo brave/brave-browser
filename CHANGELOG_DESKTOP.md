@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.50.121](https://github.com/brave/brave-browser/releases/tag/v1.50.121)
+
+### Brave Rewards
+
+ - Fixed issue where user Rewards balance incorrectly displays 0.00 BAT in certain cases. ([#29627](https://github.com/brave/brave-browser/issues/29627))
+
+### General
+
+ - Fixed missing flag icon for Brazil under the Brave VPN panel. ([#29719](https://github.com/brave/brave-browser/issues/29719))
+ - Upgraded Chromium to 112.0.5615.138. ([#29839](https://github.com/brave/brave-browser/issues/29839))  ([Changelog for 112.0.5615.138](https://chromium.googlesource.com/chromium/src/+log/112.0.5615.121..112.0.5615.138?pretty=fuller&n=1000))
+
 ## [1.50.119](https://github.com/brave/brave-browser/releases/tag/v1.50.119)
 
 ### General
