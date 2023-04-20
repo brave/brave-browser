@@ -1,6 +1,6 @@
 {
   "name": "brave",
-  "version": "1.50.119",
+  "version": "1.50.123",
   "description": "Next generation Brave browser for macOS, Windows, Linux, and Android",
   "homepage": "https://github.com/brave/brave-browser#readme",
   "bugs": {
@@ -238,7 +238,7 @@
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.50.119"
+        "tag": "v1.50.123"
       }
     }
   },
