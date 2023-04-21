@@ -9,7 +9,7 @@ From `Terminal`:
    ```
    cd /Applications; xip -x `find ~/Downloads -maxdepth 1 -name 'Xcode_[1-9][0-9]*.xip'`
    ```
-   accept license:
+   accept license
    ```
    sudo xcodebuild -license accept
    ```
