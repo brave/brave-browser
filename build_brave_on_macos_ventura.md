@@ -51,13 +51,3 @@ From `Terminal`:
     ```
     npm start
     ```
-    Due to an upstream issue, you might have the wrong permissions on `~/Library/Application Support/BraveSoftware`, which results in:
-    ```
-    [0421/084438.613881:ERROR:file_io.cc(94)] ReadExactly: expected 8, observed 0
-    [0421/084438.614167:ERROR:crash_report_database_mac.mm(109)] mkdir : No such file or directory (2)
-    [89350:259:0421/084438.614686:FATAL:chrome_main_delegate.cc(1594)] Check failed: false.
-    ```
-    If this is the case:
-    ```
-    sudo chown `whoami` ~/Library/Application\ Support/BraveSoftware
-    ```
