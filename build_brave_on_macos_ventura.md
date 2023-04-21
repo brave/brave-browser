@@ -9,6 +9,10 @@ From `Terminal`:
    ```
    cd /Applications; xip -x `find ~/Downloads -maxdepth 1 -name 'Xcode_[1-9][0-9]*.xip'`
    ```
+   accept license:
+   ```
+   sudo xcodebuild -license accept
+   ```
 3. install `Homebrew`
    ```
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
