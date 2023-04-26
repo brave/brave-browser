@@ -1,5 +1,39 @@
 # Changelog
 
+## [1.50.114](https://github.com/brave/brave-browser/releases/tag/v1.50.114)
+
+### Web3
+
+ - Added Filecoin EVM to preloaded networks. ([#28954](https://github.com/brave/brave-browser/issues/28954))
+ - Implemented filtering options for "eth_subscribe" with "logs". ([#27842](https://github.com/brave/brave-browser/issues/27842))
+ - Updated Brave Wallet to use BalanceScanner contracts for ETH asset discovery. ([#28203](https://github.com/brave/brave-browser/issues/28203))
+ - Updated on-ramp support for Sardine and Transak purchases on Android. ([#23316](https://github.com/brave/brave-browser/issues/23316))
+ - Removed Sardine as an on-ramp provider for native BNB token. ([#29248](https://github.com/brave/brave-browser/issues/29248))
+
+### Brave Rewards
+
+ - Fixed Brave Rewards option being displayed under settings menu for unsupported countries. ([#28908](https://github.com/brave/brave-browser/issues/28908))
+ - Fixed crash in certain cases when interacting with the "Brave Rewards" modal that appears via New Tab Page. ([#28451](https://github.com/brave/brave-browser/issues/28451))
+ - Fixed rewards crash in certain cases. ([#28482](https://github.com/brave/brave-browser/issues/28482))
+ - Fixed "Earn Tokens" and "Give Back" text misalignment under the Brave Rewards onboarding panel. ([#28278](https://github.com/brave/brave-browser/issues/28278))
+
+### General
+
+ - Added Brave News V2. ([#28476](https://github.com/brave/brave-browser/issues/28476))
+ - Added brave://flags/#brave-sync-send-all-history flag to enable the ability to send all history entries to Brave Sync. ([#28062](https://github.com/brave/brave-browser/issues/28062))
+ - Added support for ":-abp-has()" procedural selector in adblock rules. ([#28609](https://github.com/brave/brave-browser/issues/28609))
+ - Added and enabled "Fanboy's Mobile Notification List" by default. ([#25079](https://github.com/brave/brave-browser/issues/25079))
+ - Enabled all available regional adblock filter lists for a given locale on first launch. ([#20825](https://github.com/brave/brave-browser/issues/20825))
+ - Updated widget onboarding so it only appears after Brave has been opened 25 times. ([#27648](https://github.com/brave/brave-browser/issues/27648))
+ - Updated adblock rules created by the "Don't warn me about this site again" domain blocking interstitial to be more strict. ([#28390](https://github.com/brave/brave-browser/issues/28390))
+ - Fixed Brave Shields onboarding being interrupted by other onboarding modals. ([#27644](https://github.com/brave/brave-browser/issues/27644))
+ - Fixed search queries being added into "Top Sites" under New Tab Page. ([#29093](https://github.com/brave/brave-browser/issues/29093))
+ - Fixed error when logging in https://account.t-mobile.com. ([#28945](https://github.com/brave/brave-browser/issues/28945))
+ - Fixed crash when viewing passwords in "Password Manager" when system text is set as bold via "Display size & text". ([#29344](https://github.com/brave/brave-browser/issues/29344))
+ - Fixed news sources not being unfollowed when removing via the context menu under New Tab Page. ([#28865](https://github.com/brave/brave-browser/issues/28865))
+ - Fixed widget crash in certain cases. ([#27946](https://github.com/brave/brave-browser/issues/27946))
+ - Upgraded Chromium to 112.0.5615.49. ([#29396](https://github.com/brave/brave-browser/issues/29396)) ([Changelog for 112.0.5615.49](https://chromium.googlesource.com/chromium/src/+log/111.0.5563.147..112.0.5615.49?pretty=fuller&n=1000))
+
 ## [1.49.132](https://github.com/brave/brave-browser/releases/tag/v1.49.132)
 
 ### Web3
