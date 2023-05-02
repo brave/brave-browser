@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.50.121](https://github.com/brave/brave-browser/releases/tag/v1.50.121)
+
+### Web3
+
+ - Added support for biometric unlock when restoring a wallet. ([#20807](https://github.com/brave/brave-browser/issues/20807))
+ - Added navigation to new Swap WebUI in a new tab when selecting Swap from wallet. ([#29223](https://github.com/brave/brave-browser/issues/29223))
+ - Fixed crash when attempting to select different networks via https://app.uniswap.org on Android 8 devices. ([#29538](https://github.com/brave/brave-browser/issues/29538))
+
+### Brave Rewards
+
+ - Fixed "Notifications are disabled" being displayed under rewards panel even though notifications have been enabled on Android 8 devices. ([#29563](https://github.com/brave/brave-browser/issues/29563))
+ - Fixed "Note:" being displayed twice in the cross-custodial tipping notice via the rewards panel. ([#29081](https://github.com/brave/brave-browser/issues/29081))
+ - Fixed cross-custodial notice not being updated correctly via both the rewards panel and rewards banner. ([#29080](https://github.com/brave/brave-browser/issues/29080))
+ - Fixed "Loading..." spinner not being displayed under rewards panel when balance failed to fetch from custodian. ([#29054](https://github.com/brave/brave-browser/issues/29054))
+
+### General
+
+ - Fixed crash when attempting to set Brave as the default browser in certain cases. ([#29428](https://github.com/brave/brave-browser/issues/29428))
+ - Fixed crash when tipping via the rewards panel in certain cases. ([#29041](https://github.com/brave/brave-browser/issues/29041))
+ - Fixed crash when tipping with Android 8 devices. ([#29562](https://github.com/brave/brave-browser/issues/29562))
+ - Upgraded Chromium to 112.0.5615.138. ([#29839](https://github.com/brave/brave-browser/issues/29839)) ([Changelog for 112.0.5615.138](https://chromium.googlesource.com/chromium/src/+log/112.0.5615.121..112.0.5615.138?pretty=fuller&n=1000))
+
 ## [1.50.114](https://github.com/brave/brave-browser/releases/tag/v1.50.114)
 
 ### Web3
