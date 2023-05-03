@@ -43,6 +43,7 @@
  - Added the ability to "Copy clean link" from context menu on webpage when URL text is highlighted. ([#28881](https://github.com/brave/brave-browser/issues/28881))
  - Added a "time to read" estimate for Speedreader articles. ([#28827](https://github.com/brave/brave-browser/issues/28827))
  - Added media notifications for player controls on Linux. ([#16187](https://github.com/brave/brave-browser/issues/16187))
+ - Added a "What's New" page for major version updates. ([#28947](https://github.com/brave/brave-browser/issues/28947))
  - Enabled captive portal detection. ([#20181](https://github.com/brave/brave-browser/issues/20181))
  - Implemented the ability to allow or block individual scripts in Brave Shields. ([#28510](https://github.com/brave/brave-browser/issues/28510))
  - Implemented WebUSB farbling. ([#28146](https://github.com/brave/brave-browser/issues/28146))
