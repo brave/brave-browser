@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.51.114](https://github.com/brave/brave-browser/releases/tag/v1.51.114)
+
+### Web3
+
+ - [Security] Fixed Brave Wallet binding issue as reported on HackerOne by nick0ve. ([#30204](https://github.com/brave/brave-browser/issues/30204))
+
+### General
+
+ - Upgraded Chromium to 113.0.5672.92. ([#30209](https://github.com/brave/brave-browser/issues/30209)) ([Changelog for 113.0.5672.92](https://chromium.googlesource.com/chromium/src/+log/113.0.5672.77..113.0.5672.92?pretty=fuller&n=1000))
+
 ## [1.51.110](https://github.com/brave/brave-browser/releases/tag/v1.51.110)
 
 ### Web3
