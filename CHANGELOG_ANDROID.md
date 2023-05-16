@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.51.110](https://github.com/brave/brave-browser/releases/tag/v1.51.110)
+
+### Web3
+
+ - Added NFT tab feature under "Wallet' section. ([#29274](https://github.com/brave/brave-browser/issues/29274))
+ - Added overlapping network icon and network name on asset list items via the "Portfolio" page. ([#29165](https://github.com/brave/brave-browser/issues/29165))
+ - Implemented SVG support for NFT images. ([#27800](https://github.com/brave/brave-browser/issues/27800))
+ - Updated native asset icons for Aurora to use ETH icon. ([#24210](https://github.com/brave/brave-browser/issues/24210))
+ - [Security] Prevent blind cross chain signing as reported on HackerOne by julianor. ([#29798](https://github.com/brave/brave-browser/issues/29798))
+ - Removed Transak assets which are not supported in the US. ([#28866](https://github.com/brave/brave-browser/issues/28866))
+ - Removed NFTs from being displayed under "Portfolio". ([#29330](https://github.com/brave/brave-browser/issues/29330))
+ - Fixed missing network icons (Aurora, Arbitrum etc..) to show actual icon instead of ETH icon on "Asset" list. ([#29166](https://github.com/brave/brave-browser/issues/29166))
+ - Fixed incorrect NFTs being displayed when wallet is unlocked. ([#28301](https://github.com/brave/brave-browser/issues/28301))
+ - Fixed NFTs with same token identifiers may display incorrect balance. ([#28627](https://github.com/brave/brave-browser/issues/28627))
+ - Fixed issue with graph not being displayed when network is changed. ([#28748](https://github.com/brave/brave-browser/issues/28748))
+ - Fixed crash when pulling image assets when activity context has been destroyed. ([#29473](https://github.com/brave/brave-browser/issues/29473))
+
+### Brave Rewards
+
+ - Fixed creator counter not being displayed in unconnected state. ([#29270](https://github.com/brave/brave-browser/issues/29270))
+
+### General
+
+ - Added "Google Sign-In" permission prompt. ([#28927](https://github.com/brave/brave-browser/issues/28927))
+ - Added support for scriptlet arguments with quotes or backslashes. ([#29099](https://github.com/brave/brave-browser/issues/29099))
+ - Added "View page with Speedreader" modal when visiting websites compatible with Speedreader. ([#28769](https://github.com/brave/brave-browser/issues/28769))
+ - Implemented "HTTPS by Default" feature. ([#28295](https://github.com/brave/brave-browser/issues/28295))
+ - Implemented WebUSB farbling. ([#28146](https://github.com/brave/brave-browser/issues/28146))
+ - Updated “HTTPS by Default” to fallback to HTTP when encountering an HTTP error code in response to an HTTPS upgrade. ([#28013](https://github.com/brave/brave-browser/issues/28013))
+ - Updated “HTTPS by Default” to work with “HttpsFirstModeV2" which fixes some capability problems, such as determining the correct referrer policy for a navigation. ([#28935](https://github.com/brave/brave-browser/issues/28935) & [#28809](https://github.com/brave/brave-browser/issues/28809))
+ - Fixed crash when switching back to original NTP after enabling Brave News in another tab. ([#29634](https://github.com/brave/brave-browser/issues/29634))
+ - Fixed crash when scrolling through Brave News feed in certain cases. ([#29343](https://github.com/brave/brave-browser/issues/29343))
+ - Fixed crash when adding widgets to Android home screen in certain cases. ([#28831](https://github.com/brave/brave-browser/issues/28831))
+ - Upgraded Chromium to 113.0.5672.77. ([#30096](https://github.com/brave/brave-browser/issues/30096)) ([Changelog for 113.0.5672.77](https://chromium.googlesource.com/chromium/src/+log/112.0.5615.165..113.0.5672.77?pretty=fuller&n=1000))
+
 ## [1.50.121](https://github.com/brave/brave-browser/releases/tag/v1.50.121)
 
 ### Web3
