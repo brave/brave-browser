@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.51.118](https://github.com/brave/brave-browser/releases/tag/v1.51.118)
+
+### Web3
+
+ - Fixed NFT pinning status background and text color. ([#30219](https://github.com/brave/brave-browser/issues/30219))
+
+### General
+
+ - Implemented per-device WebUSB serial farbling. ([#30041](https://github.com/brave/brave-browser/issues/30041))
+ - Fixed saved passwords being removed from brave://settings/passwords and sync failure when restarting Brave on certain Linux distros. ([#30147](https://github.com/brave/brave-browser/issues/30147))
+ - Upgraded Chromium to 113.0.5672.126. ([#30386](https://github.com/brave/brave-browser/issues/30386)) ([Changelog for 113.0.5672.126](https://chromium.googlesource.com/chromium/src/+log/113.0.5672.92..113.0.5672.126?pretty=fuller&n=1000))
+
 ## [1.51.114](https://github.com/brave/brave-browser/releases/tag/v1.51.114)
 
 ### Web3
