@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.51.118](https://github.com/brave/brave-browser/releases/tag/v1.51.118)
+
+ - Implemented per-device WebUSB serial farbling. ([#30041](https://github.com/brave/brave-browser/issues/30041))
+ - Fixed IPFS setting being disabled after being enabled when user leave settings. ([#29647](https://github.com/brave/brave-browser/issues/29647))
+ - Upgraded Chromium to 113.0.5672.126. ([#30386](https://github.com/brave/brave-browser/issues/30386)) ([Changelog for 113.0.5672.126](https://chromium.googlesource.com/chromium/src/+log/113.0.5672.92..113.0.5672.126?pretty=fuller&n=1000))
+
 ## [1.51.114](https://github.com/brave/brave-browser/releases/tag/v1.51.114)
 
 ### Web3
