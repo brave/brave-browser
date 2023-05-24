@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.51.121](https://github.com/brave/brave-browser/releases/tag/v1.51.121)
+
+ - Upgraded Chromium to 113.0.5672.163. ([#30511](https://github.com/brave/brave-browser/issues/30511)) ([Changelog for 113.0.5672.163](https://chromium.googlesource.com/chromium/src/+log/113.0.5672.126..113.0.5672.163?pretty=fuller&n=1000))
+
 ## [1.51.118](https://github.com/brave/brave-browser/releases/tag/v1.51.118)
 
  - Implemented per-device WebUSB serial farbling. ([#30041](https://github.com/brave/brave-browser/issues/30041))
