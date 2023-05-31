@@ -1,5 +1,59 @@
 # Changelog
 
+## [1.52.117](https://github.com/brave/brave-browser/releases/tag/v1.52.117)
+
+### Web3
+
+ - Added "Enable NFT auto-discovery" popup. ([#29648](https://github.com/brave/brave-browser/issues/29648))
+ - Added "Hide balance" and "Show graph" options under Portfolio customizations in Brave Wallet menu. ([#29868](https://github.com/brave/brave-browser/issues/29868))
+ - Added the ability to import hardware wallet accounts from the onboarding page. ([#29107](https://github.com/brave/brave-browser/issues/29107))
+ - Added network selector when importing from hardware wallet. ([#29662](https://github.com/brave/brave-browser/issues/29662))
+ - Added support for NFT discovery for ENS tokens. ([#29121](https://github.com/brave/brave-browser/issues/29121))
+ - Added support for Solana versioned transactions. ([#26042](https://github.com/brave/brave-browser/issues/26042))
+ - Added the ability to connect to DApps by selected network per origin. ([#24414](https://github.com/brave/brave-browser/issues/24414))
+ - Implemented versioned transactions for Solana swaps on Jupiter. ([#30296](https://github.com/brave/brave-browser/issues/30296))
+ - Implemented updated layout for Brave Wallet. ([#29377](https://github.com/brave/brave-browser/issues/29377))
+ - Updated NFT auto-discovery modal text. ([#29792](https://github.com/brave/brave-browser/issues/29792))
+ - Updated NFT details screen to match the new Brave Wallet layout. ([#29472](https://github.com/brave/brave-browser/issues/29472))
+ - Updated Line chart color to match the new Brave Wallet design. ([#29834](https://github.com/brave/brave-browser/issues/29834))
+ - Updated "Help Center" link to navigate directly to Brave Wallet section on Brave Help Center. ([#29729](https://github.com/brave/brave-browser/issues/29729))
+ - Updated action text to bold and uppercase on the "Activity" tab. ([#28535](https://github.com/brave/brave-browser/issues/28535))
+ - Updated popup menu in the "Accounts" tab to include account actions. ([#29954](https://github.com/brave/brave-browser/issues/29954))
+ - Updated Jupiter Swap API to v4 to add support for versioned transactions. ([#30297](https://github.com/brave/brave-browser/issues/30297))
+ - Fixed crash when loading SOL account page when a transaction is submitted that isn't decoded. ([#29698](https://github.com/brave/brave-browser/issues/29698))
+ - Fixed inability to sign transactions on custom EVM networks. ([#30642](https://github.com/brave/brave-browser/issues/30642))
+ - Fixed Brave Wallet local storage data not being cleared when resetting Brave Wallet. ([#29138](https://github.com/brave/brave-browser/issues/29138))
+ - Fixed infinite loading on the "Buy" screen in certain cases. ([#30089](https://github.com/brave/brave-browser/issues/30089))
+ - Fixed missing display of FIL transaction fees. ([#29814](https://github.com/brave/brave-browser/issues/29814))
+ - Fixed NFTs with no symbols from not being automatically discovered. ([#29386](https://github.com/brave/brave-browser/issues/29386))
+ - Fixed Brave Wallet "Activity" tab incorrectly not displaying transactions. ([#29272](https://github.com/brave/brave-browser/issues/29272))
+ - Fixed asset detail screen displaying selected network info from the "Market" tab. ([#29663](https://github.com/brave/brave-browser/issues/29663))
+ - Fixed issue with Solana swap failing if "Associated Token Account" does not exist. ([#29733](https://github.com/brave/brave-browser/issues/29733))
+ - Fixed Solana transactions not being submitted to the chain in certain cases. ([#28645](https://github.com/brave/brave-browser/issues/28645))
+ - Fixed transaction status alignment on "Transaction" tab of Brave Wallet. ([#28536](https://github.com/brave/brave-browser/issues/28536))
+
+### Brave Rewards
+
+ - Implemented Brave Ads welcome notification. ([#29297](https://github.com/brave/brave-browser/issues/29297))
+ - Implemented Brave Ads clickthrough reminder notification. ([#29313](https://github.com/brave/brave-browser/issues/29313))
+ - Updated custodian selection modal. ([#29448](https://github.com/brave/brave-browser/issues/29448))
+ - Redesigned UI for the contribution banner. ([#28148](https://github.com/brave/brave-browser/issues/28148))
+
+### General
+
+ - Added Vertical Tabs feature. ([#29692](https://github.com/brave/brave-browser/issues/29692))
+ - Added "localhost resources" permission prompt. ([#27346](https://github.com/brave/brave-browser/issues/27346))
+ - Added "Copy Text From Image" entry to image context menu on Windows. ([#29003](https://github.com/brave/brave-browser/issues/29003))
+ - Added the ability to disable Brave VPN via Admin policy. ([#29397](https://github.com/brave/brave-browser/issues/29397))
+ - Added "Remove from list" menu entry to download bubble context menu. ([#29475](https://github.com/brave/brave-browser/issues/29475))
+ - Added an alert icon in the download bubble to indicate when an insecure download is in progress. ([#29376](https://github.com/brave/brave-browser/issues/29376))
+ - Added Constellation/STAR encryption for P3A. ([#24338](https://github.com/brave/brave-browser/issues/24338))
+ - Re-added the ability to view and manage individual cookies stored per-website under brave://settings/content/all. ([#27150](https://github.com/brave/brave-browser/issues/27150))
+ - Removed Google fallback when http://redirector.brave.com is unresponsive. ([#29841](https://github.com/brave/brave-browser/issues/29841))
+ - Fixed "HTTPS Everywhere" not being disabled when enabling "HTTPS By Default" which caused issues with "Don't upgrade connections to HTTPS" in certain cases. ([#30436](https://github.com/brave/brave-browser/issues/30436))
+ - Fixed race condition which could occur in certain cases when using Brave VPN on Windows. ([#29338](https://github.com/brave/brave-browser/issues/29338))
+ - Upgraded Chromium to 114.0.5735.90. ([#30679](https://github.com/brave/brave-browser/issues/30679)) ([Changelog for 114.0.5735.90](https://chromium.googlesource.com/chromium/src/+log/113.0.5672.126..114.0.5735.90?pretty=fuller&n=1000))
+
 ## [1.51.118](https://github.com/brave/brave-browser/releases/tag/v1.51.118)
 
 ### Web3
