@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.52.119](https://github.com/brave/brave-browser/releases/tag/v1.52.119)
+
+ - Fixed intermittent "Failed to write the VPN config" errors which could prevent users from using Brave VPN in certain cases on Windows. ([#30598](https://github.com/brave/brave-browser/issues/30598))
+
 ## [1.52.117](https://github.com/brave/brave-browser/releases/tag/v1.52.117)
 
 ### Web3
