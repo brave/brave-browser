@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.52.126](https://github.com/brave/brave-browser/releases/tag/v1.52.126)
+
+### Web3
+
+ - Fixed EIP-1559 gas estimation issue causing transfers to fail on zksync Era Mainnet when using Brave Wallet. ([#30473](https://github.com/brave/brave-browser/issues/30473))
+ - Fixed switch network notifications incorrectly being fired when a custom network is selected. ([#30778](https://github.com/brave/brave-browser/issues/30778))
+ - Fixed tokens being shown as ETH when not on asset list and added block explorer links for such tokens in panel and activity tab. ([#23565](https://github.com/brave/brave-browser/issues/23565))
+
+### General
+
+ - Fixed crash which could occur when refreshing the New Tab Page in certain cases. ([#30938](https://github.com/brave/brave-browser/issues/30938))
+ - Fixed RSS feed parsing performance which caused high CPU usage when using certain sites. ([#29125](https://github.com/brave/brave-browser/issues/29125))
+ - Fixed Brave VPN "Can't connect to server" error message when switching between regions while already "Connected". ([#30792](https://github.com/brave/brave-browser/issues/30792))
+ - Fixed "Show tab search button" setting under brave://settings/appearance not being respected when a new window is opened. ([#30829](https://github.com/brave/brave-browser/issues/30829))
+ - Fixed download bubble not being displayed when a file download is completed. ([#30882](https://github.com/brave/brave-browser/issues/30882))
+ - Upgraded Chromium to 114.0.5735.133. ([#31023](https://github.com/brave/brave-browser/issues/31023)) ([Changelog for 114.0.5735.133](https://chromium.googlesource.com/chromium/src/+log/114.0.5735.110..114.0.5735.133?pretty=fuller&n=1000))
+
 ## [1.52.122](https://github.com/brave/brave-browser/releases/tag/v1.52.122)
 
  - Fixed crash which occurred when resuming an insecure download. ([#30626](https://github.com/brave/brave-browser/issues/30626))
