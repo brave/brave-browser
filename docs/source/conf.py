@@ -88,9 +88,10 @@ html_theme_options = {
     'caption_font_family': 'Muli, Proxima Nova, Avenir',
     'code_font_size': '14px',
     'code_font_family': 'Menlo, DejaVu Sans Mono, monospace',
-    'font_family': 'Muli, Proxima Nova, Avenir',
+    'font_family': 'Poppins, sans-serif',
     'font_size': '16px',
 }
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
