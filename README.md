@@ -1,4 +1,4 @@
-![Brave Browser](./docs/source/_static/Brave.svg)
+![Brave Browser](./docs/source/_static/brave-logotype-dark.svg)
 
 ## Overview
 
