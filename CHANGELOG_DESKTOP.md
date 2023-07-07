@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.52.130](https://github.com/brave/brave-browser/releases/tag/v1.52.130)
+
+### Web3
+
+ - [Security] Fixed crash when signing message with invalid EIP-712 request data as reported on HackerOne by matseq. ([#30212](https://github.com/brave/brave-browser/issues/30212))
+ - Enabled support for EIP-1559 transactions on Optimism. ([#30776](https://github.com/brave/brave-browser/issues/30776))
+ - Updated label for "Reset and clear wallet data" under brave://settings/web3. ([#30005](https://github.com/brave/brave-browser/issues/30005))
+
+### General
+
+ - Improved tab spacing by adding a 4px left margin to tab icons. ([#30469](https://github.com/brave/brave-browser/issues/30469))
+ - Fixed issue where some Brave News images were incorrectly aligned. ([#30271](https://github.com/brave/brave-browser/issues/30271))
+ - Fixed download bubble not being displayed when a dangerous file is downloaded. ([#29651](https://github.com/brave/brave-browser/issues/29651))
+
 ## [1.52.129](https://github.com/brave/brave-browser/releases/tag/v1.52.129)
 
  - Upgraded Chromium to 114.0.5735.198. ([#31309](https://github.com/brave/brave-browser/issues/31309)) ([Changelog for 114.0.5735.198](https://chromium.googlesource.com/chromium/src/+log/114.0.5735.133..114.0.5735.198?pretty=fuller&n=1000))
