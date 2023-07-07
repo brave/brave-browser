@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.52.122](https://github.com/brave/brave-browser/releases/tag/v1.52.122)
+
+ - Upgraded Chromium to 114.0.5735.110. ([#30830](https://github.com/brave/brave-browser/issues/30830)) ([Changelog for 114.0.5735.110](https://chromium.googlesource.com/chromium/src/+log/114.0.5735.90..114.0.5735.110?pretty=fuller&n=1000))
+
 ## [1.52.120](https://github.com/brave/brave-browser/releases/tag/v1.52.120)
 
  - Fixed crash when opening Brave from third party apps using "Web Search". ([#30773](https://github.com/brave/brave-browser/issues/30773))
