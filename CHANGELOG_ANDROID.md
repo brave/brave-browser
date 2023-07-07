@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.52.126](https://github.com/brave/brave-browser/releases/tag/v1.52.126)
+
+### Web3
+
+ - Fixed switch network notifications incorrectly being fired when a custom network is selected. ([#30778](https://github.com/brave/brave-browser/issues/30778))
+
+### General
+
+ - Fixed crash which could occur when refreshing the New Tab Page in certain cases. ([#30938](https://github.com/brave/brave-browser/issues/30938))
+ - Fixed crash when the "Notification are disabled" modal is displayed in certain cases. ([#30821](https://github.com/brave/brave-browser/issues/30821))
+ - Upgraded Chromium to 114.0.5735.133. ([#31023](https://github.com/brave/brave-browser/issues/31023)) ([Changelog for 114.0.5735.133](https://chromium.googlesource.com/chromium/src/+log/114.0.5735.110..114.0.5735.133?pretty=fuller&n=1000))
+
 ## [1.52.122](https://github.com/brave/brave-browser/releases/tag/v1.52.122)
 
  - Upgraded Chromium to 114.0.5735.110. ([#30830](https://github.com/brave/brave-browser/issues/30830)) ([Changelog for 114.0.5735.110](https://chromium.googlesource.com/chromium/src/+log/114.0.5735.90..114.0.5735.110?pretty=fuller&n=1000))
