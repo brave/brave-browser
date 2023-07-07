@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.52.120](https://github.com/brave/brave-browser/releases/tag/v1.52.120)
+
+ - Fixed crash when opening Brave from third party apps using "Web Search". ([#30773](https://github.com/brave/brave-browser/issues/30773))
+
 ## [1.52.117](https://github.com/brave/brave-browser/releases/tag/v1.52.117)
 
 ### Web3
