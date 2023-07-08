@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.52.130](https://github.com/brave/brave-browser/releases/tag/v1.52.130)
+
+### Web3
+
+ - Updated label for "Reset and clear wallet data" under brave://settings/web3. ([#30005](https://github.com/brave/brave-browser/issues/30005))
+ - Fixed crash when hiding local network assets via "Edit visible assets" when local networks have been disabled. ([#31357](https://github.com/brave/brave-browser/issues/31357))
+
+### General
+
+ - Fixed "Share" button under shields panel not working on certain devices. ([#29856](https://github.com/brave/brave-browser/issues/29856))
+ - Fixed "Brave News has no content to show" modal not appearing under New Tab Page when there's no Brave News sources selected. ([#28349](https://github.com/brave/brave-browser/issues/28349))
+ - Fixed bottom padding for "Top Sites" under New Tab Page. ([#30674](https://github.com/brave/brave-browser/issues/30674))
+
 ## [1.52.129](https://github.com/brave/brave-browser/releases/tag/v1.52.129)
 
  - Upgraded Chromium to 114.0.5735.198. ([#31309](https://github.com/brave/brave-browser/issues/31309)) ([Changelog for 114.0.5735.198](https://chromium.googlesource.com/chromium/src/+log/114.0.5735.133..114.0.5735.198?pretty=fuller&n=1000))
