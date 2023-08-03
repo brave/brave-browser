@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.56.20](https://github.com/brave/brave-browser/releases/tag/v1.56.20)
+
+### Web3
+
+ - Fixed missing fee estimate for EIP-1599 transactions on zksync Mainnet. ([#31959](https://github.com/brave/brave-browser/issues/31959))
+ - Fixed inability to remove custom networks under brave://settings/wallet/networks. ([#31953](https://github.com/brave/brave-browser/issues/31953))
+
+### General
+
+ - Fixed permissions for "BraveSoftware" folder on macOS. ([#30546](https://github.com/brave/brave-browser/issues/30546))
+ - Fixed vertical tab scroll clamping on Linux. ([#31925](https://github.com/brave/brave-browser/issues/31925))
+ - Fixed issue where tab content was displayed behind vertical tab after exiting full screen on Linux. ([#30629](https://github.com/brave/brave-browser/issues/30629))
+ - Upgraded Chromium to 115.0.5790.171. ([#31682](https://github.com/brave/brave-browser/issues/31682)) ([Changelog for 115.0.5790.171](https://chromium.googlesource.com/chromium/src/+log/115.0.5790.138..115.0.5790.171?pretty=fuller&n=1000))
+
 ## [1.56.14](https://github.com/brave/brave-browser/releases/tag/v1.56.14)
 
  - Upgraded Chromium to 115.0.5790.114. ([#31867](https://github.com/brave/brave-browser/issues/31867)) ([Changelog for 115.0.5790.114](https://chromium.googlesource.com/chromium/src/+log/115.0.5790.102..115.0.5790.114?pretty=fuller&n=1000))
