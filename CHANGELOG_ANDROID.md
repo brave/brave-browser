@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.56.8](https://github.com/brave/brave-browser/releases/tag/v1.56.8)
+
+### Web3
+
+ - Added auto-discovery for Filecoin assets and accounts. ([#28002](https://github.com/brave/brave-browser/issues/28002))
+ - Updated default Brave Wallet auto lock setting to 10 minutes. ([#26362](https://github.com/brave/brave-browser/issues/26362))
+ - Fixed transactions and tx approvals displaying invalid amount and gas values due to using default network. ([#30277](https://github.com/brave/brave-browser/issues/30277))
+
+### Brave Rewards
+
+ - Updated the "Verified Creator" blue checkmark icon. ([#28208](https://github.com/brave/brave-browser/issues/28208))
+ - Redesigned UI for the contribution banner. ([#28149](https://github.com/brave/brave-browser/issues/28149))
+
+### General
+
+ - Added the ability to import/export bookmarks. ([#6378](https://github.com/brave/brave-browser/issues/6378))
+ - Fixed login issue on https://login.live.com. ([#31196](https://github.com/brave/brave-browser/issues/31196))
+ - Fixed issue where cosmetic filtering could not resolve relative URLs as first-party. ([#30062](https://github.com/brave/brave-browser/issues/30062))
+ - Fixed cosmetic filtering unhiding heuristic. ([#30202](https://github.com/brave/brave-browser/issues/30202))
+ - Fixed debounced sites displaying a top-level document blocking interstitial. ([#22437](https://github.com/brave/brave-browser/issues/22437))
+ - Fixed crash when loading brave://settings via the URL bar. ([#31047](https://github.com/brave/brave-browser/issues/31047))
+ - Fixed articles from Brave News always being grouped when using "Open in New Tab" via context menu. ([#28868](https://github.com/brave/brave-browser/issues/28868))
+ - Upgraded Chromium to 115.0.5790.98. ([#31682](https://github.com/brave/brave-browser/issues/31682)) ([Changelog for 115.0.5790.98](https://chromium.googlesource.com/chromium/src/+log/114.0.5735.198..115.0.5790.98?pretty=fuller&n=1000))
+
 ## [1.52.130](https://github.com/brave/brave-browser/releases/tag/v1.52.130)
 
 ### Web3
