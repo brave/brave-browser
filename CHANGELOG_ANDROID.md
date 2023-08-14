@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.56.13](https://github.com/brave/brave-browser/releases/tag/v1.56.13)
+
+- Fixed incorrect VPN support page being linked via "VPN Support" under "Settings". ([#22950](https://github.com/brave/brave-browser/issues/22950))
+- Upgraded Chromium to 115.0.5790.136. ([#31795](https://github.com/brave/brave-browser/issues/31795)) ([Changelog for 115.0.5790.136](https://chromium.googlesource.com/chromium/src/+log/115.0.5790.98..115.0.5790.136?pretty=fuller&n=1000))
+
 ## [1.56.8](https://github.com/brave/brave-browser/releases/tag/v1.56.8)
 
 ### Web3
