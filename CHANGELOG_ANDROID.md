@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.56.20](https://github.com/brave/brave-browser/releases/tag/v1.56.20)
+
+- Fixed performance issues loading Facebook timeline due to Safe Browsing. ([#31894](https://github.com/brave/brave-browser/issues/31894))
+- Upgraded Chromium to 115.0.5790.171. ([#32040](https://github.com/brave/brave-browser/issues/32040)) ([Changelog for 115.0.5790.171](https://chromium.googlesource.com/chromium/src/+log/115.0.5790.138..115.0.5790.171?pretty=fuller&n=1000))
+
 ## [1.56.16](https://github.com/brave/brave-browser/releases/tag/v1.56.16)
 
 - Upgraded Chromium to 115.0.5790.138. ([#31869](https://github.com/brave/brave-browser/issues/31869)) ([Changelog for 115.0.5790.138](https://chromium.googlesource.com/chromium/src/+log/115.0.5790.136..115.0.5790.138?pretty=fuller&n=1000))
