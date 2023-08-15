@@ -1,5 +1,61 @@
 # Changelog
 
+## [1.57.47](https://github.com/brave/brave-browser/releases/tag/v1.57.47)
+
+### Web3
+
+ - Added Stripe Onramp for US users. ([#31397](https://github.com/brave/brave-browser/issues/31397))
+ - Added auto discovery of NFTs on all user added networks. ([#30976](https://github.com/brave/brave-browser/issues/30976))
+ - Added auto discovery of POAPs. ([#30977](https://github.com/brave/brave-browser/issues/30977))
+ - Added "Filters and display settings" modal for the "Portfolio" page. ([#30496](https://github.com/brave/brave-browser/issues/30496))
+ - Added "Group by" option to the "Filters and display settings" modal on the "Portfolio" page. ([#30753](https://github.com/brave/brave-browser/issues/30753))
+ - Added v2 headers into Brave Wallet. ([#30825](https://github.com/brave/brave-browser/issues/30825) & [#30583](https://github.com/brave/brave-browser/issues/30583))
+ - Added caching for NFT metadata responses. ([#29532](https://github.com/brave/brave-browser/issues/29532))
+ - Added contract address and tokenId parameters to the "Send" page URL. ([#30547](https://github.com/brave/brave-browser/issues/30547))
+ - Added "Help Center" link next to "Privacy Policy" link on the "Swap" page. ([#30372](https://github.com/brave/brave-browser/issues/30372))
+ - Implemented optimized Solana token balances fetcher. ([#30584](https://github.com/brave/brave-browser/issues/30584))
+ - Improved Brave Wallet panel performance. ([#30772](https://github.com/brave/brave-browser/issues/30772))
+ - Updated Brave Wallet to translate FEVM addresses to f410 addresses and allow choosing existing FEVM address as recipient. ([#30403](https://github.com/brave/brave-browser/issues/30403))
+ - Updated Brave Wallet to support sending f1 to typed f4 addresses. ([#30401](https://github.com/brave/brave-browser/issues/30401))
+ - Removed unnecessary price calls when hiding/unhiding NFTs. ([#30925](https://github.com/brave/brave-browser/issues/30925))
+ - Removed scroll from import accounts screen. ([#30939](https://github.com/brave/brave-browser/issues/30939))
+ - Fixed inability to sign "Swap" transactions on Solana DApps. ([#32109](https://github.com/brave/brave-browser/issues/32109))
+ - Fixed "IPFS" badge being incorrectly displayed in the URL bar on non-IPFS sites. ([#31145](https://github.com/brave/brave-browser/issues/31145))
+ - Fixed slow Brave Wallet panel load time. ([#22714](https://github.com/brave/brave-browser/issues/22714))
+ - Fixed "Back" button breaking the UI on "Asset Details" page in certain cases. ([#30995](https://github.com/brave/brave-browser/issues/30995))
+ - Fixed inability to create ETH account with Brave Wallet. ([#30809](https://github.com/brave/brave-browser/issues/30809))
+ - Fixed "Activity" route not being persisted after Brave Wallet is unlocked. ([#31111](https://github.com/brave/brave-browser/issues/31111))
+ - Fixed account transactions not being displayed on the activity panel view. ([#30780](https://github.com/brave/brave-browser/issues/30780))
+ - Fixed "Activity" tab not auto-updating in certain cases. ([#28800](https://github.com/brave/brave-browser/issues/28800) & [#30450](https://github.com/brave/brave-browser/issues/30450))
+ - Fixed "eth_signTransaction" to use the correct network for display. ([#28564](https://github.com/brave/brave-browser/issues/28564))
+ - Fixed incorrect token symbol being displayed in "Activity" tab for Swap transactions. ([#30447](https://github.com/brave/brave-browser/issues/30447))
+
+### Rewards
+
+ - Implemented new rewards onboarding UI and flow. ([#30308](https://github.com/brave/brave-browser/issues/30308))
+ - Updated "Estimated Earnings" indicator to display a monthly payout range. ([#30351](https://github.com/brave/brave-browser/issues/30351))
+
+### General
+
+ - Added support for "Forget by Default" browsing mode. ([#26465](https://github.com/brave/brave-browser/issues/26465))
+ - Added the ability to resize sidebar. ([#30808](https://github.com/brave/brave-browser/issues/30808))
+ - Added support for overriding eTLD+1 exceptions from default adblock filter lists. ([#20426](https://github.com/brave/brave-browser/issues/20426))  
+ - Added farbled weights to Accept-Language headers' service workers. ([#29372](https://github.com/brave/brave-browser/issues/29372))
+ - Added brave://flags/#brave-override-download-danger-level flag to disable download warnings when Safe Browsing is disabled. ([#28917](https://github.com/brave/brave-browser/issues/28917))
+ - Added the ability to dismiss the end of support message on both macOS 10.13 and 10.14. ([#32129](https://github.com/brave/brave-browser/issues/32129))
+ - Improved text on domain blocking interstitial page. ([#30142](https://github.com/brave/brave-browser/issues/30142))
+ - Improved scrolling for vertical tabs by enabling sticky pinned tabs by default. ([#30761](https://github.com/brave/brave-browser/issues/30761))
+ - Moved "Improve search suggestions" setting to be under brave://settings/search. ([#30878](https://github.com/brave/brave-browser/issues/30878))
+ - Updated VPN toolbar button style. ([#30930](https://github.com/brave/brave-browser/issues/30930))
+ - Removed known Hive email trackers "h_sid" and "h_slt" from URLs. ([#30731](https://github.com/brave/brave-browser/issues/30731))
+ - Fixed delta updates on Windows. ([#30748](https://github.com/brave/brave-browser/issues/30748))
+ - Fixed incorrect VPN button state when credentials are refreshed. ([#30881](https://github.com/brave/brave-browser/issues/30881))
+ - Fixed settings sidebar disappearing on narrow screen widths. ([#24352](https://github.com/brave/brave-browser/issues/24352))
+ - Fixed restored new tab not displaying the selected extension layout. ([#30890](https://github.com/brave/brave-browser/issues/30890))
+ - Fixed uneditable red URLs appearing in the URL bar during autocomplete. ([#28198](https://github.com/brave/brave-browser/issues/28198))
+ - Fixed custom filter lists in shields not respecting the "Expires" field. ([#17909](https://github.com/brave/brave-browser/issues/17909))
+ - Upgraded Chromium to 116.0.5845.96. ([#32241](https://github.com/brave/brave-browser/issues/32241)) ([Changelog for 116.0.5845.96](https://chromium.googlesource.com/chromium/src/+log/115.0.5790.171..116.0.5845.96?pretty=fuller&n=1000))
+
 ## [1.56.20](https://github.com/brave/brave-browser/releases/tag/v1.56.20)
 
 ### Web3
