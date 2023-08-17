@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.57.49](https://github.com/brave/brave-browser/releases/tag/v1.57.49)
+
+ - Fixed startup crash on Windows caused by adding a non-existent or empty custom filter list. ([#32301](https://github.com/brave/brave-browser/issues/32301))
+
 ## [1.57.47](https://github.com/brave/brave-browser/releases/tag/v1.57.47)
 
 ### Web3
