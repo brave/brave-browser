@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.57.53](https://github.com/brave/brave-browser/releases/tag/v1.57.53)
+
+### Web3
+
+ - Added support for "Swap" on Base. ([#32235](https://github.com/brave/brave-browser/issues/32235))
+
+### General
+
+ - [Security] Fixed browser crash as reported on HackerOne by 0xc4gr1. ([#32425](https://github.com/brave/brave-browser/issues/32425))
+ - [Security] Fixed browser crash as reported on HackerOne by neeythann. ([#32449](https://github.com/brave/brave-browser/issues/32449))
+ - Fixed missing "Open Guest profile" keyboard shortcut. ([#32268](https://github.com/brave/brave-browser/issues/32268))
+ - Fixed issue where Brave would not relaunch via the taskbar icon in certain cases on Windows. ([#32309](https://github.com/brave/brave-browser/issues/32309))
+ - Fixed issue where permission dialog was not working when quickly selecting "Allow" or "Block" after changing "Remember my decision" drop down value. ([#32258](https://github.com/brave/brave-browser/issues/32258))
+ - Upgraded Chromium to 116.0.5845.114. ([#32451](https://github.com/brave/brave-browser/issues/32451)) ([Changelog for 116.0.5845.114](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.96..116.0.5845.114?pretty=fuller&n=1000))
+
 ## [1.57.49](https://github.com/brave/brave-browser/releases/tag/v1.57.49)
 
  - Fixed startup crash on Windows caused by adding a non-existent or empty custom filter list. ([#32301](https://github.com/brave/brave-browser/issues/32301))
