@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.57.57](https://github.com/brave/brave-browser/releases/tag/v1.57.57)
+
+### Web3
+
+ - Fixed broken "Send" on BNB Chain. ([#32291](https://github.com/brave/brave-browser/issues/32291))
+
+### General
+
+ - Added "Fetch VPN State" under brave://skus-internals. ([#32030](https://github.com/brave/brave-browser/issues/32030))
+ - [Security] Validated Wayback Machine URL before navigation as reported on HackerOne by xiaoyinl. ([#32395](https://github.com/brave/brave-browser/issues/32395))
+ - [Security] Cleared sensitive information from URL before sending to Wayback Machine as reported on HackerOne by xiaoyinl. ([#32385](https://github.com/brave/brave-browser/issues/32385))
+ - Fixed delta update files not being code signed on Windows. ([#31977](https://github.com/brave/brave-browser/issues/31977))
+ - Upgraded Chromium to 116.0.5845.163. ([#32587](https://github.com/brave/brave-browser/issues/32587)) ([Changelog for 116.0.5845.163](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.114..116.0.5845.163?pretty=fuller&n=1000))
+
 ## [1.57.53](https://github.com/brave/brave-browser/releases/tag/v1.57.53)
 
 ### Web3
