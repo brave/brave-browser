@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.57.53](https://github.com/brave/brave-browser/releases/tag/v1.57.53)
+
+### Web3
+
+ - Added support for "Swap" on Base. ([#32235](https://github.com/brave/brave-browser/issues/32235))
+ - Fixed cancelling unapproved transaction continues to display the pending transaction icon. ([#32199](https://github.com/brave/brave-browser/issues/32199))
+
+### General
+
+ - Fixed crash when interacting with brave://adblock on multiple tabs. ([#14123](https://github.com/brave/brave-browser/issues/14123))
+ - Upgraded Chromium to 116.0.5845.114. ([#32451](https://github.com/brave/brave-browser/issues/32451)) ([Changelog for 116.0.5845.114](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.96..116.0.5845.114?pretty=fuller&n=1000))
+
 ## [1.57.50](https://github.com/brave/brave-browser/releases/tag/v1.57.50)
 
  - Fixed crash when using the bottom toolbar in certain cases. ([#32334](https://github.com/brave/brave-browser/issues/32334))
