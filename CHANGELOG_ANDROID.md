@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.57.50](https://github.com/brave/brave-browser/releases/tag/v1.57.50)
+
+ - Fixed crash when using the bottom toolbar in certain cases. ([#32334](https://github.com/brave/brave-browser/issues/32334))
+ - Fixed "Back" gesture closing/crashing Brave on Android 14. ([#31939](https://github.com/brave/brave-browser/issues/31939))
+
 ## [1.57.47](https://github.com/brave/brave-browser/releases/tag/v1.57.47)
 
 ### Web3
