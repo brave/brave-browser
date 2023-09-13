@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.57.60](https://github.com/brave/brave-browser/releases/tag/v1.57.60)
+
+ - Fixed "Allow app links to open in apps outside of Brave" being disabled by default. ([#32500](https://github.com/brave/brave-browser/issues/32500))
+ - Upgraded Chromium to 116.0.5845.163. ([#32587](https://github.com/brave/brave-browser/issues/32587)) ([Changelog for 116.0.5845.163](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.114..116.0.5845.163?pretty=fuller&n=1000))
+
 ## [1.57.53](https://github.com/brave/brave-browser/releases/tag/v1.57.53)
 
 ### Web3
