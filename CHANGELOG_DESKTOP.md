@@ -1,5 +1,69 @@
 # Changelog
 
+## [1.58.124](https://github.com/brave/brave-browser/releases/tag/v1.58.124)
+
+### Web3
+
+ - Added IPFS promotional infobar. ([#32010](https://github.com/brave/brave-browser/issues/32010))
+ - Added Coinbase as an Onramp provider. ([#32083](https://github.com/brave/brave-browser/issues/32083))
+ - Added support for EIP-6963. ([#30595](https://github.com/brave/brave-browser/issues/30595))
+ - Added virtualized tokens list to the "Buy" and "Deposit" screens. ([#31675](https://github.com/brave/brave-browser/issues/31675))
+ - Added loading skeleton and spinner to the "NFT" page. ([#31485](https://github.com/brave/brave-browser/issues/31485))
+ - Added a "More" menu for each asset on the "Portfolio" page. ([#30982](https://github.com/brave/brave-browser/issues/30982))
+ - Added filters to the "NFT" tab. ([#31041](https://github.com/brave/brave-browser/issues/31041))
+ - Added grouping to the "NFT" tab. ([#31342](https://github.com/brave/brave-browser/issues/31342))
+ - Added an empty state to the "Portfolio" page when filters are applied. ([#31147](https://github.com/brave/brave-browser/issues/31147))
+ - Added the ability for users to choose which Solana account to choose when connecting to Solana DApps. ([#31109](https://github.com/brave/brave-browser/issues/31109))
+ - Added the ability to allow selection of an existing "f1 address" as recipient when sending FEVM tokens. ([#31101](https://github.com/brave/brave-browser/issues/31101))
+ - Added segmented controls to the "Asset Details" view. ([#30981](https://github.com/brave/brave-browser/issues/30981))
+ - Implemented autofill of CoinGecko ID's when adding custom tokens. ([#31975](https://github.com/brave/brave-browser/issues/31975))
+ - Improved performance on the "Buy" screen of Brave Wallet. ([#31685](https://github.com/brave/brave-browser/issues/31685))
+ - Improved balance scan performance. ([#30779](https://github.com/brave/brave-browser/issues/30779))
+ - Moved IPFS banner to the "NFT" tab. ([#31332](https://github.com/brave/brave-browser/issues/31332))
+ - Updated design on the "Wallet Unlock" screen. ([#31603](https://github.com/brave/brave-browser/issues/31603))
+ - Updated design on the "Market" page. ([#31611](https://github.com/brave/brave-browser/issues/31611))
+ - Updated design on the "Buy" screen. ([#31384](https://github.com/brave/brave-browser/issues/31384))
+ - Updated design on the "Account Details" page. ([#31617](https://github.com/brave/brave-browser/issues/31617))
+ - Updated design on the "Accounts" tab. ([#31432](https://github.com/brave/brave-browser/issues/31432))
+ - Updated design on the "Visible Assets" modal. ([#31389](https://github.com/brave/brave-browser/issues/31389))
+ - Updated Stripe logo and description. ([#32226](https://github.com/brave/brave-browser/issues/32226))
+ - Updated NFT pinning eligibility text. ([#30550](https://github.com/brave/brave-browser/issues/30550))
+ - Merged IPFS DNSLink and IPFS redirect settings into a single setting. ([#31097](https://github.com/brave/brave-browser/issues/31097))
+ - Removed "Network" and "Account" groups with zero balance from display on the "Portfolio" page. ([#31680](https://github.com/brave/brave-browser/issues/31680))
+ - Fixed Solana DApps to disconnect when permission is revoked. ([#24974](https://github.com/brave/brave-browser/issues/24974))
+ - Fixed manually added assets not being added to the deposit list. ([#31889](https://github.com/brave/brave-browser/issues/31889))
+ - Fixed wallet panel opening and closing on Magic Eden. ([#31853](https://github.com/brave/brave-browser/issues/31853))
+ - Fixed issue where all tokens weren't returned when restarting the browser directly into deposit screen. ([#31669](https://github.com/brave/brave-browser/issues/31669))
+ - Fixed "Portfolio" page to retain the state of account list when page is reloaded or UI refreshes. ([#31249](https://github.com/brave/brave-browser/issues/31249))
+ - Fixed inability to view NFT details when listed under hidden NFTs. ([#31208](https://github.com/brave/brave-browser/issues/31208))
+ - Fixed assets being sorted by global level instead of group level on the "Portfolio" page. ([#31602](https://github.com/brave/brave-browser/issues/31602))
+ - Fixed network selector background. ([#31459](https://github.com/brave/brave-browser/issues/31459))
+ - Fixed "Portfolio" token list disappearing from view when "Visible assets" modal is displayed. ([#31275](https://github.com/brave/brave-browser/issues/31275))
+ - Fixed overlap on the "Token details" menu when the token graph is loading. ([#31263](https://github.com/brave/brave-browser/issues/31263))
+
+### Rewards
+
+ - Added ZebPay as new custodial account provider for Brave Rewards (India only). ([#32036](https://github.com/brave/brave-browser/issues/32036))
+ - Implemented “Manage Brave Ads” on the brave://rewards page. ([#30637](https://github.com/brave/brave-browser/issues/30637))
+
+### General
+
+ - Added Speedreader options for themes, fonts, and text size. ([#29075](https://github.com/brave/brave-browser/issues/29075))
+ - Added brave://flags/#brave-adblock-scriptlet-debug-logs flag for filter authors. ([#31438](https://github.com/brave/brave-browser/issues/31438))
+ - Enabled download protection allow list. ([#26183](https://github.com/brave/brave-browser/issues/26183))
+ - Improved vertical tab animation. ([#30897](https://github.com/brave/brave-browser/issues/30897))
+ - Improved sidebar slide animation. ([#25382](https://github.com/brave/brave-browser/issues/25382) & [#21992](https://github.com/brave/brave-browser/issues/21992))
+ - Updated "lock" icon to "tune" icon in address bar. ([#31642](https://github.com/brave/brave-browser/issues/31642))
+ - Updated brave://settings page to load in a new tab when accessed via the settings button in the sidebar. ([#31663](https://github.com/brave/brave-browser/issues/31663))
+ - Updated "Learn more" link on the "Lookalike URL" popup. ([#31396](https://github.com/brave/brave-browser/issues/31396))
+ - Updated cosmetic filtering to force aggressive blocking on YouTube. ([#30896](https://github.com/brave/brave-browser/issues/30896))
+ - Updated brave://flags/#brave-adblock-cookie-list-default to be enabled by default. ([#29986](https://github.com/brave/brave-browser/issues/29986))
+ - Removed known tracking parameters "mtm_cid" and "pk_cid" from URLs. ([#31084](https://github.com/brave/brave-browser/issues/31084))
+ - Fixed the New Tab Page displaying the same background image in certain cases. ([#32359](https://github.com/brave/brave-browser/issues/32359))
+ - Fixed URL query filter regression caused by brave://flags/#brave-domain-block-1pes. ([#32462](https://github.com/brave/brave-browser/issues/32462))
+ - Fixed "Expires" property in some Adblock lists is not being read and set properly. ([#31238](https://github.com/brave/brave-browser/issues/31238))
+ - Upgraded Chromium to 117.0.5938.62. ([#32945](https://github.com/brave/brave-browser/issues/32945)) ([Changelog for 117.0.5938.62](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.188..117.0.5938.62?pretty=fuller&n=1000))
+
 ## [1.57.64](https://github.com/brave/brave-browser/releases/tag/v1.57.64)
 
  - Upgraded Chromium to 116.0.5845.188. ([#32911](https://github.com/brave/brave-browser/issues/32911)) ([Changelog for 116.0.5845.188](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.180..116.0.5845.188?pretty=fuller&n=1000))
