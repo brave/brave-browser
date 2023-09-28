@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.58.135](https://github.com/brave/brave-browser/releases/tag/v1.58.135)
+
+### General
+
+ - Added Argentina, France, and Germany content feed support for Brave News. ([#33251](https://github.com/brave/brave-browser/issues/33251) & [#32416](https://github.com/brave/brave-browser/issues/32416))
+ - Upgraded Chromium to 117.0.5938.140. ([#33282](https://github.com/brave/brave-browser/issues/33282)) ([Changelog for 117.0.5938.140](https://chromium.googlesource.com/chromium/src/+log/117.0.5938.92..117.0.5938.140?pretty=fuller&n=1000))
+
 ## [1.58.131](https://github.com/brave/brave-browser/releases/tag/v1.58.131)
 
  - Upgraded Chromium to 117.0.5938.92. ([#33181](https://github.com/brave/brave-browser/issues/33181)) ([Changelog for 117.0.5938.92](https://chromium.googlesource.com/chromium/src/+log/117.0.5938.88..117.0.5938.92?pretty=fuller&n=1000))
