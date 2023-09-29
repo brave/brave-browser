@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:base"
+    "local>brave/renovate-config"
   ],
   "draftPR": true,
   "prConcurrentLimit": 2,
