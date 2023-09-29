@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Tweet
-        uses: snow-actions/tweet@v1.4.0
+        uses: snow-actions/tweet@de8cc155a0667e5ac0fb88e3869df19aefff361f # v1.4.0
         env:
           CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           CONSUMER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
