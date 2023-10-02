@@ -244,6 +244,6 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "log-update": "4.0.0"
+    "log-update": "5.0.1"
   }
 }
