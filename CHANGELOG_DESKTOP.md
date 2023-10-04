@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.58.137](https://github.com/brave/brave-browser/releases/tag/v1.58.137)
+
+ - Upgraded Chromium to 117.0.5938.153. ([#33391](https://github.com/brave/brave-browser/issues/33391)) ([Changelog for 117.0.5938.153](https://chromium.googlesource.com/chromium/src/+log/117.0.5938.140..117.0.5938.153?pretty=fuller&n=1000))
+
 ## [1.58.135](https://github.com/brave/brave-browser/releases/tag/v1.58.135)
 
 ### General
