@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.59.120](https://github.com/brave/brave-browser/releases/tag/v1.59.120)
+
+### Web3
+
+ - Fixed not being able to authorize hardware wallet connection to complete transactions. ([#33613](https://github.com/brave/brave-browser/issues/33613))
+
+### General
+
+ - Fixed crash when certain theme extensions are installed while vertical tabs are enabled. ([#33598](https://github.com/brave/brave-browser/issues/33598))
+ - Fixed crash when accessing "brave://settings" while "brave://flags/#brave-vpn" has been disabled. ([#33581](https://github.com/brave/brave-browser/issues/33581))
+ - Fixed crash when accessing "brave://settings" on Guest profiles. ([#32825](https://github.com/brave/brave-browser/issues/32825))
+ - Upgraded Chromium to 118.0.5993.88. ([#33694](https://github.com/brave/brave-browser/issues/33694)) ([Changelog for 118.0.5993.88](https://chromium.googlesource.com/chromium/src/+log/118.0.5993.70..118.0.5993.88?pretty=fuller&n=1000))
+
 ## [1.59.117](https://github.com/brave/brave-browser/releases/tag/v1.59.117)
 
 ### Web3
