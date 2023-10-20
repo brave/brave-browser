@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.59.122](https://github.com/brave/brave-browser/releases/tag/v1.59.122)
+
+ - Upgraded Chromium to 118.0.5993.96 (macOS only). ([#33752](https://github.com/brave/brave-browser/issues/33752)) ([Changelog for 118.0.5993.96](https://chromium.googlesource.com/chromium/src/+log/118.0.5993.88..118.0.5993.96?pretty=fuller&n=1000))
+
 ## [1.59.120](https://github.com/brave/brave-browser/releases/tag/v1.59.120)
 
 ### Web3
