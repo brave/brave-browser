@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.59.124](https://github.com/brave/brave-browser/releases/tag/v1.59.124)
+
+### Web3
+
+ - Fixed "Market" tab displaying incorrect colors for increased/decreased prices. ([#33838](https://github.com/brave/brave-browser/issues/33838))
+
+### General
+
+ - Brave Ad Block Resources Library now updates via Component Updater on a more frequent basis, to always have most recent Ad Block lists. ([#32274](https://github.com/brave/brave-browser/issues/32274))
+ - Upgraded Chromium to 118.0.5993.117. ([#33893](https://github.com/brave/brave-browser/issues/33893)) ([Changelog for 118.0.5993.117](https://chromium.googlesource.com/chromium/src/+log/118.0.5993.96..118.0.5993.117?pretty=fuller&n=1000))
+
 ## [1.59.122](https://github.com/brave/brave-browser/releases/tag/v1.59.122)
 
  - Upgraded Chromium to 118.0.5993.96 (macOS only). ([#33752](https://github.com/brave/brave-browser/issues/33752)) ([Changelog for 118.0.5993.96](https://chromium.googlesource.com/chromium/src/+log/118.0.5993.88..118.0.5993.96?pretty=fuller&n=1000))
