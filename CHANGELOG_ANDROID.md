@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.58.135](https://github.com/brave/brave-browser/releases/tag/v1.58.135)
+
+ - Fixed crash when dismissing Brave VPN dialog in certain cases. ([#33257](https://github.com/brave/brave-browser/issues/33257))
+ - Fixed crash when checking if device supports Brave VPN in certain cases. ([#33235](https://github.com/brave/brave-browser/issues/33235))
+ - Upgraded Chromium to 117.0.5938.140. ([#33282](https://github.com/brave/brave-browser/issues/33282)) ([Changelog for 117.0.5938.140](https://chromium.googlesource.com/chromium/src/+log/117.0.5938.92..117.0.5938.140?pretty=fuller&n=1000))
+
 ## [1.58.131](https://github.com/brave/brave-browser/releases/tag/v1.58.131)
 
  - Upgraded Chromium to 117.0.5938.92. ([#33181](https://github.com/brave/brave-browser/issues/33181)) ([Changelog for 117.0.5938.92](https://chromium.googlesource.com/chromium/src/+log/117.0.5938.88..117.0.5938.92?pretty=fuller&n=1000))
