@@ -1,5 +1,51 @@
 # Changelog
 
+## [1.58.125](https://github.com/brave/brave-browser/releases/tag/v1.58.125)
+
+### Web3
+
+ - Added Filecoin to Brave Wallet. ([#30342](https://github.com/brave/brave-browser/issues/30342))
+ - Added support for EIP-6963. ([#30595](https://github.com/brave/brave-browser/issues/30595))
+ - Added network selector in the "Add custom asset" dialog. ([#31188](https://github.com/brave/brave-browser/issues/31188))
+ - Added network selector in the "Edit visible assets" dialog. ([#27093](https://github.com/brave/brave-browser/issues/27093))
+ - Implemented Web UI for "Send" similar to desktop. ([#31260](https://github.com/brave/brave-browser/issues/31260))
+ - Implemented Web UI for "Buy" similar to desktop. ([#31494](https://github.com/brave/brave-browser/issues/31494))
+ - Implemented Web UI for "Deposit" similar to desktop. ([#31495](https://github.com/brave/brave-browser/issues/31495))
+ - [Security] Fixed Brave Wallet pop-up hiding the full screen toast as reported on HackerOne by shadow2639. ([#30113](https://github.com/brave/brave-browser/issues/30113))
+ - Improved the flow for manually adding NFTs. ([#31399](https://github.com/brave/brave-browser/issues/31399))
+ - Updated "Add custom asset" dialog to appear in full screen (also added "Add NFT" screen which appears in full screen). ([#27070](https://github.com/brave/brave-browser/issues/27070))
+ - Moved Solana to the top of the network list. ([#31506](https://github.com/brave/brave-browser/issues/31506))
+ - Removed reference to Brave Rewards within the wallet reset flow. ([#28003](https://github.com/brave/brave-browser/issues/28003))
+ - Fixed transaction confirmation screen being shown when wallet has been auto-locked. ([#31272](https://github.com/brave/brave-browser/issues/31272)), ([#23049](https://github.com/brave/brave-browser/issues/23049))
+ - Fixed wallet balance being displayed on Swap Web UI when wallet is locked. ([#31236](https://github.com/brave/brave-browser/issues/31236))
+ - Fixed manually added assets not being listed in deposit fund screen. ([#31889](https://github.com/brave/brave-browser/issues/31889))
+ - Fixed crash when fetching prices in certain cases. ([#32561](https://github.com/brave/brave-browser/issues/32561))
+ - Fixed crash when editing visible assets in certain cases. ([#31303](https://github.com/brave/brave-browser/issues/31303))
+ - Fixed color for both the "Add custom asset" & "Add NFT" buttons in dark mode. ([#31141](https://github.com/brave/brave-browser/issues/31141))
+
+### Rewards
+
+ - Added ZebPay as new custodial account provider for Brave Rewards (India only). ([#32386](https://github.com/brave/brave-browser/issues/32386))
+ - Implemented new rewards onboarding UI and flow. ([#30309](https://github.com/brave/brave-browser/issues/30309))
+ - Implemented "Manage Brave Ads" on the brave://rewards page. ([#30638](https://github.com/brave/brave-browser/issues/30638))
+ - Fixed Virtual BAT expiry notice being displayed due to an incorrect deadline date being used. ([#28817](https://github.com/brave/brave-browser/issues/28817))
+
+### General
+
+ - Added "Copy clean link" feature. ([#26013](https://github.com/brave/brave-browser/issues/26013))
+ - Added external deep linking for both VPN & Playlist. ([#31148](https://github.com/brave/brave-browser/issues/31148))
+ - Updated "lock" icon to "tune" icon in address bar. ([#32380](https://github.com/brave/brave-browser/issues/32380))
+ - Updated cosmetic filtering to force aggressive blocking on YouTube. ([#30896](https://github.com/brave/brave-browser/issues/30896))
+ - Updated "Learn more" link on the "Lookalike URL" popup. ([#31396](https://github.com/brave/brave-browser/issues/31396))
+ - Removed known tracking parameters "mtm_cid" and "pk_cid" from URLs. ([#31084](https://github.com/brave/brave-browser/issues/31084))
+ - Fixed "Open in new tab" behaving as "Open in new tab in group" and opening new tabs in groups. ([#32853](https://github.com/brave/brave-browser/issues/32853))
+ - Fixed "Open in new tab" being shown under the New Tab Page context menu when toggle is still disabled under "Appearance" settings. ([#32854](https://github.com/brave/brave-browser/issues/32854))
+ - Fixed external links not being opened in the same tab group. ([#32868](https://github.com/brave/brave-browser/issues/32868))
+ - Fixed "Try" Brave VPN modal not being displayed when user meets conditions. ([#29255](https://github.com/brave/brave-browser/issues/29255))
+ - Fixed crash when interacting with VPN settings in certain cases. ([#30656](https://github.com/brave/brave-browser/issues/30656))
+ - Fixed crash when viewing the Brave News feed in certain cases. ([#31195](https://github.com/brave/brave-browser/issues/31195))
+ - Upgraded Chromium to 117.0.5938.62. ([#32945](https://github.com/brave/brave-browser/issues/32945)) ([Changelog for 117.0.5938.62](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.188..117.0.5938.62?pretty=fuller&n=1000))
+
 ## [1.57.62](https://github.com/brave/brave-browser/releases/tag/v1.57.62)
 
  - Upgraded Chromium to 116.0.5845.180. ([#32765](https://github.com/brave/brave-browser/issues/32765)) ([Changelog for 116.0.5845.180](https://chromium.googlesource.com/chromium/src/+log/116.0.5845.163..116.0.5845.180?pretty=fuller&n=1000))
