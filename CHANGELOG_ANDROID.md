@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.58.129](https://github.com/brave/brave-browser/releases/tag/v1.58.129)
+
+ - Added brave://flags#brave-global-privacy-control-enabled to opt out of GPC. ([#32231](https://github.com/brave/brave-browser/issues/32231))
+ - Updated SKU credential matching logic for Brave VPN. ([#32924](https://github.com/brave/brave-browser/issues/32924))
+ - Fixed Brave VPN crash due to new Billing SDK. ([#32924](33090://github.com/brave/brave-browser/issues/33090))
+
 ## [1.58.125](https://github.com/brave/brave-browser/releases/tag/v1.58.125)
 
 ### Web3
