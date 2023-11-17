@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.59.120](https://github.com/brave/brave-browser/releases/tag/v1.59.120)
+
+ - Fixed "Block Cookies" changes under the "Brave Shields & privacy" settings not being saved. ([#30155](https://github.com/brave/brave-browser/issues/30155))
+ - Fixed crash when viewing the New Tab Page in certain cases. ([#33385](https://github.com/brave/brave-browser/issues/33385))
+ - Upgraded Chromium to 118.0.5993.88. ([#33694](https://github.com/brave/brave-browser/issues/33694)) ([Changelog for 118.0.5993.88](https://chromium.googlesource.com/chromium/src/+log/118.0.5993.70..118.0.5993.88?pretty=fuller&n=1000))
+
 ## [1.59.117](https://github.com/brave/brave-browser/releases/tag/v1.59.117)
 
 ### Web3
