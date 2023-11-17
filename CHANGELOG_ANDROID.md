@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.59.124](https://github.com/brave/brave-browser/releases/tag/v1.59.124)
+
+ - Updated user shield reports to include the "origin" + "path" to improve webcompat. ([#32640](https://github.com/brave/brave-browser/issues/32640))
+ - Brave Ad Block Resources Library now updates via Component Updater on a more frequent basis, to always have most recent Ad Block lists. ([#32274](https://github.com/brave/brave-browser/issues/32274))
+ - Upgraded Chromium to 118.0.5993.117. ([#33893](https://github.com/brave/brave-browser/issues/33893)) ([Changelog for 118.0.5993.117](https://chromium.googlesource.com/chromium/src/+log/118.0.5993.96..118.0.5993.117?pretty=fuller&n=1000))
+
 ## [1.59.120](https://github.com/brave/brave-browser/releases/tag/v1.59.120)
 
  - Fixed "Block Cookies" changes under the "Brave Shields & privacy" settings not being saved. ([#30155](https://github.com/brave/brave-browser/issues/30155))
