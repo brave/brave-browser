@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.59.117](https://github.com/brave/brave-browser/releases/tag/v1.59.117)
+
+### Web3
+
+ - Redesigned the main Brave Wallet layout. ([#32197](https://github.com/brave/brave-browser/issues/32197)) 
+ - Redesigned wallet navigation and combined both "Assets" & "NTFs" into a single section. ([#32411](https://github.com/brave/brave-browser/issues/32411)) 
+ - Redesigned the "Portfolio" view and added option to show/hide NFTs. ([#32545](https://github.com/brave/brave-browser/issues/32545)) 
+ - Added ability to select multiple networks under the "Networks" selection screen for both the "Portfolio" and "NFT" tabs. ([#32644](https://github.com/brave/brave-browser/issues/32644)) 
+ - Added method to return "Swap" protocol fees. ([#32464](https://github.com/brave/brave-browser/issues/32464))
+ - Added "Help Centre" link under both the wallet settings and panel settings. ([#27270](https://github.com/brave/brave-browser/issues/27270))
+ - Improved wallet performance by optimizing the onboarding flow. ([#32256](https://github.com/brave/brave-browser/issues/32256))
+ - Fixed NFTs still appearing as visible when marked as invisible via "Edit visible NTFs" settings. ([#31915](https://github.com/brave/brave-browser/issues/31915))
+ - Fixed wallet header not being displayed. ([#32222](https://github.com/brave/brave-browser/issues/32222))
+ - Fixed crash when downloading wallet data on a slower connection in certain cases. ([#33386](https://github.com/brave/brave-browser/issues/33386))
+
+### Rewards
+
+ - Updated "Estimated earnings" to display "Earnings so far". ([#32653](https://github.com/brave/brave-browser/issues/32653))
+ - Fixed rewards panel and brave://rewards using different balance values dueto using different rounding algorithm. ([#28258](https://github.com/brave/brave-browser/issues/28258))
+
+### General
+
+ - [Security] Updated which origins and URLs trigger debouncing and request-OTR protections as reported on HackerOne by nishimunea. ([#32230](https://github.com/brave/brave-browser/issues/32230))
+ - [Security] Fixed crash when loading brave://optimization-guide-internals as reported on HackerOne by jaguilera. ([#31648](https://github.com/brave/brave-browser/issues/31648))
+ - Moved both content filtering and "add custom filter list" from brave://adblock into "Brave Shields & privacy" settings. ([#26587](https://github.com/brave/brave-browser/issues/26587)), ([#30174](https://github.com/brave/brave-browser/issues/30174))
+ - Removed the cookie content modal. ([#33151](https://github.com/brave/brave-browser/issues/33151))
+ - Fixed crash when adding scriptlet injection filters with too many arguments. ([#32916](https://github.com/brave/brave-browser/issues/32916))
+ - Fixed context menu for Brave News articles not correctly being displayed while in landscape mode. ([#31935](https://github.com/brave/brave-browser/issues/31935))
+ - Upgraded Chromium to 118.0.5993.70. ([#33556](https://github.com/brave/brave-browser/issues/33556)) ([Changelog for 118.0.5993.70](https://chromium.googlesource.com/chromium/src/+log/117.0.5938.153..118.0.5993.70?pretty=fuller&n=1000))
+
 ## [1.58.137](https://github.com/brave/brave-browser/releases/tag/v1.58.137)
 
  - Upgraded Chromium to 117.0.5938.153. ([#33391](https://github.com/brave/brave-browser/issues/33391)) ([Changelog for 117.0.5938.153](https://chromium.googlesource.com/chromium/src/+log/117.0.5938.140..117.0.5938.153?pretty=fuller&n=1000))
