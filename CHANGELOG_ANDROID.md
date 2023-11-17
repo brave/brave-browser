@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.60.110](https://github.com/brave/brave-browser/releases/tag/v1.60.110)
+
+### Web3
+
+ - Updated Brave Wallet v2 screens for SIWE support. ([#32863](https://github.com/brave/brave-browser/issues/32863)), ([#33254](https://github.com/brave/brave-browser/issues/33254))
+ - Improved performance of "Network" filter dropdown. ([#33004](https://github.com/brave/brave-browser/issues/33004))
+ - Fixed webview crash when selecting tokens using the "Deposit" screen. ([#33966](https://github.com/brave/brave-browser/issues/33966))
+
+### Rewards
+
+ - Added auto-select of target country during the rewards onboarding via the geolocation declaration dropdown. ([#29785](https://github.com/brave/brave-browser/issues/29785))
+ - Fixed multiple default regions being selected during rewards onboarding via the geolocation declaration dropdown. ([#32273](https://github.com/brave/brave-browser/issues/32273))
+
+### General
+
+ - Added Widevine support. ([#20241](https://github.com/brave/brave-browser/issues/20241))
+ - Added support for "#@#+js()" syntax for blanket scriptlet exception. ([#33766](https://github.com/brave/brave-browser/issues/33766))
+ - Enabled History datatype for Brave Sync. ([#32876](https://github.com/brave/brave-browser/issues/32876))
+ - Updated New Tab Page Sponsored Image counter to reset every 24 hours. ([#31551](https://github.com/brave/brave-browser/issues/31551))
+ - Updated display frequency for New Tab Page Sponsored Image. ([#33228](https://github.com/brave/brave-browser/issues/33228))
+ - Updated Brave News to only download the page's linked alternate feeds when the UI list is opened. ([#33246](https://github.com/brave/brave-browser/issues/33246))
+ - Removed known tracking parameter "_gl" from URLs. ([#33188](https://github.com/brave/brave-browser/issues/33188))
+ - Removed known tracking parameters "at_recipient_id" and "at_recipient_list" from URLs. ([#32488](https://github.com/brave/brave-browser/issues/32488))
+ - Removed known tracking parameter "unicorn_click_id" from URLs. ([#33172](https://github.com/brave/brave-browser/issues/33172))
+ - Fixed crash while viewing Privacy Hub in certain cases. ([#32944](https://github.com/brave/brave-browser/issues/32944))
+ - Upgraded Chromium to 119.0.6045.105. ([#34024](https://github.com/brave/brave-browser/issues/34024)) ([Changelog for 119.0.6045.105](https://chromium.googlesource.com/chromium/src/+log/118.0.5993.117..119.0.6045.105?pretty=fuller&n=1000))
+
 ## [1.59.124](https://github.com/brave/brave-browser/releases/tag/v1.59.124)
 
  - Updated user shield reports to include the "origin" + "path" to improve webcompat. ([#32640](https://github.com/brave/brave-browser/issues/32640))
