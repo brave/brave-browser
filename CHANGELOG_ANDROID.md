@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.60.116](https://github.com/brave/brave-browser/releases/tag/v1.60.116)
+
+ - Added a first-party exception list to the correct adblock engine. ([#34081](https://github.com/brave/brave-browser/issues/34081))
+ - Upgraded Chromium to 119.0.6045.134. ([#34209](https://github.com/brave/brave-browser/issues/34209)) ([Changelog for 119.0.6045.134](https://chromium.googlesource.com/chromium/src/+log/119.0.6045.124..119.0.6045.134?pretty=fuller&n=1000))
+
 ## [1.60.110](https://github.com/brave/brave-browser/releases/tag/v1.60.110)
 
 ### Web3
