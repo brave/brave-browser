@@ -2,7 +2,7 @@
 
 ## [1.60.118](https://github.com/brave/brave-browser/releases/tag/v1.60.118)
 
- - Fixed crash on startup when using Linux Arm64. ([#34081](https://github.com/brave/brave-browser/issues/34081))
+ - Fixed crash on startup when using Linux Arm64. ([#33596](https://github.com/brave/brave-browser/issues/33596))
  - Upgraded Chromium to 119.0.6045.163. ([#34331](https://github.com/brave/brave-browser/issues/34331)) ([Changelog for 119.0.6045.163](https://chromium.googlesource.com/chromium/src/+log/119.0.6045.124..119.0.6045.163?pretty=fuller&n=1000))
 
 ## [1.60.114](https://github.com/brave/brave-browser/releases/tag/v1.60.114)
