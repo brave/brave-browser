@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.60.125](https://github.com/brave/brave-browser/releases/tag/v1.60.125)
+
+ - Added support for quoted scriptlet arguments. ([#34170](https://github.com/brave/brave-browser/issues/34170))
+ - Fixed issue where Brave Leo gives incomplete answers in certain cases. ([#34321](https://github.com/brave/brave-browser/issues/34321))
+ - Fixed VPN toolbar button state mismatch. ([#33023](https://github.com/brave/brave-browser/issues/33023))
+ - Fixed misaligned window buttons on Linux. ([#34201](https://github.com/brave/brave-browser/issues/34201))
+ - Fixed "Set as default" not working on Linux when installed via Snap. ([#34053](https://github.com/brave/brave-browser/issues/34053))
+ - Upgraded Chromium to 119.0.6045.199. ([#34574](https://github.com/brave/brave-browser/issues/34574)) ([Changelog for 119.0.6045.199](https://chromium.googlesource.com/chromium/src/+log/119.0.6045.163..119.0.6045.199?pretty=fuller&n=1000))
+
 ## [1.60.118](https://github.com/brave/brave-browser/releases/tag/v1.60.118)
 
  - Fixed crash on startup when using Linux Arm64. ([#33596](https://github.com/brave/brave-browser/issues/33596))
