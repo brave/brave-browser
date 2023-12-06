@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.61.100](https://github.com/brave/brave-browser/releases/tag/v1.61.100)
+
+### Web3
+
+ - Added Brave Rewards custodial balance line item into Brave Wallet. ([#31713](https://github.com/brave/brave-browser/issues/31713))
+ - Updated Brave Wallet panel navigation to be persistent on open/close of panel. ([#33677](https://github.com/brave/brave-browser/issues/33677))
+ - Updated NFT name to wrap on "Send" panel screen when necessary. ([#33442](https://github.com/brave/brave-browser/issues/33442))
+ - Removed horizontal scroll bar on "Edit gas" screen. ([#33373](https://github.com/brave/brave-browser/issues/33373))
+ - Fixed incorrect error message when trying to import accounts from a locked Ledger device. ([#21016](https://github.com/brave/brave-browser/issues/21016))
+ - Fixed persistent "Sign Transaction" panel even after transaction is cancelled. ([#34668](https://github.com/brave/brave-browser/issues/34668))
+ - Fixed Brave Wallet menu display on small screens. ([#33877](https://github.com/brave/brave-browser/issues/33877))
+
+### Rewards
+
+ - Implemented new design for account provider selection screen. ([#33258](https://github.com/brave/brave-browser/issues/33258))
+
+### General
+
+ - Added search, sort, and editing features to the Bookmarks side panel. ([#34021](https://github.com/brave/brave-browser/issues/34021))
+ - Added a command line switch to disable vertical tabs. ([#33711](https://github.com/brave/brave-browser/issues/33711))
+ - Added universal online installer for Windows. ([#32598](https://github.com/brave/brave-browser/issues/32598))
+ - Added system default theme mode on Linux. ([#14685](https://github.com/brave/brave-browser/issues/14685))
+ - Updated margins for sidebar buttons. ([#34249](https://github.com/brave/brave-browser/issues/34249))
+ - Upgraded Chromium to 120.0.6099.62. ([#34723](https://github.com/brave/brave-browser/issues/34723)) ([Changelog for 120.0.6099.62](https://chromium.googlesource.com/chromium/src/+log/119.0.6045.199..120.0.6099.62?pretty=fuller&n=1000))
+
 ## [1.60.125](https://github.com/brave/brave-browser/releases/tag/v1.60.125)
 
  - Added support for quoted scriptlet arguments. ([#34170](https://github.com/brave/brave-browser/issues/34170))
