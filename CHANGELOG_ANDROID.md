@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.61.100](https://github.com/brave/brave-browser/releases/tag/v1.61.100)
+
+### Web3
+
+ - Improved dark mode within Brave Wallet. ([#33439](https://github.com/brave/brave-browser/issues/33439))
+
+### Rewards
+
+ - Redesigned UI for the contribution banner. ([#30371](https://github.com/brave/brave-browser/issues/30371))
+ - Implemented new design for account provider selection screen. ([#33258](https://github.com/brave/brave-browser/issues/33258))
+
+### General
+
+ - Added save path to the bookmark "Exported successfully" dialog. ([#33171](https://github.com/brave/brave-browser/issues/33171))
+ - [Security] Fixed crash when incorrectly handling reward navigation redirects as reported on HackerOne by 0xc4gr1. ([#32498](https://github.com/brave/brave-browser/issues/32498))
+ - Disabled VPN "Contact Technical Support" for non-subscribed users. ([#34724](https://github.com/brave/brave-browser/issues/34724))
+ - Fixed website failing to load on certain Motorola Moto devices (was rolled out using Griffin starting at 100%). ([#33941](https://github.com/brave/brave-browser/issues/33941))
+ - Fixed Brave News onboarding modal appearing via NTP for unsupported regions. ([#33267](https://github.com/brave/brave-browser/issues/33267))
+ - Fixed "Add" button under "Custom filter list" not being disabled when "Enter filter list URL here" text field is empty. ([#33178](https://github.com/brave/brave-browser/issues/33178))
+ - Upgraded Chromium to 120.0.6099.62. ([#34723](https://github.com/brave/brave-browser/issues/34723)) ([Changelog for 120.0.6099.62](https://chromium.googlesource.com/chromium/src/+log/119.0.6045.199..120.0.6099.62?pretty=fuller&n=1000))
+
 ## [1.60.125](https://github.com/brave/brave-browser/releases/tag/v1.60.125)
 
  - Added support for quoted scriptlet arguments. ([#34170](https://github.com/brave/brave-browser/issues/34170))
