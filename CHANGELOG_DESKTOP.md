@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.61.104](https://github.com/brave/brave-browser/releases/tag/v1.61.104)
+
+### Web3
+
+ - Fixed "Signature verification error" being incorrectly displayed in Brave Wallet with the signTransaction method. ([#34842](https://github.com/brave/brave-browser/issues/34842))
+
+### General
+
+ - Fixed crash when accessing "Extensions" from Private window hamburger menu. ([#34811](https://github.com/brave/brave-browser/issues/34811))
+ - Upgraded Chromium to 120.0.6099.115. ([#34856](https://github.com/brave/brave-browser/issues/34856)) ([Changelog for 120.0.6099.115](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.71..120.0.6099.115?pretty=fuller&n=1000))
+
 ## [1.61.101](https://github.com/brave/brave-browser/releases/tag/v1.61.101)
 
  - Upgraded Chromium to 120.0.6099.71. ([#34740](https://github.com/brave/brave-browser/issues/34740)) ([Changelog for 120.0.6099.71](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.62..120.0.6099.71?pretty=fuller&n=1000))
