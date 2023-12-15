@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.61.106](https://github.com/brave/brave-browser/releases/tag/v1.61.106)
+
+ - Fixed Brave Ads crash on Windows x86. ([#34854](https://github.com/brave/brave-browser/issues/34854))
+
 ## [1.61.104](https://github.com/brave/brave-browser/releases/tag/v1.61.104)
 
 ### Web3
