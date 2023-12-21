@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.61.109](https://github.com/brave/brave-browser/releases/tag/v1.61.109)
+
+ - Fixed crash when closing tabs on macOS in certain cases. ([#34909](https://github.com/brave/brave-browser/issues/34909))
+ - Upgraded Chromium to 120.0.6099.144. ([#34988](https://github.com/brave/brave-browser/issues/34988)) ([Changelog for 120.0.6099.144](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.115..120.0.6099.144?pretty=fuller&n=1000))
+
 ## [1.61.106](https://github.com/brave/brave-browser/releases/tag/v1.61.106)
 
  - Fixed Brave Ads crash on Windows x86. ([#34854](https://github.com/brave/brave-browser/issues/34854))
