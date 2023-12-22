@@ -108,7 +108,9 @@ npm run build -- Debug
 ```
 NOTE: the build will take a while to complete. Depending on your processor and memory, it could potentially take a few hours.
 
-Brave staff may also want to try [Goma](https://github.com/brave/brave-browser/wiki/Brave-Developer-tips#speeding-up-builds) for faster builds.
+for faster builds see: 
+- https://blog.engflow.com/2023/09/11/goma-is-gone-put-everything-into-reclient/#remote-execution 
+the article explains how to build on multiple backends in parallel.
 
 ## Run Brave
 To start the build:
