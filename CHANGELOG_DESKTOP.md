@@ -1,5 +1,63 @@
 # Changelog
 
+## [1.61.109](https://github.com/brave/brave-browser/releases/tag/v1.61.109)
+
+ - Fixed crash when closing tabs on macOS in certain cases. ([#34909](https://github.com/brave/brave-browser/issues/34909))
+ - Upgraded Chromium to 120.0.6099.144. ([#34988](https://github.com/brave/brave-browser/issues/34988)) ([Changelog for 120.0.6099.144](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.115..120.0.6099.144?pretty=fuller&n=1000))
+
+## [1.61.106](https://github.com/brave/brave-browser/releases/tag/v1.61.106)
+
+ - Fixed Brave Ads crash on Windows x86. ([#34854](https://github.com/brave/brave-browser/issues/34854))
+
+## [1.61.104](https://github.com/brave/brave-browser/releases/tag/v1.61.104)
+
+### Web3
+
+ - Fixed "Signature verification error" being incorrectly displayed in Brave Wallet with the signTransaction method. ([#34842](https://github.com/brave/brave-browser/issues/34842))
+
+### General
+
+ - Fixed crash when accessing "Extensions" from Private window hamburger menu. ([#34811](https://github.com/brave/brave-browser/issues/34811))
+ - Upgraded Chromium to 120.0.6099.115. ([#34856](https://github.com/brave/brave-browser/issues/34856)) ([Changelog for 120.0.6099.115](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.71..120.0.6099.115?pretty=fuller&n=1000))
+
+## [1.61.101](https://github.com/brave/brave-browser/releases/tag/v1.61.101)
+
+ - Upgraded Chromium to 120.0.6099.71. ([#34740](https://github.com/brave/brave-browser/issues/34740)) ([Changelog for 120.0.6099.71](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.62..120.0.6099.71?pretty=fuller&n=1000))
+
+## [1.61.100](https://github.com/brave/brave-browser/releases/tag/v1.61.100)
+
+### Web3
+
+ - Added Brave Rewards custodial balance line item into Brave Wallet. ([#31713](https://github.com/brave/brave-browser/issues/31713))
+ - Updated Brave Wallet panel navigation to be persistent on open/close of panel. ([#33677](https://github.com/brave/brave-browser/issues/33677))
+ - Updated NFT name to wrap on "Send" panel screen when necessary. ([#33442](https://github.com/brave/brave-browser/issues/33442))
+ - Removed horizontal scroll bar on "Edit gas" screen. ([#33373](https://github.com/brave/brave-browser/issues/33373))
+ - Fixed incorrect error message when trying to import accounts from a locked Ledger device. ([#21016](https://github.com/brave/brave-browser/issues/21016))
+ - Fixed persistent "Sign Transaction" panel even after transaction is cancelled. ([#34668](https://github.com/brave/brave-browser/issues/34668))
+ - Fixed Brave Wallet menu display on small screens. ([#33877](https://github.com/brave/brave-browser/issues/33877))
+
+### Rewards
+
+ - Implemented new design for account provider selection screen. ([#33258](https://github.com/brave/brave-browser/issues/33258))
+
+### General
+
+ - Added search, sort, and editing features to the Bookmarks side panel. ([#34021](https://github.com/brave/brave-browser/issues/34021))
+ - Added a command line switch to disable vertical tabs. ([#33711](https://github.com/brave/brave-browser/issues/33711))
+ - Added universal online installer for Windows. ([#32598](https://github.com/brave/brave-browser/issues/32598))
+ - Added system default theme mode on Linux. ([#14685](https://github.com/brave/brave-browser/issues/14685))
+ - Updated margins for sidebar buttons. ([#34249](https://github.com/brave/brave-browser/issues/34249))
+ - Upgraded Chromium to 120.0.6099.62. ([#34723](https://github.com/brave/brave-browser/issues/34723)) ([Changelog for 120.0.6099.62](https://chromium.googlesource.com/chromium/src/+log/119.0.6045.199..120.0.6099.62?pretty=fuller&n=1000))
+
+## [1.60.125](https://github.com/brave/brave-browser/releases/tag/v1.60.125)
+
+ - Added support for quoted scriptlet arguments. ([#34170](https://github.com/brave/brave-browser/issues/34170))
+ - Fixed issue where Brave Leo gives incomplete answers in certain cases. ([#34321](https://github.com/brave/brave-browser/issues/34321))
+ - Fixed VPN toolbar button state mismatch. ([#33023](https://github.com/brave/brave-browser/issues/33023))
+ - Fixed misaligned window buttons on Linux. ([#34201](https://github.com/brave/brave-browser/issues/34201))
+ - Fixed "Set as default" not working on Linux when installed via Snap. ([#34053](https://github.com/brave/brave-browser/issues/34053))
+ - Upgraded Chromium to 119.0.6045.199. ([#34574](https://github.com/brave/brave-browser/issues/34574)) ([Changelog for 119.0.6045.199](https://chromium.googlesource.com/chromium/src/+log/119.0.6045.163..119.0.6045.199?pretty=fuller&n=1000))
+
 ## [1.60.118](https://github.com/brave/brave-browser/releases/tag/v1.60.118)
 
  - Fixed crash on startup when using Linux Arm64. ([#33596](https://github.com/brave/brave-browser/issues/33596))
