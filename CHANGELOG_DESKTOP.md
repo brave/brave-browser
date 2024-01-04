@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.61.114](https://github.com/brave/brave-browser/releases/tag/v1.61.114)
+
+ - Fixed uninstall process affecting Brave VPN on Windows. ([#35006](https://github.com/brave/brave-browser/issues/35006))
+ - Upgraded Chromium to 120.0.6099.199. ([#35108](https://github.com/brave/brave-browser/issues/35108)) ([Changelog for 120.0.6099.199](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.144..120.0.6099.199?pretty=fuller&n=1000))
+
 ## [1.61.109](https://github.com/brave/brave-browser/releases/tag/v1.61.109)
 
  - Fixed crash when closing tabs on macOS in certain cases. ([#34909](https://github.com/brave/brave-browser/issues/34909))
