@@ -185,7 +185,9 @@ brave-browser> npm run apply_patches
 
 # Development
 
-- [Security rules](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/security/rules.md)
+- [Security rules from Chromium](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/security/rules.md)
+- [IPC review guidelines](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/security/ipc-reviews.md) (in particular [this reference](https://docs.google.com/document/d/1Kw4aTuISF7csHnjOpDJGc7JYIjlvOAKRprCTBVWw_E4/edit#heading=h.84bpc1e9z1bg))
+- [Brave's internal security guidelines](https://github.com/brave/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
 - [Rust usage](https://github.com/brave/brave-core/blob/master/docs/rust.md)
 
 # Troubleshooting
