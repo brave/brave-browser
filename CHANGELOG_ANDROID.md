@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.62.152](https://github.com/brave/brave-browser/releases/tag/v1.62.152)
+
+### Web3
+
+ - [Security] Updated Brave Wallet password policy. ([#25780](https://github.com/brave/brave-browser/issues/25780))
+ - Updated wallet account blockies design. ([#34482](https://github.com/brave/brave-browser/issues/34482))
+ - Migrated Solana Swaps to use Jupiter Swap API v6. ([#35091](https://github.com/brave/brave-browser/issues/35091))
+ - Removed loading indicator when asset discovery is not being run. ([#30921](https://github.com/brave/brave-browser/issues/30921))
+
+### General
+ 
+ - Added the ability to pause/disable VPN tunnelling for a desired time frame. ([#34445](https://github.com/brave/brave-browser/issues/34445))
+ - [Security] Force the referrer to always be "no-referrer" while in Speedreader mode as reported on HackerOne by nishimunea. ([#35095](https://github.com/brave/brave-browser/issues/35095))
+ - Updated farbling protections to only farble a subset of user installed fonts. ([#34043](https://github.com/brave/brave-browser/issues/34043))
+ - Updated "Private Tab" re-authentication UI. ([#29688](https://github.com/brave/brave-browser/issues/29688))
+ - Updated various "Setting" menus to improve usability. ([#33981](https://github.com/brave/brave-browser/issues/33981))
+ - Removed HTTPS Everywhere. ([#28433](https://github.com/brave/brave-browser/issues/28433))
+ - Removed aggressive fingerprinting mode (being rolled out in phases using Griffin). ([#31229](https://github.com/brave/brave-browser/issues/31229))
+ - Removed known tracking parameter "_kx" from URLs. ([#34578](https://github.com/brave/brave-browser/issues/34578))
+ - Removed known tracking parameter "irclickid" from URLs. ([#33952](https://github.com/brave/brave-browser/issues/33952))
+ - Removed several known Yandex tracking parameters from URLs. ([#33216](https://github.com/brave/brave-browser/issues/33216))
+ - Removed several known Facebook tracking parameters from URLs. ([#33984](https://github.com/brave/brave-browser/issues/33984))
+ - Moved both "Block YouTube recommended content" and "Block YouTube distracting elements" into "Media" under "Settings". ([#34420](https://github.com/brave/brave-browser/issues/34420))
+ - Upgraded Chromium to 121.0.6167.101. ([#35530](https://github.com/brave/brave-browser/issues/35530)) ([Changelog for 121.0.6167.101](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.234..121.0.6167.101?pretty=fuller&n=1000))
+
 ## [1.61.120](https://github.com/brave/brave-browser/releases/tag/v1.61.120)
 
  - Upgraded Chromium to 120.0.6099.234. ([#35345](https://github.com/brave/brave-browser/issues/35345)) ([Changelog for 120.0.6099.234](https://chromium.googlesource.com/chromium/src/+log/120.0.6099.217..120.0.6099.234?pretty=fuller&n=1000))
