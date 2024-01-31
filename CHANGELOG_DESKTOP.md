@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.62.156](https://github.com/brave/brave-browser/releases/tag/v1.62.156)
+
+### Web3
+
+ - Fixed unlocking Brave Wallet via the panel sometimes closes the panel. ([#35612](https://github.com/brave/brave-browser/issues/35612))
+
+### General
+
+ - Updated URL bar icon for local files. ([#35316](https://github.com/brave/brave-browser/issues/35316))
+ - Decreased URL bar height to 32px. ([#35506](https://github.com/brave/brave-browser/issues/35506))
+ - Fixed sync crash when forcing device polling in certain cases. ([#35554](https://github.com/brave/brave-browser/issues/35554))
+ - Fixed "declarativeNetRequest" rules not being added when Brave is launched. ([#30854](https://github.com/brave/brave-browser/issues/30854))
+ - Fixed out of sync cookie settings under brave://settings/cookies and brave://settings/shields. ([#35415](https://github.com/brave/brave-browser/issues/35415))
+ - Fixed solid color for the New Tab Page background not being respected. ([#35596](https://github.com/brave/brave-browser/issues/35596))
+ - Fixed missing background for "Allowed" and "Not allowed" URL buttons when using light theme. ([#35358](https://github.com/brave/brave-browser/issues/35358))
+ - Fixed clipped hover state for icons in the URL bar. ([#35507](https://github.com/brave/brave-browser/issues/35507))
+ - Upgraded Chromium to 121.0.6167.139. ([#35704](https://github.com/brave/brave-browser/issues/35704)) ([Changelog for 121.0.6167.139](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.85..121.0.6167.139?pretty=fuller&n=1000))
+
 ## [1.62.153](https://github.com/brave/brave-browser/releases/tag/v1.62.153)
 
 ### Web3
