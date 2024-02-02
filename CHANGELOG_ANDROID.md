@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.62.156](https://github.com/brave/brave-browser/releases/tag/v1.62.156)
+
+ - Fixed sync crash when forcing device polling in certain cases. ([#35554](https://github.com/brave/brave-browser/issues/35554))
+ - Upgraded Chromium to 121.0.6167.139. ([#35704](https://github.com/brave/brave-browser/issues/35704)) ([Changelog for 121.0.6167.139](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.85..121.0.6167.139?pretty=fuller&n=1000))
+
 ## [1.62.152](https://github.com/brave/brave-browser/releases/tag/v1.62.152)
 
 ### Web3
