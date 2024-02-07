@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.62.162](https://github.com/brave/brave-browser/releases/tag/v1.62.162)
+
+ - Fixed signing Solana DApp transactions using Ledger. ([#35802](https://github.com/brave/brave-browser/issues/35802))
+ - Upgraded Chromium to 121.0.6167.164. ([#35844](https://github.com/brave/brave-browser/issues/35844)) ([Changelog for 121.0.6167.164](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.139..121.0.6167.164?pretty=fuller&n=1000))
+
 ## [1.62.156](https://github.com/brave/brave-browser/releases/tag/v1.62.156)
 
 ### Web3
