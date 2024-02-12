@@ -18,12 +18,6 @@ This repository holds the build tools needed to build the Brave desktop browser 
 
 You can [visit our website](https://brave.com/download) to get the latest stable release.
 
-## Other repositories
-
-For other versions of our browser, please see:
-
-* iOS - [brave/brave-ios](https://github.com/brave/brave-ios)
-
 ## Contributing
 
 Please see the [contributing guidelines](./CONTRIBUTING.md).
@@ -44,6 +38,7 @@ Follow [@brave](https://twitter.com/brave) on Twitter for important news and ann
 Follow the instructions for your platform:
 
 - [macOS](https://github.com/brave/brave-browser/wiki/macOS-Development-Environment)
+- [iOS](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment)
 - [Windows](https://github.com/brave/brave-browser/wiki/Windows-Development-Environment)
 - [Linux/Android](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
 
@@ -62,6 +57,7 @@ npm install
 npm run init
 ```
 brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whichever CPU type you want to build for)
+brave-core based iOS builds should use `npm run init -- --target_os=ios`
 
 You can also set the target_os and target_arch for init and build using:
 
@@ -72,7 +68,7 @@ npm config set target_arch arm
 
 Additional parameters needed to build are documented at https://github.com/brave/brave-browser/wiki/Build-configuration
 
-Internal developers can find more information at https://github.com/brave/devops/wiki/npm-config-for-Brave-Developers
+Internal developers can find more information at https://github.com/brave/devops/wiki/%60.env%60-config-for-Brave-Developers
 
 ## Build Brave
 The default build type is component.
@@ -90,6 +86,8 @@ npm run build Release
 ```
 
 brave-core based android builds should use `npm run build -- --target_os=android --target_arch=arm` or set the npm config variables as specified above for `init`
+
+brave-core based iOS builds should use the Xcode project found in `ios/brave-ios/App`. You can open this project directly or run `npm run ios_bootstrap -- --open_xcodeproj` to have it opened in Xcode. See the [iOS Developer Environment](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment#Building) for more information on iOS builds.
 
 ### Build Configurations
 
