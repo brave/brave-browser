@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.62.165](https://github.com/brave/brave-browser/releases/tag/v1.62.165)
+
+### Web3
+
+ - Fixed custom token visibility to retain state between page reload. ([#35149](https://github.com/brave/brave-browser/issues/35149)
+ - Fixed crash on "Accounts" page when a specific address is imported. ([#35821](https://github.com/brave/brave-browser/issues/35821))
+ - Fixed blank Brave Wallet "Accounts" page when native tokens are hidden from the visible asset list. ([#35782](https://github.com/brave/brave-browser/issues/35782))
+ - Fixed coins from being removed when they have the same "Contract ID" but on a different "Chain ID". ([#35150](https://github.com/brave/brave-browser/issues/35150))
+
+### General
+
+ - Upgraded Chromium to 121.0.6167.184. ([#36023](https://github.com/brave/brave-browser/issues/36023)) ([Changelog for 121.0.6167.184](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.164..121.0.6167.184?pretty=fuller&n=1000))
+
 ## [1.62.162](https://github.com/brave/brave-browser/releases/tag/v1.62.162)
 
  - Fixed signing Solana DApp transactions using Ledger. ([#35802](https://github.com/brave/brave-browser/issues/35802))
