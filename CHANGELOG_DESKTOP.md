@@ -1,5 +1,58 @@
 # Changelog
 
+## [1.63.161](https://github.com/brave/brave-browser/releases/tag/v1.63.161)
+
+### Web3
+
+ - Added Bitcoin/BTC to purchasable assets on the "Buy" screen. ([#35204](https://github.com/brave/brave-browser/issues/35204))
+ - Added network selection step to wallet onboarding. ([#34493](https://github.com/brave/brave-browser/issues/34493))
+ - Added "Deselect All" option in the "Network Selection" screen of wallet onboarding. ([#34696](https://github.com/brave/brave-browser/issues/34696))
+ - Enabled BTC by default. ([#35433](https://github.com/brave/brave-browser/issues/35433))
+ - Implemented autofill of decimals, symbol, and name when adding ERC20 tokens. ([#33314](https://github.com/brave/brave-browser/issues/33314))
+ - Updated "Send"/"Swap" UI to use new "Composer UI". ([#34305](https://github.com/brave/brave-browser/issues/34305))
+ - Updated "Swap" UI to be similar to "Send" UI. ([#28720](https://github.com/brave/brave-browser/issues/28720))
+ - Updated "Swap" settings modal using "Composer UI". ([#34582](https://github.com/brave/brave-browser/issues/34582))
+ - Updated wallet to prevent re-fetching of address using domain lookup service when a non-lowercase domain name is entered in the "Send" screen.  ([#34796](https://github.com/brave/brave-browser/issues/34796))
+ - Updated portfolio hidden tokens logic to list valueless tokens when grouped by account. ([#34893](https://github.com/brave/brave-browser/issues/34893))
+ - Updated Brave Wallet so that "Extensions (Brave Wallet fallback)" setting is able to trigger wallet onboarding when no wallet is created. ([#35812](https://github.com/brave/brave-browser/issues/35812))
+ - Fixed "Sell" on Ramp to resolve address. ([#35779](https://github.com/brave/brave-browser/issues/35779))
+ - Fixed native asset transactions not being listed under the "Transactions" tab on "Asset Details" screen. ([#35068](https://github.com/brave/brave-browser/issues/35068))
+ - Fixed flashing elements during wallet initializations when using dark themes. ([#34824](https://github.com/brave/brave-browser/issues/34824))
+ - Fixed incorrect route for "Wallet Settings" button. ([#34647](https://github.com/brave/brave-browser/issues/34647))
+ - Fixed Brave Wallet to only show the "Buy with Stripe" option when the user enters a purchase value. ([#34221](https://github.com/brave/brave-browser/issues/34221))
+ - Fixed Testnet account being displayed on the "Buy" screen when using Mainnet account. ([#35564](https://github.com/brave/brave-browser/issues/35564))
+ - Fixed wallet panel title not being aligned to center. ([#34851](https://github.com/brave/brave-browser/issues/34851))
+
+### Rewards
+
+ - Added self-custody option for Brave Rewards. ([#34952](https://github.com/brave/brave-browser/issues/34952))
+ - Decreased minimum BAT amount for on-demand contributions. ([#34780](https://github.com/brave/brave-browser/issues/34780))
+ - Removed brave://settings/rewards section and moved "Show Brave Rewards button" setting under brave://settings/appearance. ([#34667](https://github.com/brave/brave-browser/issues/34667))
+
+### General
+
+ - Added PDF compatibility with Brave Leo. ([#32741](https://github.com/brave/brave-browser/issues/32741))
+ - Added Google Docs compatibility with Brave Leo. ([#35069](https://github.com/brave/brave-browser/issues/35069))
+ - Added "Adjust autocomplete suggestion" under brave://settings/leo-assistant. ([#33443](https://github.com/brave/brave-browser/issues/33443))
+ - Added highlight to shields button when first used. ([#27490](https://github.com/brave/brave-browser/issues/27490))
+ - Added "Command Palette" to the omnibox when pressing "CTRL + Spacebar". ([#34781](https://github.com/brave/brave-browser/issues/34781))
+ - Added "Sort by custom order" option to bookmarks side panel. ([#34776](https://github.com/brave/brave-browser/issues/34776))
+ - Added "Show on the right" setting for vertical tabs under brave://settings/appearance. ([#30812](https://github.com/brave/brave-browser/issues/30812))
+ - Added the ability for "Saved tab groups" to sync. ([#36155](https://github.com/brave/brave-browser/issues/36155))
+ - Improved support for "removeparam" in standard mode. ([#35141](https://github.com/brave/brave-browser/issues/35141))
+ - Updated minor UI details for Brave Leo. ([#35177](https://github.com/brave/brave-browser/issues/35177))
+ - Updated toolbar, sidebar, and navigation icon sizes and margins. ([#34918](https://github.com/brave/brave-browser/issues/34918))
+ - Updated position of profile icon on Linux. ([#34858](https://github.com/brave/brave-browser/issues/34858))
+ - Reduced space above the horizontal tab strip on Windows. ([#35972](https://github.com/brave/brave-browser/issues/35972))
+ - Removed known YouTube tracking parameter "si" from URLs. ([#34719](https://github.com/brave/brave-browser/issues/34719))
+ - Removed known Instagram tracking parameter "igsh" from URLs. ([#35094](https://github.com/brave/brave-browser/issues/35094))
+ - Fixed crash which occurred when using Brave Leo in certain cases. ([#35396](https://github.com/brave/brave-browser/issues/35396))
+ - Fixed incorrect search provider being used for "Paste and search" in a Private window. ([#35308](https://github.com/brave/brave-browser/issues/35308))
+ - Fixed scriptlet arguments with trailing escaped commas not being parsed correctly. ([#36223](https://github.com/brave/brave-browser/issues/36223))
+ - Fixed sidebar button not showing when side panel is active. ([#34682](https://github.com/brave/brave-browser/issues/34682))
+ - Fixed incorrect tab strip background on certain themes. ([#35905](https://github.com/brave/brave-browser/issues/35905))
+ - Upgraded Chromium to 122.0.6261.57. ([#36242](https://github.com/brave/brave-browser/issues/36242)) ([Changelog for 122.0.6261.57](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.184..122.0.6261.57?pretty=fuller&n=1000))
+
 ## [1.62.165](https://github.com/brave/brave-browser/releases/tag/v1.62.165)
 
 ### Web3
