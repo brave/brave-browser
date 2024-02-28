@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.63.165](https://github.com/brave/brave-browser/releases/tag/v1.63.165)
+
+### Web3
+
+ - Removed "Export" option for both Zcash and BTC accounts. ([#35849](https://github.com/brave/brave-browser/issues/35849))
+ - Fixed inability to import wallet from MetaMask extension. ([#36256](https://github.com/brave/brave-browser/issues/36256))
+
+### Rewards
+
+ - Fixed failed Brave Rewards state migration. ([#36350](https://github.com/brave/brave-browser/issues/36350))
+
+### General
+
+ - Upgraded Chromium to 122.0.6261.94. ([#36404](https://github.com/brave/brave-browser/issues/36404)) ([Changelog for 122.0.6261.94](https://chromium.googlesource.com/chromium/src/+log/122.0.6261.69..122.0.6261.94?pretty=fuller&n=1000))
+
 ## [1.63.162](https://github.com/brave/brave-browser/releases/tag/v1.63.162)
 
  - Upgraded Chromium to 122.0.6261.69. ([#36312](https://github.com/brave/brave-browser/issues/36312)) ([Changelog for 122.0.6261.69](https://chromium.googlesource.com/chromium/src/+log/122.0.6261.57..122.0.6261.69?pretty=fuller&n=1000))
