@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.63.169](https://github.com/brave/brave-browser/releases/tag/v1.63.169)
+
+### Web3
+
+ - Implemented autofill of token details when adding EVM tokens. ([#31062](https://github.com/brave/brave-browser/issues/31062))
+
+### General
+
+ - Fixed inability to login to SharePoint by enabling Cookie Partitioning. ([#36450](https://github.com/brave/brave-browser/issues/36450))
+ - Fixed Leo "Submit" button overlapping text when using RTL locales. ([#36413](https://github.com/brave/brave-browser/issues/36413))
+ - Upgraded Chromium to 122.0.6261.111. ([#36556](https://github.com/brave/brave-browser/issues/36556)) ([Changelog for 122.0.6261.111](https://chromium.googlesource.com/chromium/src/+log/122.0.6261.94..122.0.6261.111?pretty=fuller&n=1000))
+
 ## [1.63.165](https://github.com/brave/brave-browser/releases/tag/v1.63.165)
 
  - Added Brave Leo - AI for questions and answers leveraging page context. ([#36303](https://github.com/brave/brave-browser/issues/36303))
