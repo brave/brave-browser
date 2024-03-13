@@ -1,8 +1,36 @@
 # Changelog
 
+## [1.63.161](https://github.com/brave/brave-browser/releases/tag/v1.63.161)
+
+### Web3
+
+ - Added new configuration options for default "Ethereum wallet" and "Solana wallet" settings. ([#18325](https://github.com/brave/brave-browser/issues/18325))
+ - Added chain validation to "wallet_addEthereumChain" API call and chainID validation to the network settings page. ([#20934](https://github.com/brave/brave-browser/issues/20934))
+ - Updated certain areas of the wallet from native UI to Web UI. ([#34386](https://github.com/brave/brave-browser/issues/34386))
+ - Updated "Swap" UI to be similar to "Send" UI. ([#28720](https://github.com/brave/brave-browser/issues/28720))
+ - Fixed crash when adding Brave Rewards account while the wallet is currently in a locked state. ([#36018](https://github.com/brave/brave-browser/issues/36018))
+
+### Rewards
+
+ - Removed "?" from the BAT icon under the rewards panel. ([#33922](https://github.com/brave/brave-browser/issues/33922))
+
+### General
+
+ - Added VPN region selection into main settings menu. ([#27014](https://github.com/brave/brave-browser/issues/27014))
+ - Improved support for "removeparam" in standard mode. ([#35141](https://github.com/brave/brave-browser/issues/35141))
+ - Updated default VPN icon. ([#32595](https://github.com/brave/brave-browser/issues/32595)
+ - Updated VPN summary under paywall modal. ([#34250](https://github.com/brave/brave-browser/issues/34250)
+ - Removed known YouTube tracking parameter "si" from URLs. ([#34719](https://github.com/brave/brave-browser/issues/34719))
+ - Removed known Instagram tracking parameter "igsh" from URLs. ([#35094](https://github.com/brave/brave-browser/issues/35094))
+ - Fixed scriptlet arguments with trailing escaped commas not being parsed correctly. ([#36223](https://github.com/brave/brave-browser/issues/36223))
+ - Fixed crash when changing default search engine for "Private Tab" in certain cases. ([#34826](https://github.com/brave/brave-browser/issues/34826))
+ - Fixed "Connecting to your server. Should only take a moment..." messaging being displayed infinitely when VPN subscription has expired. ([#34738](https://github.com/brave/brave-browser/issues/34738)) 
+ - Fixed crash when playing media in a loop within the Playlist. ([#30682](https://github.com/brave/brave-browser/issues/30682))
+ - Upgraded Chromium to 122.0.6261.57. ([#36242](https://github.com/brave/brave-browser/issues/36242)) ([Changelog for 122.0.6261.57](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.184..122.0.6261.57?pretty=fuller&n=1000))
+
 ## [1.62.165](https://github.com/brave/brave-browser/releases/tag/v1.62.165)
 
-- Upgraded Chromium to 121.0.6167.184. ([#36023](https://github.com/brave/brave-browser/issues/36023)) ([Changelog for 121.0.6167.184](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.164..121.0.6167.184?pretty=fuller&n=1000))
+ - Upgraded Chromium to 121.0.6167.184. ([#36023](https://github.com/brave/brave-browser/issues/36023)) ([Changelog for 121.0.6167.184](https://chromium.googlesource.com/chromium/src/+log/121.0.6167.164..121.0.6167.184?pretty=fuller&n=1000))
 
 ## [1.62.162](https://github.com/brave/brave-browser/releases/tag/v1.62.162)
 
