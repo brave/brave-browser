@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.63.165](https://github.com/brave/brave-browser/releases/tag/v1.63.165)
+
+ - Added Brave Leo - AI for questions and answers leveraging page context. ([#36303](https://github.com/brave/brave-browser/issues/36303))
+ - Upgraded Chromium to 122.0.6261.94. ([#36404](https://github.com/brave/brave-browser/issues/36404)) ([Changelog for 122.0.6261.94](https://chromium.googlesource.com/chromium/src/+log/122.0.6261.69..122.0.6261.94?pretty=fuller&n=1000))
+
 ## [1.63.161](https://github.com/brave/brave-browser/releases/tag/v1.63.161)
 
 ### Web3
