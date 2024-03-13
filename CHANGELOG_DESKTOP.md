@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.63.174](https://github.com/brave/brave-browser/releases/tag/v1.63.174)
+
+ - Disabled simplified dialog when adding bookmarks. ([#35594](https://github.com/brave/brave-browser/issues/35594))
+ - Fixed intermittent crash after using Picture-in-Picture (PiP). ([#35528](https://github.com/brave/brave-browser/issues/35528))
+ - Fixed Brave News feed selection to persist across browser sessions. ([#35968](https://github.com/brave/brave-browser/issues/35968))
+ - Upgraded Chromium to 122.0.6261.128. ([#36732](https://github.com/brave/brave-browser/issues/36732)) ([Changelog for 122.0.6261.128](https://chromium.googlesource.com/chromium/src/+log/122.0.6261.111..122.0.6261.128?pretty=fuller&n=1000))
+
 ## [1.63.169](https://github.com/brave/brave-browser/releases/tag/v1.63.169)
 
 ### Web3
