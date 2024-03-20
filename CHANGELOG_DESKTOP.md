@@ -1,5 +1,67 @@
 # Changelog
 
+## [1.64.109](https://github.com/brave/brave-browser/releases/tag/v1.64.109)
+
+### Web3
+
+ - Added support for SNS V2 Records. ([#35958](https://github.com/brave/brave-browser/issues/35958))
+ - [Security] Added support for Trezor Safe 3 and updated Trezor Connect to v9. ([#35584](https://github.com/brave/brave-browser/issues/35584))
+ - Enabled Zcash support by default. ([#36613](https://github.com/brave/brave-browser/issues/36613))
+ - Updated the "Portfolio" modal button styles. ([#35925](https://github.com/brave/brave-browser/issues/35925))
+ - Updated the border radius of the card header buttons. ([#35780](https://github.com/brave/brave-browser/issues/35780))
+ - Updated the percent change bubble colors. ([#35768](https://github.com/brave/brave-browser/issues/35768))
+ - Updated "Portfolio" background under the Brave Wallet panel. ([#35745](https://github.com/brave/brave-browser/issues/35745))
+ - Updated the "DApp Connection Settings" button's border radius. ([#35730](https://github.com/brave/brave-browser/issues/35730))
+ - Updated the "Asset" group container styles. ([#35709](https://github.com/brave/brave-browser/issues/35709))
+ - Updated the "Deposit" icon to be the same in all locations. ([#35653](https://github.com/brave/brave-browser/issues/35653))
+ - Updated the "Line Chart Controls" style. ([#35621](https://github.com/brave/brave-browser/issues/35621))
+ - Updated the border radius for the "Portfolio" action buttons. ([#35592](https://github.com/brave/brave-browser/issues/35592))
+ - Updated the border radius for the "Buy", "Send", "Swap", and "Deposit" buttons. ([#35583](https://github.com/brave/brave-browser/issues/35583))
+ - Updated "Segmented Control" style to have border radius. ([#35582](https://github.com/brave/brave-browser/issues/35582))
+ - Updated "Send" and "Swap" token screens to have a dynamic token background. ([#35559](https://github.com/brave/brave-browser/issues/35559))
+ - Updated Brave Wallet to display Solana preflight and retry options in the "Details" tab of the "Confirm Transaction" panel. ([#35454](https://github.com/brave/brave-browser/issues/35454))
+ - Updated default Brave Wallet panel display priority when actions or requests are pending. ([#35449](https://github.com/brave/brave-browser/issues/35449))
+ - Updated wallet navigation and card body to be center aligned. ([#34471](https://github.com/brave/brave-browser/issues/34471))
+ - Updated the display of the "Learn more about Brave Wallet" text under brave://wallet/crypto/onboarding/welcome. ([#25201](https://github.com/brave/brave-browser/issues/25201))
+ - Removed background of the icon stack on the "Accounts" page. ([#35877](https://github.com/brave/brave-browser/issues/35877))
+ - Fixed gas estimation for Scroll and Telos transactions. ([#36370](https://github.com/brave/brave-browser/issues/36370))
+ - Fixed Brave Wallet to update gas estimates anytime gas fields are changed. ([#35518](https://github.com/brave/brave-browser/issues/35518))
+ - Fixed auto-load via IPFS notification not being sticky when loading an IPFS or IPNS page. ([#36347](https://github.com/brave/brave-browser/issues/36347))
+ - Fixed inability to view asset details of auto-discovered token on first page load. ([#35673](https://github.com/brave/brave-browser/issues/35673))
+ - Fixed token display order on the "Buy" and "Deposit" screens. ([#35575](https://github.com/brave/brave-browser/issues/35575))
+ - Fixed "Buy" and "Deposit" buttons not pre-selecting the asset. ([#35060](https://github.com/brave/brave-browser/issues/35060))
+ - Fixed space between the "Reject" and "Continue" buttons on the "Transaction Confirmation" screen. ([#35570](https://github.com/brave/brave-browser/issues/35570))
+
+### Rewards
+
+ - Updated generic linking error text. ([#33955](https://github.com/brave/brave-browser/issues/33955))
+
+### General
+
+ - Added Brave Leo right-click quick actions. ([#36159](https://github.com/brave/brave-browser/issues/36159))
+ - Added the ability to disable Brave Leo via Admin policy. ([#31461](https://github.com/brave/brave-browser/issues/31461))
+ - Added a "Bring All Tabs to This Window" option to the tab context menu. ([#27022](https://github.com/brave/brave-browser/issues/27022))
+ - Added "Show scrollbar" setting for vertical tabs under brave://settings/appearance. ([#35207](https://github.com/brave/brave-browser/issues/35207))
+ - Added "Fullscreen" and "Next" buttons to Picture-in-Picture (PiP). ([#15416](https://github.com/brave/brave-browser/issues/15416))
+ - [Security] Implemented stream isolation for third-party subresources in Private Windows with Tor. ([#35464](https://github.com/brave/brave-browser/issues/35464))
+ - Improved Chromium storage partitioning by making it compatible with Brave's ephemeral storage implementation. ([#26165](https://github.com/brave/brave-browser/issues/26165))
+ - Updated Brave Leo to specify user role and rephrase system messages for Mixtral. ([#35698](https://github.com/brave/brave-browser/issues/35698))
+ - Updated the sidebar button to open Brave Leo by default. ([#32601](https://github.com/brave/brave-browser/issues/32601))
+ - Updated Omaha installer version for Windows to v1.3.361.149 for new users. ([#35684](https://github.com/brave/brave-browser/issues/35684))
+ - Updated the text for P3A and usage ping settings under brave://settings/privacy. ([#35871](https://github.com/brave/brave-browser/issues/35871))
+ - Updated download protection override flag to apply to ".dll" file downloads. ([#35561](https://github.com/brave/brave-browser/issues/35561))
+ - Updated version information color under brave://settings/help to orange. ([#26040](https://github.com/brave/brave-browser/issues/26040))
+ - Fixed Brave VPN to not install VPN services until VPN is purchased or enabled. ([#33726](https://github.com/brave/brave-browser/issues/33726))
+ - Fixed Brave Leo so that if a content node isn't found the root content node is used. ([#35371](https://github.com/brave/brave-browser/issues/35371))
+ - Fixed crash on macOS when logging into https://account.brave.com. ([#35395](https://github.com/brave/brave-browser/issues/35395))
+ - Fixed inconsistent horizontal tab group heights on macOS. ([#35956](https://github.com/brave/brave-browser/issues/35956))
+ - Fixed bookmarks bar flash when opening a new tab. ([#25834](https://github.com/brave/brave-browser/issues/25834))
+ - Fixed inability to select the left edge of the browser to activate the leftmost horizontal tab when the browser is full screen. ([#35932](https://github.com/brave/brave-browser/issues/35932))
+ - Fixed "Add current tab" button not being active when the Bookmarks panel is opened. ([#35563](https://github.com/brave/brave-browser/issues/35563))
+ - Fixed non-clickable padding on horizontal tabs on Linux. ([#35965](https://github.com/brave/brave-browser/issues/35965))
+ - Fixed issue where a webpage's content security policy could block Speedreader mode stylesheet. ([#24577](https://github.com/brave/brave-browser/issues/24577))
+ - Upgraded Chromium to 123.0.6312.58. ([#36938](https://github.com/brave/brave-browser/issues/36938)) ([Changelog for 123.0.6312.58](https://chromium.googlesource.com/chromium/src/+log/122.0.6261.128..123.0.6312.58?pretty=fuller&n=1000))
+
 ## [1.63.174](https://github.com/brave/brave-browser/releases/tag/v1.63.174)
 
  - Disabled simplified dialog when adding bookmarks. ([#35594](https://github.com/brave/brave-browser/issues/35594))
