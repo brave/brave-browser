@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.64.113](https://github.com/brave/brave-browser/releases/tag/v1.64.113)
+
+ - Improved Brave Leo handling for YouTube video transcripts. ([#34945](https://github.com/brave/brave-browser/issues/34945))
+ - Fixed crash when accessing right click context menu in a PWA window on macOS. ([#36995](https://github.com/brave/brave-browser/issues/36995))
+ - Upgraded Chromium to 123.0.6312.86. ([#37097](https://github.com/brave/brave-browser/issues/37097)) ([Changelog for 123.0.6312.86](https://chromium.googlesource.com/chromium/src/+log/123.0.6312.58..123.0.6312.86?pretty=fuller&n=1000))
+
 ## [1.64.109](https://github.com/brave/brave-browser/releases/tag/v1.64.109)
 
 ### Web3
