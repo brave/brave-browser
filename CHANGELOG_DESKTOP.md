@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.64.116](https://github.com/brave/brave-browser/releases/tag/v1.64.116)
+
+ - Fixed double notifications asking the user if they would like to pin Brave Browser to their taskbar on Windows. ([#36470](https://github.com/brave/brave-browser/issues/36470))
+ - Upgraded Chromium to 123.0.6312.105. ([#37268](https://github.com/brave/brave-browser/issues/37268)) ([Changelog for 123.0.6312.105](https://chromium.googlesource.com/chromium/src/+log/123.0.6312.86..123.0.6312.105?pretty=fuller&n=1000))
+
 ## [1.64.113](https://github.com/brave/brave-browser/releases/tag/v1.64.113)
 
  - Improved Brave Leo handling for YouTube video transcripts. ([#34945](https://github.com/brave/brave-browser/issues/34945))
