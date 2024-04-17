@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.64.116](https://github.com/brave/brave-browser/releases/tag/v1.64.116)
+
+ - Disabled Brave Leo when "Block Scripts" has been enabled globally via "Brave Shields & privacy" settings. ([#37146](https://github.com/brave/brave-browser/issues/37146))
+ - Upgraded Chromium to 123.0.6312.105. ([#37268](https://github.com/brave/brave-browser/issues/37268)) ([Changelog for 123.0.6312.105](https://chromium.googlesource.com/chromium/src/+log/123.0.6312.86..123.0.6312.105?pretty=fuller&n=1000))
+
 ## [1.64.113](https://github.com/brave/brave-browser/releases/tag/v1.64.113)
 
  - Added voice support for Brave Leo. ([#37053](https://github.com/brave/brave-browser/issues/37053))
