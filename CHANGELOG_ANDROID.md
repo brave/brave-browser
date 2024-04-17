@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.64.113](https://github.com/brave/brave-browser/releases/tag/v1.64.113)
+
+ - Added voice support for Brave Leo. ([#37053](https://github.com/brave/brave-browser/issues/37053))
+ - Improved Brave Leo handling for YouTube video transcripts. ([#34945](https://github.com/brave/brave-browser/issues/34945))
+ - Fixed payout status banner not being displayed under rewards panel for self-custody. ([#36773](https://github.com/brave/brave-browser/issues/36773))
+ - Upgraded Chromium to 123.0.6312.86. ([#37097](https://github.com/brave/brave-browser/issues/37097)) ([Changelog for 123.0.6312.86](https://chromium.googlesource.com/chromium/src/+log/123.0.6312.58..123.0.6312.86?pretty=fuller&n=1000))
+
 ## [1.64.109](https://github.com/brave/brave-browser/releases/tag/v1.64.109)
 
 ### Web3
