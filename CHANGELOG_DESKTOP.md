@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.65.114](https://github.com/brave/brave-browser/releases/tag/v1.65.114)
+
+### Web3
+
+ - Added support for Brave Wallet in Private windows. ([#35585](https://github.com/brave/brave-browser/issues/35585))
+ - Added the ability to edit token details. ([#36657](https://github.com/brave/brave-browser/issues/36657))
+ - Added the ability to mark NFTs as spam. ([#36400](https://github.com/brave/brave-browser/issues/36400))
+ - Added route params to the "Swap" screen. ([#34725](https://github.com/brave/brave-browser/issues/34725))
+ - Added a loading effect in the "Portfolio" asset view when balances are being fetched. ([#32141](https://github.com/brave/brave-browser/issues/32141))
+ - Added brave://flags/#brave-wallet-enable-transaction-simulations for transaction simulations. ([#34616](https://github.com/brave/brave-browser/issues/34616))
+ - [Security] Swap "Reject" and "Confirm" buttons on the "Pending Transaction" panel when issues are detected. ([#36342](https://github.com/brave/brave-browser/issues/36342))
+ - Updated UI and sizing for the "Send" and "Swap" panel screens. ([#36505](https://github.com/brave/brave-browser/issues/36505))
+ - Updated buttons style on the "Buy" and "Deposit" screens. ([#36414](https://github.com/brave/brave-browser/issues/36414))
+ - Updated the "Composer UI" button border radius. ([#36354](https://github.com/brave/brave-browser/issues/36354))
+ - Updated design for the "Confirm" and "Reject" buttons on the "Pending Transaction" panel. ([#36343](https://github.com/brave/brave-browser/issues/36343))
+ - Updated style of the "Page Settings" button. ([#36267](https://github.com/brave/brave-browser/issues/36267))
+ - Updated the "Buy", "Deposit", and "Bridge" button border radius on the "Token Details" page. ([#36265](https://github.com/brave/brave-browser/issues/36265))
+ - Fixed crash which occurred when accessing Brave Wallet from a bookmark. ([#36763](https://github.com/brave/brave-browser/issues/36763))
+ - Fixed text wrapping on the signing confirmation panel. ([#36461](https://github.com/brave/brave-browser/issues/36461))
+ - Fixed hiding NFTs not removing them from the "Collected" section. ([#36399](https://github.com/brave/brave-browser/issues/36399))
+ - Fixed issue where the "Review send" button was not enabled on the "Send" page for NFT in certain cases. ([#36605](https://github.com/brave/brave-browser/issues/36605))
+ - Fixed the "Request feature" button being displayed over the wallet card on certain window sizes. ([#36373](https://github.com/brave/brave-browser/issues/36373))
+
+### Rewards
+
+ - Added balance animation to the rewards panel and brave://rewards page. ([#34715](https://github.com/brave/brave-browser/issues/34715))
+
+### General
+
+ - Added GitHub pull request compatibility with Brave Leo. ([#35492](https://github.com/brave/brave-browser/issues/35492))
+ - Added the "Close Duplicate Tabs" option to the tab context menu. ([#36041](https://github.com/brave/brave-browser/issues/36041))
+ - Added the ability to include a screenshot when reporting webcompat issues. ([#35473](https://github.com/brave/brave-browser/issues/35473))
+ - Added more tab grouping and management commands to be accessible from "Quick Commands". ([#36600](https://github.com/brave/brave-browser/issues/36600))
+ - Added "Reconnect automatically" to Brave VPN on macOS. ([#29406](https://github.com/brave/brave-browser/issues/29406))
+ - Updated position of the "Add" button on the sidebar. ([#36500](https://github.com/brave/brave-browser/issues/36500))
+ - Updated the "Close", "Minimize", and "Maximize" buttons to be larger on Windows. ([#35918](https://github.com/brave/brave-browser/issues/35918))
+ - Removed Brave user-agent being sent with Chromecast SSDP packets. ([#18017](https://github.com/brave/brave-browser/issues/18017))
+ - Removed old adblock components after new ones are installed. ([#36310](https://github.com/brave/brave-browser/issues/36310))
+ - Fixed crash which occurred on Arm64 Windows in certain cases. ([#36014](https://github.com/brave/brave-browser/issues/36014))
+ - Fixed incorrect focus for Brave Leo "Privacy Agreement" dialog. ([#35815](https://github.com/brave/brave-browser/issues/35815))
+ - Fixed sidebar icons being displayed over window content in certain cases. ([#35811](https://github.com/brave/brave-browser/issues/35811))
+ - Upgraded Chromium to 124.0.6367.60. ([#37552](https://github.com/brave/brave-browser/issues/37552)) ([Changelog for 124.0.6367.60](https://chromium.googlesource.com/chromium/src/+log/123.0.6312.122..124.0.6367.60?pretty=fuller&n=1000))
+
 ## [1.64.122](https://github.com/brave/brave-browser/releases/tag/v1.64.122)
 
  - Upgraded Chromium to 123.0.6312.122. ([#37474](https://github.com/brave/brave-browser/issues/37474)) ([Changelog for 123.0.6312.122](https://chromium.googlesource.com/chromium/src/+log/123.0.6312.105..123.0.6312.122?pretty=fuller&n=1000))
