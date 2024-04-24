@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.65.122](https://github.com/brave/brave-browser/releases/tag/v1.65.122)
+
+### Web3
+
+ - Fixed balance not being automatically reduced after "Swap" confirmation. ([#37610](https://github.com/brave/brave-browser/issues/37610))
+ - Fixed issue where "Send" and "Swap" token selection screens did not display current token balance. ([#37609](https://github.com/brave/brave-browser/issues/37609))
+
+### Rewards
+
+ - Fixed non-responsive rewards CAPTCHA notification. ([#37760](https://github.com/brave/brave-browser/issues/37760))
+
+### General
+
+ - Fixed crash when "New Private Window with Tor" was selected without a window open on macOS. ([#37649](https://github.com/brave/brave-browser/issues/37649))
+ - Fixed crash which could occur when using Brave VPN on macOS in certain cases. ([#37535](https://github.com/brave/brave-browser/issues/37535))
+ - Fixed crash when a tab is added to a saved tab group in certain cases. ([#37160](https://github.com/brave/brave-browser/issues/37160))
+ - Fixed issue where a window was unable to be resized from the title bar on Windows. ([#37702](https://github.com/brave/brave-browser/issues/37702))
+ - Fixed issue where windows would not open or render when using "--ozone-platform-hint=wayland" on Linux. ([#37498](https://github.com/brave/brave-browser/issues/37498))
+ - Fixed Web Discovery Project infobar layout when resizing a window. ([#37758](https://github.com/brave/brave-browser/issues/37758))
+ - Fixed partial text being shown on the Web Discovery Project infobar. ([#37705](https://github.com/brave/brave-browser/issues/37705))
+ - Upgraded Chromium to 124.0.6367.82. ([#37814](https://github.com/brave/brave-browser/issues/37814)) ([Changelog for 124.0.6367.82](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.60..124.0.6367.82?pretty=fuller&n=1000))
+
 ## [1.65.114](https://github.com/brave/brave-browser/releases/tag/v1.65.114)
 
 ### Web3
