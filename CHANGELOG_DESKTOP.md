@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.65.126](https://github.com/brave/brave-browser/releases/tag/v1.65.126)
+
+ - Fixed issues with navigating brave://settings when using the keyboard. ([#33148](https://github.com/brave/brave-browser/issues/33148))
+ - Fixed missing padding for "Autofill and passwords" section under the brave://settings left navigation menu. ([#37964](https://github.com/brave/brave-browser/issues/37964))
+ - Upgraded Chromium to 124.0.6367.118. ([#37965](https://github.com/brave/brave-browser/issues/37965)) ([Changelog for 124.0.6367.118](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.91..124.0.6367.118?pretty=fuller&n=1000))
+
 ## [1.65.123](https://github.com/brave/brave-browser/releases/tag/v1.65.123)
 
  - Upgraded Chromium to 124.0.6367.91. ([#37864](https://github.com/brave/brave-browser/issues/37864)) ([Changelog for 124.0.6367.91](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.82..124.0.6367.91?pretty=fuller&n=1000))
