@@ -2,7 +2,7 @@
 
 ## [1.63.183](https://github.com/brave/brave-browser/releases/tag/v1.63.183)
 
-### Web3  
+### Web3
 
  - Implemented v2 UI for "Account" details in Brave Wallet. ([#8663](https://github.com/brave/brave-ios/issues/8663))
  - Implemented v2 UI for “Accounts” tab in Brave Wallet. ([#8600](https://github.com/brave/brave-ios/issues/8600))
