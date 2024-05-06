@@ -1,0 +1,32 @@
+# This is a mapping of labels to title/description regex patterns used by
+# https://github.com/github/issue-labeler to automatically add labels to issues
+# when opened/edited.
+#
+# If multiple patterns are provided in the list for a label, they all have to
+# match. A label can only occur once.
+#
+# To label when any one of multiple patterns matches, concatenate the patterns
+# using a "|" delimeter, to form a single pattern.
+#
+# "^" appears to match only the beginning of the issue title.
+#
+# Automatic label removal is currently disabled, because it also removes
+# manually added labels that didn't have matches.
+
+crash:
+  - '^Crash Report|Crash ID: crash/'
+
+OS/Linux:
+  - 'OS[|:\s]+Linux|Operating System:\s+Linux'
+
+OS/Windows:
+  - 'OS[|:\s]+Windows|Operating System:\s+Windows NT'
+
+OS/macOS:
+  - 'OS[|:\s]+Mac OS|Operating System:\s+Mac OS X'
+
+OS/Android:
+  - 'OS[|:\s]+Android|Operating System:\s+Android'
+
+OS/iOS:
+  - 'OS[|:\s]+iOS|Device/OS:\s+iPhone|Operating System:\s+iOS'
