@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.65.132](https://github.com/brave/brave-browser/releases/tag/v1.65.132)
+
+ - Upgraded Chromium to 124.0.6367.202. ([#38205](https://github.com/brave/brave-browser/issues/38205)) ([Changelog for 124.0.6367.202](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.159..124.0.6367.202?pretty=fuller&n=1000))
+
 ## [1.65.130](https://github.com/brave/brave-browser/releases/tag/v1.65.130)
 
  - Fixed incorrect rendering of various icons on Google Maps. ([#37075](https://github.com/brave/brave-browser/issues/37075))
