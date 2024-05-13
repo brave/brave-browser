@@ -18,7 +18,7 @@ body:
     id: bump
     attributes:
       label: Minor Chromium bump
-      value: |
+      value: |-
         https://chromium.googlesource.com/chromium/src/+log/PREVIOUS_VERSION..NEW_VERSION?pretty=fuller&n=10000
     validations:
       required: true
@@ -26,14 +26,14 @@ body:
     id: qa
     attributes:
       label: QA tests
-      value: |
-        * Check branding items
-        * Check for version bump
+      value: |-
+        - Check branding items
+        - Check for version bump
     validations:
       required: true
   - type: textarea
     id: checks
     attributes:
       label: Minor Chromium bump
-      value: |
-        * No specific code changes in Brave (only line number changes in patches)
+      value: |-
+        - No specific code changes in Brave (only line number changes in patches)
