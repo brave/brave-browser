@@ -72,7 +72,7 @@ body:
   - type: checkboxes
     id: affected
     attributes:
-      label: Affected versions
+      label: Affected browser versions
       description: Which browser versions does this issue occur on
       options:
         - label: latest AppStore
