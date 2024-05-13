@@ -66,8 +66,7 @@ body:
   - type: textarea
     id: device
     attributes:
-      label: Device
-      description: Device and iOS version
+      label: Device/iOS version
     validations:
       required: true
   - type: checkboxes
