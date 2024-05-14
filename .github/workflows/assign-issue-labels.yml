@@ -15,4 +15,5 @@ jobs:
       with:
         enable-versioned-regex: 0
         include-title: 1
+        configuration-path: .github/labeler.yml
         #sync-labels: 1 # This removes also manually added labels on edit
