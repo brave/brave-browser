@@ -16,17 +16,18 @@
 crash:
   - '^Crash Report|Crash ID: crash/'
 
-OS/Linux:
-  - 'OS[|:\s]+Linux|Operating System:\s+Linux'
-
-OS/Windows:
-  - 'OS[|:\s]+Windows|Operating System:\s+Windows NT'
-
-OS/macOS:
-  - 'OS[|:\s]+Mac OS|Operating System:\s+Mac OS X'
-
-OS/Android:
-  - 'OS[|:\s]+Android|Operating System:\s+Android'
-
-OS/iOS:
-  - 'OS[|:\s]+iOS|Device/OS:\s+iPhone|Operating System:\s+iOS'
+## disabled, see: https://bravesoftware.slack.com/archives/C08Q08M6F/p1715702078079739?thread_ts=1715701662.931169&cid=C08Q08M6F
+# OS/Linux:
+#   - 'OS[|:\s]+Linux|Operating System:\s+Linux'
+# 
+# OS/Windows:
+#   - 'OS[|:\s]+Windows|Operating System:\s+Windows NT'
+# 
+# OS/macOS:
+#   - 'OS[|:\s]+Mac OS|Operating System:\s+Mac OS X'
+# 
+# OS/Android:
+#   - 'OS[|:\s]+Android|Operating System:\s+Android'
+# 
+# OS/iOS:
+#   - 'OS[|:\s]+iOS|Device/OS:\s+iPhone|Operating System:\s+iOS'
