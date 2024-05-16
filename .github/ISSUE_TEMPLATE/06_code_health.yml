@@ -1,7 +1,9 @@
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
 
 name: Code health
-description: Free-form issue
+description: Follow ups for open pull requests, refactoring, dependency updates
+labels:
+  - dev-concern
 body:
   - type: markdown
     attributes:
