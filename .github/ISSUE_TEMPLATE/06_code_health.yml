@@ -1,0 +1,19 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: Code health
+description: Free-form issue
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues)?
+
+        Insufficiently described issues will be closed, so please provide as much information as possible
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the issue
+    validations:
+      required: true
+
