@@ -1,0 +1,39 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: Chromium minor bump
+description: An issue for a minor Chromium bump
+labels:
+  - Chromium/upgrade minor
+  - OS/Android
+  - OS/Desktop
+  - QA/Test-Plan-Specified
+  - QA/Yes
+  - release-notes/include
+title: "Upgrade from Chromium **PREVIOUS_VERSION** to Chromium **NEW_VERSION**"
+assignees:
+  - emerick
+  - mkarolin
+body:
+  - type: textarea
+    id: bump
+    attributes:
+      label: Minor Chromium bump
+      value: |-
+        https://chromium.googlesource.com/chromium/src/+log/PREVIOUS_VERSION..NEW_VERSION?pretty=fuller&n=10000
+    validations:
+      required: true
+  - type: textarea
+    id: qa
+    attributes:
+      label: QA tests
+      value: |-
+        - Check branding items
+        - Check for version bump
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Minor Chromium bump
+      value: |-
+        - No specific code changes in Brave (only line number changes in patches)

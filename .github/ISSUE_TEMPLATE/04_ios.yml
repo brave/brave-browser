@@ -1,0 +1,93 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: iOS issue
+description: An issue affecting iOS
+labels:
+  - OS/iOS
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues?q=is%3Aissue+is%3Aopen+label%3AOS%2FiOS)?
+
+        Insufficiently described issues will be closed, so please provide as much information as possible
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the issue
+    validations:
+      required: true
+  - type: textarea
+    id: str
+    attributes:
+      label: Steps to reproduce
+      description: A series of steps to reproduce the issue
+      value: |-
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Actual result
+      description: What happened
+      placeholder: include screenshots if needed
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expected result
+      description: What should've happened
+      placeholder: include screenshots if needed
+    validations:
+      required: true
+  - type: dropdown
+    id: reproduces
+    attributes:
+      label: Reproduces how often
+      multiple: false
+      options:
+        - Easily reproduced
+        - Intermittent issue
+        - No steps to reproduce
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: Brave version
+    validations:
+      required: true
+  - type: textarea
+    id: device
+    attributes:
+      label: Device/iOS version
+    validations:
+      required: true
+  - type: checkboxes
+    id: affected
+    attributes:
+      label: Affected browser versions
+      description: Which browser versions does this issue occur on
+      options:
+        - label: latest AppStore
+        - label: latest TestFlight
+        - label: previous TestFlight
+  - type: checkboxes
+    id: reproducibility
+    attributes:
+      label: Reproducibility
+      description: Does this issue occur...
+      options:
+        - label: with Brave Shields disabled
+        - label: in the latest version of mobile Safari
+  - type: textarea
+    id: misc
+    attributes:
+      label: Miscellaneous information
+      description: Any additional information, related issues, extra QA steps, configuration or data that might be necessary to reproduce the issue

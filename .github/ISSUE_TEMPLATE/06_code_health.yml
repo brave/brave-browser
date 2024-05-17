@@ -1,0 +1,21 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: Code health
+description: Follow ups for open pull requests, refactoring, dependency updates
+labels:
+  - dev-concern
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues?q=is%3Aissue+is%3Aopen+label%3Adev-concern)?
+
+        Insufficiently described issues will be closed, so please provide as much information as possible
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the issue
+    validations:
+      required: true
+

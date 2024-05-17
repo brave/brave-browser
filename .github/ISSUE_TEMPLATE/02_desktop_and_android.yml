@@ -1,0 +1,100 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: Desktop and Android issue
+description: An issue affecting Android and Linux, macOS, or Windows
+labels:
+  - OS/Android
+  - OS/Desktop
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues?q=is%3Aissue+is%3Aopen+label%3AOS%2FDesktop+label%3AOS%2FAndroid)?
+
+        Insufficiently described issues will be closed, so please provide as much information as possible
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the issue
+    validations:
+      required: true
+  - type: textarea
+    id: str
+    attributes:
+      label: Steps to reproduce
+      description: A series of steps to reproduce the issue
+      value: |-
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Actual result
+      description: What happened
+      placeholder: include screenshots if needed
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expected result
+      description: What should've happened
+      placeholder: include screenshots if needed
+    validations:
+      required: true
+  - type: dropdown
+    id: reproduces
+    attributes:
+      label: Reproduces how often
+      multiple: false
+      options:
+        - Easily reproduced
+        - Intermittent issue
+        - No steps to reproduce
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: version
+    attributes:
+      label: Desktop Brave version (brave://version info)
+      description: "`Brave`, `Revision` and `OS` from `brave://version`"
+    validations:
+      required: true
+  - type: textarea
+    id: device
+    attributes:
+      label: Android device
+      description: Device information
+      value: |-
+        - Brand/model: 
+        - Android version: 
+    validations:
+      required: true
+  - type: checkboxes
+    id: channels
+    attributes:
+      label: Channel information
+      description: Which browser channels does this issue occur on
+      options:
+        - label: release (stable)
+        - label: beta
+        - label: nightly
+  - type: checkboxes
+    id: reproducibility
+    attributes:
+      label: Reproducibility
+      description: Does this issue occur...
+      options:
+        - label: with Brave Shields disabled
+        - label: with Brave Rewards disabled
+        - label: in the latest version of Chrome
+  - type: textarea
+    id: misc
+    attributes:
+      label: Miscellaneous information
+      description: Any additional information, related issues, extra QA steps, configuration or data that might be necessary to reproduce the issue

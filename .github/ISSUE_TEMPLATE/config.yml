@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: FAQ
+    url: https://brave.com/faq/
+    about: Frequently Asked Questions
+  - name: Help Center
+    url: https://support.brave.com/
+    about: Help Center
+  - name: Community
+    url: https://community.brave.com/
+    about: Community support, this is the place to ask questions
