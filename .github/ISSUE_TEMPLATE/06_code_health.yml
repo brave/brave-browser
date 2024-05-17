@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |-
-        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues)?
+        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues?q=is%3Aissue+is%3Aopen+label%3Adev-concern)?
 
         Insufficiently described issues will be closed, so please provide as much information as possible
   - type: textarea
