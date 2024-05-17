@@ -69,8 +69,7 @@ body:
       label: Device
       description: Device information
       value: |-
-        - Install type (ARM, x86): 
-        - Device type (Phone, Tablet, Phablet): 
+        - Brand/model: 
         - Android version: 
     validations:
       required: true
