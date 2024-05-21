@@ -23,7 +23,7 @@ body:
         - Linux
         - macOS
         - Windows
-      default: 0
+      default: all
     validations:
       required: true
   - type: textarea
