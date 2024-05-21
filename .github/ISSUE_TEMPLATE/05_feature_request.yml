@@ -1,0 +1,36 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: Feature request
+description: Request a new feature
+labels:
+  - feature-request
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues?q=is%3Aissue+is%3Aopen+label%3Afeature-request)?
+
+        Insufficiently described issues will be closed, so please provide as much information as possible
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: Platforms
+      multiple: true
+      options:
+        - all
+        - Android
+        - iOS
+        - Linux
+        - macOS
+        - Windows
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the feature
+    validations:
+      required: true
+
