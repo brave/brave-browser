@@ -12,9 +12,9 @@ body:
 
         Insufficiently described issues will be closed, so please provide as much information as possible
   - type: dropdown
-    id: platform
+    id: platforms
     attributes:
-      label: Platform
+      label: Platforms
       multiple: true
       options:
         - all
