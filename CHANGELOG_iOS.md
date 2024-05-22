@@ -14,6 +14,7 @@
  - Fixed crash related to opening and closing many tabs right away. ([#37224](https://github.com/brave/brave-browser/issues/37224))
  - Fixed crash when quickly closing New Tab Page with sponsored images after its created. ([#36587](https://github.com/brave/brave-browser/issues/36587))
  - Fixed showing ‘page not found’ error page when navigating through content blocked pages. ([#36378](https://github.com/brave/brave-browser/issues/36378))
+ - Upgraded Chromium to 124.0.6367.82. ([#37814](https://github.com/brave/brave-browser/issues/37814)) ([Changelog for 124.0.6367.82](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.60..124.0.6367.82?pretty=fuller&n=1000))
 
 ## [1.64.123](https://github.com/brave/brave-browser/releases/tag/v1.64.123)
 
