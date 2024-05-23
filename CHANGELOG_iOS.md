@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.65.122](https://github.com/brave/brave-browser/releases/tag/v1.65.122)
+
+### Web3
+
+ - Fixed “Allow Biometrics Toggle” not being updated in Wallet settings. ([#36669](https://github.com/brave/brave-browser/issues/36669))
+
+### General
+
+ - Added support for Dutch language. ([#36939](https://github.com/brave/brave-browser/issues/36939))
+ - Added support for marketplace URI scheme. ([#37650](https://github.com/brave/brave-browser/issues/37650))
+ - Updated search result attribution to be more unified. ([#33469](https://github.com/brave/brave-browser/issues/33469))
+ - Fixed crash related to quickly opening and closing many tabs. ([#37224](https://github.com/brave/brave-browser/issues/37224))
+ - Fixed crash when quickly closing New Tab Page with sponsored images after its created. ([#36587](https://github.com/brave/brave-browser/issues/36587))
+ - Fixed "page not found" error page being displayed when navigating through content blocked pages. ([#36378](https://github.com/brave/brave-browser/issues/36378))
+ - Upgraded Chromium to 124.0.6367.82. ([#37814](https://github.com/brave/brave-browser/issues/37814)) ([Changelog for 124.0.6367.82](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.60..124.0.6367.82?pretty=fuller&n=1000))
+
 ## [1.64.123](https://github.com/brave/brave-browser/releases/tag/v1.64.123)
 
 ### Web3
