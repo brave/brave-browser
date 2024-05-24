@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.66.115](https://github.com/brave/brave-browser/releases/tag/v1.66.115)
+
+ - Upgraded Chromium to 125.0.6422.112. ([#38528](https://github.com/brave/brave-browser/issues/38528)) ([Changelog for 125.0.6422.112](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.76..125.0.6422.112?pretty=fuller&n=1000))
+
 ## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.66.113)
 
  - Fixed blank or black screens being displayed when viewing the "Customization" settings under New Tab Page if Brave was installed using a "macOS Universal" executable. ([#37631](https://github.com/brave/brave-browser/issues/37631))
