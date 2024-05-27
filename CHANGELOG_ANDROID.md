@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.66.113)
+
+ - Fixed "Creating Wallet" screen getting stuck when failing account recovery via Brave Wallet. ([#35297](https://github.com/brave/brave-browser/issues/35297))
+ - Upgraded Chromium to 125.0.6422.76. ([#38465](https://github.com/brave/brave-browser/issues/38465)) ([Changelog for 125.0.6422.76](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.60..125.0.6422.76?pretty=fuller&n=1000))
+
 ## [1.66.110](https://github.com/brave/brave-browser/releases/tag/v1.66.110)
 
 ### Web3
