@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.65.133](https://github.com/brave/brave-browser/releases/tag/v1.65.133)
+
+ - Upgraded Chromium to 124.0.6367.208. ([#38287](https://github.com/brave/brave-browser/issues/38287)) ([Changelog for 124.0.6367.208](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.202..124.0.6367.208?pretty=fuller&n=1000))
+
 ## [1.65.132](https://github.com/brave/brave-browser/releases/tag/v1.65.132)
 
  - Fixed new installs failing on devices with Google Play Service disabled. ([#37855](https://github.com/brave/brave-browser/issues/37855))
