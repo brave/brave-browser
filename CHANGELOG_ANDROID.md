@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.65.114](https://github.com/brave/brave-browser/releases/tag/v1.65.114)
+
+### Web3
+
+ - Added new password creation screen when accessing Brave Wallet for the first time. ([#36552](https://github.com/brave/brave-browser/issues/36552))
+ - Updated "Backup" wallet from WebUI to native. ([#35928](https://github.com/brave/brave-browser/issues/35928))
+ - Fixed issue where the "Review send" button was not enabled on the "Send" page for NFT in certain cases. ([#36605](https://github.com/brave/brave-browser/issues/36605))
+ - Fixed all available Solana accounts not being listed under the "Connection" panel. ([#35951](https://github.com/brave/brave-browser/issues/35951))
+
+### Rewards
+
+ - Fixed "Brave Rewards nay not work..." notification being displayed for users with rewards disabled. ([#35809](https://github.com/brave/brave-browser/issues/35809))
+
+### General
+
+ - Added GitHub pull request compatibility with Brave Leo. ([#35492](https://github.com/brave/brave-browser/issues/35492))
+ - Added Autofill Service for Addresses. ([#36226](https://github.com/brave/brave-browser/issues/36226))
+ - Added ability to disable "Autofill in private tabs" via "Settings". ([#32096](https://github.com/brave/brave-browser/issues/32096))
+ - [Security] Fixed website title of last closed private tab being displayed as reported on HackerOne by thesur. ([#37343](https://github.com/brave/brave-browser/issues/37343))
+ - Removed Brave user-agent being sent with Chromecast SSDP packets. ([#18017](https://github.com/brave/brave-browser/issues/18017))
+ - Removed old adblock components after new ones are installed. ([#36310](https://github.com/brave/brave-browser/issues/36310))
+ - Fixed address bar not being displayed/visible in certain cases. ([#36272](https://github.com/brave/brave-browser/issues/36272))
+ - Fixed Private History page still using Chrome assets/images. ([#36530](https://github.com/brave/brave-browser/issues/36530))
+ - Upgraded Chromium to 124.0.6367.60. ([#37552](https://github.com/brave/brave-browser/issues/37552)) ([Changelog for 124.0.6367.60](https://chromium.googlesource.com/chromium/src/+log/123.0.6312.122..124.0.6367.60?pretty=fuller&n=1000))
+
 ## [1.64.122](https://github.com/brave/brave-browser/releases/tag/v1.64.122)
 
  - Fixed an issue where Brave wouldn't change to another language on "Android 13" and above. ([#28822](https://github.com/brave/brave-browser/issues/28822))
