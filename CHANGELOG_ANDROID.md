@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.66.110](https://github.com/brave/brave-browser/releases/tag/v1.66.110)
+
+### Web3
+
+ - Added Bitcoin/BTC support. ([#32721](https://github.com/brave/brave-browser/issues/32721))
+ - Added network selection during Brave Wallet onboarding. ([#36578](https://github.com/brave/brave-browser/issues/36578))
+
+### General
+
+ - Added "Claude 3 Haiku" (free) and "Claude 3 Sonnet" (premium) models to the Brave Leo model selection list. ([#36802](https://github.com/brave/brave-browser/issues/36802))
+ - Added ability to block YouTube Shorts via "Block YouTube Shorts" under "Media" settings. ([#36465](https://github.com/brave/brave-browser/issues/36465))
+ - Added support for Brave's autofill Service in Chrome, Opera and Edge. ([#36892](https://github.com/brave/brave-browser/issues/36892))
+ - Updated default search engine to Brave Search for new installations in Italy. ([#38028](https://github.com/brave/brave-browser/issues/38028))
+ - Updated VPN purchase model to use dynamic price calculations to calculate discount when selecting annual plan. ([#38154](https://github.com/brave/brave-browser/issues/38154))
+ - Disabled multi-window support by default. ([#35106](https://github.com/brave/brave-browser/issues/35106))
+ - Disabled Isolated Web Apps (IWAs). ([#36515](https://github.com/brave/brave-browser/issues/36515))
+ - Fixed Brave Leo suggestions incorrectly working when "Show autocomplete in address bar" has been disabled. ([#36542](https://github.com/brave/brave-browser/issues/36542))
+ - Fixed cross-engine exceptions in "Standard" ad-blocking mode. ([#36940](https://github.com/brave/brave-browser/issues/36940))
+ - Fixed Brave's autofill service incorrectly filling in URLs via omnibox in other browsers. ([#36890](https://github.com/brave/brave-browser/issues/36890))
+ - Upgraded Chromium to 125.0.6422.60. ([#38350](https://github.com/brave/brave-browser/issues/38350)) ([Changelog for 125.0.6422.60](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.208..125.0.6422.60?pretty=fuller&n=1000))
+
 ## [1.65.133](https://github.com/brave/brave-browser/releases/tag/v1.65.133)
 
  - Upgraded Chromium to 124.0.6367.208. ([#38287](https://github.com/brave/brave-browser/issues/38287)) ([Changelog for 124.0.6367.208](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.202..124.0.6367.208?pretty=fuller&n=1000))
