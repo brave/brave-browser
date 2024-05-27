@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.65.126](https://github.com/brave/brave-browser/releases/tag/v1.65.126)
+
+ - Upgraded Chromium to 124.0.6367.118. ([#37965](https://github.com/brave/brave-browser/issues/37965)) ([Changelog for 124.0.6367.118](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.91..124.0.6367.118?pretty=fuller&n=1000))
+
 ## [1.65.122](https://github.com/brave/brave-browser/releases/tag/v1.65.122)
 
  - Fixed incorrect/stale balances being displayed under the "Send/Swap" selection screen. ([#37609](https://github.com/brave/brave-browser/issues/37609))
