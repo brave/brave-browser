@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.65.122](https://github.com/brave/brave-browser/releases/tag/v1.65.122)
+
+ - Fixed incorrect/stale balances being displayed under the "Send/Swap" selection screen. ([#37609](https://github.com/brave/brave-browser/issues/37609))
+ - Fixed account balance not being updated on successful "Swap" confirmation or page reload due to balance being fetched from the persisted registry which isn't live. ([#37610](https://github.com/brave/brave-browser/issues/37610))
+ - Upgraded Chromium to 124.0.6367.82. ([#37814](https://github.com/brave/brave-browser/issues/37814)) ([Changelog for 124.0.6367.82](https://chromium.googlesource.com/chromium/src/+log/124.0.6367.60..124.0.6367.82?pretty=fuller&n=1000))
+
 ## [1.65.114](https://github.com/brave/brave-browser/releases/tag/v1.65.114)
 
 ### Web3
