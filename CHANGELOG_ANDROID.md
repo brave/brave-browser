@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.66.115](https://github.com/brave/brave-browser/releases/tag/v1.66.115)
+
+ - Fixed Leo suggestions not using rounded corners under URL bar. ([#38516](https://github.com/brave/brave-browser/issues/38516))
+ - Fixed "Copy/Edit" icons missing when selecting URL via the URL bar. ([#38507](https://github.com/brave/brave-browser/issues/38507))
+ - Upgraded Chromium to 125.0.6422.112. ([#38528](https://github.com/brave/brave-browser/issues/38528)) ([Changelog for 125.0.6422.112](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.76..125.0.6422.112?pretty=fuller&n=1000))
+
 ## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.66.113)
 
  - Fixed "Creating Wallet" screen getting stuck when failing account recovery via Brave Wallet. ([#35297](https://github.com/brave/brave-browser/issues/35297))
