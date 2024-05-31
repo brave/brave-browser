@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.66.118](https://github.com/brave/brave-browser/releases/tag/v1.66.118)
+
+ - Fixed certain extensions breaking due to blob partitioning. ([#38576](https://github.com/brave/brave-browser/issues/38576))
+ - Upgraded Chromium to 125.0.6422.147. ([#38711](https://github.com/brave/brave-browser/issues/38711)) ([Changelog for 125.0.6422.147](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.112..125.0.6422.147?pretty=fuller&n=1000))
+
 ## [1.66.115](https://github.com/brave/brave-browser/releases/tag/v1.66.115)
 
  - Upgraded Chromium to 125.0.6422.112. ([#38528](https://github.com/brave/brave-browser/issues/38528)) ([Changelog for 125.0.6422.112](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.76..125.0.6422.112?pretty=fuller&n=1000))
