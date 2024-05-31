@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.66.118](https://github.com/brave/brave-browser/releases/tag/v1.66.118)
+
+ - Fixed crash when using the "Search" widget. ([#38680](https://github.com/brave/brave-browser/issues/38680))
+ - Fixed VPN receipt appearing empty in certain cases when linking a subscription purchase. ([#37591](https://github.com/brave/brave-browser/issues/37591))
+ - Fixed the issue where "Share/Copy/Edit" tools weren't shown in the URL bar when loading "eTLD" domains. ([#38563](https://github.com/brave/brave-browser/issues/38563))
+ - Upgraded Chromium to 125.0.6422.147. ([#38711](https://github.com/brave/brave-browser/issues/38711)) ([Changelog for 125.0.6422.147](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.112..125.0.6422.147?pretty=fuller&n=1000))
+
 ## [1.66.115](https://github.com/brave/brave-browser/releases/tag/v1.66.115)
 
  - Fixed Leo suggestions not using rounded corners under URL bar. ([#38516](https://github.com/brave/brave-browser/issues/38516))
