@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.66.120](https://github.com/brave/brave-browser/releases/tag/v1.66.120)
+
+ - Removed "Brave Fee" for all "Swap" transactions in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
+ - Upgraded Chromium to 125.0.6422.165. ([#38803](https://github.com/brave/brave-browser/issues/38803)) ([Changelog for 125.0.6422.165](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.147..125.0.6422.165?pretty=fuller&n=1000))
+
 ## [1.66.118](https://github.com/brave/brave-browser/releases/tag/v1.66.118)
 
  - Fixed crash when using the "Search" widget. ([#38680](https://github.com/brave/brave-browser/issues/38680))
