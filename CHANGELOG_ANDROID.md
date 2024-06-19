@@ -1,5 +1,51 @@
 # Changelog
 
+## [1.67.116](https://github.com/brave/brave-browser/releases/tag/v1.67.116)
+
+### Web3
+
+ - Added small delay in onboarding flow on the Brave Wallet creation screen. ([#37395](https://github.com/brave/brave-browser/issues/37395))
+ - Implemented a new unlock screen for accessing Brave Wallet. ([#37720](https://github.com/brave/brave-browser/issues/37720))
+ - Improved tappable area of the checkbox on Brave Wallet onboarding screen. ([#37499](https://github.com/brave/brave-browser/issues/37499))
+ - Updated "LiFi Transaction" JSON to show string value for "chainID". ([#37930](https://github.com/brave/brave-browser/issues/37930))
+ - Updated Solana transactions to rebroadcast every five seconds. ([#37310](https://github.com/brave/brave-browser/issues/37310))
+ - Removed "Brave Fee" for all "Swap" transactions in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
+ - Fixed crash on Brave Wallet model when native initialization hasn't completed. ([#38093](https://github.com/brave/brave-browser/issues/38093))
+
+### Rewards
+
+ - Added "Brave Search Ads" toggle to "Manage Brave Ads" on brave://rewards page and updated default display behavior. ([#37695](https://github.com/brave/brave-browser/issues/37695))
+
+### General
+
+ - Added Brave Search support to Brave Leo. ([#37575](https://github.com/brave/brave-browser/issues/37575) & [#38155](https://github.com/brave/brave-browser/issues/38155))
+ - Added markdown rendering to certain Brave Leo responses. ([#35891](https://github.com/brave/brave-browser/issues/35891))
+ - Added ability to use quick actions via "/" under Brave Leo panel. ([#37294](https://github.com/brave/brave-browser/issues/37294))
+ - Added in-app update dialog when Brave is outdated on devices running Android 13 and older. ([#38394](https://github.com/brave/brave-browser/issues/38394))
+ - Added "Update" CTA button in "Content Filtering" section to force-update all adblock components. ([#35270](https://github.com/brave/brave-browser/issues/35270))
+ - Added "Always-on VPN" option in Brave VPN settings. ([#37013](https://github.com/brave/brave-browser/issues/37013))
+ - Added exception to automatically exclude LAN addresses when Brave VPN is enabled to ensure usage of local devices. ([#37019](https://github.com/brave/brave-browser/issues/37019))
+ - Enabled "Background play" audio by default. ([#38869](https://github.com/brave/brave-browser/issues/38869))
+ - Updated Brave Leo model intro and added a tooltip for more details. ([#37825](https://github.com/brave/brave-browser/issues/37825))
+ - Updated Brave Leo CTA button text for non-premium users. ([#38695](https://github.com/brave/brave-browser/issues/38695))
+ - Updated labeling on certain language models listed in Brave Leo. ([#35611](https://github.com/brave/brave-browser/issues/35611))
+ - Updated product header for Brave Leo. ([#36202](https://github.com/brave/brave-browser/issues/36202))
+ - Replaced "Llama 2" with "Llama 3". ([#38071](https://github.com/brave/brave-browser/issues/38071))
+ - Deprecated "Claude Instant" model. ([#37988](https://github.com/brave/brave-browser/issues/37988))
+ - Removed background graphics from Brave Leo onboarding. ([#37344](https://github.com/brave/brave-browser/issues/37344))
+ - Removed known Salesforce Marketing Cloud tracking parameter "et_rid" from URLs. ([#37847](https://github.com/brave/brave-browser/issues/37847))
+ - Removed known Blackbaud tracking parameter "bbeml" from URLs. ([#37971](https://github.com/brave/brave-browser/issues/37971))
+ - Fixed de-AMP to only apply to HTML pages. ([#37406](https://github.com/brave/brave-browser/issues/37406))
+ - Fixed labelling and rate-limit messaging for Brave Leo as well as removed the "Switch to basic model" button from rate-limiting modal. ([#38676](https://github.com/brave/brave-browser/issues/38676))
+ - Fixed "Disable Brave VPN" bottom-sheet modal, which is now fully shown in "Landscape" mode. ([#37431](https://github.com/brave/brave-browser/issues/37431))
+ - Fixed "Liking Brave?" bottom-sheet modal, which is now fully shown in "Landscape" mode. ([#37870](https://github.com/brave/brave-browser/issues/37870))
+ - Fixed crash that occurred when third-party autofill service was enabled on device and a website with fill-in fields was active. ([#37942](https://github.com/brave/brave-browser/issues/37942))
+ - Fixed domain representation in the Brave Shields panel to ensure that long domain name is truncated from the beginning, keeping the end visible. ([#38514](https://github.com/brave/brave-browser/issues/38514))
+ - Fixed main settings menu to ensure that toolbar items are not shown at the top of the main settings menu in certain cases. ([#36396](https://github.com/brave/brave-browser/issues/36396))
+ - Fixed an issue where search engine used in "Private tabs" would revert to a search engine used in "Standard tabs" in certain cases. ([#36758](https://github.com/brave/brave-browser/issues/36758))
+ - Fixed "Tab Swipe" which causes Brave Rewards and Brave Shields button area to retain previous tab theme. ([#37342](https://github.com/brave/brave-browser/issues/37342))
+ - Upgraded Chromium to 126.0.6478.71. ([#39032](https://github.com/brave/brave-browser/issues/39032)) ([Changelog for 126.0.6478.71](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.56..126.0.6478.71?pretty=fuller&n=1000))
+
 ## [1.66.120](https://github.com/brave/brave-browser/releases/tag/v1.66.120)
 
  - Removed "Brave Fee" for all "Swap" transactions in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
