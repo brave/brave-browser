@@ -3,6 +3,7 @@
 ## [1.67.116](https://github.com/brave/brave-browser/releases/tag/v1.67.116)
 
 ### Web3
+
  - Added small delay in onboarding flow on the Brave Wallet creation screen. ([#37395](https://github.com/brave/brave-browser/issues/37395))
  - Implemented a new unlock screen for accessing Brave Wallet. ([#37720](https://github.com/brave/brave-browser/issues/37720))
  - Improved tappable area of the checkbox on Brave Wallet onboarding screen. ([#37499](https://github.com/brave/brave-browser/issues/37499))
@@ -12,9 +13,11 @@
  - Fixed crash on Brave Wallet model when native initialization hasn't completed. ([#38093](https://github.com/brave/brave-browser/issues/38093))
 
 ### Rewards
+
  - Added "Brave Search Ads" toggle to "Manage Brave Ads" on brave://rewards page and updated default display behavior. ([#37695](https://github.com/brave/brave-browser/issues/37695))
 
 ### General
+
  - Added Brave Search support to Brave Leo. ([#37575](https://github.com/brave/brave-browser/issues/37575) & [#38155](https://github.com/brave/brave-browser/issues/38155))
  - Added markdown rendering to certain Brave Leo responses. ([#35891](https://github.com/brave/brave-browser/issues/35891))
  - Added ability to use quick actions via "/" under Brave Leo panel. ([#37294](https://github.com/brave/brave-browser/issues/37294))
