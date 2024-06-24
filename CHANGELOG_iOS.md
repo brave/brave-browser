@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.65.113)
+## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.66.113)
 
 ### Web3
 
