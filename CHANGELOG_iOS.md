@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.65.113)
+
+### Web3
+
+ - Added support to retry, cancel and speed up transactions. ([#36627](https://github.com/brave/brave-browser/issues/36627))
+ - Fixed toggle being missing when importing an existing Wallet. ([#38123](https://github.com/brave/brave-browser/issues/38123))
+ - Fixed not being able to add/edit a custom network with chain ID below 16. ([#37863](https://github.com/brave/brave-browser/issues/37863))
+ - Fixed user visible assets to be only shown in Account token list. ([#36806](https://github.com/brave/brave-browser/issues/36806))
+
+### General
+
+ - Implemented using cached ad-blocking results after changing Shield settings. ([#37090](https://github.com/brave/brave-browser/issues/37090))
+ - Implemented New Tab Page (NTP) video ads. ([#36435](https://github.com/brave/brave-browser/issues/36435))
+ - Added Brave Browser to be an AutoFill Provider. ([#36028](https://github.com/brave/brave-browser/issues/36028))
+ - Added support for Czech, Slovak, Danish, Finnish, Croatian, Bosnian, Swiss German, Greek and Portuguese variant languages. ([#37637](https://github.com/brave/brave-browser/issues/37637))
+ - Added support for Base64 and Regex (multi) for debouncing. ([#37026](https://github.com/brave/brave-browser/issues/37026))
+ - Added Claude 3 Haiku and Claude 3 Sonnet model support for Leo. ([#36802](https://github.com/brave/brave-browser/issues/36802))
+ - Added unification for ad-block engines by merging all filter lists. ([#36035](https://github.com/brave/brave-browser/issues/36035))
+ - Added caching for DAT files during launch. ([#36539](https://github.com/brave/brave-browser/issues/36539))
+ - Updated ad-blocking lists to use first party list. ([#35210](https://github.com/brave/brave-browser/issues/35210))
+ - Updated debounce service to use brave-core instead of custom iOS service. ([#36033](https://github.com/brave/brave-browser/issues/36033))
+
 ## [1.65.122](https://github.com/brave/brave-browser/releases/tag/v1.65.122)
 
 ### Web3
