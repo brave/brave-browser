@@ -54,7 +54,6 @@ Follow the instructions to setup git SSH protocol for your platform:
 ## Clone and initialize the repo
 
 Once you have the prerequisites installed, you can get the code and initialize the build environment.
-  
 ```bash
 git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/brave
 cd path-to-your-project-folder/src/brave
