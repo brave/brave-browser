@@ -42,10 +42,19 @@ Follow the instructions for your platform:
 - [Windows](https://github.com/brave/brave-browser/wiki/Windows-Development-Environment)
 - [Linux/Android](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
 
+  
+## Setting up git SSH protocol.
+
+Follow the instructions to setup git SSH protocol for your platform:
+
+- [macOS](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=mac)
+- [Windows](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=windows)
+- [Linux](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux)
+
 ## Clone and initialize the repo
 
 Once you have the prerequisites installed, you can get the code and initialize the build environment.
-
+  
 ```bash
 git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/brave
 cd path-to-your-project-folder/src/brave
