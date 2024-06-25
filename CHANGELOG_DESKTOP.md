@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.67.123](https://github.com/brave/brave-browser/releases/tag/v1.67.123)
+
+ - [Security] Fixed unreadable button labels on certain YubiKey modals when using light theme. ([#39072](https://github.com/brave/brave-browser/issues/39072))
+ - Fixed unreadable button in the download manager. ([#38905](https://github.com/brave/brave-browser/issues/38905))
+ - Upgraded Chromium to 126.0.6478.126. ([#39329](https://github.com/brave/brave-browser/issues/39329)) ([Changelog for 126.0.6478.126](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.114..126.0.6478.126?pretty=fuller&n=1000))
+
 ## [1.67.119](https://github.com/brave/brave-browser/releases/tag/v1.67.119)
 
  - Fixed "Learn More" link within the Solana Associated SPL token account creation tooltip. ([#32016](https://github.com/brave/brave-browser/issues/32016))
