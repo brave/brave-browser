@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.66.123](https://github.com/brave/brave-browser/releases/tag/v1.66.123)
+
+ - Fixed a crash when dismissing alerts/share sheet in certain cases. ([#38651](https://github.com/brave/brave-browser/issues/38651))
+ - Fixed "Add to Calendar" prompt not shown when invite URLs are loaded on NTP and other websites. ([#38548](https://github.com/brave/brave-browser/issues/38548))
+ - Fixed download prompts appearing when switching tabs. ([#38551](https://github.com/brave/brave-browser/issues/38551))
+ - Fixed playlist items not deleting after being saved offline. ([#38665](https://github.com/brave/brave-browser/issues/38665))
+ - Upgraded Chromium to 125.0.6422.165. ([#38803](https://github.com/brave/brave-browser/issues/38803)) ([Changelog for 125.0.6422.165](https://chromium.googlesource.com/chromium/src/+log/125.0.6422.147..125.0.6422.165?pretty=fuller&n=1000))
+
 ## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.66.113)
 
 ### Web3
