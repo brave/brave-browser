@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.67.134](https://github.com/brave/brave-browser/releases/tag/v1.67.134)
+
+ - Disabled "Hangouts" under brave://settings/extensions by default. ([#39664](https://github.com/brave/brave-browser/issues/39664))
+ - Removed "Cookies and Site Data" option from individual site detail pages under brave://settings/content/all. ([#39033](https://github.com/brave/brave-browser/issues/39033))
+ - Fixed WebGL pages failing to load due to "getAttachedShaders" always returning "null". ([#37044](https://github.com/brave/brave-browser/issues/37044))
+ - Upgraded Chromium to 126.0.6478.186. ([#39799](https://github.com/brave/brave-browser/issues/39799)) ([Changelog for 126.0.6478.168](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.126..126.0.6478.186?pretty=fuller&n=1000))
+
 ## [1.67.123](https://github.com/brave/brave-browser/releases/tag/v1.67.123)
 
  - [Security] Fixed unreadable button labels on certain YubiKey modals when using light theme. ([#39072](https://github.com/brave/brave-browser/issues/39072))
