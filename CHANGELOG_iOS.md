@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.66.124](https://github.com/brave/brave-browser/releases/tag/v1.66.124)
+
+ - Fixed memory usage issues for users with large playlists resulting in failures to load Brave. ([#39146](https://github.com/brave/brave-browser/issues/39146))
+
 ## [1.66.123](https://github.com/brave/brave-browser/releases/tag/v1.66.123)
 
  - Removed “Brave Fee” for all “Swap” transactions in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
