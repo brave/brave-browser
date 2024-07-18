@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.67.136](https://github.com/brave/brave-browser/releases/tag/v1.67.136)
+
+ - Fixed issue where current active tab position was lost due to a new tab being created when restoring/re-launching Brave. ([#38635](https://github.com/brave/brave-browser/issues/38635))
+ - Upgraded Chromium to 126.0.6478.186. ([#39799](https://github.com/brave/brave-browser/issues/39799)) ([Changelog for 126.0.6478.168](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.126..126.0.6478.186?pretty=fuller&n=1000))
+
 ## [1.67.123](https://github.com/brave/brave-browser/releases/tag/v1.67.123)
 
  - Upgraded Chromium to 126.0.6478.126. ([#39329](https://github.com/brave/brave-browser/issues/39329)) ([Changelog for 126.0.6478.126](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.114..126.0.6478.126?pretty=fuller&n=1000))
