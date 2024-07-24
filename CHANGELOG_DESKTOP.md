@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.68.127](https://github.com/brave/brave-browser/releases/tag/v1.68.127)
+## [1.68.128](https://github.com/brave/brave-browser/releases/tag/v1.68.128)
 
 ### Web3
 
@@ -35,7 +35,7 @@
  - Fixed omnibox flicker when the "Download" button on the toolbar is clicked. ([#39373](https://github.com/brave/brave-browser/issues/39373))
  - Fixed visibility of "Import bookmarks now..." link via the infobar when using certain theme colors. ([#38354](https://github.com/brave/brave-browser/issues/38354))
  - Fixed error loading Brave VPN credentials in certain cases. ([#36321](https://github.com/brave/brave-browser/issues/36321))
- - Upgraded Chromium to 127.0.6533.57. ([#39829](https://github.com/brave/brave-browser/issues/39829)) ([Changelog for 127.0.6533.57](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.186..127.0.6533.57?pretty=fuller&n=1000))
+ - Upgraded Chromium to 127.0.6533.73. ([#39948](https://github.com/brave/brave-browser/issues/39948)) ([Changelog for 127.0.6533.73](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.186..127.0.6533.73?pretty=fuller&n=1000))
 
 ## [1.67.134](https://github.com/brave/brave-browser/releases/tag/v1.67.134)
 
