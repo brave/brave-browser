@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.68.128](https://github.com/brave/brave-browser/releases/tag/v1.68.128)
+
+### Web3
+
+ - Added the ability to import BTC accounts (BIP84) into Brave Wallet. ([#38446](https://github.com/brave/brave-browser/issues/38446))
+ - Added pagination to the "Portfolio NFT" page. ([#38547](https://github.com/brave/brave-browser/issues/38547))
+ - Added the ability to allow hiding un-owned NFTs on the "Portfolio NFT" page. ([#38549](https://github.com/brave/brave-browser/issues/38549))
+ - Added support for the Solana Token Extensions, part of the Solana Token-2022 program. ([#36699](https://github.com/brave/brave-browser/issues/36699))
+ - Updated Brave Wallet to use Chainstack RPC proxy endpoints. ([#38872](https://github.com/brave/brave-browser/issues/38872))
+ - Updated Avalanche to use Chainstack proxy. ([#39299](https://github.com/brave/brave-browser/issues/39299))
+ - Updated the wallet panel to truncate long token names and balances in certain cases. ([#38064](https://github.com/brave/brave-browser/issues/38064))
+ - Updated UI for the "Select Token" modal. ([#37838](https://github.com/brave/brave-browser/issues/37838))
+ - Updated design for wallet settings modals. ([#37362](https://github.com/brave/brave-browser/issues/37362))
+ - Updated length of "Account" name to 30 characters. ([#23361](https://github.com/brave/brave-browser/issues/23361))
+ - Fixed inability to sign-in on "https://tally.xyz". ([#38878](https://github.com/brave/brave-browser/issues/38878))
+ - Fixed Brave Wallet performance in certain cases. ([#26782](https://github.com/brave/brave-browser/issues/26782))
+ - Fixed issue where clicking "Send" on the NFT details screen did not pre-fill the send amount. ([#39916](https://github.com/brave/brave-browser/issues/39916))
+
+### General
+
+ - Added a search widget to the New Tab Page. ([#35535](https://github.com/brave/brave-browser/issues/35535))
+ - Added Nebula support for P3A. ([#35841](https://github.com/brave/brave-browser/issues/35841))
+ - [Security] Reduced WireGuard tunnel service permissions on Windows as reported on HackerOne by newfunction. ([#37846](https://github.com/brave/brave-browser/issues/37846))
+ - Enabled rich version of Brave Search autocomplete suggestions. ([#29997](https://github.com/brave/brave-browser/issues/29997))
+ - Improved Brave Leo conversation UI layout. ([#37792](https://github.com/brave/brave-browser/issues/37792))
+ - Improved component updater to check for updates more often. ([#35164](https://github.com/brave/brave-browser/issues/35164))
+ - Updated Omaha installer version for Windows to v1.3.361.151 for new users. ([#38597](https://github.com/brave/brave-browser/issues/38597))
+ - Updated the styling of the widgets on the New Tab Page. ([#37213](https://github.com/brave/brave-browser/issues/37213))
+ - Updated Tor windows to show Tor daemon status when the window was opened via the "Tor" button in the URL bar. ([#37927](https://github.com/brave/brave-browser/issues/37927))
+ - Removed Safety Check warning for local passwords. ([#39212](https://github.com/brave/brave-browser/issues/39212))
+ - Fixed issue where LastPass extension failed to open. ([#39759](https://github.com/brave/brave-browser/issues/39759))
+ - Fixed incorrect radius and colors for URL bar icon in certain cases. ([#39561](https://github.com/brave/brave-browser/issues/39561))
+ - Fixed omnibox flicker when the "Download" button on the toolbar is clicked. ([#39373](https://github.com/brave/brave-browser/issues/39373))
+ - Fixed visibility of "Import bookmarks now..." link via the infobar when using certain theme colors. ([#38354](https://github.com/brave/brave-browser/issues/38354))
+ - Fixed error loading Brave VPN credentials in certain cases. ([#36321](https://github.com/brave/brave-browser/issues/36321))
+ - Upgraded Chromium to 127.0.6533.73. ([#39948](https://github.com/brave/brave-browser/issues/39948)) ([Changelog for 127.0.6533.73](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.186..127.0.6533.73?pretty=fuller&n=1000))
+
 ## [1.67.134](https://github.com/brave/brave-browser/releases/tag/v1.67.134)
 
  - Disabled "Hangouts" under brave://settings/extensions by default. ([#39664](https://github.com/brave/brave-browser/issues/39664))
