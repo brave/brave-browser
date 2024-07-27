@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.68.131](https://github.com/brave/brave-browser/releases/tag/v1.68.131)
+
+ - Fixed startup crash due to profile avatars in certain cases. ([#40005](https://github.com/brave/brave-browser/issues/40005))
+
 ## [1.68.128](https://github.com/brave/brave-browser/releases/tag/v1.68.128)
 
 ### Web3
