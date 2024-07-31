@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.68.128](https://github.com/brave/brave-browser/releases/tag/v1.68.128)
+
+### Web3
+
+ - Added the ability to import BTC accounts (BIP84) into Brave Wallet. ([#38446](https://github.com/brave/brave-browser/issues/38446))
+ - Added support for the Solana Token Extensions, part of the Solana Token-2022 program. ([#36699](https://github.com/brave/brave-browser/issues/36699))
+ - Updated network setting to show/hide all networks similar to Brave Wallet on desktop. ([#37397](https://github.com/brave/brave-browser/issues/37397))
+ - Improved alignment for "Network" name and icon on "Network" selector screen. ([#36253](https://github.com/brave/brave-browser/issues/36253))
+ - Fixed inability to sign-in on "https://tally.xyz". ([#38878](https://github.com/brave/brave-browser/issues/38878))
+
+### General
+
+ - Added Nebula support for P3A. ([#35841](https://github.com/brave/brave-browser/issues/35841))
+ - Added ability to launch Leo via voice search if phrase starts with `Leo...`. ([#38089](https://github.com/brave/brave-browser/issues/38089))
+ - Added "Refresh your credentials" button for Leo and VPN if a user has an active subscription purchased on another device. ([#38085](https://github.com/brave/brave-browser/issues/38085))
+ - [Security] Fixed issue where SSL Pinning didn't work in certain cases and the webpage didn't show an SSL error. ([#24453](https://github.com/brave/brave-browser/issues/24453))
+ - Enabled rich version of Brave Search autocomplete suggestions. ([#29997](https://github.com/brave/brave-browser/issues/29997))
+ - Improved Brave Leo conversation UI layout. ([#37792](https://github.com/brave/brave-browser/issues/37792))
+ - Improved component updater to check for updates more often. ([#35164](https://github.com/brave/brave-browser/issues/35164))
+ - Improved text on VPN paywall to highlight discount amount. ([#38239](https://github.com/brave/brave-browser/issues/38239))
+ - Removed default suggested top sites from new tab page for new profiles. ([#39541](https://github.com/brave/brave-browser/issues/39541))
+ - Fixed "HTTPS" URLs being copied as "HTTP" into clipboard from the omnibox share menu. ([#39095](https://github.com/brave/brave-browser/issues/39095))
+ - Upgraded Chromium to 127.0.6533.73. ([#39948](https://github.com/brave/brave-browser/issues/39948)) ([Changelog for 127.0.6533.73](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.186..127.0.6533.73?pretty=fuller&n=1000))
+
 ## [1.67.136](https://github.com/brave/brave-browser/releases/tag/v1.67.136)
 
  - Fixed issue where current active tab position was lost due to a new tab being created when restoring/re-launching Brave. ([#38635](https://github.com/brave/brave-browser/issues/38635))
