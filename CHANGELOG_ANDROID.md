@@ -21,7 +21,7 @@
  - Improved component updater to check for updates more often. ([#35164](https://github.com/brave/brave-browser/issues/35164))
  - Improved text on VPN paywall to highlight discount amount. ([#38239](https://github.com/brave/brave-browser/issues/38239))
  - Removed default suggested top sites from new tab page for new profiles. ([#39541](https://github.com/brave/brave-browser/issues/39541))
-- Fixed "HTTPS" URLs being copied as "HTTP" into clipboard from the omnibox share menu. ([#39095](https://github.com/brave/brave-browser/issues/39095))
+ - Fixed "HTTPS" URLs being copied as "HTTP" into clipboard from the omnibox share menu. ([#39095](https://github.com/brave/brave-browser/issues/39095))
  - Upgraded Chromium to 127.0.6533.73. ([#39948](https://github.com/brave/brave-browser/issues/39948)) ([Changelog for 127.0.6533.73](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.186..127.0.6533.73?pretty=fuller&n=1000))
 
 ## [1.67.136](https://github.com/brave/brave-browser/releases/tag/v1.67.136)
