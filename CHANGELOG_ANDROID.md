@@ -16,7 +16,7 @@
  - Added ability to launch Leo via voice search if phrase starts with `Leo...`. ([#38089](https://github.com/brave/brave-browser/issues/38089))
  - Added "Refresh your credentials" button for Leo and VPN if a user has an active subscription purchased on another device. ([#38085](https://github.com/brave/brave-browser/issues/38085))
  - [Security] Fixed issue where SSL Pinning didn't work in certain cases and the webpage didn't show an SSL error. ([#24453](https://github.com/brave/brave-browser/issues/24453))
- Enabled rich version of Brave Search autocomplete suggestions. ([#29997](https://github.com/brave/brave-browser/issues/29997))
+ - Enabled rich version of Brave Search autocomplete suggestions. ([#29997](https://github.com/brave/brave-browser/issues/29997))
  - Improved Brave Leo conversation UI layout. ([#37792](https://github.com/brave/brave-browser/issues/37792))
  - Improved component updater to check for updates more often. ([#35164](https://github.com/brave/brave-browser/issues/35164))
  - Improved text on VPN paywall to highlight discount amount. ([#38239](https://github.com/brave/brave-browser/issues/38239))
