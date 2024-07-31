@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.68.134](https://github.com/brave/brave-browser/releases/tag/v1.68.134)
+
+### Web3
+
+ - Fixed crash which occurred when manually deleting the connection under brave://settings/content/ethereum or brave://settings/content/solana. ([#40072](https://github.com/brave/brave-browser/issues/40072))
+ - Fixed inability to hide or unhide NFTs. ([#36754](https://github.com/brave/brave-browser/issues/36754))
+ - Fixed NFT "Portfolio" tab not correctly filtering NFTs by selected account. ([#39978](https://github.com/brave/brave-browser/issues/39978))
+
+### General
+
+ - Fixed passwords not being displayed under brave://password-manager/passwords on Windows in certain cases. ([#40091](https://github.com/brave/brave-browser/issues/40091))
+ - Upgraded Chromium to 127.0.6533.88. ([#40120](https://github.com/brave/brave-browser/issues/40120)) ([Changelog for 127.0.6533.88](https://chromium.googlesource.com/chromium/src/+log/127.0.6533.73..127.0.6533.88?pretty=fuller&n=1000))
+
 ## [1.68.131](https://github.com/brave/brave-browser/releases/tag/v1.68.131)
 
  - Fixed startup crash due to profile avatars in certain cases. ([#40005](https://github.com/brave/brave-browser/issues/40005))
