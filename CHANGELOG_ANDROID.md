@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.68.134](https://github.com/brave/brave-browser/releases/tag/v1.68.134)
+
+ - Upgraded Chromium to 127.0.6533.88. ([#40120](https://github.com/brave/brave-browser/issues/40120)) ([Changelog for 127.0.6533.88](https://chromium.googlesource.com/chromium/src/+log/127.0.6533.73..127.0.6533.88?pretty=fuller&n=1000))
+
 ## [1.68.133](https://github.com/brave/brave-browser/releases/tag/v1.68.133)
 
  - Fixed billing client issue for new subscription users who could not purchase VPN and Leo via Google Play Store. ([#40078](https://github.com/brave/brave-browser/issues/40078))
