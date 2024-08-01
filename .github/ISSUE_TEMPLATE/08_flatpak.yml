@@ -1,0 +1,33 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: Flatpak issue
+description: An issue affecting Flatpak installations of Brave
+labels:
+  - OS/Linux/flatpak
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues?q=is%3Aopen+is%3Aissue+label%3AOS%2FLinux%2Fflatpak)?
+
+        Insufficiently described issues will be closed, so please provide as much information as possible
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A brief description of the issue
+    validations:
+      required: true
+
+ - type: dropdown
+    id: reproduces
+    attributes:
+      label: Reproduces on non-Flatpak Brave installs
+      multiple: false
+      options:
+        - Haven't tried
+        - Yes
+        - No
+      default: 0
+    validations:
+      required: true
