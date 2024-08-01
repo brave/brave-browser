@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.68.133](https://github.com/brave/brave-browser/releases/tag/v1.68.133)
+
+ - Fixed billing client issue for new subscription users who could not purchase VPN and Leo via Google Play Store. ([#40078](https://github.com/brave/brave-browser/issues/40078))
+
 ## [1.68.128](https://github.com/brave/brave-browser/releases/tag/v1.68.128)
 
 ### Web3
@@ -13,7 +17,7 @@
 ### General
 
  - Added Nebula support for P3A. ([#35841](https://github.com/brave/brave-browser/issues/35841))
- - Added ability to launch Leo via voice search if phrase starts with `Leo...`. ([#38089](https://github.com/brave/brave-browser/issues/38089))
+ - Added ability to launch Leo via voice search if phrase starts with "Leo...". ([#38089](https://github.com/brave/brave-browser/issues/38089))
  - Added "Refresh your credentials" button for Leo and VPN if a user has an active subscription purchased on another device. ([#38085](https://github.com/brave/brave-browser/issues/38085))
  - [Security] Fixed issue where SSL Pinning didn't work in certain cases and the webpage didn't show an SSL error. ([#24453](https://github.com/brave/brave-browser/issues/24453))
  - Enabled rich version of Brave Search autocomplete suggestions. ([#29997](https://github.com/brave/brave-browser/issues/29997))
