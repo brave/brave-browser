@@ -2,7 +2,7 @@
 
 ## [1.68.133](https://github.com/brave/brave-browser/releases/tag/v1.68.133)
 
- - Fixed billing client issue for new subscription users who could not purchase VPN and Leo subscriptions via Google Play Store.  ([#40078](https://github.com/brave/brave-browser/issues/40078))
+ - Fixed billing client issue for new subscription users who could not purchase VPN and Leo via Google Play Store. ([#40078](https://github.com/brave/brave-browser/issues/40078))
 
 ## [1.68.128](https://github.com/brave/brave-browser/releases/tag/v1.68.128)
 
