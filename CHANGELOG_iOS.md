@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.67.127](https://github.com/brave/brave-browser/releases/tag/v1.67.127)
+
+### Web3
+
+- Added support for retry transactions on Solana network. ([#37443](https://github.com/brave/brave-browser/issues/37443))
+- Added fee waiver for swaps in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
+- Updated wallet decimal pricing to have more precision for smaller balances. ([#36163](https://github.com/brave/brave-browser/issues/36163))
+  
+### General
+
+- Added Brave Search as default search engine in Italy (IT). ([#38192](https://github.com/brave/brave-browser/issues/38192))
+- Added the ability for navigation history URLs to be opened in a new tab or in a new private tab. ([#36988](https://github.com/brave/brave-browser/issues/36988))
+- Added “Brave Search Ads” toggle to “Manage Brave Ads” section on brave://rewards Page. ([#37695](https://github.com/brave/brave-browser/issues/37695))
+- Updated Leo defaults by deprecating Claude Instant in favor of Claude Haiku. ([#37988](https://github.com/brave/brave-browser/issues/37988))
+- Updated badging in Leo UI for freemium and premium subscribers. ([#35611](https://github.com/brave/brave-browser/issues/35611))
+- Fixed an issue with the Reddit redirect feature redirecting users incorrectly when using shortened Reddit links from third-party apps. ([#36122](https://github.com/brave/brave-browser/issues/36122))
+- Fixed an issue with the URL bar connection state showing insecure connection during a network change. ([#38671](https://github.com/brave/brave-browser/issues/38671))
+- Upgraded Chromium to 126.0.6478.126. ([#39329](https://github.com/brave/brave-browser/issues/39329))([Changelog for 126.0.6478.126](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.114..126.0.6478.126?pretty=fuller&n=1000))
+
 ## [1.66.124](https://github.com/brave/brave-browser/releases/tag/v1.66.124)
 
  - Fixed memory usage issues for users with large playlists resulting in failures to load Brave. ([#39146](https://github.com/brave/brave-browser/issues/39146))
