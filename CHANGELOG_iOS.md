@@ -4,7 +4,7 @@
 
 ### Web3
 
-- Added support for retrying transactions on Solana network. ([#37443](https://github.com/brave/brave-browser/issues/37443))
+- Added support for retrying transactions on the Solana network. ([#37443](https://github.com/brave/brave-browser/issues/37443))
 - Added fee waiver for swaps in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
 - Updated wallet price rounding to show more more precision for smaller balances. ([#36163](https://github.com/brave/brave-browser/issues/36163))
   
