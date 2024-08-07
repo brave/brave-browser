@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.68.137](https://github.com/brave/brave-browser/releases/tag/v1.68.137)
+
+ - Upgraded Chromium to 127.0.6533.100. ([#40314](https://github.com/brave/brave-browser/issues/40314)) ([Changelog for 127.0.6533.100](https://chromium.googlesource.com/chromium/src/+log/127.0.6533.88..127.0.6533.100?pretty=fuller&n=1000))
+
 ## [1.68.134](https://github.com/brave/brave-browser/releases/tag/v1.68.134)
 
 ### Web3
