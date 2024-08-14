@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.68.141](https://github.com/brave/brave-browser/releases/tag/v1.68.141)
+
+### Web3
+
+ - Fixed issue where crashes on certain pages occurred due to having local IPFS installed. ([#40102](https://github.com/brave/brave-browser/issues/40102))
+
+### General
+
+ - [Security] Fixed passwords not being displayed under brave://password-manager/passwords on macOS and Linux in certain cases. ([#33548](https://github.com/brave/brave-browser/issues/33548))
+ - Fixed crash which occurred in certain cases when using side panel extensions. ([#40262](https://github.com/brave/brave-browser/issues/40262))
+ - Fixed issue where deleting a browser profile from sync chain caused sync data to be removed from other devices in the chain. ([#39503](https://github.com/brave/brave-browser/issues/39503))
+ - Upgraded Chromium to 127.0.6533.120. ([#40431](https://github.com/brave/brave-browser/issues/40431)) ([Changelog for 127.0.6533.120](https://chromium.googlesource.com/chromium/src/+log/127.0.6533.100..127.0.6533.120?pretty=fuller&n=1000))
+
 ## [1.68.137](https://github.com/brave/brave-browser/releases/tag/v1.68.137)
 
  - Upgraded Chromium to 127.0.6533.100. ([#40314](https://github.com/brave/brave-browser/issues/40314)) ([Changelog for 127.0.6533.100](https://chromium.googlesource.com/chromium/src/+log/127.0.6533.88..127.0.6533.100?pretty=fuller&n=1000))
