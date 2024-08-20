@@ -853,7 +853,7 @@
  - Fixed crash when quickly selecting a search engine from "Private Tab" and then closing the "Settings" page. ([#28262](https://github.com/brave/brave-browser/issues/28262))
  - Fixed crash when opening New Tab Page in certain cases. ([#28457](https://github.com/brave/brave-browser/issues/28457))
  - Fixed crash when running through the welcome onboarding in certain cases. ([#28458](https://github.com/brave/brave-browser/issues/28458)) ([#28598](https://github.com/brave/brave-browser/issues/28598))
- - Removed auto contribution slide from the the Brave Rewards onboarding panel in Japan region. ([#28221](https://github.com/brave/brave-browser/issues/28221))
+ - Removed auto contribution slide from the Brave Rewards onboarding panel in Japan region. ([#28221](https://github.com/brave/brave-browser/issues/28221))
  - Upgraded Chromium to 110.0.5481.177. ([#28690](https://github.com/brave/brave-browser/issues/28690)) ([Changelog for 110.0.5481.177](https://chromium.googlesource.com/chromium/src/+log/110.0.5481.104..110.0.5481.177?pretty=fuller&n=1000))
 
 ## [1.48.164](https://github.com/brave/brave-browser/releases/tag/v1.48.164)

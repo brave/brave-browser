@@ -3784,7 +3784,7 @@
 - Fixed incorrect system colors when changing theme to "Light" on Windows. ([#4056](https://github.com/brave/brave-browser/issues/4056))
 - Fixed download toolbar not always respecting current theme on Windows. ([#4272](https://github.com/brave/brave-browser/issues/4272))
 - Fixed loading delay on some sites like https://www.theverge.com. ([#4402](https://github.com/brave/brave-browser/issues/4402))
-- Fixed binary on Linux; brave-browser command will now always open release channel version (instead of the the most recent install). ([#1324](https://github.com/brave/brave-browser/issues/1324))
+- Fixed binary on Linux; brave-browser command will now always open release channel version (instead of the most recent install). ([#1324](https://github.com/brave/brave-browser/issues/1324))
 
 ## [0.65.121](https://github.com/brave/brave-browser/releases/tag/v0.65.121)
 
