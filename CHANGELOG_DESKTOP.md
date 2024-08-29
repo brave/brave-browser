@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.69.160](https://github.com/brave/brave-browser/releases/tag/v1.69.160)
+
+### Web3
+
+ - Fixed crash when trying to bridge from ETH on Ethereum to SOL on Solana. ([#40674](https://github.com/brave/brave-browser/issues/40674))
+ - Fixed ZCash balance resolution issue. ([#40635](https://github.com/brave/brave-browser/issues/40635))
+
+### General
+
+ - Updated model names in Brave Leo models menu. ([#40464](https://github.com/brave/brave-browser/issues/40464))
+ - Updated tab separator contrast and height. ([#40714](https://github.com/brave/brave-browser/issues/40714))
+ - Fixed issue where synced devices could be duplicated in certain cases. ([#40130](https://github.com/brave/brave-browser/issues/40130))
+ - Fixed three dot menu not being displayed on Brave News cards. ([#40621](https://github.com/brave/brave-browser/issues/40621))
+ - Upgraded Chromium to 128.0.6613.114. ([#40738](https://github.com/brave/brave-browser/issues/40738)) ([Changelog for 128.0.6613.114](https://chromium.googlesource.com/chromium/src/+log/128.0.6613.85..128.0.6613.114?pretty=fuller&n=1000))
+
 ## [1.69.153](https://github.com/brave/brave-browser/releases/tag/v1.69.153)
 
 ### Web3
