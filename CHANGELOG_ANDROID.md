@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.69.153](https://github.com/brave/brave-browser/releases/tag/v1.69.153)
+
+### Web3
+
+ - Added support for Solana Priority Fees. ([#35866](https://github.com/brave/brave-browser/issues/35866))
+ - Added new touch ID screen to wallet onboarding flow. ([#38987](https://github.com/brave/brave-browser/issues/38987))
+ - Added new confirmation screen to wallet onboarding flow. ([#39348](https://github.com/brave/brave-browser/issues/39348))
+ - Removed deprecated Goerli Network from default network list. ([#37369](https://github.com/brave/brave-browser/issues/37369))
+ - Fixed text padding to avoid text overlap on the onboarding screen. ([#38912](https://github.com/brave/brave-browser/issues/38912))
+
+### General
+
+ - Enabled "search suggestions" by default for "Standard Tab" when Brave Search is set as a default search engine. ([#31607](https://github.com/brave/brave-browser/issues/31607))
+ - Improved adblocking by supporting ":remove", ":remove-attr", and ":remove-class" adblock filter syntax. ([#33881](https://github.com/brave/brave-browser/issues/33881))
+ - Updated adblocking to apply generic "$removeparam" rules to document, subdocument, or xhr requests by default. ([#38753](https://github.com/brave/brave-browser/issues/38753))
+ - Removed known tracking parameter "_branch_match_id" and "_branch_referrer" from URLs. ([#39575](https://github.com/brave/brave-browser/issues/39575))
+ - Upgraded Chromium to 128.0.6613.85. ([#40586](https://github.com/brave/brave-browser/issues/40586)) ([Changelog for 128.0.6613.85](https://chromium.googlesource.com/chromium/src/+log/127.0.6533.120..128.0.6613.85?pretty=fuller&n=1000))
+
 ## [1.68.137](https://github.com/brave/brave-browser/releases/tag/v1.68.137)
 
  - Upgraded Chromium to 127.0.6533.100. ([#40314](https://github.com/brave/brave-browser/issues/40314)) ([Changelog for 127.0.6533.100](https://chromium.googlesource.com/chromium/src/+log/127.0.6533.88..127.0.6533.100?pretty=fuller&n=1000))
