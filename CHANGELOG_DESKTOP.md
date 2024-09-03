@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.69.162](https://github.com/brave/brave-browser/releases/tag/v1.69.162)
+
+ - Fixed Brave News button not being displayed on the New Tab Page prior to opt-in for Argentina and Germany locales. ([#37839](https://github.com/brave/brave-browser/issues/37839))
+ - Upgraded Chromium to 128.0.6613.120. ([#40804](https://github.com/brave/brave-browser/issues/40804)) ([Changelog for 128.0.6613.120](https://chromium.googlesource.com/chromium/src/+log/128.0.6613.114..128.0.6613.120?pretty=fuller&n=1000))
+
 ## [1.69.160](https://github.com/brave/brave-browser/releases/tag/v1.69.160)
 
 ### Web3
