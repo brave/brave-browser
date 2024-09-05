@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.69.164](https://github.com/brave/brave-browser/releases/tag/v1.69.164)
+
+ - Upgraded Chromium to 128.0.6613.127. ([#40862](https://github.com/brave/brave-browser/issues/40862)) ([Changelog for 128.0.6613.127](https://chromium.googlesource.com/chromium/src/+log/128.0.6613.120..128.0.6613.127?pretty=fuller&n=1000))
+
 ## [1.69.160](https://github.com/brave/brave-browser/releases/tag/v1.69.160)
 
  - Updated model names in Brave Leo models menu. ([#40464](https://github.com/brave/brave-browser/issues/40464))
