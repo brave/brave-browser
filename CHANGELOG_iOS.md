@@ -5,9 +5,9 @@
 ### Web3
 
  - Added the ability to import BTC accounts (BIP84) into Brave Wallet. ([#38546](https://github.com/brave/brave-browser/issues/38546))
- - Added the ability to send BTC on “Send” screen. ([#37958](https://github.com/brave/brave-browser/issues/37958))
- - Updated default account names to differentiate between mainnet and testnet accounts. ([#38526](https://github.com/brave/brave-browser/issues/38526))
- - Updated “Show Zero Balances” button to always be displayed in “Select a Token to Send” screen. ([#38452](https://github.com/brave/brave-browser/issues/38452))
+ - Added support to "Send" BTC from iOS. ([#37958](https://github.com/brave/brave-browser/issues/37958))
+ - Updated default account names to differentiate between Filecoin mainnet and testnet accounts. ([#38526](https://github.com/brave/brave-browser/issues/38526))
+ - Updated “Show Zero Balances” button to be always shown on "Select a Token to Send” screen. ([#38452](https://github.com/brave/brave-browser/issues/38452))
  - Updated network setting to show/hide all networks similar to Brave Wallet on desktop. ([#37741](https://github.com/brave/brave-browser/issues/37741))
 
 ### General
