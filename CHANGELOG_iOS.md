@@ -1,22 +1,58 @@
 # Changelog
 
+## [1.68.134](https://github.com/brave/brave-browser/releases/tag/v1.68.134)
+
+### Web3
+
+ - Added the ability to import BTC accounts (BIP84) into Brave Wallet. ([#38546](https://github.com/brave/brave-browser/issues/38546))
+ - Added support to "Send" BTC from iOS. ([#37958](https://github.com/brave/brave-browser/issues/37958))
+ - Updated default account names to differentiate between Filecoin mainnet and testnet accounts. ([#38526](https://github.com/brave/brave-browser/issues/38526))
+ - Updated “Show Zero Balances” button to be always shown on "Select a Token to Send” screen. ([#38452](https://github.com/brave/brave-browser/issues/38452))
+ - Updated network setting to show/hide all networks similar to Brave Wallet on desktop. ([#37741](https://github.com/brave/brave-browser/issues/37741))
+
+### General
+
+ - Added HTTPS strict mode to “Upgrade Connections to HTTPS” setting in “Brave Shields & Privacy”. ([#36408](https://github.com/brave/brave-browser/issues/36408))
+ - Added transcription support for Jitsi SDK. ([#38368](https://github.com/brave/brave-browser/issues/38368))
+ - Added "Refresh your credentials" button for Leo and VPN if a user has an active subscription purchased on another device. ([#38086](https://github.com/brave/brave-browser/issues/38086))
+ - Added "Claude 3 Haiku" (free) and "Claude 3 Sonnet" (premium) models to the Brave Leo model selection list. ([#37989](https://github.com/brave/brave-browser/issues/37989))
+ - Added ability to use quick actions via "/" under Brave Leo panel. ([#37297](https://github.com/brave/brave-browser/issues/37297))
+ - Added support for conversation API in Leo. ([#39331](https://github.com/brave/brave-browser/issues/39331))
+ - Added UI views to handle premium disconnected states in Leo chat. ([#39231](https://github.com/brave/brave-browser/issues/39231))
+ - Added name indicator beside the avatar for each message in the Leo chat. ([#37793](https://github.com/brave/brave-browser/issues/37793))
+ - Added the ability to close all tabs except active tab using “Close All Other Tabs” in the tab tray context menu. ([#37069](https://github.com/brave/brave-browser/issues/37069))
+ - Implemented blocking non-HTTP/HTTPS URLs from loading when opened via Shortcuts. ([#39836](https://github.com/brave/brave-browser/issues/39836))
+ - Implemented displaying Sync code expiry when showing the pairing codes. ([#38020](https://github.com/brave/brave-browser/issues/38020))
+ - Updated ads service preferences to disable fetching when Brave Rewards/Brave News is disabled. ([#39621](https://github.com/brave/brave-browser/issues/39621))
+ - Updated displaying items on History page by handling certain title cases. ([#39550](https://github.com/brave/brave-browser/issues/39550))
+ - Updated settings icon design in the Leo chat header. ([#39460](https://github.com/brave/brave-browser/issues/39460))
+ - Updated the design for the Leo opt-in notice. ([#38742](https://github.com/brave/brave-browser/issues/38742))
+ - Updated Leo chat prompt to add new line instead of submitting the message when pressing “enter” key. ([#39351](https://github.com/brave/brave-browser/issues/39351))
+ - Updated the title in the Leo chat product header to “Leo AI”. ([#36917](https://github.com/brave/brave-browser/issues/36917))
+ - Fixed issue with Leo chat window being unresponsive after using app switcher while the Leo menu is open. ([#39109](https://github.com/brave/brave-browser/issues/39109))
+ - Fixed buttons not working to dismiss the premium upgrade card in Leo chat. ([#39061](https://github.com/brave/brave-browser/issues/39061))
+ - Fixed a crash when opening CarPlay without a main Brave window open. ([#38612](https://github.com/brave/brave-browser/issues/38612))
+ - Fixed issue with incorrect count being shown when bookmarking all tabs via long pressing on tab tray icon. ([#38340](https://github.com/brave/brave-browser/issues/38340)
+ - Fixed issue with tabs bar showing multiple active tabs at once. ([#36102](https://github.com/brave/brave-browser/issues/36102))
+ - Fixed issue with the ‘X’ button being grayed out in the current active bar after closing previous active tab. ([#37064](https://github.com/brave/brave-browser/issues/37064))
+
 ## [1.67.127](https://github.com/brave/brave-browser/releases/tag/v1.67.127)
 
 ### Web3
 
-- Added support for retrying transactions on the Solana network. ([#37443](https://github.com/brave/brave-browser/issues/37443))
-- Removed “Brave Fee” for all “Swap” transactions in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
-- Updated token price rounding to more accurate decimal values for smaller balances. ([#36163](https://github.com/brave/brave-browser/issues/36163))
+ - Added support for retrying transactions on the Solana network. ([#37443](https://github.com/brave/brave-browser/issues/37443))
+ - Removed “Brave Fee” for all “Swap” transactions in Brave Wallet. ([#38566](https://github.com/brave/brave-browser/issues/38566))
+ - Updated token price rounding to more accurate decimal values for smaller balances. ([#36163](https://github.com/brave/brave-browser/issues/36163))
   
 ### General
 
-- Added the ability for navigation history URLs to be opened in a new tab or in a new private tab via the context menu. ([#36988](https://github.com/brave/brave-browser/issues/36988))
-- Updated default search engine to Brave Search for new installations in Italy. ([#38192](https://github.com/brave/brave-browser/issues/38192))
-- Updated Leo defaults by deprecating Claude Instant in favor of Claude Haiku. ([#37988](https://github.com/brave/brave-browser/issues/37988))
-- Updated labeling on certain language models listed in Brave Leo. ([#35611](https://github.com/brave/brave-browser/issues/35611))
-- Fixed an issue with the Reddit redirect feature redirecting users incorrectly when using shortened Reddit links from third-party apps. ([#36122](https://github.com/brave/brave-browser/issues/36122))
-- Fixed an issue with the URL bar connection state showing insecure connection during a network change. ([#38671](https://github.com/brave/brave-browser/issues/38671))
-- Upgraded Chromium to 126.0.6478.126. ([#39329](https://github.com/brave/brave-browser/issues/39329))([Changelog for 126.0.6478.126](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.114..126.0.6478.126?pretty=fuller&n=1000))
+ - Added the ability for navigation history URLs to be opened in a new tab or in a new private tab via the context menu. ([#36988](https://github.com/brave/brave-browser/issues/36988))
+ - Updated default search engine to Brave Search for new installations in Italy. ([#38192](https://github.com/brave/brave-browser/issues/38192))
+ - Updated Leo defaults by deprecating Claude Instant in favor of Claude Haiku. ([#37988](https://github.com/brave/brave-browser/issues/37988))
+ - Updated labeling on certain language models listed in Brave Leo. ([#35611](https://github.com/brave/brave-browser/issues/35611))
+ - Fixed an issue with the Reddit redirect feature redirecting users incorrectly when using shortened Reddit links from third-party apps. ([#36122](https://github.com/brave/brave-browser/issues/36122))
+ - Fixed an issue with the URL bar connection state showing insecure connection during a network change. ([#38671](https://github.com/brave/brave-browser/issues/38671))
+ - Upgraded Chromium to 126.0.6478.126. ([#39329](https://github.com/brave/brave-browser/issues/39329))([Changelog for 126.0.6478.126](https://chromium.googlesource.com/chromium/src/+log/126.0.6478.114..126.0.6478.126?pretty=fuller&n=1000))
 
 ## [1.66.124](https://github.com/brave/brave-browser/releases/tag/v1.66.124)
 
