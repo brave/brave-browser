@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.68.145](https://github.com/brave/brave-browser/releases/tag/v1.68.145)
+
+ - Added feature flag for strict mode in HTTPS by Default. ([#40634](https://github.com/brave/brave-browser/issues/40634))
+ - Fixed SSL interstitial pages being displayed incorrectly in certain cases. ([#40617](https://github.com/brave/brave-browser/issues/40617))
+
 ## [1.68.134](https://github.com/brave/brave-browser/releases/tag/v1.68.134)
 
 ### Web3
