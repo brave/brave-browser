@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.70.123](https://github.com/brave/brave-browser/releases/tag/v1.70.123)
+
+ - Fixed issue where the clock would not display on the New Tab Page in certain cases. ([#41226](https://github.com/brave/brave-browser/issues/41226))
+ - Upgraded Chromium to 129.0.6668.89. ([#41338](https://github.com/brave/brave-browser/issues/41338)) ([Changelog for 129.0.6668.89](https://chromium.googlesource.com/chromium/src/+log/129.0.6668.70..129.0.6668.89?pretty=fuller&n=1000))
+
 ## [1.70.119](https://github.com/brave/brave-browser/releases/tag/v1.70.119)
 
  - Fixed "Copy clean link" being used incorrectly in certain cases. ([#41064](https://github.com/brave/brave-browser/issues/41064))
