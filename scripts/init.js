@@ -36,3 +36,4 @@ util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2
   stdio: 'inherit',
   shell: true,
   git_cwd: '.', })
+  
