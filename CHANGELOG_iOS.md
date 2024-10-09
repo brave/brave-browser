@@ -74,7 +74,7 @@
 
 ## [1.66.113](https://github.com/brave/brave-browser/releases/tag/v1.66.113)
 
-### Web3
+### Web3.
 
  - Added support to Retry, Cancel and Speed Up transactions. ([#36627](https://github.com/brave/brave-browser/issues/36627))
  - Fixed missing import legacy wallet option when restoring wallet in onboarding. ([#38123](https://github.com/brave/brave-browser/issues/38123))
