@@ -1,0 +1,28 @@
+//html code 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom System Prompt</title>
+</head>
+<body>
+    <h1>Set Your System Prompt</h1>
+    <input type="text" id="userPrompt" placeholder="please give your prompt here">
+    <button id="setPrompt">Set Prompt</button>
+    <p id="displayPrompt"></p>
+
+    <script src="script.js"></script> 
+</body>
+</html>
+
+  //javascropt code (make a seperate file called script.js)
+document.getElementById('setPrompt').addEventListener('click', function() {  //listening for clicks on the button and retrieving the input value when clicked
+    const userPrompt = document.getElementById('userPrompt').value;
+    if (userPrompt === "") {   //checking if input is empty 
+        alert("Please type something!"); 
+        return; 
+    }
+    document.getElementById('displayPrompt').innerText = "Your System Prompt: " + userPrompt;
+    console.log("User's prompt is set to: " + userPrompt); //logging the prompt to the console for confirmation 
+});
