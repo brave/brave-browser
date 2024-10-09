@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.70.126](https://github.com/brave/brave-browser/releases/tag/v1.70.126)
+
+ - Fixed the automatic opening of a new tab upon launching Brave. ([#41029](https://github.com/brave/brave-browser/issues/41029))
+ - Fixed a crash occurring when Brave was selected as the autofill provider. ([#41254](https://github.com/brave/brave-browser/issues/41254))
+ - Upgraded Chromium to 129.0.6668.100. ([#41494](https://github.com/brave/brave-browser/issues/41494)) ([Changelog for 129.0.6668.100](https://chromium.googlesource.com/chromium/src/+log/129.0.6668.89..129.0.6668.100?pretty=fuller&n=1000))
+
 ## [1.70.123](https://github.com/brave/brave-browser/releases/tag/v1.70.123)
 
  - Upgraded Chromium to 129.0.6668.89. ([#41338](https://github.com/brave/brave-browser/issues/41338)) ([Changelog for 129.0.6668.89](https://chromium.googlesource.com/chromium/src/+log/129.0.6668.70..129.0.6668.89?pretty=fuller&n=1000))
