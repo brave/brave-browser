@@ -1,1 +1,9 @@
 * text=auto eol=lf
+*: This is typically a wildcard character that can represent any text or file. In this context, it likely indicates that the directive should be applied to all subsequent text or files.
+text=auto: This part specifies the text encoding. "auto" means that the encoding should be automatically detected based on the file's content. This is useful when working with files of unknown encoding.
+eol=lf: This part specifies the end-of-line character sequence. "lf" stands for "line feed" (LF), which is a single character used to indicate the end of a line in Unix-like systems.
+Overall, the command * text=auto eol=lf means:
+
+Automatically detect the text encoding: The encoding of the text will be determined based on its content.
+Use line feed (LF) as the end-of-line character: The end of each line in the text will be marked with a single LF character.
+This

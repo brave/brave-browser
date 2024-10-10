@@ -33,3 +33,4 @@ network_log.json
 network-audit-results.json
 
 .npmrc
+In summary, these codes are primarily used to exclude files and directories that are not intended for modification, as well as to store configuration information and logs related to various tools and processes.
