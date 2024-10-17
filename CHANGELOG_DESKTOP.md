@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.71.114](https://github.com/brave/brave-browser/releases/tag/v1.71.114)
+
+### Web3
+
+ - Added support for resolving new UD TLDs. ([#40543](https://github.com/brave/brave-browser/issues/40543))
+ - Updated placement of deposit address in the wallet panel for "Deposit" screen. ([#40826](https://github.com/brave/brave-browser/issues/40826))
+ - Updated Brave Wallet background with gradient color. ([#40948](https://github.com/brave/brave-browser/issues/40948))
+
+### General
+
+ - Added support for local vector search for the selection of key text segments of page and video context while using Brave Leo. ([#36801](https://github.com/brave/brave-browser/issues/36801))
+ - Added search query and summary from Brave Search SERP when available while using Brave Leo. ([#40615](https://github.com/brave/brave-browser/issues/40615))
+ - Added advanced server selection to Brave VPN. ([#38186](https://github.com/brave/brave-browser/issues/38186))
+ - Added Italy content feed support for Brave News. ([#40957](https://github.com/brave/brave-browser/issues/40957))
+ - Added support for Chromium's tri-color profile schemes. ([#40689](https://github.com/brave/brave-browser/issues/40689))
+ - Added a native menu and inject for the adblock content picker. ([#40821](https://github.com/brave/brave-browser/issues/40821))
+ - Updated the source within the URL for search suggestions. ([#41112](https://github.com/brave/brave-browser/issues/41112))
+ - Moved the "Inactive tabs appearance" setting to brave://settings/appearance. ([#41482](https://github.com/brave/brave-browser/issues/41482))
+ - Moved "Copy clean link" to be listed first in the share menu. ([#40614](https://github.com/brave/brave-browser/issues/40614))
+ - Removed known tracking parameter "srsltid" from URLs. ([#40912](https://github.com/brave/brave-browser/issues/40912))
+ - Removed known tracking parameter "_bhlid" from URLs. ([#40716](https://github.com/brave/brave-browser/issues/40716))
+ - Removed caption options from the media control popup. ([#41527](https://github.com/brave/brave-browser/issues/41527))
+ - Fixed crash which occurred when visiting brave://branded-wallpaper or brave://background-wallpaper. ([#40807](https://github.com/brave/brave-browser/issues/40807))
+ - Fixed crash which occurred when pinning a tab that is part of a tab group while using vertical tabs. ([#40365](https://github.com/brave/brave-browser/issues/40365))
+ - Fixed scriptlets not working in about:blank frames. ([#40703](https://github.com/brave/brave-browser/issues/40703))
+ - Fixed styling not being applied for "Filter lists" and "Add custom filter lists" under brave://settings/shields/filters. ([#27647](https://github.com/brave/brave-browser/issues/27647))
+ - Upgraded Chromium to 130.0.6723.58. ([#41651](https://github.com/brave/brave-browser/issues/41651)) ([Changelog for 130.0.6723.58](https://chromium.googlesource.com/chromium/src/+log/129.0.6668.100..130.0.6723.58?pretty=fuller&n=1000))
+
 ## [1.70.126](https://github.com/brave/brave-browser/releases/tag/v1.70.126)
 
  - Fixed issue where unchecking the "Show on startup" checkbox of the profile picker was not being retained. ([#41194](https://github.com/brave/brave-browser/issues/41194))
