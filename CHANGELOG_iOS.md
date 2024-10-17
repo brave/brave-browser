@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.69.170](https://github.com/brave/brave-browser/releases/tag/v1.69.170)
+
+### Web3
+
+ - Enabled Bitcoin by default in Brave Wallet. ([#38775](https://github.com/brave/brave-browser/issues/38775))
+
+### General
+
+ - Added per-site adblocking in the Brave Shields panel. ([#39573](https://github.com/brave/brave-browser/issues/39573))
+ - Added advanced server selection for Brave VPN. ([#36409](https://github.com/brave/brave-browser/issues/36409))
+ - Added country server details to the VPN “Server Region” page. ([#39824](https://github.com/brave/brave-browser/issues/39824))
+ - Improved standard mode shields logic to allow some ads that were being hidden. ([#40967](https://github.com/brave/brave-browser/issues/40967))
+ - Updated model names in the Leo menu. ([#40464](https://github.com/brave/brave-browser/issues/40464))
+ - Updated adblock-rust to v0.8.11 which applies “removeparam” to document/subdocument/xhr by default. ([#36039](https://github.com/brave/brave-browser/issues/36039))
+ - Updated Leo input box to match recent design changes. ([#38960](https://github.com/brave/brave-browser/issues/38960))
+ - Updated favorite name on New Tab Page from “Twitter” to “X”. ([#39322](https://github.com/brave/brave-browser/issues/39322))
+ - Fixed prompt spoofing issue as reported on HackerOne by Imnarendrabhati. ([#40709](https://github.com/brave/brave-browser/issues/40709))
+ - Fixed sandbox iframe configuration vulnerability as reported on HackerOne by imnarendrabhati. ([#40846](https://github.com/brave/brave-browser/issues/40846))
+ - Fixed issues with Requestblockingscript.js which caused some delays in page loading on certain sites. ([#39546](https://github.com/brave/brave-browser/issues/39546))
+ - Upgraded Chromium to 128.0.6613.138. ([#40972](https://github.com/brave/brave-browser/issues/40972)) ([Changelog for 128.0.6613.138](https://chromium.googlesource.com/chromium/src/+log/128.0.6613.120..128.0.6613.138?pretty=fuller&n=10000))
+
 ## [1.68.145](https://github.com/brave/brave-browser/releases/tag/v1.68.145)
 
  - Added feature flag for strict mode in HTTPS by Default. ([#40634](https://github.com/brave/brave-browser/issues/40634))
