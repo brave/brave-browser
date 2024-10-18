@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.71.114](https://github.com/brave/brave-browser/releases/tag/v1.71.114)
+
+### Web3
+
+ - Added support for resolving new UD TLDs. ([#40543](https://github.com/brave/brave-browser/issues/40543))
+ - Improved authentication process for biometric unlock during Brave Wallet onboarding. ([#40188](https://github.com/brave/brave-browser/issues/40188))
+ - Updated Brave Wallet's unlock screen to use native Android unlock screen UI. ([#40224](https://github.com/brave/brave-browser/issues/40224))
+ - Fixed missing "Invalid URL" message when adding a custom network with "http://" URLs. ([#40498](https://github.com/brave/brave-browser/issues/40498))
+ - Fixed the disappearance of the "Network list" in Brave Wallet when switching the device's system theme. ([#40496](https://github.com/brave/brave-browser/issues/40496))
+
+### General
+
+ - Added support for local vector search for the selection of key text segments of page and video context while using Brave Leo. ([#36801](https://github.com/brave/brave-browser/issues/36801))
+ - Updated the source within the URL for search suggestions. ([#41112](https://github.com/brave/brave-browser/issues/41112))
+ - Updated the VPN server selection UI to display more granular region details, including countries, cities, and servers. ([#36277](https://github.com/brave/brave-browser/issues/36277))
+ - Updated Sync chain's device list icons to use proper mobile version. ([#7359](https://github.com/brave/brave-browser/issues/7359))
+ - Removed known tracking parameter "srsltid" from URLs. ([#40912](https://github.com/brave/brave-browser/issues/40912))
+ - Removed known tracking parameter "_bhlid" from URLs. ([#40716](https://github.com/brave/brave-browser/issues/40716))
+ - Fixed crash which occurred when visiting brave://branded-wallpaper or brave://background-wallpaper. ([#40807](https://github.com/brave/brave-browser/issues/40807))
+ - Fixed scriptlets not working in about:blank frames. ([#40703](https://github.com/brave/brave-browser/issues/40703))
+ - Fixed an issue where sites using OpenSearch weren't consistently appearing in Brave's "Recently visited" search engines. ([#38129](https://github.com/brave/brave-browser/issues/38129))
+ - Upgraded Chromium to 130.0.6723.58. ([#41651](https://github.com/brave/brave-browser/issues/41651)) ([Changelog for 130.0.6723.58](https://chromium.googlesource.com/chromium/src/+log/129.0.6668.100..130.0.6723.58?pretty=fuller&n=1000))
+
 ## [1.70.126](https://github.com/brave/brave-browser/releases/tag/v1.70.126)
 
  - Fixed the automatic opening of a new tab upon launching Brave. ([#41029](https://github.com/brave/brave-browser/issues/41029))
