@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.69.172](https://github.com/brave/brave-browser/releases/tag/v1.69.172)
+
+ - Fixed content failing to be saved after downloading. ([#41073](https://github.com/brave/brave-browser/issues/41073))
+
 ## [1.69.170](https://github.com/brave/brave-browser/releases/tag/v1.69.170)
 
 ### Web3
