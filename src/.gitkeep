@@ -1,1 +1,2 @@
 gitkeep
+The gitkeep command is a simple yet effective technique used in Git to preserve empty directories within your repository. By creating a file named gitkeep inside an empty directory, you signal to Git that this directory should be tracked and included in the repository, preventing it from being accidentally deleted or ignored. This is particularly useful for maintaining project structure and avoiding manual tracking of empty folders. The content of the gitkeep file itself is irrelevant; its mere existence is what matter
