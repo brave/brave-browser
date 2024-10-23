@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.71.118](https://github.com/brave/brave-browser/releases/tag/v1.71.118)
+
+### Web3
+
+ - [Security] Added warning message when submitting transactions containing system program instructions as reported on HackerOne by topenga. ([#41219](https://github.com/brave/brave-browser/issues/41219))
+
+### General
+
+ - Updated default search engine to Brave Search for new installations in Australia. ([#41451](https://github.com/brave/brave-browser/issues/41451))
+ - Fixed crash which occurred when the browser window was reduced to the smallest size in certain cases. ([#40059](https://github.com/brave/brave-browser/issues/40059))
+ - Fixed certain cases where synced devices could be duplicated on the sync chain. ([#41615](https://github.com/brave/brave-browser/issues/41615))
+ - Upgraded Chromium to 130.0.6723.70. ([#41804](https://github.com/brave/brave-browser/issues/41804)) ([Changelog for 130.0.6723.70](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.58..130.0.6723.70?pretty=fuller&n=1000))
+
 ## [1.71.114](https://github.com/brave/brave-browser/releases/tag/v1.71.114)
 
 ### Web3
