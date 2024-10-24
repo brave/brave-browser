@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.71.118](https://github.com/brave/brave-browser/releases/tag/v1.71.118)
+
+ - Updated default search engine to Brave Search for new installations in Australia. ([#41456](https://github.com/brave/brave-browser/issues/41456))
+ - Upgraded Chromium to 130.0.6723.70. ([#41804](https://github.com/brave/brave-browser/issues/41804)) ([Changelog for 130.0.6723.70](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.58..130.0.6723.70?pretty=fuller&n=1000))
+
 ## [1.71.114](https://github.com/brave/brave-browser/releases/tag/v1.71.114)
 
 ### Web3
