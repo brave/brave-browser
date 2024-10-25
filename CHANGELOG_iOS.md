@@ -31,6 +31,7 @@
  - Fixed not being able to open links from X app using ‘Open in Brave’ from share menu. ([#41296](https://github.com/brave/brave-browser/issues/41296))
  - Fixed security issue with URL formatting as reported in HackerOne by renwa. ([#41716](https://github.com/brave/brave-browser/issues/41716))
  - Fixed security issue involving interstitial pages not showing deceptive site warning as reported in HackerOne by renwa. ([#41803](https://github.com/brave/brave-browser/issues/41803))
+ - Upgraded Chromium to 129.0.6668.100. ([#41494](https://github.com/brave/brave-browser/issues/41494))([Changelog for 129.0.6668.100](https://chromium.googlesource.com/chromium/src/+log/128.0.6613.138..129.0.6668.100?pretty=fuller&n=10000))
 
 ## [1.69.172](https://github.com/brave/brave-browser/releases/tag/v1.69.172)
 
