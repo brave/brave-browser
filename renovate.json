@@ -5,3 +5,25 @@
   "prConcurrentLimit": 4,
   "reviewersFromCodeOwners": true
 }
+JSON
+{
+  "extends": [
+    "local>brave/renovate-config",
+    "local>brave/renovate-config-web"
+  ],
+  "draftPR": true,
+  "prConcurrentLimit": 2,
+  "labels": [
+    "dependencies",
+    "renovate",
+    "web"
+  ],
+  "reviewers": [
+    "mihaiplesa",
+    "brave-dev"
+  ],
+  "ignoreDependencies": [
+    "**/node_modules/**",
+    "**/vendor/**"
+  ]
+}

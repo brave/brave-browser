@@ -155,3 +155,39 @@ Once you submit a pull request, you should tag reviewers and add labels if neede
 * Helping make sure issues have a clear and understandable name (ex: not something like "Brave is broken").
 * The first comment in an issue ideally would have a clear description of the issue and describe the impact to users. Asking folks for screenshots, steps to reproduce, and more information is highly recommended so that the issue is as clear as possible.
 * If the issue is a duplicate, please let the issue creator know in a polite way how they can follow and track progress of the parent issue (including an ETA if it's marked with a milestone).
+
+
+
+## Breakdown of the key sections
+
+## How can you contribute?
+
+Offers various ways to contribute beyond coding, including triaging issues, updating documentation, and translating text.
+Provides links to helpful resources for each type of contribution.
+
+## Getting started
+
+Guides users through the initial setup process, including creating a GitHub account and forking the repository.
+Offers resources for code style consistency and patching Chromium.
+
+## Making changes
+
+Explains the workflow for making changes, including branching, committing messages, and testing.
+Provides instructions for keeping your fork synchronized with the upstream repository.
+
+## Pull requests
+
+Outlines considerations before submitting a pull request, emphasizing testing and clear descriptions.
+Describes what each pull request should include and how to get it reviewed.
+Provides guidance for employees on tagging reviewers and using the pull request template.
+
+## Closing issues
+
+Explains how to handle closing issues after a pull request is merged or when an issue is no longer relevant.
+Offers guidance on labeling issues and managing milestones.
+
+## Triage help
+
+Provides detailed instructions for helping to triage issues, including identifying invalid bugs, requesting more information, adding labels, and testing pull requests.
+Explains how to gain write permission for triaging issues.
+Emphasizes the importance of clear and understandable issue titles and descriptions.

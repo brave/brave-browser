@@ -17,3 +17,6 @@
 #   from oldest to newest).
 # - Because you must use a hash, you need to append to this list in a follow-up
 #   CL to the actual reformatting CL that you are trying to ignore.
+# - To create an effective ignore list for git hyper-blame, focus on including large-scale reformatting or renaming changes that don't directly impact core functionality
+# - Store the ignore list in a designated file (e.g., .git/hyper-blame-ignore) to automatically integrate it with the tool. 
+# -  Regularly review and update the list to ensure its accuracy and relevance. 
