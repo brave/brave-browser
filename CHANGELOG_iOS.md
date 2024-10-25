@@ -15,7 +15,7 @@
  - Added support for modifying user prompt in Leo. ([#39831](https://github.com/brave/brave-browser/issues/39831))
  - Added skipping debouncing if canonicalized URL’s hostname doesn’t match unescaped URLs hostname. ([#39866](https://github.com/brave/brave-browser/issues/39866))
  - Added ability to edit custom search engines after being added in ‘Search Engines’ settings page. ([#39552](https://github.com/brave/brave-browser/issues/39552))
- - Added DarkReader when Night Mode is enabled. ([#39786](https://github.com/brave/brave-browser/issues/39786))
+ - Added DarkReader support when Night Mode is enabled. ([#39786](https://github.com/brave/brave-browser/issues/39786))
  - Added handling potential infinite redirect loop with HTTPS upgrades. ([#40346](https://github.com/brave/brave-browser/issues/40346))
  - Added right-to-left (RTL) language support. ([#40471](https://github.com/brave/brave-browser/issues/40471))
  - Updated ’Manage Website Data’ to remove ads data as well when clearing browsing history. ([#39051](https://github.com/brave/brave-browser/issues/39051))
