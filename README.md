@@ -140,6 +140,8 @@ Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and
 ```bash
 brave-browser> cd src/brave
 brave-browser/src/brave> git checkout -b branch_name
+git checkout -b branch_name
+
 ```
 
 #### Checkout an existing branch or tag:
