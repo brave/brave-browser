@@ -162,13 +162,32 @@ brave-browser/src/brave> npm run sync
 ...Updating child dependencies...
 ...Running hooks...
 ```
+### Pull the latest changes
+bash
+git pull
+```
 
 #### Reset to latest brave-browser master and brave-core master (via `init`, will always result in a longer build and will remove any pending changes in your brave-core working directory):
 ```bash
 brave-browser> git checkout master
 brave-browser> git pull
 brave-browser> npm run sync -- --init
+
+###Switch to the master branch:
+bash
+git checkout master
+
+###Pull the latest changes from the remote master:
+bash
+git pull
+
+###Synchronize dependencies and reset:
+npm run sync -- --init
+
 ```
+
+
+
 
 #### When you know that DEPS didn't change, but .patch files did (quickest attempt to perform a mini-sync before a build):
 ```bash
