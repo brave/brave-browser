@@ -9,7 +9,7 @@
 ### General
 
  - Implemented search for "Content Filtering" settings page. ([#36036](https://github.com/brave/brave-browser/issues/36036))
- - Added option to force update filter lists in ‘Content Filtering’ settings page. ([#35982](https://github.com/brave/brave-browser/issues/35982))
+ - Added option to force update filter lists in "Content Filtering" settings page. ([#35982](https://github.com/brave/brave-browser/issues/35982))
  - Added support for Dark Mode and Tinted icons. ([#41088](https://github.com/brave/brave-browser/issues/41088))
  - Added Leo to the Home Screen shortcuts widget. ([#39886](https://github.com/brave/brave-browser/issues/39886))
  - Added support for modifying user prompt in Leo. ([#39831](https://github.com/brave/brave-browser/issues/39831))
