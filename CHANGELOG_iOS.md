@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.70.131](https://github.com/brave/brave-browser/releases/tag/v1.70.131)
+
+### Web3
+
+ - Updated "Confirm Transactions" page to display contract address as hyperlink. ([#39720](https://github.com/brave/brave-browser/issues/39720))
+
+### General
+
+ - Implemented search for "Content Filtering" settings page. ([#36036](https://github.com/brave/brave-browser/issues/36036))
+ - Added option to force update filter lists in "Content Filtering" settings page. ([#35982](https://github.com/brave/brave-browser/issues/35982))
+ - Added support for Dark Mode and Tinted icons on iOS 18. ([#41088](https://github.com/brave/brave-browser/issues/41088))
+ - Added Leo to the Home Screen shortcuts widget. ([#39886](https://github.com/brave/brave-browser/issues/39886))
+ - Added support for modifying user prompt in Leo. ([#39831](https://github.com/brave/brave-browser/issues/39831))
+ - Added skipping debouncing if canonicalized URL’s hostname doesn’t match unescaped URLs hostname. ([#39866](https://github.com/brave/brave-browser/issues/39866))
+ - Added ability to edit custom search engines after being added in "Search Engines" settings page. ([#39552](https://github.com/brave/brave-browser/issues/39552))
+ - Added DarkReader support when Night Mode is enabled. ([#39786](https://github.com/brave/brave-browser/issues/39786))
+ - Added handling for potential infinite redirect loop with HTTPS upgrades. ([#40346](https://github.com/brave/brave-browser/issues/40346))
+ - Added right-to-left (RTL) language support. ([#40471](https://github.com/brave/brave-browser/issues/40471))
+ - Updated "Manage Website Data" to remove ads data as well when clearing browsing history. ([#39051](https://github.com/brave/brave-browser/issues/39051))
+ - Updated icon for starting a new conversation in Leo. ([#39818](https://github.com/brave/brave-browser/issues/39818))
+ - Updated input box to be in focus when Leo is opened. ([#39858](https://github.com/brave/brave-browser/issues/39858))
+ - Updated copy in Brave Rewards panel for non-connected users. ([#40909](https://github.com/brave/brave-browser/issues/40909))
+ - [Security] Fixed issue with URL formatting as reported in HackerOne by renwa. ([#41716](https://github.com/brave/brave-browser/issues/41716))
+ - [Security] Fixed issue involving interstitial pages not showing deceptive site warning as reported in HackerOne by renwa. ([#41803](https://github.com/brave/brave-browser/issues/41803))
+ - Fixed crash when launching Brave via Home Screen shortcuts widget search button. ([#41457](https://github.com/brave/brave-browser/issues/41457))
+ - Fixed crash when tapping on search icon to open search settings after opening URL bar. ([#39136](https://github.com/brave/brave-browser/issues/39136))
+ - Fixed crash for some users when loading internal pages. ([#41445](https://github.com/brave/brave-browser/issues/41445))
+ - Fixed crash when the block summary pop-up is displayed for Japan users. ([#41443](https://github.com/brave/brave-browser/issues/41443))
+ - Fixed crash in Playlist when saving data offline with internet connection disabled. ([#41388](https://github.com/brave/brave-browser/issues/41388))
+ - Fixed bookmark count to show correctly when adding "Saved Tabs" via tab icon. ([#38340](https://github.com/brave/brave-browser/issues/38340))
+ - Fixed not being able to open links from X app using "Open in Brave" from share menu. ([#41296](https://github.com/brave/brave-browser/issues/41296))
+ - Upgraded Chromium to 129.0.6668.100. ([#41494](https://github.com/brave/brave-browser/issues/41494))([Changelog for 129.0.6668.100](https://chromium.googlesource.com/chromium/src/+log/128.0.6613.138..129.0.6668.100?pretty=fuller&n=10000))
+
 ## [1.69.172](https://github.com/brave/brave-browser/releases/tag/v1.69.172)
 
  - Fixed content failing to be saved after downloading. ([#41073](https://github.com/brave/brave-browser/issues/41073))
