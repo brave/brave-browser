@@ -10,7 +10,7 @@
 
  - Implemented search for "Content Filtering" settings page. ([#36036](https://github.com/brave/brave-browser/issues/36036))
  - Added option to force update filter lists in "Content Filtering" settings page. ([#35982](https://github.com/brave/brave-browser/issues/35982))
- - Added support for Dark Mode and Tinted icons. ([#41088](https://github.com/brave/brave-browser/issues/41088))
+ - Added support for Dark Mode and Tinted icons on iOS 18. ([#41088](https://github.com/brave/brave-browser/issues/41088))
  - Added Leo to the Home Screen shortcuts widget. ([#39886](https://github.com/brave/brave-browser/issues/39886))
  - Added support for modifying user prompt in Leo. ([#39831](https://github.com/brave/brave-browser/issues/39831))
  - Added skipping debouncing if canonicalized URL’s hostname doesn’t match unescaped URLs hostname. ([#39866](https://github.com/brave/brave-browser/issues/39866))
@@ -20,7 +20,7 @@
  - Added right-to-left (RTL) language support. ([#40471](https://github.com/brave/brave-browser/issues/40471))
  - Updated "Manage Website Data" to remove ads data as well when clearing browsing history. ([#39051](https://github.com/brave/brave-browser/issues/39051))
  - Updated icon for starting a new conversation in Leo. ([#39818](https://github.com/brave/brave-browser/issues/39818))
- - Updated input box to be in focus when Leo in opened. ([#39858](https://github.com/brave/brave-browser/issues/39858))
+ - Updated input box to be in focus when Leo is opened. ([#39858](https://github.com/brave/brave-browser/issues/39858))
  - Updated copy in Brave Rewards panel for non-connected users. ([#40909](https://github.com/brave/brave-browser/issues/40909))
  - [Security] Fixed issue with URL formatting as reported in HackerOne by renwa. ([#41716](https://github.com/brave/brave-browser/issues/41716))
  - [Security] Fixed issue involving interstitial pages not showing deceptive site warning as reported in HackerOne by renwa. ([#41803](https://github.com/brave/brave-browser/issues/41803))
