@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.71.121](https://github.com/brave/brave-browser/releases/tag/v1.71.121)
+
+ - Improved performance in Safe Browsing. ([#41681](https://github.com/brave/brave-browser/issues/41681))
+ - Fixed "Aw, Snap!" error which could occur when using Geolocation API in certain cases. ([#41859](https://github.com/brave/brave-browser/issues/41859))
+ - Upgraded Chromium to 130.0.6723.91. ([#41960](https://github.com/brave/brave-browser/issues/41960)) ([Changelog for 130.0.6723.91](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.70..130.0.6723.91?pretty=fuller&n=1000))
+
 ## [1.71.118](https://github.com/brave/brave-browser/releases/tag/v1.71.118)
 
 ### Web3
