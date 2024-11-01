@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.70.133](https://github.com/brave/brave-browser/releases/tag/v1.70.133)
+
+ - [Security] Added warning message when submitting transactions containing system program instructions as reported on HackerOne by topenga. ([#41820](https://github.com/brave/brave-browser/issues/41820))
+ - Fixed crash when dismissing Brave News opt-in dialog on New Tab Page for iOS 18 users. ([#41858](https://github.com/brave/brave-browser/issues/41858))
+
 ## [1.70.131](https://github.com/brave/brave-browser/releases/tag/v1.70.131)
 
 ### Web3
