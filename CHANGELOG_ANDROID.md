@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.71.123](https://github.com/brave/brave-browser/releases/tag/v1.71.123)
+
+ - Upgraded Chromium to 130.0.6723.116. ([#42088](https://github.com/brave/brave-browser/issues/42088)) ([Changelog for 130.0.6723.116](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.91..130.0.6723.116?pretty=fuller&n=1000))
+
 ## [1.71.121](https://github.com/brave/brave-browser/releases/tag/v1.71.121)
 
  - Fixed missing "Share", "Copy" and "Edit" buttons when "Show browser suggestions" was disabled. ([#41806](https://github.com/brave/brave-browser/issues/41806))
