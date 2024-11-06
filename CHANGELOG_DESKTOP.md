@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.71.123](https://github.com/brave/brave-browser/releases/tag/v1.71.123)
+
+ - Improved Brave News performance. ([#42021](https://github.com/brave/brave-browser/issues/42021))
+ - Upgraded Chromium to 130.0.6723.116. ([#42088](https://github.com/brave/brave-browser/issues/42088)) ([Changelog for 130.0.6723.116](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.91..130.0.6723.116?pretty=fuller&n=1000))
+
 ## [1.71.121](https://github.com/brave/brave-browser/releases/tag/v1.71.121)
 
  - Improved performance in Safe Browsing. ([#41681](https://github.com/brave/brave-browser/issues/41681))
