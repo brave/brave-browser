@@ -5,7 +5,6 @@
 ### Web3
 
  - Added support for resolving new UD TLDs. ([#40543](https://github.com/brave/brave-browser/issues/40543))
- - [Security] Fixed Reader mode leaking meta data to cross-origin image URLs as reported on HackerOne by newfunction. ([#41444](https://github.com/brave/brave-browser/issues/41444))
  - Fixed creating send transaction when sending any non-compressed Solana NFT. ([#40424](https://github.com/brave/brave-browser/issues/40424))
 
 ### General
@@ -19,6 +18,7 @@
  - Added additional locale support to Top News Widgets. ([#40298](https://github.com/brave/brave-browser/issues/40298))
  - Removed known tracking parameter "_bhlid" from URLs. ([#40716](https://github.com/brave/brave-browser/issues/40716))
  - Removed known tracking parameter "srsltid" from URLs. ([#40912](https://github.com/brave/brave-browser/issues/40912))
+ - [Security] Fixed Reader mode leaking meta data to cross-origin image URLs as reported on HackerOne by newfunction. ([#41444](https://github.com/brave/brave-browser/issues/41444))
  - Fixed crash when requesting media permissions on certain websites. ([#41639](https://github.com/brave/brave-browser/issues/41639))
  - Fixed crash when loading bundled favicon in certain cases. ([#41697](https://github.com/brave/brave-browser/issues/41697))
  - Fixed crash in Playlist when deleting offline data. ([#41232](https://github.com/brave/brave-browser/issues/41232))
