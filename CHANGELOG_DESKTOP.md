@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.73.89](https://github.com/brave/brave-browser/releases/tag/v1.73.89)
+
+### Web3
+
+ - Added Brave Wallet logo to login UI on the panel. ([#40296](https://github.com/brave/brave-browser/issues/40296))
+ - Implemented new side navigation for Brave Wallet. ([#40913](https://github.com/brave/brave-browser/issues/40913))
+ - Updated transaction panel design for different statuses. ([#40373](https://github.com/brave/brave-browser/issues/40373))
+ - Updated Brave Wallet banner alerts UI.  ([#41036](https://github.com/brave/brave-browser/issues/41036))
+ - Updated Brave Wallet panel background image. ([#41035](https://github.com/brave/brave-browser/issues/41035))
+ - Moved the "Activity" tab into the "Portfolio" panel view. ([#41498](https://github.com/brave/brave-browser/issues/41498))
+ - Fixed various renderer crashes when initializing Brave Wallet. ([#41475](https://github.com/brave/brave-browser/issues/41475))
+
+### General
+
+ - Added the ability to set "--sync-url=" via Admin Policy. ([#20431](https://github.com/brave/brave-browser/issues/20431))
+ - Added support for procedural cosmetic filtering. ([#16935](https://github.com/brave/brave-browser/issues/16935))
+ - Improved Brave Leo internationalization support for French, Spanish, German, and Italian. ([#41554](https://github.com/brave/brave-browser/issues/41554))
+ - Improved Brave News peeking card selection on the New Tab Page. ([#35659](https://github.com/brave/brave-browser/issues/35659))
+ - Updated the "Open with Tor" button style. ([#41546](https://github.com/brave/brave-browser/issues/41546))
+ - Disabled brave://flags/#https-first-balanced-mode. ([#41933](https://github.com/brave/brave-browser/issues/41933))
+ - Fixed issue where Brave Leo panel would not open in certain cases. ([#41154](https://github.com/brave/brave-browser/issues/41154))
+ - Fixed focus ring placement for the information icon under the "Bring your own model" section of brave://settings/leo-assistant. ([#41379](https://github.com/brave/brave-browser/issues/41379))
+ - Upgraded Chromium to 131.0.6778.69. ([#42245](https://github.com/brave/brave-browser/issues/42245)) ([Changelog for 131.0.6778.69](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.69?pretty=fuller&n=1000))
+
 ## [1.71.123](https://github.com/brave/brave-browser/releases/tag/v1.71.123)
 
  - Improved Brave News performance. ([#42021](https://github.com/brave/brave-browser/issues/42021))
