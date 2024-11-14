@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.73.89](https://github.com/brave/brave-browser/releases/tag/v1.73.89)
+
+### Web3
+
+ - Added a warning message and confirmation dialog for transaction submission in Brave Wallet. ([#41819](https://github.com/brave/brave-browser/issues/41819))
+ - Improved UI for transaction confirmation in Brave Wallet. ([#41122](https://github.com/brave/brave-browser/issues/41122))
+ - Fixed a crash that occurred when signing Solana DApp transaction in Brave Wallet. ([#41946](https://github.com/brave/brave-browser/issues/41946))
+ - Fixed a crash that occurred when signing Solana DApp message in Brave Wallet. ([#41945](https://github.com/brave/brave-browser/issues/41945))
+
+### General
+
+ - Added support for procedural cosmetic filtering. ([#16935](https://github.com/brave/brave-browser/issues/16935))
+ - Added annual subscription and trial period for Brave Leo. ([#41008](https://github.com/brave/brave-browser/issues/41008))
+ - Improved Brave Leo internationalization support for French, Spanish, German, and Italian. ([#41554](https://github.com/brave/brave-browser/issues/41554))
+ - Improved automatic VPN server selection to connect to closest server of user's time zone. ([#41869](https://github.com/brave/brave-browser/issues/41869))
+ - Improved VPN server selection to connect to a specific region(s) when "Automatic" toggle is disabled. ([#41557](https://github.com/brave/brave-browser/issues/41557))
+ - Updated VPN settings screen to show country flag and server selection details. ([#41894](https://github.com/brave/brave-browser/issues/41894)) & ([#41595](https://github.com/brave/brave-browser/issues/41595))
+ - Fixed Simplified View to work for both Regular and Private tabs. ([#42087](https://github.com/brave/brave-browser/issues/42087))
+ - Fixed crash when use "Scan QR Code" in certain cases. ([#41454](https://github.com/brave/brave-browser/issues/41454))
+ - Upgraded Chromium to 131.0.6778.69. ([#42245](https://github.com/brave/brave-browser/issues/42245)) ([Changelog for 131.0.6778.69](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.69?pretty=fuller&n=1000))
+
 ## [1.71.123](https://github.com/brave/brave-browser/releases/tag/v1.71.123)
 
  - Upgraded Chromium to 130.0.6723.116. ([#42088](https://github.com/brave/brave-browser/issues/42088)) ([Changelog for 130.0.6723.116](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.91..130.0.6723.116?pretty=fuller&n=1000))
