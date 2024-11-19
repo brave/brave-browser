@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.71.125](https://github.com/brave/brave-browser/releases/tag/v1.71.125)
+
+### Web3
+
+ - Added support for resolving new UD TLDs. ([#40543](https://github.com/brave/brave-browser/issues/40543))
+ - Fixed inability to send any non-compressed Solana NFT from Brave Wallet. ([#40424](https://github.com/brave/brave-browser/issues/40424))
+
+### General
+
+ - Implemented local vector search for the selection of key text segments of page and video context in Brave Leo. ([#36801](https://github.com/brave/brave-browser/issues/36801))
+ - Added support for running Brave in compatibility mode on VisionOS. ([#40579](https://github.com/brave/brave-browser/issues/40579))
+ - Added Italy and Argentina support for Brave News. ([#40996](https://github.com/brave/brave-browser/issues/40996))
+ - Added ability to cancel action when deleting all history. ([#41148](https://github.com/brave/brave-browser/issues/41148))
+ - Added support for editing Leo responses in chat. ([#40208](https://github.com/brave/brave-browser/issues/40208))
+ - Added additional locale support to Top News Widgets. ([#40298](https://github.com/brave/brave-browser/issues/40298))
+ - Removed known tracking parameter "_bhlid" from URLs. ([#40716](https://github.com/brave/brave-browser/issues/40716))
+ - Removed known tracking parameter "srsltid" from URLs. ([#40912](https://github.com/brave/brave-browser/issues/40912))
+ - [Security] Fixed Reader mode leaking meta data to cross-origin image URLs as reported on HackerOne by newfunction. ([#41444](https://github.com/brave/brave-browser/issues/41444))
+ - Updated Playlist UI. ([#40911](https://github.com/brave/brave-browser/issues/40911))
+ - Fixed crash when requesting media permissions on certain websites. ([#41639](https://github.com/brave/brave-browser/issues/41639))
+ - Fixed crash when loading bundled favicon in certain cases. ([#41697](https://github.com/brave/brave-browser/issues/41697))
+ - Fixed crash in Playlist when deleting offline data. ([#41232](https://github.com/brave/brave-browser/issues/41232))
+ - Fixed crash when loading interstitial pages in certain cases. ([#42162](https://github.com/brave/brave-browser/issues/42162))
+ - Fixed “Refresh your credentials” button not working intermittently for premium users. ([#38086](https://github.com/brave/brave-browser/issues/38086))
+ - Upgraded Chromium to 130.0.6723.116. ([#42088](https://github.com/brave/brave-browser/issues/42088))([Changelog for 130.0.6723.116](https://chromium.googlesource.com/chromium/src/+log/129.0.6668.100..130.0.6723.116?pretty=fuller&n=10000))
+
 ## [1.70.133](https://github.com/brave/brave-browser/releases/tag/v1.70.133)
 
  - [Security] Added warning message when submitting transactions containing system program instructions as reported on HackerOne by topenga. ([#41820](https://github.com/brave/brave-browser/issues/41820))
