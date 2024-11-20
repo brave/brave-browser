@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.73.91](https://github.com/brave/brave-browser/releases/tag/v1.73.91)
+
+ - Fixed toolbar separator color. ([#42286](https://github.com/brave/brave-browser/issues/42286))
+ - Upgraded Chromium to 131.0.6778.85. ([#42377](https://github.com/brave/brave-browser/issues/42377)) ([Changelog for 131.0.6778.85](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.69..131.0.6778.85?pretty=fuller&n=1000))
+
 ## [1.73.89](https://github.com/brave/brave-browser/releases/tag/v1.73.89)
 
 ### Web3
