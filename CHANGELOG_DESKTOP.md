@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.73.97](https://github.com/brave/brave-browser/releases/tag/v1.73.97)
+
+### Web3
+
+ - Improved Solana swap failure rate. ([#42434](https://github.com/brave/brave-browser/issues/42434))
+ - Removed "Speed Up" alert for Solana transactions. ([#42379](https://github.com/brave/brave-browser/issues/42379))
+
+### Rewards
+
+ - Replaced the "Earnings so far" indicator in Brave Rewards UI. ([#42475](https://github.com/brave/brave-browser/issues/42475))
+
+### General
+
+ - Fixed Brave Leo "Retry" button not working after network connection has been lost. ([#42405](https://github.com/brave/brave-browser/issues/42405))
+ - Fixed quick actions under "/" in Brave Leo. ([#42279](https://github.com/brave/brave-browser/issues/42279))
+ - Upgraded Chromium to 131.0.6778.108. ([#42639](https://github.com/brave/brave-browser/issues/42639)) ([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.85..131.0.6778.108?pretty=fuller&n=1000))
+
 ## [1.73.91](https://github.com/brave/brave-browser/releases/tag/v1.73.91)
 
  - Fixed toolbar separator color. ([#42286](https://github.com/brave/brave-browser/issues/42286))
