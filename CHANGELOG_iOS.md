@@ -24,7 +24,7 @@
  - Fixed Playlist items not deleting due to having invalid cache. ([#41252](https://github.com/brave/brave-browser/issues/41252))
  - Fixed not being able to re-order Playlist items when users have multiple folders. ([#42318](https://github.com/brave/brave-browser/issues/42318))
  - Fixed a leak resulting in two Playlist items playing at once in the background. ([#42344](https://github.com/brave/brave-browser/issues/42344))
- - Fixed Playlist audio being paused when locking/unlocking device. ([#42468](https://github.com/brave/brave-browser/issues/42468))
+ - Fixed Playlist audio being paused momentarily when locking/unlocking device. ([#42468](https://github.com/brave/brave-browser/issues/42468))
  - Fixed URL being opened in normal tab first when opening in a private tab using long-press context menu in Playlist. ([#42357](https://github.com/brave/brave-browser/issues/42357))
  - Fixed VPN Region shortcut to update the active region when changing servers. ([#41051](https://github.com/brave/brave-browser/issues/41051))
  - Fixed URL-bar navigation when that URL is bookmarked. ([#41910](https://github.com/brave/brave-browser/issues/41910))
