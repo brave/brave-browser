@@ -24,7 +24,7 @@
  - Fixed Playlist items not deleting due to having invalid cache. ([#41252](https://github.com/brave/brave-browser/issues/41252))
  - Fixed not being able to re-order Playlist items when users have multiple folders. ([#42318](https://github.com/brave/brave-browser/issues/42318))
  - Fixed a leak resulting in two Playlist items playing at once in the background. ([#42344](https://github.com/brave/brave-browser/issues/42344))
- - Fixed Playlist background audio being paused when locking/unlocking device. ([#42468](https://github.com/brave/brave-browser/issues/42468))
+ - Fixed Playlist audio being paused when locking/unlocking device. ([#42468](https://github.com/brave/brave-browser/issues/42468))
  - Fixed URL being opened in normal tab first when opening in a private tab using long-press context menu in Playlist. ([#42357](https://github.com/brave/brave-browser/issues/42357))
  - Fixed VPN Region shortcut to update the active region when changing servers. ([#41051](https://github.com/brave/brave-browser/issues/41051))
  - Fixed URL-bar navigation when that URL is bookmarked. ([#41910](https://github.com/brave/brave-browser/issues/41910))
@@ -32,7 +32,7 @@
  - Fixed missing favicon on NTP in private browsing. ([#40935](https://github.com/brave/brave-browser/issues/40935))
  - Fixed generic cosmetic filter list rules not being applied on certain sites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
  - Fixed Night Mode not working on sites such as "https://community.brave.com" and "https://old.reddit.com". ([#41888](https://github.com/brave/brave-browser/issues/41888))
- - Upgraded Chromium to 131.0.6778.108. ([#42088](https://github.com/brave/brave-browser/issues/42088))([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.108?pretty=fuller&n=10000))
+ - Upgraded Chromium to 131.0.6778.108. ([#42639](https://github.com/brave/brave-browser/issues/42639))([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.108?pretty=fuller&n=10000))
 
 ## [1.71.125](https://github.com/brave/brave-browser/releases/tag/v1.71.125)
 
