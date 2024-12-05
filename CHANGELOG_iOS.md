@@ -28,7 +28,7 @@
  - Fixed URL being opened in normal tab first when choosing "Open In New Private Tab" via long-press context menu in Playlist. ([#42357](https://github.com/brave/brave-browser/issues/42357))
  - Fixed VPN Region shortcut to update the active region when changing servers. ([#41051](https://github.com/brave/brave-browser/issues/41051))
  - Fixed URL-bar navigation when that URL is bookmarked. ([#41910](https://github.com/brave/brave-browser/issues/41910))
- - Fixed http scheme being shown when loading insecure sites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
+ - Fixed HTTP scheme being shown when loading insecure sites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
  - Fixed missing favicon on NTP in private browsing. ([#40935](https://github.com/brave/brave-browser/issues/40935))
  - Fixed generic cosmetic filter list rules not being applied on certain sites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
  - Fixed Night Mode not working on sites such as "https://community.brave.com" and "https://old.reddit.com". ([#41888](https://github.com/brave/brave-browser/issues/41888))
