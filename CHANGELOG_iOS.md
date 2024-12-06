@@ -4,7 +4,7 @@
 
 ### Web3
 
- - Improved transaction success rate for Solana swap. ([#42434](https://github.com/brave/brave-browser/issues/42434))
+ - Improved Solana swap failure rate. ([#42434](https://github.com/brave/brave-browser/issues/42434))
 
 ### General
 
