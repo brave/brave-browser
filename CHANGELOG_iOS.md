@@ -1,5 +1,39 @@
 # Changelog
 
+## [1.73.97](https://github.com/brave/brave-browser/releases/tag/v1.73.97)
+
+### Web3
+
+ - Improved Solana swap failure rate. ([#42434](https://github.com/brave/brave-browser/issues/42434))
+
+### General
+
+ - Added 7 day trial and annual subscription support for Leo. ([#37961](https://github.com/brave/brave-browser/issues/37961))
+ - Added customization to "Shortcut" button in the toolbar. ([#41031](https://github.com/brave/brave-browser/issues/41031))
+ - Added support for Hebrew, Vietnamese and Thai languages. ([#42181](https://github.com/brave/brave-browser/issues/42181))
+ - Added French, German, Italian and Spanish language support for Leo system prompts. ([#41554](https://github.com/brave/brave-browser/issues/41554))
+ - Added support for procedural cosmetic filtering. ([#16935](https://github.com/brave/brave-browser/issues/16935))
+ - Added “Copy Clean Link” option to the context menu in the URL bar for selected text. ([#41302](https://github.com/brave/brave-browser/issues/41302))
+ - Improved Playlist UI responsiveness by converting some fetch operations to be asynchronous. ([#42501](https://github.com/brave/brave-browser/issues/42501))
+ - Updated the “Edit” button to “Done” when editing custom search engines. ([#39552](https://github.com/brave/brave-browser/issues/39552))
+ - Updated sizing for some icons in the toolbar to be more uniform. ([#41405](https://github.com/brave/brave-browser/issues/41405))
+ - Fixed crash when accessing Leo when feature flag is disabled. ([#42150](https://github.com/brave/brave-browser/issues/42150))
+ - Fixed crash in Leo when sending queries using “REWRITE” options in slash tools. ([#42443](https://github.com/brave/brave-browser/issues/42443))
+ - Fixed crash when purchasing Leo subscription after VPN is purchased. ([#42268](https://github.com/brave/brave-browser/issues/42268))
+ - Fixed Playlist crashing in the background due to excessive CPU usage. ([#42408](https://github.com/brave/brave-browser/issues/42408))
+ - Fixed Playlist items not deleting due to having invalid cache. ([#41252](https://github.com/brave/brave-browser/issues/41252))
+ - Fixed not being able to re-order Playlist items when users have multiple folders. ([#42318](https://github.com/brave/brave-browser/issues/42318))
+ - Fixed a leak resulting in two Playlist items playing at once in the background. ([#42344](https://github.com/brave/brave-browser/issues/42344))
+ - Fixed Playlist audio being paused momentarily when locking/unlocking device. ([#42468](https://github.com/brave/brave-browser/issues/42468))
+ - Fixed URL being opened in normal tab first when choosing "Open In New Private Tab" via long-press context menu in Playlist. ([#42357](https://github.com/brave/brave-browser/issues/42357))
+ - Fixed VPN Region shortcut to update the active region when changing servers. ([#41051](https://github.com/brave/brave-browser/issues/41051))
+ - Fixed opening bookmarks via the URL bar searches for the website via default search engine rather than directly opening the bookmarked website. ([#41910](https://github.com/brave/brave-browser/issues/41910))
+ - Fixed HTTP scheme being shown when loading insecure websites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
+ - Fixed missing favicon on NTP in private browsing. ([#40935](https://github.com/brave/brave-browser/issues/40935))
+ - Fixed generic cosmetic filter list rules not being applied on certain websites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
+ - Fixed Night Mode not working on sites such as https://community.brave.com and https://old.reddit.com. ([#41888](https://github.com/brave/brave-browser/issues/41888))
+ - Upgraded Chromium to 131.0.6778.108. ([#42639](https://github.com/brave/brave-browser/issues/42639))([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.108?pretty=fuller&n=10000))
+
 ## [1.71.125](https://github.com/brave/brave-browser/releases/tag/v1.71.125)
 
 ### Web3
