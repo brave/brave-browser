@@ -9,7 +9,7 @@
 ### General
 
  - Added 7 day trial and annual subscription support for Leo. ([#37961](https://github.com/brave/brave-browser/issues/37961))
- - Added customization to Shortcut Button in the toolbar. ([#41031](https://github.com/brave/brave-browser/issues/41031))
+ - Added customization to "Shortcut" button in the toolbar. ([#41031](https://github.com/brave/brave-browser/issues/41031))
  - Added support for Hebrew, Vietnamese and Thai languages. ([#42181](https://github.com/brave/brave-browser/issues/42181))
  - Added French, German, Italian and Spanish language support for Leo system prompts. ([#41554](https://github.com/brave/brave-browser/issues/41554))
  - Added support for procedural cosmetic filtering. ([#16935](https://github.com/brave/brave-browser/issues/16935))
@@ -27,10 +27,10 @@
  - Fixed Playlist audio being paused momentarily when locking/unlocking device. ([#42468](https://github.com/brave/brave-browser/issues/42468))
  - Fixed URL being opened in normal tab first when choosing "Open In New Private Tab" via long-press context menu in Playlist. ([#42357](https://github.com/brave/brave-browser/issues/42357))
  - Fixed VPN Region shortcut to update the active region when changing servers. ([#41051](https://github.com/brave/brave-browser/issues/41051))
- - Fixed URL-bar navigation when that URL is bookmarked. ([#41910](https://github.com/brave/brave-browser/issues/41910))
- - Fixed HTTP scheme being shown when loading insecure sites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
+ - Fixed opening bookmarks via the URL bar searches for the website via default search engine rather than directly opening the bookmarked website. ([#41910](https://github.com/brave/brave-browser/issues/41910))
+ - Fixed HTTP scheme being shown when loading insecure websites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
  - Fixed missing favicon on NTP in private browsing. ([#40935](https://github.com/brave/brave-browser/issues/40935))
- - Fixed generic cosmetic filter list rules not being applied on certain sites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
+ - Fixed generic cosmetic filter list rules not being applied on certain websites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
  - Fixed Night Mode not working on sites such as https://community.brave.com and https://old.reddit.com. ([#41888](https://github.com/brave/brave-browser/issues/41888))
  - Upgraded Chromium to 131.0.6778.108. ([#42639](https://github.com/brave/brave-browser/issues/42639))([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.108?pretty=fuller&n=10000))
 
