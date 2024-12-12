@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.73.101](https://github.com/brave/brave-browser/releases/tag/v1.73.101)
+
+ - Fixed Brave Leo conversations not being persisted when closing and opening the panel on the same content. ([#42510](https://github.com/brave/brave-browser/issues/42510))
+ - Fixed an issue preventing users from enabling "Passwords" in the sync chain. ([#36190](https://github.com/brave/brave-browser/issues/36190))
+ - Upgraded Chromium to 131.0.6778.139. ([#42804](https://github.com/brave/brave-browser/issues/42804)) ([Changelog for 131.0.6778.139](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.108..131.0.6778.139?pretty=fuller&n=1000))
+
 ## [1.73.97](https://github.com/brave/brave-browser/releases/tag/v1.73.97)
 
 ### Web3
