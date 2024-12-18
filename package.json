@@ -37,6 +37,10 @@
     "update_patches": "cd src/brave && npm run update_patches --",
     "versions": "cd src/brave && npm run versions --"
   },
+  "engines": {
+    "node": ">=20.0.0 <22.0.0",
+    "npm": ">=10.0.0"
+  },
   "config": {
     "projects": {
       "brave-core": {
