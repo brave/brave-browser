@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.73.104](https://github.com/brave/brave-browser/releases/tag/v1.73.104)
+
+### Web3
+
+ - Fixed an issue where the "Speedup transaction" button was not initiating a new transaction. ([#42799](https://github.com/brave/brave-browser/issues/42799))
+ - Fixed an issue where the "Post Confirmation" screen was showing incorrect transfer value. ([#42770](https://github.com/brave/brave-browser/issues/42770))
+
+### General
+
+ - Removed "ScreenAI Library" component. ([#41629](https://github.com/brave/brave-browser/issues/41629))
+ - Upgraded Chromium to 131.0.6778.204. ([#42971](https://github.com/brave/brave-browser/issues/42971)) ([Changelog for 131.0.6778.204](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.139..131.0.6778.204?pretty=fuller&n=1000))
+
 ## [1.73.101](https://github.com/brave/brave-browser/releases/tag/v1.73.101)
 
 ### Web3
