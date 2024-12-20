@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.73.104](https://github.com/brave/brave-browser/releases/tag/v1.73.104)
+
+### Web3
+
+ - Fixed a crash that occurred when accessing Wallet in certain cases. ([#42860](https://github.com/brave/brave-browser/issues/42860))
+
+### General
+
+ - Upgraded Chromium to 131.0.6778.204. ([#42971](https://github.com/brave/brave-browser/issues/42971)) ([Changelog for 131.0.6778.204](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.139..131.0.6778.204?pretty=fuller&n=1000))
+
 ## [1.73.101](https://github.com/brave/brave-browser/releases/tag/v1.73.101)
 
  - Fixed Brave Leo conversations not being persisted when closing and opening the panel on the same content. ([#42510](https://github.com/brave/brave-browser/issues/42510))
