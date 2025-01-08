@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.73.105](https://github.com/brave/brave-browser/releases/tag/v1.73.105)
+
+ - [Security] Fixed race condition which caused a crash in Brave Wallet as reported on HackerOne by renwa. ([#43147](https://github.com/brave/brave-browser/issues/43147))
+ - Fixed "Send" transactions not working for transparent address in certain scenarios. ([#42951](https://github.com/brave/brave-browser/issues/42951))
+ - Upgraded Chromium to 131.0.6778.265. ([#43154](https://github.com/brave/brave-browser/issues/43154)) ([Changelog for 131.0.6778.265](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.204..131.0.6778.265?pretty=fuller&n=1000))
+
 ## [1.73.104](https://github.com/brave/brave-browser/releases/tag/v1.73.104)
 
 ### Web3
