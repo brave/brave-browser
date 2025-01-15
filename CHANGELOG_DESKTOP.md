@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.74.48](https://github.com/brave/brave-browser/releases/tag/v1.74.48)
+
+### Web3
+
+ - Added support for BTC Ledger hardware accounts. ([#38447](https://github.com/brave/brave-browser/issues/38447))
+ - Added Base to the list of preloaded EVM networks. ([#42885](https://github.com/brave/brave-browser/issues/42885))
+ - Added Squid as a cross-chain "Swap" provider. ([#41049](https://github.com/brave/brave-browser/issues/41049))
+ - Added support for signing "Typed Data V3/V4" on Trezor devices. ([#41864](https://github.com/brave/brave-browser/issues/41864))
+ - Enabled BTC Ledger support by default. ([#41574](https://github.com/brave/brave-browser/issues/41574))
+ - Implemented ZCash Shielded account modal. ([#41780](https://github.com/brave/brave-browser/issues/41780))
+ - Integrated Meld as a provider for "Buy" crypto assets. ([#38985](https://github.com/brave/brave-browser/issues/38985))
+ - Updated 0x "Swap" API to v2. ([#41891](https://github.com/brave/brave-browser/issues/41891))
+ - Removed Aurora from preloaded EVM networks. ([#42884](https://github.com/brave/brave-browser/issues/42884))
+ - Removed divider line in Brave Wallet page headers. ([#41458](https://github.com/brave/brave-browser/issues/41458))
+
+### General
+
+ - Added "Show Apps" under "More Tools" via the hamburger menu. ([#16898](https://github.com/brave/brave-browser/issues/16898))
+ - Added the ability to set a custom "System Prompt" for BYOM (Bring Your Own Model) in Brave Leo. ([#40690](https://github.com/brave/brave-browser/issues/40690))
+ - Added the ability to set "Context size" for BYOM (Bring Your Own Model) in Brave Leo. ([#41167](https://github.com/brave/brave-browser/issues/41167))
+ - [Security] Fixed iframe download popup origin confusion as reported on HackerOne by syarif07. ([#42939](https://github.com/brave/brave-browser/issues/42939))
+ - Improved error messaging for certain Brave VPN cases. ([#33031](https://github.com/brave/brave-browser/issues/33031))
+ - Updated the background color of the search widget on the New Tab Page. ([#42845](https://github.com/brave/brave-browser/issues/42845))
+ - Updated brave://settings to use system fonts. ([#41559](https://github.com/brave/brave-browser/issues/41559))
+ - Fixed intermittent issue where sometimes links opened in a new tab without loading any content. ([#39570](https://github.com/brave/brave-browser/issues/39570))
+ - Fixed issue with Brave Leo where trying to add a new custom model showed edit info for an existing custom model in certain cases. ([#41345](https://github.com/brave/brave-browser/issues/41345))
+ - Upgraded Chromium to 132.0.6834.83. ([#43183](https://github.com/brave/brave-browser/issues/43183)) ([Changelog for 132.0.6834.83](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.265..132.0.6834.83?pretty=fuller&n=1000))
+
 ## [1.73.105](https://github.com/brave/brave-browser/releases/tag/v1.73.105)
 
  - [Security] Fixed race condition which caused a crash in Brave Wallet as reported on HackerOne by renwa. ([#43147](https://github.com/brave/brave-browser/issues/43147))
