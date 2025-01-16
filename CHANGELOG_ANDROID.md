@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.74.48](https://github.com/brave/brave-browser/releases/tag/v1.74.48)
+
+### Web3
+
+ - Fixed crash in certain cases when onboarding Brave Wallet. ([#41981](https://github.com/brave/brave-browser/issues/41981))
+ - Fixed crash in certain cases when loading Brave Wallet. ([#42958](https://github.com/brave/brave-browser/issues/42958))
+
+### General
+
+ - Fixed crash in Brave's Ads component in certain cases. ([#42024](https://github.com/brave/brave-browser/issues/42024))
+ - Fixed crash when accessing Content Filter List. ([#42025](https://github.com/brave/brave-browser/issues/42025))
+ - Improved Quick-Search Engines bar with YouTube search integration. ([#32843](https://github.com/brave/brave-browser/issues/32843))
+ - Updated Private window design for improved presentation. ([#37596](https://github.com/brave/brave-browser/issues/37596))
+ - Upgraded Chromium to 132.0.6834.83. ([#43183](https://github.com/brave/brave-browser/issues/43183)) ([Changelog for 132.0.6834.83](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.265..132.0.6834.83?pretty=fuller&n=1000))
+
 ## [1.73.105](https://github.com/brave/brave-browser/releases/tag/v1.73.105)
 
  - [Security] Fixed race condition which caused a crash in Brave Wallet as reported on HackerOne by renwa. ([#43147](https://github.com/brave/brave-browser/issues/43147))
