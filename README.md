@@ -31,7 +31,7 @@ Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful tec
 
 Help us translate Brave to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
 
-Follow [@brave](https://twitter.com/brave) on Twitter for important news and announcements.
+Follow [@brave](https://x.com/brave) on X for important news and announcements.
 
 ## Install prerequisites
 
