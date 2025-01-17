@@ -3712,7 +3712,7 @@
 - Updated buttons throughout Brave to match product branding. ([#3378](https://github.com/brave/brave-browser/issues/3378))
 - Updated checkboxes throughout Brave to match Brave color palette. ([#3377](https://github.com/brave/brave-browser/issues/3377))
 - Fixed characters being removed from URL when typing into omnibox. ([#3756](https://github.com/brave/brave-browser/issues/3756))
-- Fixed intermittent hang on mobile.X.com when right clicking the page. ([#2410](https://github.com/brave/brave-browser/issues/2410))
+- Fixed intermittent hang on mobile.x.com when right clicking the page. ([#2410](https://github.com/brave/brave-browser/issues/2410))
 - Fixed not being able to auto-contribute even though the required BAT is available. ([#3897](https://github.com/brave/brave-browser/issues/3897))
 - Fixed auto-contribution table remains corrupted after upgrading Brave in certain cases. ([#3510](https://github.com/brave/brave-browser/issues/3510))
 - Fixed YouTube publisher information not being displayed under the rewards panel in certain cases. ([#3335](https://github.com/brave/brave-browser/issues/3335))
