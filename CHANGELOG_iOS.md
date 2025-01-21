@@ -9,11 +9,11 @@
 ### General
 
  - Added the ability to scrub anywhere when playing videos in full screen in Playlist. ([#42442](https://github.com/brave/brave-browser/issues/42442))
- - Added some system player functionality on the device locked screen including support for play/pause and next/prev. track on AirPods. ([#42370](https://github.com/brave/brave-browser/issues/42370))
+ - Added some system player functionality on the device locked screen including support for play/pause and next/previous track on AirPods. ([#42370](https://github.com/brave/brave-browser/issues/42370))
  - Fixed crash in Brave Playlist when adding very short GIF videos. ([#42638](https://github.com/brave/brave-browser/issues/42638))
  - Fixed subscription status sometimes showing “Monthly Subscription” after purchasing Leo Premium yearly subscription. ([#42507](https://github.com/brave/brave-browser/issues/42507))
  - Fixed playlist UI not updating when moving, re-ordering or deleting items in player queue. ([#42355](https://github.com/brave/brave-browser/issues/42355))
- - Fixed playback speed buttons not working in playlist fullscreen for iPad. ([#41892](https://github.com/brave/brave-browser/issues/41892))
+ - Fixed playback speed buttons not working in Playlist fullscreen for iPad. ([#41892](https://github.com/brave/brave-browser/issues/41892))
  - Fixed setting Yandex to be default search engine in Uzbekistan region instead of Tanzania. ([#42023](https://github.com/brave/brave-browser/issues/42023))
  - Fixed VPN allowing profile to be installed when subscription is not purchased. ([#41887](https://github.com/brave/brave-browser/issues/41887))
  - Fixed “Share Private & Anonymous Product Insights” toggle being flipped back on after opening the “Learn more…” hyperlink in the onboarding flow. ([41777](https://github.com/brave/brave-browser/issues/41777))
