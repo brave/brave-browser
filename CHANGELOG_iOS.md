@@ -18,6 +18,7 @@
  - Fixed VPN allowing profile to be installed when subscription is not purchased. ([#41887](https://github.com/brave/brave-browser/issues/41887))
  - Fixed “Share Private & Anonymous Product Insights” toggle being flipped back on after opening the “Learn more…” hyperlink in the onboarding flow. ([41777](https://github.com/brave/brave-browser/issues/41777))
  - Fixed “Advanced Settings” in Leo menu not being shown after upgrading app for certain premium subscribers. ([#41579](https://github.com/brave/brave-browser/issues/41579))
+ - Upgraded Chromium to 132.0.6834.83. ([#43183](https://github.com/brave/brave-browser/issues/43183))([Changelog for 132.0.6834.83](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.108..132.0.6834.83?pretty=fuller&n=10000))
 
 ## [1.73.97](https://github.com/brave/brave-browser/releases/tag/v1.73.97)
 
