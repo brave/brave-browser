@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.74.49](https://github.com/brave/brave-browser/releases/tag/v1.74.49)
+
+### Web3
+
+ - Updated 0x "Swap" API to v2. ([#41891](https://github.com/brave/brave-browser/issues/41891))
+
+### General
+
+ - Added the ability to scrub anywhere when playing videos in full screen in Playlist. ([#42442](https://github.com/brave/brave-browser/issues/42442))
+ - Added some system player functionality on the device locked screen including support for play/pause and next/previous track on AirPods. ([#42370](https://github.com/brave/brave-browser/issues/42370))
+ - Updated Yandex as default search engine for Uzbekistan region rather than Tanzania. ([#42023](https://github.com/brave/brave-browser/issues/42023))
+ - Fixed crash in Brave Playlist when adding very short GIF videos. ([#42638](https://github.com/brave/brave-browser/issues/42638))
+ - Fixed subscription status sometimes showing “Monthly Subscription” after purchasing Leo Premium yearly subscription. ([#42507](https://github.com/brave/brave-browser/issues/42507))
+ - Fixed playlist UI not updating when moving, re-ordering or deleting items in player queue. ([#42355](https://github.com/brave/brave-browser/issues/42355))
+ - Fixed playback speed buttons not working in Playlist fullscreen for iPad. ([#41892](https://github.com/brave/brave-browser/issues/41892))
+ - Fixed VPN allowing profile to be installed when subscription is not purchased. ([#41887](https://github.com/brave/brave-browser/issues/41887))
+ - Fixed “Share Private & Anonymous Product Insights” toggle being re-enabled after opening the “Learn more…” hyperlink in the onboarding flow. ([41777](https://github.com/brave/brave-browser/issues/41777))
+ - Fixed “Advanced Settings” in Leo menu not being shown after upgrading app for certain premium subscribers. ([#41579](https://github.com/brave/brave-browser/issues/41579))
+ - Upgraded Chromium to 132.0.6834.83. ([#43183](https://github.com/brave/brave-browser/issues/43183))([Changelog for 132.0.6834.83](https://chromium.googlesource.com/chromium/src/+log/131.0.6778.108..132.0.6834.83?pretty=fuller&n=10000))
+
 ## [1.73.97](https://github.com/brave/brave-browser/releases/tag/v1.73.97)
 
 ### Web3
