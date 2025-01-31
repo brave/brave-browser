@@ -11,5 +11,5 @@ wheel: <
 #   git_cl.py
 wheel: <
   name: "infra/python/wheels/six-py2_py3"
-  version: "version:1.10.0"
+  version: "version:1.10.1"
 >
