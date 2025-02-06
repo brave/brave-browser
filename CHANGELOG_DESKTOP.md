@@ -1,5 +1,69 @@
 # Changelog
 
+## [1.75.175](https://github.com/brave/brave-browser/releases/tag/v1.75.175)
+
+### Web3
+
+ - Added Zcash "Deposit" modal. ([#42221](https://github.com/brave/brave-browser/issues/42221))
+ - Added "Shielded" label to all shielded ZEC tokens in Brave Wallet. ([#42285](https://github.com/brave/brave-browser/issues/42285))
+ - Added support for resolving new Unstoppable Domains TLDs. ([#42368](https://github.com/brave/brave-browser/issues/42368))
+ - Added a prompt to "Select Account" when clicking "Send" from the "Portfolio" page. ([#43131](https://github.com/brave/brave-browser/issues/43131))
+ - Added a "Memo" field to the Zcash transaction's "Confirm Transaction" screen. ([#42078](https://github.com/brave/brave-browser/issues/42078))
+ - Added a "Memo" field to the Zcash transaction's "Send" screen. ([#41986](https://github.com/brave/brave-browser/issues/41986))
+ - Added the "Activity" tab to the "Portfolio" segmented control on full page view. ([#43024](https://github.com/brave/brave-browser/issues/43024))
+ - Removed the "Bridge to Aurora" button. ([#42943](https://github.com/brave/brave-browser/issues/42943))
+ - Updated "Portfolio" page to always display "Buy", "Send", "Swap", "Deposit", and "Bridge" buttons. ([#43073](https://github.com/brave/brave-browser/issues/43073))
+ - Fixed Brave icon being cut off on the wallet unlock screen. ([#42866](https://github.com/brave/brave-browser/issues/42866))
+ - Fixed broken gas slider track under the "Edit" gas fee screen. ([#42775](https://github.com/brave/brave-browser/issues/42775))
+
+### Rewards
+
+ - Added Web Discovery Project opt-in prompt during Brave Rewards onboarding. ([#43757](https://github.com/brave/brave-browser/issues/43757))
+ - Implemented Brave Rewards 3.0, a completely redesigned user experience for Brave Rewards including an "Explore" page and many other new elements (being rolled out in phases using Griffin starting at 25%). ([#43756](https://github.com/brave/brave-browser/issues/43756))
+
+### Leo
+
+ - Implemented full page chat for Brave Leo. ([#42844](https://github.com/brave/brave-browser/issues/42844))
+ - Added support to install Brave Leo as a Progressive Web App (PWA). ([#42701](https://github.com/brave/brave-browser/issues/42701))
+ - Added support to save Brave Leo conversation history. ([#42576](https://github.com/brave/brave-browser/issues/42576) & [#42854](https://github.com/brave/brave-browser/issues/42854))
+ - Added support to retain Brave Leo conversation history between browser restarts. ([#42800](https://github.com/brave/brave-browser/issues/42800))
+ - Added a page context toggle under the chat sidebar. ([#42982](https://github.com/brave/brave-browser/issues/42982))
+ - Added URL based routing for Brave Leo chats. ([#42055](https://github.com/brave/brave-browser/issues/42055))
+ - Added support for custom site distillers. ([#40794](https://github.com/brave/brave-browser/issues/40794))
+ - Updated Brave Leo URL to chrome://leo-ai. ([#42817](https://github.com/brave/brave-browser/issues/42817))
+ - Updated the Progressive Web App (PWA) icons for Brave Leo and the password manager. ([#43114](https://github.com/brave/brave-browser/issues/43114))
+
+### General
+
+ - Added the ability to capture a screenshot using "Ctrl+Shift+S" on Windows and Linux and "Cmd+Shift+S" on macOS. ([#42682](https://github.com/brave/brave-browser/issues/42682))
+ - Added support for deep linking to the Search Engine edit popup in settings. ([#42999](https://github.com/brave/brave-browser/issues/42999))
+ - Added a warning when disabling Manifest V2 uBlock Origin via brave://settings/extensions/v2. ([#42608](https://github.com/brave/brave-browser/issues/42608))
+ - Added right click context menu for vertical tab bar. ([#41825](https://github.com/brave/brave-browser/issues/41825))
+ - Added the ability for users to load custom adblock scriptlets under brave://settings/shields/filters. ([#25586](https://github.com/brave/brave-browser/issues/25586))
+ - Added per-site farbling token support. ([#28904](https://github.com/brave/brave-browser/issues/28904))
+ - Added brave://flags/#block-all-cookies-toggle to enable the ability to block all cookies. ([#42061](https://github.com/brave/brave-browser/issues/42061))
+ - Added a keyboard shortcut for exporting all bookmarks. ([#41412](https://github.com/brave/brave-browser/issues/41412))
+ - Added a command line switch to disable user education popups. ([#43481](https://github.com/brave/brave-browser/issues/43481))
+ - [Security] Fixed issue where audio was not being farbled in certain cases as reported on HackerOne by cesium_fusilli. ([#42356](https://github.com/brave/brave-browser/issues/42356))
+ - [Security] Disabled block element picker in Private Windows as reported on HackerOne by newfunction. ([#43495](https://github.com/brave/brave-browser/issues/43495))
+ - Improved contrast on active tab for dark theme. ([#42751](https://github.com/brave/brave-browser/issues/42751))
+ - Updated the Brave VPN icon. ([#42226](https://github.com/brave/brave-browser/issues/42226))
+ - Updated position for the "New Tab" button when using vertical tabs. ([#42533](https://github.com/brave/brave-browser/issues/42533))
+ - Updated the Private window search engine selection UI under brave://settings/search. ([#41499](https://github.com/brave/brave-browser/issues/41499))
+ - Updated the webcompat reporter to remember and autofill a user's contact information. ([#40021](https://github.com/brave/brave-browser/issues/40021))
+ - Disabled cosmetic filtering on Speedreader pages. ([#40642](https://github.com/brave/brave-browser/issues/40642))
+ - Disabled field data fetching in DevTools. ([#41934](https://github.com/brave/brave-browser/issues/41934))
+ - Removed known Emarsys trackers "sc_customer", "sc_eh", and "sc_uid" from URLs. ([#43077](https://github.com/brave/brave-browser/issues/43077))
+ - Fixed external favicon fetch on the password manager. ([#42955](https://github.com/brave/brave-browser/issues/42955))
+ - Fixed "Clear all" button on brave://downloads not being selectable in certain cases. ([#42924](https://github.com/brave/brave-browser/issues/42924))
+ - Fixed "Connect" button being displayed for a region when already connected to that region using Brave VPN. ([#42544](https://github.com/brave/brave-browser/issues/42544))
+ - Fixed extraneous tabs created when detaching a tab from a window. ([#42588](https://github.com/brave/brave-browser/issues/42588))
+ - Fixed Brave News "Add this RSS feed" functionality to respect the HTTPS upgrade setting. ([#38282](https://github.com/brave/brave-browser/issues/38282))
+ - Fixed artifacts being displayed after merging tabs into a browser window. ([#41272](https://github.com/brave/brave-browser/issues/41272))
+ - Fixed shields panel being able to be opened on chrome-extension:// pages. ([#43135](https://github.com/brave/brave-browser/issues/43135))
+ - Fixed shield icon alignment in the URL bar. ([#39976](https://github.com/brave/brave-browser/issues/39976))
+ - Upgraded Chromium to 133.0.6943.54. ([#43720](https://github.com/brave/brave-browser/issues/43720)) ([Changelog for 133.0.6943.54](https://chromium.googlesource.com/chromium/src/+log/132.0.6834.160..133.0.6943.54?pretty=fuller&n=1000))
+
 ## [1.74.51](https://github.com/brave/brave-browser/releases/tag/v1.74.51)
 
  - Upgraded Chromium to 132.0.6834.160. ([#43550](https://github.com/brave/brave-browser/issues/43550)) ([Changelog for 132.0.6834.160](https://chromium.googlesource.com/chromium/src/+log/132.0.6834.111..132.0.6834.160?pretty=fuller&n=1000))
