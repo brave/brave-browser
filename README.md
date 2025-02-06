@@ -1,22 +1,22 @@
-![Brave Browser](./docs/source/_static/Brave.svg)
+![iBrowe Browser](./docs/source/_static/iBrowe.svg)
 
 ## Overview
 
-This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects defined in `package.json` and `src/brave/DEPS`:
+This repository holds the build tools needed to build the iBrowe desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects defined in `package.json` and `src/ibrowe/DEPS`:
 
   - [Chromium](https://chromium.googlesource.com/chromium/src.git)
     - Fetches code via `depot_tools`.
     - Sets the branch for Chromium (ex: 65.0.3325.181).
-  - [brave-core](https://github.com/brave/brave-core)
+  - [brave-core](https://github.com/yuthstyle88/brave-core)
     - Mounted at `src/brave`.
     - Maintains patches for 3rd party Chromium code.
-  - [adblock-rust](https://github.com/brave/adblock-rust)
-    - Implements Brave's ad-block engine.
-    - Linked through [brave/adblock-rust-ffi](https://github.com/brave/brave-core/tree/master/components/adblock_rust_ffi).
+  - [adblock-rust](https://github.com/yuthstyle88/adblock-rust)
+    - - Implements iBrowe's ad-block engine (forked from Brave).
+    - Linked through [yuthstyle88/adblock-rust-ffi](https://github.com/yuthstyle88/brave-core/tree/master/components/adblock_rust_ffi).
 
 ## Downloads
 
-You can [visit our website](https://brave.com/download) to get the latest stable release.
+You can [visit our website](https://ibrowe.com/download) to get the latest stable release.
 
 ## Contributing
 
@@ -26,12 +26,12 @@ Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful tec
 
 ## Community
 
-[Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/support-and-troubleshooting),
-[discuss features you'd like to see](https://community.brave.com/c/brave-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
+[Join the Q&A community](https://community.ibrowe.com/) if you'd like to get more involved with iBrowe. You can [ask for help](https://community.ibrowe.com/c/support-and-troubleshooting),
+[discuss features you'd like to see](https://community.ibrowe.com/c/brave-feature-requests), and a lot more. We'd love to have your help so that we can continue improving iBrowe.
 
-Help us translate Brave to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
+Help us translate iBrowe to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
 
-Follow [@brave](https://twitter.com/brave) on Twitter for important news and announcements.
+Follow [@ibrowe](https://twitter.com/ibrowe) on Twitter for important news and announcements.
 
 ## Install prerequisites
 
@@ -70,7 +70,7 @@ Additional parameters needed to build are documented at https://github.com/brave
 
 Internal developers can find more information at https://github.com/brave/devops/wiki/%60.env%60-config-for-Brave-Developers
 
-## Build Brave
+## Build iBrowe
 The default build type is component.
 
 ```
@@ -106,12 +106,12 @@ npm run build -- Debug
 ```
 NOTE: the build will take a while to complete. Depending on your processor and memory, it could potentially take a few hours.
 
-## Run Brave
+## Run iBrowe
 To start the build:
 
 `npm start [Release|Component|Static|Debug]`
 
-# Update Brave
+# Update iBrowe
 
 `npm run sync -- [--force] [--init] [--create] [brave_core_ref]`
 
@@ -144,9 +144,9 @@ brave-browser/src/brave> git checkout -b branch_name
 
 #### Checkout an existing branch or tag:
 ```bash
-brave-browser/src/brave> git fetch origin
-brave-browser/src/brave> git checkout [-b] branch_name
-brave-browser/src/brave> npm run sync
+ibrowe-browser/src/brave> git fetch origin
+ibrowe-browser/src/brave> git checkout [-b] branch_name
+ibrowe-browser/src/brave> npm run sync
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -154,8 +154,8 @@ brave-browser/src/brave> npm run sync
 
 #### Update the current branch to the latest remote:
 ```bash
-brave-browser/src/brave> git pull
-brave-browser/src/brave> npm run sync
+ibrowe-browser/src/brave> git pull
+ibrowe-browser/src/brave> npm run sync
 ...Updating 2 patches...
 ...Updating child dependencies...
 ...Running hooks...
@@ -163,17 +163,17 @@ brave-browser/src/brave> npm run sync
 
 #### Reset to latest brave-browser master and brave-core master (via `init`, will always result in a longer build and will remove any pending changes in your brave-core working directory):
 ```bash
-brave-browser> git checkout master
-brave-browser> git pull
-brave-browser> npm run sync -- --init
+ibrowe-browser> git checkout master
+ibrowe-browser> git pull
+ibrowe-browser> npm run sync -- --init
 ```
 
 #### When you know that DEPS didn't change, but .patch files did (quickest attempt to perform a mini-sync before a build):
 ```bash
-brave-browser/src/brave> git checkout featureB
-brave-browser/src/brave> git pull
-brave-browser/src/brave> cd ../..
-brave-browser> npm run apply_patches
+ibrowe-browser/src/brave> git checkout featureB
+ibrowe-browser/src/brave> git pull
+ibrowe-browser/src/brave> cd ../..
+ibrowe-browser> npm run apply_patches
 ...Applying 2 patches...
 ```
 
