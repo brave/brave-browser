@@ -4,12 +4,12 @@
 
 ### Web3
 
- - Added ZCash "Deposit" modal. ([#42221](https://github.com/brave/brave-browser/issues/42221))
+ - Added Zcash "Deposit" modal. ([#42221](https://github.com/brave/brave-browser/issues/42221))
  - Added "Shielded" label to all shielded ZEC tokens in Brave Wallet. ([#42285](https://github.com/brave/brave-browser/issues/42285))
  - Added support for resolving new Unstoppable Domains TLDs. ([#42368](https://github.com/brave/brave-browser/issues/42368))
  - Added a prompt to "Select Account" when clicking "Send" from the "Portfolio" page. ([#43131](https://github.com/brave/brave-browser/issues/43131))
- - Added a "Memo" field to the ZCash transaction's "Confirm Transaction" screen. ([#42078](https://github.com/brave/brave-browser/issues/42078))
- - Added a "Memo" field to the ZCash transaction's "Send" screen. ([#41986](https://github.com/brave/brave-browser/issues/41986))
+ - Added a "Memo" field to the Zcash transaction's "Confirm Transaction" screen. ([#42078](https://github.com/brave/brave-browser/issues/42078))
+ - Added a "Memo" field to the Zcash transaction's "Send" screen. ([#41986](https://github.com/brave/brave-browser/issues/41986))
  - Added the "Activity" tab to the "Portfolio" segmented control on full page view. ([#43024](https://github.com/brave/brave-browser/issues/43024))
  - Removed the "Bridge to Aurora" button. ([#42943](https://github.com/brave/brave-browser/issues/42943))
  - Updated "Portfolio" page to always display "Buy", "Send", "Swap", "Deposit", and "Bridge" buttons. ([#43073](https://github.com/brave/brave-browser/issues/43073))
