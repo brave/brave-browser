@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.75.175](https://github.com/brave/brave-browser/releases/tag/v1.75.175)
+
+### Web3
+
+ - Added a prompt to "Select Account" when clicking "Send" from the "Portfolio" page. ([#43131](https://github.com/brave/brave-browser/issues/43131))
+ - Added support for resolving new Unstoppable Domains TLDs. ([#42368](https://github.com/brave/brave-browser/issues/42368))
+ - Removed the "Bridge to Aurora" button. ([#42943](https://github.com/brave/brave-browser/issues/42943))
+
+### Leo
+
+ - Added a page context toggle under the chat sidebar. ([#42982](https://github.com/brave/brave-browser/issues/42982))
+ - Added support to save Brave Leo conversation history. ([#42854](https://github.com/brave/brave-browser/issues/42854))
+ - Added support to retain Brave Leo conversation history between browser restarts. ([#42800](https://github.com/brave/brave-browser/issues/42800))
+ - Added ability to delete Leo "Conversation History" either through Leo Settings or by clearing browsing data. ([#42995](https://github.com/brave/brave-browser/issues/42995))
+ - Updated Brave Leo URL to chrome://leo-ai. ([#42817](https://github.com/brave/brave-browser/issues/42817))
+ - Fixed issue where "Ask Leo" in URL search bar was hidden beneath the bottom toolbar. ([#40217](https://github.com/brave/brave-browser/issues/40217))
+
+### General
+
+ - Added brave://flags/#block-all-cookies-toggle to enable the ability to block all cookies. ([#42061](https://github.com/brave/brave-browser/issues/42061))
+ - Added per-site farbling token support. ([#28904](https://github.com/brave/brave-browser/issues/28904))
+ - Added ability to block individual elements on a webpage through the shields panel. ([#33241](https://github.com/brave/brave-browser/issues/33241))
+ - Added validation checks for ViewProvider methods in BraveAutocompleteCoordinator. ([#42728](https://github.com/brave/brave-browser/issues/42728))
+ - [Security] Fixed issue where audio was not being farbled in certain cases as reported on HackerOne by cesium_fusilli. ([#42356](https://github.com/brave/brave-browser/issues/42356))
+ - Improved Brave Talk to maintain microphone operation when browser is in background or device is locked. ([#42897](https://github.com/brave/brave-browser/issues/42897))
+ - Updated the webcompat reporter to remember and autofill a user's contact information. ([#40021](https://github.com/brave/brave-browser/issues/40021))
+ - Updated "Only open links in current tab group" setting to be disabled by default for new users. ([#42681](https://github.com/brave/brave-browser/issues/42681))
+ - Updated punctuation in "Browsing visibility" paragraph on Private Tab to improve readability. ([#41848](https://github.com/brave/brave-browser/issues/41848))
+ - Replaced "Chrome" with "Brave" in "Cookies and site data" menu. ([#42168](https://github.com/brave/brave-browser/issues/42168))
+ - Removed known Emarsys trackers "sc_customer", "sc_eh", and "sc_uid" from URLs. ([#43077](https://github.com/brave/brave-browser/issues/43077))
+ - Removed cross-promotional dialog for new users. ([#42942](https://github.com/brave/brave-browser/issues/42942))
+ - Fixed Brave Talk audio cutting off when screen is locked. ([#42675](https://github.com/brave/brave-browser/issues/42675))
+ - Fixed crash in Android ViewGroup configuration change handler which occurred in certain cases. ([#42536](https://github.com/brave/brave-browser/issues/42536))
+ - Fixed crash which occurred when accessing Brave News settings in certain cases. ([#42069](https://github.com/brave/brave-browser/issues/42069))
+ - Fixed crash in BraveRewardsHelper during tab initialization which occurred intermittently. ([#42319](https://github.com/brave/brave-browser/issues/42319))
+ - Upgraded Chromium to 133.0.6943.54. ([#43720](https://github.com/brave/brave-browser/issues/43720)) ([Changelog for 133.0.6943.54](https://chromium.googlesource.com/chromium/src/+log/132.0.6834.160..133.0.6943.54?pretty=fuller&n=1000))
+
 ## [1.74.51](https://github.com/brave/brave-browser/releases/tag/v1.74.51)
 
  - Fixed issue where passwords were not syncing from Android to Desktop in certain cases. ([#43303](https://github.com/brave/brave-browser/issues/43303))
