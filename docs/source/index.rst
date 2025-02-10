@@ -1,8 +1,8 @@
-.. Copyright (c) 2020 Brave Software
+.. Copyright (c) 2025 IBrowe Software
 
 .. _rs_welcome:
 
 Brave browser documentation
 ---------------------------
 
-This page has now moved to `brave.com/linux <https://brave.com/linux>`_
+This page has now moved to `ibrowe.com/linux <https://ibrowe.com/linux>`_
