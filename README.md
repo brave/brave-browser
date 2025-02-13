@@ -40,7 +40,8 @@ Follow the instructions for your platform:
 - [macOS](https://github.com/brave/brave-browser/wiki/macOS-Development-Environment)
 - [iOS](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment)
 - [Windows](https://github.com/brave/brave-browser/wiki/Windows-Development-Environment)
-- [Linux/Android](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
+- [Linux](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
+- [Android](https://github.com/brave/brave-browser/wiki/Android-Development-Environment)
 
 ## Clone and initialize the repo
 
