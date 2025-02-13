@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.75.178](https://github.com/brave/brave-browser/releases/tag/v1.75.178)
+
+ - Added "Visit Web Store" under "Extensions" via the hamburger menu. ([#43807](https://github.com/brave/brave-browser/issues/43807))
+ - Added links to the Chrome Web Store under brave://extensions when extensions have been added. ([#43805](https://github.com/brave/brave-browser/issues/43805))
+ - Fixed intermittent cursor issues on Windows. ([#43824](https://github.com/brave/brave-browser/issues/43824))
+ - Fixed missing "Same as Linux" option for "Brave colors" under brave://settings/appearance. ([#43834](https://github.com/brave/brave-browser/issues/43834))
+ - Fixed issue where "Word count" when setting up sync maybe incorrect in certain cases. ([#43635](https://github.com/brave/brave-browser/issues/43635))
+ - Upgraded Chromium to 133.0.6943.98. ([#43927](https://github.com/brave/brave-browser/issues/43927)) ([Changelog for 133.0.6943.98](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.54..133.0.6943.98?pretty=fuller&n=1000))
+
 ## [1.75.175](https://github.com/brave/brave-browser/releases/tag/v1.75.175)
 
 ### Web3
