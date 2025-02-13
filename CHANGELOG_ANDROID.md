@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.75.178](https://github.com/brave/brave-browser/releases/tag/v1.75.178)
+
+ - Upgraded Chromium to 133.0.6943.98. ([#43927](https://github.com/brave/brave-browser/issues/43927)) ([Changelog for 133.0.6943.98](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.54..133.0.6943.98?pretty=fuller&n=1000))
+
 ## [1.75.175](https://github.com/brave/brave-browser/releases/tag/v1.75.175)
 
 ### Web3
