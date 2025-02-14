@@ -18,7 +18,7 @@ This repository holds the build tools needed to build the Brave desktop browser 
 
 You can [visit our website](https://brave.com/download) to get the latest stable release.
 
-## Contributing
+## Contributing to brave.
 
 Please see the [contributing guidelines](./CONTRIBUTING.md).
 
