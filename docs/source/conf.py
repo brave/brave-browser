@@ -16,7 +16,7 @@
 
 author = 'iBrowe Software'
 project = 'iBrowe browser'
-copyright = '2023, iBrowe Software'
+copyright = '2025, iBrowe Software'
 
 # The short X.Y version
 version = ''

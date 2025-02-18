@@ -11,7 +11,7 @@ This repository holds the build tools needed to build the iBrowe desktop browser
     - Mounted at `src/brave`.
     - Maintains patches for 3rd party Chromium code.
   - [adblock-rust](https://github.com/yuthstyle88/adblock-rust)
-    - - Implements iBrowe's ad-block engine (forked from Brave).
+    - - Implements iBrowe's ad-block engine (forked from iBrowe).
     - Linked through [yuthstyle88/adblock-rust-ffi](https://github.com/yuthstyle88/brave-core/tree/master/components/adblock_rust_ffi).
 
 ## Downloads
@@ -22,7 +22,7 @@ You can [visit our website](https://ibrowe.com/download) to get the latest stabl
 
 Please see the [contributing guidelines](./CONTRIBUTING.md).
 
-Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful technical information.
+Our [Wiki](https://github.com/yuthstyle88/ibrowe-browser/wiki) also has some useful technical information.
 
 ## Community
 
@@ -37,10 +37,10 @@ Follow [@ibrowe](https://twitter.com/ibrowe) on Twitter for important news and a
 
 Follow the instructions for your platform:
 
-- [macOS](https://github.com/brave/brave-browser/wiki/macOS-Development-Environment)
-- [iOS](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment)
-- [Windows](https://github.com/brave/brave-browser/wiki/Windows-Development-Environment)
-- [Linux/Android](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
+- [macOS](https://github.com/yuthstyle88/ibrowe-browser/wiki/macOS-Development-Environment)
+- [iOS](https://github.com/yuthstyle88/ibrowe-browser/wiki/iOS-Development-Environment)
+- [Windows](https://github.com/yuthstyle88/ibrowe-browser/wiki/Windows-Development-Environment)
+- [Linux/Android](https://github.com/yuthstyle88/ibrowe-browser/wiki/Linux-Development-Environment)
 
 ## Clone and initialize the repo
 
@@ -66,9 +66,9 @@ npm config set target_os android
 npm config set target_arch arm
 ```
 
-Additional parameters needed to build are documented at https://github.com/brave/brave-browser/wiki/Build-configuration
+Additional parameters needed to build are documented at https://github.com/yuthstyle88/ibrowe-browser/wiki/Build-configuration
 
-Internal developers can find more information at https://github.com/brave/devops/wiki/%60.env%60-config-for-Brave-Developers
+Internal developers can find more information at https://github.com/yuthstyle88/devops/wiki/%60.env%60-config-for-iBrowe-Developers
 
 ## Build iBrowe
 The default build type is component.
@@ -87,7 +87,7 @@ npm run build Release
 
 brave-core based android builds should use `npm run build -- --target_os=android --target_arch=arm` or set the npm config variables as specified above for `init`
 
-brave-core based iOS builds should use the Xcode project found in `ios/brave-ios/App`. You can open this project directly or run `npm run ios_bootstrap -- --open_xcodeproj` to have it opened in Xcode. See the [iOS Developer Environment](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment#Building) for more information on iOS builds.
+brave-core based iOS builds should use the Xcode project found in `ios/brave-ios/App`. You can open this project directly or run `npm run ios_bootstrap -- --open_xcodeproj` to have it opened in Xcode. See the [iOS Developer Environment](https://github.com/yuthstyle88/ibrowe-browser/wiki/iOS-Development-Environment#Building) for more information on iOS builds.
 
 ### Build Configurations
 
@@ -185,9 +185,9 @@ ibrowe-browser> npm run apply_patches
 
 - [Security rules from Chromium](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/security/rules.md)
 - [IPC review guidelines](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/security/ipc-reviews.md) (in particular [this reference](https://docs.google.com/document/d/1Kw4aTuISF7csHnjOpDJGc7JYIjlvOAKRprCTBVWw_E4/edit#heading=h.84bpc1e9z1bg))
-- [Brave's internal security guidelines](https://github.com/brave/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
-- [Rust usage](https://github.com/brave/brave-core/blob/master/docs/rust.md)
+- [iBrowe's internal security guidelines](https://github.com/yuthstyle88/internal/wiki/Pull-request-security-audit-checklist) (for employees only)
+- [Rust usage](https://github.com/yuthstyle88/brave-core/blob/master/docs/rust.md)
 
 # Troubleshooting
 
-See [Troubleshooting](https://github.com/brave/brave-browser/wiki/Troubleshooting) for solutions to common problems.
+See [Troubleshooting](https://github.com/yuthstyle88/ibrowe-browser/wiki/Troubleshooting) for solutions to common problems.

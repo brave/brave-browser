@@ -36,4 +36,4 @@ body:
     attributes:
       label: Minor Chromium bump
       value: |-
-        - No specific code changes in Brave (only line number changes in patches)
+        - No specific code changes in iBrowe (only line number changes in patches)

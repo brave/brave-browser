@@ -2,7 +2,7 @@
 
 .. _rs_welcome:
 
-Brave browser documentation
+iBrowe browser documentation
 ---------------------------
 
 This page has now moved to `ibrowe.com/linux <https://ibrowe.com/linux>`_

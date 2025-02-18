@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |-
-        Have you searched for similar [issues](https://github.com/brave/brave-browser/issues?q=is%3Aissue+is%3Aopen+label%3AOS%2FDesktop)?
+        Have you searched for similar [issues](https://github.com/yuthstyle88/ibrowe-browser/issues?q=is%3Aissue+is%3Aopen+label%3AOS%2FDesktop)?
 
         Insufficiently described issues will be closed, so please provide as much information as possible
   - type: textarea
@@ -60,8 +60,8 @@ body:
   - type: textarea
     id: version
     attributes:
-      label: Brave version (brave://version info)
-      description: "`Brave`, `Revision` and `OS` from `brave://version`"
+      label: iBrowe version (brave://version info)
+      description: "`iBrowe`, `Revision` and `OS` from `brave://version`"
     validations:
       required: true
   - type: checkboxes
@@ -79,8 +79,8 @@ body:
       label: Reproducibility
       description: Does this issue occur...
       options:
-        - label: with Brave Shields disabled
-        - label: with Brave Rewards disabled
+        - label: with iBrowe Shields disabled
+        - label: with iBrowe Rewards disabled
         - label: in the latest version of Chrome
   - type: textarea
     id: misc
