@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.75.180](https://github.com/brave/brave-browser/releases/tag/v1.75.180)
+
+ - Fixed hang/crash when clicking on newly created tabs while using vertical tabs. ([#43980](https://github.com/brave/brave-browser/issues/43980))
+ - Fixed incorrect icons being displayed under the URL bar in certain cases. ([#43823](https://github.com/brave/brave-browser/issues/43823))
+ - Upgraded Chromium to 133.0.6943.126. ([#44075](https://github.com/brave/brave-browser/issues/44075)) ([Changelog for 133.0.6943.126](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.98..133.0.6943.126?pretty=fuller&n=1000))
+
 ## [1.75.178](https://github.com/brave/brave-browser/releases/tag/v1.75.178)
 
  - Added "Visit Web Store" under "Extensions" via the hamburger menu. ([#43807](https://github.com/brave/brave-browser/issues/43807))
