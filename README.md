@@ -47,8 +47,16 @@ Follow the instructions for your platform:
 Once you have the prerequisites installed, you can get the code and initialize the build environment.
 
 ```bash
-git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/brave
+```bash
+git clone git@github.com:yuthstyle88/brave-core.git path-to-your-project-folder/src/brave
+
+# Remove old patches and apply new patches
+rm -rf path-to-your-project-folder/src/brave/patches 
+VERSION=$(git describe --tags --abbrev=0)
+git clone git@github.com:yuthstyle88/ibrowe-core.git -b $VERSION
+cp -r ibrowe-core/patches/ path-to-your-project-folder/src/brave/patches
 cd path-to-your-project-folder/src/brave
+
 npm install
 
 # the Chromium source is downloaded, which has a large history (gigabytes of data)
