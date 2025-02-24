@@ -47,22 +47,16 @@ Follow the instructions for your platform:
 Once you have the prerequisites installed, you can get the code and initialize the build environment.
 
 ```bash
-```bash
+
 git clone git@github.com:yuthstyle88/brave-core.git path-to-your-project-folder/src/brave
-
-# Remove old patches and apply new patches
-rm -rf path-to-your-project-folder/src/brave/patches 
-VERSION=$(git describe --tags --abbrev=0)
-git clone git@github.com:yuthstyle88/ibrowe-core.git -b $VERSION
-cp -r ibrowe-core/patches/ path-to-your-project-folder/src/brave/patches
 cd path-to-your-project-folder/src/brave
-
 npm install
 
 # the Chromium source is downloaded, which has a large history (gigabytes of data)
 # this might take really long to finish depending on internet speed
 
 npm run init
+
 ```
 brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whichever CPU type you want to build for)
 brave-core based iOS builds should use `npm run init -- --target_os=ios`
@@ -72,6 +66,14 @@ You can also set the target_os and target_arch for init and build using:
 ```
 npm config set target_os android
 npm config set target_arch arm
+```
+
+Apply patch file in iBrowe-core:
+```
+VERSION=$(git describe --tags --abbrev=0)
+git clone git@github.com:yuthstyle88/ibrowe-core.git -b $VERSION path-to-your-project-folder/src/ibrowe-core 
+./path-to-your-project-folder/src/ibrowe-core/scripts/apply_patches.sh
+
 ```
 
 Additional parameters needed to build are documented at https://github.com/yuthstyle88/ibrowe-browser/wiki/Build-configuration
