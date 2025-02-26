@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.75.181](https://github.com/brave/brave-browser/releases/tag/v1.75.181)
+
+ - Fixed crash when using Brave VPN on specific timezone(s). ([#44181](https://github.com/brave/brave-browser/issues/44181))
+ - Fixed missing flag for Israel on Brave VPN. ([#44093](https://github.com/brave/brave-browser/issues/44093))
+ - Upgraded Chromium to 133.0.6943.141. ([#44217](https://github.com/brave/brave-browser/issues/44217)) ([Changelog for 133.0.6943.141](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.126..133.0.6943.141?pretty=fuller&n=1000))
+
 ## [1.75.180](https://github.com/brave/brave-browser/releases/tag/v1.75.180)
 
  - Fixed hang/crash when clicking on newly created tabs while using vertical tabs. ([#43980](https://github.com/brave/brave-browser/issues/43980))
