@@ -45,6 +45,13 @@
         "repository": {
           "url": "https://github.com/yuthstyle88/brave-core.git"
         }
+      },
+      "ibrowe-core": {
+        "dir": "src/ibrowe",
+        "branch": "test",
+        "repository": {
+          "url": "https://github.com/yuthstyle88/ibrowe-core.git"
+        }
       }
     }
   },
