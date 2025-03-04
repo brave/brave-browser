@@ -76,7 +76,7 @@ git clone git@github.com:yuthstyle88/ibrowe-core.git -b $VERSION path-to-your-pr
 
 # Patches images and language files
 cd ./path-to-your-project-folder/src/ibrowe-core/scripts
-python3 sync-images.py
+python3 apply-image-patches.py
 
 # Patch ibrowe-core files to brave-core files
 python3 apply-patches.py
