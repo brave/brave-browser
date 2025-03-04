@@ -40,7 +40,8 @@ Follow the instructions for your platform:
 - [macOS](https://github.com/yuthstyle88/ibrowe-browser/wiki/macOS-Development-Environment)
 - [iOS](https://github.com/yuthstyle88/ibrowe-browser/wiki/iOS-Development-Environment)
 - [Windows](https://github.com/yuthstyle88/ibrowe-browser/wiki/Windows-Development-Environment)
-- [Linux/Android](https://github.com/yuthstyle88/ibrowe-browser/wiki/Linux-Development-Environment)
+- [Linux](https://github.com/yuthstyle88/ibrowe-browser/wiki/Linux-Development-Environment)
+- [Android](https://github.com/yuthstyle88/ibrowe-browser/wiki/Android-Development-Environment)
 
 ## Clone and initialize the repo
 
@@ -68,12 +69,17 @@ npm config set target_os android
 npm config set target_arch arm
 ```
 
-Apply patch file in iBrowe-core:
+Apply patch files in iBrowe-core:
 ```
 VERSION=$(git describe --tags --abbrev=0)
-git clone git@github.com:yuthstyle88/ibrowe-core.git -b $VERSION path-to-your-project-folder/src/ibrowe-core 
-./path-to-your-project-folder/src/ibrowe-core/scripts/apply_patches.sh
+git clone git@github.com:yuthstyle88/ibrowe-core.git -b $VERSION path-to-your-project-folder/src/ibrowe-core
 
+# Patches images and language files
+cd ./path-to-your-project-folder/src/ibrowe-core/scripts
+python3 sync-images.py
+
+# Patch ibrowe-core files to brave-core files
+python3 apply-patches.py
 ```
 
 Additional parameters needed to build are documented at https://github.com/yuthstyle88/ibrowe-browser/wiki/Build-configuration
@@ -85,6 +91,7 @@ The default build type is component.
 
 ```
 # start the component build compile
+cd path-to-your-project-folder/src/brave
 npm run build
 ```
 
