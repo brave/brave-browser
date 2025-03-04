@@ -2,7 +2,7 @@ solutions = [
   {
     "managed": False,
     "name": "src",
-    "url": "https://github.com/brave/chromium",
+    "url": "https://github.com/yuthstyle88/chromium",
     "custom_deps": {
       "src/testing/libfuzzer/fuzzers/wasm_corpus": None,
       "src/third_party/chromium-variations": None

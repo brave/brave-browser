@@ -22,7 +22,7 @@ src
 /.brave_latest_successful_sync.json
 .cipd
 .gclient_entries
-
+.gclient
 /.gclient_previous_custom_vars
 /.gclient_previous_sync_commits
 .sccache
