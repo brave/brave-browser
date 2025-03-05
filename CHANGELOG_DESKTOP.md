@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.76.73](https://github.com/brave/brave-browser/releases/tag/v1.76.73)
+
+### Web3
+
+ - Added "Out of sync" alert and "Sync Account Status" warning to allow users to sync their shielded Zcash account. ([#42851](https://github.com/brave/brave-browser/issues/42851))
+ - Fixed inability to click away from the "Transaction Details" modal. ([#43223](https://github.com/brave/brave-browser/issues/43223))
+ - Fixed casing for Zcash on the "Accounts" page. ([#43278](https://github.com/brave/brave-browser/issues/43278))
+
+### Leo
+
+ - Added the ability to stop a streamed Leo response. ([#38337](https://github.com/brave/brave-browser/issues/38337))
+ - Updated UI for brave://settings/leo-ai. ([#42589](https://github.com/brave/brave-browser/issues/42589))
+ - Updated Leo paywall to include "Annual" pricing. ([#41994](https://github.com/brave/brave-browser/issues/41994))
+ - Fixed missing "Learn more" links in the model-intro popup for Claude 3 Haiku and Sonnet. ([#38171](https://github.com/brave/brave-browser/issues/38171))
+
+### General
+
+ - Added localization support for several new languages including Serbian (Latin), Serbian (Cyrillic), and others. ([#39792](https://github.com/brave/brave-browser/issues/39792) & [#43444](https://github.com/brave/brave-browser/issues/43444))
+ - Added shield settings for "Block scripts" and "Cookies" when reporting a site via the webcompat reporter. ([#42062](https://github.com/brave/brave-browser/issues/42062))
+ - [Security] Fixed Tor leaks as reported on HackerOne by 0x999. ([#44299](https://github.com/brave/brave-browser/issues/44299), [#44333](https://github.com/brave/brave-browser/issues/44333), & [#44334](https://github.com/brave/brave-browser/issues/44334))
+ - Improved translations on shields for Swedish locale. ([#42145](https://github.com/brave/brave-browser/issues/42145))
+ - Fixed persistent Google cookie not being removed when "Forget Me When I Close This Site" is enabled. ([#42798](https://github.com/brave/brave-browser/issues/42798))
+ - Fixed issue where forgetful browsing was deleting local storage in certain cases when launching in incognito mode. ([#39107](https://github.com/brave/brave-browser/issues/39107))
+ - Fixed crash which could occur when detaching a vertical tab in certain cases. ([#44362](https://github.com/brave/brave-browser/issues/44362))
+ - Fixed cursor being displayed with incorrect position when detaching a vertical tab to its own window. ([#44282](https://github.com/brave/brave-browser/issues/44282))
+ - Upgraded Chromium to 134.0.6998.45. ([#44410](https://github.com/brave/brave-browser/issues/44410)) ([Changelog for 134.0.6998.45](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.141..134.0.6998.45?pretty=fuller&n=1000))
+
 ## [1.75.181](https://github.com/brave/brave-browser/releases/tag/v1.75.181)
 
  - Fixed crash when using Brave VPN on specific timezone(s). ([#44181](https://github.com/brave/brave-browser/issues/44181))
