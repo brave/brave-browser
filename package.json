@@ -50,10 +50,10 @@
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
+        "branch": "main",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
-        },
-        "tag": "v0.0.1"
+        }
       }
     }
   },
