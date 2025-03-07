@@ -3,18 +3,14 @@ const fs = require('fs-extra');
 const { GitPatcher } = require('./commands/libs/gitPatcher'); // Corrected import
 const { defaultBuildConfig } = require('./commands/libs/config'); // Corrected import
 
-async function applyIBrowePatches() {
+async function applyIBrowePatches(configIBrowePatchDir, targetRepoPath) {
     try {
-        const { configIBrowePatchDir, targetRepoPath } = defaultBuildConfig;
-
-        // Ensure patch directory exists
         if (!fs.existsSync(configIBrowePatchDir)) {
             console.error(`Patch directory "${configIBrowePatchDir}" does not exist.`);
             process.exit(1);
         }
 
         try {
-            // Initialize GitPatcher and apply patches
             const gitPatcher = new GitPatcher(configIBrowePatchDir, targetRepoPath);
             await gitPatcher.applyPatches();
             console.log('✅ All patches applied successfully.');

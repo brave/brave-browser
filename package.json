@@ -43,21 +43,14 @@
     "projects": {
       "brave-core": {
         "dir": "src/brave",
+        "branch": "main",
         "repository": {
           "url": "https://github.com/yuthstyle88/brave-core.git"
         },
-        "tag": "v1.74.48"
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
         "branch": "main",
-        "repository": {
-          "url": "https://github.com/yuthstyle88/ibrowe-core.git"
-        }
-      },
-      "ibrowe-core": {
-        "dir": "src/ibrowe",
-        "branch": "test",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
