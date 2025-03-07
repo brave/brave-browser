@@ -17,6 +17,13 @@ const ibrowePatchesDir = path.resolve(__dirname, '..', 'src', 'ibrowe', 'patches
 const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
+if (!fs.existsSync(path.join(ibroweCoreDir, '.git'))) {
+  Log.status(`Cloning brave-core [${ibroweCoreRef}] into ${ibroweCoreDir}...`)
+  fs.mkdirSync(ibroweCoreDir)
+  util.runGit(ibroweCoreDir, ['clone', util.getNPMConfig(['projects', 'ibrowe-core', 'repository', 'url']), '.'])
+  util.runGit(ibroweCoreDir, ['checkout', ibroweCoreRef])
+}
+
 if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
   Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
   fs.mkdirSync(braveCoreDir)
@@ -41,12 +48,7 @@ util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2
   shell: true,
   git_cwd: '.', })
 
-if (!fs.existsSync(path.join(ibroweCoreDir, '.git'))) {
-  Log.status(`Cloning brave-core [${ibroweCoreRef}] into ${ibroweCoreDir}...`)
-  fs.mkdirSync(ibroweCoreDir)
-  util.runGit(ibroweCoreDir, ['clone', util.getNPMConfig(['projects', 'ibrowe-core', 'repository', 'url']), '.'])
-  util.runGit(ibroweCoreDir, ['checkout', ibroweCoreRef])
-}
+
 
 // Apply Patches from /src/ibrowe/patches to /src/brave
 if (fs.existsSync(ibrowePatchesDir)) {
