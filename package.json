@@ -1,21 +1,22 @@
 {
-  "name": "iBrowe",
-  "version": "0.0.1",
+  "name": "ibrowe",
+  "version": "1.74.48",
   "description": "Next generation iBrowe browser for macOS, Windows, Linux, and Android",
-  "homepage": "https://github.com/yuthstyle88/ibrowe-browser#readme",
+  "homepage": "https://github.com/yuthstyle88/brave-browser#readme",
   "bugs": {
-    "url": "https://github.com/yuthstyle88/ibrowe-browser/issues"
+    "url": "https://github.com/yuthstyle88/brave-browser/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuthstyle88/ibrowe-browser.git"
+    "url": "git+https://github.com/yuthstyle88/brave-browser.git"
   },
-  "license": "MPL-2.0 iBrowe",
+  "license": "MPL-2.0",
   "author": {
-    "name": "iBrowe Software <support@brave.com>, iBrowe Software <support@ibrowe.com>"
+    "name": "Brave Software <support@brave.com>, iBrowe Software <support@ibrowe.com>"
   },
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",
+    "generate_patches": "node ./scripts/commands/libs/patchGenerator.js",
     "apply_ibrowe_patches": "node ./scripts/applyNewPatches.js",
     "audit_deps": "cd src/brave && npm run audit_deps --",
     "build": "cd src/brave && npm run build --",
@@ -42,9 +43,16 @@
     "projects": {
       "brave-core": {
         "dir": "src/brave",
-        "branch": "master",
         "repository": {
           "url": "https://github.com/yuthstyle88/brave-core.git"
+        },
+        "tag": "v1.74.48"
+      },
+      "ibrowe-core": {
+        "dir": "src/ibrowe",
+        "branch": "main",
+        "repository": {
+          "url": "https://github.com/yuthstyle88/ibrowe-core.git"
         }
       },
       "ibrowe-core": {
@@ -58,7 +66,6 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "child-process": "^1.0.2",
     "fs-extra": "^11.3.0"
   }
 }
