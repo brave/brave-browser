@@ -8,7 +8,7 @@ async function copyFileToBrave(sourceFolder, destFolder, ) {
 
 
     console.log("Applying image patches...");
-    async function processDirectory(dir) 
+    async function processDirectory(dir) {
         const entries = await fsp.readdir(dir, { withFileTypes: true });
         const filesToCopy = entries.filter(entry => entry.isFile());
 
