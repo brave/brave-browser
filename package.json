@@ -44,9 +44,9 @@
       "brave-core": {
         "dir": "src/brave",
         "repository": {
-          "url": "https://github.com/yuthstyle88/brave-core.git"
+          "url": "https://github.com/brave/brave-core.git"
         },
-        "tag": "v1.74.48"
+        "tag": "v1.74.51"
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
