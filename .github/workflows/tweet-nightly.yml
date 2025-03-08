@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Tweet
-        uses: nearform-actions/github-action-notify-twitter@5f60ea13517272e68eac76cd26f5a8f33bf3afaa # v1.2.1
+        uses: nearform-actions/github-action-notify-twitter@b3fa623c2f320117e8a08e20564c4ce0a5e67930 # v1.2.3
         with:
           message: "🎉 Issue resolved: ${{ github.event.issue.title }} by ${{ github.event.issue.user.login }}\n${{ github.event.issue.html_url }}"
           twitter-app-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}

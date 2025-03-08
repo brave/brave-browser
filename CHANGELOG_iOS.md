@@ -1,5 +1,6 @@
 # Changelog
 
+
 ## [1.70.133](https://github.com/brave/brave-browser/releases/tag/v1.70.133)
 
  - [Security] Added warning message when submitting transactions containing system program instructions as reported on HackerOne by topenga. ([#41820](https://github.com/brave/brave-browser/issues/41820))
