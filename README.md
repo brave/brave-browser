@@ -47,7 +47,9 @@ Follow the instructions for your platform:
 Once you have the prerequisites installed, you can get the code and initialize the build environment.
 
 ```bash
-git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/brave
+
+git clone git@github.com:yuthstyle88/brave-core.git path-to-your-project-folder/src/brave
+
 cd path-to-your-project-folder/src/brave
 npm install
 
@@ -55,6 +57,7 @@ npm install
 # this might take really long to finish depending on internet speed
 
 npm run init
+
 ```
 brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whichever CPU type you want to build for)
 brave-core based iOS builds should use `npm run init -- --target_os=ios`
@@ -66,7 +69,16 @@ npm config set target_os android
 npm config set target_arch arm
 ```
 
-Additional parameters needed to build are documented at https://github.com/brave/brave-browser/wiki/Build-configuration
+Apply patch file in iBrowe-core:
+```
+VERSION=$(git describe --tags --abbrev=0)
+git clone git@github.com:yuthstyle88/ibrowe-core.git -b $VERSION path-to-your-project-folder/src/ibrowe-core 
+./path-to-your-project-folder/src/ibrowe-core/scripts/apply_patches.sh
+
+```
+
+Additional parameters needed to build are documented at https://github.com/yuthstyle88/ibrowe-browser/wiki/Build-configuration
+
 
 Internal developers can find more information at https://github.com/brave/devops/wiki/%60.env%60-config-for-Brave-Developers
 
