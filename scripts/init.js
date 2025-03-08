@@ -9,18 +9,21 @@ const path = require('path')
 const { spawnSync } = require('child_process')
 const util = require('../lib/util')
 const { applyIBrowePatches } = require('./applyIBrowePatches')
-const { applyImagePatches } = require('./applyImagePatches')
+const { copyFileToBrave } = require('./copyFileToBrave')
 Log.progress('Performing initial checkout of brave-core')
 
 const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
 const ibroweCoreDir = path.resolve(__dirname, '..', 'src', 'ibrowe')
+const ibroweImages = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'images')
+const ibroweTranslates = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'translates')
 const ibrowePatchesDir = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'patches')
 const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
 async function runApplyPatches() {
-  await applyIBrowePatches(ibrowePatchesDir, braveCoreDir);
-  await applyImagePatches(ibroweCoreDir, braveCoreDir);
+  // await applyIBrowePatches(ibrowePatchesDir, braveCoreDir);
+  await copyFileToBrave(ibroweImages, braveCoreDir);
+  // await copyFileToBrave(ibroweTranslates, braveCoreDir);
 }
 
 if (!fs.existsSync(path.join(ibroweCoreDir, '.git'))) {
@@ -54,9 +57,9 @@ runApplyPatches().then(() => {
   if (process.platform === 'win32') {
     npmCommand += '.cmd'
   }
-  
+
   util.run(npmCommand, ['install'], { cwd: braveCoreDir })
-  
+
   util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
     cwd: braveCoreDir,
     env: process.env,

@@ -2,7 +2,7 @@
     const path = require('path');
     const fsp = fs.promises;
 
-    async function applyImagePatches(sourceFolder, destFolder, ) {
+    async function copyFileToBrave(sourceFolder, destFolder, ) {
         let count = 0;
 
         const braveFileExtensions = [".icns", ".ico", ".icon", ".xpm", ".png", ".gif", ".svg", ".jpg", ".jpeg", ".webp"];
@@ -54,5 +54,5 @@
     }
 
     module.exports = {
-        applyImagePatches
+        applyImagePatches: copyFileToBrave
     }
