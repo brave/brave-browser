@@ -1,6 +1,6 @@
 {
   "name": "ibrowe",
-  "version": "1.74.48",
+  "version": "0.0.1",
   "description": "Next generation iBrowe browser for macOS, Windows, Linux, and Android",
   "homepage": "https://github.com/yuthstyle88/brave-browser#readme",
   "bugs": {
@@ -50,13 +50,14 @@
       },
       "ibrowe-core": {
         "dir": "src/ibrowe",
+        "branch": "main",
         "repository": {
           "url": "https://github.com/yuthstyle88/ibrowe-core.git"
-        },
-        "tag": "v0.0.1"
+        }
       }
     }
   },
+
   "dependencies": {
     "chalk": "4.1.2",
     "fs-extra": "^11.3.0"
