@@ -5,15 +5,10 @@
     async function copyFileToBrave(sourceFolder, destFolder, ) {
         let count = 0;
 
-        const braveFileExtensions = [".icns", ".ico", ".icon", ".xpm", ".png", ".gif", ".svg", ".jpg", ".jpeg", ".webp"];
-        const translatesFileExtensions = [".grd", ".grdp", ".xtb", ".pak", ".strings"];
-        const fileExtensions = braveFileExtensions.concat(translatesFileExtensions);
-
         console.log("Applying image patches...");
         async function processDirectory(dir) {
             const entries = await fsp.readdir(dir, { withFileTypes: true });
-            const filesToCopy = entries.filter(entry => entry.isFile() &&
-                fileExtensions.some(ext => entry.name.toLowerCase().endsWith(ext)));
+            const filesToCopy = entries.filter(entry => entry.isFile());
             
             if (filesToCopy.length === 0) return;
 
