@@ -21,8 +21,8 @@ const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
 async function runApplyPatches() {
-  // await applyIBrowePatches(ibrowePatchesDir, braveCoreDir);
-  await copyFileToBrave(ibroweImages, braveCoreDir);
+   await applyIBrowePatches(ibrowePatchesDir, braveCoreDir);
+   await copyFileToBrave(ibroweImages, braveCoreDir);
   // await copyFileToBrave(ibroweTranslates, braveCoreDir);
 }
 
