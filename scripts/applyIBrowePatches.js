@@ -1,17 +1,22 @@
 const path = require('path');
 const fs = require('fs-extra');
-const { GitPatcher } = require('./commands/libs/gitPatcher'); // Corrected import
-const { defaultBuildConfig } = require('./commands/libs/config'); // Corrected import
+const config = require('../src/brave/build/commands/lib/config')
 
-async function applyIBrowePatches(configIBrowePatchDir, targetRepoPath) {
+async function applyIBrowePatches() {
+    const GitPatcher = require('../src/brave/build/commands/lib/gitPatcher')
+    const chromiumDir = config.srcDir
+    const braveRepoPath = path.join(chromiumDir, 'brave')
+    const iBroweDir = path.join(chromiumDir, 'ibrowe')
+    const iBrowePatchesPath = path.join(iBroweDir,'src', 'patches')
     try {
-        if (!fs.existsSync(configIBrowePatchDir)) {
-            console.error(`Patch directory "${configIBrowePatchDir}" does not exist.`);
+
+        if (!fs.existsSync(iBrowePatchesPath)) {
+            console.error(`Patch directory "${iBrowePatchesPath}" does not exist.`);
             process.exit(1);
         }
 
         try {
-            const gitPatcher = new GitPatcher(configIBrowePatchDir, targetRepoPath);
+            const gitPatcher = new GitPatcher(iBrowePatchesPath, braveRepoPath);
             await gitPatcher.applyPatches();
             console.log('✅ All patches applied successfully.');
         } catch (err) {

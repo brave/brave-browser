@@ -1,53 +1,30 @@
-    const fs = require('fs');
-    const path = require('path');
-    const fsp = fs.promises;
+const fs = require("fs");
+const path = require("path");
 
-    async function copyFileToBrave(sourceFolder, destFolder, ) {
-        let count = 0;
-
-        console.log("Applying image patches...");
-        async function processDirectory(dir) {
-            const entries = await fsp.readdir(dir, { withFileTypes: true });
-            const filesToCopy = entries.filter(entry => entry.isFile());
-            
-            if (filesToCopy.length === 0) return;
-
-            const relativePath = path.relative(sourceFolder, dir);
-            const targetFolder = path.join(destFolder, relativePath);
-
-            await fsp.mkdir(targetFolder, { recursive: true });
-
-            for (const file of filesToCopy) {
-                const sourceFile = path.join(dir, file.name);
-                const destFile = path.join(targetFolder, file.name);
-                try {
-                    await fsp.copyFile(sourceFile, destFile);
-                    count++;
-                } catch (error) {
-                    console.error(`Error copying file ${sourceFile} to ${destFile}:`, error);
-                }
-            }
-        }
-
-        async function traverseDirectory(dir) {
-            const entries = await fsp.readdir(dir, { withFileTypes: true });
-            for (const entry of entries) {
-                const fullPath = path.join(dir, entry.name);
-                if (entry.isDirectory()) {
-                    await traverseDirectory(fullPath);
-                    await processDirectory(fullPath);
-                }
-            }
-        }
-
-        try {
-            await traverseDirectory(sourceFolder);
-            console.log(`Copied ${count} files successfully from ${sourceFolder} to ${destFolder}!`);
-        } catch (error) {
-            console.error(`Error processing directory ${sourceFolder}:`, error);
-        }
+async function copyRecursiveSync(src, dest) {
+    if (!fs.existsSync(src)) {
+        console.error(`❌ ต้นทาง '${src}' ไม่พบ`);
+        return;
     }
 
-    module.exports = {
-        applyImagePatches: copyFileToBrave
+    // ตรวจสอบว่า src เป็นไฟล์หรือโฟลเดอร์
+    const stats = fs.statSync(src);
+
+    if (stats.isDirectory()) {
+        // อ่านไฟล์และโฟลเดอร์ทั้งหมดในโฟลเดอร์ปัจจุบัน
+        const files = fs.readdirSync(src);
+        for (const file of files) {
+            const srcPath = path.join(src, file);
+            const destPath = path.join(dest, file);
+
+            // **เรียกตัวเองซ้ำ (Recursive Call)**
+            copyRecursiveSync(srcPath, destPath);
+        }
+    } else {
+        // ถ้าเป็นไฟล์ -> คัดลอกไฟล์
+        fs.copyFileSync(src, dest);
+        console.log(`✅ คัดลอกไฟล์: ${src} -> ${dest}`);
     }
+}
+
+module.exports = { copyRecursiveSync };

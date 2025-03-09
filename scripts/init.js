@@ -9,20 +9,19 @@ const path = require('path')
 const { spawnSync } = require('child_process')
 const util = require('../lib/util')
 const { applyIBrowePatches } = require('./applyIBrowePatches')
-const { copyFileToBrave } = require('./copyFileToBrave')
+const { copyRecursiveSync } = require('./copyFileToBrave')
 Log.progress('Performing initial checkout of brave-core')
 
 const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
 const ibroweCoreDir = path.resolve(__dirname, '..', 'src', 'ibrowe')
 const ibroweImages = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'images')
 const ibroweTranslates = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'translates')
-const ibrowePatchesDir = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 'patches')
 const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
 async function runApplyPatches() {
-   await applyIBrowePatches(ibrowePatchesDir, braveCoreDir);
-   await copyFileToBrave(ibroweImages, braveCoreDir);
+  // await applyIBrowePatches();
+   await copyRecursiveSync(ibroweImages, braveCoreDir);
   // await copyFileToBrave(ibroweTranslates, braveCoreDir);
 }
 
@@ -50,21 +49,20 @@ console.log('Running npm install in ibrowe-core...')
 
 runApplyPatches().then(() => {
   Log.progress('Applying patches complete')
+  let npmCommand = 'npm'
+  if (process.platform === 'win32') {
+    npmCommand += '.cmd'
+  }
+  util.run(npmCommand, ['install'], { cwd: braveCoreDir })
 
+  util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
+    cwd: braveCoreDir,
+    env: process.env,
+    stdio: 'inherit',
+    shell: true,
+    git_cwd: '.', })
 }).catch((err) => {
   Log.error('Sync patches failed', err)
   process.exit(1)
 })
 
-let npmCommand = 'npm'
-if (process.platform === 'win32') {
-  npmCommand += '.cmd'
-}
-util.run(npmCommand, ['install'], { cwd: braveCoreDir })
-
-util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
-  cwd: braveCoreDir,
-  env: process.env,
-  stdio: 'inherit',
-  shell: true,
-  git_cwd: '.', })
