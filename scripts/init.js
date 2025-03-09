@@ -51,9 +51,6 @@ console.log('Running npm install in ibrowe-core...')
 runApplyPatches().then(() => {
   Log.progress('Applying patches complete')
 
-  console.log('Running npm install in brave-core...')
-
-
 }).catch((err) => {
   Log.error('Sync patches failed', err)
   process.exit(1)
