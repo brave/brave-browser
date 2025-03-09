@@ -53,20 +53,21 @@ runApplyPatches().then(() => {
 
   console.log('Running npm install in brave-core...')
 
-  let npmCommand = 'npm'
-  if (process.platform === 'win32') {
-    npmCommand += '.cmd'
-  }
 
-  util.run(npmCommand, ['install'], { cwd: braveCoreDir })
-
-  util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
-    cwd: braveCoreDir,
-    env: process.env,
-    stdio: 'inherit',
-    shell: true,
-    git_cwd: '.', })
 }).catch((err) => {
-  Log.error('Applying patches failed', err)
+  Log.error('Sync patches failed', err)
   process.exit(1)
 })
+
+let npmCommand = 'npm'
+if (process.platform === 'win32') {
+  npmCommand += '.cmd'
+}
+util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+
+util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
+  cwd: braveCoreDir,
+  env: process.env,
+  stdio: 'inherit',
+  shell: true,
+  git_cwd: '.', })
