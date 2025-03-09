@@ -31,7 +31,7 @@ Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful tec
 
 Help us translate Brave to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
 
-Follow [@brave](https://twitter.com/brave) on Twitter for important news and announcements.
+Follow [@brave](https://x.com/brave) on X for important news and announcements.
 
 ## Install prerequisites
 
@@ -40,7 +40,8 @@ Follow the instructions for your platform:
 - [macOS](https://github.com/brave/brave-browser/wiki/macOS-Development-Environment)
 - [iOS](https://github.com/brave/brave-browser/wiki/iOS-Development-Environment)
 - [Windows](https://github.com/brave/brave-browser/wiki/Windows-Development-Environment)
-- [Linux/Android](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
+- [Linux](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
+- [Android](https://github.com/brave/brave-browser/wiki/Android-Development-Environment)
 
 ## Clone and initialize the repo
 
