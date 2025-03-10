@@ -10,10 +10,6 @@ function copyRecursiveSync(src, dest) {
     const stats = fs.statSync(src);
 
     if (stats.isDirectory()) {
-        // ตรวจสอบและสร้างโฟลเดอร์ปลายทาง
-        if (!fs.existsSync(dest)) {
-            fs.mkdirSync(dest, { recursive: true });
-        }
 
         // คัดลอกไฟล์และโฟลเดอร์ทั้งหมดใน src
         const files = fs.readdirSync(src);
