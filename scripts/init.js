@@ -20,9 +20,9 @@ const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
 async function runApplyPatches() {
-  // await applyIBrowePatches();
-   await copyRecursiveSync(ibroweImages, braveCoreDir);
-  // await copyFileToBrave(ibroweTranslates, braveCoreDir);
+  await applyIBrowePatches();
+  await copyRecursiveSync(ibroweImages, braveCoreDir);
+  await copyFileToBrave(ibroweTranslates, braveCoreDir);
 }
 
 if (!fs.existsSync(path.join(ibroweCoreDir, '.git'))) {

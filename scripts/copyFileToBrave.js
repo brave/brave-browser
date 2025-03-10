@@ -18,12 +18,12 @@ async function copyRecursiveSync(src, dest) {
             const destPath = path.join(dest, file);
 
             // **เรียกตัวเองซ้ำ (Recursive Call)**
-            copyRecursiveSync(srcPath, destPath);
+            await copyRecursiveSync(srcPath, destPath);
         }
     } else {
         // ถ้าเป็นไฟล์ -> คัดลอกไฟล์
         fs.copyFileSync(src, dest);
-        console.log(`✅ คัดลอกไฟล์: ${src} -> ${dest}`);
+        console.log(`✅ Copy: ${src} -> ${dest}`);
     }
 }
 
