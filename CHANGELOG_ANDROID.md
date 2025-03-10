@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.76.73](https://github.com/brave/brave-browser/releases/tag/v1.76.73)
+
+### Web3
+
+ - Added Meld as a provider for "Buy" crypto assets. ([#42018](https://github.com/brave/brave-browser/issues/42018))
+ - Fixed crash when navigating between Brave Wallet screens in certain cases. ([#43537](https://github.com/brave/brave-browser/issues/43537))
+ - Fixed crash when resetting Brave Wallet settings in certain cases. ([#43392](https://github.com/brave/brave-browser/issues/43392))
+ - Fixed connect wallet dialog not closing when a new tab is opened. ([#43167](https://github.com/brave/brave-browser/issues/43167))
+
+### General
+
+ - Added ability to stop a streamed Leo response. ([#38337](https://github.com/brave/brave-browser/issues/38337))
+ - Added localization support for several new languages including Serbian (Latin), Serbian (Cyrillic), and others. ([#39792](https://github.com/brave/brave-browser/issues/39792) & [#43444](https://github.com/brave/brave-browser/issues/43444))
+ - Added notification permission prompt when enabling Brave VPN for the first time. ([#43019](https://github.com/brave/brave-browser/issues/43019))
+ - Added new Welcome card for Web Discovery Project (WDP) under new user onboarding. ([#40411](https://github.com/brave/brave-browser/issues/40411) & [#39439](https://github.com/brave/brave-browser/issues/39439))
+ - Removed lion animation from new user onboarding. ([#43116](https://github.com/brave/brave-browser/issues/43116))
+ - Fixed crash when opening Brave Rewards from toolbar in certain cases. ([#43385](https://github.com/brave/brave-browser/issues/43385))
+ - Fixed an issue where Brave Talk failed to function when accessed via shared meeting links. ([#44302](https://github.com/brave/brave-browser/issues/44302))
+ - Fixed crash in Brave VPN that affected location features in certain cases. ([#43519](https://github.com/brave/brave-browser/issues/43519))
+ - Fixed crash when turning on search suggestions in certain cases. ([#43518](https://github.com/brave/brave-browser/issues/43518))
+ - Fixed crash when accessing Brave News settings in certain cases. ([#43517](https://github.com/brave/brave-browser/issues/43517) & [#43386](https://github.com/brave/brave-browser/issues/43386))
+ - Fixed crash when showing update notification in certain cases. ([#43391](https://github.com/brave/brave-browser/issues/43391))
+ - Fixed crash when using Picture-in-Picture video mode in certain cases. ([#43387](https://github.com/brave/brave-browser/issues/43387))
+ - Upgraded Chromium to 134.0.6998.45. ([#44410](https://github.com/brave/brave-browser/issues/44410)) ([Changelog for 134.0.6998.45](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.141..134.0.6998.45?pretty=fuller&n=1000))
+
 ## [1.75.181](https://github.com/brave/brave-browser/releases/tag/v1.75.181)
 
  - Removed Leo search functionality from Quick Search panel under Private browsing mode. ([#44102](https://github.com/brave/brave-browser/issues/44102))
