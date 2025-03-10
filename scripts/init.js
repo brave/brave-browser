@@ -19,11 +19,7 @@ const ibroweTranslates = path.resolve(__dirname, '..', 'src', 'ibrowe', 'src' , 
 const braveCoreRef = util.getProjectVersion('brave-core')
 const ibroweCoreRef = util.getProjectVersion('ibrowe-core')
 
-async function runApplyPatches() {
-  await applyIBrowePatches();
-  await copyRecursiveSync(ibroweImages, braveCoreDir);
-  await copyFileToBrave(ibroweTranslates, braveCoreDir);
-}
+
 
 if (!fs.existsSync(path.join(ibroweCoreDir, '.git'))) {
   Log.status(`Cloning brave-core [${ibroweCoreRef}] into ${ibroweCoreDir}...`)
@@ -45,10 +41,15 @@ Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}
 const ibroweSha = util.runGit(ibroweCoreDir, ['rev-parse', 'HEAD'])
 Log.progress(`ibrowe-core repo at ${ibroweCoreDir} is at commit ID ${ibroweSha}`)
 
-console.log('Running npm install in ibrowe-core...')
 
-runApplyPatches().then(() => {
-  Log.progress('Applying patches complete')
+console.log('Running runApplyPatches')
+Promise.all([
+  applyIBrowePatches(),
+  copyRecursiveSync(ibroweImages, braveCoreDir),
+  copyRecursiveSync(ibroweTranslates, braveCoreDir)
+]).then(() => {
+  console.log('Done.')
+  console.log('Running npm install in ibrowe-core...')
   let npmCommand = 'npm'
   if (process.platform === 'win32') {
     npmCommand += '.cmd'
@@ -61,8 +62,10 @@ runApplyPatches().then(() => {
     stdio: 'inherit',
     shell: true,
     git_cwd: '.', })
-}).catch((err) => {
-  Log.error('Sync patches failed', err)
-  process.exit(1)
 })
+    .catch(err => {
+      console.error('Error apply patch files:')
+      console.error(err)})
+
+
 
