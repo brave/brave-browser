@@ -1,29 +1,31 @@
 const fs = require("fs");
 const path = require("path");
 
-async function copyRecursiveSync(src, dest) {
+function copyRecursiveSync(src, dest) {
     if (!fs.existsSync(src)) {
         console.error(`❌ ต้นทาง '${src}' ไม่พบ`);
         return;
     }
 
-    // ตรวจสอบว่า src เป็นไฟล์หรือโฟลเดอร์
     const stats = fs.statSync(src);
 
     if (stats.isDirectory()) {
-        // อ่านไฟล์และโฟลเดอร์ทั้งหมดในโฟลเดอร์ปัจจุบัน
+        // ตรวจสอบและสร้างโฟลเดอร์ปลายทาง
+        if (!fs.existsSync(dest)) {
+            fs.mkdirSync(dest, { recursive: true });
+        }
+
+        // คัดลอกไฟล์และโฟลเดอร์ทั้งหมดใน src
         const files = fs.readdirSync(src);
         for (const file of files) {
             const srcPath = path.join(src, file);
             const destPath = path.join(dest, file);
-
-            // **เรียกตัวเองซ้ำ (Recursive Call)**
-            await copyRecursiveSync(srcPath, destPath);
+            copyRecursiveSync(srcPath, destPath); // เรียกตัวเองซ้ำ
         }
     } else {
         // ถ้าเป็นไฟล์ -> คัดลอกไฟล์
         fs.copyFileSync(src, dest);
-        console.log(`✅ Copy: ${src} -> ${dest}`);
+        console.log(`✅ Copy : ${src} -> ${dest}`);
     }
 }
 

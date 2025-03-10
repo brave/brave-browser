@@ -45,10 +45,11 @@ Log.progress(`ibrowe-core repo at ${ibroweCoreDir} is at commit ID ${ibroweSha}`
 console.log('Running runApplyPatches')
 Promise.all([
   applyIBrowePatches(),
-  copyRecursiveSync(ibroweImages, braveCoreDir),
-  copyRecursiveSync(ibroweTranslates, braveCoreDir)
 ]).then(() => {
-  console.log('Done.')
+  console.log('Copy images files .')
+  copyRecursiveSync(ibroweImages, braveCoreDir);
+  console.log('Copy Translates files .')
+  copyRecursiveSync(ibroweTranslates, braveCoreDir);
   console.log('Running npm install in ibrowe-core...')
   let npmCommand = 'npm'
   if (process.platform === 'win32') {
