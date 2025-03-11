@@ -8,7 +8,6 @@ const Log = require('../lib/logging')
 const path = require('path')
 const { spawnSync } = require('child_process')
 const util = require('../lib/util')
-const { applyIBrowePatches } = require('./applyIBrowePatches')
 const { copyRecursiveSync } = require('./copyFileToBrave')
 Log.progress('Performing initial checkout of brave-core')
 
@@ -41,7 +40,7 @@ Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}
 const ibroweSha = util.runGit(ibroweCoreDir, ['rev-parse', 'HEAD'])
 Log.progress(`ibrowe-core repo at ${ibroweCoreDir} is at commit ID ${ibroweSha}`)
 
-
+const { applyIBrowePatches } = require('./applyIBrowePatches')
 console.log('Running runApplyPatches')
 Promise.all([
   applyIBrowePatches(),
