@@ -3,7 +3,7 @@ const path = require("path");
 
 function copyRecursiveSync(src, dest) {
     if (!fs.existsSync(src)) {
-        console.error(`❌ ต้นทาง '${src}' ไม่พบ`);
+        console.error(`❌ Not found : '${src}'`);
         return;
     }
 
@@ -20,8 +20,13 @@ function copyRecursiveSync(src, dest) {
         }
     } else {
         // ถ้าเป็นไฟล์ -> คัดลอกไฟล์
-        fs.copyFileSync(src, dest);
+        if (!fs.existsSync(dest)) {
+            console.error(`❌ Not found : '${dest}' `);
+            return;
+        }
         console.log(`✅ Copy : ${src} -> ${dest}`);
+        fs.copyFileSync(src, dest);
+
     }
 }
 
