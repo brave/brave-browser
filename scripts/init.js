@@ -8,7 +8,6 @@ const Log = require('../lib/logging')
 const path = require('path')
 const { spawnSync } = require('child_process')
 const util = require('../lib/util')
-const { applyIBrowePatches } = require('./applyIBrowePatches')
 const { copyRecursiveSync } = require('./copyFileToBrave')
 Log.progress('Performing initial checkout of brave-core')
 
@@ -40,8 +39,14 @@ Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}
 
 const ibroweSha = util.runGit(ibroweCoreDir, ['rev-parse', 'HEAD'])
 Log.progress(`ibrowe-core repo at ${ibroweCoreDir} is at commit ID ${ibroweSha}`)
-
-
+console.log('Running npm install in ibrowe-core...')
+let npmCommand = 'npm'
+if (process.platform === 'win32') {
+  npmCommand += '.cmd'
+}
+util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+//Load after clone brave core
+const { applyIBrowePatches } = require('./applyIBrowePatches')
 console.log('Running runApplyPatches')
 Promise.all([
   applyIBrowePatches(),
@@ -50,12 +55,6 @@ Promise.all([
   copyRecursiveSync(ibroweImages, braveCoreDir);
   console.log('Copy Translates files .')
   copyRecursiveSync(ibroweTranslates, braveCoreDir);
-  console.log('Running npm install in ibrowe-core...')
-  let npmCommand = 'npm'
-  if (process.platform === 'win32') {
-    npmCommand += '.cmd'
-  }
-  util.run(npmCommand, ['install'], { cwd: braveCoreDir })
 
   util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
     cwd: braveCoreDir,
