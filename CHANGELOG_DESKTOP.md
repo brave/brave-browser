@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.76.74](https://github.com/brave/brave-browser/releases/tag/v1.76.74)
+
+ - Fixed crash which occurred when visiting brave://rewards with certain locales. ([#44459](https://github.com/brave/brave-browser/issues/44459))
+ - Upgraded Chromium to 134.0.6998.89. ([#44553](https://github.com/brave/brave-browser/issues/44553)) ([Changelog for 134.0.6998.89](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.45..134.0.6998.89?pretty=fuller&n=1000))
+
 ## [1.76.73](https://github.com/brave/brave-browser/releases/tag/v1.76.73)
 
 ### Web3
