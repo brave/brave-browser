@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.76.75](https://github.com/brave/brave-browser/releases/tag/v1.76.75)
+
+ - Fixed search widget to properly populate suggestions and top sites on initial launch. ([#40610](https://github.com/brave/brave-browser/issues/40610))
+ - Upgraded Chromium to 134.0.6998.95. ([#44589](https://github.com/brave/brave-browser/issues/44589)) ([Changelog for 134.0.6998.89](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.89..134.0.6998.95?pretty=fuller&n=1000))
+
 ## [1.76.73](https://github.com/brave/brave-browser/releases/tag/v1.76.73)
 
 ### Web3
