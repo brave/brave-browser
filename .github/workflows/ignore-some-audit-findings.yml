@@ -1,0 +1,33 @@
+name: Ignore some audit findings
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.AUDIT_CONFIG_TOKEN }}
+      IGNORE_PAT: 'cwe-133|cwe-400|cwe-1050|cwe-1333|denial of service|dos|redos|resource exhaustion|regexp|rxdos'
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      ISSUE_URL: ${{ github.event.issue.html_url }}
+    steps:
+      - name: Trigger the creation of an audit-config PR to ignore an audit finding if it matches the specified criteria
+        if: startsWith(github.event.issue.title, 'Audit finding:') &&
+            contains(github.event.issue.labels.*.name, 'bot/type/audit') &&
+            github.event.issue.user.login == 'brave-builds'
+        run: |
+          set -eEo pipefail
+          shopt -s inherit_errexit
+
+          if advisory_id="$(cut -d' ' -f3 <<<"${ISSUE_TITLE:?}"|grep -oP 'GHSA-\w+-\w+-\w+')"; then
+              advisory_details="$(gh api -H "Accept: application/vnd.github+json" "/advisories/$advisory_id" \
+                  -q '.cwes[].cwe_id + "\n" + .summary + "\n" + .description')"
+
+              if grep -qwiE "${IGNORE_PAT:?}" <<<"${advisory_details:?}"; then
+                  gh -R "${GITHUB_REPOSITORY_OWNER:?}"/audit-config workflow run create_pull_request.yml \
+                      -f advisory="${advisory_id:?}" \
+                      -f issue="${ISSUE_URL:?}"
+                  echo "Opened a PR to ignore $advisory_id"|tee "${GITHUB_STEP_SUMMARY:?}"
+              fi
+          fi
