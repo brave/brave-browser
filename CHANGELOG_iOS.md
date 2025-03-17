@@ -7,7 +7,7 @@
  - Added warning text in the setting description when user enables “Block all cookies”. ([#44295](https://github.com/brave/brave-browser/issues/42295))
  - Added the ability to select custom app icons for Brave. ([#43141](https://github.com/brave/brave-browser/issues/43141))
  - Disabled TLS 1.0 and TLS 1.1 due to versions being deprecated. ([#43819](https://github.com/brave/brave-browser/issues/43819))
- - Fixed crash when enabling "Open Tabs" syncing. ([#44380](https://github.com/brave/brave-browser/issues/44380)
+ - Fixed crash when enabling "Open Tabs" syncing. ([#44380](https://github.com/brave/brave-browser/issues/44380))
  - Fixed parent tab permission pop-ups being shown on child tabs as reported on HackerOne by b4dc4t. ([#44061](https://github.com/brave/brave-browser/issues/44061))
  - Fixed URL to be displayed properly when scanning QR codes as reported on HackerOne by roland_hack. ([#42559](https://github.com/brave/brave-browser/issues/42559))
  - Fixed text resizing issue for old.reddit.com posts when in Night Mode. ([#43096](https://github.com/brave/brave-browser/issues/43096))
