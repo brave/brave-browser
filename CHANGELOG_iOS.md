@@ -4,15 +4,15 @@
 
  - Added Brave Translate for page translations. ([#40782](https://github.com/brave/brave-browser/issues/40782))
  - Added generalization for the model names in Leo chat. ([#44195](https://github.com/brave/brave-browser/issues/44195))
- - Added warning text in the setting description when user enables “Block all cookies”. ([#44295](https://github.com/brave/brave-browser/issues/42295))
+ - Added warning text in the setting description when user enables “Block all cookies”. ([#42295](https://github.com/brave/brave-browser/issues/42295))
  - Added the ability to select custom app icons for Brave. ([#43141](https://github.com/brave/brave-browser/issues/43141))
  - Disabled TLS 1.0 and TLS 1.1 due to versions being deprecated. ([#43819](https://github.com/brave/brave-browser/issues/43819))
  - Fixed crash when enabling "Open Tabs" syncing. ([#44380](https://github.com/brave/brave-browser/issues/44380))
  - Fixed parent tab permission pop-ups being shown on child tabs as reported on HackerOne by b4dc4t. ([#44061](https://github.com/brave/brave-browser/issues/44061))
- - Fixed URL to be displayed properly when scanning QR codes as reported on HackerOne by roland_hack. ([#42559](https://github.com/brave/brave-browser/issues/42559))
+ - Fixed URL being incorrectly displayed when scanning QR codes as reported on HackerOne by roland_hack. ([#42559](https://github.com/brave/brave-browser/issues/42559)) ([#42559](https://github.com/brave/brave-browser/issues/42559))
  - Fixed text resizing issue for old.reddit.com posts when in Night Mode. ([#43096](https://github.com/brave/brave-browser/issues/43096))
  - Fixed background color for New Tabs when in Dark Mode. ([#44270](https://github.com/brave/brave-browser/issues/44270))
- - Fixed clipboard lookups when searching from the URL bar using the Kana Japanese keyboard. ([#42536](https://github.com/brave/brave-browser/issues/42526))
+ - Fixed clipboard lookups when searching from the URL bar using the Kana Japanese keyboard. ([#42526](https://github.com/brave/brave-browser/issues/42526))
  - Fixed UI error when comparing cached content blocker rule list versions. ([#44156](https://github.com/brave/brave-browser/issues/44156))
  - Upgraded Chromium to 134.0.6998.95. ([#44589](https://github.com/brave/brave-browser/issues/44589))([Changelog for 134.0.6998.95](https://chromium.googlesource.com/chromium/src/+log/133.0.6943.98..134.0.6998.95?pretty=fuller&n=10000))
 
