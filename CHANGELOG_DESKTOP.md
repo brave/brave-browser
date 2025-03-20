@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.76.80](https://github.com/brave/brave-browser/releases/tag/v1.76.80)
+
+ - Updated the "Portfolio" page to have "Price History" hidden by default. ([#44512](https://github.com/brave/brave-browser/issues/44512))
+ - Removed "Market Prices" from the Meld token list. ([#44626](https://github.com/brave/brave-browser/issues/44626))
+ - Upgraded Chromium to 134.0.6998.118. ([#44786](https://github.com/brave/brave-browser/issues/44786)) ([Changelog for 134.0.6998.118](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.89..134.0.6998.118?pretty=fuller&n=1000))
+
 ## [1.76.74](https://github.com/brave/brave-browser/releases/tag/v1.76.74)
 
  - Fixed crash which occurred when visiting brave://rewards with certain locales. ([#44459](https://github.com/brave/brave-browser/issues/44459))
