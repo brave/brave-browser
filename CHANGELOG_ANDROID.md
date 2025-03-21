@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.76.80](https://github.com/brave/brave-browser/releases/tag/v1.76.80)
+
+ - Updated the "Portfolio" page to have "Price History" hidden by default. ([#44512](https://github.com/brave/brave-browser/issues/44512))
+ - Removed "Market Prices" from the Meld token list. ([#44626](https://github.com/brave/brave-browser/issues/44626))
+ - Fixed blank page issue when selecting destination address when initiating Filecoin send transactions. ([#44504](https://github.com/brave/brave-browser/issues/44504))
+ - Fixed an issue where the "Review Send" transaction confirmation screen did not appear when submitting a transaction. ([#44408](https://github.com/brave/brave-browser/issues/44408))
+ - Upgraded Chromium to 134.0.6998.118. ([#44786](https://github.com/brave/brave-browser/issues/44786)) ([Changelog for 134.0.6998.118](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.89..134.0.6998.118?pretty=fuller&n=1000))
+
 ## [1.76.75](https://github.com/brave/brave-browser/releases/tag/v1.76.75)
 
  - Fixed search widget to properly populate suggestions and top sites on initial launch. ([#40610](https://github.com/brave/brave-browser/issues/40610))
