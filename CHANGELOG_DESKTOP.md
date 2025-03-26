@@ -2,7 +2,7 @@
 
 ## [1.76.82](https://github.com/brave/brave-browser/releases/tag/v1.76.82)
 
- - Upgraded Chromium to 134.0.6998.178. ([#44951](https://github.com/brave/brave-browser/issues/44951)) ([Changelog for 134.0.6998.178](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.166..134.0.6998.178?pretty=fuller&n=1000))
+ - Upgraded Chromium to 134.0.6998.178. ([#44940](https://github.com/brave/brave-browser/issues/44940)) ([Changelog for 134.0.6998.178](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.166..134.0.6998.178?pretty=fuller&n=1000))
 
 ## [1.76.81](https://github.com/brave/brave-browser/releases/tag/v1.76.81)
 
