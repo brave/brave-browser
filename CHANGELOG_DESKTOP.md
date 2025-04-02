@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.77.95](https://github.com/brave/brave-browser/releases/tag/v1.77.95)
+
+### Web3
+
+ - Added Zcash shielded support. ([#44432](https://github.com/brave/brave-browser/issues/44432))
+ - Added a prompt to "Select Account" when clicking "Swap" or "Bridge" from the "Portfolio" page. ([#43441](https://github.com/brave/brave-browser/issues/43441))
+ - Updated Brave Wallet to check portfolio balance using optimized balance scanner. ([#44018](https://github.com/brave/brave-browser/issues/44018))
+ - Updated UI to always display "Buy", "Send", "Swap", "Bridge", and "Deposit" in the "Asset Details" screen. ([#43198](https://github.com/brave/brave-browser/issues/43198))
+ - Expanded tokens list to fetch top 5000 ranked tokens. ([#44019](https://github.com/brave/brave-browser/issues/44019))
+ - Fixed Web3 DApp explorer section to list DApps. ([#44929](https://github.com/brave/brave-browser/issues/44929))
+
+### Leo
+
+ - Added the ability to show/hide reasoning for supported models like Deepseek. ([#43497](https://github.com/brave/brave-browser/issues/43497))
+ - Added "Qwen 14B" to the list of pre-loaded models. ([#43677](https://github.com/brave/brave-browser/issues/43677))
+ - Updated Leo to show web sources used to generate query response from Brave Search. ([#39630](https://github.com/brave/brave-browser/issues/39630))
+
+### Rewards
+
+ - Added "Next earnings payout date" to the "Home" view. ([#43715](https://github.com/brave/brave-browser/issues/43715))
+
+### General
+
+ - Added "Use Vertical Tabs" option to the toolbar context menu. ([#41721](https://github.com/brave/brave-browser/issues/41721))
+ - [Security] Updated brave://downloads to always display the download URL as reported on HackerOne by cj27_. ([#43501](https://github.com/brave/brave-browser/issues/43501))
+ - [Security] Prevent extensions from injecting content scripts on https://account.brave.com as reported on HackerOne by newfunction. ([#42998](https://github.com/brave/brave-browser/issues/42998))
+ - Enabled on-device suggestions model for all search providers. ([#43762](https://github.com/brave/brave-browser/issues/43762))
+ - Updated default search engine to Yahoo! JAPAN for new installations in Japan region. ([#44148](https://github.com/brave/brave-browser/issues/44148))
+ - Updated the Safe Browsing "Standard protection" setting description under brave://settings/security. ([#44377](https://github.com/brave/brave-browser/issues/44377))
+ - Updated the focus border color on the URL bar to match user selected theme. ([#44389](https://github.com/brave/brave-browser/issues/44389))
+ - Updated icons on the Tab Groups menu. ([#43792](https://github.com/brave/brave-browser/issues/43792))
+ - Updated menu icon on the Extensions drop down. ([#43872](https://github.com/brave/brave-browser/issues/43872))
+ - Updated header order displayed on brave://settings. ([#43718](https://github.com/brave/brave-browser/issues/43718))
+ - Fixed crash which could occur when unlocking 1Password extension on macOS in certain cases. ([#44210](https://github.com/brave/brave-browser/issues/44210))
+ - Fixed performance/animation jank when dragging tabs in vertical tab mode. ([#44050](https://github.com/brave/brave-browser/issues/44050))
+ - Fixed issue where some pinned tabs are hidden at startup in vertical tab mode on Windows. ([#44276](https://github.com/brave/brave-browser/issues/44276))
+ - Fixed detached window being hidden during tab dragging when in vertical tab mode. ([#44397](https://github.com/brave/brave-browser/issues/44397))
+ - Fixed detached tab in new window not being rendered properly until releasing the mouse press when using vertical tab mode. ([#44032](https://github.com/brave/brave-browser/issues/44032))
+ - Fixed inability to resize sidebar panels in certain cases. ([#43507](https://github.com/brave/brave-browser/issues/43507))
+ - Fixed issue where various websites were broken with fingerprinting protections enabled. ([#43555](https://github.com/brave/brave-browser/issues/43555))
+ - Fixed hamburger menu being cut off in certain locales on Windows and Linux. ([#41364](https://github.com/brave/brave-browser/issues/41364))
+ - Upgraded Chromium to 135.0.7049.52. ([#45124](https://github.com/brave/brave-browser/issues/45124)) ([Changelog for 135.0.7049.52](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.178..135.0.7049.52?pretty=fuller&n=1000))
+
 ## [1.76.82](https://github.com/brave/brave-browser/releases/tag/v1.76.82)
 
  - Upgraded Chromium to 134.0.6998.178. ([#44940](https://github.com/brave/brave-browser/issues/44940)) ([Changelog for 134.0.6998.178](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.166..134.0.6998.178?pretty=fuller&n=1000))
