@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.77.95](https://github.com/brave/brave-browser/releases/tag/v1.77.95)
+
+### Web3
+
+ - Updated UI to always display "Buy", "Send", "Swap", "Bridge", and "Deposit" in the "Asset Details" screen. ([#43198](https://github.com/brave/brave-browser/issues/43198))
+
+### Rewards
+
+ - Implemented Brave Rewards 3.0, a completely redesigned user experience for Brave Rewards, including an "Explore" page and many other new elements (being rolled out in phases using Griffin starting at 15%). ([#38434](https://github.com/brave/brave-browser/issues/38434))
+
+### Leo
+
+ - Added input box auto-focus when starting a new conversation. ([#40968](https://github.com/brave/brave-browser/issues/40968))
+ - Improved premium subscription linking process. ([#43956](https://github.com/brave/brave-browser/issues/43956))
+ - Updated Leo to show web sources used to generate query responses from Brave Search. ([#39630](https://github.com/brave/brave-browser/issues/39630))
+
+### General
+
+ - [Security] Updated brave://downloads to always display the download URL as reported on HackerOne by cj27_. ([#43501](https://github.com/brave/brave-browser/issues/43501))
+ - Updated default search engine to Yahoo! JAPAN for new installations in Japan region. ([#44148](https://github.com/brave/brave-browser/issues/44148))
+ - Removed search engine onboarding for all regions. ([#44818](https://github.com/brave/brave-browser/issues/44818))
+ - Fixed bottom toolbar incorrectly appearing when a mobile device was used in landscape mode. ([#43925](https://github.com/brave/brave-browser/issues/43925))
+ - Upgraded Chromium to 135.0.7049.52. ([#45124](https://github.com/brave/brave-browser/issues/45124)) ([Changelog for 135.0.7049.52](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.178..135.0.7049.52?pretty=fuller&n=1000))
+
 ## [1.76.81](https://github.com/brave/brave-browser/releases/tag/v1.76.81)
 
  - Upgraded Chromium to 134.0.6998.166. ([#44856](https://github.com/brave/brave-browser/issues/44856)) ([Changelog for 134.0.6998.166](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.118..134.0.6998.166?pretty=fuller&n=1000))
