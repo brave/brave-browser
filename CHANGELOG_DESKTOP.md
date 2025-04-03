@@ -33,7 +33,6 @@
  - Updated icons on the Tab Groups menu. ([#43792](https://github.com/brave/brave-browser/issues/43792))
  - Updated menu icon on the Extensions drop down. ([#43872](https://github.com/brave/brave-browser/issues/43872))
  - Updated header order displayed on brave://settings. ([#43718](https://github.com/brave/brave-browser/issues/43718))
- - Fixed crash which could occur when unlocking 1Password extension on macOS in certain cases. ([#44210](https://github.com/brave/brave-browser/issues/44210))
  - Fixed performance/animation jank when dragging tabs in vertical tab mode. ([#44050](https://github.com/brave/brave-browser/issues/44050))
  - Fixed issue where some pinned tabs are hidden at startup in vertical tab mode on Windows. ([#44276](https://github.com/brave/brave-browser/issues/44276))
  - Fixed detached window being hidden during tab dragging when in vertical tab mode. ([#44397](https://github.com/brave/brave-browser/issues/44397))
