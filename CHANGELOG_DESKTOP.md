@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.77.97](https://github.com/brave/brave-browser/releases/tag/v1.77.97)
+
+ - Updated "Top sites" to "Top Suggestions" under brave://settings/appearance. ([#44592](https://github.com/brave/brave-browser/issues/44592))
+ - Reduced the width of the bookmarks application menu. ([#45165](https://github.com/brave/brave-browser/issues/45165))
+ - Fixed crash which occurred when a tab is sent from mobile to desktop. ([#45198](https://github.com/brave/brave-browser/issues/45198))
+ - Fixed insecure download indicator not being displayed. ([#45159](https://github.com/brave/brave-browser/issues/45159))
+ - Upgraded Chromium to 135.0.7049.84. ([#45297](https://github.com/brave/brave-browser/issues/45297)) ([Changelog for 135.0.7049.84](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.52..135.0.7049.84?pretty=fuller&n=1000))
+
 ## [1.77.95](https://github.com/brave/brave-browser/releases/tag/v1.77.95)
 
 ### Web3
