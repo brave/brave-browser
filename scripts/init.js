@@ -11,28 +11,37 @@ const util = require('../lib/util')
 
 Log.progress('Performing initial checkout of brave-core')
 
-const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
+const braveCoreDir = path.join(__dirname, '..', 'src', 'brave')
 const braveCoreRef = util.getProjectVersion('brave-core')
 
-if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
-  Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
-  fs.mkdirSync(braveCoreDir)
-  util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
-  util.runGit(braveCoreDir, ['checkout', braveCoreRef])
+try {
+  if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
+    Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
+    fs.mkdirSync(braveCoreDir, { recursive: true }) // Ensure parent directories are created
+    util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
+    util.runGit(braveCoreDir, ['checkout', braveCoreRef])
+  }
+
+  const braveCoreSha = util.runGit(braveCoreDir, ['rev-parse', 'HEAD'])
+  Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}`)
+
+  let npmCommand = 'npm'
+  if (process.platform === 'win32') {
+    npmCommand += '.cmd'
+  }
+
+  Log.status('Installing npm dependencies...')
+  util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+
+  Log.status('Running sync script...')
+  util.run(npmCommand, ['run', 'sync', '--', '--init'].concat(process.argv.slice(2)), {
+    cwd: braveCoreDir,
+    env: process.env,
+    stdio: 'inherit',
+    shell: true,
+    git_cwd: '.',
+  })
+} catch (error) {
+  Log.error(`An error occurred: ${error.message}`)
+  process.exit(1) // Exit with a failure code
 }
-const braveCoreSha = util.runGit(braveCoreDir, ['rev-parse', 'HEAD'])
-Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}`)
-
-let npmCommand = 'npm'
-if (process.platform === 'win32') {
-  npmCommand += '.cmd'
-}
-
-util.run(npmCommand, ['install'], { cwd: braveCoreDir })
-
-util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
-  cwd: braveCoreDir,
-  env: process.env,
-  stdio: 'inherit',
-  shell: true,
-  git_cwd: '.', })
