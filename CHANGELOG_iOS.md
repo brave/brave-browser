@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.77.98](https://github.com/brave/brave-browser/releases/tag/v1.77.98)
+
+ - Implemented an exception list for Night Mode. ([#44213](https://github.com/brave/brave-browser/issues/44213))
+ - Added Yahoo! Japan search engine for new users in Japan. ([#43311](https://github.com/brave/brave-browser/issues/43311))
+ - Improved the performance of searching using URL bar for users with many bookmarks, tabs and history items. ([#43703](https://github.com/brave/brave-browser/issues/43703))
+ - Improved search results filtering and auto-complete when using the URL-bar. ([#44842](https://github.com/brave/brave-browser/issues/44842))
+ - Improved cosmetic filtering performance. ([#42530](https://github.com/brave/brave-browser/issues/42530))
+ - Updated Brave Translate to hide an element in reader mode. ([#44835](https://github.com/brave/brave-browser/issues/44835))
+ - Updated Brave Translate onboarding to not include any buttons. ([#44650](https://github.com/brave/brave-browser/issues/44650))
+ - Updated the “Enable Global Privacy Control” settings toggle placement to be at the bottom of the advanced settings page. ([#43690](https://github.com/brave/brave-browser/issues/43690))
+ - Fixed crash when clearing a large amount of history. ([#44981](https://github.com/brave/brave-browser/issues/44981))
+ - Fixed normal tabs being removed when disabling the “Keep Private Tabs” setting toggle. ([#45350](https://github.com/brave/brave-browser/issues/45350))
+ - Fixed an issue where tabs are not blocking pop-ups after switching from another tab. ([#44419](https://github.com/brave/brave-browser/issues/44419))
+ - Fixed empty view when loading Leo Default Model View setting page from the hamburger menu. ([#44072](https://github.com/brave/brave-browser/issues/44072))
+ - Fixed audio continuing to play for users that closed a tab which showed a JavaScript alert. ([#43699](https://github.com/brave/brave-browser/issues/43699))
+ - Fixed “Shred Site Data” not working while using reader mode. ([#43663](https://github.com/brave/brave-browser/issues/43663))
+ - Fixed issues relating to URL spoofing using blob as reported on HackerOne by b4dc4t and frozzipies. ([#43654](https://github.com/brave/brave-browser/issues/43654))
+ - Fixed auto-complete issue for the URL-bar in Hindi. ([#43270](https://github.com/brave/brave-browser/issues/43270))
+ - Upgraded Chromium to 135.0.7049.84. ([#45297](https://github.com/brave/brave-browser/issues/45297))([Changelog for 135.0.7049.84](https://chromium.googlesource.com/chromium/src/+log/134.0.6998.95..135.0.7049.84?pretty=fuller&n=10000))
+
 ## [1.76.77](https://github.com/brave/brave-browser/releases/tag/v1.76.77)
 
  - Added Brave Translate for page translations. ([#40782](https://github.com/brave/brave-browser/issues/40782))
