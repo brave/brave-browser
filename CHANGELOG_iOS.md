@@ -3,7 +3,7 @@
 ## [1.77.98](https://github.com/brave/brave-browser/releases/tag/v1.77.98)
 
  - Implemented an exception list for Night Mode. ([#44213](https://github.com/brave/brave-browser/issues/44213))
- - Added Yahoo! Japan search engine for new users in Japan. ([#43311](https://github.com/brave/brave-browser/issues/43311))
+ - Added Yahoo! Japan search engine for new Japan users. ([#43311](https://github.com/brave/brave-browser/issues/43311))
  - Improved the performance of searching using URL bar for users with many bookmarks, tabs and history items. ([#43703](https://github.com/brave/brave-browser/issues/43703))
  - Improved search results filtering and auto-complete when using the URL-bar. ([#44842](https://github.com/brave/brave-browser/issues/44842))
  - Improved cosmetic filtering performance. ([#42530](https://github.com/brave/brave-browser/issues/42530))
