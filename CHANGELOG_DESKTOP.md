@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.77.100](https://github.com/brave/brave-browser/releases/tag/v1.77.100)
+
+ - Upgraded Chromium to 135.0.7049.100. ([#45458](https://github.com/brave/brave-browser/issues/45458)) ([Changelog for 135.0.7049.100](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.84..135.0.7049.100?pretty=fuller&n=1000))
+
 ## [1.77.97](https://github.com/brave/brave-browser/releases/tag/v1.77.97)
 
  - Updated "Top sites" to "Top Suggestions" under brave://settings/appearance. ([#44592](https://github.com/brave/brave-browser/issues/44592))
