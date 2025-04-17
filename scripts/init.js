@@ -1,38 +1,69 @@
-// Copyright (c) 2019 The Brave Authors. All rights reserved.
-// This Source Code Form is subject to the terms of the Mozilla Public
-// License, v. 2.0. If a copy of the MPL was not distributed with this file,
-// you can obtain one at http://mozilla.org/MPL/2.0/.
+// Copyright (c) 2019 The Brave Authors.
+// Licensed under the MPL 2.0: http://mozilla.org/MPL/2.0/
 
 const fs = require('fs')
-const Log = require('../lib/logging')
 const path = require('path')
 const { spawnSync } = require('child_process')
+
+const Log = require('../lib/logging')
 const util = require('../lib/util')
 
-Log.progress('Performing initial checkout of brave-core')
-
 const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
-const braveCoreRef = util.getProjectVersion('brave-core')
 
-if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
-  Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
-  fs.mkdirSync(braveCoreDir)
-  util.runGit(braveCoreDir, ['clone', util.getNPMConfig(['projects', 'brave-core', 'repository', 'url']), '.'])
-  util.runGit(braveCoreDir, ['checkout', braveCoreRef])
-}
-const braveCoreSha = util.runGit(braveCoreDir, ['rev-parse', 'HEAD'])
-Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}`)
+function runCommand(command, args, options = {}) {
+  const result = spawnSync(command, args, {
+    stdio: 'inherit',
+    shell: true,
+    ...options
+  })
 
-let npmCommand = 'npm'
-if (process.platform === 'win32') {
-  npmCommand += '.cmd'
+  if (result.error || result.status !== 0) {
+    console.error(`Error running command: ${command} ${args.join(' ')}`)
+    process.exit(result.status || 1)
+  }
 }
 
-util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+function ensureBraveCoreRepo() {
+  const gitDir = path.join(braveCoreDir, '.git')
+  const braveCoreRef = util.getProjectVersion('brave-core')
+  const repoUrl = util.getNPMConfig(['projects', 'brave-core', 'repository', 'url'])
 
-util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
-  cwd: braveCoreDir,
-  env: process.env,
-  stdio: 'inherit',
-  shell: true,
-  git_cwd: '.', })
+  if (!fs.existsSync(gitDir)) {
+    Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
+    fs.mkdirSync(braveCoreDir, { recursive: true })
+
+    util.runGit(braveCoreDir, ['clone', repoUrl, '.'])
+    util.runGit(braveCoreDir, ['checkout', braveCoreRef])
+  }
+
+  const braveCoreSha = util.runGit(braveCoreDir, ['rev-parse', 'HEAD'])
+  Log.progress(`brave-core repo at ${braveCoreDir} is at commit ID ${braveCoreSha}`)
+}
+
+function installDependencies() {
+  let npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+  runCommand(npmCommand, ['install'], { cwd: braveCoreDir })
+}
+
+function runSyncScript(args) {
+  let npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+  runCommand(npmCommand, ['run', 'sync', '--', '--init', ...args], {
+    cwd: braveCoreDir,
+    env: process.env
+  })
+}
+
+function main() {
+  try {
+    Log.progress('Starting brave-core setup...')
+    ensureBraveCoreRepo()
+    installDependencies()
+    runSyncScript(process.argv.slice(2))
+    Log.progress('Setup complete.')
+  } catch (err) {
+    console.error('Setup failed:', err)
+    process.exit(1)
+  }
+}
+
+main()
