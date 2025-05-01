@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.78.94](https://github.com/brave/brave-browser/releases/tag/v1.78.94)
+
+### Leo
+
+ - Added support for image upload to Leo. ([#44311](https://github.com/brave/brave-browser/issues/44311) & [#44844](https://github.com/brave/brave-browser/issues/44844))
+ - Increased content lengths to improve Leo response when referencing a long page content. ([#43928](https://github.com/brave/brave-browser/issues/43928))
+ - Fixed Leo not loading when "Block Scripts" is enabled in global settings. ([#36012](https://github.com/brave/brave-browser/issues/36012))
+
+### General
+
+ - Added setting to allow screenshots in Private browsing. ([#35242](https://github.com/brave/brave-browser/issues/35242))
+ - Improved "tap" animation rendering in tabs overview mode. ([#44939](https://github.com/brave/brave-browser/issues/44939))
+ - Removed known tracking parameter "ck_subscriber_id" from certain URLs. ([#44341](https://github.com/brave/brave-browser/issues/44341))
+ - Fixed an issue where Picture-in-Picture playback was not working when the screen was off. ([#44287](https://github.com/brave/brave-browser/issues/44287))
+ - Fixed crash when loading Brave News content in certain cases. ([#39166](https://github.com/brave/brave-browser/issues/39166))
+ - Upgraded Chromium to 136.0.7103.60. ([#45767](https://github.com/brave/brave-browser/issues/45767)) ([Changelog for 136.0.7103.60](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.115..136.0.7103.60?pretty=fuller&n=1000))
+
 ## [1.77.101](https://github.com/brave/brave-browser/releases/tag/v1.77.101)
 
  - Upgraded Chromium to 135.0.7049.115. ([#45615](https://github.com/brave/brave-browser/issues/45615)) ([Changelog for 135.0.7049.115](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.100..135.0.7049.115?pretty=fuller&n=1000))
