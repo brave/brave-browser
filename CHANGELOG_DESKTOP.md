@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.78.94](https://github.com/brave/brave-browser/releases/tag/v1.78.94)
+
+### Web3
+
+ - Fixed issue when importing Filecoin accounts from Ledger Hardware Wallet. ([#45650](https://github.com/brave/brave-browser/issues/45650))
+ - Fixed missing header for BTC and Zcash on the "Deposit" screen. ([#41315](https://github.com/brave/brave-browser/issues/41315))
+
+### Leo
+
+ - Added support for image upload to Leo. ([#44311](https://github.com/brave/brave-browser/issues/44311) & [#44844](https://github.com/brave/brave-browser/issues/44844))
+ - Implemented "Tab Focus Mode". ([#44679](https://github.com/brave/brave-browser/issues/44679))
+ - Increased content lengths to improve Leo response when referencing a long page content. ([#43928](https://github.com/brave/brave-browser/issues/43928))
+
+### Rewards
+
+ - Fixed sizing issue with the adaptive CAPTCHA notification popup which occurred in certain cases. ([#45561](https://github.com/brave/brave-browser/issues/45561))
+
+### General
+
+ - Added brave://settings/accessibility page. ([#15844](https://github.com/brave/brave-browser/issues/15844))
+ - [Security] Re-encoded images fetched for Brave News. ([#40620](https://github.com/brave/brave-browser/issues/40620))
+ - Re-enabled Scroll To Text Fragment. ([#44265](https://github.com/brave/brave-browser/issues/44265))
+ - Improved autocomplete suggestion matching for bookmarks. ([#44374](https://github.com/brave/brave-browser/issues/44374))
+ - Improved how the "On mouseover" setting for sidebar works with split view tabs. ([#43848](https://github.com/brave/brave-browser/issues/43848))
+ - Disabled WebTorrent by default for new installs. ([#44303](https://github.com/brave/brave-browser/issues/44303))
+ - Removed "Set Brave as your default browser" from the hamburger menu. ([#42307](https://github.com/brave/brave-browser/issues/42307))
+ - Removed "Don't warn me about this site again" on interstitial pages when using a Private Window. ([#44216](https://github.com/brave/brave-browser/issues/44216))
+ - Removed known tracking parameter "ck_subscriber_id" from certain URLs. ([#44341](https://github.com/brave/brave-browser/issues/44341))
+ - Removed non-localized "Applications" string from macOS DMG installer. ([#43881](https://github.com/brave/brave-browser/issues/43881))
+ - Fixed crash which occurred when importing browser settings from Microsoft Edge in certain cases. ([#45603](https://github.com/brave/brave-browser/issues/45603))
+ - Fixed crash which occurred in certain cases when visiting Google Suite pages while certain extensions are being used. ([#45109](https://github.com/brave/brave-browser/issues/45109))
+ - Fixed navigation-set cookies on HTTP redirect not being queued for deletion if "Forget me when I close this site" is enabled. ([#44368](https://github.com/brave/brave-browser/issues/44368))
+ - Fixed issue where brave://settings/content/all did not display all sites. ([#45036](https://github.com/brave/brave-browser/issues/45036))
+ - Fixed flicker effect when clicking out of the search widget on the New Tab Page. ([#44220](https://github.com/brave/brave-browser/issues/44220))
+ - Fixed issue where some unloaded tabs were not distinguishable from loaded tabs. ([#36720](https://github.com/brave/brave-browser/issues/36720))
+ - Fixed "Esc" key closing Private Window instead of displaying warning message. ([#25768](https://github.com/brave/brave-browser/issues/25768))
+ - Upgraded Chromium to 136.0.7103.60. ([#45767](https://github.com/brave/brave-browser/issues/45767)) ([Changelog for 136.0.7103.60](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.115..136.0.7103.60?pretty=fuller&n=1000))
+
 ## [1.77.101](https://github.com/brave/brave-browser/releases/tag/v1.77.101)
 
  - Upgraded Chromium to 135.0.7049.115. ([#45615](https://github.com/brave/brave-browser/issues/45615)) ([Changelog for 135.0.7049.115](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.100..135.0.7049.115?pretty=fuller&n=1000))
