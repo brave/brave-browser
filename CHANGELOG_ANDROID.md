@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.78.96](https://github.com/brave/brave-browser/releases/tag/v1.78.96)
+
+ - Fixed startup crash when upgrading to Chromium 136 with certain brave://flags/ enabled. ([#45816](https://github.com/brave/brave-browser/issues/45816))
+
 ## [1.78.94](https://github.com/brave/brave-browser/releases/tag/v1.78.94)
 
 ### Leo
