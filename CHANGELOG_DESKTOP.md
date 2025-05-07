@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.78.97](https://github.com/brave/brave-browser/releases/tag/v1.78.97)
+
+ - Fixed broken screenshot preview on the webcompat reporter. ([#45660](https://github.com/brave/brave-browser/issues/45660))
+ - Upgraded Chromium to 136.0.7103.93. ([#45894](https://github.com/brave/brave-browser/issues/45894)) ([Changelog for 136.0.7103.93](https://chromium.googlesource.com/chromium/src/+log/136.0.7103.60..136.0.7103.93?pretty=fuller&n=1000))
+
 ## [1.78.94](https://github.com/brave/brave-browser/releases/tag/v1.78.94)
 
 ### Web3
