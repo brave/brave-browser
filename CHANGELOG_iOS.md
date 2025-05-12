@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.78.100](https://github.com/brave/brave-browser/releases/tag/v1.78.100)
+
+ - Implemented Picture-in-Picture animation when setting default browser in the onboarding flow. ([#44182](https://github.com/brave/brave-browser/issues/44182))
+ - Added “Brave” in the User-Agent request header. ([#43895](https://github.com/brave/brave-browser/issues/43895))
+ - Added shuffle icon to the Brave Playlist Player in CarPlay. ([#43691](https://github.com/brave/brave-browser/issues/43691))
+ - Added page loading indicator to the VPN region selection screen. ([#45371](https://github.com/brave/brave-browser/issues/45371))
+ - Re-enabled toggle visibility for “Block All Cookies” setting and also moved it into “Other Privacy Settings” section. ([#45457](https://github.com/brave/brave-browser/issues/45457))
+ - Removed dialog from being displayed for successfully exporting bookmarks. ([#44654](https://github.com/brave/brave-browser/issues/44654))
+ - Improved Leo chat operations by increasing the limit for associated content length. ([43928](https://github.com/brave/brave-browser/issues/43928))
+ - [Security] Fixed issue where downloaded filename’s original file extension is hidden as reported on HackerOne by b4dc4t. ([#45433](https://github.com/brave/brave-browser/issues/45433))
+ - [Security] Fixed issue with Tel: Protocol prompts showing other origin as reported on HackerOne by frozzipies. ([#44719](https://github.com/brave/brave-browser/issues/44719))
+ - [Security] Fixed links opening not opening in the private window when using private browsing mode. ([#45389](https://github.com/brave/brave-browser/issues/45389))
+ - Fixed “Block Scripts” and “Block Fingerprinting” toggle being shown as disabled after toggling Brave Shields. ([#43968](https://github.com/brave/brave-browser/issues/43968))
+ - Fixed VPN not enabling in the case where the server is manually selected from the list. ([#45370](https://github.com/brave/brave-browser/issues/45370))
+ - Fixed VPN server country not being updated after connecting. ([#45364](https://github.com/brave/brave-browser/issues/45364))
+ - Fixed VPN connection status not displaying correctly in region selection screen. ([#45365](https://github.com/brave/brave-browser/issues/45365))
+ - Fixed P3A onboarding page content from being clipped when using accessibility zoom. ([#44646](https://github.com/brave/brave-browser/issues/44646))
+ - Fixed bundled PKPasses not installing correctly in Wallet app. ([#43338](https://github.com/brave/brave-browser/issues/43338))
+ - Upgraded Chromium to 136.0.7103.93. ([#45894](https://github.com/brave/brave-browser/issues/45894))([Changelog for 136.0.7103.93](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.84..136.0.7103.93?pretty=fuller&n=10000))
+
+
 ## [1.77.98](https://github.com/brave/brave-browser/releases/tag/v1.77.98)
 
  - Implemented an exception list for Night Mode. ([#44213](https://github.com/brave/brave-browser/issues/44213))
