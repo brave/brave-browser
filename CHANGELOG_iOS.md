@@ -3,7 +3,7 @@
 ## [1.78.100](https://github.com/brave/brave-browser/releases/tag/v1.78.100)
 
  - Implemented Picture-in-Picture animation when setting default browser in the onboarding flow. ([#44182](https://github.com/brave/brave-browser/issues/44182))
- - Added “Brave” in the User-Agent request header. ([#43895](https://github.com/brave/brave-browser/issues/43895))
+ - Added 2 new custom app icon designs. ([#44587](https://github.com/brave/brave-browser/issues/44587))
  - Added shuffle icon to the Brave Playlist Player in CarPlay. ([#43691](https://github.com/brave/brave-browser/issues/43691))
  - Added page loading indicator to the VPN region selection screen. ([#45371](https://github.com/brave/brave-browser/issues/45371))
  - Re-enabled toggle visibility for “Block All Cookies” setting and also moved it into “Other Privacy Settings” section. ([#45457](https://github.com/brave/brave-browser/issues/45457))
