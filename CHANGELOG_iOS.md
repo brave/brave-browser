@@ -22,7 +22,7 @@
  - Fixed VPN connection status not displaying correctly in region selection screen. ([#45365](https://github.com/brave/brave-browser/issues/45365))
  - Fixed P3A onboarding page content from being clipped when using accessibility zoom. ([#44646](https://github.com/brave/brave-browser/issues/44646))
  - Fixed videos with non-latin characters failing to save offline in Playlist. ([#42764](https://github.com/brave/brave-browser/issues/42764))
- - Upgraded Chromium to 136.0.7103.93. ([#45894](https://github.com/brave/brave-browser/issues/45894))([Changelog for 136.0.7103.93](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.84..136.0.7103.93?pretty=fuller&n=10000))
+ - Upgraded Chromium to 136.0.7103.113. ([#46065](https://github.com/brave/brave-browser/issues/46065))([Changelog for 136.0.7103.113](https://chromium.googlesource.com/chromium/src/+log/135.0.7049.84..136.0.7103.113?pretty=fuller&n=10000))
 
 ## [1.77.98](https://github.com/brave/brave-browser/releases/tag/v1.77.98)
 
