@@ -10,7 +10,7 @@
  - Added privacy warning dialog when submitting Leo chat feedback. ([#45947](https://github.com/brave/brave-browser/issues/45947))
  - Re-enabled toggle visibility for “Block All Cookies” setting and also moved it into “Other Privacy Settings” section. ([#45457](https://github.com/brave/brave-browser/issues/45457))
  - Removed dialog from being displayed for successfully exporting bookmarks. ([#44654](https://github.com/brave/brave-browser/issues/44654))
- - Improved support for downloaded bundled Apple Wallet passes. ([#43338](https://github.com/brave/brave-browser/issues/43338))
+ - Improved support for downloading bundled Apple Wallet passes. ([#43338](https://github.com/brave/brave-browser/issues/43338))
  - Improved Leo chat operations by increasing the limit for associated content length in responses. ([#43928](https://github.com/brave/brave-browser/issues/43928))
  - Improved Playlist video downloading with an additional background fallback method. ([#44652](https://github.com/brave/brave-browser/issues/44652)) 
  - [Security] Fixed issue where downloaded filename’s original file extension is hidden as reported on HackerOne by b4dc4t. ([#45433](https://github.com/brave/brave-browser/issues/45433))
