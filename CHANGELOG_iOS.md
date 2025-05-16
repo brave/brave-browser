@@ -1,16 +1,17 @@
 # Changelog
 
-## [1.78.101](https://github.com/brave/brave-browser/releases/tag/v1.78.101)
+## [1.78.103](https://github.com/brave/brave-browser/releases/tag/v1.78.103)
 
  - Implemented Picture-In-Picture animation when setting default browser in the onboarding flow. ([#44182](https://github.com/brave/brave-browser/issues/44182))
  - Added 2 new custom app icon designs. ([#44587](https://github.com/brave/brave-browser/issues/44587))
  - Added localization enhancements to the default browser onboarding animation for UK and Japan users. ([#44183](https://github.com/brave/brave-browser/issues/44183))
  - Added shuffle icon to the Brave Playlist player in CarPlay. ([#43691](https://github.com/brave/brave-browser/issues/43691))
  - Added page loading indicator to the VPN region selection screen. ([#45371](https://github.com/brave/brave-browser/issues/45371))
+ - Added privacy warning dialog when submitting Leo feedback. ([#45947](https://github.com/brave/brave-browser/issues/45947))
  - Re-enabled toggle visibility for “Block All Cookies” setting and also moved it into “Other Privacy Settings” section. ([#45457](https://github.com/brave/brave-browser/issues/45457))
  - Removed dialog from being displayed for successfully exporting bookmarks. ([#44654](https://github.com/brave/brave-browser/issues/44654))
  - Improved Leo chat operations by increasing the limit for associated content length in responses. ([#43928](https://github.com/brave/brave-browser/issues/43928))
- - Improved Playlist video downloading with an additional background fallback method. ([#44652](https://github.com/brave/brave-browser/issues/44652))
+ - Improved Playlist video downloading with an additional background fallback method. ([#44652](https://github.com/brave/brave-browser/issues/44652)) 
  - [Security] Fixed issue where downloaded filename’s original file extension is hidden as reported on HackerOne by b4dc4t. ([#45433](https://github.com/brave/brave-browser/issues/45433))
  - [Security] Fixed issue with Tel: Protocol prompts showing other origin as reported on HackerOne by frozzipies. ([#44719](https://github.com/brave/brave-browser/issues/44719))
  - [Security] Fixed links opening not opening in the private window when using private browsing mode. ([#45389](https://github.com/brave/brave-browser/issues/45389))
