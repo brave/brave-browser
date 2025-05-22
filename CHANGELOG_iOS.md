@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.78.104](https://github.com/brave/brave-browser/releases/tag/v1.78.104)
+
+ - Fixed script blocking affecting other websites when enabled in shields panel for particular webpage. ([#46155](https://github.com/brave/brave-browser/issues/46155))
+ - Fixed page zoom having no effect on the webpage when active. ([#46200](https://github.com/brave/brave-browser/issues/46200))
+
 ## [1.78.103](https://github.com/brave/brave-browser/releases/tag/v1.78.103)
 
  - Implemented Picture-in-Picture animation when setting default browser in the onboarding flow. ([#44182](https://github.com/brave/brave-browser/issues/44182))
