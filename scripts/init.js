@@ -1,3 +1,4 @@
+
 // Copyright (c) 2019 The Brave Authors. All rights reserved.
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this file,
@@ -14,6 +15,12 @@ Log.progress('Performing initial checkout of brave-core')
 const braveCoreDir = path.resolve(__dirname, '..', 'src', 'brave')
 const braveCoreRef = util.getProjectVersion('brave-core')
 
+// Add custom flag handling
+const hasCustomFlag = process.argv.includes('--custom-build')
+if (hasCustomFlag) {
+  Log.progress('Custom build mode enabled')
+}
+
 if (!fs.existsSync(path.join(braveCoreDir, '.git'))) {
   Log.status(`Cloning brave-core [${braveCoreRef}] into ${braveCoreDir}...`)
   fs.mkdirSync(braveCoreDir)
@@ -28,11 +35,27 @@ if (process.platform === 'win32') {
   npmCommand += '.cmd'
 }
 
-util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+// Add error handling for npm install
+try {
+  util.run(npmCommand, ['install'], { cwd: braveCoreDir })
+} catch (error) {
+  Log.error(`Failed to install npm dependencies: ${error.message}`)
+  process.exit(1)
+}
 
-util.run(npmCommand, ['run', 'sync' ,'--', '--init'].concat(process.argv.slice(2)), {
+// Prepare sync arguments
+let syncArgs = ['run', 'sync', '--', '--init']
+if (hasCustomFlag) {
+  syncArgs.push('--custom-flag')  // Add your custom flag to the sync process
+}
+syncArgs = syncArgs.concat(process.argv.slice(2).filter(arg => arg !== '--custom-build'))
+
+util.run(npmCommand, syncArgs, {
   cwd: braveCoreDir,
   env: process.env,
   stdio: 'inherit',
   shell: true,
-  git_cwd: '.', })
+  git_cwd: '.', 
+})
+
+Log.progress('Initialization complete!')
