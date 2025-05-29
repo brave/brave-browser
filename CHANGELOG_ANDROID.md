@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.79.118](https://github.com/brave/brave-browser/releases/tag/v1.79.118)
+
+### Web3
+
+ - Updated default segmented control size in wallet panel. ([#45351](https://github.com/brave/brave-browser/issues/45351))
+ - Fixed issue where Zcash native token may not be displayed on some wallets. ([#46306](https://github.com/brave/brave-browser/issues/46306))
+ - Fixed the "More" menu on the "Accounts" list being pushed out of view in certain cases. ([#44949](https://github.com/brave/brave-browser/issues/44949))
+
+### Leo
+
+ - Added full page screenshot feature for Brave Leo. ([#45510](https://github.com/brave/brave-browser/issues/45510))
+ - Added support to allow for empty favicon for WebSources. ([#45346](https://github.com/brave/brave-browser/issues/45346))
+ - Added "DeepSeek R1" to the list of pre-loaded models. ([#45294](https://github.com/brave/brave-browser/issues/45294))
+ - Added support for inline citations in generated responses. ([#45152](https://github.com/brave/brave-browser/issues/45152))
+ - Added the ability to have links in Leo responses. ([#44207](https://github.com/brave/brave-browser/issues/44207))
+ - Updated chat bubbles to break and wrap long words and URLs. ([#45302](https://github.com/brave/brave-browser/issues/45302))
+
+### General
+
+ - Added inline PDF viewer to open PDF files directly in Brave. ([#42621](https://github.com/brave/brave-browser/issues/42621))
+ - Added ability to enable bottom address bar via brave://flags. ([#41699](https://github.com/brave/brave-browser/issues/41699))
+ - Removed Chromium search widgets from Brave. ([#45598](https://github.com/brave/brave-browser/issues/45598) & [#30653](https://github.com/brave/brave-browser/issues/30653))
+ - Removed Chromium Dino game widget from Brave. ([#30654](https://github.com/brave/brave-browser/issues/30654))
+ - Fixed PiP (Picture-in-Picture) functionality to work properly when Brave is backgrounded or when device is locked and unlocked. ([#44933](https://github.com/brave/brave-browser/issues/44933) & [#46128](https://github.com/brave/brave-browser/issues/46128))
+ - Fixed crash which occurred when using search functionality in certain cases. ([#45127](https://github.com/brave/brave-browser/issues/45127))
+ - Upgraded Chromium to 137.0.7151.61. ([#46422](https://github.com/brave/brave-browser/issues/46422)) ([Changelog for 137.0.7151.61](https://chromium.googlesource.com/chromium/src/+log/136.0.7103.113..137.0.7151.61?pretty=fuller&n=1000))
+
 ## [1.78.102](https://github.com/brave/brave-browser/releases/tag/v1.78.102)
 
  - Upgraded Chromium to 136.0.7103.113. ([#46065](https://github.com/brave/brave-browser/issues/46065)) ([Changelog for 136.0.7103.113](https://chromium.googlesource.com/chromium/src/+log/136.0.7103.93..136.0.7103.113?pretty=fuller&n=1000))
