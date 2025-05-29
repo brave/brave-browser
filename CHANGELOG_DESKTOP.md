@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.79.118](https://github.com/brave/brave-browser/releases/tag/v1.79.118)
+
+### Web3
+
+ - Added "Verified" DApp status to wallet connection panels. ([#45507](https://github.com/brave/brave-browser/issues/45507))
+ - Added "Connections" tab in the wallet panel for concurrent connections between "EVM" and "SVM" networks. ([#41564](https://github.com/brave/brave-browser/issues/41564))
+ - Added "Reset ZCash sync state" setting under brave://settings/web3. ([#44782](https://github.com/brave/brave-browser/issues/44782))
+ - Added Zcash shielded support on the "Deposit" screen. ([#45185](https://github.com/brave/brave-browser/issues/45185))
+ - Implemented auto-hide for bottom sheet when clicking away from the wallet panel. ([#45436](https://github.com/brave/brave-browser/issues/45436))
+ - Updated default segmented control size in wallet panel. ([#45351](https://github.com/brave/brave-browser/issues/45351))
+ - Fixed issue where Zcash native token may not be displayed on some wallets. ([#46306](https://github.com/brave/brave-browser/issues/46306))
+ - Fixed the "More" menu on the "Accounts" list being pushed out of view in certain cases. ([#44949](https://github.com/brave/brave-browser/issues/44949))
+
+### Leo
+
+ - Added "DeepSeek R1" to the list of pre-loaded models. ([#45294](https://github.com/brave/brave-browser/issues/45294))
+ - Added the ability to have links in Leo responses. ([#44207](https://github.com/brave/brave-browser/issues/44207))
+ - Added support for inline citations in generated responses. ([#45152](https://github.com/brave/brave-browser/issues/45152))
+ - Added full page screenshot feature for Brave Leo. ([#45510](https://github.com/brave/brave-browser/issues/45510))
+ - Added support for HTTPS links in responses when using Bring Your Own Model (BYOM) in Brave Leo. ([#45116](https://github.com/brave/brave-browser/issues/45116))
+ - Added support to allow for empty favicon for WebSources. ([#45346](https://github.com/brave/brave-browser/issues/45346))
+ - Updated Leo toolbar icon to launch full page chat. ([#44988](https://github.com/brave/brave-browser/issues/44988))
+ - Updated chat bubbles to break and wrap long words and URLs. ([#45302](https://github.com/brave/brave-browser/issues/45302))
+
+### General
+
+ - [Security] Fixed Tor onion icon incorrectly appearing in the URL bar in certain cases as reported on HackerOne by newfunction. ([#45102](https://github.com/brave/brave-browser/issues/45102) & [#45376](https://github.com/brave/brave-browser/issues/45376))
+ - Improved formatting of version information under brave://settings/help. ([#2560](https://github.com/brave/brave-browser/issues/2560))
+ - Updated the UI for Progressive Web Apps (PWAs) for Windows and Linux. ([#45107](https://github.com/brave/brave-browser/issues/45107))
+ - Updated download button icon. ([#45239](https://github.com/brave/brave-browser/issues/45239))
+ - Removed "Can't update Brave" message from hamburger menu on macOS. ([#37427](https://github.com/brave/brave-browser/issues/37427))
+ - Fixed issue with WebSocket reconnection. ([#15410](https://github.com/brave/brave-browser/issues/15410))
+ - Fixed Brave and Chromium versions displaying as "undefined" in brave://settings/help when browser language is not English. ([#45840](https://github.com/brave/brave-browser/issues/45840))
+ - Upgraded Chromium to 137.0.7151.61. ([#46422](https://github.com/brave/brave-browser/issues/46422)) ([Changelog for 137.0.7151.61](https://chromium.googlesource.com/chromium/src/+log/136.0.7103.113..137.0.7151.61?pretty=fuller&n=1000))
+
 ## [1.78.102](https://github.com/brave/brave-browser/releases/tag/v1.78.102)
 
  - Upgraded Chromium to 136.0.7103.113. ([#46065](https://github.com/brave/brave-browser/issues/46065)) ([Changelog for 136.0.7103.113](https://chromium.googlesource.com/chromium/src/+log/136.0.7103.93..136.0.7103.113?pretty=fuller&n=1000))
