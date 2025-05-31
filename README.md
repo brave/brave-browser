@@ -53,11 +53,11 @@ cd path-to-your-project-folder/src/brave
 npm install
 
 # the Chromium source is downloaded, which has a large history (gigabytes of data)
-# this might take really long to finish depending on internet speed
+# This might take a long to finish, depending on the internet speed
 
 npm run init
 ```
-brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whichever CPU type you want to build for)
+brave-core based Android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whichever CPU type you want to build for)
 brave-core based iOS builds should use `npm run init -- --target_os=ios`
 
 You can also set the target_os and target_arch for init and build using:
@@ -75,7 +75,7 @@ Internal developers can find more information at https://github.com/brave/devops
 The default build type is component.
 
 ```
-# start the component build compile
+# start the component build and compile
 npm run build
 ```
 
@@ -92,7 +92,7 @@ brave-core based iOS builds should use the Xcode project found in `ios/brave-ios
 
 ### Build Configurations
 
-Running a release build with `npm run build Release` can be very slow and use a lot of RAM, especially on Linux with the Gold LLVM plugin.
+Running a release build with `npm run build Release` can be very slow and uses a lot of RAM, especially on Linux with the Gold LLVM plugin.
 
 To run a statically linked build (takes longer to build, but starts faster):
 
@@ -120,20 +120,20 @@ To start the build:
 
 `npm run sync` will (depending on the below flags):
 
-1. 📥 Update sub-projects (chromium, brave-core) to latest commit of a git ref (e.g. tag or branch)
+1. 📥 Update sub-projects (chromium, brave-core) to the latest commit of a git ref (e.g. tag or branch)
 2. 🤕 Apply patches
 3. 🔄 Update gclient DEPS dependencies
 4. ⏩ Run hooks (e.g. to perform `npm install` on child projects)
 
 | flag | Description |
 |---|---|
-|`[no flags]`|updates chromium if needed and re-applies patches. If the chromium version did not change, it will only re-apply patches that have changed. Will update child dependencies **only if any project needed updating during this script run**. <br> **Use this if you want the script to manage keeping you up to date instead of pulling or switching branches manually. **|
+|`[no flags]`|updates chromium if needed and re-applies patches. If the chromium version does not change, it will only re-apply patches that have changed. Will update child dependencies **only if any project requires an update during this script run**. <br> **Use this if you want the script to manage to keep you up to date instead of pulling or switching branches manually. **|
 |`--force`|updates both _Chromium_ and _brave-core_ to the latest remote commit for the current brave-core branch and the _Chromium_ ref specified in brave-browser/package.json (e.g. `master` or `74.0.0.103`). Will re-apply all patches. Will force update all child dependencies. <br> **Use this if you're having trouble and want to force the branches back to a known state. **|
 |`--init`|force update both _Chromium_ and _brave-core_ to the versions specified in brave-browser/package.json and force updates all dependent repos - same as `npm run init`|
 |`--sync_chromium (true/false)`|Will force or skip the chromium version update when applicable. Useful if you want to avoid a minor update when not ready for the larger build time a chromium update may result in. A warning will be output about the current code state expecting a different chromium version. Your build may fail as a result.|
 |`-D, --delete_unused_deps`|Will delete from the working copy any dependencies that have been removed since the last sync. Mimics `gclient sync -D`.|
 
-Run `npm run sync brave_core_ref` to checkout the specified _brave-core_ ref and update all dependent repos including chromium if needed.
+Run `npm run sync brave_core_ref` to check out the specified _brave-core_ ref and update all dependent repos including chromium if needed.
 
 ## Scenarios
 
@@ -162,7 +162,7 @@ brave-browser/src/brave> npm run sync
 ...Running hooks...
 ```
 
-#### Reset to latest brave-browser master and brave-core master (via `init`, will always result in a longer build and will remove any pending changes in your brave-core working directory):
+#### Reset to the latest brave-browser master and brave-core master (via `init`, which will always result in a longer build and will remove any pending changes in your brave-core working directory):
 ```bash
 brave-browser> git checkout master
 brave-browser> git pull
