@@ -1,0 +1,193 @@
+name: My Custom Brave Browser Build
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  NODE_VERSION: '20'
+  NPM_VERSION: '10'
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 480
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js (Official Requirement)
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        npm-version: ${{ env.NPM_VERSION }}
+        
+    - name: Setup JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        
+    - name: Free Disk Space (Critical for Brave Build)
+      run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /opt/ghc
+        sudo rm -rf /usr/local/share/boost
+        sudo rm -rf /opt/hostedtoolcache/CodeQL
+        sudo apt-get clean
+        df -h
+        
+    - name: Setup Swap Memory
+      run: |
+        sudo fallocate -l 8G /swapfile
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
+        sudo swapon /swapfile
+        
+    - name: Clone Brave Source (Official Method)
+      run: |
+        # Clone official brave-browser repo
+        git clone --depth 1 https://github.com/brave/brave-browser.git brave-source
+        cd brave-source
+        
+        # Copy our custom package.json
+        cp ../package.json .
+        cp -r ../scripts .
+        
+        # Install dependencies
+        npm install
+        
+    - name: Initialize Brave (Official Script)
+      run: |
+        cd brave-source
+        
+        # Use official init script
+        npm run init -- --target_os=android --target_arch=arm64
+        
+    - name: Apply Custom Configuration
+      run: |
+        cd brave-source
+        
+        # Apply our custom debloat configuration
+        node scripts/apply-custom-config.js
+        
+        # Copy custom args.gn to build directory
+        cp custom_args.gn src/out/android_arm64/args.gn
+        
+    - name: Build Custom Android APK
+      run: |
+        cd brave-source
+        
+        # Use official build script with custom config
+        npm run build-custom -- Release --target_os=android --target_arch=arm64
+        
+    - name: Package Android Build
+      run: |
+        cd brave-source
+        
+        # Find and package APK
+        find src/out -name "*.apk" -type f -exec ls -la {} \;
+        mkdir -p ../release/android
+        cp src/out/android_arm64/apks/*.apk ../release/android/MyCustomBrave.apk
+        
+    - name: Upload Android APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: MyCustomBrave-Android-v1.0.0
+        path: release/android/MyCustomBrave.apk
+        retention-days: 30
+
+  build-windows:
+    runs-on: windows-latest
+    timeout-minutes: 480
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        
+    - name: Clone Brave Source Windows
+      shell: powershell
+      run: |
+        git clone --depth 1 https://github.com/brave/brave-browser.git brave-source
+        cd brave-source
+        
+        Copy-Item ..\package.json .
+        Copy-Item -Recurse ..\scripts .
+        
+        npm install
+        
+    - name: Initialize Brave Windows
+      shell: powershell
+      run: |
+        cd brave-source
+        npm run init
+        
+    - name: Apply Windows Configuration
+      shell: powershell
+      run: |
+        cd brave-source
+        
+        node scripts/apply-custom-config.js
+        Copy-Item custom_args.gn src\out\Release\args.gn
+        
+    - name: Build Windows EXE
+      shell: powershell
+      run: |
+        cd brave-source
+        npm run build-custom -- Release
+        
+    - name: Package Windows Build
+      shell: powershell
+      run: |
+        cd brave-source
+        
+        New-Item -ItemType Directory -Force -Path ..\release\windows
+        Copy-Item src\out\Release\brave.exe ..\release\windows\MyCustomBrave.exe
+        
+    - name: Upload Windows EXE
+      uses: actions/upload-artifact@v4
+      with:
+        name: MyCustomBrave-Windows-v1.0.0
+        path: release/windows/MyCustomBrave.exe
+        retention-days: 30
+
+  create-release:
+    needs: [build-android, build-windows]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          MyCustomBrave-Android-v1.0.0/MyCustomBrave.apk
+          MyCustomBrave-Windows-v1.0.0/MyCustomBrave.exe
+        name: My Custom Brave v${{ github.ref_name }}
+        body: |
+          # My Custom Brave Browser v${{ github.ref_name }}
+          
+          🔥 **Custom Brave browser without bloatware!**
+          
+          ## ✅ Features:
+          - No Brave Rewards/BAT
+          - No Brave Wallet
+          - No Brave VPN
+          - No Leo AI Assistant
+          - No Brave News
+          - ✅ Chrome Web Store support
+          - ✅ Built-in ad blocking (Brave Shields)
+          - ✅ Lightweight and fast
+          
+          ## 📥 Downloads:
+          - **Android**: MyCustomBrave.apk
+          - **Windows**: MyCustomBrave.exe
+          
+          Based on Brave v1.81.34 with custom debloat configuration.
