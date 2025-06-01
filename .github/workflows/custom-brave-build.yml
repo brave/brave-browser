@@ -117,7 +117,7 @@ jobs:
         cd brave-source
         
         Copy-Item ..\package.json .
-        Copy-Item -Recurse ..\scripts .
+        Copy-Item -Recurse -Force ..\scripts .
         
         npm install
         
