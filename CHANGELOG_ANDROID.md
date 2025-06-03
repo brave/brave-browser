@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.79.119](https://github.com/brave/brave-browser/releases/tag/v1.79.119)
+
+ - [Security] Added a conditional host check in binding handlers as reported on HackerOne by newfunction. ([#46181](https://github.com/brave/brave-browser/issues/46181))
+ - [Security] Added frame host check for Leo IAP in binding receivers as reported on HackerOne by newfunction. ([#46394](https://github.com/brave/brave-browser/issues/46394))
+ - Fixed procedural filters not matching against dynamically added child elements. ([#46208](https://github.com/brave/brave-browser/issues/46208))
+ - Upgraded Chromium to 137.0.7151.68. ([#46515](https://github.com/brave/brave-browser/issues/46515)) ([Changelog for 137.0.7151.68](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.61..137.0.7151.68?pretty=fuller&n=1000))
+
 ## [1.79.118](https://github.com/brave/brave-browser/releases/tag/v1.79.118)
 
 ### Web3
