@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.79.123](https://github.com/brave/brave-browser/releases/tag/v1.79.123)
+
+ - Re-added Chromium search widget to Brave. ([#46597](https://github.com/brave/brave-browser/issues/46597))
+ - Upgraded Chromium to 137.0.7151.104. ([#46712](https://github.com/brave/brave-browser/issues/46712)) ([Changelog for 137.0.7151.104](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.68..137.0.7151.104?pretty=fuller&n=1000))
+
 ## [1.79.119](https://github.com/brave/brave-browser/releases/tag/v1.79.119)
 
  - [Security] Added a conditional host check in binding handlers as reported on HackerOne by newfunction. ([#46181](https://github.com/brave/brave-browser/issues/46181))
