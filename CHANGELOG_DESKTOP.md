@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.79.123](https://github.com/brave/brave-browser/releases/tag/v1.79.123)
+
+### Leo
+
+ - Improved citation UI. ([#45761](https://github.com/brave/brave-browser/issues/45761))
+
+### General
+
+ - [Security] Fixed missing DDNS navigation throttle for subframes as reported on HackerOne by newfunction. ([#46703](https://github.com/brave/brave-browser/issues/46703))
+ - Fixed crash which occurred when clicking on the "View site information" icon in the address bar while having "Don't allow sites to scroll and zoom shared tabs" enabled. ([#46566](https://github.com/brave/brave-browser/issues/46566))
+ - Fixed crash which occurred with the "Save autofill" prompt in certain cases. ([#45546](https://github.com/brave/brave-browser/issues/45546))
+ - Upgraded Chromium to 137.0.7151.104. ([#46712](https://github.com/brave/brave-browser/issues/46712)) ([Changelog for 137.0.7151.104](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.68..137.0.7151.104?pretty=fuller&n=1000))
+
 ## [1.79.119](https://github.com/brave/brave-browser/releases/tag/v1.79.119)
 
  - [Security] Added a conditional host check in binding handlers as reported on HackerOne by newfunction. ([#46181](https://github.com/brave/brave-browser/issues/46181))
