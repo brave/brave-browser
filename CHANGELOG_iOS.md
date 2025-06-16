@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.79.124](https://github.com/brave/brave-browser/releases/tag/v1.79.124)
+
+ - Added search omnibox UI upgrades. ([#44257](https://github.com/brave/brave-browser/issues/44257))
+ - Added "Deepseek R1" model to Leo for premium users. ([#45454](https://github.com/brave/brave-browser/issues/45454﻿))
+ - Updated procedural filtering to be applied on mutated elements. ([#46046](https://github.com/brave/brave-browser/issues/46046)), ([#46358](https://github.com/brave/brave-browser/issues/46358))
+ - Updated procedural filtering being applied to mutated elements with dynamically added child elements. ([#46208](https://github.com/brave/brave-browser/issues/46208))
+ - Fixed crash occuring when files are being downloaded for users using iOS 16.0-16.3. ([#46682](https://github.com/brave/brave-browser/issues/46682))
+ - Fixed the order in the Quick-Search engine scroll view being offset when Leo is disabled. ([#46421](https://github.com/brave/brave-browser/issues/46421))
+ - Fixed downloads failing to start when triggered in a new tab. ([#46323](https://github.com/brave/brave-browser/issues/46323))
+ - Fixed share sheet title showing two URLs instead of one. ([#46178](https://github.com/brave/brave-browser/issues/46178))
+ - Fixed the translate button being shown on webpages with invalid languages. ([#45779](https://github.com/brave/brave-browser/issues/45779))
+ - Fixed an issue for iPad users where the Shortcut button was not being hidden. ([#45612](https://github.com/brave/brave-browser/issues/45612))
+ - Fixed articles not being loaded when tapping on the Brave News widget thumbnail. ([#45609](https://github.com/brave/brave-browser/issues/45609))
+ - Fixed og:image meta data from being requested for all sites. ([#45268](https://github.com/brave/brave-browser/issues/45268))
+ - Fixed playback time in Playlist displaying incorrectly for longer videos. ([#45033](https://github.com/brave/brave-browser/issues/45033))
+ - Fixed Japanese videos failing to save offline in Playlist that contain Japanese titles. ([#46236](https://github.com/brave/brave-browser/issues/46236))
+ - Fixed switching tab modes when using Shred. ([#45001](https://github.com/brave/brave-browser/issues/45001))
+ - Fixed New Tab Page (NTP) background images not being loaded immediately when switching tabs. ([#46379](https://github.com/brave/brave-browser/issues/46379))
+
 ## [1.78.104](https://github.com/brave/brave-browser/releases/tag/v1.78.104)
 
  - Fixed script blocking affecting other websites when enabled in shields panel for particular webpage. ([#46155](https://github.com/brave/brave-browser/issues/46155))
