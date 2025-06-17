@@ -18,6 +18,7 @@
  - Fixed Japanese videos failing to save offline in Playlist that contain Japanese titles. ([#46236](https://github.com/brave/brave-browser/issues/46236))
  - Fixed switching tab modes when using Shred. ([#45001](https://github.com/brave/brave-browser/issues/45001))
  - Fixed New Tab Page (NTP) background images not being loaded immediately when switching tabs. ([#46379](https://github.com/brave/brave-browser/issues/46379))
+ - Upgraded Chromium to 137.0.7151.104. ([#46065](https://github.com/brave/brave-browser/issues/46712))([Changelog for 137.0.7151.104](https://chromium.googlesource.com/chromium/src/+log/136.0.7103.113..137.0.7151.104?pretty=fuller&n=10000))
 
 ## [1.78.104](https://github.com/brave/brave-browser/releases/tag/v1.78.104)
 
