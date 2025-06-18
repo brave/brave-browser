@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.79.126](https://github.com/brave/brave-browser/releases/tag/v1.79.126)
+
+ - Fixed crash on navigation when a Google sign-in request has been triggered. ([#46769](https://github.com/brave/brave-browser/issues/46769))
+ - Upgraded Chromium to 137.0.7151.119. ([#46911](https://github.com/brave/brave-browser/issues/46911)) ([Changelog for 137.0.7151.119](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.104..137.0.7151.119?pretty=fuller&n=1000))
+
 ## [1.79.123](https://github.com/brave/brave-browser/releases/tag/v1.79.123)
 
  - Re-added Chromium search widget to Brave. ([#46597](https://github.com/brave/brave-browser/issues/46597))
