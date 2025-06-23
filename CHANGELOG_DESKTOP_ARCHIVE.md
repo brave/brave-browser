@@ -1962,7 +1962,7 @@
  - Added network identifications to portfolio assets in Brave Wallet. ([#20902](https://github.com/brave/brave-browser/issues/20902))
  - Added tool-tip to send button in Brave Wallet when button is in a disabled state. ([#21053](https://github.com/brave/brave-browser/issues/21053))
  - Added message in Brave Rewards that warns users they have 90 days to claim ad earnings and solve CAPTCHA. ([#17133](https://github.com/brave/brave-browser/issues/17133))
- - Added ability to to override page elements with "!important" styles using cosmetic filtering. ([#20177](https://github.com/brave/brave-browser/issues/20177))
+ - Added ability to override page elements with "!important" styles using cosmetic filtering. ([#20177](https://github.com/brave/brave-browser/issues/20177))
  - Added current version of IPFS component extension to brave://ipfs. ([#18493](https://github.com/brave/brave-browser/issues/18493))
  - Improved selection of RPC URLs after input from chainlist.org with variables and wss:// (Affects Arbitrum). ([#20958](https://github.com/brave/brave-browser/issues/20958))
  - Improved the webcompat reporter. ([#20095](https://github.com/brave/brave-browser/issues/20095))
