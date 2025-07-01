@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.80.115](https://github.com/brave/brave-browser/releases/tag/v1.80.115)
+
+ - Fixed issue with Brave Leo not summarizing video transcripts. ([#46845](https://github.com/brave/brave-browser/issues/46845))
+ - Upgraded Chromium to 138.0.7204.97. ([#47276](https://github.com/brave/brave-browser/issues/47276)) ([Changelog for 138.0.7204.97](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.49..138.0.7204.97?pretty=fuller&n=1000))
+
 ## [1.80.113](https://github.com/brave/brave-browser/releases/tag/v1.80.113)
 
 ### Web3
