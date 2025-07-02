@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.80.116](https://github.com/brave/brave-browser/releases/tag/v1.80.116)
+
+ - Added "Recently Closed Tabs” section to History UI. ([#45679](https://github.com/brave/brave-browser/issues/45679))
+ - Added eTLD+1 extension on URL and baseDomain improvements. ([#44214](https://github.com/brave/brave-browser/issues/44214))
+ - Enabled new onboarding UI for all regions. ([#47061](https://github.com/brave/brave-browser/issues/47061))
+ - Dropped support for iOS 16. ([#45702](https://github.com/brave/brave-browser/issues/45702))
+ - Removed “Show in Address Bar” preference from Leo settings. ([#47091](https://github.com/brave/brave-browser/issues/47091))
+ - Updated Playlist UI by replacing seek interval with previous/next buttons in the main controls. ([#46104](https://github.com/brave/brave-browser/issues/46104))
+ - [Security] Fixed launching external app links with Chromium Web Views enabled as reported on HackerOne by syarif07. ([#46854](https://github.com/brave/brave-browser/issues/46854))
+ - [Security] Fixed URL bar text not being reverted in certain cases when a new frame is loaded as reported on HackerOne by frozzipies. ([#47107](https://github.com/brave/brave-browser/issues/47107))
+ - Fixed quick searches accessed via search history opening the incorrect search engine. ([#45384](https://github.com/brave/brave-browser/issues/45384))
+ - Fixed “Original Text” string being shown when using Translate on https://api-dashboard.search.brave.com/app/documentation/web-search/get-started with Reader Mode enabled. ([#46446](https://github.com/brave/brave-browser/issues/46446))
+ - Fixed “:matches-path()” type selector hiding the entire webpage when used in the beginning of a procedural filter script. ([#46220](https://github.com/brave/brave-browser/issues/46220))
+ - Fixed "Chinese, Simplified" and "Chinese, Traditional" providing the exact same translation for websites. ([#45946](https://github.com/brave/brave-browser/issues/45946))
+ - Fixed tabs being opened in private mode when launching a new Private Window. ([#45827](https://github.com/brave/brave-browser/issues/45827))
+ - Fixed issue where Leo is allowed to be launched via the Shortcut button when private browsing. ([#46423](https://github.com/brave/brave-browser/issues/46423))
+ - Fixed the suggestion sections in the omnibox being blocked by the keyboard. ([#45803](https://github.com/brave/brave-browser/issues/45803))
+ - Fixed URLs with “blob” or “data” schemes not opening if triggered as pop-up using window.open. ([#45647](https://github.com/brave/brave-browser/issues/45647))
+ - Upgraded Chromium to 137.0.7151.104. ([#47276](https://github.com/brave/brave-browser/issues/47276))([Changelog for 138.0.7204.97](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.104..138.0.7204.97?pretty=fuller&n=10000))
+
 ## [1.79.124](https://github.com/brave/brave-browser/releases/tag/v1.79.124)
 
  - Added search omnibox UI upgrades. ([#44257](https://github.com/brave/brave-browser/issues/44257))
