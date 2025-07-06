@@ -1,58 +1,38 @@
-{
-  "name": "brave",
-  "version": "1.77.7",
-  "description": "Next generation Brave browser for macOS, Windows, Linux, and Android",
-  "homepage": "https://github.com/brave/brave-browser#readme",
-  "bugs": {
-    "url": "https://github.com/brave/brave-browser/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brave/brave-browser.git"
-  },
-  "license": "MPL-2.0",
-  "author": {
-    "name": "Brave Software <support@brave.com>"
-  },
-  "scripts": {
-    "apply_patches": "cd src/brave && npm run apply_patches --",
-    "audit_deps": "cd src/brave && npm run audit_deps --",
-    "build": "cd src/brave && npm run build --",
-    "chromium_rebase_l10n": "cd src/brave && npm run chromium_rebase_l10n --",
-    "cibuild": "cd src/brave && npm run cibuild --",
-    "create_dist": "cd src/brave && npm run create_dist --",
-    "delete_string_translations": "cd src/brave && npm run delete_string_translations --",
-    "gclient": "cd src/brave && npm run gclient --",
-    "gn_check": "cd src/brave && npm run gn_check --",
-    "init": "node ./scripts/init.js",
-    "lint": "cd src/brave && npm run lint --",
-    "network-audit": "cd src/brave && npm run network-audit --",
-    "pull_l10n": "cd src/brave && npm run pull_l10n --",
-    "push_l10n": "cd src/brave && npm run push_l10n --",
-    "start": "cd src/brave && npm run start --",
-    "sync": "cd src/brave && npm run sync --",
-    "test": "cd src/brave && npm run test --",
-    "test-security": "cd src/brave && npm run test-security --",
-    "test:scripts": "jest lib scripts --passWithNoTests",
-    "update_patches": "cd src/brave && npm run update_patches --",
-    "versions": "cd src/brave && npm run versions --"
-  },
-  "engines": {
-    "node": ">=20.0.0 <22.0.0",
-    "npm": ">=10.0.0"
-  },
-  "config": {
-    "projects": {
-      "brave-core": {
-        "dir": "src/brave",
-        "branch": "master",
-        "repository": {
-          "url": "https://github.com/brave/brave-core.git"
-        }
-      }
-    }
-  },
-  "dependencies": {
-    "chalk": "4.1.2"
-  }
-}
+#!/bin/bash
+set -e
+
+echo "Starting full Brave → Nrave rebrand..."
+
+# Paths to rename directories
+BRAVE_DIR="src/brave"
+NRAVE_DIR="src/nrave"
+
+# Step 1: Rename brave directory to nrave
+if [ -d "$BRAVE_DIR" ]; then
+  echo "Renaming directory $BRAVE_DIR to $NRAVE_DIR"
+  mv "$BRAVE_DIR" "$NRAVE_DIR"
+else
+  echo "Directory $BRAVE_DIR does not exist. Aborting."
+  exit 1
+fi
+
+# Step 2: Find and replace "Brave" with "Nrave" in all files (case-sensitive)
+echo "Replacing 'Brave' with 'Nrave' in all files..."
+grep -rl 'Brave' "$NRAVE_DIR" | xargs sed -i '' 's/Brave/Nrave/g'
+
+# Step 3: Find and replace "brave" with "nrave" in all files (lowercase)
+echo "Replacing 'brave' with 'nrave' in all files..."
+grep -rl 'brave' "$NRAVE_DIR" | xargs sed -i '' 's/brave/nrave/g'
+
+# Step 4: Replace branding in root-level files (package.json, README.md)
+for file in package.json README.md; do
+  if [ -f "$file" ]; then
+    echo "Replacing branding in $file"
+    sed -i '' 's/Brave/Nrave/g' "$file"
+    sed -i '' 's/brave/nrave/g' "$file"
+  fi
+done
+
+echo "NOTE: You must replace all icons and images manually with Nrave assets."
+
+echo "Brave → Nrave rebranding complete."
