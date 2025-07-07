@@ -1,0 +1,180 @@
+{
+  "src": {
+    "src/third_party/js_code_coverage/node_modules": [
+      "js_code_coverage/e932c86d2d4f250416970dc270002a9cb6acecbec034998cdadf9a394d0f1abc"
+    ],
+    "src/build/linux/debian_bullseye_amd64-sysroot": [
+      "36a164623d03f525e3dfb783a5e9b8a00e98e1ddd2b5cff4e449bd016dd27e50"
+    ],
+    "src/build/linux/debian_bullseye_arm64-sysroot": [
+      "2f915d821eec27515c0c6d21b69898e23762908d8d7ccc1aa2a8f5f25e8b7e18"
+    ],
+    "src/build/linux/debian_bullseye_armhf-sysroot": [
+      "47b3a0b161ca011b2b33d4fc1ef6ef269b8208a0b7e4c900700c345acdfd1814"
+    ],
+    "src/build/linux/debian_bullseye_i386-sysroot": [
+      "63f0e5128b84f7b0421956a4a40affa472be8da0e58caf27e9acbc84072daee7"
+    ],
+    "src/build/linux/debian_bullseye_mips64el-sysroot": [
+      "58f8594905bfe0fa0b7c7a7e882f01725455d07b7161e6539de5169867009b9f"
+    ],
+    "src/build/linux/debian_bullseye_mipsel-sysroot": [
+      "2098b42d9698f5c8a15683abbf6d424b7f56200bd2488198e15f31554acb391f"
+    ],
+    "src/build/linux/debian_bullseye_ppc64el-sysroot": [
+      "485f85dde52830594f7b58ad53b9ca8ff6088b397cacb52aff682be5ffd6f198"
+    ],
+    "src/buildtools/win-format": [
+      "565cab9c66d61360c27c7d4df5defe1a78ab56d3"
+    ],
+    "src/buildtools/mac-format": [
+      "7d46d237f9664f41ef46b10c1392dcb559250f25"
+    ],
+    "src/buildtools/mac_arm64-format": [
+      "8503422f469ae56cc74f0ea2c03f2d872f4a2303"
+    ],
+    "src/buildtools/linux64-format": [
+      "79a7b4e5336339c17b828de10d80611ff0f85961"
+    ],
+    "src/third_party/node/linux": [
+      "fa98c6432de572206bc5519f85e9c96bd518b039"
+    ],
+    "src/third_party/node/mac": [
+      "4c8952a65a1ce7a2e4cff6db68f9b7454c46349f"
+    ],
+    "src/third_party/node/mac_arm64": [
+      "0886aa6a146cb5c213cb09b59ed1075982e4cb57"
+    ],
+    "src/third_party/node/win": [
+      "907d7e104e7389dc74cec7d32527c1db704b7f96"
+    ],
+    "src/third_party/node/node_modules": [
+      "13eea9a3163f9e91f343e6a3197079986d7276b2"
+    ],
+    "src/third_party/llvm-build/Release+Asserts": [
+      "Linux_x64/clang-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Linux_x64/clang-tidy-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Linux_x64/clangd-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Linux_x64/llvm-code-coverage-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Linux_x64/llvmobjdump-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac/clang-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac/clang-mac-runtime-library-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac/clang-tidy-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac/clangd-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac/llvm-code-coverage-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac_arm64/clang-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac_arm64/clang-tidy-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac_arm64/clangd-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Mac_arm64/llvm-code-coverage-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Win/clang-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Win/clang-tidy-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Win/clang-win-runtime-library-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Win/clangd-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Win/llvm-code-coverage-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz",
+      "Win/llvmobjdump-llvmorg-21-init-11777-gfd3fecfc-1.tar.xz"
+    ],
+    "src/third_party/rust-toolchain": [
+      "Linux_x64/rust-toolchain-4a0969e06dbeaaa43914d2d00b2e843d49aa3886-1-llvmorg-21-init-11777-gfd3fecfc.tar.xz",
+      "Mac/rust-toolchain-4a0969e06dbeaaa43914d2d00b2e843d49aa3886-1-llvmorg-21-init-11777-gfd3fecfc.tar.xz",
+      "Mac_arm64/rust-toolchain-4a0969e06dbeaaa43914d2d00b2e843d49aa3886-1-llvmorg-21-init-11777-gfd3fecfc.tar.xz",
+      "Win/rust-toolchain-4a0969e06dbeaaa43914d2d00b2e843d49aa3886-1-llvmorg-21-init-11777-gfd3fecfc.tar.xz"
+    ],
+    "src/content/test/data/gpu/meet_effects": [
+      "meet-gpu-tests/750908933.tar.gz"
+    ],
+    "src/third_party/blink/renderer/core/css/perftest_data": [
+      "e9ce994346c62f8c9fd6d0cecb2b2b0b93b4c2d8",
+      "756068da5e551516b23b0ba133e55c144f623d38",
+      "314e4e0d5e89ea9e9e9a234c617b4413adf48aa9",
+      "3a19b42a7c46257b716d55d6733f070c87180b1e",
+      "fdc43ee18cbd65487249441849f58aa13484aaef",
+      "7fc9338af75b7d9d185c91ddf262a356def5623d",
+      "c2d7e9ce67522dad138c7feb0a6911b828bfb130",
+      "031d5599c8a21118754e30dbea141be66104f556",
+      "8aac3db2a8c9e44babec81e539a3d60aeab4985c"
+    ],
+    "src/tools/perf/page_sets/maps_perf_test/dataset": [
+      "e6bf26977c2fd80c18789d1f279d474096a7b0d1"
+    ],
+    "src/third_party/opus/tests/resources": [
+      "009a3ee778767c2402b1d2c920bc2449265f5a2c"
+    ],
+    "src/base/tracing/test/data": [
+      "test_data/chrome_fcp_lcp_navigations.pftrace-ae01d849fbd75a98be1b7ddd5a8873217c377b393a1d5bbd788ed3364f7fefc3",
+      "test_data/chrome_input_with_frame_view.pftrace-a93548822e481508c728ccc5da3ad34afcd0aec02ca7a7a4dad84ff340ee5975",
+      "test_data/scroll_offsets_trace_2.pftrace-2ddd9f78d91d51e39c72c520bb54fdc9dbf1333ae722e87633fc345159296289",
+      "test_data/top_level_java_choreographer_slices-8001e73b2458e94f65a606bb558a645ba5bca553b57fe416001f6c2175675a8a",
+      "test_data/chrome_page_load_all_categories_not_extended.pftrace.gz-6586e9e2bbc0c996caddb321a0374328654983733e6ffd7f4635ac07db32a493",
+      "test_data/speedometer_21.perfetto_trace.gz-8a159b354d74a3ca0d38ce9cd071ef47de322db4261ee266bfafe04d70310529",
+      "test_data/speedometer_3.perfetto_trace.gz-b2c77fbe2c17363432a1ad0c05c1c1c20d3ebc62bda92c041d39918011af6f02",
+      "test_data/scroll_jank_with_pinch.pftrace-8587d2016fdb5d39b5f852704b6e3925e9e6527af01696396be767bed04d4a45",
+      "test_data/cpu_powerups_1.pb-70f5511ba0cd6ce1359e3cadb4d1d9301fb6e26be85158e3384b06f41418d386",
+      "test_data/chrome_5672_histograms.pftrace.gz-a09bd44078ac71bcfbc901b0544750e8344d0d0f6f96e220f700a5a53fa932ee",
+      "test_data/chrome_custom_navigation_trace.gz-ff68279e3cec94076b69259d756eed181a63eaf834d8b956a7f4ba665fabf939",
+      "test_data/scroll_offsets.pftrace-62101edb5204fec8bea30124f65d4e49bda0808d7b036e95f89445aaad6d8d98",
+      "test_data/chrome_input_with_frame_view_new.pftrace-e901ad9577088e62c921dd8bfcb43d652ecf49fa69b5b57f81bb3d27dbe94e12",
+      "test_data/scroll_m131.pftrace-14171c9e502a65a454f39fe14fce8b313c7012a2c14394bed496fc93b1644b0d",
+      "test_data/scroll_m132.pftrace-779e1fa6cab1abc0ab2dcafa4bbbf826ea8fc052878886ab168c783ca32f3bbe",
+      "test_data/scroll_m132_with_atrace.pftrace-b1fe189738a4a714cef7dd13b12318c89d6c4345fbe65096b4680ffa79f2872a",
+      "test_data/scroll_m133beta.pftrace-2acc70545be1caeb3fb43218ab52872c2c749b49577b973cb8400057c680fc19",
+      "test_data/scroll_with_input_not_forwarded_to_renderer.pftrace-ceb2ff3cb64c99ddb28a29867bc82f1491c4b413bfacd8638551b80936240faf"
+    ],
+    "src/third_party/subresource-filter-ruleset/data": [
+      "2e9b747b519d133c2cb0ef7f10119b7b023533363db30ef45c93bdeaf6dbc57e"
+    ],
+    "src/third_party/test_fonts/test_fonts": [
+      "a28b222b79851716f8358d2800157d9ffe117b3545031ae51f69b7e1e1b9a969"
+    ],
+    "src/buildtools/android/doclava": [
+      "1931becb8a8e21685f39c62854e9e814d64ccf1a"
+    ]
+  },
+  "src/third_party/dawn": {
+    "src/third_party/dawn/build/linux/debian_bullseye_armhf-sysroot": [
+      "e1ace9eea7f5f8906a5de665022abb745efb47ce4931ae774b58005adaf907e9"
+    ],
+    "src/third_party/dawn/build/linux/debian_bullseye_arm64-sysroot": [
+      "d303cf3faf7804c9dd24c9b6b167d0345d41d7fe4bfb7d34add3ab342f6a236c"
+    ],
+    "src/third_party/dawn/build/linux/debian_bullseye_i386-sysroot": [
+      "4300851707ad38b204e7f4912950c05ad51da0251ecc4e410de9b9fb94f7decf"
+    ],
+    "src/third_party/dawn/build/linux/debian_bullseye_mipsel-sysroot": [
+      "cc3202718a58541488e79b0333ce936a32227e07228f6b3c122d99ee45f83270"
+    ],
+    "src/third_party/dawn/build/linux/debian_bullseye_mips64el-sysroot": [
+      "ee94d723b36d1e643820fe7ee2a8f45b3664b4c5d3c3379ebab39e474a2c9f86"
+    ],
+    "src/third_party/dawn/build/linux/debian_bullseye_amd64-sysroot": [
+      "5df5be9357b425cdd70d92d4697d07e7d55d7a923f037c22dc80a78e85842d2c"
+    ]
+  },
+  "src/third_party/devtools-frontend/src": {
+    "src/third_party/devtools-frontend/src/third_party/node/linux": [
+      "fa98c6432de572206bc5519f85e9c96bd518b039"
+    ],
+    "src/third_party/devtools-frontend/src/third_party/node/mac": [
+      "4c8952a65a1ce7a2e4cff6db68f9b7454c46349f"
+    ],
+    "src/third_party/devtools-frontend/src/third_party/node/mac_arm64": [
+      "0886aa6a146cb5c213cb09b59ed1075982e4cb57"
+    ],
+    "src/third_party/devtools-frontend/src/third_party/node/win": [
+      "907d7e104e7389dc74cec7d32527c1db704b7f96"
+    ]
+  },
+  "src/third_party/openscreen/src/buildtools": {
+    "src/third_party/openscreen/src/buildtools/win-format": [
+      "565cab9c66d61360c27c7d4df5defe1a78ab56d3"
+    ],
+    "src/third_party/openscreen/src/buildtools/mac-format": [
+      "7d46d237f9664f41ef46b10c1392dcb559250f25"
+    ],
+    "src/third_party/openscreen/src/buildtools/mac_arm64-format": [
+      "8503422f469ae56cc74f0ea2c03f2d872f4a2303"
+    ],
+    "src/third_party/openscreen/src/buildtools/linux64-format": [
+      "79a7b4e5336339c17b828de10d80611ff0f85961"
+    ]
+  }
+}
