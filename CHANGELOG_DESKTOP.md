@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.80.120](https://github.com/brave/brave-browser/releases/tag/v1.80.120)
+
+ - Fixed crash which occurred when using Tor in certain cases. ([#47228](https://github.com/brave/brave-browser/issues/47228))
+ - Fixed bookmark default folder selection. ([#47069](https://github.com/brave/brave-browser/issues/47069))
+ - Upgraded Chromium to 138.0.7204.101. ([#47476](https://github.com/brave/brave-browser/issues/47476)) ([Changelog for 138.0.7204.101](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.97..138.0.7204.101?pretty=fuller&n=1000))
+
 ## [1.80.115](https://github.com/brave/brave-browser/releases/tag/v1.80.115)
 
  - Fixed issue with Brave Leo not summarizing video transcripts. ([#46845](https://github.com/brave/brave-browser/issues/46845))
