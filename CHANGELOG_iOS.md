@@ -18,7 +18,7 @@
  - Fixed issue where Leo is allowed to be launched via the Shortcut button when private browsing. ([#46423](https://github.com/brave/brave-browser/issues/46423))
  - Fixed the suggestion sections in the omnibox being blocked by the keyboard. ([#45803](https://github.com/brave/brave-browser/issues/45803))
  - Fixed URLs with “blob” or “data” schemes not opening if triggered as pop-up using window.open. ([#45647](https://github.com/brave/brave-browser/issues/45647))
- - Upgraded Chromium to 137.0.7151.104. ([#47276](https://github.com/brave/brave-browser/issues/47276))([Changelog for 138.0.7204.97](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.104..138.0.7204.97?pretty=fuller&n=10000))
+ - Upgraded Chromium to 138.0.7204.97. ([#47276](https://github.com/brave/brave-browser/issues/47276))([Changelog for 138.0.7204.97](https://chromium.googlesource.com/chromium/src/+log/137.0.7151.104..138.0.7204.97?pretty=fuller&n=10000))
 
 ## [1.79.124](https://github.com/brave/brave-browser/releases/tag/v1.79.124)
 
