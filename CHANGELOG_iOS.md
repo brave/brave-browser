@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.80.121](https://github.com/brave/brave-browser/releases/tag/v1.80.121)
+
+ - Fixed sync related crash when browser is launched. ([#47375](https://github.com/brave/brave-browser/issues/47375))
+ - Upgraded Chromium to 138.0.7204.101. ([#47476](https://github.com/brave/brave-browser/issues/47476))([Changelog for 138.0.7204.101](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.97..138.0.7204.101?pretty=fuller&n=10000))
+
 ## [1.80.116](https://github.com/brave/brave-browser/releases/tag/v1.80.116)
 
  - Added "Recently Closed Tabs” section to History UI. ([#45679](https://github.com/brave/brave-browser/issues/45679))
