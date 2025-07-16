@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.80.122](https://github.com/brave/brave-browser/releases/tag/v1.80.122)
+
+ - Upgraded Chromium to 138.0.7204.157. ([#47649](https://github.com/brave/brave-browser/issues/47649)) ([Changelog for 138.0.7204.157](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.101..138.0.7204.157?pretty=fuller&n=1000))
+
 ## [1.80.115](https://github.com/brave/brave-browser/releases/tag/v1.80.115)
 
  - Fixed issue with Brave Leo not summarizing video transcripts. ([#46845](https://github.com/brave/brave-browser/issues/46845))
