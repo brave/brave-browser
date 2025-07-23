@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.80.124](https://github.com/brave/brave-browser/releases/tag/v1.80.124)
+
+ - Updated Brave Leo in sidebar so input field is selected/focused by default when opened. ([#47796](https://github.com/brave/brave-browser/issues/47796))
+ - Removed hardcoded client side context limits for Brave Leo which will now be enforced server side. ([#41620](https://github.com/brave/brave-browser/issues/41620))
+ - Upgraded Chromium to 138.0.7204.168. ([#47844](https://github.com/brave/brave-browser/issues/47844)) ([Changelog for 138.0.7204.168](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.157..138.0.7204.168?pretty=fuller&n=1000))
+
 ## [1.80.122](https://github.com/brave/brave-browser/releases/tag/v1.80.122)
 
  - Fixed crash on brave://tor-internals which occurred while the Tor network was still connecting. ([#44960](https://github.com/brave/brave-browser/issues/44960))
