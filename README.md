@@ -1,3 +1,5 @@
+[![RepoMapr](https://img.shields.io/badge/RepoMapr-View_Interactive_Diagram-blue?style=flat&logo=github)](https://repomapr.com/brave/brave-browser)
+
 ![Brave Browser](./docs/source/_static/Brave.svg)
 
 ## Overview
