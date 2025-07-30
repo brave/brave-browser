@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.80.126](https://github.com/brave/brave-browser/releases/tag/v1.80.126)
+
+ - Upgraded Chromium to 138.0.7204.184. ([#48011](https://github.com/brave/brave-browser/issues/48011)) ([Changelog for 138.0.7204.184](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.168..138.0.7204.184?pretty=fuller&n=1000))
+
 ## [1.80.124](https://github.com/brave/brave-browser/releases/tag/v1.80.124)
 
  - Fixed silent bookmark export failure on Android 10, 11, and 12. ([#47721](https://github.com/brave/brave-browser/issues/47721))
