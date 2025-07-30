@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.80.125](https://github.com/brave/brave-browser/releases/tag/v1.80.125)
+
+ - Upgraded Chromium to 138.0.7204.184. ([#48011](https://github.com/brave/brave-browser/issues/48011)) ([Changelog for 138.0.7204.184](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.168..138.0.7204.184?pretty=fuller&n=1000))
+
 ## [1.80.124](https://github.com/brave/brave-browser/releases/tag/v1.80.124)
 
  - Updated Brave Leo in sidebar so input field is selected/focused by default when opened. ([#47796](https://github.com/brave/brave-browser/issues/47796))
