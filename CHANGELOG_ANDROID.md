@@ -26,7 +26,7 @@
  - Improved reliability of procedural filters in cases where some are invalid or unsupported. ([#46294](https://github.com/brave/brave-browser/issues/46294))
  - Improved Brave widgets color scheme to align with Material Design. ([#46537](https://github.com/brave/brave-browser/issues/46537))
  - Fixed placement of "Automatically remove permissions" under "Site settings". ([#46547](https://github.com/brave/brave-browser/issues/46547))
- - Fixed bookmark export functionality on Android 10+ devices. ([#43443](https://github.com/brave/brave-browser/issues/43443))
+ - Fixed bookmark export functionality on Android 10-12, 13+ devices. ([#43443](https://github.com/brave/brave-browser/issues/43443))
  - Upgraded Chromium to 139.0.7258.66. ([#48048](https://github.com/brave/brave-browser/issues/48048)) ([Changelog for 139.0.7258.66](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.184..139.0.7258.66?pretty=fuller&n=1000))
 
 ## [1.80.126](https://github.com/brave/brave-browser/releases/tag/v1.80.126)
