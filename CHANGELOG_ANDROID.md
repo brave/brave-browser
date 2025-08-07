@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.81.131](https://github.com/brave/brave-browser/releases/tag/v1.81.131)
+
+### Web3
+
+ - Added a Brave proxy for Zcash mainnet endpoint. ([#46266](https://github.com/brave/brave-browser/issues/46266))
+ - Added support for resolving new Unstoppable Domains TLDs including ".brave" TLD. ([#46271](https://github.com/brave/brave-browser/issues/46271))
+ - Added a "Shield Account" alert on the "Account Details" panel for Zcash accounts. ([#46598](https://github.com/brave/brave-browser/issues/46598))
+ - [Security] Added clickjacking protection on DDNS interstitials as reported on HackerOne by newfunction. ([#47407](https://github.com/brave/brave-browser/issues/47407))
+ - Fixed the settings menu on the "Account Details" panel tab being pushed out of view in certain cases. ([#44948](https://github.com/brave/brave-browser/issues/44948))
+ - Fixed a crash that occurred when connecting Wallet to DApps in certain cases. ([#46248](https://github.com/brave/brave-browser/issues/46248))
+
+### Leo
+
+ - Added support for multiple tab contexts in a single conversation in Brave Leo. ([#43190](https://github.com/brave/brave-browser/issues/43190))
+ - Added support for "Temporary chat" in Brave Leo. ([#46277](https://github.com/brave/brave-browser/issues/46277))
+ - Fixed UI issues with Brave Leo "Regenerate" menu. ([#46042](https://github.com/brave/brave-browser/issues/46042))
+ - Fixed edit/copy prompt menu not displaying properly. ([#46741](https://github.com/brave/brave-browser/issues/46741))
+
+### General
+
+ - Added "Survey Panelists" feature which allows users to opt-in to surveys from Brave (being rolled out in phases using Griffin starting at 25%). ([#45990](https://github.com/brave/brave-browser/issues/45990))
+ - Enabled download progress notifications by default. ([#46400](https://github.com/brave/brave-browser/issues/46400))
+ - Implemented use of "brave-checks.txt" to spoof the "Sec-CH-UA" header for certain sites. ([#46001](https://github.com/brave/brave-browser/issues/46001))
+ - Improved reliability of procedural filters in cases where some are invalid or unsupported. ([#46294](https://github.com/brave/brave-browser/issues/46294))
+ - Improved Brave widgets color scheme to align with Material Design. ([#46537](https://github.com/brave/brave-browser/issues/46537))
+ - Fixed placement of "Automatically remove permissions" under "Site settings". ([#46547](https://github.com/brave/brave-browser/issues/46547))
+ - Fixed bookmark export functionality on Android 10-12 devices. ([#43443](https://github.com/brave/brave-browser/issues/43443))
+ - Upgraded Chromium to 139.0.7258.66. ([#48048](https://github.com/brave/brave-browser/issues/48048)) ([Changelog for 139.0.7258.66](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.184..139.0.7258.66?pretty=fuller&n=1000))
+
 ## [1.80.126](https://github.com/brave/brave-browser/releases/tag/v1.80.126)
 
  - Upgraded Chromium to 138.0.7204.184. ([#48011](https://github.com/brave/brave-browser/issues/48011)) ([Changelog for 138.0.7204.184](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.168..138.0.7204.184?pretty=fuller&n=1000))
