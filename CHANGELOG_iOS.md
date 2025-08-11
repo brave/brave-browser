@@ -6,11 +6,12 @@
 
  - Added support for resolving new Unstoppable Domains TLDs including .brave TLD. ([#46271](https://github.com/brave/brave-browser/issues/46271))
  - Added a Brave proxy for Zcash mainnet endpoint. ([#46266](https://github.com/brave/brave-browser/issues/46266))
- - Fixed issue for web views not being reloaded when connected to https://jup.ag dApp after changing default Solana wallet preference. ([#47676](https://github.com/brave/brave-browser/issues/47676))
+ - Fixed issue for web views not being reloaded when connected to https://jup.ag DApp after changing default Solana wallet preference. ([#47676](https://github.com/brave/brave-browser/issues/47676))
 
 ### General
 
  - Implemented the ability to block YouTube distracting elements and remove Shorts. ([#37966](https://github.com/brave/brave-browser/issues/37966))
+ - Added support for Serbian and Bulgarian languages. ([#47384](https://github.com/brave/brave-browser/issues/47384))
  - Added standalone synced tabs UI. ([#46478](https://github.com/brave/brave-browser/issues/46478))
  - Added "Survey Panelists" feature which allows users to opt-in to surveys from Brave. ([#45990](https://github.com/brave/brave-browser/issues/45990))
  - Added light theme option for UI when private browsing. ([#46371](https://github.com/brave/brave-browser/issues/46371))
