@@ -26,8 +26,8 @@ Our [Wiki](https://github.com/brave/brave-browser/wiki) also has some useful tec
 
 ## Community
 
-[Join the Q&A community](https://community.brave.com/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.com/c/support-and-troubleshooting),
-[discuss features you'd like to see](https://community.brave.com/c/brave-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
+[Join the Q&A community](https://community.brave.app/) if you'd like to get more involved with Brave. You can [ask for help](https://community.brave.app/c/support-and-troubleshooting),
+[discuss features you'd like to see](https://community.brave.app/c/brave-feature-requests), and a lot more. We'd love to have your help so that we can continue improving Brave.
 
 Help us translate Brave to your language by submitting translations at https://explore.transifex.com/brave/brave_en/.
 
