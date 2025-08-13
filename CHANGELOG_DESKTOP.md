@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.81.135](https://github.com/brave/brave-browser/releases/tag/v1.81.135)
+
+### Web3
+
+ - [Security] Set clipboard sensitivity flag when copying Brave Wallet recovery code as reported on HackerOne by newfunction. ([#47840](https://github.com/brave/brave-browser/issues/47840))
+ - Fixed crash when changing the "Exchange Provider" under the "Buy" or "Swap" screens. ([#48254](https://github.com/brave/brave-browser/issues/48254))
+
+### Leo
+
+ - Fixed the "Suggested Questions" overlapping the "Regenerate Answer" menu. ([#48256](https://github.com/brave/brave-browser/issues/48256))
+ - Fixed issue where the "Reasoning" text was not being hidden when using DeepSeek model. ([#46684](https://github.com/brave/brave-browser/issues/46684))
+
+### Rewards
+
+ - Enabled Solana self-custody support in Brave Rewards by default. ([#45997](https://github.com/brave/brave-browser/issues/45997))
+
+### General
+
+ - Removed unnecessary scrollbar from the side navigation panel on brave://bookmarks page. ([#47949](https://github.com/brave/brave-browser/issues/47949))
+ - Fixed crash which could occur when importing multiple Edge profiles via brave://welcome on Windows. ([#47705](https://github.com/brave/brave-browser/issues/47705))
+ - Upgraded Chromium to 139.0.7258.127. ([#48356](https://github.com/brave/brave-browser/issues/48356)) ([Changelog for 139.0.7258.127](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.66..139.0.7258.127?pretty=fuller&n=1000))
+
 ## [1.81.131](https://github.com/brave/brave-browser/releases/tag/v1.81.131)
 
 ### Web3
