@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.81.135](https://github.com/brave/brave-browser/releases/tag/v1.81.135)
+
+### Web3
+
+ - Enabled Zcash by default. ([#48171](https://github.com/brave/brave-browser/issues/48171))
+ - [Security] Set clipboard sensitivity flag when copying Brave Wallet recovery code as reported on HackerOne by newfunction. ([#47842](https://github.com/brave/brave-browser/issues/47842))
+ - Fixed crash when changing the "Exchange Provider" under the "Bridge" or "Swap" screens. ([#48254](https://github.com/brave/brave-browser/issues/48254))
+
+### Leo
+
+ - Fixed the "Suggested Questions" overlapping the "Regenerate Answer" menu. ([#48256](https://github.com/brave/brave-browser/issues/48256))
+
+### Rewards
+
+ - Enabled Solana self-custody support in Brave Rewards by default. ([#45997](https://github.com/brave/brave-browser/issues/45997))
+
+### General
+
+ - Upgraded Chromium to 139.0.7258.127. ([#48356](https://github.com/brave/brave-browser/issues/48356)) ([Changelog for 139.0.7258.127](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.66..139.0.7258.127?pretty=fuller&n=1000))
+
 ## [1.81.131](https://github.com/brave/brave-browser/releases/tag/v1.81.131)
 
 ### Web3
