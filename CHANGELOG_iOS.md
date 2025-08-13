@@ -207,7 +207,7 @@
  - Fixed HTTP scheme being shown when loading insecure websites. ([#42070](https://github.com/brave/brave-browser/issues/42070))
  - Fixed missing favicon on NTP in private browsing. ([#40935](https://github.com/brave/brave-browser/issues/40935))
  - Fixed generic cosmetic filter list rules not being applied on certain websites. ([#42471](https://github.com/brave/brave-browser/issues/42471))
- - Fixed Night Mode not working on sites such as https://community.brave.com and https://old.reddit.com. ([#41888](https://github.com/brave/brave-browser/issues/41888))
+ - Fixed Night Mode not working on sites such as https://community.brave.app and https://old.reddit.com. ([#41888](https://github.com/brave/brave-browser/issues/41888))
  - Upgraded Chromium to 131.0.6778.108. ([#42639](https://github.com/brave/brave-browser/issues/42639))([Changelog for 131.0.6778.108](https://chromium.googlesource.com/chromium/src/+log/130.0.6723.116..131.0.6778.108?pretty=fuller&n=10000))
 
 ## [1.71.125](https://github.com/brave/brave-browser/releases/tag/v1.71.125)
