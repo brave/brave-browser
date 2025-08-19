@@ -7,7 +7,7 @@
  - Added support for resolving new Unstoppable Domains TLDs including .brave TLD. ([#46271](https://github.com/brave/brave-browser/issues/46271))
  - Added a Brave proxy for Zcash mainnet endpoint. ([#46266](https://github.com/brave/brave-browser/issues/46266))
  - Enabled ZCash feature flag by default. ([#48171](https://github.com/brave/brave-browser/issues/48171))
- - Fixed issue with web-views not reloading when default Solana Wallet provider is changed. ([#47676](https://github.com/brave/brave-browser/issues/47676))
+ - Fixed issue with web views not reloading when default Solana Wallet provider is changed. ([#47676](https://github.com/brave/brave-browser/issues/47676))
 
 ### General
 
