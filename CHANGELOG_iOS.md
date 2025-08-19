@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.81.134](https://github.com/brave/brave-browser/releases/tag/v1.81.134)
+
+### Web3 
+
+ - Added support for resolving new Unstoppable Domains TLDs including .brave TLD. ([#46271](https://github.com/brave/brave-browser/issues/46271))
+ - Added a Brave proxy for Zcash mainnet endpoint. ([#46266](https://github.com/brave/brave-browser/issues/46266))
+ - Enabled ZCash feature flag by default. ([#48171](https://github.com/brave/brave-browser/issues/48171))
+ - Fixed issue with web views not reloading when default Solana Wallet provider is changed. ([#47676](https://github.com/brave/brave-browser/issues/47676))
+
+### General
+
+ - Implemented the ability to block YouTube distracting elements and remove Shorts. ([#37966](https://github.com/brave/brave-browser/issues/37966))
+ - Added support for Serbian and Bulgarian languages. ([#47384](https://github.com/brave/brave-browser/issues/47384))
+ - Added standalone synced tabs UI. ([#46478](https://github.com/brave/brave-browser/issues/46478))
+ - Added "Survey Panelists" feature which allows users to opt-in to surveys from Brave. ([#45990](https://github.com/brave/brave-browser/issues/45990))
+ - Added light theme option for UI when private browsing. ([#46371](https://github.com/brave/brave-browser/issues/46371))
+ - Improved performance by offloading background tab data updates from the main thread. ([#46551](https://github.com/brave/brave-browser/issues/46551))
+ - Improved performance when handling attribution referral code generation. ([#46501](https://github.com/brave/brave-browser/issues/46501))
+ - Improved performance when fetching all recently closed tabs after each navigation. ([#46504](https://github.com/brave/brave-browser/issues/46504))
+ - Improved performance by removing speech recognizer offline availability checks from the main thread. ([#46413](https://github.com/brave/brave-browser/issues/46413))
+ - Improved reliability for procedural filtering with better error handling and compatibility support. ([#46294](https://github.com/brave/brave-browser/issues/46294)
+ - Updated UI in sync settings. ([#46625](https://github.com/brave/brave-browser/issues/46625)
+ - [Security] Fixed file extensions not being shown when downloading files with long names as reported on HackerOne by severusstalin. ([#45988](https://github.com/brave/brave-browser/issues/45988))
+ - Fixed open tab appearing blank after clearing site data. ([#47576](https://github.com/brave/brave-browser/issues/47576))
+ - Fixed several items missing from the highlight context menu when using standard web views. ([#47503](https://github.com/brave/brave-browser/issues/47503))
+ - Fixed “Open in Brave” sharesheet action item being incorrectly translated. ([#46878](https://github.com/brave/brave-browser/issues/46878))
+ - Upgraded Chromium to 139.0.7258.66. ([#48048](https://github.com/brave/brave-browser/issues/48048))([Changelog for 139.0.7258.66](https://chromium.googlesource.com/chromium/src/+log/138.0.7204.101..139.0.7258.66?pretty=fuller&n=10000))
+ 
 ## [1.80.121](https://github.com/brave/brave-browser/releases/tag/v1.80.121)
 
  - Fixed sync related crash when browser is launched. ([#47375](https://github.com/brave/brave-browser/issues/47375))
