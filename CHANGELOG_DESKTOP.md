@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.81.137](https://github.com/brave/brave-browser/releases/tag/v1.81.137)
+
+ - Upgraded Chromium to 139.0.7258.158. ([#48736](https://github.com/brave/brave-browser/issues/48736)) ([Changelog for 139.0.7258.158](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.143..139.0.7258.158?pretty=fuller&n=1000))
+
 ## [1.81.136](https://github.com/brave/brave-browser/releases/tag/v1.81.136)
 
  - Fixed slow loading of token list on the "Send", "Swap", and "Bridge" pages. ([#45959](https://github.com/brave/brave-browser/issues/45959))
