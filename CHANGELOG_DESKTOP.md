@@ -1,5 +1,55 @@
 # Changelog
 
+## [1.82.161](https://github.com/brave/brave-browser/releases/tag/v1.82.161)
+
+### Web3
+
+ - Added wallet address "Actions" menu. ([#47019](https://github.com/brave/brave-browser/issues/47019))
+ - Updated Brave Wallet to support both object and string data formats for the "eth_signTypedData_v4" transactions. ([#46822](https://github.com/brave/brave-browser/issues/46822))
+ - Updated UI for the "Add Suggested Token" panel. ([#47720](https://github.com/brave/brave-browser/issues/47720))
+ - Updated UI for the "Confirm Switch Networks" panel. ([#47571](https://github.com/brave/brave-browser/issues/47571))
+ - Updated UI for the "Confirm Add Network" panel. ([#47570](https://github.com/brave/brave-browser/issues/47570))
+ - Updated padding on the "Transaction Intent" text of the "Post Confirmation" panel. ([#45829](https://github.com/brave/brave-browser/issues/45829))
+ - Fixed broken "Market Details" page. ([#47678](https://github.com/brave/brave-browser/issues/47678))
+
+### Leo
+
+ - Added "Gemma 3 12B" to the list of pre-loaded models. ([#46411](https://github.com/brave/brave-browser/issues/46411))
+ - Added support for Brave Leo customization and memory feature. ([#47685](https://github.com/brave/brave-browser/issues/47685) & [#47981](https://github.com/brave/brave-browser/issues/47981))
+ - Added the ability to add tabs as attachments by mentioning them starting with "@". ([#46215](https://github.com/brave/brave-browser/issues/46215))
+ - Added model icons to the "Regenerate Answer" menu. ([#47223](https://github.com/brave/brave-browser/issues/47223))
+ - Added support to display markdown-formatted tables in Brave Leo responses. ([#46085](https://github.com/brave/brave-browser/issues/46085))
+ - Updated Brave Leo to use image content as reference context when accessed via its URL. ([#47353](https://github.com/brave/brave-browser/issues/47353))
+ - Updated padding of the "Send" and "Tool" buttons. ([#46904](https://github.com/brave/brave-browser/issues/46904))
+ - Removed "Llama Vision" from the default model list. ([#47577](https://github.com/brave/brave-browser/issues/47577))
+ - Fixed empty citation brackets being displayed in certain cases. ([#47484](https://github.com/brave/brave-browser/issues/47484))
+ - Fixed inability to scroll during Brave Leo onboarding on small screen resolutions. ([#40910](https://github.com/brave/brave-browser/issues/40910))
+ - Fixed wrapping of "Edited" label. ([#47485](https://github.com/brave/brave-browser/issues/47485))
+
+### General
+
+ - Added "Theme and colors" and "Toolbar" side panels under brave://settings/appearance. ([#39375](https://github.com/brave/brave-browser/issues/39375))
+ - Added support for Brave VPN "Smart Proxy" on Windows and macOS. ([#43737](https://github.com/brave/brave-browser/issues/43737))
+ - Added the ability to disable Brave Talk via Admin policy. ([#47457](https://github.com/brave/brave-browser/issues/47457))
+ - Added the ability to disable Brave News via Admin policy. ([#47456](https://github.com/brave/brave-browser/issues/47456))
+ - Added a "Delete" button to the downloads panel. ([#35432](https://github.com/brave/brave-browser/issues/35432))
+ - Added a top level toggle for Speedreader feature under brave://settings/braveContent. ([#48336](https://github.com/brave/brave-browser/issues/48336))
+ - Added the ability to show hidden entries in the "Filter lists" section under brave://settings/shields/filters. ([#28987](https://github.com/brave/brave-browser/issues/28987))
+ - Added an "issue" category dropdown to the webcompat reporter. ([#46287](https://github.com/brave/brave-browser/issues/46287))
+ - Added localization support for Laotian and Kazakh. ([#48110](https://github.com/brave/brave-browser/issues/48110) & [#45184](https://github.com/brave/brave-browser/issues/45184))
+ - [Security] Disabled "navigator.share()" in Tor windows on macOS as reported on HackerOne by cinzinga. ([#47726](https://github.com/brave/brave-browser/issues/47726))
+ - [Security] Treat ".onion" hostnames as secure for insecure form warnings and autofill as reported on HackerOne by newfunction. ([#44802](https://github.com/brave/brave-browser/issues/44802))
+ - [Security] Prevent tab modal dialogs being shown from inactive split tab as reported on HackerOne by frozzipies. ([#46871](https://github.com/brave/brave-browser/issues/46871))
+ - Improved adblocking. ([#46301](https://github.com/brave/brave-browser/issues/46301), [#46292](https://github.com/brave/brave-browser/issues/46292), [#46290](https://github.com/brave/brave-browser/issues/46290), & [#46289](https://github.com/brave/brave-browser/issues/46289))
+ - Improved adblock content picker design. ([#45104](https://github.com/brave/brave-browser/issues/45104))
+ - Improved the mapping of group policies to preferences. ([#48187](https://github.com/brave/brave-browser/issues/48187))
+ - Updated P3A components to be removed when disabled. ([#47473](https://github.com/brave/brave-browser/issues/47473))
+ - Removed WebTorrent code now that WebTorrent has been deprecated. ([#46430](https://github.com/brave/brave-browser/issues/46430))
+ - Fixed issue where custom scriptlets were removed in certain cases. ([#45657](https://github.com/brave/brave-browser/issues/45657))
+ - Fixed favicon alignment with pinned split tabs when vertical tabs are enabled. ([#47364](https://github.com/brave/brave-browser/issues/47364))
+ - Fixed "Tab Search" button being displayed when disabled and vertical tabs are enabled. ([#47076](https://github.com/brave/brave-browser/issues/47076))
+ - Upgraded Chromium to 140.0.7339.80. ([#48911](https://github.com/brave/brave-browser/issues/48911)) ([Changelog for 140.0.7339.80](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.158..140.0.7339.80?pretty=fuller&n=1000))
+
 ## [1.81.137](https://github.com/brave/brave-browser/releases/tag/v1.81.137)
 
  - Upgraded Chromium to 139.0.7258.158. ([#48736](https://github.com/brave/brave-browser/issues/48736)) ([Changelog for 139.0.7258.158](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.143..139.0.7258.158?pretty=fuller&n=1000))
