@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.82.162](https://github.com/brave/brave-browser/releases/tag/v1.82.162)
+
+### Web3
+
+ - Added wallet address "Actions" menu. ([#47019](https://github.com/brave/brave-browser/issues/47019))
+ - Added wallet settings dropdown menu to "Portfolio" tab. ([#44860](https://github.com/brave/brave-browser/issues/44860))
+ - Fixed broken "Market Details" page. ([#47678](https://github.com/brave/brave-browser/issues/47678))
+
+### Leo
+
+ - Added "Gemma 3 12B" to the list of pre-loaded models. ([#46411](https://github.com/brave/brave-browser/issues/46411))
+ - Added model icons to the "Regenerate Answer" menu. ([#47223](https://github.com/brave/brave-browser/issues/47223))
+ - Added the ability to add tabs as attachments by mentioning them starting with "@". ([#46215](https://github.com/brave/brave-browser/issues/46215))
+ - Added support to display markdown-formatted tables in Brave Leo responses. ([#46085](https://github.com/brave/brave-browser/issues/46085))
+ - Added Brave Leo voice input button to Brave home screen widget. ([#43962](https://github.com/brave/brave-browser/issues/43962))
+ - Updated padding of the "Send" and "Tool" buttons. ([#46904](https://github.com/brave/brave-browser/issues/46904))
+ - Removed "Llama Vision" from the default model list. ([#47577](https://github.com/brave/brave-browser/issues/47577))
+ - Fixed wrapping of "Edited" label. ([#47485](https://github.com/brave/brave-browser/issues/47485))
+ - Fixed empty citation brackets being displayed in certain cases. ([#47484](https://github.com/brave/brave-browser/issues/47484))
+
+### General
+
+ - Added localization support for Laotian and Kazakh. ([#48110](https://github.com/brave/brave-browser/issues/48110) & [#45184](https://github.com/brave/brave-browser/issues/45184))
+ - Added the ability to show hidden entries in the "Filter lists" section under brave://settings/shields/filters. ([#28987](https://github.com/brave/brave-browser/issues/28987))
+ - Added toolbar shortcut button for quick action access. ([#44266](https://github.com/brave/brave-browser/issues/44266))
+ - Added an "issue" category dropdown to the webcompat reporter. ([#47650](https://github.com/brave/brave-browser/issues/47650))
+ - Improved adblocking. ([#46292](https://github.com/brave/brave-browser/issues/46292), [#46290](https://github.com/brave/brave-browser/issues/46290), & [#46289](https://github.com/brave/brave-browser/issues/46289))
+ - Improved adblock content picker design. ([#45104](https://github.com/brave/brave-browser/issues/45104))
+ - Improved PiP (Picture-in-Picture) logic when watching YouTube videos (being rolled out in phases using Griffin starting at 25%). ([#48278](https://github.com/brave/brave-browser/issues/48278))
+ - Updated P3A components to be removed when disabled. ([#47473](https://github.com/brave/brave-browser/issues/47473))
+ - Updated "Sponsored Image" text to "New tab page ads" in the settings screen. ([#45643](https://github.com/brave/brave-browser/issues/45643))
+ - Fixed infobars rendering incorrectly if gesture navigation is enabled. ([#46513](https://github.com/brave/brave-browser/issues/46513))
+ - Fixed YouTube audio continuing to play after closing PiP (Picture-in-Picture) window. ([#46257](https://github.com/brave/brave-browser/issues/46257))
+ - Fixed incorrect video positioning and size being used when going into fullscreen mode when watching YouTube videos. ([#48036](https://github.com/brave/brave-browser/issues/48036))
+ - Upgraded Chromium to 140.0.7339.80. ([#48911](https://github.com/brave/brave-browser/issues/48911)) ([Changelog for 140.0.7339.80](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.158..140.0.7339.80?pretty=fuller&n=1000))
+
 ## [1.81.137](https://github.com/brave/brave-browser/releases/tag/v1.81.137)
 
  - Upgraded Chromium to 139.0.7258.158. ([#48736](https://github.com/brave/brave-browser/issues/48736)) ([Changelog for 139.0.7258.158](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.143..139.0.7258.158?pretty=fuller&n=1000))
