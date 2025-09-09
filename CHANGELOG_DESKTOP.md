@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.82.165](https://github.com/brave/brave-browser/releases/tag/v1.82.165)
+
+ - Fixed crash which could occur in certain cases when connecting to Brave VPN on Windows using WireGuard. ([#49003](https://github.com/brave/brave-browser/issues/49003))
+
 ## [1.82.161](https://github.com/brave/brave-browser/releases/tag/v1.82.161)
 
 ### Web3
