@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.82.165](https://github.com/brave/brave-browser/releases/tag/v1.82.165)
+
+ - Fixed background playback not working when switching apps or locking the device. ([#49075](https://github.com/brave/brave-browser/issues/49075))
+
 ## [1.82.162](https://github.com/brave/brave-browser/releases/tag/v1.82.162)
 
 ### Web3
