@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.82.166](https://github.com/brave/brave-browser/releases/tag/v1.82.166)
+
+ - Fixed table formatting in Leo's response to show headers in bold and remove escaped HTML tags. ([#49048](https://github.com/brave/brave-browser/issues/49048))
+ - Fixed faded icon colors in the tab switcher menu for improved visibility. ([#49080](https://github.com/brave/brave-browser/issues/49080))
+ - Upgraded Chromium to 140.0.7339.133. ([#49123](https://github.com/brave/brave-browser/issues/49123)) ([Changelog for 140.0.7339.133](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.80..140.0.7339.133?pretty=fuller&n=1000))
+
 ## [1.82.165](https://github.com/brave/brave-browser/releases/tag/v1.82.165)
 
  - Fixed background playback not working when switching apps or locking the device. ([#49075](https://github.com/brave/brave-browser/issues/49075))
