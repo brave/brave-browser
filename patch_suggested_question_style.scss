@@ -1,0 +1,105 @@
+/*
+ * PATCH for: components/ai_chat/resources/page/components/suggested_question/style.module.scss
+ * Issue: Suggested question text doesn't wrap properly and can overflow
+ * 
+ * Replace/enhance the existing styles with these responsive improvements:
+ */
+
+.questionButton {
+  --leo-button-color: var(--leo-color-divider-subtle);
+  
+  /* Enhanced button sizing for mobile-first design */
+  width: 100%;
+  max-width: 100%;
+  min-height: 44px; /* Minimum touch target size for accessibility */
+  
+  /* Better interaction states */
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--leo-effect-elevation-02);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid var(--leo-color-focus-border);
+    outline-offset: 2px;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.questionButtonText {
+  font: var(--leo-font-default-regular);
+  color: var(--leo-color-text-secondary);
+  
+  /* Enhanced text handling for responsiveness */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.4;
+  
+  /* Prevent text overflow with ellipsis */
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines maximum */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  
+  /* Mobile text scaling */
+  @media (max-width: 480px) {
+    font-size: 14px;
+    -webkit-line-clamp: 2; /* Limit to 2 lines on very small screens */
+  }
+}
+
+.generateButtonText {
+  font: var(--leo-font-default-regular);
+  color: var(--leo-color-text-secondary);
+  
+  /* Same responsive text handling as question buttons */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.4;
+  white-space: normal;
+  text-overflow: ellipsis;
+  
+  /* Mobile optimization */
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .questionButton {
+    border: 2px solid var(--leo-color-text-primary);
+    
+    .questionButtonText,
+    .generateButtonText {
+      color: var(--leo-color-text-primary);
+      font-weight: 600;
+    }
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .questionButton {
+    &:hover {
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+/* Print styles - hide interactive elements */
+@media print {
+  .questionButton {
+    display: none;
+  }
+}

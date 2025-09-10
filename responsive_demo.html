@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leo AI Suggested Questions - Responsive Fix Demo</title>
+    <style>
+        /* Simulated Leo design tokens */
+        :root {
+            --leo-spacing-s: 8px;
+            --leo-spacing-m: 12px;
+            --leo-spacing-xl: 24px;
+            --leo-spacing-2xl: 32px;
+            --leo-spacing-5xl: 80px;
+            --leo-radius-l: 8px;
+            --leo-color-divider-subtle: #e1e1e6;
+            --leo-color-text-secondary: #6b7084;
+            --leo-color-focus-border: #4c54d2;
+            --leo-color-neutral-20: #d1d1db;
+            --leo-font-default-regular: 400 14px/20px system-ui;
+            --leo-effect-elevation-02: 0 4px 8px rgba(0,0,0,0.1);
+            --conversation-content-margin: var(--leo-spacing-2xl);
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .size-controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .size-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .size-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .size-btn.active {
+            background: #4c54d2;
+            color: white;
+        }
+
+        /* ORIGINAL (BROKEN) STYLES */
+        .original-demo .questionsList {
+            --leo-button-radius: var(--leo-radius-l);
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: var(--leo-spacing-m);
+        }
+
+        /* FIXED RESPONSIVE STYLES */
+        .fixed-demo .suggestionsContainer {
+            margin: var(--conversation-content-margin) 0;
+            container-type: inline-size;
+            width: 100%;
+        }
+
+        .fixed-demo .questionsList {
+            --leo-button-radius: var(--leo-radius-l);
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: var(--leo-spacing-m);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Container queries for responsive behavior */
+        @container (min-width: 600px) {
+            .fixed-demo .questionsList {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+            }
+            
+            .fixed-demo .questionsList > * {
+                flex: 1 1 calc(50% - var(--leo-spacing-m) / 2);
+                min-width: 200px;
+                max-width: 400px;
+            }
+        }
+
+        @container (min-width: 900px) {
+            .fixed-demo .questionsList > * {
+                flex: 1 1 calc(33.333% - var(--leo-spacing-m) * 2 / 3);
+                max-width: 300px;
+            }
+        }
+
+        /* Common button styles */
+        .questionButton {
+            --leo-button-color: var(--leo-color-divider-subtle);
+            border: 1px solid var(--leo-color-divider-subtle);
+            background: white;
+            border-radius: var(--leo-radius-l);
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .questionButton:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--leo-effect-elevation-02);
+        }
+
+        .questionButton:focus-visible {
+            outline: 2px solid var(--leo-color-focus-border);
+            outline-offset: 2px;
+        }
+
+        .questionButtonText {
+            font: var(--leo-font-default-regular);
+            color: var(--leo-color-text-secondary);
+        }
+
+        /* Fixed version text handling */
+        .fixed-demo .questionButtonText {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            line-height: 1.4;
+            white-space: normal;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Mobile specific */
+        @media (max-width: 480px) {
+            .fixed-demo .questionsList {
+                gap: var(--leo-spacing-s);
+            }
+            
+            .fixed-demo .questionButtonText {
+                font-size: 14px;
+                -webkit-line-clamp: 2;
+            }
+        }
+
+        .demo-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .original-demo {
+            background: #ffe6e6;
+            border: 2px solid #ff9999;
+        }
+
+        .fixed-demo {
+            background: #e6ffe6;
+            border: 2px solid #99ff99;
+        }
+
+        .section-title {
+            margin: 0 0 16px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .container-width {
+            transition: width 0.3s ease;
+            border: 2px dashed #ccc;
+            padding: 16px;
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>Leo AI Suggested Questions - Responsive Fix Demo</h1>
+        
+        <div class="size-controls">
+            <button class="size-btn" onclick="setWidth('100%')" data-width="100%">Full Width</button>
+            <button class="size-btn active" onclick="setWidth('800px')" data-width="800px">Large (800px)</button>
+            <button class="size-btn" onclick="setWidth('600px')" data-width="600px">Medium (600px)</button>
+            <button class="size-btn" onclick="setWidth('400px')" data-width="400px">Small (400px)</button>
+            <button class="size-btn" onclick="setWidth('320px')" data-width="320px">Mobile (320px)</button>
+        </div>
+
+        <div class="demo-section original-demo">
+            <h3 class="section-title">❌ ORIGINAL (BROKEN) - Questions overflow on small screens</h3>
+            <div class="container-width" id="original-container">
+                <div class="suggestionsContainer">
+                    <div class="questionsList">
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">What are the main benefits of using renewable energy sources?</span>
+                        </button>
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">How can I improve my productivity while working from home?</span>
+                        </button>
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">What are some effective strategies for learning a new programming language?</span>
+                        </button>
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">Can you explain the basics of cryptocurrency and blockchain technology?</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section fixed-demo">
+            <h3 class="section-title">✅ FIXED (RESPONSIVE) - Questions adapt to screen size</h3>
+            <div class="container-width" id="fixed-container">
+                <div class="suggestionsContainer">
+                    <div class="questionsList">
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">What are the main benefits of using renewable energy sources?</span>
+                        </button>
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">How can I improve my productivity while working from home?</span>
+                        </button>
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">What are some effective strategies for learning a new programming language?</span>
+                        </button>
+                        <button class="questionButton">
+                            <span>💬</span>
+                            <span class="questionButtonText">Can you explain the basics of cryptocurrency and blockchain technology?</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; padding: 20px; background: #f0f8ff; border-radius: 8px;">
+            <h3>Testing Instructions:</h3>
+            <ol>
+                <li><strong>Try different screen sizes</strong> using the buttons above</li>
+                <li><strong>Notice the original version</strong> doesn't adapt and can cause horizontal scroll</li>
+                <li><strong>See how the fixed version</strong> adapts layout based on available width</li>
+                <li><strong>On large screens:</strong> Fixed version shows questions in rows for efficient use of space</li>
+                <li><strong>On small screens:</strong> Fixed version keeps single column but with better text wrapping</li>
+            </ol>
+            
+            <h3>Key Improvements:</h3>
+            <ul>
+                <li>✅ <strong>Responsive layout:</strong> Adapts from single column to multi-column based on available space</li>
+                <li>✅ <strong>Text wrapping:</strong> Long questions wrap properly instead of overflowing</li>
+                <li>✅ <strong>Container queries:</strong> Modern CSS for precise responsive behavior</li>
+                <li>✅ <strong>Accessibility:</strong> Proper touch targets and focus management</li>
+                <li>✅ <strong>Progressive enhancement:</strong> Graceful fallback for older browsers</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function setWidth(width) {
+            const originalContainer = document.getElementById('original-container');
+            const fixedContainer = document.getElementById('fixed-container');
+            
+            originalContainer.style.width = width;
+            fixedContainer.style.width = width;
+            
+            // Update active button
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.width === width) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Set initial width
+        setWidth('800px');
+    </script>
+</body>
+</html>

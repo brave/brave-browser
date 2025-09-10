@@ -1,0 +1,77 @@
+/* 
+ * PATCH for: components/ai_chat/resources/page/components/main/style.module.scss
+ * Issue: Leo AI suggested questions don't fit screen properly on mobile/small screens
+ * 
+ * Replace the existing .suggestionsContainer and .questionsList styles with these:
+ */
+
+.suggestionsContainer {
+  margin: var(--conversation-content-margin) 0;
+  
+  /* Enable container queries for responsive behavior */
+  container-type: inline-size;
+  width: 100%;
+}
+
+.questionsList {
+  --leo-button-radius: var(--leo-radius-l);
+  
+  /* Enhanced responsive layout */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Changed from 'start' to ensure full width usage */
+  gap: var(--leo-spacing-m);
+  
+  /* Ensure proper sizing and prevent overflow */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    gap: var(--leo-spacing-s); /* Tighter spacing on mobile */
+  }
+  
+  /* Responsive layout using container queries */
+  @container (min-width: 600px) {
+    /* Switch to horizontal layout on medium+ screens */
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    
+    /* Ensure questions don't become too wide */
+    & > * {
+      flex: 1 1 calc(50% - var(--leo-spacing-m) / 2);
+      min-width: 200px;
+      max-width: 400px;
+    }
+  }
+  
+  /* Large screen optimization - 3 column layout */
+  @container (min-width: 900px) {
+    & > * {
+      flex: 1 1 calc(33.333% - var(--leo-spacing-m) * 2 / 3);
+      max-width: 300px;
+    }
+  }
+  
+  /* Horizontal scrolling fallback for edge cases */
+  &:has(.questionButton:hover) {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--leo-color-neutral-20) transparent;
+    
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: var(--leo-color-neutral-20);
+      border-radius: var(--leo-spacing-s);
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+}
