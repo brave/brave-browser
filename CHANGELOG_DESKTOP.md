@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.82.170](https://github.com/brave/brave-browser/releases/tag/v1.82.170)
+
+ - Added support for liquid glass icons for macOS 26. ([#46798](https://github.com/brave/brave-browser/issues/46798))
+ - [Security] Enhanced validation for hardware wallet bridge communication as reported on HackerOne by oblivionsage. ([#48704](https://github.com/brave/brave-browser/issues/48704))
+ - Updated the bottom radius of vertical tabs for macOS 26. ([#49171](https://github.com/brave/brave-browser/issues/49171))
+ - Fixed issue where token name casing was not consistent on the "Portfolio" page of Brave Wallet. ([#44671](https://github.com/brave/brave-browser/issues/44671))
+ - Upgraded Chromium to 140.0.7339.186. ([#49381](https://github.com/brave/brave-browser/issues/49381)) ([Changelog for 140.0.7339.186](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.133..140.0.7339.186?pretty=fuller&n=1000))
+
 ## [1.82.166](https://github.com/brave/brave-browser/releases/tag/v1.82.166)
 
  - Fixed table formatting in Leo's response to show headers in bold and remove escaped HTML tags. ([#49048](https://github.com/brave/brave-browser/issues/49048))
