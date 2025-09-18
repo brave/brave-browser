@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.82.170](https://github.com/brave/brave-browser/releases/tag/v1.82.170)
+
+ - Upgraded Chromium to 140.0.7339.186. ([#49381](https://github.com/brave/brave-browser/issues/49381)) ([Changelog for 140.0.7339.186](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.133..140.0.7339.186?pretty=fuller&n=1000))
+
 ## [1.82.166](https://github.com/brave/brave-browser/releases/tag/v1.82.166)
 
  - Fixed table formatting in Leo's response to show headers in bold and remove escaped HTML tags. ([#49048](https://github.com/brave/brave-browser/issues/49048))
