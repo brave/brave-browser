@@ -2,6 +2,7 @@
 
 ## [1.82.171](https://github.com/brave/brave-browser/releases/tag/v1.82.171)
 
+ - Added new tab tray UI behind feature flag. ([#47435](https://github.com/brave/brave-browser/issues/47435))
  - Added "Gemma 3 12B"to the list of pre-loaded models. ([#46411](https://github.com/brave/brave-browser/issues/46411))
  - Added customization options for the items in the main menu. ([#47625](https://github.com/brave/brave-browser/issues/47625))
  - Added ability to shred all tabs from the tab tray. ([#47942](https://github.com/brave/brave-browser/issues/47942))
