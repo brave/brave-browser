@@ -3,7 +3,7 @@
 ## [1.82.172](https://github.com/brave/brave-browser/releases/tag/v1.82.172)
 
  - Fixed crash which could occur when using Cyrillic or other locale characters in the omnibox in certain cases on Linux. ([#49272](https://github.com/brave/brave-browser/issues/49272))
- - Fixed issue where Brave-hosted uBlock Origin extension may not update. ([#49198](https://github.com/brave/brave-browser/issues/49198))
+ - Fixed issue where Brave-hosted MV2 extensions may not update. ([#49198](https://github.com/brave/brave-browser/issues/49198))
  - Upgraded Chromium to 140.0.7339.207. ([#49566](https://github.com/brave/brave-browser/issues/49566)) ([Changelog for 140.0.7339.207](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.186..140.0.7339.207?pretty=fuller&n=1000))
 
 ## [1.82.170](https://github.com/brave/brave-browser/releases/tag/v1.82.170)
