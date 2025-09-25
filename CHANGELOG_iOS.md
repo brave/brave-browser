@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.82.171](https://github.com/brave/brave-browser/releases/tag/v1.82.171)
+
+ - Implemented modern tab tray UI which can be enabled via brave://flags. ([#47435](https://github.com/brave/brave-browser/issues/47435))
+ - Added "Gemma 3 12B" to the list of pre-loaded models. ([#46411](https://github.com/brave/brave-browser/issues/46411))
+ - Added customization options for the items in the main menu. ([#47625](https://github.com/brave/brave-browser/issues/47625))
+ - Added ability to shred all tabs from the tab tray. ([#47942](https://github.com/brave/brave-browser/issues/47942))
+ - Added ability to access private tab related settings from the new tab tray UI. ([#47751](https://github.com/brave/brave-browser/issues/47751))
+ - Added an "issue" category dropdown to the webcompat reporter. ([#47507](https://github.com/brave/brave-browser/issues/47507))
+ - Enabled Brave Translate feature flag by default. ([#47383](https://github.com/brave/brave-browser/issues/47383))
+ - Removed "Llama Vision" from the default model list. ([#47577](https://github.com/brave/brave-browser/issues/47577))
+ - Improved syncing tabs to desktop by also including inactive tabs. ([#47054](https://github.com/brave/brave-browser/issues/47054))
+ - Improved adblocking. ([#46292](https://github.com/brave/brave-browser/issues/46292), [#46290](https://github.com/brave/brave-browser/issues/46290), & [#46289](https://github.com/brave/brave-browser/issues/46289))
+ - Updated the logic for the "Highest Quality Playback” media setting to reduce video quality when using mobile data. ([#47426](https://github.com/brave/brave-browser/issues/47426))
+ - [Security] Fixed prompt not displaying the correct URL when using “switch to external application” as reported on HackerOne by severusstalin. ([#47986](https://github.com/brave/brave-browser/issues/47986))
+ - [Security] Fixed improper URL handling when using “Open in Brave” from the share sheet as reported on HackerOne by severusstalin. ([#49146](https://github.com/brave/brave-browser/issues/49146))
+ - Fixed a crash occurring in Leo in certain cases. ([#48304](https://github.com/brave/brave-browser/issues/48304))
+ - Fixed a crash when removing a custom URL filter list. ([#49277](https://github.com/brave/brave-browser/issues/49277))
+ - Fixed shuffle preference not persisting after disconnecting and then reconnecting to CarPlay. ([#46631](https://github.com/brave/brave-browser/issues/46631))
+ - Fixed debouncing not working as expected with Chromium Web Embedder enabled. ([#48763](https://github.com/brave/brave-browser/issues/48763))
+ - Fixed query parameters not being stripped from URL when using "Copy Clean Link”. ([#48601](https://github.com/brave/brave-browser/issues/48601))
+ - Fixed NTT not being shown after clearing ads data. ([#44966](https://github.com/brave/brave-browser/issues/44966))
+ - Fixed reader mode UI being shown in other tabs when changing device orientation. ([#47272](https://github.com/brave/brave-browser/issues/47272))
+ - Fixed missing “Add to reading list” context item in the share menu. ([#47252](https://github.com/brave/brave-browser/issues/47252))
+ - Fixed issue where a white flash would sometimes appear when closing or opening a new tab. ([#47026](https://github.com/brave/brave-browser/issues/47026))
+ - Upgraded Chromium to 140.0.7339.186. ([#49381](https://github.com/brave/brave-browser/issues/49381))([Changelog for 140.0.7339.186](https://chromium.googlesource.com/chromium/src/+log/139.0.7258.66..140.0.7339.186?pretty=fuller&n=10000))
+
 ## [1.81.134](https://github.com/brave/brave-browser/releases/tag/v1.81.134)
 
 ### Web3 
