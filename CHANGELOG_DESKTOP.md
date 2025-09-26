@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.82.173](https://github.com/brave/brave-browser/releases/tag/v1.82.173)
+
+ - Upgraded Chromium to 140.0.7339.213 on macOS. ([#49643](https://github.com/brave/brave-browser/issues/49643)) ([Changelog for 140.0.7339.213](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.207..140.0.7339.213?pretty=fuller&n=1000))
+
 ## [1.82.172](https://github.com/brave/brave-browser/releases/tag/v1.82.172)
 
  - Fixed crash which could occur when using Cyrillic or other locale characters in the omnibox in certain cases on Linux. ([#49272](https://github.com/brave/brave-browser/issues/49272))
