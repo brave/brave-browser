@@ -2,7 +2,7 @@
 
 ## [1.82.174](https://github.com/brave/brave-browser/releases/tag/v1.82.174)
 
- - Fixed WebKit crashing when compiling content blockers for iOS 26 users. ([#49722](https://github.com/brave/brave-browser/issues/49722))
+ - Fixed WebKit crash when compiling content blockers for iOS 26. ([#49722](https://github.com/brave/brave-browser/issues/49722))
  - Fixed a crash involving using the URL bar when playlist items have an invalid duration. ([#49507](https://github.com/brave/brave-browser/issues/49507))
  - Fixed website data not being deleted when using auto-shred on app exit. ([#49464](https://github.com/brave/brave-browser/issues/49464))
  - Upgraded Chromium to 140.0.7339.213. ([#49643](https://github.com/brave/brave-browser/issues/49643))([Changelog for 140.0.7339.213](https://chromium.googlesource.com/chromium/src/+log/40.0.7339.186..140.0.7339.213?pretty=fuller&n=10000))
