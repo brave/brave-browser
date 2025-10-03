@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.83.109](https://github.com/brave/brave-browser/releases/tag/v1.83.109)
+
+ - Fixed crash on launch which occurred in certain cases due to a missing "setting" value for "MigrateCosmeticFilteringSettings". ([#49861](https://github.com/brave/brave-browser/issues/49861))
+
 ## [1.83.108](https://github.com/brave/brave-browser/releases/tag/v1.83.108)
 
 ### Web3
