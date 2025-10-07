@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.83.108](https://github.com/brave/brave-browser/releases/tag/v1.83.108)
+## [1.83.109](https://github.com/brave/brave-browser/releases/tag/v1.83.109)
 
 ### Web3
 
