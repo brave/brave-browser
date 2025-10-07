@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.83.108](https://github.com/brave/brave-browser/releases/tag/v1.83.108)
+
+### Web3
+
+ - Added support for uploading PDFs as an attachment into Brave Leo. ([#48151](https://github.com/brave/brave-browser/issues/48151))
+ - Updated "Transaction" list to be virtualized. ([#49576](https://github.com/brave/brave-browser/issues/49576))
+
+### Rewards
+
+ - Improved Brave Rewards creator detection on mobile version of websites (e.g., m.youtube.com). ([#47679](https://github.com/brave/brave-browser/issues/47679))
+
+### Leo
+
+ - Resized Brave Leo slash tools icon. ([#48435](https://github.com/brave/brave-browser/issues/48435))
+ - Moved model selector to input box. ([#48381](https://github.com/brave/brave-browser/issues/48381))
+
+### General
+
+ - Re-added the ability to prevent PDFs from automatically opening in the browser via brave://flags. ([#48477](https://github.com/brave/brave-browser/issues/48477))
+ - Improved internal task handling for increased browser stability. ([#48310](https://github.com/brave/brave-browser/issues/48310))
+ - Improved privacy by proxying requests for search engine icons. ([#42127](https://github.com/brave/brave-browser/issues/42127))
+ - Removed from the query string filter one campaign-level parameter and added four potentially user-identifying parameters. ([#47387](https://github.com/brave/brave-browser/issues/47387), [#48226](https://github.com/brave/brave-browser/issues/48226), & [#48228](https://github.com/brave/brave-browser/issues/48228))
+ - Fixed a crash related to media notifications that occurs in certain cases. ([#49674](https://github.com/brave/brave-browser/issues/49674))
+ - Fixed a crash in search engine settings that occurs in certain cases. ([#48307](https://github.com/brave/brave-browser/issues/48307))
+ - Upgraded Chromium to 141.0.7390.55. ([#49783](https://github.com/brave/brave-browser/issues/49783)) ([Changelog for 141.0.7390.55](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.213..141.0.7390.55?pretty=fuller&n=1000))
+
 ## [1.82.172](https://github.com/brave/brave-browser/releases/tag/v1.82.172)
 
  - Upgraded Chromium to 140.0.7339.207. ([#49566](https://github.com/brave/brave-browser/issues/49566)) ([Changelog for 140.0.7339.207](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.186..140.0.7339.207?pretty=fuller&n=1000))
