@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.83.112](https://github.com/brave/brave-browser/releases/tag/v1.83.112)
+
+ - Updated the toolbar to have rounded top corners. ([#49833](https://github.com/brave/brave-browser/issues/49833))
+ - Fixed crash which occurred when using the media controller in a Tor window. ([#49416](https://github.com/brave/brave-browser/issues/49416))
+ - Fixed the "Power" section under brave://settings/system not displaying initially. ([#49829](https://github.com/brave/brave-browser/issues/49829))
+ - Upgraded Chromium to 141.0.7390.70. ([#49977](https://github.com/brave/brave-browser/issues/49977)) ([Changelog for 141.0.7390.70](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.55..141.0.7390.70?pretty=fuller&n=1000))
+
 ## [1.83.109](https://github.com/brave/brave-browser/releases/tag/v1.83.109)
 
  - Fixed crash on launch which occurred in certain cases due to a missing "setting" value for the "cosmeticFiltering" key in the "Preference" file. ([#49861](https://github.com/brave/brave-browser/issues/49861))
