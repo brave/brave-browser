@@ -2,7 +2,7 @@
 
 ## [1.83.112](https://github.com/brave/brave-browser/releases/tag/v1.83.112)
 
- - Updated WireGuard tunnel library to support 16 KB memory page sizes. ([#48949](https://github.com/brave/brave-browser/issues/48949))
+ - Updated WireGuard tunnel library to support 16 KB memory page size. ([#48949](https://github.com/brave/brave-browser/issues/48949))
  - Upgraded Chromium to 141.0.7390.70. ([#49977](https://github.com/brave/brave-browser/issues/49977)) ([Changelog for 141.0.7390.70](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.55..141.0.7390.70?pretty=fuller&n=1000))
 
 ## [1.83.109](https://github.com/brave/brave-browser/releases/tag/v1.83.109)
