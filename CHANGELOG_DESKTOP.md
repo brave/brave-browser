@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.83.118](https://github.com/brave/brave-browser/releases/tag/v1.83.118)
+
+### Web3
+
+ - Fixed possible integer overflow when decoding Solana instructions as reported on HackerOne by aikkk-. ([#50057](https://github.com/brave/brave-browser/issues/50057))
+ - Fixed issue where Zcash Transparent address was the only address copied on the "Deposit" screen. ([#49978](https://github.com/brave/brave-browser/issues/49978))
+
+### General
+
+ - Fixed crash which occurred when navigating to brave://settings/system with brave://flags/#brave-commands set to "Disabled". ([#49891](https://github.com/brave/brave-browser/issues/49891))
+ - Fixed incorrect tab being closed when selecting "Close" from tab context menu. ([#50063](https://github.com/brave/brave-browser/issues/50063))
+ - Fixed 24 hour clock format starting at 24:00. ([#49988](https://github.com/brave/brave-browser/issues/49988))
+ - Fixed issue where the New Tab Page background could be blank on a new profile in certain cases. ([#49980](https://github.com/brave/brave-browser/issues/49980))
+ - Upgraded Chromium to 141.0.7390.108. ([#50161](https://github.com/brave/brave-browser/issues/50161)) ([Changelog for 141.0.7390.108](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.70..141.0.7390.108?pretty=fuller&n=1000))
+
 ## [1.83.112](https://github.com/brave/brave-browser/releases/tag/v1.83.112)
 
  - Updated the toolbar to have rounded top corners. ([#49833](https://github.com/brave/brave-browser/issues/49833))
