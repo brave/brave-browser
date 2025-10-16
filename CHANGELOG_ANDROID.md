@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.83.119](https://github.com/brave/brave-browser/releases/tag/v1.83.119)
+
+ - Fixed issue where Zcash Transparent address was the only address copied on the "Deposit" screen. ([#49978](https://github.com/brave/brave-browser/issues/49978))
+ - Upgraded Chromium to 141.0.7390.108. ([#50161](https://github.com/brave/brave-browser/issues/50161)) ([Changelog for 141.0.7390.108](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.70..141.0.7390.108?pretty=fuller&n=1000))
+
 ## [1.83.112](https://github.com/brave/brave-browser/releases/tag/v1.83.112)
 
  - Updated WireGuard tunnel library to support 16 KB memory page size. ([#48949](https://github.com/brave/brave-browser/issues/48949))
