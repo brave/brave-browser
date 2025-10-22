@@ -2,6 +2,7 @@
 
 ## [1.83.120](https://github.com/brave/brave-browser/releases/tag/v1.83.120)
 
+ - Improved Brave Wallet connection dialog to prevent automatically pre-selecting accounts in DApps to avoid click/tapjacking as reported on HackerOne by frozzipies. ([#48363](https://github.com/brave/brave-browser/issues/48363))
  - Upgraded Chromium to 141.0.7390.122. ([#50373](https://github.com/brave/brave-browser/issues/50373)) ([Changelog for 141.0.7390.122](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.108..141.0.7390.122?pretty=fuller&n=1000))
 
 ## [1.83.119](https://github.com/brave/brave-browser/releases/tag/v1.83.119)
