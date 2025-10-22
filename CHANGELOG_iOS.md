@@ -19,7 +19,7 @@
  - [Security] Fixed invalid URLs being rendered in Leo chat as reported on HackerOne by canalun. ([#47906](https://github.com/brave/brave-browser/issues/47906))
  - Fixed the "Find in Page” shortcut not working when using an attached keyboard for iPad. ([#48407](https://github.com/brave/brave-browser/issues/48407))
  - Fixed tabs closed with Reader mode enabled not appearing in Recently Closed Tabs list. ([#48124](https://github.com/brave/brave-browser/issues/48124))
- - Upgraded Chromium to 141.0.7390.108. ([#50616](https://github.com/brave/brave-browser/issues/50616))([Changelog for 141.0.7390.108](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.213..141.0.7390.108?pretty=fuller&n=10000))
+ - Upgraded Chromium to 141.0.7390.108. ([#50161](https://github.com/brave/brave-browser/issues/50161))([Changelog for 141.0.7390.108](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.213..141.0.7390.108?pretty=fuller&n=10000))
 
 ## [1.82.174](https://github.com/brave/brave-browser/releases/tag/v1.82.174)
 
