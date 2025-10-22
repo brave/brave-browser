@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.83.118](https://github.com/brave/brave-browser/releases/tag/v1.83.118)
+
+ - Added a new set of iOS 26 compatible Brave app icons. ([#46799](https://github.com/brave/brave-browser/issues/46799))
+ - Added ability to select multiple tabs in the new tab tray. ([#48037](https://github.com/brave/brave-browser/issues/48037))
+ - Added the ability to disable the Brave VPN admin policy. ([#48400](https://github.com/brave/brave-browser/issues/48400))
+ - Added the ability to disable the Brave News admin policy. ([#48384](https://github.com/brave/brave-browser/issues/48384))
+ - Added the ability to disable the Brave Talk admin policy. ([#48352](https://github.com/brave/brave-browser/issues/48352))
+ - Added the ability to disable the Rewards admin policy. ([#48318](https://github.com/brave/brave-browser/issues/48318))
+ - Added the ability to disable the AI Chat admin policy. ([#48246](https://github.com/brave/brave-browser/issues/48245))
+ - Added the ability to disable the Brave wallet admin policy. ([#48113](https://github.com/brave/brave-browser/issues/48113))
+ - Enabled the search bar to remain fixed at the top when using the new tab tray. ([#49521](https://github.com/brave/brave-browser/issues/49521))
+ - Removed from the query string filter one campaign-level parameter and added four potentially user-identifying parameters. ([#47387](https://github.com/brave/brave-browser/issues/47387), [#48226](https://github.com/brave/brave-browser/issues/48226), & [#48228](https://github.com/brave/brave-browser/issues/48228))
+ - Removed the nacl script previously used as a dependency for audio farbling. ([#48378](https://github.com/brave/brave-browser/issues/48378))
+ - Migrated some Brave Shield preferences to content settings. ([#47350](https://github.com/brave/brave-browser/issues/47350))
+ - Improved UX when adding a custom filter rule by showing a loading spinner to indicate an “in progress” state. ([#49120](https://github.com/brave/brave-browser/issues/49120))
+ - Updated JitsiMeetSDK to version 11.4.0 lite. ([#45417](https://github.com/brave/brave-browser/issues/45417))
+ - [Security] Fixed invalid URLs being rendered in Leo chat as reported on HackerOne by canalun. ([#47906](https://github.com/brave/brave-browser/issues/47906))
+ - Fixed the "Find in Page” shortcut not working when using an attached keyboard for iPad. ([#48407](https://github.com/brave/brave-browser/issues/48407))
+ - Fixed tabs closed with Reader mode enabled not appearing in Recently Closed Tabs list. ([#48124](https://github.com/brave/brave-browser/issues/48124))
+ - Upgraded Chromium to 141.0.7390.108. ([#50616](https://github.com/brave/brave-browser/issues/50616))([Changelog for 141.0.7390.108](https://chromium.googlesource.com/chromium/src/+log/140.0.7339.213..141.0.7390.108?pretty=fuller&n=10000))
+
 ## [1.82.174](https://github.com/brave/brave-browser/releases/tag/v1.82.174)
 
  - Fixed WebKit crash when compiling content blockers for iOS 26. ([#49722](https://github.com/brave/brave-browser/issues/49722))
