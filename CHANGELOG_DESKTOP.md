@@ -31,7 +31,7 @@
 
 ### General
 
- - Added "Expand vertical tabs panel on mouseover when minimized" setting under brave://settings/appearance. ([#49115](https://github.com/brave/brave-browser/issues/49115))
+ - Added "Hide completely when minimized" setting under brave://settings/appearance. ([#49115](https://github.com/brave/brave-browser/issues/49115))
  - [Security] Disabled "navigator.share()" in Tor windows. ([#48770](https://github.com/brave/brave-browser/issues/48770))
  - [Security] Set secure clipboard flag when copying Brave Sync code words as reported on HackerOne by newfunction. ([#47841](https://github.com/brave/brave-browser/issues/47841) & [#47880](https://github.com/brave/brave-browser/issues/47880))
  - Enabled password syncing by default for new Brave Sync instances. ([#48915](https://github.com/brave/brave-browser/issues/48915))
