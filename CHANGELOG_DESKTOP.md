@@ -1,5 +1,52 @@
 # Changelog
 
+## [1.84.132](https://github.com/brave/brave-browser/releases/tag/v1.84.132)
+
+### Web3
+
+ - Added support for the "Insufficient Funds for Gas" message on the "Transaction Confirmation" panel. ([#49345](https://github.com/brave/brave-browser/issues/49345))
+ - Updated UI for "Confirm Send" panel. ([#49235](https://github.com/brave/brave-browser/issues/49235))
+ - Updated UI for "Confirm Swap" panel. ([#48703](https://github.com/brave/brave-browser/issues/48703))
+ - Updated UI for "ERC20 Approve" panel. ([#48484](https://github.com/brave/brave-browser/issues/48484))
+ - Updated Cardano panel UI to hide network type. ([#48138](https://github.com/brave/brave-browser/issues/48138))
+ - Updated "Confirm Shield" panel UI for ZEC Shield transactions. ([#49621](https://github.com/brave/brave-browser/issues/49621))
+ - Fixed missing eTLD+1 in the "Confirm Send" panel. ([#50495](https://github.com/brave/brave-browser/issues/50495))
+ - Fixed NFT Metadata fetch method as reported on HackerOne by lxfor. ([#50386](https://github.com/brave/brave-browser/issues/50386))
+
+### Leo
+
+ - Added "Manage memories" to the main menu. ([#48898](https://github.com/brave/brave-browser/issues/48898))
+ - Added capability descriptions for every Leo model within the model selection list. ([#48730](https://github.com/brave/brave-browser/issues/48730))
+ - Added the ability to search through saved conversation memory. ([#47979](https://github.com/brave/brave-browser/issues/47979))
+ - Implemented conversation titles when using BYOM for conversations. ([#46689](https://github.com/brave/brave-browser/issues/46689))
+ - Increased the line width of the Brave Leo chat window. ([#49105](https://github.com/brave/brave-browser/issues/49105))
+ - Updated the order of the main menu items. ([#49183](https://github.com/brave/brave-browser/issues/49183))
+ - Updated sorting for "Recommended Models" in the "Model Selector". ([#48852](https://github.com/brave/brave-browser/issues/48852))
+ - Updated main menu UI by removing customized padding. ([#49187](https://github.com/brave/brave-browser/issues/49187))
+ - Fixed "DataDecoder" process being kept in memory even after conversation is closed. ([#49466](https://github.com/brave/brave-browser/issues/49466))
+
+### Rewards
+
+ - Updated criteria for ads viewed counter in Brave Rewards. ([#48929](https://github.com/brave/brave-browser/issues/48929))
+
+### General
+
+ - Added "Expand vertical tabs panel on mouseover when minimized" setting under brave://settings/appearance. ([#49115](https://github.com/brave/brave-browser/issues/49115))
+ - [Security] Disabled "navigator.share()" in Tor windows. ([#48770](https://github.com/brave/brave-browser/issues/48770))
+ - [Security] Set secure clipboard flag when copying Brave Sync code words as reported on HackerOne by newfunction. ([#47841](https://github.com/brave/brave-browser/issues/47841) & [#47880](https://github.com/brave/brave-browser/issues/47880))
+ - Enabled password syncing by default for new Brave Sync instances. ([#48915](https://github.com/brave/brave-browser/issues/48915))
+ - Improved adblocking. ([#49347](https://github.com/brave/brave-browser/issues/49347))
+ - Updated the bookmark folder icon in the bookmark bar. ([#49147](https://github.com/brave/brave-browser/issues/49147))
+ - Updated active tab to use selected color theme. ([#43682](https://github.com/brave/brave-browser/issues/43682))
+ - Updated split view tabs to use selected color theme. ([#49512](https://github.com/brave/brave-browser/issues/49512))
+ - Removed legacy "Top suggestions" list as reported on HackerOne by marc_. ([#48802](https://github.com/brave/brave-browser/issues/48802))
+ - Removed extra toolbar separator when rounded corners are enabled. ([#49870](https://github.com/brave/brave-browser/issues/49870))
+ - Fixed "Tor Windows" settings under brave://settings/privacy not being hidden when Tor is disabled via Admin policy. ([#49077](https://github.com/brave/brave-browser/issues/49077))
+ - Fixed "Speedreader" header under brave://settings/braveContent being displayed when Speedreader is disabled via Admin policy. ([#48798](https://github.com/brave/brave-browser/issues/48798))
+ - Fixed Guest windows not displaying informational text about Tor windows. ([#49066](https://github.com/brave/brave-browser/issues/49066))
+ - Fixed issue where sometimes the sidebar is not shown when the mouse is moved quickly to the edge of fullscreen window. ([#48864](https://github.com/brave/brave-browser/issues/48864))
+ - Upgraded Chromium to 142.0.7444.60. ([#50533](https://github.com/brave/brave-browser/issues/50533)) ([Changelog for 142.0.7444.60](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.122..142.0.7444.60?pretty=fuller&n=1000))
+
 ## [1.83.120](https://github.com/brave/brave-browser/releases/tag/v1.83.120)
 
  - Upgraded Chromium to 141.0.7390.122. ([#50373](https://github.com/brave/brave-browser/issues/50373)) ([Changelog for 141.0.7390.122](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.108..141.0.7390.122?pretty=fuller&n=1000))
