@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.84.133](https://github.com/brave/brave-browser/releases/tag/v1.84.133)
+
+### Leo
+
+ - Added capability descriptions for every Leo model within the model selection list. ([#48730](https://github.com/brave/brave-browser/issues/48730))
+ - Updated the order of the main menu items. ([#49183](https://github.com/brave/brave-browser/issues/49183))
+ - Updated main menu UI by removing customized padding. ([#49187](https://github.com/brave/brave-browser/issues/49187))
+ - Updated sorting for "Recommended Models" in the "Model Selector". ([#48852](https://github.com/brave/brave-browser/issues/48852))
+ - Updated Leo AI display name in hamburger menu. ([#47190](https://github.com/brave/brave-browser/issues/47190))
+
+### General
+
+ - Added customization options to show/hide main menu items. ([#41801](https://github.com/brave/brave-browser/issues/41801))
+ - Added option to import saved passwords using *.csv file. ([#35729](https://github.com/brave/brave-browser/issues/35729))
+ - Added scrolling behavior in the quick action search widget. ([#49890](https://github.com/brave/brave-browser/issues/49890))
+ - Enabled password syncing by default for new Brave Sync instances. ([#48915](https://github.com/brave/brave-browser/issues/48915))
+ - Removed legacy "Top suggestions" list as reported on HackerOne by marc_. ([#48802](https://github.com/brave/brave-browser/issues/48802))
+ - Improved adblocking. ([#49347](https://github.com/brave/brave-browser/issues/49347))
+ - Fixed bottom alignment of the quick actions menu. ([#46536](https://github.com/brave/brave-browser/issues/46536))
+ - Fixed radio button behavior on VPN server region selection screen. ([#48327](https://github.com/brave/brave-browser/issues/48327))
+ - Fixed issue where QR code scanning results in a search instead of direct URL loading. ([#48806](https://github.com/brave/brave-browser/issues/48806))
+ - Upgraded Chromium to 142.0.7444.53. ([#50429](https://github.com/brave/brave-browser/issues/50429)) ([Changelog for 142.0.7444.53](https://chromium.googlesource.com/chromium/src/+log/141.0.7390.122..142.0.7444.53?pretty=fuller&n=1000))
+
 ## [1.83.120](https://github.com/brave/brave-browser/releases/tag/v1.83.120)
 
  - Improved Brave Wallet connection dialog to prevent automatically pre-selecting accounts in DApps to avoid click/tapjacking as reported on HackerOne by frozzipies. ([#48363](https://github.com/brave/brave-browser/issues/48363))
