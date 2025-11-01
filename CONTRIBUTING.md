@@ -40,7 +40,7 @@ We're missing translations for many languages and some translations might be inc
 For everything you'd need to get started, check out https://explore.transifex.com/brave/brave_en/ :smile:
 
 ### Work on the code
-* The [repo's wiki](https://github.com/brave/brave-browser/wiki) has instructions for cloning the repo and getting setup on your platform of choice
+* The [repo's wiki](https://github.com/brave/brave-browser/wiki) has instructions for cloning the repo and getting set up on your platform of choice
 * Check out the [troubleshooting page](https://github.com/brave/brave-browser/wiki/Troubleshooting) if you get stuck
 * Once you're up and running, find an interesting issue to fix. Check out issues labelled with [good first issue](https://github.com/brave/brave-browser/labels/good%20first%20issue)
   - some issues only require knowledge of JavaScript (for example, pages using React and our [Brave UI library](https://github.com/brave/brave-ui))
