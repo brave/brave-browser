@@ -34,6 +34,7 @@
     "test": "cd src/brave && npm run test --",
     "test-security": "cd src/brave && npm run test-security --",
     "test:scripts": "jest lib scripts --passWithNoTests",
+    "check-package-versions": "node scripts/check-package-versions.js",
     "update_patches": "cd src/brave && npm run update_patches --",
     "versions": "cd src/brave && npm run versions --"
   },

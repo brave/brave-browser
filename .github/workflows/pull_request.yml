@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 name: Pull Request
 
@@ -11,3 +11,19 @@ jobs:
     steps:
       - name: Assign author to PR
         uses: technote-space/assign-author@9558557c5c4816f38bd06176fbc324ba14bb3160 # v1.6.2
+
+  checkPackageVersions:
+    name: Check package.json versions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Check package.json versions
+        run: npm run check-package-versions
