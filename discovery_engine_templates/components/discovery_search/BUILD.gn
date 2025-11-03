@@ -1,0 +1,85 @@
+# Copyright (c) 2025 The Secretariat Browser Authors. All rights reserved.
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at https://mozilla.org/MPL/2.0/.
+
+import("//build/config/features.gni")
+import("//brave/components/common/brave_component.gni")
+
+# Main Discovery Search component
+source_set("discovery_search") {
+  sources = [
+    "discovery_search_service.cc",
+    "discovery_search_service.h",
+    "discovery_profile/discovery_profile.cc",
+    "discovery_profile/discovery_profile.h",
+    "discovery_profile/profile_manager.cc",
+    "discovery_profile/profile_manager.h",
+    "discovery_profile/default_profiles.cc",
+    "discovery_profile/default_profiles.h",
+    "search_backend/backend_interface.h",
+    "search_backend/duckduckgo_backend.cc",
+    "search_backend/duckduckgo_backend.h",
+    "search_backend/searxng_backend.cc",
+    "search_backend/searxng_backend.h",
+    "result_mixer/result_mixer.cc",
+    "result_mixer/result_mixer.h",
+    "result_mixer/source_classifier.cc",
+    "result_mixer/source_classifier.h",
+    "search_archive/search_archive.cc",
+    "search_archive/search_archive.h",
+    "search_archive/archive_manager.cc",
+    "search_archive/archive_manager.h",
+  ]
+
+  deps = [
+    "//base",
+    "//components/keyed_service/core",
+    "//components/prefs",
+    "//net",
+    "//services/network/public/cpp",
+    "//sql",
+    "//url",
+  ]
+
+  public_deps = [
+    "//components/keyed_service/core",
+  ]
+}
+
+# Unit tests
+source_set("unit_tests") {
+  testonly = true
+
+  sources = [
+    "test/discovery_profile_unittest.cc",
+    "test/profile_manager_unittest.cc",
+    "test/result_mixer_unittest.cc",
+    "test/source_classifier_unittest.cc",
+    "test/search_archive_unittest.cc",
+  ]
+
+  deps = [
+    ":discovery_search",
+    "//base",
+    "//base/test:test_support",
+    "//testing/gtest",
+  ]
+}
+
+# Browser tests
+source_set("browser_tests") {
+  testonly = true
+
+  sources = [
+    "test/discovery_search_browsertest.cc",
+  ]
+
+  deps = [
+    ":discovery_search",
+    "//brave/test:test_support",
+    "//chrome/test:test_support",
+  ]
+
+  defines = [ "HAS_OUT_OF_PROC_TEST_RUNNER" ]
+}
