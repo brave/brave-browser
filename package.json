@@ -1,18 +1,18 @@
 {
-  "name": "brave",
-  "version": "1.86.34",
-  "description": "Next generation Brave browser for macOS, Windows, Linux, and Android",
-  "homepage": "https://github.com/brave/brave-browser#readme",
+  "name": "secretariat",
+  "version": "0.0.1",
+  "description": "Privacy-focused browser with revolutionary Discovery Engine search - built on Brave/Chromium",
+  "homepage": "https://github.com/jpugh7/Secretariat-from-Brave-browser-#readme",
   "bugs": {
-    "url": "https://github.com/brave/brave-browser/issues"
+    "url": "https://github.com/jpugh7/Secretariat-from-Brave-browser-/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brave/brave-browser.git"
+    "url": "git+https://github.com/jpugh7/Secretariat-from-Brave-browser-.git"
   },
   "license": "MPL-2.0",
   "author": {
-    "name": "Brave Software <support@brave.com>"
+    "name": "Secretariat Browser Project"
   },
   "scripts": {
     "apply_patches": "cd src/brave && npm run apply_patches --",

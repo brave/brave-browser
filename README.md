@@ -1,22 +1,67 @@
-![Brave Browser](./docs/source/_static/Brave.svg)
+# Secretariat Browser
 
-## Overview
+> **Privacy-focused browser with revolutionary Discovery Engine search**
 
-This repository holds the build tools needed to build the Brave desktop browser for macOS, Windows, and Linux.  In particular, it fetches and syncs code from the projects defined in `package.json` and `src/brave/DEPS`:
+## 🌟 What is Secretariat?
+
+**Secretariat** is a privacy-focused web browser with a groundbreaking **Discovery Engine** that revolutionizes how you search and explore the web. Built on the solid foundation of [Brave Browser](https://github.com/brave/brave-browser) and Chromium, Secretariat introduces:
+
+- **🎯 Discovery Engine**: Customizable search that breaks free from SEO-dominated results
+- **🎲 Serendipity-First**: Rediscover the joy of unexpected web finds
+- **🔒 Privacy-Focused**: No tracking, no profiling, no ads
+- **📚 Search Archives**: Never lose an interesting discovery again
+- **🌍 Source Diversity**: Surface small blogs, hobbyist content, and hidden gems
+
+## 📖 Documentation
+
+- **[SECRETARIAT_README.md](./SECRETARIAT_README.md)** - Complete project overview
+- **[SETUP.md](./SETUP.md)** - Development environment setup guide
+- **[SECRETARIAT_ROADMAP.md](./SECRETARIAT_ROADMAP.md)** - Development roadmap and milestones
+- **[Discovery Engine Design](./Secretariat%20Search%20-%20_Discovery%20Engine_%20Design%20Document.md)** - Full feature specification
+
+## 🚀 Quick Start
+
+See **[SETUP.md](./SETUP.md)** for detailed setup instructions.
+
+```bash
+# Clone the repository
+git clone https://github.com/jpugh7/Secretariat-from-Brave-browser-.git
+cd Secretariat-from-Brave-browser-
+
+# Install dependencies
+npm install
+
+# Initialize (downloads Chromium - takes a while!)
+npm run init
+
+# Build Secretariat
+npm run build Release
+
+# Run the browser
+npm start Release
+```
+
+## 🏗️ Architecture
+
+This repository holds the build tools for Secretariat Browser. It fetches and syncs code from:
 
   - [Chromium](https://chromium.googlesource.com/chromium/src.git)
-    - Fetches code via `depot_tools`.
-    - Sets the branch for Chromium (ex: 65.0.3325.181).
+    - The base browser engine
   - [brave-core](https://github.com/brave/brave-core)
-    - Mounted at `src/brave`.
-    - Maintains patches for 3rd party Chromium code.
-  - [adblock-rust](https://github.com/brave/adblock-rust)
-    - Implements Brave's ad-block engine.
-    - Linked through [brave/adblock-rust-ffi](https://github.com/brave/brave-core/tree/master/components/adblock_rust_ffi).
+    - Brave's privacy-focused implementation
+    - Mounted at `src/brave/`
+  - **Secretariat Discovery Engine** (to be created)
+    - Custom search and discovery system
+    - Will be located at `src/brave/components/discovery_search/`
 
-## Downloads
+## 🙏 Credits
 
-You can [visit our website](https://brave.com/download) to get the latest stable release.
+Secretariat is built upon the excellent work of:
+- **Brave Software** - Privacy-focused browser foundation
+- **Chromium Project** - Browser engine
+- **DuckDuckGo** - Privacy-respecting search backend
+
+Original Brave Browser: [brave/brave-browser](https://github.com/brave/brave-browser)
 
 ## Contributing
 
