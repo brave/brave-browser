@@ -1,157 +1,527 @@
-# Contribution guidelines
+# Contributing to Secretariat Browser
 
-Table of contents
-- [How can you contribute?](#how-can-you-contribute)
-  - [Help triage issues](#help-triage-issues)
-  - [Updating documentation](#updating-documentation)
-  - [Help with translations](#help-with-translations)
-  - [Work on the code](#work-on-the-code)
-- [Getting started](#getting-started)
-  - [Making changes](#making-changes)
-  - [Pull requests](#pull-requests)
-    - [Considerations before submitting a pull request](#considerations-before-submitting-a-pull-request)
-    - [Each pull request should include](#each-pull-request-should-include)
-    - [Employees should](#employees-should)
-  - [Closing issues](#closing-issues)
-  - [Triage help](#triage-help)
+Thank you for your interest in contributing to Secretariat! We welcome contributions of all kinds - whether you're fixing bugs, adding features, improving documentation, or helping with the Discovery Engine.
 
-## How can you contribute?
-Brave welcomes contributions of all kinds! You can make a huge impact without writing a single line of code
+## Table of Contents
 
-### Help triage issues
-One of the easiest ways to help is to [look through our issues tab](https://github.com/brave/brave-browser/issues)
-* Does the issue still happen? Sometimes we fix the problem and don't always close the issue
-* Are there clear steps to reproduce the issue? If not, let's find and document some
-* Is the issue a duplicate? If so, share the issue that is being duplicated in the conversation
-* See our [Triage Guidelines page](https://github.com/brave/brave-browser/wiki/Triage-Guidelines) for more info about this process
-* Making sure issues that are fixed have the appropriate milestone set. There may be pull requests fixing the bug on the different product channels and sometimes the issues are forgotten about (and aren't updated)
+- [Code of Conduct](#code-of-conduct)
+- [How Can You Contribute?](#how-can-you-contribute)
+- [Getting Started](#getting-started)
+- [Development Workflow](#development-workflow)
+- [Pull Request Process](#pull-request-process)
+- [Discovery Engine Development](#discovery-engine-development)
+- [Coding Standards](#coding-standards)
+- [Testing](#testing)
+- [Documentation](#documentation)
 
-### Updating documentation
-Documentation is extremely important. There are lots of areas we can improve:
-* Having more clear or up-to-date instructions in the README for both [`brave-browser`](https://github.com/brave/brave-browser/blob/master/README.md) and [`brave-core`](https://github.com/brave/brave-core/blob/master/README.md).
-* Capturing/updating helpful information [in our wiki](https://github.com/brave/brave-browser/wiki). You'll need to reach out to a Brave team member to request permission - you can do this by creating a new issue or tagging a Brave team member in an existing issue.
-* Helping to propose a way to bring documentation to other languages. Right now, everything is in English
-* Improving this document :smile:
+## Code of Conduct
 
-### Help with translations
-All text being added to Brave is done initially in English (en-US) and then is translated by real people into other languages.
-We're missing translations for many languages and some translations might be incomplete or poor quality.
+This project adheres to a [Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to the project maintainers.
 
-For everything you'd need to get started, check out https://explore.transifex.com/brave/brave_en/ :smile:
+## How Can You Contribute?
 
-### Work on the code
-* The [repo's wiki](https://github.com/brave/brave-browser/wiki) has instructions for cloning the repo and getting setup on your platform of choice
-* Check out the [troubleshooting page](https://github.com/brave/brave-browser/wiki/Troubleshooting) if you get stuck
-* Once you're up and running, find an interesting issue to fix. Check out issues labelled with [good first issue](https://github.com/brave/brave-browser/labels/good%20first%20issue)
-  - some issues only require knowledge of JavaScript (for example, pages using React and our [Brave UI library](https://github.com/brave/brave-ui))
-  - other issues may require C++ changes in either the Brave code or in Chromium
+### 🐛 Report Bugs
 
-## Getting started
-* Make sure you have a [GitHub account](https://github.com/join).
-* Submit a [ticket](https://github.com/brave/brave-browser/issues) for your issue if one does not already exist. Please include the Brave version, operating system, and steps to reproduce the issue.
-* Fork the repository on GitHub (this might be [`brave-browser`](https://github.com/brave/brave-browser), [`brave-core`](https://github.com/brave/brave-core), or both).
-* For changes to JavaScript files, we recommend installing a [Standard](http://standardjs.com/) plugin for your preferred text editor in order to ensure code style consistency.
-* For C++ changes, you can consider setting up [clang-format](https://chromium.googlesource.com/chromium/src/+/master/docs/sublime_ide.md#Format-Selection-with-Clang_Format-Chromium-only) for your editor.
-* For changes which involve patches, please check out our [Patching Chromium](https://github.com/brave/brave-browser/wiki/Patching-Chromium) guide.
+- Check if the bug has already been reported in [Issues](https://github.com/jpugh7/Secretariat-from-Brave-browser-/issues)
+- If not, create a new issue with:
+  - Clear title and description
+  - Steps to reproduce
+  - Expected vs actual behavior
+  - Secretariat version and OS (focus: Linux)
+  - Screenshots if applicable
 
-### Making changes
-Once you've cloned the repo to your computer, you're ready to start making edits!
+### 💡 Suggest Features
 
-Please note that there are two repositories here:
-* the root project (this repo, [`brave-browser`](https://github.com/brave/brave-browser)), which pulls down all of the Chromium code into `src/`
-* [`brave-core`](https://github.com/brave/brave-core) is basically a sub-module (repo in a repo) which is located on disk under the root at `src/brave`
+- Check existing feature requests first
+- Open a new issue tagged `enhancement`
+- Describe the feature and its use case
+- Consider how it fits with Secretariat's philosophy (privacy, discovery, serendipity)
 
-Depending on which you're editing, you'll need to add your fork to the remotes list. By default, `origin` is set to upstream.
-For example, here's how GitHub user `bsclifton` would add BOTH remotes `brave-browser` and `brave-core`:
-```sh
-# root where project is cloned
-cd ~/brave-browser/
-git remote add bsclifton git@github.com:bsclifton/brave-browser.git
-git fetch bsclifton
-# root for the `brave-core` repo
-cd src/brave
-git remote add bsclifton git@github.com:bsclifton/brave-core.git
-git fetch bsclifton
+### 📝 Improve Documentation
+
+We need help with:
+- Setup instructions (especially Linux-specific)
+- Discovery Engine usage guides
+- API documentation
+- Code comments
+- Translations (future)
+
+### 🔧 Write Code
+
+Help us build the Discovery Engine and improve the browser:
+- Fix bugs from the issue tracker
+- Implement new Discovery Engine features
+- Improve performance
+- Add tests
+- Work on UI/UX
+
+### 🎨 Design & UX
+
+- Help refine the Discovery Engine UI
+- Create mockups for new features
+- Improve the color scheme implementation
+- Design icons and assets
+
+### 🧪 Test & QA
+
+- Test builds on different Linux distributions
+- Test Discovery Engine with various search profiles
+- Report edge cases and bugs
+- Verify fixes
+
+## Getting Started
+
+### Prerequisites
+
+Secretariat is **Linux-first**. Development currently focuses on Linux (Ubuntu, Debian, Fedora, Arch).
+
+See **[SETUP.md](./SETUP.md)** for complete setup instructions.
+
+**Quick checklist:**
+- ✅ Linux OS (Ubuntu 20.04+ recommended)
+- ✅ Node.js v24.x
+- ✅ npm v11.0.0+
+- ✅ Python 3
+- ✅ Build tools (`build-essential`, `ninja-build`, etc.)
+- ✅ 100+ GB free disk space
+- ✅ 16+ GB RAM recommended
+
+### Clone and Build
+
+```bash
+# Clone the repository
+git clone https://github.com/jpugh7/Secretariat-from-Brave-browser-.git
+cd Secretariat-from-Brave-browser-
+
+# Install dependencies
+npm install
+
+# Initialize (downloads Chromium - takes time!)
+npm run init
+
+# Build Secretariat
+npm run build
+
+# Run the browser
+npm start
 ```
 
-Once you're set up, there are a few tips we can suggest:
+## Development Workflow
 
-* Make a new branch for your work. It helps to have a descriptive name, like `fix-fullscreen-issue`.
-* Make commits in logical units. If needed, run `git rebase -i` to squash commits before opening a pull request.
-* New features and most other pull requests require a new [test](https://github.com/brave/brave-browser/wiki/Tests) to be written before the pull request will be accepted.  Some exceptions would be a tweak to an area of code that doesn't have tests yet, text changes, build config changes, things that can't be tested due to test suite limitations, etc.
-* Use GitHub [auto-closing keywords](https://help.github.com/articles/closing-issues-via-commit-messages/) in the commit message, and make the commit message body as descriptive as necessary. Ex:
+### Repository Structure
 
-````
-    Add contributing guide
+```
+Secretariat-from-Brave-browser-/
+├── src/brave/              # brave-core (base code)
+│   ├── components/         # Browser components
+│   │   └── discovery_search/  # Discovery Engine (TO CREATE)
+│   ├── browser/            # Browser-level code
+│   └── ...
+├── scripts/                # Build scripts
+├── lib/                    # Build utilities
+└── docs/                   # Documentation
+```
 
-    This is a first pass at a contributor's guide so now people will know how to
-    get pull requests accepted faster.
+**Two Repositories:**
+- **Root** (`Secretariat-from-Brave-browser-`): Build orchestration
+- **brave-core** (`src/brave/`): Actual browser code
 
-    Fix https://github.com/brave/brave-browser/issues/108
-````
+### Branching Strategy
 
-* Run the tests by running `npm run test brave_unit_tests` and `npm run test brave_browser_tests`
-* JavaScript unit tests can be run from the `src/brave` directory using `npm run test-unit`
+```bash
+# Create a feature branch
+git checkout -b feature/your-feature-name
 
+# For bug fixes
+git checkout -b fix/issue-number-description
 
-### Keeping your fork up to sync
-- Both `brave-browser` and `brave-core` clone themselves with the remote `origin` being upstream, so you can update either using `git pull`.
-- Once `origin` is fetched, you can rebase your `master` branch against `origin/master`
-    ```sh
-    git fetch origin
-    git fetch bsclifton
-    git checkout -b fork_master bsclifton/master
-    git rebase origin/master
-    git push bsclifton fork_master:master
-    ```
+# For Discovery Engine work
+git checkout -b discovery/feature-name
+```
 
-An easier strategy might be to keep `origin` in sync and then create branches based on that (and push those to your fork).
+### Making Changes
 
+1. **Create a Branch**
+   ```bash
+   git checkout -b feature/add-serendipity-mode
+   ```
 
-### Pull requests
-After the changes are made in your branch, you're ready to submit a patch. Patches on GitHub are submitted in the format of a pull request.
+2. **Make Your Changes**
+   - Edit files in `src/brave/` for browser code
+   - Edit root files for build system changes
+   - Follow coding standards (see below)
 
-#### Considerations before submitting a pull request
-Some helpful things to consider before submitting your work
-* Did you manually test your new change?
-* Does your pull request fix multiple issues? If so, you may consider breaking into separate pull requests.
-* Did you include tests? (we currently have unit tests, browser tests, and JavaScript unit tests)
-* If you made a design or layout change, was there a mock-up provided? Do your changes match it?
-* If your change affects session or preferences, did you include steps to test? You may also consider manually testing an upgrade.
+3. **Test Your Changes**
+   ```bash
+   npm run build
+   npm start
+   npm run test
+   ```
 
-#### Each pull request should include
-* a descriptive title; this gets used in the release notes ([desktop](https://github.com/brave/brave-browser/blob/master/CHANGELOG_DESKTOP.md) or [android](https://github.com/brave/brave-browser/blob/master/CHANGELOG_ANDROID.md))
-* a short summary of the changes
-* a reference to the issue that it fixes
-* steps to test the fix (if applicable)
-* for design-related changes, it is helpful to include screenshots
+4. **Commit Your Changes**
+   ```bash
+   git add .
+   git commit -m "Add serendipity mode to Discovery Engine
 
-Once you submit a pull request, you should tag reviewers and add labels if needed. If you do not have the necessary GitHub permissions to do so, a Brave member will take care of this for you.
+   - Implement serendipity profile
+   - Add randomization algorithm
+   - Update UI to show mode selector
 
-#### Employees should
-* Ensure the owner is tagged using the `Assignees` field
-* Ensure at least one other employee or contributor is tagged using the `Reviewers` field
-* Go through the checklist that's provided in the pull request template and check the appropriate boxes
+   Closes #123"
+   ```
 
-### Closing issues
+### Commit Message Format
 
-* Issues should be assigned the milestone when the PR is merged (and the fix is landed in Nightly aka master).
-* Some issues may need to be uplifted to other channels (Dev / Beta / Release). Please see our notes on [uplifting a pull request](https://github.com/brave/brave-browser/wiki/Uplifting-a-pull-request).
-* If an issue is closed without a fix, because it was a duplicate, or perhaps it was invalid, then any milestone markers should be removed.
-* If a bug is not fully fixed after its issue is closed, open a new issue instead of re-opening the existing one (unless the code has been reverted).
+Use clear, descriptive commit messages:
 
-### Triage help
+```
+Short summary (50 chars or less)
 
-* Invalid bugs should be closed, tagged with invalid, or a comment should be added indicating that they should if you do not have permission.
-* Asking for more detail in an issue when it is needed is helpful.
-* Adding applicable labels to an issue is helpful.
-* Adding and finding duplicates, and linking them together is helpful.
-* Creating tracking issues for an area of work with multiple related issues is helpful.
-* Calling out things which seem important for extra attention is helpful.
-* Improving steps to reproduce is helpful.
-* Testing and adding a comment with "Could not reproduce" if an issue seems obscure is helpful.
-* Testing open pull requests.
-* You can be granted write permission if you've helped a lot with triage by pinging @bbondy, @bsclifton, @kjozwiak, or another Brave team member.
-* Helping make sure issues have a clear and understandable name (ex: not something like "Brave is broken").
-* The first comment in an issue ideally would have a clear description of the issue and describe the impact to users. Asking folks for screenshots, steps to reproduce, and more information is highly recommended so that the issue is as clear as possible.
-* If the issue is a duplicate, please let the issue creator know in a polite way how they can follow and track progress of the parent issue (including an ETA if it's marked with a milestone).
+More detailed explanation if needed (wrap at 72 characters).
+Explain what and why, not how.
+
+- Bullet points are okay
+- Use present tense ("Add feature" not "Added feature")
+- Reference issues and PRs
+
+Closes #123
+Fixes #456
+```
+
+## Pull Request Process
+
+### Before Submitting
+
+- [ ] Code builds successfully (`npm run build`)
+- [ ] All tests pass (`npm run test`)
+- [ ] New features have tests
+- [ ] Documentation is updated
+- [ ] Commit messages are clear
+- [ ] Code follows style guidelines
+- [ ] No merge conflicts with main branch
+
+### PR Template
+
+When you create a PR, include:
+
+**Title**: Clear, descriptive (used in release notes)
+
+**Description**:
+- **Summary**: What does this PR do?
+- **Motivation**: Why is this change needed?
+- **Related Issues**: Closes #123, Fixes #456
+- **Test Plan**: How to test the changes
+- **Screenshots**: For UI changes
+- **Breaking Changes**: List any breaking changes
+
+**Example:**
+```markdown
+## Summary
+Add Serendipity Mode to Discovery Engine
+
+## Motivation
+Users want to maximize randomness and discover unexpected content.
+This implements the mode described in the Discovery Engine spec.
+
+## Related Issues
+Closes #123
+
+## Test Plan
+1. Open Secretariat
+2. Navigate to Discovery Engine settings
+3. Select "Serendipity Mode"
+4. Perform a search
+5. Verify results are highly randomized
+
+## Screenshots
+[Include screenshots of the mode selector]
+```
+
+### Review Process
+
+1. **Automated Checks**: CI/CD runs tests
+2. **Code Review**: Maintainer reviews code
+3. **Discussion**: Address feedback
+4. **Approval**: Maintainer approves
+5. **Merge**: We'll merge when ready
+
+**Response Time**: We aim to review PRs within 7 days.
+
+## Discovery Engine Development
+
+The Discovery Engine is Secretariat's killer feature. Here's how to contribute:
+
+### Architecture
+
+See **[ARCHITECTURE.md](./ARCHITECTURE.md)** for complete details.
+
+**Key components:**
+- `components/discovery_search/` - Backend logic
+- `browser/ui/webui/discovery_search_ui/` - Frontend UI
+- `components/search_engines/` - Search engine integration
+
+### Discovery Engine Checklist
+
+When working on Discovery Engine features:
+
+- [ ] Update Discovery Profile data structures if needed
+- [ ] Implement backend logic in C++
+- [ ] Create/update WebUI interface
+- [ ] Add unit tests
+- [ ] Add browser tests
+- [ ] Update documentation
+- [ ] Consider privacy implications
+- [ ] Test with different profiles (Balanced, Serendipity, etc.)
+
+### Priority Areas
+
+**High Priority:**
+1. Result mixing algorithm
+2. Source classification system
+3. Search archive implementation
+4. RSS blog index
+
+**Medium Priority:**
+1. Profile sharing
+2. Multi-search functionality
+3. Time travel search
+
+**Future:**
+1. Machine learning for intent detection
+2. Advanced collaborative filtering
+
+## Coding Standards
+
+### C++ (Browser Code)
+
+Follow [Chromium C++ Style Guide](https://chromium.googlesource.com/chromium/src/+/master/styleguide/c++/c++.md):
+
+```cpp
+// Use Chromium naming conventions
+class DiscoverySearchService {
+ public:
+  DiscoverySearchService();
+  ~DiscoverySearchService();
+
+  // Methods use CamelCase
+  void PerformSearch(const std::string& query);
+
+ private:
+  // Members use underscore_suffix_
+  std::unique_ptr<ResultMixer> result_mixer_;
+};
+```
+
+**Tools:**
+- Use `clang-format` for automatic formatting
+- Run `npm run lint` before committing
+
+### JavaScript (UI Code)
+
+Follow [StandardJS](https://standardjs.com/) style:
+
+```javascript
+// Use camelCase for variables
+const searchQuery = 'rust programming'
+
+// Use const/let, not var
+const profile = getActiveProfile()
+
+// Arrow functions for callbacks
+results.map(result => {
+  return formatResult(result)
+})
+```
+
+**Tools:**
+- ESLint with StandardJS config
+- Prettier for formatting
+
+### Python (Build Scripts)
+
+Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/):
+
+```python
+# snake_case for functions and variables
+def process_search_results(query, results):
+    filtered_results = []
+    for result in results:
+        if is_valid(result):
+            filtered_results.append(result)
+    return filtered_results
+```
+
+## Testing
+
+### Running Tests
+
+```bash
+# All tests
+npm run test
+
+# Unit tests
+npm run test brave_unit_tests
+
+# Browser tests
+npm run test brave_browser_tests
+
+# Discovery Engine tests (once implemented)
+npm run test discovery_search_tests
+```
+
+### Writing Tests
+
+**Unit Tests (C++):**
+```cpp
+// discovery_profile_unittest.cc
+TEST_F(DiscoveryProfileTest, CreatesDefaultProfile) {
+  DiscoveryProfile profile = DiscoveryProfile::CreateDefault();
+  EXPECT_EQ(profile.name(), "Balanced Discovery");
+  EXPECT_EQ(profile.official_percent(), 20);
+}
+```
+
+**Browser Tests (C++):**
+```cpp
+// discovery_search_browsertest.cc
+IN_PROC_BROWSER_TEST_F(DiscoverySearchTest, PerformsSearch) {
+  NavigateToURL("secretariat://discovery");
+  // Test search functionality
+}
+```
+
+**JavaScript Tests:**
+```javascript
+// discovery_search_test.js
+describe('DiscoverySearch', () => {
+  it('loads search results', async () => {
+    const results = await performSearch('test query')
+    expect(results.length).toBeGreaterThan(0)
+  })
+})
+```
+
+### Test Coverage
+
+We aim for:
+- **Unit tests**: 80%+ coverage
+- **Browser tests**: Critical user flows
+- **Integration tests**: Discovery Engine end-to-end
+
+## Documentation
+
+### Code Comments
+
+```cpp
+// Good: Explains why, not what
+// Use result caching to avoid redundant DuckDuckGo queries.
+// This significantly improves performance for popular searches.
+cache->Set(query, results);
+
+// Bad: Explains what (obvious from code)
+// Set the cache
+cache->Set(query, results);
+```
+
+### API Documentation
+
+Use Doxygen-style comments for C++:
+
+```cpp
+/**
+ * Performs a discovery search with the given profile.
+ *
+ * @param query The search query string
+ * @param profile The discovery profile to use for mixing
+ * @return Vector of SearchResult objects, ordered by relevance
+ *
+ * This method queries multiple backends in parallel, classifies
+ * results by source type, and mixes them according to the profile.
+ */
+std::vector<SearchResult> PerformSearch(
+    const std::string& query,
+    const DiscoveryProfile& profile);
+```
+
+### Updating Documentation
+
+When you change functionality, update:
+- **README.md**: If setup process changes
+- **ARCHITECTURE.md**: If architecture changes
+- **Discovery Engine docs**: If search behavior changes
+- **Code comments**: Always
+
+## Linux-First Development
+
+Secretariat is **Linux-first**. When developing:
+
+### ✅ Do This
+- Test primarily on Linux (Ubuntu/Debian)
+- Use Linux-specific optimizations
+- Document Linux setup steps
+- Use Linux-native tools
+
+### ⏸️ Later (Deprioritized)
+- macOS support (Phase 2+)
+- Windows support (Phase 2+)
+- Android/iOS (Phase 3+)
+
+### Platform-Specific Code
+
+When you must write platform code:
+
+```cpp
+#if defined(OS_LINUX)
+  // Linux-specific implementation
+  LinuxSpecificFunction();
+#else
+  // Generic fallback (not currently supported)
+  LOG(WARNING) << "Platform not fully supported";
+#endif
+```
+
+## Getting Help
+
+### Resources
+
+- **[SETUP.md](./SETUP.md)**: Setup and build instructions
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)**: Technical architecture
+- **[SECRETARIAT_ROADMAP.md](./SECRETARIAT_ROADMAP.md)**: Development roadmap
+- **[Discovery Engine Design Doc](./Secretariat%20Search%20-%20_Discovery%20Engine_%20Design%20Document.md)**: Complete feature spec
+
+### Ask Questions
+
+- **GitHub Issues**: For bugs and features
+- **GitHub Discussions**: For questions and ideas (coming soon)
+- **Pull Request Comments**: For code-specific questions
+
+### Response Time
+
+We're a small team. Please be patient:
+- **Issues**: Acknowledged within 7 days
+- **PRs**: Reviewed within 14 days
+- **Questions**: Answered as time permits
+
+## Recognition
+
+Contributors will be recognized in:
+- **CONTRIBUTORS.md**: List of all contributors
+- **Release notes**: For significant contributions
+- **About page**: In the browser itself
+
+## License
+
+By contributing to Secretariat, you agree that your contributions will be licensed under the [MPL-2.0 License](./LICENSE).
+
+---
+
+## Quick Links
+
+- 📋 [Issues](https://github.com/jpugh7/Secretariat-from-Brave-browser-/issues)
+- 🔀 [Pull Requests](https://github.com/jpugh7/Secretariat-from-Brave-browser-/pulls)
+- 📖 [Wiki](https://github.com/jpugh7/Secretariat-from-Brave-browser-/wiki) (coming soon)
+- 💬 [Discussions](https://github.com/jpugh7/Secretariat-from-Brave-browser-/discussions) (coming soon)
+
+---
+
+**Thank you for contributing to Secretariat!** Together, we're building a browser that brings serendipity back to the web. 🌟
