@@ -1,0 +1,10 @@
+
+> secretariat@0.0.1 init
+> node ./scripts/init.js
+
+Performing initial checkout of brave-core (foundation for Secretariat)
+Cloning brave-core [master] into /home/user/Secretariat-from-Brave-browser-/src/brave...
+NOTE: brave-core will be rebranded to Secretariat during build
+-------------------------------
+/home/user/Secretariat-from-Brave-browser-/src/brave
+> git clone https://github.com/brave/brave-core.git .
