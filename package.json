@@ -45,10 +45,10 @@
     "projects": {
       "brave-core": {
         "dir": "src/brave",
-        "branch": "142.0.7444.138-1.84.x-android",
         "repository": {
           "url": "https://github.com/brave/brave-core.git"
-        }
+        },
+        "tag": "v1.84.136"
       }
     }
   },
