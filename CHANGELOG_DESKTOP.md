@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.84.135](https://github.com/brave/brave-browser/releases/tag/v1.84.135)
+
+ - Fixed "Tor windows" section not appearing under "brave://settings/privacy" if Tor was disabled when upgrading to Chromium 142. ([#50608](https://github.com/brave/brave-browser/issues/50608))
+ - Fixed "New Tab Page (NTP) Favorites" being replaced with "Frequently Visited" when upgrading to Chromium 142. ([#49593](https://github.com/brave/brave-browser/issues/49593))
+ - Upgraded Chromium to 142.0.7444.135. ([#50683](https://github.com/brave/brave-browser/issues/50683)) ([Changelog for 142.0.7444.135](https://chromium.googlesource.com/chromium/src/+log/142.0.7444.60..142.0.7444.135?pretty=fuller&n=1000))
+
 ## [1.84.132](https://github.com/brave/brave-browser/releases/tag/v1.84.132)
 
 ### Web3
