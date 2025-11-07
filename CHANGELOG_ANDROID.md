@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.84.136](https://github.com/brave/brave-browser/releases/tag/v1.84.136)
+
+ - Fixed password manager search functionality. ([#50367](https://github.com/brave/brave-browser/issues/50367))
+ - Upgraded Chromium to 142.0.7444.138. ([#50692](https://github.com/brave/brave-browser/issues/50692)) ([Changelog for 142.0.7444.138](https://chromium.googlesource.com/chromium/src/+log/142.0.7444.48..142.0.7444.138?pretty=fuller&n=1000))
+
 ## [1.84.133](https://github.com/brave/brave-browser/releases/tag/v1.84.133)
 
 ### Leo
