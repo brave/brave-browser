@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.84.139](https://github.com/brave/brave-browser/releases/tag/v1.84.139)
+
+ - Updated empty state actions on the "Account Details" page. ([#50357](https://github.com/brave/brave-browser/issues/50357))
+ - Updated icons in "Customize menu" to use correct colors for both dark and light themes. ([#50747](https://github.com/brave/brave-browser/issues/50747))
+ - Upgraded Chromium to 142.0.7444.163. ([#50768](https://github.com/brave/brave-browser/issues/50768)) ([Changelog for 142.0.7444.163](https://chromium.googlesource.com/chromium/src/+log/142.0.7444.138..142.0.7444.163?pretty=fuller&n=1000))
+
 ## [1.84.136](https://github.com/brave/brave-browser/releases/tag/v1.84.136)
 
  - Fixed password manager search functionality. ([#50367](https://github.com/brave/brave-browser/issues/50367))
