@@ -4,6 +4,10 @@ on:
 
 name: Pull Request
 
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   assignAuthor:
     name: Assign author to PR

@@ -6,6 +6,9 @@ on:
       - labeled
       - closed
 
+permissions:
+  issues: read
+
 jobs:
   tweet-nightly:
     if: (github.event.action == 'labeled' && github.event.label.name == 'release-notes/social' && github.event.issue.state == 'closed') || (github.event.action == 'closed' &&  contains(github.event.issue.labels.*.name, 'release-notes/social'))
