@@ -3,7 +3,7 @@
 ## [1.84.140](https://github.com/brave/brave-browser/releases/tag/v1.84.140)
 
  - Added the ability to disable P3A and usage ping via Admin policy. ([#48638](https://github.com/brave/brave-browser/issues/48638))
- - Enabled hamburger menu to be lowered using gestures when in landscape orientation. ([#48846](https://github.com/brave/brave-browser/issues/48846))
+ - Enabled hamburger menu panel to be lowered using gestures when in landscape orientation. ([#48846](https://github.com/brave/brave-browser/issues/48846))
  - Enabled password syncing by default for new Brave Sync instances. ([#49454](https://github.com/brave/brave-browser/issues/49454))
  - Disabled User Referral Program reporting when "Automatically send daily usage ping to Brave” toggle is off. ([#50268](https://github.com/brave/brave-browser/issues/50268))
  - [Security] Fixed address bar URL being updated after viewing download link preview as reported on HackerOne by b4dc4t. ([#50482](https://github.com/brave/brave-browser/issues/50482))
@@ -11,7 +11,7 @@
  - Updated safari data importer to use the Chromium implementation. ([#48914](https://github.com/brave/brave-browser/issues/48914))
  - Updated icons in menus to use Nala icons. ([#49078](https://github.com/brave/brave-browser/issues/49078))
  - Updated adblock to version 0.10.3. ([#49347](https://github.com/brave/brave-browser/issues/49347))
- - Fixed a crash when tapping on the tabs button. ([#45760](https://github.com/brave/brave-browser/issues/49078))
+ - Fixed a crash when tapping on the tabs button. ([#49078](https://github.com/brave/brave-browser/issues/49078))
  - Fixed a crash when opening links in Brave using the share extension. ([#50529](https://github.com/brave/brave-browser/issues/50529)
  - Fixed the share sheet action icons being displayed with incorrect aspect ratio. ([#48777](https://github.com/brave/brave-browser/issues/48777))
  - Fixed tab audio leak when background audio is enabled. ([#50566](https://github.com/brave/brave-browser/issues/50566))
