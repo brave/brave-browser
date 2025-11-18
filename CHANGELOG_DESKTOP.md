@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.84.141](https://github.com/brave/brave-browser/releases/tag/v1.84.141)
+
+ - Fixed selected "Payment Method" for Meld not being passed to the Widget. ([#50739](https://github.com/brave/brave-browser/issues/50739))
+ - Upgraded Chromium to 142.0.7444.176. ([#50891](https://github.com/brave/brave-browser/issues/50891)) ([Changelog for 142.0.7444.176](https://chromium.googlesource.com/chromium/src/+log/142.0.7444.163..142.0.7444.176?pretty=fuller&n=1000))
+
 ## [1.84.139](https://github.com/brave/brave-browser/releases/tag/v1.84.139)
 
  - Updated empty state actions on the "Account Details" page. ([#50357](https://github.com/brave/brave-browser/issues/50357))
