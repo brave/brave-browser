@@ -1,5 +1,44 @@
 # Changelog
 
+## [1.85.111](https://github.com/brave/brave-browser/releases/tag/v1.85.111) 
+
+### Web3
+
+ - Updated the "Choose Asset" color under the "Send" modal UI to make primary action more obvious. ([#50949](https://github.com/brave/brave-browser/issues/50949))
+ - Updated UI to expand to full screen view for "Buy", "Send", "Swap", "Bridge", and "Deposit". ([#50931](https://github.com/brave/brave-browser/issues/50931))
+ - Fixed Cardano mainnet not being listed as a "Primary network" in the "Filters and display settings" modal. ([#49530](https://github.com/brave/brave-browser/issues/49530))
+ - Fixed broken clipboard button on "Confirm Recipient" screen. ([#50935](https://github.com/brave/brave-browser/issues/50935))
+ - Fixed the "Transaction Details" not displaying when clicked under the "Asset Details" screen. ([#50544](https://github.com/brave/brave-browser/issues/50544))
+ - Fixed issue where disabling the Zcash flag disabled Cardano account creation in the "Create Account" modal. ([#50001](https://github.com/brave/brave-browser/issues/50001))
+ - Fixed incorrect wallet graphics color scheme on Windows. ([#49053](https://github.com/brave/brave-browser/issues/49053))
+
+### Leo
+
+ - Added "Skills" feature to Brave Leo. ([#49622](https://github.com/brave/brave-browser/issues/49622))
+ - Added "Task UI" to Brave Leo chat. ([#49797](https://github.com/brave/brave-browser/issues/49797))
+ - Added UI for attaching bookmarks to conversations. ([#48882](https://github.com/brave/brave-browser/issues/48882))
+ - Added the ability to add history as attachments by using the "@" mentions widget. ([#48886](https://github.com/brave/brave-browser/issues/48886))
+ - Added the ability to add bookmarks as attachments by using the "@" mentions widget. ([#48885](https://github.com/brave/brave-browser/issues/48885))
+ - Improved Brave Leo handling for GitHub files. ([#50068](https://github.com/brave/brave-browser/issues/50068))
+
+### General
+
+ - Added a Brave favicon to brave://newtab. ([#49614](https://github.com/brave/brave-browser/issues/49614))
+ - Added a "Browser not supported" issue category for the webcompat reporter. ([#49865](https://github.com/brave/brave-browser/issues/49865))
+ - Added flag under brave://flags#brave-filled-bookmark-folder-icon to enable yellow folder icons on Windows. ([#50605](https://github.com/brave/brave-browser/issues/50605))
+ - Added "Show rounded corners on main content areas" setting under brave://settings/appearance (being rolled out in phases using Griffin starting at 15%). ([#47506](https://github.com/brave/brave-browser/issues/47506))
+ - Added the ability to allow any page to ask for localhost permission when brave://flags/#brave-localhost-access-permission is enabled. ([#49241](https://github.com/brave/brave-browser/issues/49241))
+ - [Security] Improved IKEv2 VPN configuration parameters on Windows. ([#50062](https://github.com/brave/brave-browser/issues/50062))
+ - [Security] Enabled WASM Interpreter when JIT is disabled. ([#48501](https://github.com/brave/brave-browser/issues/48501))
+ - Improved adblocking. ([#50641](https://github.com/brave/brave-browser/issues/50641))
+ - Improved performance of Brave News by updating how Brave News stores large images. ([#48874](https://github.com/brave/brave-browser/issues/48874))
+ - Updated rounded corners UI to have proper padding when split view is active on macOS. ([#49204](https://github.com/brave/brave-browser/issues/49204))
+ - Updated the margin between vertical tabs and tab contents when the vertical tab bar is expanded on hover. ([#50558](https://github.com/brave/brave-browser/issues/50558))
+ - Updated color scheme handling for themes. ([#40863](https://github.com/brave/brave-browser/issues/40863))
+ - Fixed crash which occurred when brave://flags/#brave-news-feed-update was disabled. ([#50249](https://github.com/brave/brave-browser/issues/50249))
+ - Fixed inability to drag and drop vertical tabs into groups when targeted group only contains a single tab. ([#41278](https://github.com/brave/brave-browser/issues/41278))
+ - Upgraded Chromium to 143.0.7499.40. ([#50985](https://github.com/brave/brave-browser/issues/50985)) ([Changelog for 143.0.7499.40](https://chromium.googlesource.com/chromium/src/+log/142.0.7444.176..143.0.7499.40?pretty=fuller&n=1000))
+
 ## [1.84.141](https://github.com/brave/brave-browser/releases/tag/v1.84.141)
 
  - Fixed selected "Payment Method" for Meld not being passed to the Widget. ([#50739](https://github.com/brave/brave-browser/issues/50739))
