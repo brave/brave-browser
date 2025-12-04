@@ -5,10 +5,10 @@
 ### Web3
 
  - Updated the "Choose Asset" color under the "Send" modal UI to make primary action more obvious. ([#50949](https://github.com/brave/brave-browser/issues/50949))
- - Updated UI to expand to full screen view for "Buy", "Send", "Swap", "Bridge", and "Deposit". ([#50931](https://github.com/brave/brave-browser/issues/50931))
+ - Updated UI to expand to full screen when "Buy", "Send", "Swap", "Bridge", and "Deposit" options are selected in the wallet panel. ([#50931](https://github.com/brave/brave-browser/issues/50931))
  - Fixed Cardano mainnet not being listed as a "Primary network" in the "Filters and display settings" modal. ([#49530](https://github.com/brave/brave-browser/issues/49530))
  - Fixed broken clipboard button on "Confirm Recipient" screen. ([#50935](https://github.com/brave/brave-browser/issues/50935))
- - Fixed the "Transaction Details" not displaying when clicked under the "Asset Details" screen. ([#50544](https://github.com/brave/brave-browser/issues/50544))
+ - Fixed the "Transaction Details" modal not displaying when clicked under the "Asset Details" screen. ([#50544](https://github.com/brave/brave-browser/issues/50544))
  - Fixed issue where disabling the Zcash flag disabled Cardano account creation in the "Create Account" modal. ([#50001](https://github.com/brave/brave-browser/issues/50001))
  - Fixed incorrect wallet graphics color scheme on Windows. ([#49053](https://github.com/brave/brave-browser/issues/49053))
 
