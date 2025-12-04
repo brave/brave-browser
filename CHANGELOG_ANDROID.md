@@ -1,5 +1,38 @@
 # Changelog
 
+## [1.85.112](https://github.com/brave/brave-browser/releases/tag/v1.85.112)
+
+### Web3
+
+ - Updated the "Choose Asset" color under the "Send" modal UI to make primary action more obvious. ([#50949](https://github.com/brave/brave-browser/issues/50949))
+ - Fixed broken clipboard button on "Confirm Recipient" screen. ([#50935](https://github.com/brave/brave-browser/issues/50935))
+ - Fixed the "Transaction Details" not displaying when clicked under the "Asset Details" screen. ([#50544](https://github.com/brave/brave-browser/issues/50544))
+ - Fixed visual layout issue where DApp fragments were drawn behind the status bar. ([#50336](https://github.com/brave/brave-browser/issues/50336))
+ - Fixed crash when changing screen configuration on Brave Wallet page. ([#50036](https://github.com/brave/brave-browser/issues/50036))
+
+### Leo
+
+ - Added "Skills" feature to Brave Leo. ([#49622](https://github.com/brave/brave-browser/issues/49622))
+ - Added the ability to add history as attachments by using the "@" mentions widget. ([#48886](https://github.com/brave/brave-browser/issues/48886))
+ - Added the ability to add bookmarks as attachments by using the "@" mentions widget. ([#48885](https://github.com/brave/brave-browser/issues/48885))
+ - Added UI for attaching bookmarks to conversations. ([#48882](https://github.com/brave/brave-browser/issues/48882))
+
+### General
+
+ - Added a "Browser not supported" issue category for the webcompat reporter. ([#49865](https://github.com/brave/brave-browser/issues/49865))
+ - Added the ability to allow any page to ask for localhost permission when brave://flags/#brave-localhost-access-permission is enabled. ([#49241](https://github.com/brave/brave-browser/issues/49241))
+ - Added Brave specific options to the quick shortcut menu on Android. ([#49409](https://github.com/brave/brave-browser/issues/49409))
+ - [Security] Enabled WASM Interpreter when JIT is disabled. ([#48501](https://github.com/brave/brave-browser/issues/48501))
+ - Improved adblocking. ([#50641](https://github.com/brave/brave-browser/issues/50641))
+ - Improved bottom padding for Top Sites text on the New Tab Page. ([#49500](https://github.com/brave/brave-browser/issues/49500))
+ - Removed Cookie Consent Helper toggle from settings. ([#50047](https://github.com/brave/brave-browser/issues/50047))
+ - Fixed address bar accessibility in multi-window mode on large screens. ([#50072](https://github.com/brave/brave-browser/issues/50072))
+ - Fixed formatting of success message when importing multiple passwords. ([#50245](https://github.com/brave/brave-browser/issues/50245))
+ - Fixed issue where links would not open in the current tab group when "Only open links in current tab group" is enabled in settings. ([#50632](https://github.com/brave/brave-browser/issues/50632))
+ - Fixed PiP (Picture-in-Picture) icon visibility when scrolling on tablets. ([#48932](https://github.com/brave/brave-browser/issues/48932))
+ - Fixed visibility of "Import" and "Export" password icons in dark mode. ([#50232](https://github.com/brave/brave-browser/issues/50232))
+ - Upgraded Chromium to 143.0.7499.52. ([#51196](https://github.com/brave/brave-browser/issues/51196)) ([Changelog for 143.0.7499.52](https://chromium.googlesource.com/chromium/src/+log/142.0.7444.176..143.0.7499.52?pretty=fuller&n=1000))
+
 ## [1.84.141](https://github.com/brave/brave-browser/releases/tag/v1.84.141)
 
  - Fixed selected "Payment Method" for Meld not being passed to the Widget. ([#50739](https://github.com/brave/brave-browser/issues/50739))
