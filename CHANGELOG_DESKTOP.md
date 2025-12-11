@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.85.116](https://github.com/brave/brave-browser/releases/tag/v1.85.116) 
+
+ - Disabled premium models in "Skills" dropdown for non-premium users. ([#51171](https://github.com/brave/brave-browser/issues/51171))
+ - Fixed error being displayed to non-premium users in certain cases when selecting a new model from the "Change model for answer" drop down. ([#51002](https://github.com/brave/brave-browser/issues/51002))
+ - Upgraded Chromium to 143.0.7499.110. ([#51374](https://github.com/brave/brave-browser/issues/51374)) ([Changelog for 143.0.7499.110](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.40..143.0.7499.110?pretty=fuller&n=1000))
+
 ## [1.85.111](https://github.com/brave/brave-browser/releases/tag/v1.85.111) 
 
 ### Web3
