@@ -2,11 +2,11 @@
 
 ## [1.85.116](https://github.com/brave/brave-browser/releases/tag/v1.85.116)
 
- - Added “Ask Brave” option to the shortcuts widget and Shortcut button. ([#49773](https://github.com/brave/brave-browser/issues/49773))
+ - Added “Ask Brave” option to the Shortcuts widget and Shortcut button. ([#49773](https://github.com/brave/brave-browser/issues/49773))
  - Added Hindi language support. ([#48578](https://github.com/brave/brave-browser/issues/48578))
  - Added preference in Auto Shred settings to exclude history from being removed when using Shred. ([#49815](https://github.com/brave/brave-browser/issues/49815))
- - Added recently closed tabs to the list of items excluded from Shred by default. Enabling the “Shred Removes History” toggle will also remove recently closed tabs when shredding. ([#50460](https://github.com/brave/brave-browser/issues/50460))
- - Added the ability to disable the Playlist admin policy. ([#49011](https://github.com/brave/brave-browser/issues/49011))
+ - Added recently closed tabs to the list of items excluded from Shred by default and enabling the “Shred Removes History” toggle will also remove recently closed tabs when shredding. ([#50460](https://github.com/brave/brave-browser/issues/50460))
+ - Added the ability to disable the Playlist via admin policy. ([#49011](https://github.com/brave/brave-browser/issues/49011))
  - Added “Browser not supported” option to the list of categories in the "Report a Broken Site" form. ([#49865](https://github.com/brave/brave-browser/issues/49865))
  - Disabled “Cancel” button while custom filter changes are being saved. ([#49651](https://github.com/brave/brave-browser/issues/49651))
  - Removed “Block Cookie Consent Notices” preference from "Shields & Privacy" settings. ([#50047](https://github.com/brave/brave-browser/issues/50047))
