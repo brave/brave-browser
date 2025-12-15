@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.85.116](https://github.com/brave/brave-browser/releases/tag/v1.85.116)
+
+ - Added “Ask Brave” option to the Shortcuts widget and Shortcut button. ([#49773](https://github.com/brave/brave-browser/issues/49773))
+ - Added Hindi language support. ([#48578](https://github.com/brave/brave-browser/issues/48578))
+ - Added preference in Auto Shred settings to exclude history from being removed when using Shred. ([#49815](https://github.com/brave/brave-browser/issues/49815))
+ - Added recently closed tabs to the list of items excluded from Shred by default and enabling the “Shred Removes History” toggle will also remove recently closed tabs when shredding. ([#50460](https://github.com/brave/brave-browser/issues/50460))
+ - Added the ability to disable the Playlist via admin policy. ([#49011](https://github.com/brave/brave-browser/issues/49011))
+ - Added “Browser not supported” option to the list of categories in the "Report a Broken Site" form. ([#49865](https://github.com/brave/brave-browser/issues/49865))
+ - Disabled “Cancel” button while custom filter changes are being saved. ([#49651](https://github.com/brave/brave-browser/issues/49651))
+ - Removed “Block Cookie Consent Notices” preference from "Shields & Privacy" settings. ([#50047](https://github.com/brave/brave-browser/issues/50047))
+ - Removed “Search Web” from the web context menu options. ([#49623](https://github.com/brave/brave-browser/issues/49623))
+ - Updated adblock to version 0.11.1. ([#50641](https://github.com/brave/brave-browser/issues/50641))
+ - Updated Guardian SDK to 2.1.1. ([#49108](https://github.com/brave/brave-browser/issues/49108))
+ - Fixed "Passwords” sync toggle being disabled when relaunching browser. ([#51284](https://github.com/brave/brave-browser/issues/51284))
+ - Fixed UI issue when opening new regular tab outside of Brave while in private browsing mode. ([#45820](https://github.com/brave/brave-browser/issues/45820))
+ - Fixed per-site Shred setting not being respected when applying Auto Shred globally. ([#46560](https://github.com/brave/brave-browser/issues/46560))
+ - Fixed error message displayed in certain cases when connected to EVM accounts in Brave Wallet. ([#51244](https://github.com/brave/brave-browser/issues/51244))
+ - Fixed scaling and titles for Favorites when selecting “Show More” on NTP. ([#47067](https://github.com/brave/brave-browser/issues/47067))
+ - Fixed “Force Paste” option not being displayed in context menu when there's no text selected. ([#49636](https://github.com/brave/brave-browser/issues/49636))
+ - Upgraded Chromium to 143.0.7499.110. ([#51374](https://github.com/brave/brave-browser/issues/51374))([Changelog for 143.0.7499.110](https://chromium.googlesource.com/chromium/src/+log/142.0.7444.163..143.0.7499.110?pretty=fuller&n=10000))
+ 
 ## [1.84.140](https://github.com/brave/brave-browser/releases/tag/v1.84.140)
 
  - Added the ability to disable P3A and usage ping via Admin policy. ([#48638](https://github.com/brave/brave-browser/issues/48638))
