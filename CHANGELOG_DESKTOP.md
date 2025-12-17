@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.85.117](https://github.com/brave/brave-browser/releases/tag/v1.85.117) 
+
+ - Fixed broken NFT icons on the "Edit Visible Assets" modal. ([#51445](https://github.com/brave/brave-browser/issues/51445))
+ - Fixed broken token icons on the "Portfolio" page. ([#51407](https://github.com/brave/brave-browser/issues/51407))
+ - Upgraded Chromium to 143.0.7499.146. ([#51522](https://github.com/brave/brave-browser/issues/51522)) ([Changelog for 143.0.7499.146](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.110..143.0.7499.146?pretty=fuller&n=1000))
+
 ## [1.85.116](https://github.com/brave/brave-browser/releases/tag/v1.85.116) 
 
  - Disabled premium models in "Skills" dropdown for non-premium users. ([#51171](https://github.com/brave/brave-browser/issues/51171))
