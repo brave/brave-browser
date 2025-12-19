@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.85.118](https://github.com/brave/brave-browser/releases/tag/v1.85.118) 
+
+ - Fixed token visibility changes between the "Portfolio" page and panel views. ([#51540](https://github.com/brave/brave-browser/issues/51540))
+ - Upgraded Chromium to 143.0.7499.169. ([#51562](https://github.com/brave/brave-browser/issues/51562)) ([Changelog for 143.0.7499.169](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.146..143.0.7499.169?pretty=fuller&n=1000))
+
 ## [1.85.117](https://github.com/brave/brave-browser/releases/tag/v1.85.117) 
 
  - Fixed broken NFT icons on the "Edit Visible Assets" modal. ([#51445](https://github.com/brave/brave-browser/issues/51445))
