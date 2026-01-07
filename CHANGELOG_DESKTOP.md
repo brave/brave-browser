@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.85.120](https://github.com/brave/brave-browser/releases/tag/v1.85.120) 
+
+### Web3
+
+ - Removed gradient background from Brave Wallet. ([#51577](https://github.com/brave/brave-browser/issues/51577))
+ - Fixed missing percent symbol for the balance difference on the "Portfolio" page. ([#51563](https://github.com/brave/brave-browser/issues/51563))
+
+### General
+
+ - [Security] Updated Picture-in-Picture (PiP) to display origin as reported on HackerOne by frozzipies. ([#51668](https://github.com/brave/brave-browser/issues/51668))
+ - Upgraded Chromium to 143.0.7499.192. ([#51796](https://github.com/brave/brave-browser/issues/51796)) ([Changelog for 143.0.7499.192](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.169..143.0.7499.192?pretty=fuller&n=1000))
+
 ## [1.85.118](https://github.com/brave/brave-browser/releases/tag/v1.85.118) 
 
  - Fixed token visibility changes between the "Portfolio" page and panel views. ([#51540](https://github.com/brave/brave-browser/issues/51540))
