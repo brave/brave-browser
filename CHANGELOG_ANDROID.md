@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.85.120](https://github.com/brave/brave-browser/releases/tag/v1.85.120)
+
+ - Fixed missing percent symbol for the balance difference on the "Portfolio" page. ([#51563](https://github.com/brave/brave-browser/issues/51563))
+ - Upgraded Chromium to 143.0.7499.192. ([#51796](https://github.com/brave/brave-browser/issues/51796)) ([Changelog for 143.0.7499.192](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.169..143.0.7499.192?pretty=fuller&n=1000))
+
 ## [1.85.117](https://github.com/brave/brave-browser/releases/tag/v1.85.117)
 
  - Fixed broken NFT icons on the "Edit Visible Assets" modal. ([#51445](https://github.com/brave/brave-browser/issues/51445))
