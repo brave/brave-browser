@@ -1,5 +1,33 @@
 # Changelog
 
+## [1.86.139](https://github.com/brave/brave-browser/releases/tag/v1.86.139) 
+
+### Web3
+
+ - Added support for Zcash Testnet. ([#50116](https://github.com/brave/brave-browser/issues/50116))
+ - Updated UI for the "Cancel Transaction" confirmation panel. ([#49719](https://github.com/brave/brave-browser/issues/49719))
+ - Fixed macOS issue where switching apps using "Cmd + Tab" closed the wallet panel. ([#50976](https://github.com/brave/brave-browser/issues/50976))
+ - Fixed incorrect Cardano account being shown on the "Buy Crypto" screen. ([#50790](https://github.com/brave/brave-browser/issues/50790))
+
+### Leo
+
+ - Added support for rich results from Brave Search. ([#50812](https://github.com/brave/brave-browser/issues/50812))
+ - Added several new premium models in Brave Leo. ([#49218](https://github.com/brave/brave-browser/issues/49218))
+ - Replaced "Llama 3.1 8b" with "Qwen 14B" in the recommended model list. ([#50958](https://github.com/brave/brave-browser/issues/50958))
+ - Fixed list numbers not being displayed correctly in Brave Leo responses. ([#50467](https://github.com/brave/brave-browser/issues/50467))
+
+### General
+
+ - Added an "@ask" keyword shortcut for "Ask Brave Search" in the URL bar. ([#49179](https://github.com/brave/brave-browser/issues/49179))
+ - Added "Always hide tab close button" setting under brave://settings/appearance. ([#25077](https://github.com/brave/brave-browser/issues/25077))
+ - Improved rounded corners on macOS. ([#51057](https://github.com/brave/brave-browser/issues/51057) & [#49755](https://github.com/brave/brave-browser/issues/49755))
+ - Improved display of sidebar on mouseover when rounded corners are enabled. ([#50490](https://github.com/brave/brave-browser/issues/50490))
+ - Increased the maximum number of top site tiles on the New Tab Page from 48 to 120. ([#50468](https://github.com/brave/brave-browser/issues/50468))
+ - Updated vertical tab strip to expand on mouseover when Brave is not in focus. ([#50838](https://github.com/brave/brave-browser/issues/50838))
+ - Fixed collapsed tab groups being expanded when moving via drag and drop. ([#50898](https://github.com/brave/brave-browser/issues/50898))
+ - Fixed inability to disable hidden lists in brave://settings/shields/filters. ([#49207](https://github.com/brave/brave-browser/issues/49207))
+ - Upgraded Chromium to 144.0.7559.59. ([#51836](https://github.com/brave/brave-browser/issues/51836)) ([Changelog for 144.0.7559.59](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.192..144.0.7559.59?pretty=fuller&n=1000))
+
 ## [1.85.120](https://github.com/brave/brave-browser/releases/tag/v1.85.120) 
 
 ### Web3
