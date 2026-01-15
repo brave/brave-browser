@@ -18,7 +18,7 @@
 
 ### General
 
- - Added an "@ask" keyword shortcut for "Ask Brave Search" in the URL bar. ([#49179](https://github.com/brave/brave-browser/issues/49179))
+ - Added an "ask" keyword shortcut for "Ask Brave Search" in the URL bar. ([#49179](https://github.com/brave/brave-browser/issues/49179))
  - Added "Always hide tab close button" setting under brave://settings/appearance. ([#25077](https://github.com/brave/brave-browser/issues/25077))
  - Improved rounded corners on macOS. ([#51057](https://github.com/brave/brave-browser/issues/51057) & [#49755](https://github.com/brave/brave-browser/issues/49755))
  - Improved display of sidebar on mouseover when rounded corners are enabled. ([#50490](https://github.com/brave/brave-browser/issues/50490))
