@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.86.140](https://github.com/brave/brave-browser/releases/tag/v1.86.140)
+
+### Web3
+
+ - Fixed DApp fragment architecture to ensure proper UI recreation. ([#50599](https://github.com/brave/brave-browser/issues/50599))
+
+### Rewards
+
+ - Fixed Rewards "notification" and "publisher-verified" icons not being displayed correctly. ([#51198](https://github.com/brave/brave-browser/issues/51198))
+
+### Leo
+
+ - Added support for rich results from Brave Search. ([#50812](https://github.com/brave/brave-browser/issues/50812))
+ - Added several new premium models in Brave Leo. ([#49218](https://github.com/brave/brave-browser/issues/49218))
+ - Added context menu on long tap in Brave Leo conversations. ([#50878](https://github.com/brave/brave-browser/issues/50878))
+ - Replaced "Llama 3.1 8b" with "Qwen 14B" in the recommended model list. ([#50958](https://github.com/brave/brave-browser/issues/50958))
+ - Fixed list numbers not being displayed correctly in Brave Leo responses. ([#50467](https://github.com/brave/brave-browser/issues/50467))
+ - Fixed "Edit" menu visibility for conversation inputs. ([#50972](https://github.com/brave/brave-browser/issues/50972))
+
+### General
+
+ - Fixed "New Tab" and "New Private tab" being cut off when opening the Hamburger menu in certain cases. ([#38108](https://github.com/brave/brave-browser/issues/38108))
+ - Fixed inability to disable hidden lists in brave://settings/shields/filters. ([#49207](https://github.com/brave/brave-browser/issues/49207))
+ - Fixed "New Tab Page" (NTP) background image being displayed incorrectly when a custom Android display size is used. ([#28664](https://github.com/brave/brave-browser/issues/28664))
+ - Upgraded Chromium to 144.0.7559.76. ([#51992](https://github.com/brave/brave-browser/issues/51992)) ([Changelog for 144.0.7559.76](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.192..144.0.7559.76?pretty=fuller&n=1000))
+
 ## [1.85.120](https://github.com/brave/brave-browser/releases/tag/v1.85.120)
 
  - Fixed missing percent symbol for the balance difference on the "Portfolio" page. ([#51563](https://github.com/brave/brave-browser/issues/51563))
