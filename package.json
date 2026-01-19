@@ -13,46 +13,5 @@
   "license": "MPL-2.0",
   "author": {
     "name": "Brave Software <support@brave.com>"
-  },
-  "scripts": {
-    "apply_patches": "cd src/brave && npm run apply_patches --",
-    "audit_deps": "cd src/brave && npm run audit_deps --",
-    "build": "cd src/brave && npm run build --",
-    "chromium_rebase_l10n": "cd src/brave && npm run chromium_rebase_l10n --",
-    "cibuild": "cd src/brave && npm run cibuild --",
-    "create_dist": "cd src/brave && npm run create_dist --",
-    "delete_string_translations": "cd src/brave && npm run delete_string_translations --",
-    "gclient": "cd src/brave && npm run gclient --",
-    "gn_check": "cd src/brave && npm run gn_check --",
-    "init": "node ./scripts/init.js",
-    "lint": "cd src/brave && npm run lint --",
-    "network-audit": "cd src/brave && npm run network-audit --",
-    "pull_l10n": "cd src/brave && npm run pull_l10n --",
-    "push_l10n": "cd src/brave && npm run push_l10n --",
-    "start": "cd src/brave && npm run start --",
-    "sync": "cd src/brave && npm run sync --",
-    "test": "cd src/brave && npm run test --",
-    "test-security": "cd src/brave && npm run test-security --",
-    "test:scripts": "jest lib scripts --passWithNoTests",
-    "update_patches": "cd src/brave && npm run update_patches --",
-    "versions": "cd src/brave && npm run versions --"
-  },
-  "engines": {
-    "node": ">=24.11.1 <25.0.0",
-    "npm": ">=11.6.2"
-  },
-  "config": {
-    "projects": {
-      "brave-core": {
-        "dir": "src/brave",
-        "branch": "master",
-        "repository": {
-          "url": "https://github.com/brave/brave-core.git"
-        }
-      }
-    }
-  },
-  "dependencies": {
-    "chalk": "4.1.2"
   }
 }
