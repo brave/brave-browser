@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.86.142](https://github.com/brave/brave-browser/releases/tag/v1.86.142)
+
+ - Removed "Web3" from the "Explorer" tab of Brave Wallet. ([#50897](https://github.com/brave/brave-browser/issues/50897))
+ - Upgraded Chromium to 144.0.7559.97. ([#52147](https://github.com/brave/brave-browser/issues/52147)) ([Changelog for 144.0.7559.97](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.59..144.0.7559.97?pretty=fuller&n=1000))
+
 ## [1.86.140](https://github.com/brave/brave-browser/releases/tag/v1.86.140)
 
 ### Web3
