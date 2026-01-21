@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.86.142](https://github.com/brave/brave-browser/releases/tag/v1.86.142) 
+
+ - Re-added "brave-keyring" as a dependency of "brave-browser" on Linux. ([#52057](https://github.com/brave/brave-browser/issues/52057))
+ - Removed "Web3" from the "Explorer" tab of Brave Wallet. ([#50897](https://github.com/brave/brave-browser/issues/50897))
+ - Upgraded Chromium to 144.0.7559.97. ([#52147](https://github.com/brave/brave-browser/issues/52147)) ([Changelog for 144.0.7559.97](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.59..144.0.7559.97?pretty=fuller&n=1000))
+
 ## [1.86.139](https://github.com/brave/brave-browser/releases/tag/v1.86.139) 
 
 ### Web3
