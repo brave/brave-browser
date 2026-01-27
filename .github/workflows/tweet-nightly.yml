@@ -12,7 +12,7 @@ permissions:
 jobs:
   tweet-nightly:
     if: (github.event.action == 'labeled' && github.event.label.name == 'release-notes/social' && github.event.issue.state == 'closed') || (github.event.action == 'closed' &&  contains(github.event.issue.labels.*.name, 'release-notes/social'))
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - name: Tweet
         uses: nearform-actions/github-action-notify-twitter@b3fa623c2f320117e8a08e20564c4ce0a5e67930 # v1.2.3
