@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   create-pr:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     env:
       GH_TOKEN: ${{ secrets.AUDIT_CONFIG_TOKEN }}
       IGNORE_PAT: 'cwe-133|cwe-400|cwe-1050|cwe-1333|denial of service|dos|redos|resource exhaustion|regexp|rxdos'
