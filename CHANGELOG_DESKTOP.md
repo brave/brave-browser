@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.86.146](https://github.com/brave/brave-browser/releases/tag/v1.86.146) 
+
+### Web3
+
+ - Fixed inability to fetch Jupiter quotes. ([#52163](https://github.com/brave/brave-browser/issues/52163))
+ - Fixed inability to fetch Squid Router quotes. ([#52159](https://github.com/brave/brave-browser/issues/52159))
+
+### General
+
+ - Fixed browser freezing/stalling at launch and when closing vertical tabs in certain cases. ([#52037](https://github.com/brave/brave-browser/issues/52037))
+ - Fixed Google page being displayed under brave://history/syncedTabs in certain cases. ([#52065](https://github.com/brave/brave-browser/issues/52065))
+ - Upgraded Chromium to 144.0.7559.110. ([#52315](https://github.com/brave/brave-browser/issues/52315)) ([Changelog for 144.0.7559.110](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.97..144.0.7559.110?pretty=fuller&n=1000))
+
 ## [1.86.142](https://github.com/brave/brave-browser/releases/tag/v1.86.142) 
 
  - Re-added "brave-keyring" as a dependency of "brave-browser" on Linux. ([#52057](https://github.com/brave/brave-browser/issues/52057))
