@@ -9,7 +9,7 @@
 
 ### General
 
- - Fixed closing vertical tabs freezing the browser in certain cases. ([#52037](https://github.com/brave/brave-browser/issues/52037))
+ - Fixed browser freezing/stalling at launch and when closing vertical tabs in certain cases. ([#52037](https://github.com/brave/brave-browser/issues/52037))
  - Fixed Google page being displayed under brave://history/syncedTabs in certain cases. ([#52065](https://github.com/brave/brave-browser/issues/52065))
  - Upgraded Chromium to 144.0.7559.110. ([#52315](https://github.com/brave/brave-browser/issues/52315)) ([Changelog for 144.0.7559.110](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.97..144.0.7559.110?pretty=fuller&n=1000))
 
