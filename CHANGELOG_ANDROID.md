@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.86.146](https://github.com/brave/brave-browser/releases/tag/v1.86.146)
+
+ - Fixed crash when opening a new tab page in certain cases. ([#52283](https://github.com/brave/brave-browser/issues/52283))
+ - Upgraded Chromium to 144.0.7559.110. ([#52315](https://github.com/brave/brave-browser/issues/52315)) ([Changelog for 144.0.7559.110](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.97..144.0.7559.110?pretty=fuller&n=1000))
+
 ## [1.86.142](https://github.com/brave/brave-browser/releases/tag/v1.86.142)
 
  - Removed "Web3" from the "Explorer" tab of Brave Wallet. ([#50897](https://github.com/brave/brave-browser/issues/50897))
