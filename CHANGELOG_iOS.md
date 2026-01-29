@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.86.144](https://github.com/brave/brave-browser/releases/tag/v1.86.144)
+
+ - Implemented the ability to dismiss/close the "Brave Shields & Privacy" settings modal using swiping gesture when accessed from the Brave Shields panel. ([#50774](https://github.com/brave/brave-browser/issues/50774))
+ - Added several new premium models in Brave Leo. ([#49218](https://github.com/brave/brave-browser/issues/49218))
+ - Added "Auto-Open Keyboard" setting that automatically brings up the keyboard when opening new tabs. ([#50031](https://github.com/brave/brave-browser/issues/50031))
+ - Improved cosmetic filtering performance for mutated elements. ([#48517](https://github.com/brave/brave-browser/issues/48517))
+ - Updated the tabs in tab tray to be larger when viewed in landscape for iPad users. ([#49081](https://github.com/brave/brave-browser/issues/49081))
+ - Fixed Private Tabs being visible in the app switcher when tab tray is opened. ([#52144](https://github.com/brave/brave-browser/issues/52144))
+ - Fixed not being able to dismiss the wallet backup modal after other Brave Wallet screens were shown. ([#51270](https://github.com/brave/brave-browser/issues/51270))
+ - Fixed QR code camera view from rotating 90 degrees when sync flow is launched in landscape mode. ([#50206](https://github.com/brave/brave-browser/issues/50206))
+ - Fixed the share icon opacity in the toolbar during hide transition. ([#50645](https://github.com/brave/brave-browser/issues/50645))
+ - Upgraded Chromium to 144.0.7559.97. ([#52147](https://github.com/brave/brave-browser/issues/52147))([Changelog for 144.0.7559.97](https://chromium.googlesource.com/chromium/src/+log/143.0.7499.110..144.0.7559.97?pretty=fuller&n=10000))
+
 ## [1.85.116](https://github.com/brave/brave-browser/releases/tag/v1.85.116)
 
  - Added “Ask Brave” option to the Shortcuts widget and Shortcut button. ([#49773](https://github.com/brave/brave-browser/issues/49773))
