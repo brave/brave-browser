@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.86.148](https://github.com/brave/brave-browser/releases/tag/v1.86.148)
+
+ - Fixed background media playback stopping when switching tabs, minimizing Brave, or locking the device. ([#51881](https://github.com/brave/brave-browser/issues/51881))
+ - Upgraded Chromium to 144.0.7559.133. ([#52516](https://github.com/brave/brave-browser/issues/52516)) ([Changelog for 144.0.7559.133](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.110..144.0.7559.133?pretty=fuller&n=1000))
+
 ## [1.86.146](https://github.com/brave/brave-browser/releases/tag/v1.86.146)
 
  - Fixed crash when opening a new tab page in certain cases. ([#52283](https://github.com/brave/brave-browser/issues/52283))
