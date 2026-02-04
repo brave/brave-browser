@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.86.148](https://github.com/brave/brave-browser/releases/tag/v1.86.148) 
+
+ - Fixed missing "Memo" field on the "Confirm Send" screen for Zcash. ([#52303](https://github.com/brave/brave-browser/issues/52303))
+ - Fixed crash which occurred when using "Quick Commands" in certain cases on macOS. ([#52462](https://github.com/brave/brave-browser/issues/52462))
+ - Upgraded Chromium to 144.0.7559.133. ([#52516](https://github.com/brave/brave-browser/issues/52516)) ([Changelog for 144.0.7559.133](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.110..144.0.7559.133?pretty=fuller&n=1000))
+
 ## [1.86.146](https://github.com/brave/brave-browser/releases/tag/v1.86.146) 
 
 ### Web3
