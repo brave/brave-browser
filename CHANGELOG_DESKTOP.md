@@ -48,7 +48,6 @@
  - Removed extra padding on left side window border when vertical tabs are hidden. ([#51056](https://github.com/brave/brave-browser/issues/51056))
  - Fixed crash which occurred when trying to load https://www.yahoo.com in certain cases. ([#52594](https://github.com/brave/brave-browser/issues/52594))
  - Fixed crash which occurred when selecting "Open here" button from the omnibox dropdown after enabling brave://flags/#brave-omnibox-tab-switch-by-default. ([#51501](https://github.com/brave/brave-browser/issues/51501))
- - Fixed delta updates on Windows. ([#50214](https://github.com/brave/brave-browser/issues/50214))
  - Fixed incorrect path being used when using UserDataDir policy on Windows. ([#41854](https://github.com/brave/brave-browser/issues/41854))
  - Fixed unable to resize maximized window using top border when vertical tabs enabled on Windows. ([#51554](https://github.com/brave/brave-browser/issues/51554))
  - Fixed tab names being blank on Linux in certain cases. ([#51884](https://github.com/brave/brave-browser/issues/51884))
