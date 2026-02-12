@@ -1,5 +1,61 @@
 # Changelog
 
+## [1.87.186](https://github.com/brave/brave-browser/releases/tag/v1.87.186) 
+
+### Web3
+
+ - Added separator for Testnet accounts in the "Create account" modal. ([#51298](https://github.com/brave/brave-browser/issues/51298))
+ - Added "Minimum amount" and "Maximum amount" warning message for quotes on the "Buy" screen. ([#51498](https://github.com/brave/brave-browser/issues/51498))
+ - Added support for Zcash deshielding (Shielded -> Transparent) transactions. ([#45875](https://github.com/brave/brave-browser/issues/45875))
+ - Improved performance on the "Edit Visible Assets" modal. ([#51519](https://github.com/brave/brave-browser/issues/51519))
+ - Improved Cardano transaction encoding. ([#51477](https://github.com/brave/brave-browser/issues/51477))
+ - Updated "Trezor Connect" support. ([#50647](https://github.com/brave/brave-browser/issues/50647) & [#36575](https://github.com/brave/brave-browser/issues/36575))
+ - Updated Cardano icon to display correctly in dark theme. ([#46848](https://github.com/brave/brave-browser/issues/46848))
+ - Updated Cardano minimum send value to 1 ADA. ([#46753](https://github.com/brave/brave-browser/issues/46753))
+ - Updated the Cardano transaction fee calculation algorithm. ([#51121](https://github.com/brave/brave-browser/issues/51121))
+ - Updated "Sign In With Ethereum" panel to new UI. ([#51216](https://github.com/brave/brave-browser/issues/51216))
+ - Updated "Sign In With Ethereum" error panel to new UI. ([#51217](https://github.com/brave/brave-browser/issues/51217))
+ - Updated the "Decrypt Message Request" panel to new UI. ([#51338](https://github.com/brave/brave-browser/issues/51338))
+ - Updated the "Provide Public Encryption Key" panel to new UI. ([#51337](https://github.com/brave/brave-browser/issues/51337))
+ - Updated the "Backup wallet" string in the settings menu. ([#51507](https://github.com/brave/brave-browser/issues/51507))
+ - Fixed page crash which occurred when Rabby Wallet and uBlock Origin extensions are installed. ([#45871](https://github.com/brave/brave-browser/issues/45871))
+ - Fixed unnecessary "Shield" and "Unshield" warnings. ([#51762](https://github.com/brave/brave-browser/issues/51762))
+ - Fixed issue where tokens may display empty icons in certain cases. ([#52519](https://github.com/brave/brave-browser/issues/52519))
+
+### Leo
+
+ - Added support for auto-discovery of Ollama Lists under BYOM. ([#39492](https://github.com/brave/brave-browser/issues/39492))
+ - Updated "Qwen" model labels and removed "Gemma" and "Deepseek R1" models. ([#51790](https://github.com/brave/brave-browser/issues/51790))
+ - Fixed consecutive citations not rendering correctly in Brave Leo responses. ([#52497](https://github.com/brave/brave-browser/issues/52497))
+
+### Rewards
+
+ - Added UI to help Gemini users migrate to other Brave Rewards payout account providers (Gemini sunsetted). ([#50590](https://github.com/brave/brave-browser/issues/50590))
+ - Updated the "Go to my Account" link for self-custody Brave Rewards users from Solana Explorer to Solscan. ([#50517](https://github.com/brave/brave-browser/issues/50517))
+
+### General
+
+ - Added the ability to "Copy download link" from the download panel. ([#48436](https://github.com/brave/brave-browser/issues/48436))
+ - Added "Show VPN Tray Icon" setting under brave://settings/system for Windows. ([#50991](https://github.com/brave/brave-browser/issues/50991))
+ - Improved adblocking. ([#51063](https://github.com/brave/brave-browser/issues/51063))
+ - Improved adblock performance by adding resource sharing support. ([#50368](https://github.com/brave/brave-browser/issues/50368))
+ - Improved scriptlet handling. ([#51448](https://github.com/brave/brave-browser/issues/51448))
+ - Improved pinned tabs layout when using vertical tabs. ([#51055](https://github.com/brave/brave-browser/issues/51055) & [#50974](https://github.com/brave/brave-browser/issues/50974))
+ - Updated the New Tab Page favicon to monochrome. ([#51381](https://github.com/brave/brave-browser/issues/51381))
+ - Updated mouseover target for the vertical tabs bar to allow for easier opening when vertical tabs are hidden. ([#50847](https://github.com/brave/brave-browser/issues/50847))
+ - Removed "Index other search engines" setting from brave://settings/search. ([#51656](https://github.com/brave/brave-browser/issues/51656))
+ - Removed known tracking parameter "syclid" from certain URLs. ([#50532](https://github.com/brave/brave-browser/issues/50532))
+ - Removed extra padding on left side window border when vertical tabs are hidden. ([#51056](https://github.com/brave/brave-browser/issues/51056))
+ - Fixed crash which occurred when trying to load https://www.yahoo.com in certain cases. ([#52594](https://github.com/brave/brave-browser/issues/52594))
+ - Fixed crash which occurred when selecting "Open here" button from the omnibox dropdown after enabling brave://flags/#brave-omnibox-tab-switch-by-default. ([#51501](https://github.com/brave/brave-browser/issues/51501))
+ - Fixed delta updates on Windows. ([#50214](https://github.com/brave/brave-browser/issues/50214))
+ - Fixed incorrect path being used when using UserDataDir policy on Windows. ([#41854](https://github.com/brave/brave-browser/issues/41854))
+ - Fixed unable to resize maximized window using top border when vertical tabs enabled on Windows. ([#51554](https://github.com/brave/brave-browser/issues/51554))
+ - Fixed tab names being blank on Linux in certain cases. ([#51884](https://github.com/brave/brave-browser/issues/51884))
+ - Fixed blank title bar being displayed in fullscreen on macOS. ([#32549](https://github.com/brave/brave-browser/issues/32549))
+ - Fixed hidden elements on the New Tab Page being clickable when the search widget has focus. ([#51558](https://github.com/brave/brave-browser/issues/51558))
+ - Upgraded Chromium to 145.0.7632.45. ([#52554](https://github.com/brave/brave-browser/issues/52554)) ([Changelog for 145.0.7632.45](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.133..145.0.7632.45?pretty=fuller&n=1000))
+
 ## [1.86.148](https://github.com/brave/brave-browser/releases/tag/v1.86.148) 
 
  - Fixed missing "Memo" field on the "Confirm Send" screen for Zcash. ([#52303](https://github.com/brave/brave-browser/issues/52303))
