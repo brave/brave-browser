@@ -2,7 +2,7 @@
 
 ## [1.87.188](https://github.com/brave/brave-browser/releases/tag/v1.87.188) 
 
- - Fixed custom homepage address being displayed incorrectly in certain cases. ([#52837](https://github.com/brave/brave-browser/issues/52837))
+ - Fixed custom homepage address being displayed incorrectly in certain cases. ([#52819](https://github.com/brave/brave-browser/issues/52819))
  - Fixed New Tab Page (NTP) and Rewards panel appearing blank in certain locales due to translation strings being incorrectly interpreted. ([#52836](https://github.com/brave/brave-browser/issues/52836)) & ([#52837](https://github.com/brave/brave-browser/issues/52837))
  - Upgraded Chromium to 145.0.7632.76. ([#52842](https://github.com/brave/brave-browser/issues/52842)) ([Changelog for 145.0.7632.76](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.45..145.0.7632.76?pretty=fuller&n=1000))
 
