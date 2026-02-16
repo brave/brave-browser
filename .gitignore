@@ -33,3 +33,4 @@ network_log.json
 network-audit-results.json
 
 .npmrc
+node_modules/
