@@ -13,5 +13,12 @@
   "license": "MPL-2.0",
   "author": {
     "name": "Brave Software <support@brave.com>"
+  },
+  "config": {
+    "projects": {
+      "brave-core": {
+        "tag": "v1.89.43"
+      }
+    }
   }
 }
