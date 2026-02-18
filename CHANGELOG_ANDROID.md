@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.87.188](https://github.com/brave/brave-browser/releases/tag/v1.87.188)
+
+### Web3
+
+ - Added "Minimum amount" and "Maximum amount" warning message for quotes on the "Buy" screen. ([#51498](https://github.com/brave/brave-browser/issues/51498))
+ - Improved performance on the "Edit Visible Assets" modal. ([#51519](https://github.com/brave/brave-browser/issues/51519))
+ - Updated the "Backup wallet" string in the settings menu. ([#51507](https://github.com/brave/brave-browser/issues/51507))
+ - Fixed issue where tokens may display empty icons in certain cases. ([#52519](https://github.com/brave/brave-browser/issues/52519))
+
+### Rewards
+
+ - Added UI to help Gemini users migrate to other Brave Rewards payout account providers (Gemini sunsetted). ([#50590](https://github.com/brave/brave-browser/issues/50590))
+ - Updated the "Go to my Account" link for self-custody Brave Rewards users from Solana Explorer to Solscan. ([#50517](https://github.com/brave/brave-browser/issues/50517))
+ - Fixed inconsistent display of the Terms of Service notification icon on the address bar. ([#51322](https://github.com/brave/brave-browser/issues/51322))
+
+### Leo
+
+ - Updated "Qwen" model labels and removed "Gemma" and "Deepseek R1" models. ([#51790](https://github.com/brave/brave-browser/issues/51790))
+ - Fixed consecutive citations not rendering correctly in Brave Leo responses. ([#52497](https://github.com/brave/brave-browser/issues/52497))
+
+### General
+
+ - Added in-app update dialog when Brave is outdated on devices running Android 14 and higher. ([#51187](https://github.com/brave/brave-browser/issues/51187))
+ - Enabled Toolbar Shortcuts by default. ([#51277](https://github.com/brave/brave-browser/issues/51277))
+ - Re-added the "Copy link" option to the address bar context menu. ([#51308](https://github.com/brave/brave-browser/issues/51308))
+ - Improved adblocking. ([#51063](https://github.com/brave/brave-browser/issues/51063))
+ - Improved adblock performance by adding resource sharing support. ([#50368](https://github.com/brave/brave-browser/issues/50368))
+ - Removed "Index other search engines" setting from "Search engines" settings. ([#51656](https://github.com/brave/brave-browser/issues/51656))
+ - Fixed issue where the QR code scanner camera appears upside down after rotating the device. ([#50157](https://github.com/brave/brave-browser/issues/50157))
+ - Upgraded Chromium to 145.0.7632.76. ([#52842](https://github.com/brave/brave-browser/issues/52842)) ([Changelog for 145.0.7632.76](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.133..145.0.7632.76?pretty=fuller&n=1000))
+
 ## [1.86.148](https://github.com/brave/brave-browser/releases/tag/v1.86.148)
 
  - Fixed background media playback stopping when switching tabs, minimizing Brave, or locking the device. ([#51881](https://github.com/brave/brave-browser/issues/51881))
