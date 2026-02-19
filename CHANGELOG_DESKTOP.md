@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.87.190](https://github.com/brave/brave-browser/releases/tag/v1.87.190) 
+
+ - Fixed template injection in procedural cosmetic filtering as reported on HackerOne by howtoplay. ([#52875](https://github.com/brave/brave-browser/issues/52875))
+ - Fixed memory leak on page refresh in certain cases. ([#51705](https://github.com/brave/brave-browser/issues/51705))
+ - Fixed extension favicon being overwritten by Brave's New Tab Page favicon. ([#52865](https://github.com/brave/brave-browser/issues/52865))
+ - Fixed inability to open the 3 dots menu on Brave News articles. ([#52814](https://github.com/brave/brave-browser/issues/52814))
+ - Upgraded Chromium to 145.0.7632.109. ([#52962](https://github.com/brave/brave-browser/issues/52962)) ([Changelog for 145.0.7632.109](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.76..145.0.7632.109?pretty=fuller&n=1000))
+
 ## [1.87.188](https://github.com/brave/brave-browser/releases/tag/v1.87.188) 
 
  - Fixed custom homepage address being displayed incorrectly in certain cases. ([#52819](https://github.com/brave/brave-browser/issues/52819))
