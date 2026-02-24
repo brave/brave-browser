@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.87.191](https://github.com/brave/brave-browser/releases/tag/v1.87.191)
+
+ - Upgraded Chromium to 145.0.7632.120. ([#53082](https://github.com/brave/brave-browser/issues/53082)) ([Changelog for 145.0.7632.120](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.109..145.0.7632.120?pretty=fuller&n=1000))
+
 ## [1.87.190](https://github.com/brave/brave-browser/releases/tag/v1.87.190)
 
  - Fixed template injection in procedural cosmetic filtering as reported on HackerOne by howtoplay. ([#52875](https://github.com/brave/brave-browser/issues/52875))
