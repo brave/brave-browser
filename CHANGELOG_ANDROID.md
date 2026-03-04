@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.87.192](https://github.com/brave/brave-browser/releases/tag/v1.87.192)
+
+ - Fixed background playback when the screen is locked. ([#53077](https://github.com/brave/brave-browser/issues/53077))
+ - Fixed "Rate Brave" flow under "Settings" silently failing. ([#53179](https://github.com/brave/brave-browser/issues/53179))
+ - Upgraded Chromium to 145.0.7632.160. ([#53338](https://github.com/brave/brave-browser/issues/53338)) ([Changelog for 145.0.7632.160](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.120..145.0.7632.160?pretty=fuller&n=1000))
+
 ## [1.87.191](https://github.com/brave/brave-browser/releases/tag/v1.87.191)
 
  - Upgraded Chromium to 145.0.7632.120. ([#53082](https://github.com/brave/brave-browser/issues/53082)) ([Changelog for 145.0.7632.120](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.109..145.0.7632.120?pretty=fuller&n=1000))
