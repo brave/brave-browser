@@ -16,7 +16,7 @@
  - Fixed tab tray not scrolling to the selected tab after switching back from private mode. ([#51363](https://github.com/brave/brave-browser/issues/51363))
  - Fixed Shred button being shown when switching to private mode. ([#51362](https://github.com/brave/brave-browser/issues/51362))
  - Fixed launching new private tab bypassing Face ID lock when opened via Siri Shortcut from the home screen. ([#51069](https://github.com/brave/brave-browser/issues/51069))
- - Fixed Touch ID being bypassed when selecting `Private New Tab` when long pressing tab button. ([#49650](https://github.com/brave/brave-browser/issues/49650))
+ - Fixed Touch ID being bypassed when selecting "Private New Tab" when long pressing tab button. ([#49650](https://github.com/brave/brave-browser/issues/49650))
  - Upgraded Chromium to 145.0.7632.160. ([#53338](https://github.com/brave/brave-browser/issues/53338))([Changelog for 145.0.7632.160](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.97..145.0.7559.97?pretty=fuller&n=10000))
 
 ## [1.86.144](https://github.com/brave/brave-browser/releases/tag/v1.86.144)
