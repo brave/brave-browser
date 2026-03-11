@@ -1,5 +1,45 @@
 # Changelog
 
+## [1.88.127](https://github.com/brave/brave-browser/releases/tag/v1.88.127) 
+
+### Web3
+
+ - Added support for "NEAR Intents" swap provider via "Gate3". ([#51720](https://github.com/brave/brave-browser/issues/51720))
+ - Added support for sending Cardano Tokens (non-ADA) from Cardano accounts. ([#50224](https://github.com/brave/brave-browser/issues/50224))
+ - Added "Bridge" buttons for BTC, ZEC and ADA. ([#52555](https://github.com/brave/brave-browser/issues/52555))
+ - Added "SafeSign" for "Gate3" swaps. ([#51936](https://github.com/brave/brave-browser/issues/51936))
+ - [Security] Fixed race condition which could result in incorrect origin being displayed on Brave Wallet as reported on HackerOne by b4dc4t. ([#53105](https://github.com/brave/brave-browser/issues/53105))
+ - Enabled support for connecting to Cardano DApps. ([#47789](https://github.com/brave/brave-browser/issues/47789))
+ - Implemented status checks for "Gate3" swaps. ([#52229](https://github.com/brave/brave-browser/issues/52229))
+ - Removed unused "onramp" wallet slices. ([#51870](https://github.com/brave/brave-browser/issues/51870))
+ - Fixed "Internal JSON-RPC Error" when trying to create transaction on https://etherscan.io. ([#32747](https://github.com/brave/brave-browser/issues/32747))
+ - Fixed clicking on the Zcash address loading the transaction page instead of address page on the block explorer. ([#51964](https://github.com/brave/brave-browser/issues/51964))
+ - Updated "Checksum" warning and error messaging. ([#52525](https://github.com/brave/brave-browser/issues/52525))
+
+### Leo
+
+ - Added "Copy entire conversation" button in conversation menu. ([#42907](https://github.com/brave/brave-browser/issues/42907))
+ - Added support to send message with "@" without bringing up the attachment menu. ([#51874](https://github.com/brave/brave-browser/issues/51874))
+ - Updated copying of Brave Leo answers to include source URLs. ([#49919](https://github.com/brave/brave-browser/issues/49919))
+ - Fixed the "Change model" popup being hidden behind the "Conversation history" popup. ([#51820](https://github.com/brave/brave-browser/issues/51820))
+
+### General
+
+ - Added "Ultra dark theme" option under the "Theme" section of brave://settings/appearance. ([#52194](https://github.com/brave/brave-browser/issues/52194))
+ - Added the ability to hide the "Share menu" icon in the address bar under the "Customize your toolbar" section of brave://settings/appearance. ([#49180](https://github.com/brave/brave-browser/issues/49180))
+ - Added the ability to hide the "Install app" icon for PWAs in the address bar under the "Customize your toolbar" section of brave://settings/appearance. ([#48217](https://github.com/brave/brave-browser/issues/48217))
+ - Added the ability to configure a keyboard shortcut for "Force Paste". ([#36524](https://github.com/brave/brave-browser/issues/36524))
+ - Enabled "Local Network Access" permission. ([#51843](https://github.com/brave/brave-browser/issues/51843))
+ - Implemented persistent search box at the top of brave://settings and removed top navigation bar. ([#45738](https://github.com/brave/brave-browser/issues/45738))
+ - Updated theme/colors for Private and Tor windows. ([#52201](https://github.com/brave/brave-browser/issues/52201))
+ - Updated the placement of "Open in Split View" in context menu. ([#52844](https://github.com/brave/brave-browser/issues/52844))
+ - Updated the 12-hour clock widget on the New Tab Page to display AM/PM. ([#44455](https://github.com/brave/brave-browser/issues/44455))
+ - Fixed inability to use secure DNS after changing policy via the Windows registry. ([#46011](https://github.com/brave/brave-browser/issues/46011))
+ - Fixed missing tab favicon when pinned tab is restored while using vertical tabs. ([#53083](https://github.com/brave/brave-browser/issues/53083))
+ - Fixed tab position not being aligned with cursor while dragging the tab to a new window on Linux. ([#52222](https://github.com/brave/brave-browser/issues/52222))
+ - Fixed positioning of the title elements on the Brave News customization modal. ([#52015](https://github.com/brave/brave-browser/issues/52015))
+ - Upgraded Chromium to 146.0.7680.71. ([#53514](https://github.com/brave/brave-browser/issues/53514)) ([Changelog for 146.0.7680.71](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.160..146.0.7680.71?pretty=fuller&n=1000))
+
 ## [1.87.192](https://github.com/brave/brave-browser/releases/tag/v1.87.192) 
 
  - Upgraded Chromium to 145.0.7632.160. ([#53338](https://github.com/brave/brave-browser/issues/53338)) ([Changelog for 145.0.7632.160](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.120..145.0.7632.160?pretty=fuller&n=1000))
