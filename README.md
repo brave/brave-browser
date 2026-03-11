@@ -43,13 +43,19 @@ Follow the instructions for your platform:
 - [Linux](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
 - [Android](https://github.com/brave/brave-browser/wiki/Android-Development-Environment)
 
-## Clone and initialize the repo
+## Clone and initialize brave-core
 
-Once you have the prerequisites installed, you can get the code and initialize the build environment.
+Once you have the prerequisites installed, you can get browser-related code and initialize the build environment.
+
+Note: You don't need to clone *this* repository i.e. `brave-browser`.
 
 ```bash
-git clone git@github.com:brave/brave-browser.git
+# Create a new project folder
+# It doesn't have to be called `brave-browser`, you can call it anything
+mkdir brave-browser
 cd brave-browser
+# Create an empty src/ directory for upstream code
+mkdir src
 # Clone brave-core into src/brave
 git clone git@github.com:brave/brave-core.git src/brave
 cd src/brave
