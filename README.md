@@ -50,8 +50,6 @@ Once you have the prerequisites installed, you can get the code and initialize t
 ```bash
 git clone git@github.com:brave/brave-browser.git
 cd brave-browser
-# Create an empty directory for Chromium source
-mkdir src
 # Clone brave-core into src/brave
 git clone git@github.com:brave/brave-core.git src/brave
 cd src/brave
