@@ -29,6 +29,35 @@
  - Fixed a crash when fetching bookmark icons in certain cases. ([#52458](https://github.com/brave/brave-browser/issues/52458))
  - Upgraded Chromium to 146.0.7680.111. ([#53516](https://github.com/brave/brave-browser/issues/53516)) ([Changelog for 146.0.7680.111](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.160..146.0.7680.111?pretty=fuller&n=1000))
 
+## [1.88.128](https://github.com/brave/brave-browser/releases/tag/v1.88.128)
+
+### Web3
+
+ - Added "Bridge" buttons for BTC, ZEC and ADA. ([#52555](https://github.com/brave/brave-browser/issues/52555))
+ - [Security] Fixed race condition which could result in incorrect origin being displayed on Brave Wallet as reported on HackerOne by b4dc4t. ([#53105](https://github.com/brave/brave-browser/issues/53105))
+ - Updated "Checksum" warning and error messaging. ([#52525](https://github.com/brave/brave-browser/issues/52525))
+ - Removed scroll action on "Send", "Bridge", and "Swap" screens to make the "Review" button visible. ([#50839](https://github.com/brave/brave-browser/issues/50839))
+
+### Rewards
+
+ - Fixed Rewards panel displaying the wrong verified creator in certain cases. ([#53332](https://github.com/brave/brave-browser/issues/53332))
+
+### Leo
+
+ - Added "Copy entire conversation" button in conversation menu. ([#42907](https://github.com/brave/brave-browser/issues/42907))
+ - Fixed the "Change model" popup being hidden behind the "Conversation history" popup. ([#51820](https://github.com/brave/brave-browser/issues/51820))
+
+### General
+
+ - Added hover state to some actionable UI elements on large-screen devices. ([#52101](https://github.com/brave/brave-browser/issues/52101))
+ - Enabled "Local Network Access" permission. ([#51843](https://github.com/brave/brave-browser/issues/51843))
+ - Improved component sizing and text contrast accessibility on large-screen devices. ([#52097](https://github.com/brave/brave-browser/issues/52097))
+ - Fixed QR code UI appearing stretched before device rotation. ([#51956](https://github.com/brave/brave-browser/issues/51956))
+ - Fixed QR code camera freezing when switching apps in split screen mode. ([#52091](https://github.com/brave/brave-browser/issues/52091))
+ - Fixed a crash when stopping the VPN service on Android 14+ in certain cases. ([#52102](https://github.com/brave/brave-browser/issues/52102))
+ - Fixed a crash when fetching bookmark icons in certain cases. ([#52458](https://github.com/brave/brave-browser/issues/52458))
+ - Upgraded Chromium to 146.0.7680.111. ([#53516](https://github.com/brave/brave-browser/issues/53516)) ([Changelog for 146.0.7680.111](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.160..146.0.7680.111?pretty=fuller&n=1000))
+
 ## [1.87.192](https://github.com/brave/brave-browser/releases/tag/v1.87.192)
 
  - Fixed background playback when the screen is locked. ([#53077](https://github.com/brave/brave-browser/issues/53077))
