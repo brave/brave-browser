@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.87.192](https://github.com/brave/brave-browser/releases/tag/v1.87.192)
+
+ - Improved adblocking. ([#51063](https://github.com/brave/brave-browser/issues/51063))
+ - Upgraded Shields. ([#48249](https://github.com/brave/brave-browser/issues/48249)) & ([#46884](https://github.com/brave/brave-browser/issues/46884))
+ - Updated "Qwen" model labels and removed "Gemma" and "Deepseek R1" models. ([#51790](https://github.com/brave/brave-browser/issues/51790))
+ - Updated text color for the “Close” button in the tab tray when it's disabled in dark mode theme. ([#51764](https://github.com/brave/brave-browser/issues/51764))
+ - Updated vCard files to be displayed in the native contact modal instead of being downloaded. ([#51435](https://github.com/brave/brave-browser/issues/51435))
+ - [Security] Fixed filenames being incorrectly encoded when displayed in the download prompt as reported on HackerOne by severusstalin. ([#52135](https://github.com/brave/brave-browser/issues/52135))
+ - [Security] Fixed prompt for external app launch showing incorrect host in certain cases as reported on HackerOne by b4dc4t. ([#51773](https://github.com/brave/brave-browser/issues/51773))
+ - [Security] Fixed incorrect URL being displayed in the context menu when long pressing web links as reported on HackerOne by syarif07. ([#51102](https://github.com/brave/brave-browser/issues/51102))
+ - Fixed version comparison logic for upgrading adblock engine resources. ([#52498](https://github.com/brave/brave-browser/issues/52498))
+ - Fixed incorrect scriptlet exception filtering for custom filter rules. ([#52464](https://github.com/brave/brave-browser/issues/52464))
+ - Fixed browsing mode toggle being visible in "Private Browsing Only" mode. ([#51945](https://github.com/brave/brave-browser/issues/51945))
+ - Fixed tab tray not scrolling to the selected tab after switching back from private mode. ([#51363](https://github.com/brave/brave-browser/issues/51363))
+ - Fixed Shred button being shown when switching to private mode. ([#51362](https://github.com/brave/brave-browser/issues/51362))
+ - Fixed Face ID being bypassed when opening "Open a New Private Tab" via Siri Shortcut from the home screen. ([#51069](https://github.com/brave/brave-browser/issues/51069))
+ - Fixed Touch ID being bypassed when selecting "Private New Tab" when long pressing tab button. ([#49650](https://github.com/brave/brave-browser/issues/49650))
+ - Upgraded Chromium to 145.0.7632.160. ([#53338](https://github.com/brave/brave-browser/issues/53338))([Changelog for 145.0.7632.160](https://chromium.googlesource.com/chromium/src/+log/144.0.7559.97..145.0.7632.160?pretty=fuller&n=10000))
+
 ## [1.86.144](https://github.com/brave/brave-browser/releases/tag/v1.86.144)
 
  - Implemented the ability to dismiss/close the "Brave Shields & Privacy" settings modal using swiping gesture when accessed from the Brave Shields panel. ([#50774](https://github.com/brave/brave-browser/issues/50774))
