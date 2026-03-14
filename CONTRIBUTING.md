@@ -4,11 +4,13 @@ Table of contents
 - [How can you contribute?](#how-can-you-contribute)
   - [Help triage issues](#help-triage-issues)
   - [Updating documentation](#updating-documentation)
-  - [Help with translations](#help-with-translations)
+  - [Help with translations and localization efforts](#help-with-translations-and-localization-efforts-earth_africaearth_asiaearth_americas)
   - [Work on the code](#work-on-the-code)
 - [Getting started](#getting-started)
   - [Making changes](#making-changes)
   - [Pull requests](#pull-requests)
+    - [Contribution pace and volume](#contribution-pace-and-volume)
+    - [AI-assisted contributions](#ai-assisted-contributions)
     - [Considerations before submitting a pull request](#considerations-before-submitting-a-pull-request)
     - [Each pull request should include](#each-pull-request-should-include)
     - [Employees should](#employees-should)
@@ -33,41 +35,35 @@ Documentation is extremely important. There are lots of areas we can improve:
 * Helping to propose a way to bring documentation to other languages. Right now, everything is in English
 * Improving this document :smile:
 
-### Help with translations
-All text being added to Brave is done initially in English (en-US) and then is translated by real people into other languages.
-We're missing translations for many languages and some translations might be incomplete or poor quality.
+### Help with translations and localization efforts :earth_africa::earth_asia::earth_americas:
+All of the user interface text and strings added to Brave are written initially in English (en-US) and then are localized by real people into other languages. Brave supports many languages already. Though, the languages that Brave supports may vary by platform.
 
-For everything you'd need to get started, check out https://explore.transifex.com/brave/brave_en/ :smile:
+Brave is constantly analyzing their language support to see if new languages are necessary. We pride ourselves on being a global company and want to include as many language communities as we can. Our aim is to make web privacy accessible to everyone regardless of their language. However, it is not possible to support all languages on all platforms.
+
+If you find that we are missing your preferred language or you see missing, incomplete, or poor quality translations, please [email us](mailto:localization@brave.com).
+
+Brave does consider volunteer translators on a case-by-case basis. If you represent a language community or are interested in collaborating with our team for specific projects, then please [reach out](mailto:localization@brave.com).
 
 ### Work on the code
-* The [repo's wiki](https://github.com/brave/brave-browser/wiki) has instructions for cloning the repo and getting set up on your platform of choice
+* The [repo's wiki](https://github.com/brave/brave-browser/wiki) has instructions for cloning the repo and getting setup on your platform of choice
 * Check out the [troubleshooting page](https://github.com/brave/brave-browser/wiki/Troubleshooting) if you get stuck
 * Once you're up and running, find an interesting issue to fix. Check out issues labelled with [good first issue](https://github.com/brave/brave-browser/labels/good%20first%20issue)
-  - some issues only require knowledge of JavaScript (for example, pages using React and our [Brave UI library](https://github.com/brave/brave-ui))
   - other issues may require C++ changes in either the Brave code or in Chromium
 
 ## Getting started
 * Make sure you have a [GitHub account](https://github.com/join).
 * Submit a [ticket](https://github.com/brave/brave-browser/issues) for your issue if one does not already exist. Please include the Brave version, operating system, and steps to reproduce the issue.
-* Fork the repository on GitHub (this might be [`brave-browser`](https://github.com/brave/brave-browser), [`brave-core`](https://github.com/brave/brave-core), or both).
+* Fork the repository on GitHub.
 * For changes to JavaScript files, we recommend installing a [Standard](http://standardjs.com/) plugin for your preferred text editor in order to ensure code style consistency.
 * For C++ changes, you can consider setting up [clang-format](https://chromium.googlesource.com/chromium/src/+/master/docs/sublime_ide.md#Format-Selection-with-Clang_Format-Chromium-only) for your editor.
-* For changes which involve patches, please check out our [Patching Chromium](https://github.com/brave/brave-browser/wiki/Patching-Chromium) guide.
+* For changes which involve patches, please check out our [Patching Chromium](https://github.com/brave/brave-core/blob/master/docs/patching_and_chromium_src.md) guide.
 
 ### Making changes
-Once you've cloned the repo to your computer, you're ready to start making edits!
+Once you've cloned [`brave-core`](https://github.com/brave/brave-core) into `src/brave` in a directory of your choice, you're ready to start making edits!
 
-Please note that there are two repositories here:
-* the root project (this repo, [`brave-browser`](https://github.com/brave/brave-browser)), which pulls down all of the Chromium code into `src/`
-* [`brave-core`](https://github.com/brave/brave-core) is basically a sub-module (repo in a repo) which is located on disk under the root at `src/brave`
-
-Depending on which you're editing, you'll need to add your fork to the remotes list. By default, `origin` is set to upstream.
-For example, here's how GitHub user `bsclifton` would add BOTH remotes `brave-browser` and `brave-core`:
+You'll need to add your fork to the remotes list. By default, `origin` is set to upstream.
+For example, here's how GitHub user `bsclifton` would and `brave-core`:
 ```sh
-# root where project is cloned
-cd ~/brave-browser/
-git remote add bsclifton git@github.com:bsclifton/brave-browser.git
-git fetch bsclifton
 # root for the `brave-core` repo
 cd src/brave
 git remote add bsclifton git@github.com:bsclifton/brave-core.git
@@ -95,7 +91,7 @@ Once you're set up, there are a few tips we can suggest:
 
 
 ### Keeping your fork up to sync
-- Both `brave-browser` and `brave-core` clone themselves with the remote `origin` being upstream, so you can update either using `git pull`.
+- `brave-core` clones with the remote `origin` being upstream, so you can update either using `git pull`.
 - Once `origin` is fetched, you can rebase your `master` branch against `origin/master`
     ```sh
     git fetch origin
@@ -111,19 +107,35 @@ An easier strategy might be to keep `origin` in sync and then create branches ba
 ### Pull requests
 After the changes are made in your branch, you're ready to submit a patch. Patches on GitHub are submitted in the format of a pull request.
 
+#### Contribution pace and volume
+Do not open large numbers of pull requests in short periods of time. Each PR requires maintainer time to triage, review, and test. Bulk submissions overwhelm limited staff and may result in all of your PRs being closed without review.
+
+New contributors should start with one or two pull requests, wait for them to be reviewed and merged, and scale up gradually over time. This helps you learn the codebase conventions, build trust with reviewers, and avoid repeating the same mistakes across many PRs.
+
+#### AI-assisted contributions
+AI tools (e.g., Copilot, Claude, ChatGPT) may be used to assist with contributions, but the human contributor is fully responsible for every PR they submit. This means:
+
+* You must understand the changes you are proposing — not just relay AI output
+* All changes must be manually built, tested, and verified by you on the relevant platform(s) before submitting a PR, exactly as any other contribution
+* Do not add AI-generated bot reviews (e.g., Copilot reviewer) to your PRs — code reviews are done by Brave maintainers
+* Be transparent about AI involvement when it played a significant role in identifying the issue or generating the fix
+
+Using AI does not change the expectations for quality, testing, or PR volume. AI makes it easy to generate many changes quickly, but the review burden still falls on Brave's team. Contributors are expected to be thoughtful about what they submit and to not externalize work onto maintainers.
+
 #### Considerations before submitting a pull request
 Some helpful things to consider before submitting your work
-* Did you manually test your new change?
-* Does your pull request fix multiple issues? If so, you may consider breaking into separate pull requests.
+* Did you manually test your new change? You must include evidence of manual testing in your PR (steps taken, screenshots, logs, or confirmation of the platforms tested).
+* Each pull request should address a single concern. Keep PRs as small and focused as possible to make them easier for reviewers. If your changes fix multiple issues, break them into separate pull requests.
 * Did you include tests? (we currently have unit tests, browser tests, and JavaScript unit tests)
 * If you made a design or layout change, was there a mock-up provided? Do your changes match it?
 * If your change affects session or preferences, did you include steps to test? You may also consider manually testing an upgrade.
 
 #### Each pull request should include
-* a descriptive title; this gets used in the release notes ([desktop](https://github.com/brave/brave-browser/blob/master/CHANGELOG_DESKTOP.md) or [android](https://github.com/brave/brave-browser/blob/master/CHANGELOG_ANDROID.md))
+* a descriptive title; this gets used in the release notes ([desktop](https://github.com/brave/brave-browser/blob/master/CHANGELOG_DESKTOP.md), [android](https://github.com/brave/brave-browser/blob/master/CHANGELOG_ANDROID.md), [iOS](https://github.com/brave/brave-browser/blob/master/CHANGELOG_iOS.md))
 * a short summary of the changes
 * a reference to the issue that it fixes
 * steps to test the fix (if applicable)
+* evidence of manual testing (platforms tested, steps taken, screenshots or logs)
 * for design-related changes, it is helpful to include screenshots
 
 Once you submit a pull request, you should tag reviewers and add labels if needed. If you do not have the necessary GitHub permissions to do so, a Brave member will take care of this for you.
