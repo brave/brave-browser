@@ -11,7 +11,7 @@ This repository holds the build tools needed to build the Brave desktop browser 
     - Mounted at `src/brave`.
     - Maintains patches for 3rd party Chromium code.
   - [adblock-rust](https://github.com/brave/adblock-rust)
-    - Implements Brave's ad-block engine.
+    - Implements Brave's adblock engine.
     - Linked through [brave/adblock-rust-ffi](https://github.com/brave/brave-core/tree/master/components/adblock_rust_ffi).
 
 ## Downloads
@@ -43,18 +43,25 @@ Follow the instructions for your platform:
 - [Linux](https://github.com/brave/brave-browser/wiki/Linux-Development-Environment)
 - [Android](https://github.com/brave/brave-browser/wiki/Android-Development-Environment)
 
-## Clone and initialize the repo
+## Clone and initialize brave-core
 
-Once you have the prerequisites installed, you can get the code and initialize the build environment.
+Once you have the prerequisites installed, you can get browser-related code and initialize the build environment.
+
+Note: You don't need to clone *this* repository i.e. `brave-browser`.
 
 ```bash
-git clone git@github.com:brave/brave-core.git path-to-your-project-folder/src/brave
-cd path-to-your-project-folder/src/brave
+# Create a new project folder
+# It doesn't have to be called `brave-browser`, you can call it anything
+mkdir brave-browser
+cd brave-browser
+# Create an empty src/ directory for upstream code
+mkdir src
+# Clone brave-core into src/brave
+git clone git@github.com:brave/brave-core.git src/brave
+cd src/brave
 npm install
-
-# the Chromium source is downloaded, which has a large history (gigabytes of data)
+# The Chromium source is downloaded, which has a large history (gigabytes of data)
 # this might take really long to finish depending on internet speed
-
 npm run init
 ```
 brave-core based android builds should use `npm run init -- --target_os=android --target_arch=arm` (or whichever CPU type you want to build for)
