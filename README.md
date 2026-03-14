@@ -15,7 +15,11 @@ You can [visit our website](https://brave.com/download) to get the latest stable
 
 ## Contributing
 
-Please see the [contributing guidelines](./CONTRIBUTING.md).
+Please see the [contributing guidelines](https://github.com/brave/brave-core/blob/master/CONTRIBUTING.md).
+
+## Security Policy
+
+Please see the [security policy](https://github.com/brave/brave-core/blob/master/SECURITY.md).
 
 ## Community
 
