@@ -1,7 +1,7 @@
 {
   "name": "brave",
   "version": "1.90.32",
-  "description": "Next generation Brave browser for macOS, Windows, Linux, and Android",
+  "description": "Brave browser for Android, iOS, Linux, macOS, and Windows",
   "homepage": "https://github.com/brave/brave-browser#readme",
   "bugs": {
     "url": "https://github.com/brave/brave-browser/issues"
@@ -12,6 +12,6 @@
   },
   "license": "MPL-2.0",
   "author": {
-    "name": "Brave Software <support@brave.com>"
+    "name": "Brave Software"
   }
 }
