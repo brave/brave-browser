@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.88.134](https://github.com/brave/brave-browser/releases/tag/v1.88.134)
+
+ - Upgraded Chromium to 146.0.7680.153. ([#53761](https://github.com/brave/brave-browser/issues/53761)) ([Changelog for 146.0.7680.153](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.115..146.0.7680.153?pretty=fuller&n=1000))
+
 ## [1.88.133](https://github.com/brave/brave-browser/releases/tag/v1.88.133)
 
  - Upgraded Chromium to 146.0.7680.119. ([#53635](https://github.com/brave/brave-browser/issues/53635)) ([Changelog for 146.0.7680.119](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.115..146.0.7680.119?pretty=fuller&n=1000))
