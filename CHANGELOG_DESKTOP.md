@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.88.134](https://github.com/brave/brave-browser/releases/tag/v1.88.134) 
+
+ - [Security] Fixed "Gate3" explorer URL validation to prevent XSS. ([#53501](https://github.com/brave/brave-browser/issues/53501))
+ - Fixed separator being visible at top of video while in fullscreen. ([#53555](https://github.com/brave/brave-browser/issues/53555))
+ - Upgraded Chromium to 146.0.7680.153. ([#53761](https://github.com/brave/brave-browser/issues/53761)) ([Changelog for 146.0.7680.153](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.80..146.0.7680.153?pretty=fuller&n=1000))
+
 ## [1.88.132](https://github.com/brave/brave-browser/releases/tag/v1.88.132) 
 
  - Upgraded Chromium to 146.0.7680.80. ([#53634](https://github.com/brave/brave-browser/issues/53634)) ([Changelog for 146.0.7680.80](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.76..146.0.7680.80?pretty=fuller&n=1000))
