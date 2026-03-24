@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.88.136](https://github.com/brave/brave-browser/releases/tag/v1.88.136)
+
+ - Upgraded Chromium to 146.0.7680.164. ([#53876](https://github.com/brave/brave-browser/issues/53876)) ([Changelog for 146.0.7680.164](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.153..146.0.7680.164?pretty=fuller&n=1000)) 
+
 ## [1.88.134](https://github.com/brave/brave-browser/releases/tag/v1.88.134) 
 
  - [Security] Fixed "Gate3" explorer URL validation to prevent XSS. ([#53501](https://github.com/brave/brave-browser/issues/53501))
