@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.88.137](https://github.com/brave/brave-browser/releases/tag/v1.88.137)
+
+ - Added webUI support for Brave Leo. ([#49449](https://github.com/brave/brave-browser/issues/49449))
+ - Added the ability to "Bring Your Own Model" (BYOM) to Brave Leo. ([#52290](https://github.com/brave/brave-browser/issues/52290))
+ - Added “Site and Shields Settings” toggle switch under “Clear Private Data” section in Brave Shields & Privacy settings. ([#50771](https://github.com/brave/brave-browser/issues/50771))
+ - Improved session data cleanup to prevent unused session files from accumulating in storage. ([#53506](https://github.com/brave/brave-browser/issues/53506))
+ - Updated OS version in user agent to be aligned with Safari browser. ([#51990](https://github.com/brave/brave-browser/issues/51990))
+ - Updated DarkReader version for Night Mode. ([#51766](https://github.com/brave/brave-browser/issues/51766))
+ - Updated Recently Closed Tabs to include tabs that were bulk closed via “Close All Other Tabs” context menu. ([#53157](https://github.com/brave/brave-browser/issues/53157))
+ - [Security] Fixed Brave Wallet prompt not showing the correct origin in certain cases as reported on HackerOne by b4dc4t. ([#53105](https://github.com/brave/brave-browser/issues/53105))
+ - Fixed URL bar from disappearing when foregrounding the app with “Cross-Fade Animations” accessibility option enabled. ([#53610](https://github.com/brave/brave-browser/issues/53610))
+ - Fixed query parameters being shown in URL when using "Copy Clean Link" in certain cases. ([#53481](https://github.com/brave/brave-browser/issues/53481))
+ - Upgraded Chromium to 146.0.7680.164. ([#53876](https://github.com/brave/brave-browser/issues/53876))([Changelog for 146.0.7680.164](https://chromium.googlesource.com/chromium/src/+log/145.0.7632.160..146.0.7680.164?pretty=fuller&n=10000))
+
 ## [1.87.192](https://github.com/brave/brave-browser/releases/tag/v1.87.192)
 
  - Improved adblocking. ([#51063](https://github.com/brave/brave-browser/issues/51063))
