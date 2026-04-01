@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.88.138](https://github.com/brave/brave-browser/releases/tag/v1.88.138) 
+
+ - Fixed incorrect frame border inset when using vertical tabs with fullscreen on macOS. ([#53856](https://github.com/brave/brave-browser/issues/53856))
+ - Upgraded Chromium to 146.0.7680.178. ([#54098](https://github.com/brave/brave-browser/issues/54098)) ([Changelog for 146.0.7680.178](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.164..146.0.7680.178?pretty=fuller&n=1000))
+
 ## [1.88.136](https://github.com/brave/brave-browser/releases/tag/v1.88.136)
 
  - Upgraded Chromium to 146.0.7680.164. ([#53876](https://github.com/brave/brave-browser/issues/53876)) ([Changelog for 146.0.7680.164](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.153..146.0.7680.164?pretty=fuller&n=1000)) 
