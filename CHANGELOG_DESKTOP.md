@@ -1,5 +1,44 @@
 # Changelog
 
+## [1.89.132](https://github.com/brave/brave-browser/releases/tag/v1.89.132) 
+
+### Web3
+
+ - Added an "Unshield funds" button on the token menu. ([#53718](https://github.com/brave/brave-browser/issues/53718))
+ - Updated "Swap" and "Bridge" token selection with dynamic routing. ([#52895](https://github.com/brave/brave-browser/issues/52895))
+ - Updated wallet to disallow import of invalid private keys. ([#52009](https://github.com/brave/brave-browser/issues/52009))
+ - Removed Brave Wallet feature flag brave://flags/#native-brave-wallet. ([#52932](https://github.com/brave/brave-browser/issues/52932))
+ - Fixed dynamic token background not updating when changing token in "Send" screen. ([#53413](https://github.com/brave/brave-browser/issues/53413))
+
+### Leo
+
+ - Added "Brave Ocelot" summarization model. ([#52788](https://github.com/brave/brave-browser/issues/52788))
+ - Added the ability to search Leo conversations. ([#51299](https://github.com/brave/brave-browser/issues/51299))
+ - Added support for tab focus when using custom models. ([#53156](https://github.com/brave/brave-browser/issues/53156))
+ - Added support for inline search results in Leo chat responses. ([#52379](https://github.com/brave/brave-browser/issues/52379))
+ - Added chart creation ability to the code execution tool. ([#51898](https://github.com/brave/brave-browser/issues/51898))
+ - Improved Leo performance and responsiveness during periods of high CPU usage. ([#52934](https://github.com/brave/brave-browser/issues/52934))
+ - Updated default model list for Brave Leo. ([#52904](https://github.com/brave/brave-browser/issues/52904))
+ - Fixed crash which occurred when Brave Leo was not enabled. ([#53438](https://github.com/brave/brave-browser/issues/53438))
+ - Fixed rendering of Leo in side panel when using a right-to-left locale. ([#52863](https://github.com/brave/brave-browser/issues/52863))
+ - Fixed "Open link in..." items within right click context menu not working for Leo citations and sources. ([#52616](https://github.com/brave/brave-browser/issues/52616))
+
+### General
+
+ - Added support for "Scrollable horizontal tab strip" with brave://flags/#brave-scrollable-tab-strip. ([#52045](https://github.com/brave/brave-browser/issues/52045))
+ - Enabled immersive fullscreen feature on macOS. ([#53601](https://github.com/brave/brave-browser/issues/53601))
+ - Increased default number of top site tiles displayed on the New Tab Page from 6 to 7. ([#53408](https://github.com/brave/brave-browser/issues/53408))
+ - Updated design for the "Delete Browsing Data" dialog. ([#52296](https://github.com/brave/brave-browser/issues/52296))
+ - Updated header design for side panels. ([#53165](https://github.com/brave/brave-browser/issues/53165) & [#47881](https://github.com/brave/brave-browser/issues/47881))
+ - Removed hostname caching for Brave VPN. ([#45434](https://github.com/brave/brave-browser/issues/45434))
+ - Removed known Salesforce tracking parameters "sfmc_id" and "sfmc_activityid" from URLs. ([#53345](https://github.com/brave/brave-browser/issues/53345))
+ - Removed unnecessary vertical tab layout when state is toggled. ([#52867](https://github.com/brave/brave-browser/issues/52867))
+ - Fixed crash which occurred when toggling "Allow privacy-preserving product analytics (P3A)" in certain cases. ([#53294](https://github.com/brave/brave-browser/issues/53294))
+ - Fixed inactive state for several icons on macOS. ([#53109](https://github.com/brave/brave-browser/issues/53109))
+ - Fixed tab icon flickering when vertical tabs animate for state changes. ([#51923](https://github.com/brave/brave-browser/issues/51923))
+ - Fixed inability to add or edit sidebar entries in certain cases on Linux. ([#50967](https://github.com/brave/brave-browser/issues/50967) & [#49174](https://github.com/brave/brave-browser/issues/49174))
+ - Upgraded Chromium to 147.0.7727.56. ([#54291](https://github.com/brave/brave-browser/issues/54291)) ([Changelog for 147.0.7727.56](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.178..147.0.7727.56?pretty=fuller&n=1000))
+
 ## [1.88.138](https://github.com/brave/brave-browser/releases/tag/v1.88.138) 
 
  - Fixed incorrect frame border inset when using vertical tabs with fullscreen on macOS. ([#53856](https://github.com/brave/brave-browser/issues/53856))
