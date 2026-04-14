@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.89.135](https://github.com/brave/brave-browser/releases/tag/v1.89.135)
+
+### Web3
+
+ - Added "Unshield funds" button on the token menu. ([#53718](https://github.com/brave/brave-browser/issues/53718))
+ - Improved style and colors of the wallet "Edit Fee" dialog. ([#34066](https://github.com/brave/brave-browser/issues/34066))
+ - Removed Brave Wallet feature flag brave://flags/#native-brave-wallet. ([#52932](https://github.com/brave/brave-browser/issues/52932))
+ - Fixed dynamic token background not updating when changing token in "Send" screen. ([#53413](https://github.com/brave/brave-browser/issues/53413))
+ - Fixed crash that occurred during wallet transactions in certain cases. ([#53102](https://github.com/brave/brave-browser/issues/53102))
+
+### Leo
+
+ - Added "Brave Ocelot" summarization model. ([#52788](https://github.com/brave/brave-browser/issues/52788))
+ - Added support for inline search results in Leo chat responses. ([#52379](https://github.com/brave/brave-browser/issues/52379))
+ - Added chart creation ability to the code execution tool. ([#51898](https://github.com/brave/brave-browser/issues/51898))
+ - Improved Leo performance and responsiveness during periods of high CPU usage. ([#52934](https://github.com/brave/brave-browser/issues/52934))
+ - Updated default model list for Brave Leo. ([#52904](https://github.com/brave/brave-browser/issues/52904))
+ - Fixed Leo interface appearing empty when opened from a website tab. ([#54265](https://github.com/brave/brave-browser/issues/54265))
+
+### General
+
+ - Added new onboarding experience including search widget promo panel (being rolled out in phases using Griffin starting at 10%). ([#52397](https://github.com/brave/brave-browser/issues/52397)) & ([#52840](https://github.com/brave/brave-browser/issues/52840))
+ - Re-added the setting that asks users where to save downloaded files. ([#52737](https://github.com/brave/brave-browser/issues/52737))
+ - Updated the "Brave Shields & privacy" heading and icon to be consistent across settings screens. ([#51347](https://github.com/brave/brave-browser/issues/51347))
+ - Removed the "Loyalty cards" option from the payment method settings. ([#52682](https://github.com/brave/brave-browser/issues/52682))
+ - Fixed crash which occurred when toggling "Allow privacy-preserving product analytics (P3A)" in certain cases. ([#53294](https://github.com/brave/brave-browser/issues/53294))
+ - Fixed crash when backgrounding browser during the shred site data animation. ([#52940](https://github.com/brave/brave-browser/issues/52940))
+ - Fixed crash when canceling page content loading in certain cases. ([#52931](https://github.com/brave/brave-browser/issues/52931))
+ - Fixed right-to-left text alignment for the Brave VPN description on the Private tab. ([#43774](https://github.com/brave/brave-browser/issues/43774))
+ - Fixed issue where the Private tab background would shift when the keyboard opens or closes. ([#42470](https://github.com/brave/brave-browser/issues/42470))
+ - Upgraded Chromium to 147.0.7727.49. ([#54135](https://github.com/brave/brave-browser/issues/54135)) ([Changelog for 147.0.7727.49](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.178..147.0.7727.49?pretty=fuller&n=1000))
+
 ## [1.88.138](https://github.com/brave/brave-browser/releases/tag/v1.88.138)
 
  - Upgraded Chromium to 146.0.7680.178. ([#54098](https://github.com/brave/brave-browser/issues/54098)) ([Changelog for 146.0.7680.178](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.164..146.0.7680.178?pretty=fuller&n=1000))
