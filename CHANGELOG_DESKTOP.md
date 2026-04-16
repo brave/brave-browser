@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.89.137](https://github.com/brave/brave-browser/releases/tag/v1.89.137) 
+
+ - Removed unnecessary menu items from the "View" menu on macOS. ([#54519](https://github.com/brave/brave-browser/issues/54519))
+ - Fixed crash which occurred when clicking on the toolbar overflow menu. ([#54449](https://github.com/brave/brave-browser/issues/54449))
+ - Fixed crash which occurred when using the fullscreen button in the hamburger menu on macOS. ([#54403](https://github.com/brave/brave-browser/issues/54403))
+ - Fixed incorrect tab search button being displayed in certain cases which could lead to a crash. ([#54196](https://github.com/brave/brave-browser/issues/54196))
+ - Upgraded Chromium to 147.0.7727.102. ([#54535](https://github.com/brave/brave-browser/issues/54535)) ([Changelog for 147.0.7727.102](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.56..147.0.7727.102?pretty=fuller&n=1000))
+
 ## [1.89.132](https://github.com/brave/brave-browser/releases/tag/v1.89.132) 
 
 ### Web3
