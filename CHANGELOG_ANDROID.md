@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.89.137](https://github.com/brave/brave-browser/releases/tag/v1.89.137) 
+
+ - Fixed search widget crash in certain cases. ([#54444](https://github.com/brave/brave-browser/issues/54444))
+ - Upgraded Chromium to 147.0.7727.102. ([#54535](https://github.com/brave/brave-browser/issues/54535)) ([Changelog for 147.0.7727.102](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.56..147.0.7727.102?pretty=fuller&n=1000))
+
 ## [1.89.135](https://github.com/brave/brave-browser/releases/tag/v1.89.135)
 
 ### Web3
