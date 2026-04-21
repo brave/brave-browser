@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.89.141](https://github.com/brave/brave-browser/releases/tag/v1.89.141) 
+
+ - Added support for the "Adblock Only Mode supplemental list" when using Adblock Only Mode (ABOM). ([#54396](https://github.com/brave/brave-browser/issues/54396))
+ - Fixed crash which could occur when switching between "Sync everything" and "Customize sync" options. ([#54757](https://github.com/brave/brave-browser/issues/54757))
+ - Fixed incorrect right click menu being displayed when using immersive fullscreen in certain cases on macOS. ([#54456](https://github.com/brave/brave-browser/issues/54456))
+ - Fixed inability to click on elements near the top of the browser window when using immersive fullscreen on macOS. ([#54493](https://github.com/brave/brave-browser/issues/54493))
+
 ## [1.89.137](https://github.com/brave/brave-browser/releases/tag/v1.89.137) 
 
  - Removed unnecessary menu items from the "View" menu on macOS. ([#54519](https://github.com/brave/brave-browser/issues/54519))
