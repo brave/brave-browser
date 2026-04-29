@@ -17,11 +17,11 @@
 ### General 
 
  - Added ability to switch user agents via Griffin. ([#52858](https://github.com/brave/brave-browser/issues/52858))
- - Improved logic when hiding server-side 302 redirects. ([#54479](https://github.com/brave/brave-browser/issues/54479)) ([#54479](https://github.com/brave/brave-browser/issues/54479))
+ - Improved logic when hiding server-side 302 redirects. ([#54479](https://github.com/brave/brave-browser/issues/54479))
  - [Security] Fixed origin mismatch when opening link preview page as reported on HackerOne by b4dc4t. ([#53203](https://github.com/brave/brave-browser/issues/53203))
  - Fixed Playlist links opening in normal tabs when "Private Browsing Mode" is enabled. ([#52804](https://github.com/brave/brave-browser/issues/52804))
  - Fixed white bar being shown at the bottom of the page when scrolling with Top Bar mode enabled. ([#54808](https://github.com/brave/brave-browser/issues/54808))
- - Fixed "Force Paste" not working when pasting into elements within iframes. ([#53367](https://github.com/brave/brave-browser/issues/53367)) ([#53367](https://github.com/brave/brave-browser/issues/53367))
+ - Fixed "Force Paste" not working when pasting into elements within iframes. ([#53367](https://github.com/brave/brave-browser/issues/53367))
  - Upgraded Chromium to 147.0.7727.117. ([#54850](https://github.com/brave/brave-browser/issues/54850))([Changelog for 147.0.7727.117](https://chromium.googlesource.com/chromium/src/+log/146.0.7680.164..147.0.7727.117?pretty=fuller&n=10000))
 
 ## [1.88.137](https://github.com/brave/brave-browser/releases/tag/v1.88.137)
