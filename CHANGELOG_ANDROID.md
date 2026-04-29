@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.89.145](https://github.com/brave/brave-browser/releases/tag/v1.89.145)
+
+ - Upgraded Chromium to 147.0.7727.137. ([#55051](https://github.com/brave/brave-browser/issues/55051)) ([Changelog for 147.0.7727.137](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.117..147.0.7727.137?pretty=fuller&n=1000))
+
 ## [1.89.143](https://github.com/brave/brave-browser/releases/tag/v1.89.143)
 
  - Fixed search suggestions not being cleared on exit when "Clear data on exit" was enabled. ([#54684](https://github.com/brave/brave-browser/issues/54684))
