@@ -17,6 +17,8 @@ You can [visit our website](https://brave.com/download) to get the latest stable
 
 Please see the [contributing guidelines](https://github.com/brave/brave-core/blob/master/CONTRIBUTING.md).
 
+> **Note:** Code contributions and pull requests should be submitted to [brave-core](https://github.com/brave/brave-core), not this repository.
+
 ## Security Policy
 
 Please see the [security policy](https://github.com/brave/brave-core/blob/master/SECURITY.md).
