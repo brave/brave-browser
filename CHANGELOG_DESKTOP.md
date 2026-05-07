@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.90.121](https://github.com/brave/brave-browser/releases/tag/v1.90.121) 
+
+### Web3
+
+ - Added "Last updated" tooltip for price fetches. ([#53485](https://github.com/brave/brave-browser/issues/53485))
+ - [Security] Changed IPFS gateway usage from "ipfs.io" to "inbrowser.link" for IPFS domain resolution. ([#53690](https://github.com/brave/brave-browser/issues/53690))
+ - Updated the "Portfolio Overview" layout. ([#54095](https://github.com/brave/brave-browser/issues/54095))
+ - Updated the "Connect" and "Sign" hardware wallet panel UI. ([#53771](https://github.com/brave/brave-browser/issues/53771))
+ - Updated wallet buttons to be round. ([#54096](https://github.com/brave/brave-browser/issues/54096))
+ - Fixed access list for EIP1559 transactions. ([#53389](https://github.com/brave/brave-browser/issues/53389))
+ - Fixed inability to send ADA to script-controlled contract addresses. ([#53066](https://github.com/brave/brave-browser/issues/53066))
+
+### Leo
+
+ - Added tool support for Bring Your Own Model (BYOM) in Leo. ([#53037](https://github.com/brave/brave-browser/issues/53037))
+ - Fixed the tool label wrapping onto two lines. ([#53467](https://github.com/brave/brave-browser/issues/53467))
+
+### General
+
+ - Added "Use scrollable tab strip" setting under brave://settings/appearance. ([#54438](https://github.com/brave/brave-browser/issues/54438))
+ - Added prefix and suffix for custom scriptlet names. ([#53743](https://github.com/brave/brave-browser/issues/53743))
+ - Added a new "regex-path-template" debounce action type. ([#18756](https://github.com/brave/brave-browser/issues/18756))
+ - [Security] Fixed broken address bar layout for narrow window widths. ([#53782](https://github.com/brave/brave-browser/issues/53782))
+ - [Security] Updated body-sniffing to respect "Content-Disposition: attachment" in de-AMP as reported on HackerOne by newfunction. ([#53486](https://github.com/brave/brave-browser/issues/53486))
+ - Re-enabled "ScreenAI Library" component and AI chat PDF OCR integration. ([#46303](https://github.com/brave/brave-browser/issues/46303))
+ - Improved tab group spacing and favicon slide animation when expanding/collapsing the vertical tabs panel. ([#53348](https://github.com/brave/brave-browser/issues/53348))
+ - Updated the shields panel design. ([#53111](https://github.com/brave/brave-browser/issues/53111))
+ - Updated location of the vertical tabs toggle button to the toolbar. ([#52873](https://github.com/brave/brave-browser/issues/52873))
+ - Updated split view active tab border color to match browser's current selected theme. ([#53910](https://github.com/brave/brave-browser/issues/53910))
+ - Updated the "Customize Dashboard" modal on the New Tab Page so labels now toggle their associated controls. ([#53357](https://github.com/brave/brave-browser/issues/53357))
+ - Removed "_kx" from the query string filter. ([#53588](https://github.com/brave/brave-browser/issues/53588))
+ - Fixed incorrect scrollbar color on the "Customize Dashboard" modal of the New Tab Page when using dark theme. ([#53390](https://github.com/brave/brave-browser/issues/53390))
+ - Fixed incorrect color for the webcompat reporter "Cancel" button when using dark theme. ([#53992](https://github.com/brave/brave-browser/issues/53992))
+ - Fixed vertical tab layout when using a right-to-left locale. ([#53099](https://github.com/brave/brave-browser/issues/53099))
+ - Fixed scriptlet content not being reverted after pressing the "Cancel" button. ([#53562](https://github.com/brave/brave-browser/issues/53562))
+ - Upgraded Chromium to 148.0.7778.96. ([#55095](https://github.com/brave/brave-browser/issues/55095)) ([Changelog for 148.0.7778.96](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.137..148.0.7778.96?pretty=fuller&n=1000))
+
 ## [1.89.145](https://github.com/brave/brave-browser/releases/tag/v1.89.145) 
 
  - Upgraded Chromium to 147.0.7727.137. ([#55051](https://github.com/brave/brave-browser/issues/55051)) ([Changelog for 147.0.7727.137](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.117..147.0.7727.137?pretty=fuller&n=1000))
