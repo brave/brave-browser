@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.90.121](https://github.com/brave/brave-browser/releases/tag/v1.90.121)
+
+### Web3
+
+ - Added "Last updated" tooltip for price fetches. ([#53485](https://github.com/brave/brave-browser/issues/53485))
+ - Improved logic for generating new account names for Brave Wallet. ([#37400](https://github.com/brave/brave-browser/issues/37400))
+ - Updated wallet buttons to be round. ([#54096](https://github.com/brave/brave-browser/issues/54096))
+
+### Rewards
+
+ - Fixed crash when Brave Rewards was accessed before the browser finished loading. ([#53877](https://github.com/brave/brave-browser/issues/53877))
+
+### Leo
+
+ - Added ability to install Leo as a PWA. ([#53493](https://github.com/brave/brave-browser/issues/53493))
+ - Fixed the tool label wrapping onto two lines. ([#53467](https://github.com/brave/brave-browser/issues/53467))
+
+### General
+
+ - Added new "regex-path-template" debounce action type. ([#18756](https://github.com/brave/brave-browser/issues/18756))
+ - Added option to move the "New tab" (+) button and entire hub toolbar to the bottom of the screen when "bottom address bar" is enabled. ([#53326](https://github.com/brave/brave-browser/issues/53326))
+ - Added new YouTube filters under media settings. ([#51835](https://github.com/brave/brave-browser/issues/51835))
+ - Fixed browser freezing during startup in certain cases. ([#54077](https://github.com/brave/brave-browser/issues/54077))
+ - Fixed crash when accessing Brave News in certain cases. ([#53479](https://github.com/brave/brave-browser/issues/53479))
+ - Fixed autofill options being unavailable when Google is selected as the preferred service. ([#52960](https://github.com/brave/brave-browser/issues/52960))
+ - Fixed Brave Search icon size and look in the Quick Search Engines bar. ([#51364](https://github.com/brave/brave-browser/issues/51364))
+ - Fixed custom search engines not being removed from Quick Search Engines settings and toolbar after clearing browsing data. ([#43104](https://github.com/brave/brave-browser/issues/43104))
+ - Fixed tracking parameters remaining in the URL bar when using "standard" ad-blocking. ([#35845](https://github.com/brave/brave-browser/issues/35845))
+ - Upgraded Chromium to 148.0.7778.96. ([#55095](https://github.com/brave/brave-browser/issues/55095)) ([Changelog for 148.0.7778.96](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.137..148.0.7778.96?pretty=fuller&n=1000))
+
 ## [1.89.145](https://github.com/brave/brave-browser/releases/tag/v1.89.145)
 
  - Upgraded Chromium to 147.0.7727.137. ([#55051](https://github.com/brave/brave-browser/issues/55051)) ([Changelog for 147.0.7727.137](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.117..147.0.7727.137?pretty=fuller&n=1000))
