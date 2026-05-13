@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.90.122](https://github.com/brave/brave-browser/releases/tag/v1.90.122)
+
+ - Updated the "Connections" tab to not display Cardano until an account is created. ([#55447](https://github.com/brave/brave-browser/issues/55447))
+ - Upgraded Chromium to 148.0.7778.167. ([#55472](https://github.com/brave/brave-browser/issues/55472)) ([Changelog for 148.0.7778.167](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.96..148.0.7778.167?pretty=fuller&n=1000))
+
 ## [1.90.121](https://github.com/brave/brave-browser/releases/tag/v1.90.121) 
 
 ### Web3
