@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.90.125](https://github.com/brave/brave-browser/releases/tag/v1.90.125)
+
+ - Enabled new onboarding flow on new installs. ([#55256](https://github.com/brave/brave-browser/issues/55256))
+ - Upgraded Chromium to 148.0.7778.179. ([#55653](https://github.com/brave/brave-browser/issues/55653)) ([Changelog for 148.0.7778.179](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.168..148.0.7778.179?pretty=fuller&n=1000))
+
 ## [1.90.122](https://github.com/brave/brave-browser/releases/tag/v1.90.122)
 
  - Upgraded Chromium to 148.0.7778.167. ([#55472](https://github.com/brave/brave-browser/issues/55472)) ([Changelog for 148.0.7778.167](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.96..148.0.7778.167?pretty=fuller&n=1000))
