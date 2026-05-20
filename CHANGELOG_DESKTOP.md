@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.90.124](https://github.com/brave/brave-browser/releases/tag/v1.90.124)
+
+ - Updated Zcash to work in multiple profiles. ([#44991](https://github.com/brave/brave-browser/issues/44991) & [#55374](https://github.com/brave/brave-browser/issues/55374))
+ - Fixed contrast of Brave Leo promotional panel when using dark theme. ([#55537](https://github.com/brave/brave-browser/issues/55537))
+ - Upgraded Chromium to 148.0.7778.179. ([#55653](https://github.com/brave/brave-browser/issues/55653)) ([Changelog for 148.0.7778.179](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.167..148.0.7778.179?pretty=fuller&n=1000))
+
 ## [1.90.122](https://github.com/brave/brave-browser/releases/tag/v1.90.122)
 
  - Updated the "Connections" tab to not display Cardano until an account is created. ([#55447](https://github.com/brave/brave-browser/issues/55447))
