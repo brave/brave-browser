@@ -12,7 +12,7 @@
 
  - Added tool support for Bring Your Own Model (BYOM) in Leo. ([#53418](https://github.com/brave/brave-browser/issues/53418))
  - Fixed crash when uploading large images as attachments via photo picker/camera. ([#54938](https://github.com/brave/brave-browser/issues/54938))
- - Fixed crash when pasting an image from clipboard in the chatbox that is bigger than 1024 x 768 pixels. ([#54936](https://github.com/brave/brave-browser/issues/54936))
+ - Fixed crash when pasting an image larger than 1024 x 768 pixels from the clipboard into the chatbox. ([#54936](https://github.com/brave/brave-browser/issues/54936))
 
 ### General
 
@@ -21,7 +21,7 @@
  - Disabled Favorites preset on New Tab Page (NTP) and omnibox onboarding for new users. ([#55378](https://github.com/brave/brave-browser/issues/55378))
  - Disabled inline word suggestions when entering code words to join an existing Sync Chain. ([#53872](https://github.com/brave/brave-browser/issues/53872))
  - Updated Shields panel to include the current Auto-Shred level description. ([#53286](https://github.com/brave/brave-browser/issues/53286))
- - Updated “Add a Computer” screen in the Sync Chain flow to include mode selection for both options when adding other devices. ([#53871](https://github.com/brave/brave-browser/issues/53871))
+ - Updated "Add a Computer" screen in the Sync Chain flow to include mode selection for both options when adding other devices. ([#53871](https://github.com/brave/brave-browser/issues/53871))
  - [Security] Fixed XSS vulnerability in Reader Mode as reported on HackerOne by nishimunea. ([#55263](https://github.com/brave/brave-browser/issues/55263))
  - [Security] Fixed lock screen being bypassed when opening Playlist items in a private tab as reported on HackerOne by aaront. ([#54935](https://github.com/brave/brave-browser/issues/54935))
  - Fixed crash when logging into captive portals. ([#55084](https://github.com/brave/brave-browser/issues/55084))
