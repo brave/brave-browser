@@ -19,7 +19,8 @@ jobs:
 
           while read -r number last_active; do
               if (( ($(date +%s) - $(date -d "${last_active:?}" +%s)) / 86400 > 30 )); then
-                  echo gh issue close -R "$GITHUB_REPOSITORY" "${number:?}" -c "Autoclosing due to inactivity"
+                  sleep 5
+                  gh issue close -R "$GITHUB_REPOSITORY" "${number:?}" -c "Autoclosing due to inactivity"
               fi
           done < <(gh issue list \
               -R "${GITHUB_REPOSITORY:?}" \
