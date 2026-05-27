@@ -1,0 +1,27 @@
+name: Autoclose audit issues
+on:
+  schedule:
+    - cron: '0 10 * * 1'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  autoclose:
+    runs-on: ubuntu-slim
+    steps:
+      - run: |
+          set -eEo pipefail
+          shopt -s inherit_errexit
+
+          while read -r number last_active; do
+              if (( ($(date +%s) - $(date -d "${last_active:?}" +%s)) / 86400 > 30 )); then
+                  gh issue close -R "$GITHUB_REPOSITORY" "${number:?}" -c "Autoclosing due to inactivity"
+              fi
+          done < <(gh issue list \
+              -R "${GITHUB_REPOSITORY:?}" \
+              -l bot/type/audit \
+              -S sort:updated-asc \
+              --json number,createdAt,comments \
+              -q '.[]|"\(.number)\t\((.comments|sort_by(.createdAt)|.[-1].createdAt) // .createdAt)"')
