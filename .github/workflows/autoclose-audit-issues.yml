@@ -10,6 +10,8 @@ permissions:
 jobs:
   autoclose:
     runs-on: ubuntu-slim
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - run: |
           set -eEo pipefail
