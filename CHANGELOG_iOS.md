@@ -1,5 +1,32 @@
 # Changelog
 
+## [1.90.126](https://github.com/brave/brave-browser/releases/tag/v1.90.126)
+
+### Web3
+
+ - Added new network selection UI in wallet onboarding. ([#37740](https://github.com/brave/brave-browser/issues/37740))
+ - Fixed crash when copying private key. ([#55085](https://github.com/brave/brave-browser/issues/55085))
+ - Updated buttons in wallet to have rounded corners. ([#54096](https://github.com/brave/brave-browser/issues/54096))
+
+### Leo
+
+ - Added tool support for Bring Your Own Model (BYOM) in Leo. ([#53418](https://github.com/brave/brave-browser/issues/53418))
+ - Fixed crash when uploading large images as attachments via photo picker/camera. ([#54938](https://github.com/brave/brave-browser/issues/54938))
+ - Fixed crash when pasting an image larger than 1024 x 768 pixels from the clipboard into the chatbox. ([#54936](https://github.com/brave/brave-browser/issues/54936))
+
+### General
+
+ - Added support for Slovenian language. ([#55068](https://github.com/brave/brave-browser/issues/55068))
+ - Added a new "regex-path-template" debounce action type. ([#18756](https://github.com/brave/brave-browser/issues/18756))
+ - [Security] Fixed XSS vulnerability in Reader Mode as reported on HackerOne by nishimunea. ([#55263](https://github.com/brave/brave-browser/issues/55263))
+ - [Security] Fixed lock screen being bypassed when opening Playlist items in a private tab as reported on HackerOne by aaront. ([#54935](https://github.com/brave/brave-browser/issues/54935))
+ - Disabled "Favorites" preset on New Tab Page (NTP) and omnibox onboarding for new users. ([#55378](https://github.com/brave/brave-browser/issues/55378))
+ - Disabled inline word suggestions when entering code words to join an existing Sync Chain. ([#53872](https://github.com/brave/brave-browser/issues/53872))
+ - Updated Shields panel to include the current Auto-Shred level description. ([#53286](https://github.com/brave/brave-browser/issues/53286))
+ - Updated "Add a Computer" screen in the Sync Chain flow to include mode selection for both options when adding other devices. ([#53871](https://github.com/brave/brave-browser/issues/53871))
+ - Fixed crash when logging into captive portals. ([#55084](https://github.com/brave/brave-browser/issues/55084))
+ - Upgraded Chromium to 148.0.7778.179. ([#55653](https://github.com/brave/brave-browser/issues/55653))([Changelog for 148.0.7778.179](https://chromium.googlesource.com/chromium/src/+log/147.0.7727.117..148.0.7778.179?pretty=fuller&n=10000))
+
 ## [1.89.144](https://github.com/brave/brave-browser/releases/tag/v1.89.144)
 
 ### Web3
