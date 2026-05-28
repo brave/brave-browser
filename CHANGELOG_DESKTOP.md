@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.90.128](https://github.com/brave/brave-browser/releases/tag/v1.90.128)
+
+ - [Security] Updated wallet to handle more "Permit" type warnings in the "Sign" panel as reported on HackerOne by syarif07. ([#55514](https://github.com/brave/brave-browser/issues/55514))
+ - [Security] Fix wallet provider binding issue as reported on HackerOne by shinchan_69. ([#55670](https://github.com/brave/brave-browser/issues/55670))
+ - Upgraded Chromium to 148.0.7778.217. ([#55871](https://github.com/brave/brave-browser/issues/55871)) ([Changelog for 148.0.7778.217](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.179..148.0.7778.217?pretty=fuller&n=1000))
+
 ## [1.90.124](https://github.com/brave/brave-browser/releases/tag/v1.90.124)
 
  - Updated Zcash to work in multiple profiles. ([#44991](https://github.com/brave/brave-browser/issues/44991) & [#55374](https://github.com/brave/brave-browser/issues/55374))
