@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.90.128](https://github.com/brave/brave-browser/releases/tag/v1.90.128)
+
+ - [Security] Fix wallet provider binding issue as reported on HackerOne by shinchan_69. ([#55670](https://github.com/brave/brave-browser/issues/55670))
+ - Fixed paywall icons for Brave VPN and Leo AI. ([#55809](https://github.com/brave/brave-browser/issues/55809))
+ - Fixed search queries being concatenated with "+" symbols instead of "spaces" when using Brave widget. ([#55802](https://github.com/brave/brave-browser/issues/55802))
+ - Upgraded Chromium to 148.0.7778.217. ([#55871](https://github.com/brave/brave-browser/issues/55871)) ([Changelog for 148.0.7778.217](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.179..148.0.7778.217?pretty=fuller&n=1000))
+
 ## [1.90.125](https://github.com/brave/brave-browser/releases/tag/v1.90.125)
 
  - Enabled new onboarding flow on new installs. ([#55256](https://github.com/brave/brave-browser/issues/55256))
