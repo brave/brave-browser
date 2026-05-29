@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.90.129](https://github.com/brave/brave-browser/releases/tag/v1.90.129)
+
+ - Fixed blank screen being shown when launching Brave in certain cases. ([#55815](https://github.com/brave/brave-browser/issues/55815))
+ - Upgraded Chromium to 148.0.7778.217. ([#55781](https://github.com/brave/brave-browser/issues/55871))([Changelog for 148.0.7778.217](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.119..148.0.7778.217?pretty=fuller&n=10000))
+
 ## [1.90.126](https://github.com/brave/brave-browser/releases/tag/v1.90.126)
 
 ### Web3
