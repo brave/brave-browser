@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.91.168](https://github.com/brave/brave-browser/releases/tag/v1.91.168)
+
+### Web3
+
+ - Added "Get Started" section to the "Portfolio" page. ([#54029](https://github.com/brave/brave-browser/issues/54029))
+ - Added the ability to view "Asset Distribution" in "Portfolio". ([#54028](https://github.com/brave/brave-browser/issues/54028))
+ - Added dotted texture to wallet line chart. ([#54216](https://github.com/brave/brave-browser/issues/54216))
+ - Migrated Jupiter swap provider to "Gate3". ([#51848](https://github.com/brave/brave-browser/issues/51848))
+ - Updated the "Permission" panel to display the site origin. ([#54482](https://github.com/brave/brave-browser/issues/54482))
+ - Updated NFT balance fetch to remove duplicate entries prior to fetching balances. ([#55036](https://github.com/brave/brave-browser/issues/55036))
+ - Fixed missing back button on the "Deposit Funds" page. ([#55842](https://github.com/brave/brave-browser/issues/55842))
+ - Fixed reloading an account tab redirecting to the "Accounts" page. ([#54826](https://github.com/brave/brave-browser/issues/54826))
+
+### Leo
+
+ - Added support for text file uploads with renderer-based extraction. ([#54062](https://github.com/brave/brave-browser/issues/54062))
+ - Added PDF text extraction at upload time. ([#51911](https://github.com/brave/brave-browser/issues/51911))
+ - Updated display of Brave Leo attachment previews to scroll horizontally instead of vertically. ([#54258](https://github.com/brave/brave-browser/issues/54258))
+ - Updated the "Copy" button for the code block header to be sticky when scrolling. ([#53704](https://github.com/brave/brave-browser/issues/53704))
+ - Updated the staged content in the Leo side panel to be the active tab. ([#53533](https://github.com/brave/brave-browser/issues/53533))
+ - Updated the search terms in the answer's footer to be left aligned. ([#54204](https://github.com/brave/brave-browser/issues/54204))
+ - Fixed crash which could occur in certain cases when using multiple tool requests. ([#55438](https://github.com/brave/brave-browser/issues/55438))
+
+### General
+
+ - Added support for Brave Origin. ([#37127](https://github.com/brave/brave-browser/issues/37127))
+ - [Security] Added the ability to disable or delay automatic extension updates when brave://flags/#brave-user-extension-auto-update is enabled. ([#7200](https://github.com/brave/brave-browser/issues/7200))
+ - Enabled ability to force context menu using "Shift + Right Click" by default. ([#54790](https://github.com/brave/brave-browser/issues/54790))
+ - Improved performance by caching adblock DATs. ([#27161](https://github.com/brave/brave-browser/issues/27161))
+ - Updated background color for PWA install button in the omnibox. ([#54736](https://github.com/brave/brave-browser/issues/54736))
+ - Fixed tab hover card position when using vertical tabs. ([#54199](https://github.com/brave/brave-browser/issues/54199))
+ - Fixed extra border displaying around the content area when vertical tabs are used on macOS. ([#54153](https://github.com/brave/brave-browser/issues/54153) & [#52961](https://github.com/brave/brave-browser/issues/52961))
+ - Fixed audio farbling distortion in multi-voice Web Audio API synthesized music. ([#52906](https://github.com/brave/brave-browser/issues/52906))
+ - Upgraded Chromium to 149.0.7827.54. ([#55943](https://github.com/brave/brave-browser/issues/55943)) ([Changelog for 149.0.7827.54](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.217..149.0.7827.54?pretty=fuller&n=1000))
+
 ## [1.90.128](https://github.com/brave/brave-browser/releases/tag/v1.90.128)
 
  - [Security] Updated wallet to handle more "Permit" type warnings in the "Sign" panel as reported on HackerOne by syarif07. ([#55514](https://github.com/brave/brave-browser/issues/55514))
