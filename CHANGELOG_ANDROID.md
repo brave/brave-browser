@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.91.171](https://github.com/brave/brave-browser/releases/tag/v1.91.171)
+
+### Origin
+
+ - Fixed issue where users could get stuck on disabling features after purchasing Origin. ([#56201](https://github.com/brave/brave-browser/issues/56201))
+ - Fixed issue where changing browser language would display promo banners and features within "Settings" that have been disabled with Origin. ([#56156](https://github.com/brave/brave-browser/issues/56156))
+ - Fixed "Restart browser" snackbar not appearing when restoring Origin purchase from Google Play Store. ([#56078](https://github.com/brave/brave-browser/issues/56078))
+ - Fixed issue where Origin settings were not saved if browser was restarted too quickly. ([#56075](https://github.com/brave/brave-browser/issues/56075))
+
+### General
+
+ - Upgraded Chromium to 149.0.7827.103. ([#56198](https://github.com/brave/brave-browser/issues/56198)) ([Changelog for 149.0.7827.103](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.59..149.0.7827.103?pretty=fuller&n=1000))
+
 ## [1.91.169](https://github.com/brave/brave-browser/releases/tag/v1.91.169)
 
 ### Origin
