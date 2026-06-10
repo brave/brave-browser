@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.91.169](https://github.com/brave/brave-browser/releases/tag/v1.91.169)
+
+### Origin
+
+ - Initial Brave Origin release. ([#37128](https://github.com/brave/brave-browser/issues/37128))
+
+### Web3
+
+ - Added "Get Started" section to the "Portfolio" page. ([#54029](https://github.com/brave/brave-browser/issues/54029))
+ - Added the ability to view "Asset Distribution" in "Portfolio". ([#54028](https://github.com/brave/brave-browser/issues/54028))
+ - Added dotted texture to wallet line chart. ([#54216](https://github.com/brave/brave-browser/issues/54216))
+
+### Leo
+
+ - Updated display of Brave Leo attachment previews to scroll horizontally instead of vertically. ([#54258](https://github.com/brave/brave-browser/issues/54258))
+ - Fixed crash which could occur in certain cases when using multiple tool requests. ([#55438](https://github.com/brave/brave-browser/issues/55438))
+
+### General
+
+ - Added website icons to the password manager. ([#52775](https://github.com/brave/brave-browser/issues/52775))
+ - Added ability to use custom search engines (being rolled out using Griffin). ([#21837](https://github.com/brave/brave-browser/issues/21837))
+ - Enabled Brave autofill service in device settings. ([#41334](https://github.com/brave/brave-browser/issues/41334))
+ - Improved performance by caching adblock DATs. ([#27161](https://github.com/brave/brave-browser/issues/27161))
+ - Fixed settings page layout when folding, unfolding, or rotating device. ([#55992](https://github.com/brave/brave-browser/issues/55992))
+ - Fixed settings page layout after closing VPN banner. ([#55945](https://github.com/brave/brave-browser/issues/55945))
+ - Fixed websites being automatically added to Quick Search Engine list. ([#55698](https://github.com/brave/brave-browser/issues/55698))
+ - Fixed "Add widget" button appearing too large and getting cut off when language is set to Japanese. ([#54331](https://github.com/brave/brave-browser/issues/54331))
+ - Fixed Brave VPN icon colors in Light and Dark themes. ([#53958](https://github.com/brave/brave-browser/issues/53958))
+ - Upgraded Chromium to 149.0.7827.59. ([#56073](https://github.com/brave/brave-browser/issues/56073)) ([Changelog for 149.0.7827.59](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.217..149.0.7827.59?pretty=fuller&n=1000))
+
 ## [1.90.128](https://github.com/brave/brave-browser/releases/tag/v1.90.128)
 
  - [Security] Fix wallet provider binding issue as reported on HackerOne by shinchan_69. ([#55670](https://github.com/brave/brave-browser/issues/55670))
