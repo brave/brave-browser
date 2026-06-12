@@ -2,7 +2,7 @@
 
 ## [1.90.130](https://github.com/brave/brave-browser/releases/tag/v1.90.130)
 
- - Removed Playlist ability to download and watch media offline. ([#56276](https://github.com/brave/brave-browser/issues/56276))
+ - Removed Playlist ability to watch media offline. ([#56276](https://github.com/brave/brave-browser/issues/56276))
 
 ## [1.90.129](https://github.com/brave/brave-browser/releases/tag/v1.90.129)
 
