@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.91.172](https://github.com/brave/brave-browser/releases/tag/v1.91.172)
+
+ - Upgraded Chromium to 149.0.7827.115. ([#56299](https://github.com/brave/brave-browser/issues/56299)) ([Changelog for 149.0.7827.115](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.103..149.0.7827.115?pretty=fuller&n=1000))
+
 ## [1.91.171](https://github.com/brave/brave-browser/releases/tag/v1.91.171)
 
  - Fixed Cardano not being disabled on upgrade to Brave Origin. ([#56183](https://github.com/brave/brave-browser/issues/56183))
