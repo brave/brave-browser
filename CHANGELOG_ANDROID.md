@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.91.172](https://github.com/brave/brave-browser/releases/tag/v1.91.172)
+
+ - Fixed crash reports not being submitted. ([#56226](https://github.com/brave/brave-browser/issues/56226))
+ - Upgraded Chromium to 149.0.7827.115. ([#56299](https://github.com/brave/brave-browser/issues/56299)) ([Changelog for 149.0.7827.115](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.103..149.0.7827.115?pretty=fuller&n=1000))
+
 ## [1.91.171](https://github.com/brave/brave-browser/releases/tag/v1.91.171)
 
 ### Origin
