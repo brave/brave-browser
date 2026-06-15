@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.90.130](https://github.com/brave/brave-browser/releases/tag/v1.90.130)
+
+ - Removed Playlist offline caching. ([#56276](https://github.com/brave/brave-browser/issues/56276))
+
 ## [1.90.129](https://github.com/brave/brave-browser/releases/tag/v1.90.129)
 
  - Fixed blank screen being shown when launching Brave in certain cases. ([#55815](https://github.com/brave/brave-browser/issues/55815))
