@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.91.175](https://github.com/brave/brave-browser/releases/tag/v1.91.175)
+
+ - Fixed crash when displaying search widget promo panel in certain cases. ([#56388](https://github.com/brave/brave-browser/issues/56388))
+ - Upgraded Chromium to 149.0.7827.155. ([#56446](https://github.com/brave/brave-browser/issues/56446)) ([Changelog for 149.0.7827.155](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.115..149.0.7827.155?pretty=fuller&n=1000))
+
 ## [1.91.172](https://github.com/brave/brave-browser/releases/tag/v1.91.172)
 
  - Fixed crash reports not being submitted. ([#56226](https://github.com/brave/brave-browser/issues/56226))
