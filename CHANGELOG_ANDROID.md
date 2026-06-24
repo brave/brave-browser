@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.91.178](https://github.com/brave/brave-browser/releases/tag/v1.91.178)
+
+### Leo
+
+ - Fixed "Skills" popup menu not being scrollable when too many entries are added. ([#56001](https://github.com/brave/brave-browser/issues/56001))
+
+### General
+
+ - Upgraded Chromium to 149.0.7827.196. ([#56598](https://github.com/brave/brave-browser/issues/56598)) ([Changelog for 149.0.7827.196](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.155..149.0.7827.196?pretty=fuller&n=1000))
+
 ## [1.91.175](https://github.com/brave/brave-browser/releases/tag/v1.91.175)
 
  - Fixed crash when displaying search widget promo panel in certain cases. ([#56388](https://github.com/brave/brave-browser/issues/56388))
