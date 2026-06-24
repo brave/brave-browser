@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.91.178](https://github.com/brave/brave-browser/releases/tag/v1.91.178)
+
+ - Fixed certain extensions not working as expected. ([#56271](https://github.com/brave/brave-browser/issues/56271))
+ - Fixed inability to use Brave Sync in certain cases. ([#55203](https://github.com/brave/brave-browser/issues/55203))
+ - Upgraded Chromium to 149.0.7827.196. ([#56598](https://github.com/brave/brave-browser/issues/56598)) ([Changelog for 149.0.7827.196](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.155..149.0.7827.196?pretty=fuller&n=1000))
+
 ## [1.91.175](https://github.com/brave/brave-browser/releases/tag/v1.91.175)
 
  - Upgraded Chromium to 149.0.7827.155. ([#56446](https://github.com/brave/brave-browser/issues/56446)) ([Changelog for 149.0.7827.155](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.115..149.0.7827.155?pretty=fuller&n=1000))
