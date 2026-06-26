@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.91.180](https://github.com/brave/brave-browser/releases/tag/v1.91.180)
+
+ - Upgraded Chromium to 149.0.7827.201. ([#56669](https://github.com/brave/brave-browser/issues/56669)) ([Changelog for 149.0.7827.201](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.196..149.0.7827.201?pretty=fuller&n=1000))
+
 ## [1.91.178](https://github.com/brave/brave-browser/releases/tag/v1.91.178)
 
  - Fixed certain extensions not working as expected. ([#56271](https://github.com/brave/brave-browser/issues/56271))
