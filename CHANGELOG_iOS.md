@@ -22,7 +22,7 @@
  - Fixed issue when linking in-app premium purchase receipt to the Brave account site. ([#56589](https://github.com/brave/brave-browser/issues/56589))
  - Fixed full screen not working properly when in landscape for Playlist media. ([#55984](https://github.com/brave/brave-browser/issues/55984))
  - Fixed layout issue when scrolling the webpage with "Find in Page" UI enabled. ([#54973](https://github.com/brave/brave-browser/issues/54973))
- - Updated Chromium to 149.0.7827.196. ([#56598](https://github.com/brave/brave-browser/issues/56598))([Changelog for 149.0.7827.196](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.179..149.0.7827.196?pretty=fuller&n=10000))
+ - Updated Chromium to 149.0.7827.196. ([#56598](https://github.com/brave/brave-browser/issues/56598))([Changelog for 149.0.7827.196](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.217..149.0.7827.196?pretty=fuller&n=10000))
 
 ## [1.90.130](https://github.com/brave/brave-browser/releases/tag/v1.90.130)
 
