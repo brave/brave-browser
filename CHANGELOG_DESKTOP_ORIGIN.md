@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.92.134](https://github.com/brave/brave-browser/releases/tag/v1.92.134)
+
+ - Added Containers feature (being rolled out in phases using Griffin starting at 25%). ([#46349](https://github.com/brave/brave-browser/issues/46349))
+ - Improved UI/UX for vertical tabs. ([#56815](https://github.com/brave/brave-browser/issues/56815))
+ - Improved adblocking. ([#55430](https://github.com/brave/brave-browser/issues/55430))
+ - Updated Brave Shields icon to display on Progressive Web App (PWA) windows. ([#7715](https://github.com/brave/brave-browser/issues/7715))
+ - Updated settings under "Social media blocking" section of brave://settings/shields to be per-profile. ([#55277](https://github.com/brave/brave-browser/issues/55277))
+ - Replaced known Web Store MV2 extensions with Brave-hosted equivalents. ([#56654](https://github.com/brave/brave-browser/issues/56654))
+ - Fixed errors in macOS PKG "postinstall" script. ([#39567](https://github.com/brave/brave-browser/issues/39567))
+ - Upgraded Chromium to 150.0.7871.63. ([#56791](https://github.com/brave/brave-browser/issues/56791)) ([Changelog for 150.0.7871.63](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.201..150.0.7871.63?pretty=fuller&n=1000))
+
 ## [1.91.180](https://github.com/brave/brave-browser/releases/tag/v1.91.180)
 
  - Upgraded Chromium to 149.0.7827.201. ([#56669](https://github.com/brave/brave-browser/issues/56669)) ([Changelog for 149.0.7827.201](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.196..149.0.7827.201?pretty=fuller&n=1000))
