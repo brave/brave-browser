@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.92.134](https://github.com/brave/brave-browser/releases/tag/v1.92.134)
+
+### Web3
+
+ - Added the ability to hide derived Brave Wallet accounts. ([#19761](https://github.com/brave/brave-browser/issues/19761))
+ - Added alert toast notification after account creation. ([#55222](https://github.com/brave/brave-browser/issues/55222))
+ - Updated "Create Account" modal UI. ([#55180](https://github.com/brave/brave-browser/issues/55180))
+ - Updated "Create Account Selector" modal UI. ([#54947](https://github.com/brave/brave-browser/issues/54947))
+ - Updated "Import Account" modal UI. ([#55185](https://github.com/brave/brave-browser/issues/55185))
+ - Updated "Native Asset" to be prioritized at the top of the "Select Token" modal. ([#55500](https://github.com/brave/brave-browser/issues/55500))
+ - Updated long RPC URLs to wrap in the "Add" and "Switch" network panels. ([#55141](https://github.com/brave/brave-browser/issues/55141))
+ - Updated "Request feature" button with "Report an issue" button. ([#55471](https://github.com/brave/brave-browser/issues/55471))
+ - Fixed inability to transfer SPL Token-2022 tokens. ([#55454](https://github.com/brave/brave-browser/issues/55454))
+ - Fixed "Buy" screen being reset to ETH account/address after wallet is automatically locked. ([#53554](https://github.com/brave/brave-browser/issues/53554))
+ - Fixed Meld opt-in modal being shown even after wallet is reset. ([#46657](https://github.com/brave/brave-browser/issues/46657))
+
+### Leo
+
+ - Replaced "Task" tabs with "Progress" bubble. ([#52288](https://github.com/brave/brave-browser/issues/52288))
+ - Fixed focus stealing loop which could occur in certain cases. ([#55319](https://github.com/brave/brave-browser/issues/55319))
+ - Fixed issue where attaching files did not show progress while they were being processed. ([#55694](https://github.com/brave/brave-browser/issues/55694))
+ - Fixed input box not receiving focus after a tool is selected. ([#52950](https://github.com/brave/brave-browser/issues/52950))
+ - Fixed task UI displaying each time a tool is used. ([#55382](https://github.com/brave/brave-browser/issues/55382))
+ - Fixed array definitions being escaped in code markdown. ([#55248](https://github.com/brave/brave-browser/issues/55248))
+
+### General
+
+ - Added Containers feature (being rolled out in phases using Griffin starting at 25%). ([#46349](https://github.com/brave/brave-browser/issues/46349))
+ - Improved UI/UX for vertical tabs. ([#56815](https://github.com/brave/brave-browser/issues/56815))
+ - Improved adblocking. ([#55430](https://github.com/brave/brave-browser/issues/55430))
+ - Updated Brave Shields icon to display on Progressive Web App (PWA) windows. ([#7715](https://github.com/brave/brave-browser/issues/7715))
+ - Updated settings under "Social media blocking" section of brave://settings/shields to be per-profile. ([#55277](https://github.com/brave/brave-browser/issues/55277))
+ - Replaced known Web Store MV2 extensions with Brave-hosted equivalents. ([#56654](https://github.com/brave/brave-browser/issues/56654))
+ - Fixed errors in macOS PKG "postinstall" script. ([#39567](https://github.com/brave/brave-browser/issues/39567))
+ - Upgraded Chromium to 150.0.7871.63. ([#56791](https://github.com/brave/brave-browser/issues/56791)) ([Changelog for 150.0.7871.63](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.201..150.0.7871.63?pretty=fuller&n=1000))
+
 ## [1.91.180](https://github.com/brave/brave-browser/releases/tag/v1.91.180)
 
  - Upgraded Chromium to 149.0.7827.201. ([#56669](https://github.com/brave/brave-browser/issues/56669)) ([Changelog for 149.0.7827.201](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.196..149.0.7827.201?pretty=fuller&n=1000))
