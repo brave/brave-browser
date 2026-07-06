@@ -6,6 +6,10 @@
 .Trashes
 ._*
 
+# nix
+/result
+/result-*
+
 # editors
 CMakeLists.txt
 cmake-build-debug

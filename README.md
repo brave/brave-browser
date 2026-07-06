@@ -13,6 +13,31 @@ This repository is not needed for building the browser and only holds issues, re
 
 You can [visit our website](https://brave.com/download) to get the latest stable release.
 
+### Nix
+
+The repository provides a Nix flake that wraps the prebuilt release binary (the
+same prebuilt `.deb`/`.zip` artifacts that
+[nixpkgs `brave`](https://github.com/NixOS/nixpkgs/blob/nixos-26.05/pkgs/by-name/br/brave/make-brave.nix)
+uses). It is not built from source.
+
+```bash
+# Run without installing
+nix run github:brave/brave-browser
+
+# Install into your profile
+nix profile install github:brave/brave-browser
+```
+
+The flake tracks the default branch and is auto-bumped to the latest stable
+release by a daily [workflow](.github/workflows/nix-release.yml), so
+`github:brave/brave-browser` always serves the current release. (Release tags
+are cut before the bump lands, so `github:brave/brave-browser/vX.Y.Z` is not a
+valid pin — use the nixpkgs package or a specific commit SHA if you need
+reproducibility.)
+
+Supported platforms: `x86_64-linux`, `aarch64-linux`, `x86_64-darwin`,
+`aarch64-darwin`.
+
 ## Contributing
 
 Please see the [contributing guidelines](https://github.com/brave/brave-core/blob/master/CONTRIBUTING.md).
