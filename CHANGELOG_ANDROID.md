@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.92.134](https://github.com/brave/brave-browser/releases/tag/v1.92.134)
+
+### Origin
+
+ - Fixed account-linked subscription being incorrectly overridden by a Google Play purchase on startup. ([#56334](https://github.com/brave/brave-browser/issues/56334))
+
+### Web3
+
+ - Added alert toast notification after account creation. ([#55222](https://github.com/brave/brave-browser/issues/55222))
+ - Updated "Native Asset" to be prioritized at the top of the "Select Token" modal. ([#55500](https://github.com/brave/brave-browser/issues/55500))
+ - Updated "Import Account" modal UI. ([#55185](https://github.com/brave/brave-browser/issues/55185))
+ - Updated "Create Account" modal UI. ([#55180](https://github.com/brave/brave-browser/issues/55180))
+ - Updated "Create Account Selector" modal UI. ([#54947](https://github.com/brave/brave-browser/issues/54947))
+ - Fixed incorrect amount and gas values displayed on the transaction confirmation screen. ([#55633](https://github.com/brave/brave-browser/issues/55633))
+
+### Leo
+
+ - Fixed issue where attaching files did not show progress while they were being processed. ([#55694](https://github.com/brave/brave-browser/issues/55694))
+ - Fixed task UI displaying each time a tool is used. ([#55382](https://github.com/brave/brave-browser/issues/55382))
+ - Fixed focus stealing loop which could occur in certain cases. ([#55319](https://github.com/brave/brave-browser/issues/55319))
+
+### General
+
+ - Added native in-app message to notify users of subscription payment issues. ([#55735](https://github.com/brave/brave-browser/issues/55735))
+ - Added support for the Bosnian language. ([#37196](https://github.com/brave/brave-browser/issues/37196))
+ - Improved adblock script injection to prevent website conflicts. ([#56797](https://github.com/brave/brave-browser/issues/56797))
+ - Improved tab switcher colors and added support for dynamic theming via brave://flags#brave-android-dynamic-colors. ([#55577](https://github.com/brave/brave-browser/issues/55577))
+ - Improved handling of internal browser links for better security. ([#55473](https://github.com/brave/brave-browser/issues/55473))
+ - Improved visibility of the data shredding animation while using dark mode. ([#54759](https://github.com/brave/brave-browser/issues/54759))
+ - Updated settings under "Social media blocking" section of brave://settings/shields to be per-profile. ([#55277](https://github.com/brave/brave-browser/issues/55277))
+ - Updated color palette to match the new Brave design system. ([#55497](https://github.com/brave/brave-browser/issues/55497))
+ - Removed redundant "Help" and "Exit" icons from "Password Manager" settings. ([#52765](https://github.com/brave/brave-browser/issues/52765))
+ - Fixed landscape mode support for VPN and Playlist screens. ([#55452](https://github.com/brave/brave-browser/issues/55452))
+ - Fixed Spotify web playback stopping when the screen is locked. ([#55063](https://github.com/brave/brave-browser/issues/55063))
+ - Fixed missing rounded corners on the URL search bar. ([#54268](https://github.com/brave/brave-browser/issues/54268))
+ - Fixed all tabs unexpectedly closing when folding or unfolding a device in certain cases. ([#48934](https://github.com/brave/brave-browser/issues/48934))
+ - Upgraded Chromium to 150.0.7871.63. ([#56791](https://github.com/brave/brave-browser/issues/56791)) ([Changelog for 150.0.7871.63](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.201..150.0.7871.63?pretty=fuller&n=1000))
+
 ## [1.91.180](https://github.com/brave/brave-browser/releases/tag/v1.91.180)
 
  - Upgraded Chromium to 149.0.7827.201. ([#56669](https://github.com/brave/brave-browser/issues/56669)) ([Changelog for 149.0.7827.201](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.196..149.0.7827.201?pretty=fuller&n=1000))
