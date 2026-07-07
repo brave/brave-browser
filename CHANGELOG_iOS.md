@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.91.179](https://github.com/brave/brave-browser/releases/tag/v1.91.179)
+
+### Web3
+
+ - Added "Get Started" section to the "Portfolio" page. ([#54029](https://github.com/brave/brave-browser/issues/54029))
+ - Added the ability to view "Asset Distribution" in "Portfolio". ([#54028](https://github.com/brave/brave-browser/issues/54028))
+
+### Leo
+
+ - Fixed crash in Leo when using tools in certain cases. ([#55438](https://github.com/brave/brave-browser/issues/55438))
+ - Fixed Leo using the incorrect context for tab history and bookmarks. ([#55736](https://github.com/brave/brave-browser/issues/55736))
+
+### General
+
+ - Added support for Brave Origin. ([#37129](https://github.com/brave/brave-browser/issues/37129))
+ - [Security] Fixed address bar URL display issue when redirecting from Safe Browsing interstitial page as reported on HackerOne by b4dc4t. ([#54756](https://github.com/brave/brave-browser/issues/54756))
+ - [Security] Fixed origin indicator incorrectly displaying RTL domains as reported on HackerOne by severusstalin. ([#54539](https://github.com/brave/brave-browser/issues/54539))
+ - Updated Sync chain device limit to 50. ([#54452](https://github.com/brave/brave-browser/issues/54452))
+ - Increased the time range for displaying search history, which prevented history from appearing if no searches were made recently. ([#55837](https://github.com/brave/brave-browser/issues/55837))
+ - Fixed issue when linking in-app premium purchase receipt to the Brave account site. ([#56589](https://github.com/brave/brave-browser/issues/56589))
+ - Fixed full screen not working properly when in landscape for Playlist media. ([#55984](https://github.com/brave/brave-browser/issues/55984))
+ - Fixed layout issue when scrolling webpages with "Find in Page" UI enabled. ([#54973](https://github.com/brave/brave-browser/issues/54973))
+ - Updated Chromium to 149.0.7827.196. ([#56598](https://github.com/brave/brave-browser/issues/56598))([Changelog for 149.0.7827.196](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.217..149.0.7827.196?pretty=fuller&n=10000))
+
 ## [1.90.130](https://github.com/brave/brave-browser/releases/tag/v1.90.130)
 
  - Removed Playlist offline caching. ([#56276](https://github.com/brave/brave-browser/issues/56276))
