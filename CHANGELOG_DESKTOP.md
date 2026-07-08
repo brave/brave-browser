@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.92.138](https://github.com/brave/brave-browser/releases/tag/v1.92.138)
+
+ - Fixed issue where transactions could be stuck in pending state in certain cases. ([#56490](https://github.com/brave/brave-browser/issues/56490))
+ - Fixed issue where previously used download location was not retained. ([#56594](https://github.com/brave/brave-browser/issues/56594))
+ - Upgraded Chromium to 150.0.7871.101. ([#56956](https://github.com/brave/brave-browser/issues/56956)) ([Changelog for 150.0.7871.101](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.63..150.0.7871.101?pretty=fuller&n=1000))
+
 ## [1.92.134](https://github.com/brave/brave-browser/releases/tag/v1.92.134)
 
 ### Web3
