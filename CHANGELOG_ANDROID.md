@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.92.134](https://github.com/brave/brave-browser/releases/tag/v1.92.134)
+## [1.92.135](https://github.com/brave/brave-browser/releases/tag/v1.92.135)
 
 ### Origin
 
