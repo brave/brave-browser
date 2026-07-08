@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.92.136](https://github.com/brave/brave-browser/releases/tag/v1.92.136)
+
+ - Fixed startup crash that occurred when Leo was disabled via brave://flags. ([#56894](https://github.com/brave/brave-browser/issues/56894))
+ - Fixed passwords not being offered to save when using bottom address bar. ([#56789](https://github.com/brave/brave-browser/issues/56789))
+
 ## [1.92.135](https://github.com/brave/brave-browser/releases/tag/v1.92.135)
 
 ### Origin
