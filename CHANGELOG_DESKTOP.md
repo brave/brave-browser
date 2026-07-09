@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.92.139](https://github.com/brave/brave-browser/releases/tag/v1.92.139)
+
+ - Upgraded Chromium to 150.0.7871.114. ([#57016](https://github.com/brave/brave-browser/issues/57016)) ([Changelog for 150.0.7871.114](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.101..150.0.7871.114?pretty=fuller&n=1000))
+
 ## [1.92.138](https://github.com/brave/brave-browser/releases/tag/v1.92.138)
 
  - Fixed issue where transactions could be stuck in pending state in certain cases. ([#56490](https://github.com/brave/brave-browser/issues/56490))
