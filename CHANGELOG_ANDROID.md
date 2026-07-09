@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.92.139](https://github.com/brave/brave-browser/releases/tag/v1.92.139)
+
+ - Fixed Brave Sync UI layout on screen rotation. ([#56861](https://github.com/brave/brave-browser/issues/56861))
+ - Upgraded Chromium to 150.0.7871.114. ([#57016](https://github.com/brave/brave-browser/issues/57016)) ([Changelog for 150.0.7871.114](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.63..150.0.7871.114?pretty=fuller&n=1000))
+
 ## [1.92.136](https://github.com/brave/brave-browser/releases/tag/v1.92.136)
 
  - Fixed startup crash that occurred when Leo was disabled via brave://flags. ([#56894](https://github.com/brave/brave-browser/issues/56894))
