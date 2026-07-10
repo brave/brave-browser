@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.91.181](https://github.com/brave/brave-browser/releases/tag/v1.91.181)
+
+- Fixed videos not streaming in Playlist after being added in certain EU regions. ([#56709](https://github.com/brave/brave-browser/issues/56709))
+- Fixed Origin setting page not being displayed when loading credentials via "Verify Brave Origin Purchase" flow. ([#56700](https://github.com/brave/brave-browser/issues/56700))
+- Updated Chromium to 149.0.7827.201. ([#56669](https://github.com/brave/brave-browser/issues/56669))([Changelog for 149.0.7827.201](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.196..149.0.7827.201?pretty=fuller&n=10000))
+
 ## [1.91.179](https://github.com/brave/brave-browser/releases/tag/v1.91.179)
 
 ### Web3
