@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.92.140](https://github.com/brave/brave-browser/releases/tag/v1.92.140)
+
+ - Upgraded Chromium to 150.0.7871.125. ([#57142](https://github.com/brave/brave-browser/issues/57142)) ([Changelog for 150.0.7871.125](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.114..150.0.7871.125?pretty=fuller&n=1000))
+
 ## [1.92.139](https://github.com/brave/brave-browser/releases/tag/v1.92.139)
 
  - Fixed Brave Sync UI layout on screen rotation. ([#56861](https://github.com/brave/brave-browser/issues/56861))
