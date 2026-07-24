@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.92.144](https://github.com/brave/brave-browser/releases/tag/v1.92.144)
+
+ - Upgraded Chromium to 150.0.7871.186. ([#57490](https://github.com/brave/brave-browser/issues/57490)) ([Changelog for 150.0.7871.186](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.182..150.0.7871.186?pretty=fuller&n=1000))
+
 ## [1.92.143](https://github.com/brave/brave-browser/releases/tag/v1.92.143)
 
  - Fixed broken favicon on "Sign Transaction" panel. ([#57208](https://github.com/brave/brave-browser/issues/57208))
