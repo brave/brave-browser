@@ -1,5 +1,40 @@
 # Changelog
 
+## [1.93.129](https://github.com/brave/brave-browser/releases/tag/v1.93.129)
+
+### Web3
+
+ - Improved Cardano DApp support. ([#56556](https://github.com/brave/brave-browser/issues/56556))
+ - Updated "Swap" and "Bridge" token selectors to filter out hidden tokens. ([#56385](https://github.com/brave/brave-browser/issues/56385))
+ - Updated icon on "Report an issue" button. ([#55977](https://github.com/brave/brave-browser/issues/55977))
+ - Updated wallet front-end to use Nala color variables. ([#55946](https://github.com/brave/brave-browser/issues/55946))
+
+### Leo
+
+ - Enabled browser tab management tool in Leo. ([#48536](https://github.com/brave/brave-browser/issues/48536))
+ - Enabled persistent Leo sidebar between tab switches. ([#53416](https://github.com/brave/brave-browser/issues/53416))
+
+### General
+
+ - Added "Use compact mode" setting under brave://settings/appearance. ([#55506](https://github.com/brave/brave-browser/issues/55506))
+ - Added "Local history retention" setting under brave://settings/privacy. ([#29045](https://github.com/brave/brave-browser/issues/29045))
+ - Added context menu to the tab search button. ([#54887](https://github.com/brave/brave-browser/issues/54887))
+ - Added new WebGPU webcompat content settings type. ([#55927](https://github.com/brave/brave-browser/issues/55927))
+ - Improved adblocking. ([#57042](https://github.com/brave/brave-browser/issues/57042))
+ - Improved fingerprint farbling by adding support for "getSupportedExtensions" and "WebGL". ([#15904](https://github.com/brave/brave-browser/issues/15904))
+ - Updated location of tab search button. ([#56579](https://github.com/brave/brave-browser/issues/56579))
+ - Updated the sidebar to work independently from side panels. ([#56491](https://github.com/brave/brave-browser/issues/56491))
+ - Updated icons for Bookmarks side panel. ([#55826](https://github.com/brave/brave-browser/issues/55826))
+ - Updated icon sizing on sidebar. ([#56258](https://github.com/brave/brave-browser/issues/56258))
+ - Updated brave://settings/origin to reflect which features are applicable to all profiles. ([#55986](https://github.com/brave/brave-browser/issues/55986))
+ - Updated sync server configurability via brave://flags/#brave-override-sync-server-url. ([#48909](https://github.com/brave/brave-browser/issues/48909))
+ - Removed blocked query parameters for values like "=". ([#55924](https://github.com/brave/brave-browser/issues/55924))
+ - Fixed issue where custom high-resolution background uploads for the New Tab Page caused the browser to get stuck in a loading state. ([#55551](https://github.com/brave/brave-browser/issues/55551))
+ - Fixed farbling of "Accept-Language" header position. ([#55271](https://github.com/brave/brave-browser/issues/55271))
+ - Fixed inability to play H.265/HEVC videos on Windows and Linux. ([#40101](https://github.com/brave/brave-browser/issues/40101))
+ - Fixed sidebar keyboard shortcut not working when Leo is removed from sidebar. ([#52020](https://github.com/brave/brave-browser/issues/52020))
+ - Upgraded Chromium to 151.0.7922.71. ([#57670](https://github.com/brave/brave-browser/issues/57670)) ([Changelog for 151.0.7922.71](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.186..151.0.7922.71?pretty=fuller&n=1000))
+
 ## [1.92.144](https://github.com/brave/brave-browser/releases/tag/v1.92.144)
 
  - Upgraded Chromium to 150.0.7871.186. ([#57490](https://github.com/brave/brave-browser/issues/57490)) ([Changelog for 150.0.7871.186](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.182..150.0.7871.186?pretty=fuller&n=1000))
