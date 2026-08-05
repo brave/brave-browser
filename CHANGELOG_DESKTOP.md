@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.93.132](https://github.com/brave/brave-browser/releases/tag/v1.93.132)
+
+ - [Security] Added validation for Tor bridge list as reported on HackerOne by z3phyrus. ([#57599](https://github.com/brave/brave-browser/issues/57599))
+ - [Security] Fixed Widevine install prompt as reported on HackerOne by syarif07. ([#57649](https://github.com/brave/brave-browser/issues/57649))
+ - Fixed NoScript MV3 extension incorrectly being migrated to its Brave-hosted MV2 equivalent. ([#57760](https://github.com/brave/brave-browser/issues/57760))
+ - Fixed multiple shield icons being displayed in PWA windows after going fullscreen on macOS. ([#57349](https://github.com/brave/brave-browser/issues/57349))
+ - Fixed black bar being displayed on the tabs bar when using compact mode in fullscreen on macOS. ([#56914](https://github.com/brave/brave-browser/issues/56914))
+ - Upgraded Chromium to 151.0.7922.76. ([#57849](https://github.com/brave/brave-browser/issues/57849)) ([Changelog for 151.0.7922.76](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.71..151.0.7922.76?pretty=fuller&n=1000))
+
 ## [1.93.129](https://github.com/brave/brave-browser/releases/tag/v1.93.129)
 
 ### Web3
