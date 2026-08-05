@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.93.129](https://github.com/brave/brave-browser/releases/tag/v1.93.129)
+
+### Origin
+
+ - Fixed Brave Origin promotional links not properly validating destinations to prevent unauthorized deep links from triggering the purchase flow. ([#56483](https://github.com/brave/brave-browser/issues/56483))
+
+### Web3
+
+ - Improved security in Brave Wallet by hiding sensitive information, such as recovery phrases, by default. ([#56747](https://github.com/brave/brave-browser/issues/56747))
+ - Updated "Swap" and "Bridge" token selectors to filter out hidden tokens. ([#56385](https://github.com/brave/brave-browser/issues/56385))
+ - Fixed "Continue" button being hidden on "Deposit" screen. ([#56481](https://github.com/brave/brave-browser/issues/56481))
+
+### Rewards
+
+ - Fixed an issue where "Rewards" and "Shields" icons blocked the website address when using right-to-left languages. ([#7552](https://github.com/brave/brave-browser/issues/7552))
+
+### General
+
+ - Added an option to disable "pull to refresh" gesture under "Accessibility" settings to prevent accidental page reloads. ([#41730](https://github.com/brave/brave-browser/issues/41730))
+ - Improved adblocking. ([#57042](https://github.com/brave/brave-browser/issues/57042))
+ - Improved fingerprint farbling by adding support for "getSupportedExtensions" and "WebGL". ([#15904](https://github.com/brave/brave-browser/issues/15904))
+ - Improved performance and compatibility of full-screen video on older Android versions in certain cases. ([#56382](https://github.com/brave/brave-browser/issues/56382))
+ - Improved security and reliability of app notifications and background timers. ([#56522](https://github.com/brave/brave-browser/issues/56522))
+ - Updated Brave Shields panel with a simplified and modern design. ([#55724](https://github.com/brave/brave-browser/issues/55724))
+ - Updated location of "Open external links in Brave" setting to be under "Brave Shields & privacy". ([#56273](https://github.com/brave/brave-browser/issues/56273))
+ - Updated address bar icons to use Nala design. ([#55776](https://github.com/brave/brave-browser/issues/55776))
+ - Removed blocked query parameters for values like "=". ([#55924](https://github.com/brave/brave-browser/issues/55924))
+ - Fixed farbling of "Accept-Language" header position. ([#55271](https://github.com/brave/brave-browser/issues/55271))
+ - Fixed search suggestions being shown in home screen search widget even when browser suggestions were turned off. ([#44489](https://github.com/brave/brave-browser/issues/44489))
+ - Fixed bottom navigation bar disappearing after returning to the browser from PiP (picture-in-picture) mode. ([#51859](https://github.com/brave/brave-browser/issues/51859))
+ - Fixed home screen shortcuts (PWA and non-PWA) disappearing after device reboot in certain cases. ([#52423](https://github.com/brave/brave-browser/issues/52423))
+ - Fixed background playback stopping and PiP (picture-in-picture) window closing when locking the device. ([#52579](https://github.com/brave/brave-browser/issues/52579))
+ - Fixed issue where returning to Brave from PiP (picture-in-picture) mode would freeze or break YouTube tab. ([#53760](https://github.com/brave/brave-browser/issues/53760))
+ - Fixed YouTube video getting stuck in full-screen after using PiP (picture-in-picture) mode. ([#55163](https://github.com/brave/brave-browser/issues/55163))
+ - Fixed layout issue where Brave VPN onboarding screens did not use correct width when the device was in landscape orientation. ([#55844](https://github.com/brave/brave-browser/issues/55844))
+ - Fixed inconsistent layouts of "Delete browsing data" screen when accessed via different entry points. ([#55970](https://github.com/brave/brave-browser/issues/55970))
+ - Fixed PiP (picture-in-picture) mode not working correctly after navigating to a new page or switching between videos. ([#56386](https://github.com/brave/brave-browser/issues/56386))
+ - Fixed issue where quickly turning screen off and on while exiting PiP (picture-in-picture) caused video to re-enter PiP in a broken state. ([#56590](https://github.com/brave/brave-browser/issues/56590))
+ - Fixed titles for "QR code scanner" and "Sync phrase" screens displayed incorrectly after rotating device. ([#57602](https://github.com/brave/brave-browser/issues/57602))
+ - Upgraded Chromium to 151.0.7922.71. ([#57670](https://github.com/brave/brave-browser/issues/57670)) ([Changelog for 151.0.7922.71](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.186..151.0.7922.71?pretty=fuller&n=1000))
+
 ## [1.92.144](https://github.com/brave/brave-browser/releases/tag/v1.92.144)
 
  - Upgraded Chromium to 150.0.7871.186. ([#57490](https://github.com/brave/brave-browser/issues/57490)) ([Changelog for 150.0.7871.186](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.182..150.0.7871.186?pretty=fuller&n=1000))
