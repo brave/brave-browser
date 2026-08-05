@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.93.130](https://github.com/brave/brave-browser/releases/tag/v1.93.130)
+
+ - Fixed crash that occurred when persistent snackbar messages were displayed on the New Tab Page. ([#57727](https://github.com/brave/brave-browser/issues/57727))
+
 ## [1.93.129](https://github.com/brave/brave-browser/releases/tag/v1.93.129)
 
 ### Origin
