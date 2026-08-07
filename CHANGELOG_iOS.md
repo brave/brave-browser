@@ -12,16 +12,16 @@
 
 ### Leo
 
- - Fixed loader not being displayed while files are being uploaded in chat prompt. ([#55694](https://github.com/brave/brave-browser/issues/55694))
- - Fixed Task UI buttons to be shown only when using certain tools. ([#55382](https://github.com/brave/brave-browser/issues/55382))
- - Fixed UI losing focus after entering and submitting "@something" into chat. ([#55319](https://github.com/brave/brave-browser/issues/55319))
+ - Fixed issue where attaching files did not show progress while they were being processed. ([#55694](https://github.com/brave/brave-browser/issues/55694))
+ - Fixed task UI displaying each time a tool is used. ([#55382](https://github.com/brave/brave-browser/issues/55382))
+ - Fixed focus stealing loop which could occur in certain cases. ([#55319](https://github.com/brave/brave-browser/issues/55319))
 
 ### General
 
  - Implemented cache-first playback for Playlist. ([#56793](https://github.com/brave/brave-browser/issues/56793))
  - [Security] Fixed Content-Security-Policy (CSP) handling when Reader Mode is enabled as reported on HackerOne by nishimunea. ([#56472](https://github.com/brave/brave-browser/issues/56472))
  - [Security] Fixed FaceID lock screen being bypassed for private tabs using deep links as reported on HackerOne by lohigowda. ([#56187](https://github.com/brave/brave-browser/issues/56187))
- - Removed Playlist related toggles from the "Clear Private Data" settings section. ([#51414](https://github.com/brave/brave-browser/issues/51414))
+ - Removed Playlist related toggles from the "Clear Private Data" settings. ([#51414](https://github.com/brave/brave-browser/issues/51414))
  - Improved cosmetic filtering by injecting scriptlets into isolated scopes. ([#56797](https://github.com/brave/brave-browser/issues/56797))
  - Improved visibility of the data shredding animation while using dark mode. ([#54759](https://github.com/brave/brave-browser/issues/54759))﻿
  - Updated Shred to include removing search history when "Shred Removes History" toggle is enabled. ([#55148](https://github.com/brave/brave-browser/issues/55148))
@@ -30,7 +30,7 @@
  - Fixed Origin feature switch state not being retained when quickly restarting after toggling on/off. ([#56699](https://github.com/brave/brave-browser/issues/56699))
  - Fixed issue when redeeming a promo code on Origin paywall. ([#56702](https://github.com/brave/brave-browser/issues/56702))
  - Fixed webpage alerts not working for restored tabs. ([#55184](https://github.com/brave/brave-browser/issues/55184))
- - Fixed Playlist media not being downloaded again once it is already cached. ([#54342](https://github.com/brave/brave-browser/issues/54342))﻿
+ - Fixed Playlist media being re-downloaded even though it appears as cached. ([#54342](https://github.com/brave/brave-browser/issues/54342))﻿
  - Fixed UI in "Tabs on Other Devices" displaying unwanted elements when tab syncing is already enabled. ([#57046](https://github.com/brave/brave-browser/issues/57046))
  - Upgraded Chromium to 150.0.7871.186. ([#57490](https://github.com/brave/brave-browser/issues/57490))([Changelog for 150.0.7871.186](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.201..150.0.7871.186?pretty=fuller&n=10000))
 
