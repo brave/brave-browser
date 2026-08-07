@@ -1,10 +1,44 @@
 # Changelog
 
+## [1.92.144](https://github.com/brave/brave-browser/releases/tag/v1.92.144)
+
+### Web3
+
+ - Added alert toast notification after account creation. ([#55222](https://github.com/brave/brave-browser/issues/55222))
+ - Updated "Native Asset" to be prioritized at the top of the "Select Token" modal. ([#55500](https://github.com/brave/brave-browser/issues/55500))
+ - Updated "Import Account" modal UI. ([#55185](https://github.com/brave/brave-browser/issues/55185))
+ - Updated "Create Account" modal UI. ([#55180](https://github.com/brave/brave-browser/issues/55180))
+ - Updated "Create Account Selector" modal UI. ([#54947](https://github.com/brave/brave-browser/issues/54947))
+
+### Leo
+
+ - Fixed issue where attaching files did not show progress while they were being processed. ([#55694](https://github.com/brave/brave-browser/issues/55694))
+ - Fixed task UI displaying each time a tool is used. ([#55382](https://github.com/brave/brave-browser/issues/55382))
+ - Fixed focus stealing loop which could occur in certain cases. ([#55319](https://github.com/brave/brave-browser/issues/55319))
+
+### General
+
+ - Implemented cache-first playback for Playlist. ([#56793](https://github.com/brave/brave-browser/issues/56793))
+ - [Security] Fixed Content-Security-Policy (CSP) handling when Reader Mode is enabled as reported on HackerOne by nishimunea. ([#56472](https://github.com/brave/brave-browser/issues/56472))
+ - [Security] Fixed FaceID lock screen being bypassed for private tabs using deep links as reported on HackerOne by lohigowda. ([#56187](https://github.com/brave/brave-browser/issues/56187))
+ - Removed Playlist related toggles from the "Clear Private Data" settings. ([#51414](https://github.com/brave/brave-browser/issues/51414))
+ - Improved cosmetic filtering by injecting scriptlets into isolated scopes. ([#56797](https://github.com/brave/brave-browser/issues/56797))
+ - Improved visibility of the data shredding animation while using dark mode. ([#54759](https://github.com/brave/brave-browser/issues/54759))﻿
+ - Updated Shred to include removing search history when "Shred Removes History" toggle is enabled. ([#55148](https://github.com/brave/brave-browser/issues/55148))
+ - Updated Shred settings UI. ([#55004](https://github.com/brave/brave-browser/issues/55004))
+ - Updated Manage Passwords settings UI. ([#52211](https://github.com/brave/brave-browser/issues/52211))
+ - Fixed Origin feature switch state not being retained when quickly restarting after toggling on/off. ([#56699](https://github.com/brave/brave-browser/issues/56699))
+ - Fixed issue when redeeming a promo code on Origin paywall. ([#56702](https://github.com/brave/brave-browser/issues/56702))
+ - Fixed webpage alerts not working for restored tabs. ([#55184](https://github.com/brave/brave-browser/issues/55184))
+ - Fixed Playlist media being re-downloaded even though it appears as cached. ([#54342](https://github.com/brave/brave-browser/issues/54342))﻿
+ - Fixed UI in "Tabs on Other Devices" displaying unwanted elements when tab syncing is already enabled. ([#57046](https://github.com/brave/brave-browser/issues/57046))
+ - Upgraded Chromium to 150.0.7871.186. ([#57490](https://github.com/brave/brave-browser/issues/57490))([Changelog for 150.0.7871.186](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.201..150.0.7871.186?pretty=fuller&n=10000))
+
 ## [1.91.181](https://github.com/brave/brave-browser/releases/tag/v1.91.181)
 
 - Fixed videos not streaming in Playlist after being added in certain EU regions. ([#56709](https://github.com/brave/brave-browser/issues/56709))
 - Fixed Origin setting page not being displayed when loading credentials via "Verify Brave Origin Purchase" flow. ([#56700](https://github.com/brave/brave-browser/issues/56700))
-- Updated Chromium to 149.0.7827.201. ([#56669](https://github.com/brave/brave-browser/issues/56669))([Changelog for 149.0.7827.201](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.196..149.0.7827.201?pretty=fuller&n=10000))
+- Upgraded Chromium to 149.0.7827.201. ([#57490](https://github.com/brave/brave-browser/issues/57490))([Changelog for 149.0.7827.201](https://chromium.googlesource.com/chromium/src/+log/149.0.7827.196..149.0.7827.201?pretty=fuller&n=10000))
 
 ## [1.91.179](https://github.com/brave/brave-browser/releases/tag/v1.91.179)
 
@@ -28,7 +62,7 @@
  - Fixed issue when linking in-app premium purchase receipt to the Brave account site. ([#56589](https://github.com/brave/brave-browser/issues/56589))
  - Fixed full screen not working properly when in landscape for Playlist media. ([#55984](https://github.com/brave/brave-browser/issues/55984))
  - Fixed layout issue when scrolling webpages with "Find in Page" UI enabled. ([#54973](https://github.com/brave/brave-browser/issues/54973))
- - Updated Chromium to 149.0.7827.196. ([#56598](https://github.com/brave/brave-browser/issues/56598))([Changelog for 149.0.7827.196](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.217..149.0.7827.196?pretty=fuller&n=10000))
+ - Upgraded Chromium to 149.0.7827.196. ([#56598](https://github.com/brave/brave-browser/issues/56598))([Changelog for 149.0.7827.196](https://chromium.googlesource.com/chromium/src/+log/148.0.7778.217..149.0.7827.196?pretty=fuller&n=10000))
 
 ## [1.90.130](https://github.com/brave/brave-browser/releases/tag/v1.90.130)
 
