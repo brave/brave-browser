@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.93.134](https://github.com/brave/brave-browser/releases/tag/v1.93.134)
+
+ - Added migration of browser level extension settings for Brave-hosted MV2 extensions. ([#57454](https://github.com/brave/brave-browser/issues/57454))
+ - Fixed "getSupportedExtensions" overlap between "WebGL" and "WebGL2". ([#57736](https://github.com/brave/brave-browser/issues/57736))
+ - Upgraded Chromium to 151.0.7922.108. ([#57922](https://github.com/brave/brave-browser/issues/57922)) ([Changelog for 151.0.7922.108](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.76..151.0.7922.108?pretty=fuller&n=1000))
+
 ## [1.93.132](https://github.com/brave/brave-browser/releases/tag/v1.93.132)
 
  - [Security] Fixed Widevine install prompt as reported on HackerOne by syarif07. ([#57649](https://github.com/brave/brave-browser/issues/57649))
