@@ -10,8 +10,6 @@ permissions:
 jobs:
   autoclose:
     runs-on: ubuntu-slim
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - run: |
           set -eEo pipefail
@@ -19,7 +17,6 @@ jobs:
 
           while read -r number last_active; do
               if (( ($(date +%s) - $(date -d "${last_active:?}" +%s)) / 86400 > 30 )); then
-                  sleep 5
                   gh issue close -R "$GITHUB_REPOSITORY" "${number:?}" -c "Autoclosing due to inactivity"
               fi
           done < <(gh issue list \
