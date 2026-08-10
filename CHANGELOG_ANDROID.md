@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.93.134](https://github.com/brave/brave-browser/releases/tag/v1.93.134)
+
+ - Fixed passwords being duplicated when using search in "Password Manager". ([#57894](https://github.com/brave/brave-browser/issues/57894))
+ - Fixed back gesture navigation when returning from password search to "Password manager" screen. ([#57662](https://github.com/brave/brave-browser/issues/57662))
+ - Fixed "getSupportedExtensions" overlap between "WebGL" and "WebGL2". ([#57736](https://github.com/brave/brave-browser/issues/57736))
+ - Fixed issue where sync setup screen incorrectly displayed "QR code" and "Sync words" titles. ([#57623](https://github.com/brave/brave-browser/issues/57623))
+ - Upgraded Chromium to 151.0.7922.108. ([#57922](https://github.com/brave/brave-browser/issues/57922)) ([Changelog for 151.0.7922.108](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.71..151.0.7922.108?pretty=fuller&n=1000))
+
 ## [1.93.130](https://github.com/brave/brave-browser/releases/tag/v1.93.130)
 
  - Fixed crash that occurred when persistent snackbar messages were displayed on the New Tab Page. ([#57727](https://github.com/brave/brave-browser/issues/57727))
