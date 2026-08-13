@@ -2,20 +2,20 @@
 
 This repository is not needed for building the browser and only holds issues, releases and the wiki. The source code and contributions are at https://github.com/brave/brave-core.
 
+You can [visit our website](https://brave.com/download) to get the latest stable release.
+
 ## Resources
 
-- [Documentation and guides](https://github.com/brave/brave-core/blob/master/docs/README.md)
-- [Issues](https://github.com/brave/brave-browser/issues)
-- [Releases](https://github.com/brave/brave-browser/releases)
-- [Wiki](https://github.com/brave/brave-browser/wiki)
-
-## Downloads
-
-You can [visit our website](https://brave.com/download) to get the latest stable release.
+- [Issues](https://github.com/brave/brave-browser/issues): Bug reports and feature requests for the Brave Browser.
+- [Releases](https://github.com/brave/brave-browser/releases): Releases of Brave Browser hosted on GitHub. See [Brave Release Schedule](https://github.com/brave/brave-browser/wiki/Brave-Release-Schedule) for more information.
+- [Wiki](https://github.com/brave/brave-browser/wiki): Documentation for developers, administrators, and power users. User-facing documentation is available at the [Brave help center](https://support.brave.app/hc/).
+- [Documentation and guides](https://github.com/brave/brave-core/blob/master/docs/README.md): Additional technical information, primarily for developers.
 
 ## Contributing
 
 Please see the [contributing guidelines](https://github.com/brave/brave-core/blob/master/CONTRIBUTING.md).
+
+To get started building Brave, hop over to the [Wiki](https://github.com/brave/brave-browser/wiki).
 
 ## Security Policy
 
