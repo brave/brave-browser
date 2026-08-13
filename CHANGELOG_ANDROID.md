@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.93.136](https://github.com/brave/brave-browser/releases/tag/v1.93.136)
+
+ - Updated Google Play billing library used for subscriptions to version 9.1.0. ([#57474](https://github.com/brave/brave-browser/issues/57474))
+ - Fixed "getExtension" returning null script for extension. ([#57902](https://github.com/brave/brave-browser/issues/57902))
+ - Fixed issue where browser restarts and loses open tabs when battery saver mode is activated. ([#49692](https://github.com/brave/brave-browser/issues/49692))
+ - Fixed crash when switching between light and dark OS themes while a New Private Tab is open. ([#53960](https://github.com/brave/brave-browser/issues/53960))
+ - Fixed crash that occurred when using search feature in the address bar in certain cases. ([#57778](https://github.com/brave/brave-browser/issues/57778))
+ - Upgraded Chromium to 151.0.7922.137. ([#58062](https://github.com/brave/brave-browser/issues/58062)) ([Changelog for 151.0.7922.137](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.108..151.0.7922.137?pretty=fuller&n=1000))
+
 ## [1.93.134](https://github.com/brave/brave-browser/releases/tag/v1.93.134)
 
  - Fixed passwords being duplicated when using search in "Password Manager". ([#57894](https://github.com/brave/brave-browser/issues/57894))
