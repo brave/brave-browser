@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.93.137](https://github.com/brave/brave-browser/releases/tag/v1.93.137)
+
+ - Fixed issue where main settings page was closing unexpectedly when toggling OS dark theme. ([#57747](https://github.com/brave/brave-browser/issues/57747))
+ - Upgraded Chromium to 151.0.7922.169. ([#58247](https://github.com/brave/brave-browser/issues/58247)) ([Changelog for 151.0.7922.169](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.137..151.0.7922.169?pretty=fuller&n=1000))
+
 ## [1.93.136](https://github.com/brave/brave-browser/releases/tag/v1.93.136)
 
  - Updated Google Play billing library used for subscriptions to version 9.1.0. ([#57474](https://github.com/brave/brave-browser/issues/57474))
