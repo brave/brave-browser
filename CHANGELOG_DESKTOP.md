@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.93.137](https://github.com/brave/brave-browser/releases/tag/v1.93.137)
+
+ - Updated opening a link in a container to set "Sec-Fetch-Site:cross-origin" appropriately as reported on HackerOne by newfunction. ([#58230](https://github.com/brave/brave-browser/issues/58230))
+ - Upgraded Chromium to 151.0.7922.169. ([#58247](https://github.com/brave/brave-browser/issues/58247)) ([Changelog for 151.0.7922.169](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.137..151.0.7922.169?pretty=fuller&n=1000))
+
 ## [1.93.136](https://github.com/brave/brave-browser/releases/tag/v1.93.136)
 
  - Disabled HEVC software decoder by default on Linux. ([#57974](https://github.com/brave/brave-browser/issues/57974))
