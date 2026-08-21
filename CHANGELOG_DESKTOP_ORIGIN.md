@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.93.138](https://github.com/brave/brave-browser/releases/tag/v1.93.138)
+
+ - Upgraded Chromium to 151.0.7922.173. ([#58314](https://github.com/brave/brave-browser/issues/58314)) ([Changelog for 151.0.7922.173](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.169..151.0.7922.173?pretty=fuller&n=1000))
+
 ## [1.93.137](https://github.com/brave/brave-browser/releases/tag/v1.93.137)
 
  - Updated opening a link in a container to set "Sec-Fetch-Site:cross-origin" appropriately as reported on HackerOne by newfunction. ([#58230](https://github.com/brave/brave-browser/issues/58230))
