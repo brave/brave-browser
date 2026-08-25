@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.93.136](https://github.com/brave/brave-browser/releases/tag/v1.93.136)
+
+ - Added QuickView toolbar actions. ([#53568](https://github.com/brave/brave-browser/issues/53568))
+ - Enabled implicit playlist caching by default. ([#57582](https://github.com/brave/brave-browser/issues/57582))
+ - Enabled Liquid Glass by default on iOS 26. ([#56438](https://github.com/brave/brave-browser/issues/56438))
+ - [Security] Improved sanitization of values in Brave Wallet as reported on HackerOne by z3phyrus. ([#57613](https://github.com/brave/brave-browser/issues/57613))
+ - Removed opaque toolbar/navigation bar backgrounds. ([#56315](https://github.com/brave/brave-browser/issues/56315))
+ - Updated adblock-rust to 0.13.0. ([#57042](https://github.com/brave/brave-browser/issues/57042))
+ - Updated "Swap" and "Bridge" token selectors to filter out hidden tokens. ([#56385](https://github.com/brave/brave-browser/issues/56385))
+ - Replaced hardcoded colors & fonts in the "Install VPN Profile" screen. ([#56335](https://github.com/brave/brave-browser/issues/56335))
+ - Migrated hardcoded color values to Nala values. ([#56194](https://github.com/brave/brave-browser/issues/56194))
+ - Fixed YouTube videos not being able to enter fullscreen when "Desktop site" is enabled. ([#57823](https://github.com/brave/brave-browser/issues/57823))
+ - Fixed 1Password app SSO login not redirecting back to the 1Password app. ([#57440](https://github.com/brave/brave-browser/issues/57440))
+ - Fixed users being unable to log in to Premium search in Private windows. ([#56790](https://github.com/brave/brave-browser/issues/56790))
+ - Fixed toolbar in Brave Talk not remaining visible. ([#56524](https://github.com/brave/brave-browser/issues/56524))
+ - Fixed the "Add tab" button showing the wrong color in the tabs bar on iPads in private mode. ([#56468](https://github.com/brave/brave-browser/issues/56468))
+ - Fixed blocked query parameters not being removed for values like "=". ([#55924](https://github.com/brave/brave-browser/issues/55924))
+ - Upgraded Chromium to 151.0.7922.137. ([#58062](https://github.com/brave/brave-browser/issues/58062))([Changelog for 151.0.7922.137](https://chromium.googlesource.com/chromium/src/+log/150.0.7871.186..151.0.7922.137?pretty=fuller&n=10000))
+
 ## [1.92.144](https://github.com/brave/brave-browser/releases/tag/v1.92.144)
 
 ### Web3
