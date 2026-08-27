@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.94.117](https://github.com/brave/brave-browser/releases/tag/v1.94.117)
+
+### Web3
+
+ - Added support for 24 word recovery phrase option. ([#56936](https://github.com/brave/brave-browser/issues/56936))
+ - Added the ability to "Reset account birthday" for Zcash Shielded account. ([#55611](https://github.com/brave/brave-browser/issues/55611))
+ - Removed the empty space below the wallet container. ([#48581](https://github.com/brave/brave-browser/issues/48581))
+
+### Leo
+
+ - Updated default AI models in Brave Leo. ([#56011](https://github.com/brave/brave-browser/issues/56011) & [#49879](https://github.com/brave/brave-browser/issues/49879))
+ - Updated Leo side panel to close when opening the conversation in full page view. ([#56979](https://github.com/brave/brave-browser/issues/56979))
+ - Fixed input box not receiving focus in certain cases. ([#56690](https://github.com/brave/brave-browser/issues/56690))
+
+### General
+
+ - Added Email Aliases feature. ([#57360](https://github.com/brave/brave-browser/issues/57360))
+ - Added "Restore purchase" button to Brave Origin section of brave://settings/system. ([#56929](https://github.com/brave/brave-browser/issues/56929))
+ - Added OPML import and export for Brave News. ([#25695](https://github.com/brave/brave-browser/issues/25695))
+ - Added the ability to add Brave News to the sidebar. ([#29147](https://github.com/brave/brave-browser/issues/29147))
+ - Added the ability to show/hide vertical tabs button. ([#56859](https://github.com/brave/brave-browser/issues/56859))
+ - Added the ability to configure a keyboard shortcut for "Block Elements". ([#57259](https://github.com/brave/brave-browser/issues/57259))
+ - Added new keyboard shortcuts for toggling side panels. ([#57152](https://github.com/brave/brave-browser/issues/57152))
+ - Updated background images on the New Tab Page to be randomized. ([#56661](https://github.com/brave/brave-browser/issues/56661))
+ - Updated icons in the URL bar to be proportionally squared. ([#57402](https://github.com/brave/brave-browser/issues/57402))
+ - Updated farbling support for schemes with inherited HTTP/HTTPS origin. ([#56048](https://github.com/brave/brave-browser/issues/56048))
+ - Updated vertical tabs to retain scroll position when toggling expanded state. ([#52270](https://github.com/brave/brave-browser/issues/52270))
+ - Updated the vertical tab bar to be draggable. ([#30011](https://github.com/brave/brave-browser/issues/30011))
+ - Fixed crash which occurred when opening brave://history from guest profile. ([#58419](https://github.com/brave/brave-browser/issues/58419))
+ - Fixed crash which occurred when disabling "Email Aliases" in upgraded Brave Origin. ([#56890](https://github.com/brave/brave-browser/issues/56890))
+ - Fixed farbling seed being retained between session restarts in certain cases. ([#56288](https://github.com/brave/brave-browser/issues/56288))
+ - Fixed ".onion" addresses being resolved in a normal window when the setting "Only resolve .onion addresses in Tor windows" is toggled on as reported on HackerOne by vsevkli. ([#55938](https://github.com/brave/brave-browser/issues/55938))
+ - Fixed both delta and full installers being requested on macOS. ([#45447](https://github.com/brave/brave-browser/issues/45447))
+ - Fixed "Reset to default" not working for Brave specific actions. ([#56733](https://github.com/brave/brave-browser/issues/56733))
+ - Fixed autohiding of vertical tabs panel on Linux. ([#50579](https://github.com/brave/brave-browser/issues/50579))
+ - Upgraded Chromium to 152.0.7977.64. ([#58417](https://github.com/brave/brave-browser/issues/58417)) ([Changelog for 152.0.7977.64](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.173..152.0.7977.64?pretty=fuller&n=1000))
+
 ## [1.93.138](https://github.com/brave/brave-browser/releases/tag/v1.93.138)
 
  - Upgraded Chromium to 151.0.7922.173. ([#58314](https://github.com/brave/brave-browser/issues/58314)) ([Changelog for 151.0.7922.173](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.169..151.0.7922.173?pretty=fuller&n=1000))
