@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.95.101](https://github.com/brave/brave-browser/releases/tag/v1.95.101)
+
+ - Added calculator results to the address bar dropdown when typing basic math expressions. ([#52260](https://github.com/brave/brave-browser/issues/52260))
+ - Added "Always use mini icon for containers" setting under brave://settings/braveContent when "Containers" are enabled. ([#56954](https://github.com/brave/brave-browser/issues/56954))
+ - Added container name to tab hover card. ([#56175](https://github.com/brave/brave-browser/issues/56175))
+ - Added support for temporary containers via command-line switch. ([#57993](https://github.com/brave/brave-browser/issues/57993) & [#58019](https://github.com/brave/brave-browser/issues/58019))
+ - Added the ability to import passwords from Brave release channel build on macOS and Linux. ([#55631](https://github.com/brave/brave-browser/issues/55631))
+ - Added a keyboard shortcut for "Close all duplicate tabs". ([#45199](https://github.com/brave/brave-browser/issues/45199))
+ - Re-added keyboard shortcut for toggling between vertical and horizontal tabs. ([#52874](https://github.com/brave/brave-browser/issues/52874))
+ - Updated "navigator.userAgentData" to hide Brave UA for certain sites. ([#47826](https://github.com/brave/brave-browser/issues/47826))
+ - Updated the "Customize" modal on the New Tab Page. ([#57685](https://github.com/brave/brave-browser/issues/57685))
+ - Updated .dmg installer backgrounds on macOS. ([#58236](https://github.com/brave/brave-browser/issues/58236))
+ - Disabled platform authentication (Cloud AP) SSO in container tabs. ([#57741](https://github.com/brave/brave-browser/issues/57741))
+ - Fixed padding and widths of tab groups when using vertical tabs. ([#58010](https://github.com/brave/brave-browser/issues/58010))
+ - Fixed improper display of container icons when scrolling the horizontal tab bar. ([#57255](https://github.com/brave/brave-browser/issues/57255))
+ - Fixed "Auto expand vertical tabs independently per window" setting not working on Linux. ([#56842](https://github.com/brave/brave-browser/issues/56842))
+ - Fixed "Edit Password" showing "chrome://" scheme instead of "brave://" for internal page bookmarks. ([#40787](https://github.com/brave/brave-browser/issues/40787))
+ - Upgraded Chromium to 153.0.8010.37. ([#58822](https://github.com/brave/brave-browser/issues/58822)) ([Changelog for 153.0.8010.37](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.83..153.0.8010.37?pretty=fuller&n=1000))
+
 ## [1.94.121](https://github.com/brave/brave-browser/releases/tag/v1.94.121)
 
  - Upgraded Chromium to 152.0.7977.83. ([#58701](https://github.com/brave/brave-browser/issues/58701)) ([Changelog for 152.0.7977.83](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.76..152.0.7977.83?pretty=fuller&n=1000))
