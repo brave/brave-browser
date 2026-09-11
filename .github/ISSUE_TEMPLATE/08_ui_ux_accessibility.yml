@@ -1,0 +1,106 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms
+
+name: UI/UX & Accessibility Issue
+description: Report a UI rendering glitch, layout breakage, theme/dark mode bug, or accessibility (a11y) issue
+labels:
+  - design
+  - feature/user-interface
+  - polish
+body:
+  - type: markdown
+    attributes:
+      value: |-
+        Have you searched for similar [UI/UX & Accessibility issues](https://github.com/brave/brave-browser/issues?q=is%3Aissue+is%3Aopen+label%3Adesign%2Clabel%3Afeature%2Fuser-interface)?
+        
+        Please provide detailed steps, screenshots/mockups, and environment specs to help us diagnose visual and accessibility bugs quickly.
+
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: Affected Platforms
+      description: Select target operating system(s) where this UI issue occurs
+      multiple: true
+      options:
+        - Android
+        - iOS
+        - Linux
+        - macOS
+        - Windows
+    validations:
+      required: true
+
+  - type: dropdown
+    id: ui_subsystem
+    attributes:
+      label: UI Subsystem / Component
+      description: Which part of the user interface is affected?
+      multiple: false
+      options:
+        - Address Bar & Omnibox
+        - Brave Wallet & Web3 Dialogs
+        - Brave Shields & Privacy Panel
+        - Tabs, Tab Groups & Vertical Tabs
+        - New Tab Page & Widgets
+        - Settings & Preferences Pages
+        - Sidebar, Leo AI & Brave News
+        - Navigation & Menus
+        - Other / General UI
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: issue_category
+    attributes:
+      label: Issue Category
+      description: Select the specific category of the UI/UX problem
+      options:
+        - label: Visual Layout / Misalignment / Overflow
+        - label: Dark Mode / Light Mode / High Contrast Theme Bug
+        - label: Display Resolution / High-DPI / Zoom Scaling Issue
+        - label: Keyboard Navigation / Focus Outline Missing
+        - label: Screen Reader / ARIA / Accessibility (a11y) Violation
+        - label: Animation / Transition Lag or Glitch
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the UI Issue
+      description: Provide a clear and concise description of what is visually or functionally wrong with the UI.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the UI behavior.
+      placeholder: |-
+        1. Open Brave and navigate to...
+        2. Click on...
+        3. Observe the UI component...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_vs_actual
+    attributes:
+      label: Expected vs Actual Behavior
+      description: Describe what you expected the UI to look like vs what actually happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: visual_evidence
+    attributes:
+      label: Screenshots / Recordings
+      description: Attach screenshots, side-by-side comparisons, or screen recordings demonstrating the UI glitch.
+    validations:
+      required: false
+
+  - type: textarea
+    id: version_info
+    attributes:
+      label: Brave Version & Environment
+      description: Paste `Brave`, `Revision`, and `OS` from `brave://version`. Please redact any private profile paths or usernames.
+    validations:
+      required: true
