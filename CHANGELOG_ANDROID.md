@@ -1,5 +1,39 @@
 # Changelog
 
+## [1.94.117](https://github.com/brave/brave-browser/releases/tag/v1.94.117)
+
+### Web3
+
+ - Added screen rotation support when adding an account in Brave Wallet. ([#57338](https://github.com/brave/brave-browser/issues/57338))
+ - Added screen rotation support in network selector for Brave Wallet. ([#57396](https://github.com/brave/brave-browser/issues/57396))
+ - Fixed crash when opening "Connect Wallet" permission dialog. ([#56840](https://github.com/brave/brave-browser/issues/56840))
+ - Fixed crash when connecting Brave Wallet to a DApp in certain cases. ([#56878](https://github.com/brave/brave-browser/issues/56878))
+
+### Leo
+
+ - Updated default AI models in Brave Leo. ([#56011](https://github.com/brave/brave-browser/issues/56011) & [#49879](https://github.com/brave/brave-browser/issues/49879))
+
+### General
+
+ - Added "Dynamic colors" preference under "Appearance" settings. ([#55968](https://github.com/brave/brave-browser/issues/55968))
+ - Added dedicated "Tabs and tab groups" settings screen. ([#56450](https://github.com/brave/brave-browser/issues/56450))
+ - Re-added "Clear all blocked elements" option to Brave Shields menu. ([#56642](https://github.com/brave/brave-browser/issues/56642))
+ - Improved New Tab Page behavior to avoid showing a fresh NTP during active background media playback. ([#53922](https://github.com/brave/brave-browser/issues/53922))
+ - Improved Picture-in-Picture (PiP) fullscreen entry reliability. ([#56383](https://github.com/brave/brave-browser/issues/56383))
+ - Updated layout and organization of the "Appearance" settings screen. ([#46218](https://github.com/brave/brave-browser/issues/46218))
+ - Updated first-time use hint for Brave Shields. ([#55607](https://github.com/brave/brave-browser/issues/55607))
+ - Updated disabled setting icons to appear visually disabled. ([#56451](https://github.com/brave/brave-browser/issues/56451))
+ - Updated location of "Autofill in private tabs" option by moving it to "Autofill services". ([#56525](https://github.com/brave/brave-browser/issues/56525))
+ - Updated New Tab Page background images to display in randomized order. ([#56662](https://github.com/brave/brave-browser/issues/56662))
+ - Updated "Sharing Hub" preference to only be visible on devices running Android 13 and earlier. ([#56857](https://github.com/brave/brave-browser/issues/56857))
+ - Fixed farbling seed being retained between session restarts in certain cases. ([#56288](https://github.com/brave/brave-browser/issues/56288))
+ - Fixed Brave Sync setup issue on devices without Google Play Services by preventing repeated error dialogs. ([#11477](https://github.com/brave/brave-browser/issues/11477))
+ - Fixed Brave logo color on media playback notifications. ([#56180](https://github.com/brave/brave-browser/issues/56180))
+ - Fixed inconsistent Brave logo colors on New Tab Page tab in the tab switcher. ([#56729](https://github.com/brave/brave-browser/issues/56729) & [#57270](https://github.com/brave/brave-browser/issues/57270))
+ - Fixed Picture-in-Picture (PiP) closing automatically on tablets when changing screen orientation or OS theme. ([#56782](https://github.com/brave/brave-browser/issues/56782))
+ - Fixed temporary screen rotation when entering or exiting Picture-in-Picture (PiP) mode. ([#56784](https://github.com/brave/brave-browser/issues/56784))
+ - Upgraded Chromium to 152.0.7977.64. ([#58417](https://github.com/brave/brave-browser/issues/58417)) ([Changelog for 152.0.7977.64](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.173..152.0.7977.64?pretty=fuller&n=1000))
+
 ## [1.93.138](https://github.com/brave/brave-browser/releases/tag/v1.93.138)
 
  - Upgraded Chromium to 151.0.7922.173. ([#58314](https://github.com/brave/brave-browser/issues/58314)) ([Changelog for 151.0.7922.173](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.169..151.0.7922.173?pretty=fuller&n=1000))
