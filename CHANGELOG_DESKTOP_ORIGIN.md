@@ -1,5 +1,56 @@
 # Changelog
 
+## [1.95.102](https://github.com/brave/brave-browser/releases/tag/v1.95.102)
+
+ - Upgraded Chromium to 153.0.8010.48. ([#59028](https://github.com/brave/brave-browser/issues/59028)) ([Changelog for 153.0.8010.48](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.37..153.0.8010.48?pretty=fuller&n=1000))
+
+## [1.95.101](https://github.com/brave/brave-browser/releases/tag/v1.95.101)
+
+ - Added calculator results to the address bar dropdown when typing basic math expressions. ([#52260](https://github.com/brave/brave-browser/issues/52260))
+ - Added "Always use mini icon for containers" setting under brave://settings/braveContent when "Containers" are enabled. ([#56954](https://github.com/brave/brave-browser/issues/56954))
+ - Added container name to tab hover card. ([#56175](https://github.com/brave/brave-browser/issues/56175))
+ - Added support for temporary containers via command-line switch. ([#57993](https://github.com/brave/brave-browser/issues/57993) & [#58019](https://github.com/brave/brave-browser/issues/58019))
+ - Added the ability to import passwords from Brave release channel build on macOS and Linux. ([#55631](https://github.com/brave/brave-browser/issues/55631))
+ - Added a keyboard shortcut for "Close all duplicate tabs". ([#45199](https://github.com/brave/brave-browser/issues/45199))
+ - Re-added keyboard shortcut for toggling between vertical and horizontal tabs. ([#52874](https://github.com/brave/brave-browser/issues/52874))
+ - Updated "navigator.userAgentData" to hide Brave UA for certain sites. ([#47826](https://github.com/brave/brave-browser/issues/47826))
+ - Updated the "Customize" modal on the New Tab Page. ([#57685](https://github.com/brave/brave-browser/issues/57685))
+ - Updated .dmg installer backgrounds on macOS. ([#58236](https://github.com/brave/brave-browser/issues/58236))
+ - Disabled platform authentication (Cloud AP) SSO in container tabs. ([#57741](https://github.com/brave/brave-browser/issues/57741))
+ - Fixed padding and widths of tab groups when using vertical tabs. ([#58010](https://github.com/brave/brave-browser/issues/58010))
+ - Fixed improper display of container icons when scrolling the horizontal tab bar. ([#57255](https://github.com/brave/brave-browser/issues/57255))
+ - Fixed "Auto expand vertical tabs independently per window" setting not working on Linux. ([#56842](https://github.com/brave/brave-browser/issues/56842))
+ - Fixed "Edit Password" showing "chrome://" scheme instead of "brave://" for internal page bookmarks. ([#40787](https://github.com/brave/brave-browser/issues/40787))
+ - Upgraded Chromium to 153.0.8010.37. ([#58822](https://github.com/brave/brave-browser/issues/58822)) ([Changelog for 153.0.8010.37](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.83..153.0.8010.37?pretty=fuller&n=1000))
+
+## [1.94.121](https://github.com/brave/brave-browser/releases/tag/v1.94.121)
+
+ - Upgraded Chromium to 152.0.7977.83. ([#58701](https://github.com/brave/brave-browser/issues/58701)) ([Changelog for 152.0.7977.83](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.76..152.0.7977.83?pretty=fuller&n=1000))
+
+## [1.94.119](https://github.com/brave/brave-browser/releases/tag/v1.94.119)
+
+ - Upgraded Chromium to 152.0.7977.76. ([#58609](https://github.com/brave/brave-browser/issues/58609)) ([Changelog for 152.0.7977.76](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.64..152.0.7977.76?pretty=fuller&n=1000))
+
+## [1.94.117](https://github.com/brave/brave-browser/releases/tag/v1.94.117)
+
+ - Added OPML import and export for Brave News. ([#25695](https://github.com/brave/brave-browser/issues/25695))
+ - Added the ability to add Brave News to the sidebar. ([#29147](https://github.com/brave/brave-browser/issues/29147))
+ - Added the ability to show/hide vertical tabs button. ([#56859](https://github.com/brave/brave-browser/issues/56859))
+ - Added the ability to configure a keyboard shortcut for "Block Elements". ([#57259](https://github.com/brave/brave-browser/issues/57259))
+ - Added new keyboard shortcuts for toggling side panels. ([#57152](https://github.com/brave/brave-browser/issues/57152))
+ - Updated shields icon from Brave orange lion to Brave Origin icon. ([#56950](https://github.com/brave/brave-browser/issues/56950))
+ - Updated background images on the New Tab Page to be randomized. ([#56661](https://github.com/brave/brave-browser/issues/56661))
+ - Updated icons in the URL bar to be proportionally squared. ([#57402](https://github.com/brave/brave-browser/issues/57402))
+ - Updated farbling support for schemes with inherited HTTP/HTTPS origin. ([#56048](https://github.com/brave/brave-browser/issues/56048))
+ - Updated vertical tabs to retain scroll position when toggling expanded state. ([#52270](https://github.com/brave/brave-browser/issues/52270))
+ - Updated the vertical tab bar to be draggable. ([#30011](https://github.com/brave/brave-browser/issues/30011))
+ - Fixed crash which occurred when opening brave://history from guest profile. ([#58419](https://github.com/brave/brave-browser/issues/58419))
+ - Fixed farbling seed being retained between session restarts in certain cases. ([#56288](https://github.com/brave/brave-browser/issues/56288))
+ - Fixed both delta and full installers being requested on macOS. ([#45447](https://github.com/brave/brave-browser/issues/45447))
+ - Fixed "Reset to default" not working for Brave specific actions. ([#56733](https://github.com/brave/brave-browser/issues/56733))
+ - Fixed autohiding of vertical tabs panel on Linux. ([#50579](https://github.com/brave/brave-browser/issues/50579))
+ - Upgraded Chromium to 152.0.7977.64. ([#58417](https://github.com/brave/brave-browser/issues/58417)) ([Changelog for 152.0.7977.64](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.173..152.0.7977.64?pretty=fuller&n=1000))
+
 ## [1.93.138](https://github.com/brave/brave-browser/releases/tag/v1.93.138)
 
  - Upgraded Chromium to 151.0.7922.173. ([#58314](https://github.com/brave/brave-browser/issues/58314)) ([Changelog for 151.0.7922.173](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.169..151.0.7922.173?pretty=fuller&n=1000))
