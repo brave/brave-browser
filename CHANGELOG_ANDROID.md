@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.94.119](https://github.com/brave/brave-browser/releases/tag/v1.94.119)
+
+ - Upgraded Chromium to 152.0.7977.76. ([#58609](https://github.com/brave/brave-browser/issues/58609)) ([Changelog for 152.0.7977.76](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.64..152.0.7977.76?pretty=fuller&n=1000))
+
 ## [1.94.117](https://github.com/brave/brave-browser/releases/tag/v1.94.117)
 
 ### Web3
