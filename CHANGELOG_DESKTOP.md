@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.95.102](https://github.com/brave/brave-browser/releases/tag/v1.95.102)
+
+ - Fixed Wallet incorrectly displaying in the hamburger menu on Linux when profile has been upgraded to Brave Origin. ([#56536](https://github.com/brave/brave-browser/issues/56536))
+ - Fixed issue where clicking on a "Suggested topic" for "Tab focus" doesn't group tabs into a new window. ([#58977](https://github.com/brave/brave-browser/issues/58977))
+ - Upgraded Chromium to 153.0.8010.48. ([#59028](https://github.com/brave/brave-browser/issues/59028)) ([Changelog for 153.0.8010.48](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.37..153.0.8010.48?pretty=fuller&n=1000))
+
 ## [1.95.101](https://github.com/brave/brave-browser/releases/tag/v1.95.101)
 
 ### Web3
