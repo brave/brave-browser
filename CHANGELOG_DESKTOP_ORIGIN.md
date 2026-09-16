@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.95.102](https://github.com/brave/brave-browser/releases/tag/v1.95.102)
+
+ - Upgraded Chromium to 153.0.8010.48. ([#59028](https://github.com/brave/brave-browser/issues/59028)) ([Changelog for 153.0.8010.48](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.37..153.0.8010.48?pretty=fuller&n=1000))
+
 ## [1.95.101](https://github.com/brave/brave-browser/releases/tag/v1.95.101)
 
  - Added calculator results to the address bar dropdown when typing basic math expressions. ([#52260](https://github.com/brave/brave-browser/issues/52260))
