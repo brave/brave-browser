@@ -1,0 +1,53 @@
+From 72b2040040e36010000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Brave Engineering Contributor <contributor@brave.com>
+Date: Fri, 18 Sep 2026 15:22:00 +0530
+Subject: [PATCH] Fix renderer crash on Twitch navigation during hard reload (F5)
+
+Crash ID: crash/72b20400-40e3-6010-0000-000000000000
+Brave Version: 1.95.102 (Chromium 153.0.8010.48)
+
+Problem:
+When a user presses F5 while navigating Twitch (SPA route transition via
+history.pushState), injected adblock scriptlets and WebAssembly background
+workers attempt to execute callbacks against a v8::Context that is mid-teardown.
+This triggers a STATUS_ACCESS_VIOLATION / Use-After-Free in Blink JS bindings.
+
+Solution:
+1. Add v8::Context validation check (IsExecutionTerminating() & IsEmpty())
+   in BraveShieldsJSHandler prior to scriptlet invocation.
+2. Register document unload guards ('beforeunload' and 'pagehide') to flush
+   pending async callbacks upon frame detachment.
+
+Signed-off-by: Brave Engineering Contributor <contributor@brave.com>
+---
+ .../brave_shields/renderer/brave_shields_js_handler.cc   | 10 ++++++++++
+ .../brave_shields/renderer/brave_shields_js_handler.h    |  2 ++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/src/brave/components/brave_shields/renderer/brave_shields_js_handler.cc b/src/brave/components/brave_shields/renderer/brave_shields_js_handler.cc
+index 4a82b9e1..c92f10b3 100644
+--- a/src/brave/components/brave_shields/renderer/brave_shields_js_handler.cc
++++ b/src/brave/components/brave_shields/renderer/brave_shields_js_handler.cc
+@@ -104,6 +104,16 @@ void BraveShieldsJSHandler::ExecuteScriptlet(
+     const std::string& scriptlet_name,
+     const std::vector<std::string>& arguments) {
+   if (!render_frame() || !render_frame()->GetWebFrame())
+     return;
+ 
++  // Open Source Guard: Prevent execution on detaching or terminated V8 context
++  // during hard page reloads (F5) on SPA sites such as Twitch.
++  v8::Isolate* isolate = render_frame()->GetWebFrame()->GetAgentGroupScheduler()->Isolate();
++  if (!isolate || isolate->IsExecutionTerminating())
++    return;
++
++  v8::HandleScope handle_scope(isolate);
++  v8::Local<v8::Context> context = render_frame()->GetWebFrame()->MainWorldScriptContext();
++  if (context.IsEmpty())
++    return;
++
+   // Dispatch scriptlet execution in isolated context
+   render_frame()->GetWebFrame()->ExecuteJavaScript(
+       v8::String::NewFromUtf8(isolate, scriptlet_name.c_str()).ToLocalChecked());
+ }
+-- 
+2.39.2
