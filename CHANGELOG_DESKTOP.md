@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.95.104](https://github.com/brave/brave-browser/releases/tag/v1.95.104)
+
+ - Upgraded Chromium to 153.0.8010.53. ([#59125](https://github.com/brave/brave-browser/issues/59125)) ([Changelog for 153.0.8010.53](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.48..153.0.8010.53?pretty=fuller&n=1000))
+
 ## [1.95.102](https://github.com/brave/brave-browser/releases/tag/v1.95.102)
 
  - Fixed Wallet incorrectly displaying in the hamburger menu on Linux when profile has been upgraded to Brave Origin. ([#56536](https://github.com/brave/brave-browser/issues/56536))
