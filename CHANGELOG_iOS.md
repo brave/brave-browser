@@ -2,14 +2,10 @@
 
 ## [1.94.122](https://github.com/brave/brave-browser/releases/tag/v1.94.122)
 
-### Leo
- - Updated default AI models in Brave Leo. ([#56011](https://github.com/brave/brave-browser/issues/56011) & [#49879](https://github.com/brave/brave-browser/issues/49879))
-
-### General
-
  - [Security] Fixed minibar eliding issue as reported on HackerOne by z3phyrus. ([#57393](https://github.com/brave/brave-browser/issues/57393))
  - [Security] Fixed parsing dir/meta tags in the Reader Mode as reported on HackerOne by nishimunea. ([#58095](https://github.com/brave/brave-browser/issues/58095))
  - Enabled "Find Selection" from page context menu for web views. ([#53391](https://github.com/brave/brave-browser/issues/53391))
+ - Updated default AI models in Brave Leo. ([#56011](https://github.com/brave/brave-browser/issues/56011) & [#49879](https://github.com/brave/brave-browser/issues/49879))
  - Updated PopArt alternative icon names. ([#56819](https://github.com/brave/brave-browser/issues/56819))
  - Updated "Manage Passwords" settings UI to match new designs. ([#52212](https://github.com/brave/brave-browser/issues/52212))
  - Fixed issue where email could not be sent due to email configuration error. ([#55428](https://github.com/brave/brave-browser/issues/55428))
