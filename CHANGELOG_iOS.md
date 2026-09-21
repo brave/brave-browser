@@ -3,8 +3,7 @@
 ## [1.94.122](https://github.com/brave/brave-browser/releases/tag/v1.94.122)
 
 ### Leo
- - Updated list to show new, removed, and upgraded models. ([#56011](https://github.com/brave/brave-browser/issues/56011))
- - Removed "Llama 3.1 8B" from the default model list. ([#49879](https://github.com/brave/brave-browser/issues/49879))
+ - Updated default AI models in Brave Leo. ([#56011](https://github.com/brave/brave-browser/issues/56011) & [#49879](https://github.com/brave/brave-browser/issues/49879))
 
 ### General
 
