@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.95.101](https://github.com/brave/brave-browser/releases/tag/v1.95.101)
+
+### Web3
+
+ - Added Zcash Ironwood migration banner. ([#58493](https://github.com/brave/brave-browser/issues/58493))
+ - Added landscape support for Brave Wallet onboarding flow. ([#58169](https://github.com/brave/brave-browser/issues/58169))
+ - Added landscape support for Account selector screen in Brave Wallet. ([#57467](https://github.com/brave/brave-browser/issues/57467))
+ - Added landscape support for Advanced transaction settings screen in Brave Wallet. ([#57504](https://github.com/brave/brave-browser/issues/57504))
+ - Added landscape support for Dapps transaction confirmation screens in Brave Wallet. ([#57723](https://github.com/brave/brave-browser/issues/57723))
+ - Added landscape support for Brave Wallet lock and restore screens. ([#58008](https://github.com/brave/brave-browser/issues/58008))
+ - Fixed spacing for asset loading skeleton on the "Accounts" page. ([#57871](https://github.com/brave/brave-browser/issues/57871))
+
+### Leo
+
+- Added the ability to share a Leo conversation. ([#56444](https://github.com/brave/brave-browser/issues/56444))
+- Fixed full page screenshot not displaying accurate file size. ([#57676](https://github.com/brave/brave-browser/issues/57676))
+
+### General
+
+ - Added "Copy clean link" option to address bar context menu. ([#57872](https://github.com/brave/brave-browser/issues/57872))
+ - Added dynamic color tinting for icons on settings screen. ([#57054](https://github.com/brave/brave-browser/issues/57054))
+ - [Security] Fix "brave://" URLs opening from external sources as reported on HackerOne by stoletheminerals. ([#57284](https://github.com/brave/brave-browser/issues/57284))
+ - Enabled "Dynamic colors" preference by default for new and existing users. ([#57121](https://github.com/brave/brave-browser/issues/57121))
+ - Enabled fresh New Tab Page after idle by default. ([#58056](https://github.com/brave/brave-browser/issues/58056))
+ - Re-added "Move address bar to top/bottom" context menu option on "Standard" New Tab Page. ([#57398](https://github.com/brave/brave-browser/issues/57398))
+ - Improved spacing between "Hamburger menu" and "Shred" icons on tab switcher screen. ([#57241](https://github.com/brave/brave-browser/issues/57241))
+ - Updated rating prompt design to support dynamic colors and user preferences. ([#57242](https://github.com/brave/brave-browser/issues/57242))
+ - Updated settings layout to display content beneath system navigation bar. ([#58116](https://github.com/brave/brave-browser/issues/58116))
+ - Fixed issue where address bar theming lost dynamic colors in certain cases. ([#55610](https://github.com/brave/brave-browser/issues/55610))
+ - Fixed incorrect buttons colors on certain settings screens when using dynamic colors. ([#56844](https://github.com/brave/brave-browser/issues/56844))
+ - Fixed color display issues across settings and preference screens when dynamic colors enabled or disabled. ([#56850](https://github.com/brave/brave-browser/issues/56850))
+ - Fixed inconsistent options on "Delete browsing data" screen when accessed via tab switcher "Hamburger menu". ([#57217](https://github.com/brave/brave-browser/issues/57217))
+ - Fixed incorrect "Shred" button color on Private Tab when light theme is enabled. ([#57258](https://github.com/brave/brave-browser/issues/57258))
+ - Fixed crash in autofill service when no data can be filled. ([#58094](https://github.com/brave/brave-browser/issues/58094))
+ - Fixed crash when Private browsing mode is unavailable. ([#58218](https://github.com/brave/brave-browser/issues/58218))
+ - Fixed issue where Brave Shields panel truncated long hostnames at the end and hid the main domain. ([#58242](https://github.com/brave/brave-browser/issues/58242))
+ - Upgraded Chromium to 153.0.8010.37. ([#58822](https://github.com/brave/brave-browser/issues/58822)) ([Changelog for 153.0.8010.37](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.83..153.0.8010.37?pretty=fuller&n=1000))
+
 ## [1.94.121](https://github.com/brave/brave-browser/releases/tag/v1.94.121)
 
  - Upgraded Chromium to 152.0.7977.83. ([#58701](https://github.com/brave/brave-browser/issues/58701)) ([Changelog for 152.0.7977.83](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.76..152.0.7977.83?pretty=fuller&n=1000))
