@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.95.102](https://github.com/brave/brave-browser/releases/tag/v1.95.102)
+
+ - Updated New Tab Page to appear after 12 hours of inactivity and kept recent tab prompt visible until manually dismissed. ([#58514](https://github.com/brave/brave-browser/issues/58514))
+ - Fixed crash when opening a bookmark in a new tab via bookmark manager. ([#58966](https://github.com/brave/brave-browser/issues/58966))
+ - Upgraded Chromium to 153.0.8010.48. ([#59028](https://github.com/brave/brave-browser/issues/59028)) ([Changelog for 153.0.8010.48](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.37..153.0.8010.48?pretty=fuller&n=1000))
+
 ## [1.95.101](https://github.com/brave/brave-browser/releases/tag/v1.95.101)
 
 ### Web3
