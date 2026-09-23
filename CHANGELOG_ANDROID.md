@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.95.104](https://github.com/brave/brave-browser/releases/tag/v1.95.104)
+
+ - Upgraded Chromium to 153.0.8010.53. ([#59125](https://github.com/brave/brave-browser/issues/59125)) ([Changelog for 153.0.8010.53](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.48..153.0.8010.53?pretty=fuller&n=1000))
+
 ## [1.95.102](https://github.com/brave/brave-browser/releases/tag/v1.95.102)
 
  - Updated New Tab Page to appear after 12 hours of inactivity and kept recent tab prompt visible until manually dismissed. ([#58514](https://github.com/brave/brave-browser/issues/58514))
