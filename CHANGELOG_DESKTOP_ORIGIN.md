@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.96.59](https://github.com/brave/brave-browser/releases/tag/v1.96.59)
+
+ - Added preview dialog for "Screenshot" tool. ([#57937](https://github.com/brave/brave-browser/issues/57937))
+ - Updated brave://settings/system "Memory" section to display "Always keep these sites active" selections. ([#58960](https://github.com/brave/brave-browser/issues/58960))
+ - Updated location of "Screenshot" tool in hamburger menu from "Share" to "Save" section. ([#58425](https://github.com/brave/brave-browser/issues/58425))
+ - Updated "Shift + Right click" override to check for canvas elements on page. ([#56333](https://github.com/brave/brave-browser/issues/56333))
+ - Fixed renderer crash when "UserMediaElement" is disabled. ([#59012](https://github.com/brave/brave-browser/issues/59012))
+ - Fixed issue where onmibox calculation inputs were truncated in certain cases. ([#54277](https://github.com/brave/brave-browser/issues/54277))
+ - Fixed toggle for "Improve search suggestions" under brave://settings/search not being persisted on browser restart. ([#58943](https://github.com/brave/brave-browser/issues/58943))
+ - Fixed inability to edit startup pages under brave://settings/getStarted in certain cases. ([#58846](https://github.com/brave/brave-browser/issues/58846))
+ - Fixed desktop shortcuts displaying the Chromium icon instead of the Brave icon. ([#58499](https://github.com/brave/brave-browser/issues/58499))
+ - Fixed tab group hover card position when using vertical tabs. ([#58592](https://github.com/brave/brave-browser/issues/58592))
+ - Fixed missing "WM_CLASS" and Wayland app ID for video Picture-in-Picture (PiP) window on Linux. ([#57390](https://github.com/brave/brave-browser/issues/57390))
+ - Fixed issue where Brave News images weren't immediately rendered in the side panel. ([#58411](https://github.com/brave/brave-browser/issues/58411))
+ - Upgraded Chromium to 154.0.8037.58. ([#59235](https://github.com/brave/brave-browser/issues/59235)) ([Changelog for 154.0.8037.58](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.53..154.0.8037.58?pretty=fuller&n=1000))
+
 ## [1.95.104](https://github.com/brave/brave-browser/releases/tag/v1.95.104)
 
  - Upgraded Chromium to 153.0.8010.53. ([#59125](https://github.com/brave/brave-browser/issues/59125)) ([Changelog for 153.0.8010.53](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.48..153.0.8010.53?pretty=fuller&n=1000))
