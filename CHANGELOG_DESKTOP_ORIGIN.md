@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.96.60](https://github.com/brave/brave-browser/releases/tag/v1.96.60)
+
+ - Upgraded Chromium to 154.0.8037.93. ([#59449](https://github.com/brave/brave-browser/issues/59449)) ([Changelog for 154.0.8037.93](https://chromium.googlesource.com/chromium/src/+log/154.0.8037.58..154.0.8037.93?pretty=fuller&n=1000))
+
 ## [1.96.59](https://github.com/brave/brave-browser/releases/tag/v1.96.59)
 
  - Added preview dialog for "Screenshot" tool. ([#57937](https://github.com/brave/brave-browser/issues/57937))
