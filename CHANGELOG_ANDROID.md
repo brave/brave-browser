@@ -1,5 +1,45 @@
 # Changelog
 
+## [1.96.59](https://github.com/brave/brave-browser/releases/tag/v1.96.59)
+
+### Web3
+
+ - Updated wallet to validate Solana mint addresses before NFT metadata/balance lookups. ([#58531](https://github.com/brave/brave-browser/issues/58531))
+ - Updated wallet to use a popup window instead of opening the panel for submitted transaction. ([#19595](https://github.com/brave/brave-browser/issues/19595))
+ - Fixed issue where Ethereum and Solana site settings appeared blank. ([#56467](https://github.com/brave/brave-browser/issues/56467))
+ - Fixed issue where Brave Wallet allowed transactions to be approved with insufficient balance. ([#58273](https://github.com/brave/brave-browser/issues/58273))
+ - Fixed truncated UI on "Add network" screen in Brave Wallet when in landscape mode. ([#58277](https://github.com/brave/brave-browser/issues/58277))
+
+### Rewards
+
+ - Fixed crash in Brave Rewards when triggered by background retention notifications. ([#58575](https://github.com/brave/brave-browser/issues/58575))
+
+### Leo
+
+- Added support for rendering mathematical equations in Leo responses. ([#56523](https://github.com/brave/brave-browser/issues/56523))
+
+### General
+
+ - Improved onboarding layout spacing to prevent visual overlap between text and logo. ([#56097](https://github.com/brave/brave-browser/issues/56097))
+ - Improved onboarding layout for landscape mode. ([#58304](https://github.com/brave/brave-browser/issues/58304))
+ - Improved bottom navigation toolbar color alignment with system navigation bar when dynamic colors are enabled. ([#58317](https://github.com/brave/brave-browser/issues/58317))
+ - Updated URL bar icons to use standardized sizing and Nala design framework. ([#46059](https://github.com/brave/brave-browser/issues/46059))
+ - Updated contextual menu icons to use Nala design framework. ([#56196](https://github.com/brave/brave-browser/issues/56196))
+ - Updated Brave News opt-in screen to use Nala design framework. ([#58370](https://github.com/brave/brave-browser/issues/58370))
+ - Removed tab group creation option from tab selection menu when tab groups are disabled. ([#58880](https://github.com/brave/brave-browser/issues/58880))
+ - Fixed issue where onmibox calculation inputs were truncated in certain cases. ([#54277](https://github.com/brave/brave-browser/issues/54277))
+ - Fixed issue where opening browser while playing Picture-in-Picture (PiP) video created a second browser instance in certain cases. ([#50550](https://github.com/brave/brave-browser/issues/50550))
+ - Fixed New Tab Page sponsored image notification remaining visible across other tabs and tabs overview screen. ([#57447](https://github.com/brave/brave-browser/issues/57447))
+ - Fixed issue where tapping near "New Tab" button opened search suggestions when Google Search was set as default. ([#57997](https://github.com/brave/brave-browser/issues/57997))
+ - Fixed inconsistent video playback behavior when entering Picture-in-Picture (PiP) mode via different entry points. ([#58181](https://github.com/brave/brave-browser/issues/58181))
+ - Fixed Brave Shields and Brave Rewards URL bar icons losing Nala colors after switching between Private and Standard tabs. ([#58216](https://github.com/brave/brave-browser/issues/58216))
+ - Fixed crash during onboarding when install source information was unavailable in Play Store. ([#58410](https://github.com/brave/brave-browser/issues/58410))
+ - Fixed tablet URL bar corner rendering in right-to-left (RTL) language layouts. ([#58420](https://github.com/brave/brave-browser/issues/58420))
+ - Fixed unexpected Sync promotional banner appearing on "Recent Tabs" page. ([#58479](https://github.com/brave/brave-browser/issues/58479))
+ - Fixed crash when opening QR code scanner on devices without a rear camera. ([#58584](https://github.com/brave/brave-browser/issues/58584))
+ - Fixed crash that occurred when closing or rotating browser while a dialog was open in certain cases. ([#58587](https://github.com/brave/brave-browser/issues/58587))
+ - Upgraded Chromium to 154.0.8037.58. ([#59235](https://github.com/brave/brave-browser/issues/59235)) ([Changelog for 154.0.8037.58](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.53..154.0.8037.58?pretty=fuller&n=1000))
+
 ## [1.95.104](https://github.com/brave/brave-browser/releases/tag/v1.95.104)
 
  - Upgraded Chromium to 153.0.8010.53. ([#59125](https://github.com/brave/brave-browser/issues/59125)) ([Changelog for 153.0.8010.53](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.48..153.0.8010.53?pretty=fuller&n=1000))
