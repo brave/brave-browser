@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.96.61](https://github.com/brave/brave-browser/releases/tag/v1.96.61)
+
+ - Reverted farbling support for schemes with inherited HTTP/HTTPS origin. ([#59276](https://github.com/brave/brave-browser/issues/59276))
+ - Fix crash which occurred when using a Private Window to do calculations in the omnibox. ([#59437](https://github.com/brave/brave-browser/issues/59437))
+ - Upgraded Chromium to 154.0.8037.98. ([#59587](https://github.com/brave/brave-browser/issues/59587)) ([Changelog for 154.0.8037.98](https://chromium.googlesource.com/chromium/src/+log/154.0.8037.93..154.0.8037.98?pretty=fuller&n=1000))
+
 ## [1.96.60](https://github.com/brave/brave-browser/releases/tag/v1.96.60)
 
  - Fixed privacy leak caused by favicon for sites added to sidebar in Tor windows as reported on HackerOne by witteshadovv. ([#59318](https://github.com/brave/brave-browser/issues/59318))
