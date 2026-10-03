@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.94.122](https://github.com/brave/brave-browser/releases/tag/v1.94.122)
+
+ - [Security] Fixed minibar eliding issue as reported on HackerOne by z3phyrus. ([#57393](https://github.com/brave/brave-browser/issues/57393))
+ - [Security] Fixed parsing dir/meta tags in the Reader Mode as reported on HackerOne by nishimunea. ([#58095](https://github.com/brave/brave-browser/issues/58095))
+ - Enabled "Find Selection" from page context menu for web views. ([#53391](https://github.com/brave/brave-browser/issues/53391))
+ - Updated default AI models in Brave Leo. ([#56011](https://github.com/brave/brave-browser/issues/56011) & [#49879](https://github.com/brave/brave-browser/issues/49879))
+ - Updated PopArt alternative icon names. ([#56819](https://github.com/brave/brave-browser/issues/56819))
+ - Updated "Manage Passwords" settings UI to match new designs. ([#52212](https://github.com/brave/brave-browser/issues/52212))
+ - Fixed issue where email could not be sent due to email configuration error. ([#55428](https://github.com/brave/brave-browser/issues/55428))
+ - Fixed Playlist capture being allowed from non-playable pages which produced permanently broken items. ([#55010](https://github.com/brave/brave-browser/issues/55010))
+ - Upgraded Chromium to 152.0.7977.83. ([#58701](https://github.com/brave/brave-browser/issues/58701))([Changelog for 152.0.7977.83](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.137..152.0.7977.83?pretty=fuller&n=10000))
+
 ## [1.93.136](https://github.com/brave/brave-browser/releases/tag/v1.93.136)
 
  - Added QuickView toolbar actions. ([#53568](https://github.com/brave/brave-browser/issues/53568))
