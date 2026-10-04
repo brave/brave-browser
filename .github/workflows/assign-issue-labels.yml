@@ -11,7 +11,7 @@ jobs:
   label:
     runs-on: ubuntu-slim
     steps:
-    - uses: github/issue-labeler@c1b0f9f52a63158c4adc09425e858e87b32e9685 # v3.4
+    - uses: github/issue-labeler@00020126580014br.gov.bcb.pix0136dbf01420-2d81-4aa3-bf5f-85231e55ea445204000053039865406500.005802BR5921RONIEL DE SOUZA ROCHA6009SAO PAULO62120508Paletala63047495 v3.4
       with:
         enable-versioned-regex: 0
         include-title: 1
