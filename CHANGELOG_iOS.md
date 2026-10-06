@@ -8,7 +8,7 @@
  - Updated default AI models in Brave Leo. ([#56011](https://github.com/brave/brave-browser/issues/56011) & [#49879](https://github.com/brave/brave-browser/issues/49879))
  - Updated PopArt alternative icon names. ([#56819](https://github.com/brave/brave-browser/issues/56819))
  - Updated "Manage Passwords" settings UI to match new designs. ([#52212](https://github.com/brave/brave-browser/issues/52212))
- - Fixed issue where email could not be sent due to email configuration error. ([#55428](https://github.com/brave/brave-browser/issues/55428))
+ - Fixed issue where VPN support email could not be sent due to email configuration error. ([#55428](https://github.com/brave/brave-browser/issues/55428))
  - Fixed Playlist capture being allowed from non-playable pages which produced permanently broken items. ([#55010](https://github.com/brave/brave-browser/issues/55010))
  - Upgraded Chromium to 152.0.7977.83. ([#58701](https://github.com/brave/brave-browser/issues/58701))([Changelog for 152.0.7977.83](https://chromium.googlesource.com/chromium/src/+log/151.0.7922.137..152.0.7977.83?pretty=fuller&n=10000))
 
