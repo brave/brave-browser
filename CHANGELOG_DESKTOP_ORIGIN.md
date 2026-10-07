@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.97.56](https://github.com/brave/brave-browser/releases/tag/v1.97.56)
+
+ - Updated screenshots taken in Private or Tor Windows to be marked as sensitive on Windows. ([#58875](https://github.com/brave/brave-browser/issues/58875))
+ - Fixed crash which occurred on macOS in certain cases when an update was pending. ([#58699](https://github.com/brave/brave-browser/issues/58699))
+ - Fixed "Pin to taskbar" not displaying a system notification on Windows. ([#58830](https://github.com/brave/brave-browser/issues/58830))
+ - Fixed app icon theme choice being broken when downloading a file on macOS 26 and 27. ([#58790](https://github.com/brave/brave-browser/issues/58790))
+ - Fixed "Always allow" checkbox setting for "mailto" not being respected on the external protocol dialog on macOS. ([#16927](https://github.com/brave/brave-browser/issues/16927))
+ - Fixed incorrect tab tinting for achromatic colors. ([#58747](https://github.com/brave/brave-browser/issues/58747))
+ - Fixed shields icon jitter on PWAs in tabbed mode on Linux. ([#55708](https://github.com/brave/brave-browser/issues/55708))
+ - Upgraded Chromium to 155.0.8059.40. ([#59729](https://github.com/brave/brave-browser/issues/59729)) ([Changelog for 155.0.8059.40](https://chromium.googlesource.com/chromium/src/+log/154.0.8037.98..155.0.8059.40?pretty=fuller&n=1000))
+
 ## [1.96.61](https://github.com/brave/brave-browser/releases/tag/v1.96.61)
 
  - Reverted farbling support for schemes with inherited HTTP/HTTPS origin. ([#59276](https://github.com/brave/brave-browser/issues/59276))
