@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.97.56](https://github.com/brave/brave-browser/releases/tag/v1.97.56)
+
+ - Added support for self-service Brave Account deletion. ([#58719](https://github.com/brave/brave-browser/issues/58719))
+ - Improved address bar focus ring on tablets to include Brave Shields and Brave Rewards buttons. ([#58840](https://github.com/brave/brave-browser/issues/58840))
+ - Fixed autofill service prompting to save an address on forms that do not contain address fields. ([#58660](https://github.com/brave/brave-browser/issues/58660))
+ - Fixed inability to select YouTube "settings" icon in fullscreen mode. ([#57449](https://github.com/brave/brave-browser/issues/57449))
+ - Fixed media notification persisting with incorrect playback state after reloading YouTube Music webpage. ([#54893](https://github.com/brave/brave-browser/issues/54893))
+ - Fixed dimmed overlay not extending to system navigation area when address bar is active and empty. ([#58344](https://github.com/brave/brave-browser/issues/58344))
+ - Fixed YouTube video player being cut off at the bottom in fullscreen mode on certain Android devices. ([#56763](https://github.com/brave/brave-browser/issues/56763))
+ - Fixed zoom setting being cut off in the main menu on tablets when viewing internal pages. ([#58920](https://github.com/brave/brave-browser/issues/58920))
+ - Upgraded Chromium to 155.0.8059.40. ([#59729](https://github.com/brave/brave-browser/issues/59729)) ([Changelog for 155.0.8059.40](https://chromium.googlesource.com/chromium/src/+log/154.0.8037.98..155.0.8059.40?pretty=fuller&n=1000))
+
 ## [1.96.61](https://github.com/brave/brave-browser/releases/tag/v1.96.61)
 
  - Reverted farbling support for schemes with inherited HTTP/HTTPS origin. ([#59276](https://github.com/brave/brave-browser/issues/59276))
