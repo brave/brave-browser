@@ -10,13 +10,13 @@
 ### Leo
 
  - Added the ability to share a Leo conversation. ([#56444](https://github.com/brave/brave-browser/issues/56444))
- - Removed 15 word limit from the Leo voice input. ([#57829](https://github.com/brave/brave-browser/issues/57829))
+ - Removed 15 word limit when using Leo voice input. ([#57829](https://github.com/brave/brave-browser/issues/57829))
 
 ### General
 
- - Added an option to reset the Rewards profile in "Brave Rewards” settings page. ([#40768](https://github.com/brave/brave-browser/issues/40768))
+ - Added option to reset the Rewards profile in "Brave Rewards” settings page. ([#40768](https://github.com/brave/brave-browser/issues/40768))
  - Updated tab tray UI. ([#57053](https://github.com/brave/brave-browser/issues/57053))
- - Updated the design of the VPN promo callout in Settings menu. ([57587](https://github.com/brave/brave-browser/issues/57587))
+ - Updated the design of the VPN promo callout in Settings menu. ([#57587](https://github.com/brave/brave-browser/issues/57587))
  - Fixed crashes related to the cosmetic filtering tab helper. ([#58967](https://github.com/brave/brave-browser/issues/58967))
  - Fixed regional filter lists not being enabled by default for certain locales. ([#58808](https://github.com/brave/brave-browser/issues/58808))
  - Fixed media being downloaded twice when adding to Playlist. ([#57523](https://github.com/brave/brave-browser/issues/57523))
