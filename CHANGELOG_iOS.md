@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.95.104](https://github.com/brave/brave-browser/releases/tag/v1.95.104)
+
+### Web3
+
+ - Added Zcash Ironwood migration banner. ([#58493](https://github.com/brave/brave-browser/issues/58493))
+ - Fixed spacing for asset loading skeleton on the "Accounts" page. ([#57871](https://github.com/brave/brave-browser/issues/57871))
+
+### Leo
+
+ - Added the ability to share a Leo conversation. ([#56444](https://github.com/brave/brave-browser/issues/56444))
+ - Removed 15 word limit from the Leo voice input. ([#57829](https://github.com/brave/brave-browser/issues/57829))
+
+### General
+
+ - Added an option to reset the Rewards profile in "Brave Rewards” settings page. ([#40768](https://github.com/brave/brave-browser/issues/40768))
+ - Updated tab tray UI. ([#57053](https://github.com/brave/brave-browser/issues/57053))
+ - Updated the design of the VPN promo callout in Settings menu. ([57587](https://github.com/brave/brave-browser/issues/57587))
+ - Fixed crashes related to the cosmetic filtering tab helper. ([#58967](https://github.com/brave/brave-browser/issues/58967))
+ - Fixed regional filter lists not being enabled by default for certain locales. ([#58808](https://github.com/brave/brave-browser/issues/58808))
+ - Fixed media being downloaded twice when adding to Playlist. ([#57523](https://github.com/brave/brave-browser/issues/57523))
+ - Fixed blank screen being shown when opening the Brave app using CarPlay. ([#55775](https://github.com/brave/brave-browser/issues/55775))
+ - Upgraded Chromium to 153.0.8010.53. ([#59125](https://github.com/brave/brave-browser/issues/59125))([Changelog for 153.0.8010.53](https://chromium.googlesource.com/chromium/src/+log/152.0.7977.83..153.0.8010.53?pretty=fuller&n=10000))
+
 ## [1.94.122](https://github.com/brave/brave-browser/releases/tag/v1.94.122)
 
  - [Security] Fixed minibar eliding issue as reported on HackerOne by z3phyrus. ([#57393](https://github.com/brave/brave-browser/issues/57393))
