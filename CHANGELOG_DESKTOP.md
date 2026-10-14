@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.97.57](https://github.com/brave/brave-browser/releases/tag/v1.97.57)
+
+ - Removed "Payment methods and other info from Brave Wallet" sync data type toggle. ([#59689](https://github.com/brave/brave-browser/issues/59689))
+ - Fixed issue where Tor windows could fail to connect to the Tor network in certain cases. ([#59824](https://github.com/brave/brave-browser/issues/59824))
+ - Upgraded Chromium to 155.0.8059.80. ([#59893](https://github.com/brave/brave-browser/issues/59893)) ([Changelog for 155.0.8059.80](https://chromium.googlesource.com/chromium/src/+log/155.0.8059.40..155.0.8059.80?pretty=fuller&n=1000))
+
 ## [1.97.56](https://github.com/brave/brave-browser/releases/tag/v1.97.56)
 
 ### Web3
