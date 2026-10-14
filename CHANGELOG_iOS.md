@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.96.62](https://github.com/brave/brave-browser/releases/tag/v1.96.62)
+
+### Leo
+
+ - Added Leo AI voice input support to homescreen and lockscreen widgets. ([#58183](https://github.com/brave/brave-browser/issues/58183))
+ - Added support for rendering mathematical equations in Leo responses. ([#56523](https://github.com/brave/brave-browser/issues/56523))
+ 
+### General
+
+ - Added support for new GPC API on iOS 27. ([#55958](https://github.com/brave/brave-browser/issues/55958))
+ - Added variable blur effect to the top of the web view on iOS 26+. ([#58418](https://github.com/brave/brave-browser/issues/58418))
+ - [Security] Fixed Private Browsing Only mode being bypassed when opening deep links as reported on HackerOne by syarif07. ([#59400](https://github.com/brave/brave-browser/issues/59400))
+ - Removed playlist icon in the URL bar from being displayed on the YouTube homepage. ([#58718](https://github.com/brave/brave-browser/issues/58718))
+ - Updated the New Tab Page background to be extended to the screen edges for iOS 26+. ([#58450](https://github.com/brave/brave-browser/issues/58450))
+ - Updated filter lists to use full permissions. ([#59112](https://github.com/brave/brave-browser/issues/59112))
+ - Fixed Instagram reels not working when forwarded via direct message. ([#54921](https://github.com/brave/brave-browser/issues/54921))
+ - Fixed "Site Tabs Closed" being truncated in the Shields panel's Shred detail view. ([#58585](https://github.com/brave/brave-browser/issues/58585))
+ - Upgraded Chromium to 154.0.8037.98. ([#59587](https://github.com/brave/brave-browser/issues/59587))([Changelog for 154.0.8037.98](https://chromium.googlesource.com/chromium/src/+log/153.0.8010.53..154.0.8037.98?pretty=fuller&n=10000))
+ 
 ## [1.95.104](https://github.com/brave/brave-browser/releases/tag/v1.95.104)
 
 ### Web3
