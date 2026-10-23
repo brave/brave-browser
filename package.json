@@ -17,7 +17,7 @@
   "config": {
     "projects": {
       "brave-core": {
-        "branch": "1.99.x"
+        "tag": "v1.99.50"
       }
     }
   }
