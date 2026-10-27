@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.98.60](https://github.com/brave/brave-browser/releases/tag/v1.98.60)
+
+ - Added ability to strip metadata from images on download/upload. ([#5238](https://github.com/brave/brave-browser/issues/5238)
+ - Added support for reordering Containers. ([#59099](https://github.com/brave/brave-browser/issues/59099))
+ - Updated brave://settings/autofill to the previous layout. ([#58986](https://github.com/brave/brave-browser/issues/58986))
+ - Updated Private Windows to inherit less-permissive site permissions. ([#58824](https://github.com/brave/brave-browser/issues/58824))
+ - Fixed crash when adding multiple tabs that are already in a tab group to a new one. ([#58666](https://github.com/brave/brave-browser/issues/58666))
+ - Fixed "Ctrl+Shift+S" screenshot tool selection rectangle being offset from the cursor and producing an incorrect crop area. ([#58258](https://github.com/brave/brave-browser/issues/58258)))
+ - Upgraded Chromium to 156.0.8078.48. ([#60069](https://github.com/brave/brave-browser/issues/60069)) ([Changelog for 156.0.8078.48](https://chromium.googlesource.com/chromium/src/+log/155.0.8059.85..156.0.8078.48?pretty=fuller&n=1000))
+
 ## [1.97.59](https://github.com/brave/brave-browser/releases/tag/v1.97.59)
 
  - Upgraded Chromium to 155.0.8059.85. ([#59971](https://github.com/brave/brave-browser/issues/59971)) ([Changelog for 155.0.8059.85](https://chromium.googlesource.com/chromium/src/+log/155.0.8059.80..155.0.8059.85?pretty=fuller&n=1000))
