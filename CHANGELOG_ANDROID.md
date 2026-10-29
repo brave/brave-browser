@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.98.60](https://github.com/brave/brave-browser/releases/tag/v1.98.60)
+
+### Leo
+
+ - Updated Leo to honor Bring Your Own Model (BYOM) and NEAR model selection. ([#59867](https://github.com/brave/brave-browser/issues/59867))
+ - Updated AI Chat models. ([#58477](https://github.com/brave/brave-browser/issues/58477))
+
+### General
+
+ - Added option to turn off "bottom bar" when "Android bottom bar" enabled via brave://flags. ([#59228](https://github.com/brave/brave-browser/issues/59228))
+ - Added option to switch between "shortcuts" and "frequently visited sites" on the New Tab Page. ([#56191](https://github.com/brave/brave-browser/issues/56191))
+ - Added search parameter for Brave Search queries done via quick search bar. ([#59194](https://github.com/brave/brave-browser/issues/59194))
+ - Improved quick search engine settings and edit mode. ([#59192](https://github.com/brave/brave-browser/issues/59192))
+ - Fixed recent tabs displaying as a blank page. ([#59061](https://github.com/brave/brave-browser/issues/59061))
+ - Fixed "Find in page" icon design in main menu. ([#59128](https://github.com/brave/brave-browser/issues/59128))
+ - Fixed crash when long-pressing tab switcher on bottom toolbar. ([#59206](https://github.com/brave/brave-browser/issues/59206))
+ - Fixed issue where opening Brave for the first time via "Brave Search" widget did not honor default search engine in certain cases. ([#59274](https://github.com/brave/brave-browser/issues/59274))
+ - Fixed "forward" button in main menu being incorrectly replaced by "back" button when bottom toolbar is disabled. ([#59326](https://github.com/brave/brave-browser/issues/59326))
+ - Fixed crash when long-pressing URL toolbar on tablets. ([#60066](https://github.com/brave/brave-browser/issues/60066))
+ - Upgraded Chromium to 156.0.8078.48. ([#60069](https://github.com/brave/brave-browser/issues/60069)) ([Changelog for 156.0.8078.48](https://chromium.googlesource.com/chromium/src/+log/155.0.8059.85..156.0.8078.48?pretty=fuller&n=1000))
+
 ## [1.97.59](https://github.com/brave/brave-browser/releases/tag/v1.97.59)
 
  - Upgraded Chromium to 155.0.8059.85. ([#59971](https://github.com/brave/brave-browser/issues/59971)) ([Changelog for 155.0.8059.85](https://chromium.googlesource.com/chromium/src/+log/155.0.8059.80..155.0.8059.85?pretty=fuller&n=1000))
