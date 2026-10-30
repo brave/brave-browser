@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
+  "packages": [
+    "nix"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to the brave-browser devbox. Use nix run .#brave to test the flake.'"
+    ],
+    "scripts": {
+      "check": "nix flake check --no-build",
+      "build": "nix build .#brave --no-link",
+      "run": "nix run .#brave -- --version"
+    }
+  }
+}
