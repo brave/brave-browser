@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.99.55](https://github.com/brave/brave-browser/releases/tag/v1.99.55)
+
+ - Re-enabled "Allow split view drag-and-drop on left or right edge of window" setting under brave://settings/braveContent. ([#49752](https://github.com/brave/brave-browser/issues/49752))
+ - Updated icon in URL bar to magnifying glass for Brave Search. ([#58178](https://github.com/brave/brave-browser/issues/58178))
+ - Upgraded Chromium to 157.0.8103.39. ([#60882](https://github.com/brave/brave-browser/issues/60882)) ([Changelog for 157.0.8103.39](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.80..157.0.8103.39?pretty=fuller&n=1000))
+
 ## [1.98.63](https://github.com/brave/brave-browser/releases/tag/v1.98.63)
 
  - Upgraded Chromium to 156.0.8078.80. ([#60306](https://github.com/brave/brave-browser/issues/60306)) ([Changelog for 156.0.8078.80](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.74..156.0.8078.80?pretty=fuller&n=1000))

@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.99.55](https://github.com/brave/brave-browser/releases/tag/v1.99.55)
+
+### Leo
+
+ - Improved Leo to present a list of choices when it needs clarification on a task. ([#59649](https://github.com/brave/brave-browser/issues/59649))
+ - Improved suggested follow-up prompts. ([#59650](https://github.com/brave/brave-browser/issues/59650))
+ - Updated AI Chat models. ([#59701](https://github.com/brave/brave-browser/issues/59701))
+ - Fixed issue where a compromised Leo conversation frame could approve AI Chat tool-use requests without a direct user action. ([#59703](https://github.com/brave/brave-browser/issues/59703))
+
+### General
+
+ - Re-enabled "Allow split view drag-and-drop on left or right edge of window" setting under brave://settings/braveContent. ([#49752](https://github.com/brave/brave-browser/issues/49752))
+ - Updated icon in URL bar to magnifying glass for Brave Search. ([#58178](https://github.com/brave/brave-browser/issues/58178))
+ - Upgraded Chromium to 157.0.8103.39. ([#60882](https://github.com/brave/brave-browser/issues/60882)) ([Changelog for 157.0.8103.39](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.80..157.0.8103.39?pretty=fuller&n=1000))
+
 ## [1.98.63](https://github.com/brave/brave-browser/releases/tag/v1.98.63)
 
  - Upgraded Chromium to 156.0.8078.80. ([#60306](https://github.com/brave/brave-browser/issues/60306)) ([Changelog for 156.0.8078.80](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.74..156.0.8078.80?pretty=fuller&n=1000))
