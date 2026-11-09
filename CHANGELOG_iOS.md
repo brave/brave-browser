@@ -7,7 +7,7 @@
  - Enabled opening links with open URL params disposition in new tabs. ([#58839](https://github.com/brave/brave-browser/issues/58839))
  - Enabled background downloading support on iOS 26+. ([#58098](https://github.com/brave/brave-browser/issues/58098))
  - Updated shields panel UI. ([#56479](https://github.com/brave/brave-browser/issues/56479))
- - Updated New Tab Page (NTP) UI. ([#37314](https://github.com/brave/brave-browser/issues/37214))
+ - Updated New Tab Page (NTP) UI. ([#37214](https://github.com/brave/brave-browser/issues/37214))
  - Fixed downloads not being initiated when using QuickView. ([#59093](https://github.com/brave/brave-browser/issues/59093))
  - Upgraded Chromium to 155.0.8059.85. ([#59971](https://github.com/brave/brave-browser/issues/59971))([Changelog for 155.0.8059.85](https://chromium.googlesource.com/chromium/src/+log/154.0.8037.98..155.0.8059.85?pretty=fuller&n=10000))
 
