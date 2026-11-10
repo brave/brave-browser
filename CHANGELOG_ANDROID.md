@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.99.55](https://github.com/brave/brave-browser/releases/tag/v1.99.55)
+
+### Rewards
+
+ - Fixed issue where system navigation bar is hidden on Brave Rewards panel. ([#59064](https://github.com/brave/brave-browser/issues/59064))
+
+### Leo
+
+ - Improved Leo to present a list of choices when it needs clarification on a task. ([#59649](https://github.com/brave/brave-browser/issues/59649))
+ - Improved suggested follow-up prompts. ([#59650](https://github.com/brave/brave-browser/issues/59650))
+ - Updated AI Chat models. ([#59701](https://github.com/brave/brave-browser/issues/59701))
+ - Fixed issue where a compromised Leo conversation frame could approve AI Chat tool-use requests without a direct user action. ([#59703](https://github.com/brave/brave-browser/issues/59703))
+
+### General
+
+ - Improved tab switcher screen by centering "New Tab" button in bottom toolbar. ([#59638](https://github.com/brave/brave-browser/issues/59638))
+ - Updated settings icon across the app with Nala design. ([#59626](https://github.com/brave/brave-browser/issues/59626))
+ - Fixed crash when clearing temporary website data in certain cases. ([#59923](https://github.com/brave/brave-browser/issues/59923))
+ - Fixed issue where Brave does not close when using "Exit" button on Android 14. ([#31215](https://github.com/brave/brave-browser/issues/31215))
+ - Fixed issue where Google Play Store suggested empty Bookmarks widget upon install instead of Quick Action Search. ([#59562](https://github.com/brave/brave-browser/issues/59562))
+ - Fixed issue where New Tab Page background shifts downward when address bar is focused. ([#53411](https://github.com/brave/brave-browser/issues/53411))
+ - Upgraded Chromium to 157.0.8103.39. ([#60882](https://github.com/brave/brave-browser/issues/60882)) ([Changelog for 157.0.8103.39](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.80..157.0.8103.39?pretty=fuller&n=1000))
+
 ## [1.98.63](https://github.com/brave/brave-browser/releases/tag/v1.98.63)
 
  - Upgraded Chromium to 156.0.8078.80. ([#60306](https://github.com/brave/brave-browser/issues/60306)) ([Changelog for 156.0.8078.80](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.74..156.0.8078.80?pretty=fuller&n=1000))
