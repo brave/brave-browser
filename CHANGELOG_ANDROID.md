@@ -16,13 +16,12 @@
 ### General
 
  - Improved tab switcher screen by centering "New Tab" button in bottom toolbar. ([#59638](https://github.com/brave/brave-browser/issues/59638))
- - Updated Android extensions groundwork for future extension support. ([#59721](https://github.com/brave/brave-browser/issues/59721) & [#59444](https://github.com/brave/brave-browser/issues/59444) & [#59451](https://github.com/brave/brave-browser/issues/59451) & [#59680](https://github.com/brave/brave-browser/issues/59680) & [#59771](https://github.com/brave/brave-browser/issues/59771))
  - Updated settings icon across the app with Nala design. ([#59626](https://github.com/brave/brave-browser/issues/59626))
  - Fixed crash when clearing temporary website data in certain cases. ([#59923](https://github.com/brave/brave-browser/issues/59923))
  - Fixed issue where Brave does not close when using "Exit" button on Android 14. ([#31215](https://github.com/brave/brave-browser/issues/31215))
  - Fixed issue where Google Play Store suggested empty Bookmarks widget upon install instead of Quick Action Search. ([#59562](https://github.com/brave/brave-browser/issues/59562))
  - Fixed issue where New Tab Page background shifts downward when address bar is focused. ([#53411](https://github.com/brave/brave-browser/issues/53411))
- - Upgraded Chromium to 157.0.8103.39. ([#60882](https://github.com/brave/brave-browser/issues/60882)) ([Changelog for 157.0.8103.39](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.80..157.0.8103.39?pretty=fuller&n=1000))60882
+ - Upgraded Chromium to 157.0.8103.39. ([#60882](https://github.com/brave/brave-browser/issues/60882)) ([Changelog for 157.0.8103.39](https://chromium.googlesource.com/chromium/src/+log/156.0.8078.80..157.0.8103.39?pretty=fuller&n=1000))
 
 ## [1.98.63](https://github.com/brave/brave-browser/releases/tag/v1.98.63)
 
