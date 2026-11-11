@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.97.60](https://github.com/brave/brave-browser/releases/tag/v1.97.60)
+
+ - Added support for self-service account deletion in Brave Accounts. ([#58719](https://github.com/brave/brave-browser/issues/58719))
+ - Added support for background downloads on iOS 26+. ([#58098](https://github.com/brave/brave-browser/issues/58098))
+ - [Security] Fixed an XSS vulnerability when using Reader Mode as reported on HackerOne by miauuu. ([#58735](https://github.com/brave/brave-browser/issues/58735))
+ - Enabled opening links with open URL params disposition in new tabs. ([#58839](https://github.com/brave/brave-browser/issues/58839))
+ - Updated Shields panel UI. ([#56479](https://github.com/brave/brave-browser/issues/56479))
+ - Updated New Tab Page (NTP) UI. ([#37214](https://github.com/brave/brave-browser/issues/37214))
+ - Fixed downloads not starting when using QuickView. ([#59093](https://github.com/brave/brave-browser/issues/59093))
+ - Upgraded Chromium to 155.0.8059.85. ([#59971](https://github.com/brave/brave-browser/issues/59971))([Changelog for 155.0.8059.85](https://chromium.googlesource.com/chromium/src/+log/154.0.8037.98..155.0.8059.85?pretty=fuller&n=10000))
+
 ## [1.96.62](https://github.com/brave/brave-browser/releases/tag/v1.96.62)
 
 ### Leo
