@@ -3,14 +3,14 @@
 ## [1.98.64](https://github.com/brave/brave-browser/releases/tag/v1.98.64)
 
  - Added Brave shortcuts to the custom controls area. ([#58091](https://github.com/brave/brave-browser/issues/58091))
- - Added "new tab" button to the toolbar for iPad. ([#59312](https://github.com/brave/brave-browser/issues/59312))
+ - Added a "New Tab" button to the toolbar for iPad. ([#59312](https://github.com/brave/brave-browser/issues/59312))
  - [Security] Fixed CSP meta tag parsing in Reader Mode as reported on HackerOne by miauuu. ([#59269](https://github.com/brave/brave-browser/issues/59269))
  - Enabled new Shields panel UI by default. ([#59147](https://github.com/brave/brave-browser/issues/59147))
  - Updated Night Mode to exclude WebUI screens. ([#59117](https://github.com/brave/brave-browser/issues/59117))
  - Updated AI Chat models. ([#58477](https://github.com/brave/brave-browser/issues/58477))
  - Fixed automatically closed tabs not being shred when Auto Shred is set to "Site Tabs Closed". ([#59461](https://github.com/brave/brave-browser/issues/59461))
- - Fixed site data not being shred for "Site Tabs Closed” Auto Shred option when app terminates. ([#59578](https://github.com/brave/brave-browser/issues/59578))
- - Upgraded Chromium to 156.0.8078.80. ([#60306](https://github.com/brave/brave-browser/issues/60306)) ([Changelog for 156.0.8078.80](https://chromium.googlesource.com/chromium/src/+log/155.0.8059.85..156.0.8078.80?pretty=fuller&n=1000))
+ - Fixed site data not being shred for "Site Tabs Closed” option when terminating the app. ([#59578](https://github.com/brave/brave-browser/issues/59578))
+ - Upgraded Chromium to 156.0.8078.80. ([#60306](https://github.com/brave/brave-browser/issues/60306))([Changelog for 156.0.8078.80](https://chromium.googlesource.com/chromium/src/+log/155.0.8059.85..156.0.8078.80?pretty=fuller&n=10000))
 
 ## [1.97.60](https://github.com/brave/brave-browser/releases/tag/v1.97.60)
 
