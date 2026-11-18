@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.100.58](https://github.com/brave/brave-browser/releases/tag/v1.100.58)
+
+ - [Security] Updated various sync "datatype" values to "EncryptableUserTypes". ([#61788](https://github.com/brave/brave-browser/issues/61788))
+ - Updated UI polish for various icons, colors, and spacing. ([#60161](https://github.com/brave/brave-browser/issues/60161))
+ - Updated split view UI for stacked mode. ([#59845](https://github.com/brave/brave-browser/issues/59845))
+ - Fixed crash which occurred when the ability to set Brave as default browser was disabled via Admin policy on Linux. ([#60038](https://github.com/brave/brave-browser/issues/60038))
+ - Fixed an issue where using "Add Tab to New Split View" on a tab in a container did not open the split view tab in the same container. ([#59951](https://github.com/brave/brave-browser/issues/59951))
+ - Fixed an issue where https://play.xbox.com and other sites that require viewport size request headers would fail to load. ([#61705](https://github.com/brave/brave-browser/issues/61705))
+ - Upgraded Chromium to 158.0.8127.42. ([#61954](https://github.com/brave/brave-browser/issues/61954)) ([Changelog for 158.0.8127.42](https://chromium.googlesource.com/chromium/src/+log/157.0.8103.79..158.0.8127.42?pretty=fuller&n=1000))
+
 ## [1.99.57](https://github.com/brave/brave-browser/releases/tag/v1.99.57)
 
  - Upgraded Chromium to 157.0.8103.79. ([#61746](https://github.com/brave/brave-browser/issues/61746)) ([Changelog for 157.0.8103.79](https://chromium.googlesource.com/chromium/src/+log/157.0.8103.50..157.0.8103.79?pretty=fuller&n=1000))
