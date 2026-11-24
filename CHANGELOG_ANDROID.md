@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.100.58](https://github.com/brave/brave-browser/releases/tag/v1.100.58)
+
+### Leo
+
+ - Updated AI Chat models. ([#59884](https://github.com/brave/brave-browser/issues/59884))
+
+### General
+
+ - [Security] Updated various sync "datatype" values to "EncryptableUserTypes". ([#61788](https://github.com/brave/brave-browser/issues/61788))
+ - Improved onboarding screen illustrations on foldable devices in portrait orientation. ([#60094](https://github.com/brave/brave-browser/issues/60094))
+ - Fixed unreachable controls on "Add a custom search engine" page in landscape orientation. ([#59982](https://github.com/brave/brave-browser/issues/59982))
+ - Fixed Brave Talk audio cutting out after backgrounding Brave or locking phone. ([#60346](https://github.com/brave/brave-browser/issues/60346))
+ - Upgraded Chromium to 158.0.8127.42. ([#61954](https://github.com/brave/brave-browser/issues/61954)) ([Changelog for 158.0.8127.42](https://chromium.googlesource.com/chromium/src/+log/157.0.8103.79..158.0.8127.42?pretty=fuller&n=1000))
+
 ## [1.99.57](https://github.com/brave/brave-browser/releases/tag/v1.99.57)
 
  - Upgraded Chromium to 157.0.8103.79. ([#61746](https://github.com/brave/brave-browser/issues/61746)) ([Changelog for 157.0.8103.79](https://chromium.googlesource.com/chromium/src/+log/157.0.8103.50..157.0.8103.79?pretty=fuller&n=1000))
