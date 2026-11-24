@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.100.59](https://github.com/brave/brave-browser/releases/tag/v1.100.59)
+
+ - Fixed incorrect formatting on brave://settings/origin. ([#61987](https://github.com/brave/brave-browser/issues/61987))
+ - Upgraded Chromium to 158.0.8127.92. ([#62129](https://github.com/brave/brave-browser/issues/62129)) ([Changelog for 158.0.8127.92](https://chromium.googlesource.com/chromium/src/+log/158.0.8127.42..158.0.8127.92?pretty=fuller&n=1000))
+
 ## [1.100.58](https://github.com/brave/brave-browser/releases/tag/v1.100.58)
 
  - Added support for on-device WebSpeech API for English (being rolled out in phases using Griffin starting at 25%). ([#56487](https://github.com/brave/brave-browser/issues/56487))
