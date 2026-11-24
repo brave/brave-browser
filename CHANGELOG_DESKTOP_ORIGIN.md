@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.100.59](https://github.com/brave/brave-browser/releases/tag/v1.100.59)
+
+ - Upgraded Chromium to 158.0.8127.92. ([#62129](https://github.com/brave/brave-browser/issues/62129)) ([Changelog for 158.0.8127.92](https://chromium.googlesource.com/chromium/src/+log/158.0.8127.42..158.0.8127.92?pretty=fuller&n=1000))
+
 ## [1.100.58](https://github.com/brave/brave-browser/releases/tag/v1.100.58)
 
  - [Security] Updated various sync "datatype" values to "EncryptableUserTypes". ([#61788](https://github.com/brave/brave-browser/issues/61788))
